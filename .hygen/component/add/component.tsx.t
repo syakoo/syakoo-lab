@@ -1,5 +1,5 @@
 ---
-to: src/<%= level %>/<%= name %>/<%= name %>.tsx
+to: src/components/<%= level %>/<%= name %>/<%= name %>.tsx
 ---
 import React from 'react'
 
@@ -13,6 +13,6 @@ interface <%= name %>Props {}
 //
 const <%= name %>: React.VFC<<%= name %>Props> = () => {
   return <div>Hi</div>
-};
+}
 
 export default <%= name %>

@@ -1,3 +1,3 @@
 ---
-to: src/<%= level %>/<%= name %>/styles.module.scss
+to: src/components/<%= level %>/<%= name %>/styles.module.scss
 ---

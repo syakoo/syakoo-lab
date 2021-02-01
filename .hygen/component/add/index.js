@@ -3,7 +3,7 @@ module.exports = [
     type: 'select',
     name: 'level',
     message: 'Which Atomic Design Level?',
-    choices: ['atoms', 'molecules', 'organisms', 'templates']
+    choices: ['atoms', 'molecules', 'organisms', 'templates', 'layouts']
   },
   {
     message: 'What is the component name?',

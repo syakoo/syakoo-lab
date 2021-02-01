@@ -8,7 +8,8 @@
   --gray5: #737477;
   --gray6: #545557;
   --black: #3b3c3d;
-  --bg: #f0f1f3;
+  --bg1: #f0f1f3;
+  --bg2: #fff;
   --font: #3b3c3d;
 
   --width-sm: 850px;
@@ -21,6 +22,7 @@ body {
     'Segoe UI Symbol', 'Noto Color Emoji';
   margin: 0px;
   color: var(--font);
+  background-color: var(--bg1);
 }
 
 a {

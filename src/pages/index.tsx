@@ -1,5 +1,13 @@
 import { NextPage } from 'next'
 
-const HomePage: NextPage = () => <div>Hello</div>
+import { SingleLayout } from '@/components/layouts/SingleLayout'
+
+// ___________
+//
+const HomePage: NextPage = () => (
+  <SingleLayout>
+    <h2>Home Page</h2>
+  </SingleLayout>
+)
 
 export default HomePage

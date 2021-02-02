@@ -13,7 +13,7 @@ interface HeaderProps {}
 const Header: React.VFC<HeaderProps> = () => {
   return (
     <header className={styles.Header}>
-      <h1>Syakoo's Lab</h1>
+      <div>Syakoo's Lab</div>
       <nav>
         {navData.map((d) => (
           <Link href={d.url} key={d.title}>

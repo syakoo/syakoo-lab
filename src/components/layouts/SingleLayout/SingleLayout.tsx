@@ -14,7 +14,7 @@ const SingleLayout: React.FC<SingleLayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className={styles.Main}>{children}</main>
     </>
   )
 }

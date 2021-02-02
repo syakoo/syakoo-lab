@@ -8,8 +8,8 @@ type NavData = ANavData[]
 // ___________
 //
 export const navData: NavData = [
-  { url: '/about/me', title: 'ABOUTME' },
-  { url: '/apps', title: 'APPS' },
-  { url: '/articles', title: 'ARTICLES' },
-  { url: '/arts', title: 'ARTS' },
+  { url: '/about/me', title: 'Aboutme' },
+  { url: '/apps', title: 'Apps' },
+  { url: '/articles', title: 'Articles' },
+  { url: '/arts', title: 'Arts' },
 ]

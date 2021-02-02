@@ -1,0 +1,15 @@
+.Card {
+  margin: 1rem;
+  padding: 1rem;
+  padding-top: 0.75rem;
+  background-color: var(--bg2);
+  color: var(--primary);
+  border-radius: 5px;
+
+  h2 {
+    display: inline-block;
+    font-size: 1.75rem;
+    margin: 0px 0px 0.5rem 0px;
+    // border-bottom: 2px solid var(--gray3);
+  }
+}

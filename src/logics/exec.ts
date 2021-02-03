@@ -5,7 +5,7 @@ import { writeFile } from './fileSystem'
 //
 const execArticles = async () => {
   const articleInfo = await collectArticlesInfo()
-  writeFile('articles', 'manifest.json', JSON.stringify(articleInfo))
+  writeFile('articles', 'manifest.json', JSON.stringify({ posts: articleInfo }))
 }
 
 ;(async function () {

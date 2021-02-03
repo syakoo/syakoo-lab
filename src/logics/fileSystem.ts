@@ -26,3 +26,12 @@ export const readFile = async (dirName: ContentDirs, fileName: string) => {
 
   return result
 }
+
+export const writeFile = async (
+  dirName: ContentDirs,
+  fileName: string,
+  data: string
+) => {
+  const fullPath = path.join(contentsDir, dirName, fileName)
+  fs.writeFileSync(fullPath, data, 'utf-8')
+}

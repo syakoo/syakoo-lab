@@ -3,11 +3,8 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
 import type { Article } from '@/types'
-import {
-  readArticlesManifest,
-  readArticle,
-  convertMdx2Source,
-} from '@/logics/articles'
+import { readArticlesManifest, readArticle } from '@/logics/articles'
+import { convertMdx2Source } from '@/logics/mdx'
 
 // ___________
 //

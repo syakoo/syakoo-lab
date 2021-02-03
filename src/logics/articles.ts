@@ -1,5 +1,4 @@
 import matter from 'gray-matter'
-import renderToString from 'next-mdx-remote/render-to-string'
 
 import type { ArticleInfo } from '@/types'
 import { readFile, getDirs } from './fileSystem'
@@ -39,12 +38,4 @@ export const collectArticlesInfo = async () => {
   )
 
   return articlesInfo
-}
-
-// ___________
-//
-export const convertMdx2Source = async (content: string) => {
-  const result = await renderToString(content, {})
-
-  return result
 }

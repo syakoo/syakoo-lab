@@ -26,12 +26,10 @@ export const collectArticlesInfo = async () => {
   const articlesInfo: ArticleInfo[] = await Promise.all(
     articleIds.map(async (id) => {
       const { data } = await readArticle(id)
-      const articleInfo: ArticleInfo = {
-        title: data.title || '',
-        published: data.published,
-        updated: data.updated || '',
+      const articleInfo = {
+        ...data,
         id,
-      }
+      } as ArticleInfo
 
       return articleInfo
     })

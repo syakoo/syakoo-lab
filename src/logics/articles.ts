@@ -13,6 +13,20 @@ export const readArticle = async (dirName: string) => {
   return { data, content }
 }
 
+export const readArticlesManifest = async () => {
+  const { posts } = await readFile('articles', 'manifest.json').then((data) =>
+    JSON.parse(data)
+  )
+  const result: ArticleInfo[] = posts.map((post: any) => ({
+    title: post.title || '',
+    published: post.published,
+    updated: post.updated || '',
+    id: post.id,
+  }))
+
+  return result
+}
+
 export const collectArticlesInfo = async () => {
   const articleIds = await getDirs('articles')
   const articlesInfo: ArticleInfo[] = []
@@ -21,7 +35,8 @@ export const collectArticlesInfo = async () => {
     const { data } = await readArticle(id)
     const articleInfo: ArticleInfo = {
       title: data.title || '',
-      published: new Date(data.published),
+      published: data.published,
+      updated: data.published || '',
       id,
     }
 

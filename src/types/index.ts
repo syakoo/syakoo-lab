@@ -1,8 +1,16 @@
+import type { MdxRemote } from 'next-mdx-remote/types'
+
+// ___________
+//
 export type ContentDirs = 'articles'
 
-export type ArticleInfo = {
+export interface ArticleInfo {
   title: string
-  published: Date
-  updated?: Date
+  published: string
+  updated?: string
   id: string
+}
+
+export interface Article extends ArticleInfo {
+  source: MdxRemote.Source
 }

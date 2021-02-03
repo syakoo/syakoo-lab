@@ -4,10 +4,12 @@ import { SingleLayout } from '@/components/layouts/SingleLayout'
 
 // ___________
 //
-const HomePage: NextPage = () => (
-  <SingleLayout>
-    <h2>Home Page</h2>
-  </SingleLayout>
-)
+const HomePage: NextPage = () => {
+  return (
+    <SingleLayout>
+      <h2>Home Page</h2>
+    </SingleLayout>
+  )
+}
 
 export default HomePage

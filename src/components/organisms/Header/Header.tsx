@@ -6,14 +6,10 @@ import { navData } from './navData'
 
 // ___________
 //
-interface HeaderProps {}
-
-// ___________
-//
-const Header: React.VFC<HeaderProps> = () => {
+const Header: React.VFC = () => {
   return (
     <header className={styles.Header}>
-      <div>Syakoo's Lab</div>
+      <div>Syakoo&apos;s Lab</div>
       <nav>
         {navData.map((d) => (
           <Link href={d.url} key={d.title}>

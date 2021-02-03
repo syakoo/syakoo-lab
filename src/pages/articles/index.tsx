@@ -3,11 +3,7 @@ import { NextPage } from 'next'
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import type { ArticleInfo } from '@/types'
 
-import {
-  readArticlesManifest,
-  readArticle,
-  convertMdx2Source,
-} from '@/logics/articles'
+import { readArticlesManifest } from '@/logics/articles'
 
 // ___________
 //

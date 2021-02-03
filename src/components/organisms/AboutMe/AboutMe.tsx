@@ -1,16 +1,12 @@
 import React from 'react'
 
-import styles from './styles.module.scss'
-
 import { Card } from '@/components/atoms/Card'
 
-// ___________
-//
-interface AboutMeProps {}
+// import styles from './styles.module.scss'
 
 // ___________
 //
-const AboutMe: React.VFC<AboutMeProps> = () => {
+const AboutMe: React.VFC = () => {
   return <Card title="About Me">About Me</Card>
 }
 

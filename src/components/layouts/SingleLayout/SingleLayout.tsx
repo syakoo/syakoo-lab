@@ -1,16 +1,12 @@
 import React from 'react'
 
-import styles from './styles.module.scss'
-
 import { Header } from '@/components/organisms/Header'
 
-// ___________
-//
-interface SingleLayoutProps {}
+import styles from './styles.module.scss'
 
 // ___________
 //
-const SingleLayout: React.FC<SingleLayoutProps> = ({ children }) => {
+const SingleLayout: React.FC = ({ children }) => {
   return (
     <>
       <Header />

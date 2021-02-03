@@ -2,7 +2,7 @@ import React from 'react'
 import hydrate from 'next-mdx-remote/hydrate'
 import { MdxRemote } from 'next-mdx-remote/types'
 
-import styles from './styles.module.scss'
+// import styles from './styles.module.scss'
 
 // ___________
 //

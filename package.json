@@ -5,7 +5,7 @@
     "dev": "next",
     "build:next": "next build",
     "build:contents": "ts-node --project tsconfig.contents.json ./src/logics/exec.ts",
-    "build": "yarn build:contents && build:next",
+    "build": "yarn build:contents && yarn build:next",
     "start": "next start",
     "test": "jest",
     "add:fc": "hygen component add"

@@ -1,7 +1,7 @@
 import { NextPage } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
-import type { Article } from '@/types'
+import type { ArticleInfo } from '@/types'
 
 import {
   readArticlesManifest,
@@ -12,17 +12,17 @@ import {
 // ___________
 //
 type ArticlesPageProps = {
-  articles: Article[]
+  articleInfos: ArticleInfo[]
 }
 
 // ___________
 //
-const ArticlesPage: NextPage<ArticlesPageProps> = ({ articles }) => {
+const ArticlesPage: NextPage<ArticlesPageProps> = ({ articleInfos }) => {
   return (
     <SingleLayout>
       <h2>Articles Page</h2>
-      {articles.map((article) => (
-        <p key={article.id}>{article.title}</p>
+      {articleInfos.map((articleInfo) => (
+        <p key={articleInfo.id}>{articleInfo.title}</p>
       ))}
     </SingleLayout>
   )
@@ -31,16 +31,9 @@ const ArticlesPage: NextPage<ArticlesPageProps> = ({ articles }) => {
 // ___________
 //
 export const getStaticProps = async () => {
-  const posts = await readArticlesManifest()
-  const articles: Article[] = await Promise.all(
-    posts.map(async (post) => {
-      const { content } = await readArticle(`${post.id}`)
-      const source = await convertMdx2Source(content)
-      return { ...post, source }
-    })
-  )
+  const articleInfos = await readArticlesManifest()
 
-  return { props: { articles } }
+  return { props: { articleInfos } }
 }
 
 export default ArticlesPage

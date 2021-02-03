@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import Link from 'next/link'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import type { ArticleInfo } from '@/types'
@@ -18,7 +19,9 @@ const ArticlesPage: NextPage<ArticlesPageProps> = ({ articleInfos }) => {
     <SingleLayout>
       <h2>Articles Page</h2>
       {articleInfos.map((articleInfo) => (
-        <p key={articleInfo.id}>{articleInfo.title}</p>
+        <Link key={articleInfo.id} href={`articles/${articleInfo.id}`}>
+          {articleInfo.title}
+        </Link>
       ))}
     </SingleLayout>
   )

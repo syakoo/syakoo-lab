@@ -29,7 +29,7 @@ export const collectArticlesInfo = async () => {
       const articleInfo: ArticleInfo = {
         title: data.title || '',
         published: data.published,
-        updated: data.published || '',
+        updated: data.updated || '',
         id,
       }
 

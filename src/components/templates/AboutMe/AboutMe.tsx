@@ -6,7 +6,7 @@ import { Card } from '@/components/atoms/Card'
 import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
 import type { Source, AboutMeLink } from '@/types'
 
-// import styles from './styles.module.scss'
+import styles from './styles.module.scss'
 
 // ___________
 //
@@ -27,19 +27,27 @@ const AboutMe: React.VFC<AboutMeProps> = ({
 }) => {
   return (
     <Card title="About Me">
-      <div>
-        <Image src={imgUrl} alt="me" width={120} height={120} />
-        <div>
-          <h3>{name}</h3>
-          <div>
+      <div className={styles.head}>
+        <Image
+          className={styles.meImg}
+          src={imgUrl}
+          alt="me"
+          width={120}
+          height={120}
+        />
+        <div className={styles.right}>
+          <h3 className={styles.name}>{name}</h3>
+          <div className={styles.links}>
             {links.map((link) => (
               <Link key={link.name} href={link.url}>
-                <Image
-                  src={link.imgUrl}
-                  alt={link.name}
-                  width={24}
-                  height={24}
-                />
+                <a>
+                  <Image
+                    src={link.imgUrl}
+                    alt={link.name}
+                    width={24}
+                    height={24}
+                  />
+                </a>
               </Link>
             ))}
           </div>

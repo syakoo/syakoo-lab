@@ -1,0 +1,35 @@
+.head {
+  display: flex;
+  .meImg {
+    transform: rotate(-19deg);
+    animation: hoveringBorder 1s ease-in-out infinite;
+  }
+  .right {
+    margin-left: 1em;
+    .name {
+      font-size: 1.5rem;
+      margin: 0.5rem 0px;
+    }
+  }
+  .links {
+    a {
+      margin-right: 0.5rem;
+      opacity: 0.5;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+@keyframes hoveringBorder {
+  0% {
+    border-radius: 45% 60% 45% 60% / 60% 45% 60% 45%;
+  }
+  50% {
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  }
+  100% {
+    border-radius: 45% 60% 45% 60% / 60% 45% 60% 45%;
+  }
+}

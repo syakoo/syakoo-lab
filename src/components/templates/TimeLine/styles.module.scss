@@ -1,0 +1,22 @@
+.year {
+  margin: 0.5em 0px;
+}
+
+.list {
+  margin: 0px;
+  padding-left: 1rem;
+  li {
+    list-style: none;
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 0.75rem; 
+      border-radius: 50%;
+      background-color: var(--gray3);
+      position: relative;
+      top: -2px;
+    }
+  }
+}

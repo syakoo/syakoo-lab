@@ -3,7 +3,7 @@ import React from 'react'
 import { Card } from '@/components/atoms/Card'
 import type { AboutMeInfo } from '@/types'
 
-// import styles from './styles.module.scss'
+import styles from './styles.module.scss'
 
 // ___________
 //
@@ -18,8 +18,8 @@ const TimeLine: React.VFC<TimeLineProps> = ({ timeline }) => {
     <Card title="TimeLine">
       {Object.keys(timeline).map((key) => (
         <div key={key}>
-          <h3>{key}</h3>
-          <ul>
+          <h3 className={styles.year}>{key}</h3>
+          <ul className={styles.list}>
             {timeline[key].map((item) => (
               <li key={item}>{item}</li>
             ))}

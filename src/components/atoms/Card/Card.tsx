@@ -14,7 +14,7 @@ interface CardProps {
 const Card: React.FC<CardProps> = ({ children, title, bgWhite }) => (
   <section className={styles.Card} data-bg-white={bgWhite}>
     {title && <h2>{title}</h2>}
-    <div>{children}</div>
+    <div className={styles.body}>{children}</div>
   </section>
 )
 

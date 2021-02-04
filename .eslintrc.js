@@ -33,6 +33,7 @@ module.exports = {
     'import/order': 'warn',
     'react/jsx-props-no-spreading': 'off',
     semi: 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
   },
 }

@@ -3,6 +3,7 @@ import { NextPage, GetStaticProps } from 'next'
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import { AboutMe } from '@/components/organisms/AboutMe'
 import { Certificates } from '@/components/templates/Certificates'
+import { TimeLine } from '@/components/templates/TimeLine'
 import { getAboutMeInfo, getAboutMeSource } from '@/logics/aboutme'
 import type { AboutMeInfo, Source } from '@/types'
 
@@ -27,6 +28,7 @@ const AboutMePage: NextPage<AboutMePageProps> = ({
       links={aboutmeInfo.links}
     />
     <Certificates certificates={aboutmeInfo.certificates} />
+    <TimeLine timeline={aboutmeInfo.timeline} />
   </SingleLayout>
 )
 

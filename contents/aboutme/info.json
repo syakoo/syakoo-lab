@@ -1,0 +1,62 @@
+{
+  "name": "迫田拓弥 (a.k.a. syakoo)",
+  "imgUrl": "/img/me.jpg",
+  "links": [
+    {
+      "name": "Twitter",
+      "url": "https://twitter.com/sako_data",
+      "imgUrl": "/img/links/twitter.png"
+    },
+    {
+      "name": "Qiita",
+      "url": "https://qiita.com/syakoo",
+      "imgUrl": "/img/links/qiita.png"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/profile.php?id=100030404460291",
+      "imgUrl": "/img/links/facebook.png"
+    },
+    {
+      "name": "Github",
+      "url": "https://github.com/syakoo",
+      "imgUrl": "/img/links/github.png"
+    }
+  ],
+  "certificates": [
+    "応用情報技術者試験(AP)",
+    "将棋三段",
+    "数学検定準1級",
+    "ビジネス数学検定2級",
+    "謎検2級",
+    "世界遺産検定3級"
+  ],
+  "timeline": {
+    "2020": [
+      "2月 卒論発表「秘匿計算の構成及び処理速度に関する研究」",
+      "3月 熊本大学 工学部 数理工学科を卒業",
+      "4月 熊本大学 大学院 自然科学教育部 機械数理工学専攻 数理工学教育プログラムに入学",
+      "9月 CyberAgentの「2days Webフロント向け 開発型インターン ONLINE」に参加",
+      "11月 JPHacks2020 に出場、バックエンドを手掛けて九州ブロック2位になる",
+      "11月 数学の情報共有サービス「MathWills」のデザイン、フロントを始める"
+    ],
+    "2019": [
+      "2月 5週間短期語学留学に行く(University of Leeds)"
+    ],
+    "2018": [
+      "2月 卒論発表「将棋の棋譜を用いた感性分析」",
+      "3月 鹿児島工業高等専門学校 情報工学科を卒業",
+      "4月 熊本大学 工学部 数理工学科に編入学",
+      "11月 株式会社ナレッジコミュニケーションでアルバイトを始める"
+    ],
+    "2017": [
+      "8月 全国高専将棋大会に出る(個人ベスト8)"
+    ],
+    "2013": [
+      "4月 鹿児島工業高等専門学校 情報工学科に入学"
+    ],
+    "1998": [
+      "3/18 生まれる"
+    ]
+  }
+}

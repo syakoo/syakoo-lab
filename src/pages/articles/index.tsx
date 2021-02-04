@@ -2,6 +2,7 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
+import { ArticleLinkList } from '@/components/templates/ArticleLinkList'
 import { readArticlesManifest } from '@/logics/articles'
 import type { ArticleInfo } from '@/types'
 
@@ -16,12 +17,7 @@ type ArticlesPageProps = {
 const ArticlesPage: NextPage<ArticlesPageProps> = ({ articleInfos }) => {
   return (
     <SingleLayout>
-      <h2>Articles Page</h2>
-      {articleInfos.map((articleInfo) => (
-        <Link key={articleInfo.id} href={`articles/${articleInfo.id}`}>
-          {articleInfo.title}
-        </Link>
-      ))}
+      <ArticleLinkList articles={articleInfos} />
     </SingleLayout>
   )
 }

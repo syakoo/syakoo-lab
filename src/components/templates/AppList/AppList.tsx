@@ -6,7 +6,7 @@ import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
 import { Card } from '@/components/atoms/Card'
 import type { App } from '@/types'
 
-// import styles from './styles.module.scss'
+import styles from './styles.module.scss'
 
 // ___________
 //
@@ -20,21 +20,27 @@ const AppList: React.VFC<AppListProps> = ({ apps }) => {
   return (
     <Card title="Apps">
       {apps.map((app) => (
-        <div key={app.id}>
+        <div className={styles.app} key={app.id}>
           <Link href={app.siteUrl || ''}>
-            <Image src={app.imgUrl} alt={app.title} width={84} height={84} />
+            <a>
+              <Image src={app.imgUrl} alt={app.title} width={84} height={84} />
+            </a>
           </Link>
-          <div>
+          <div className={styles.body}>
             <Link href={app.siteUrl || ''}>
-              <h3>{app.title}</h3>
+              <a className={styles.title}>
+                <h3 className={styles.h3}>{app.title}</h3>
+              </a>
             </Link>
             {app.repoUrl && (
-              <div>
+              <div className={styles.repo}>
                 <span>repo: </span>
                 <Link href={app.repoUrl}>{app.repoUrl}</Link>
               </div>
             )}
-            <MarkdownRenderer source={app.descriptionSource} />
+            <div className={styles.description}>
+              <MarkdownRenderer source={app.descriptionSource} />
+            </div>
           </div>
         </div>
       ))}

@@ -2,11 +2,12 @@ import matter from 'gray-matter'
 
 import type { ArticleInfo } from '@/types'
 import { readFile, getDirs } from './fileSystem'
+import { convertMdx2Source } from './mdx'
 
 // ___________
 //
-export const readArticle = async (dirName: string) => {
-  const rowData = await readFile('articles', `${dirName}/index.mdx`)
+export const readArticle = async (articleId: string) => {
+  const rowData = await readFile('articles', `${articleId}/index.mdx`)
   const { data, content } = matter(rowData)
 
   return { data, content }
@@ -19,6 +20,22 @@ export const readArticlesManifest = async () => {
   ).then((data) => JSON.parse(data))
 
   return posts
+}
+
+// ___________
+//
+export const getArticleSource = async (articleId: string) => {
+  const { content } = await readArticle(articleId)
+  const source = await convertMdx2Source(content)
+
+  return source
+}
+
+export const getArticleInfoFromManifest = async (articleId: string) => {
+  const articleInfos = await readArticlesManifest()
+  const result = articleInfos.find((article) => article.id === articleId)
+
+  return result
 }
 
 export const collectArticlesInfo = async () => {

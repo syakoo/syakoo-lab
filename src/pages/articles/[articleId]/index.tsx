@@ -3,8 +3,11 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
 import type { Article } from '@/types'
-import { readArticlesManifest, readArticle } from '@/logics/articles'
-import { convertMdx2Source } from '@/logics/mdx'
+import {
+  readArticlesManifest,
+  getArticleInfoFromManifest,
+  getArticleSource,
+} from '@/logics/articles'
 
 // ___________
 //
@@ -38,11 +41,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<ArticlePageProps> = async ({
   params,
 }) => {
-  const aritlceId = params?.articleId as string
-  const { data, content } = await readArticle(aritlceId)
-  const source = await convertMdx2Source(content)
+  const articleId = params?.articleId as string
+  const articleInfo = await getArticleInfoFromManifest(articleId)
+  const source = await getArticleSource(articleId)
+
   const article = {
-    ...data,
+    ...articleInfo,
     source,
   } as Article
 

@@ -1,7 +1,7 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
-import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
+import { ArticleView } from '@/components/templates/ArticleView'
 import type { Article } from '@/types'
 import {
   readArticlesManifest,
@@ -20,8 +20,7 @@ type ArticlePageProps = {
 const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
   return (
     <SingleLayout>
-      <h1>{article.title}</h1>
-      <MarkdownRenderer source={article.source} />
+      <ArticleView article={article} />
     </SingleLayout>
   )
 }

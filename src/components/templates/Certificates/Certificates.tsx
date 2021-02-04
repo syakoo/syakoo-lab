@@ -3,7 +3,7 @@ import React from 'react'
 import { Card } from '@/components/atoms/Card'
 import type { AboutMeInfo } from '@/types'
 
-// import styles from './styles.module.scss'
+import styles from './styles.module.scss'
 
 // ___________
 //
@@ -16,7 +16,7 @@ interface CertificatesProps {
 const Certificates: React.VFC<CertificatesProps> = ({ certificates }) => {
   return (
     <Card title="Certificates">
-      <ul>
+      <ul className={styles.list}>
         {certificates.map((cert) => (
           <li key={cert}>{cert}</li>
         ))}

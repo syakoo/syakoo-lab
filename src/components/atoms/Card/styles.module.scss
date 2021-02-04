@@ -2,9 +2,11 @@
   margin: 1rem;
   padding: 1rem;
   padding-top: 0.75rem;
-  background-color: var(--bg2);
   border-radius: 5px;
-  
+  &[data-bg-white] {
+    background-color: var(--bg2);
+  }
+
   h2 {
     color: var(--primary);
     display: inline-block;

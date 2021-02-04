@@ -1,7 +1,7 @@
 import { NextPage, GetStaticProps } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
-import { AboutMe } from '@/components/organisms/AboutMe'
+import { AboutMe } from '@/components/templates/AboutMe'
 import { Certificates } from '@/components/templates/Certificates'
 import { TimeLine } from '@/components/templates/TimeLine'
 import { getAboutMeInfo, getAboutMeSource } from '@/logics/aboutme'

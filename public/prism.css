@@ -39,7 +39,6 @@ https://prismjs.com/download.html#themes=prism-coy&languages=markup+css+clike+ja
  pre[class*="language-"]>code {
    position: relative;
    background-color: #fdfdfd;
-   background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
    background-size: 3em 3em;
    background-origin: content-box;
    background-attachment: local;

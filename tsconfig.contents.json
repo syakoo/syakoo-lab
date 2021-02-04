@@ -4,6 +4,6 @@
     "module": "commonjs",
     "noEmit": false
   },
-  "exclude": ["node_modules"],
-  "include": []
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

@@ -2,7 +2,7 @@ import type { MdxRemote } from 'next-mdx-remote/types'
 
 // ___________
 //
-export type ContentDirs = 'articles' | 'aboutme' | 'apps'
+export type ContentDirs = 'articles' | 'aboutme' | 'apps' | 'arts'
 export type Source = MdxRemote.Source
 
 // ___________
@@ -11,6 +11,7 @@ export interface ArticleInfo {
   title: string
   published: string
   updated?: string
+  tags: string[]
   id: string
 }
 
@@ -47,5 +48,20 @@ export interface AppInfo {
 }
 
 export interface App extends AppInfo {
+  descriptionSource: Source
+}
+
+// ___________
+// Art
+export interface ArtInfo {
+  title: string
+  published: string
+  imgUrl: string
+  size: { width: number; height: number }
+  tags: string[]
+  id: string
+}
+
+export interface Art extends ArtInfo {
   descriptionSource: Source
 }

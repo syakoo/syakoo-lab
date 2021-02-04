@@ -41,7 +41,7 @@ export const getArticleInfoFromManifest = async (articleId: string) => {
 export const collectArticlesInfo = async () => {
   const articleIds = await getDirs('articles')
   const articlesInfo: ArticleInfo[] = await Promise.all(
-    articleIds.map(async (id) => {
+    articleIds.map(async (id: string) => {
       const { data } = await readArticle(id)
       const articleInfo = {
         ...data,

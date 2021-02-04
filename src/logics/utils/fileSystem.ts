@@ -6,6 +6,8 @@ import type { ContentDirs } from '@/types'
 // ___________
 //
 const contentsDir = path.join(process.cwd(), 'contents')
+export const withPublicDir = (pathStr: string) =>
+  path.join(process.cwd(), 'public', pathStr)
 
 // ___________
 //

@@ -2,9 +2,8 @@ import { NextPage } from 'next'
 import Link from 'next/link'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
-import type { ArticleInfo } from '@/types'
-
 import { readArticlesManifest } from '@/logics/articles'
+import type { ArticleInfo } from '@/types'
 
 // ___________
 //

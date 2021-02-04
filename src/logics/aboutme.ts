@@ -1,6 +1,6 @@
 import type { AboutMeInfo } from '@/types'
-import { readFile } from './fileSystem'
-import { convertMdx2Source } from './mdx'
+import { readFile } from './utils/fileSystem'
+import { convertMdx2Source } from './utils/mdx'
 
 // ___________
 //

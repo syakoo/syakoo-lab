@@ -1,5 +1,5 @@
 import { collectArticlesInfo } from './articles'
-import { writeFile } from './fileSystem'
+import { writeFile } from './utils/fileSystem'
 
 // ___________
 //

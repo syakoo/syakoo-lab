@@ -1,8 +1,8 @@
 import matter from 'gray-matter'
 
 import type { ArticleInfo } from '@/types'
-import { readFile, getDirs } from './fileSystem'
-import { convertMdx2Source } from './mdx'
+import { readFile, getDirs } from './utils/fileSystem'
+import { convertMdx2Source } from './utils/mdx'
 
 // ___________
 //

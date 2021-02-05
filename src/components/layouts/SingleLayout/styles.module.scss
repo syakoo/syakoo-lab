@@ -1,4 +1,7 @@
 .Main {
   max-width: 950px;
   margin: auto;
+  &[data-is-Large] {
+    max-width: 1100px;
+  }
 }

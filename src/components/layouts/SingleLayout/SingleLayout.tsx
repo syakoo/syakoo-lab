@@ -6,11 +6,19 @@ import styles from './styles.module.scss'
 
 // ___________
 //
-const SingleLayout: React.FC = ({ children }) => {
+type SingleLayoutProps = {
+  isLarge?: boolean
+}
+
+// ___________
+//
+const SingleLayout: React.FC<SingleLayoutProps> = ({ children, isLarge }) => {
   return (
     <>
       <Header />
-      <main className={styles.Main}>{children}</main>
+      <main className={styles.Main} data-is-large={isLarge}>
+        {children}
+      </main>
     </>
   )
 }

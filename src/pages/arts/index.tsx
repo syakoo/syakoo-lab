@@ -1,8 +1,7 @@
 import { NextPage, GetStaticProps } from 'next'
-import Link from 'next/link'
-import Image from 'next/image'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
+import { ArtLinkList } from '@/components/templates/ArtLinkList'
 import { readArtsManifest } from '@/logics/arts'
 import type { ArtInfo } from '@/types'
 
@@ -15,18 +14,8 @@ type ArtsPageProps = {
 // ___________
 //
 const ArtsPage: NextPage<ArtsPageProps> = ({ artInfos }) => (
-  <SingleLayout>
-    <h2>Arts Page</h2>
-    {artInfos.map((art) => (
-      <Link key={art.id} href={`/arts/${art.id}`}>
-        <Image
-          src={art.imgUrl}
-          alt={art.title}
-          width={art.size.width}
-          height={art.size.height}
-        />
-      </Link>
-    ))}
+  <SingleLayout isLarge>
+    <ArtLinkList artInfos={artInfos} />
   </SingleLayout>
 )
 

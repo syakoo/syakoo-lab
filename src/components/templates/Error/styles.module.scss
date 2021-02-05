@@ -1,0 +1,32 @@
+.error {
+  padding: 1rem;
+  max-width: 1024px;
+  margin: auto;
+  text-align: center;
+
+  .error_title {
+    text-align: center;
+    padding: 1rem 0px;
+
+    .error_code {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 5rem;
+      font-family: 'arial black';
+      display: inline-block;
+      padding: 0px 1rem;
+    }
+    .error_name {
+      display: inline-block;
+      color: var(--gray4);
+      font-weight: bold;
+      font-size: 3rem;
+      padding: 0px 1rem;
+      margin: auto 0px;
+    }
+  }
+
+  .message {
+    text-align: center;
+  }
+}

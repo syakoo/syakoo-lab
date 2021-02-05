@@ -17,3 +17,10 @@ export const getAboutMeSource = async () => {
 
   return result
 }
+
+export const getAboutMeShortSource = async () => {
+  const aboutme = await readFile('aboutme', 'aboutmeShort.mdx')
+  const result = await convertMdx2Source(aboutme)
+
+  return result
+}

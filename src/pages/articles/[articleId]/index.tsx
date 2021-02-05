@@ -2,25 +2,27 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import { ArticleView } from '@/components/templates/ArticleView'
-import type { Article } from '@/types'
+import type { Article, AboutMeInfo, Source } from '@/types'
 import {
   readArticlesManifest,
   getArticleInfoFromManifest,
   getArticleSource,
 } from '@/logics/articles'
+import { getAboutMeInfo, getAboutMeShortSource } from '@/logics/aboutme'
 
 // ___________
 //
 type ArticlePageProps = {
   article: Article
+  aboutme: { info: AboutMeInfo; source: Source }
 }
 
 // ___________
 //
-const ArticlePage: NextPage<ArticlePageProps> = ({ article }) => {
+const ArticlePage: NextPage<ArticlePageProps> = ({ article, aboutme }) => {
   return (
     <SingleLayout>
-      <ArticleView article={article} />
+      <ArticleView article={article} aboutme={aboutme} />
     </SingleLayout>
   )
 }
@@ -43,13 +45,17 @@ export const getStaticProps: GetStaticProps<ArticlePageProps> = async ({
   const articleId = params?.articleId as string
   const articleInfo = await getArticleInfoFromManifest(articleId)
   const source = await getArticleSource(articleId)
-
   const article = {
     ...articleInfo,
     source,
   } as Article
 
-  return { props: { article } }
+  const aboutmeInfo = await getAboutMeInfo()
+  const aboutmeSource = await getAboutMeShortSource()
+
+  return {
+    props: { article, aboutme: { info: aboutmeInfo, source: aboutmeSource } },
+  }
 }
 
 export default ArticlePage

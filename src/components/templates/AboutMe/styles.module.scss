@@ -22,6 +22,24 @@
   }
 }
 
+.shortName {
+  font-weight: bold;
+  a {
+    color: var(--black);
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.shortDescription {
+  font-size: 0.9rem;
+  color: var(--gray5);
+  p {
+    margin: 5px 0px;
+  }
+}
+
 @keyframes hoveringBorder {
   0% {
     border-radius: 45% 60% 45% 60% / 60% 45% 60% 45%;

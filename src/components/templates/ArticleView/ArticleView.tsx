@@ -2,7 +2,8 @@ import React from 'react'
 
 import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
 import { TagList } from '@/components/molecules/TagList'
-import type { Article } from '@/types'
+import { AboutMeShort } from '@/components/templates/AboutMe'
+import type { Article, AboutMeInfo, Source } from '@/types'
 
 import styles from './styles.module.scss'
 
@@ -10,11 +11,12 @@ import styles from './styles.module.scss'
 //
 interface ArticleViewProps {
   article: Article
+  aboutme: { info: AboutMeInfo; source: Source }
 }
 
 // ___________
 //
-const ArticleView: React.VFC<ArticleViewProps> = ({ article }) => {
+const ArticleView: React.VFC<ArticleViewProps> = ({ article, aboutme }) => {
   return (
     <article className={styles.article}>
       <div className={styles.header}>
@@ -25,6 +27,7 @@ const ArticleView: React.VFC<ArticleViewProps> = ({ article }) => {
       <section className={styles.body}>
         <MarkdownRenderer source={article.source} />
       </section>
+      <AboutMeShort aboutme={aboutme} />
     </article>
   )
 }

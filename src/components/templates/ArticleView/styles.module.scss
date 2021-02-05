@@ -17,6 +17,9 @@
     }
   }
   .body {
+    border-bottom: 1px solid var(--gray2);
+    margin-bottom: 2rem;
+    padding-bottom: 3rem;
     :global {
       h2 {
         margin-top: 3rem;
@@ -44,5 +47,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 850px) {
+  .article {
+    padding: 1rem 0.5rem;
   }
 }

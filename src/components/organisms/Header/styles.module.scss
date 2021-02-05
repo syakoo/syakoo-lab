@@ -8,6 +8,16 @@
   nav {
     a {
       margin: 0px 0.5rem;
+      color: var(--gray3);
+      text-decoration: none;
+      font-weight: bold;
+      &:not([data-is-activate]):hover {
+        transition: 0.1s;
+        color: var(--black);
+      }
+      &[data-is-activate] {
+        color: var(--primary);
+      }
     }
   }
 }

@@ -1,17 +1,30 @@
 import { collectArticlesInfo } from './articles'
 import { collectArtInfos } from './arts'
+import { collectTags } from './tags'
 import { writeFile } from './utils/fileSystem'
 
 // ___________
 //
 const execArticles = async () => {
-  const articleInfo = await collectArticlesInfo()
-  writeFile('articles', 'manifest.json', JSON.stringify({ posts: articleInfo }))
+  const articleInfos = await collectArticlesInfo()
+  const tags = collectTags(articleInfos)
+
+  const manifest = {
+    posts: articleInfos,
+    tags,
+  }
+  writeFile('articles', 'manifest.json', JSON.stringify(manifest))
 }
 
 const execArts = async () => {
   const artInfos = await collectArtInfos()
-  writeFile('arts', 'manifest.json', JSON.stringify({ posts: artInfos }))
+  const tags = collectTags(artInfos)
+
+  const manifest = {
+    posts: artInfos,
+    tags,
+  }
+  writeFile('arts', 'manifest.json', JSON.stringify(manifest))
 }
 
 ;(async function () {

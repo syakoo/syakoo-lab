@@ -18,3 +18,13 @@
     margin: 0px 1rem;
   }
 }
+
+@media (max-width: 850px) {
+  .Card {
+    padding: 0.5rem;
+    margin: 1rem 0px;
+    .body {
+      margin: 0px 0.5rem;
+    }
+  }
+}

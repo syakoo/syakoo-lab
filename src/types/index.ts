@@ -2,7 +2,7 @@ import type { MdxRemote } from 'next-mdx-remote/types'
 
 // ___________
 //
-export type ContentDirs = 'articles' | 'aboutme' | 'apps' | 'arts'
+export type ContentDirs = 'articles' | 'aboutme' | 'apps' | 'arts' | 'aboutsite'
 export type Source = MdxRemote.Source
 
 // ___________

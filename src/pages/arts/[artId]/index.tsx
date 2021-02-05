@@ -2,7 +2,7 @@ import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 import Image from 'next/image'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
-import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
+import { ArtView } from '@/components/templates/ArtView'
 import type { Art } from '@/types'
 import {
   readArtsManifest,
@@ -21,16 +21,7 @@ type ArtPageProps = {
 const ArtPage: NextPage<ArtPageProps> = ({ art }) => {
   return (
     <SingleLayout>
-      <div>
-        <Image
-          src={art.imgUrl}
-          alt={art.title}
-          width={art.size.width}
-          height={art.size.height}
-        />
-      </div>
-      <h1>{art.title}</h1>
-      <MarkdownRenderer source={art.descriptionSource} />
+      <ArtView art={art} />
     </SingleLayout>
   )
 }

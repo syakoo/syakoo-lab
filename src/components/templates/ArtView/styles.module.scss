@@ -1,0 +1,21 @@
+.imgBody {
+  display: flex;
+  justify-content: center;
+}
+.footer {
+  margin: 0px 2rem;
+  .date {
+    font-size: small;
+    color: var(--gray4);
+  }
+  .title {
+    color: var(--primary);
+    margin: 0px;
+  }
+  .description {
+    color: var(--gray5);
+    p {
+      margin: 0.5rem 0px;
+    }
+  }
+}

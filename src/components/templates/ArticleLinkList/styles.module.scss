@@ -1,6 +1,11 @@
 .a {
   text-decoration: none;
 }
+.articleList {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
 .article {
   background-color: var(--bg2);
   padding: 1rem;

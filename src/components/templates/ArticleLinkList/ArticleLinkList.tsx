@@ -17,16 +17,20 @@ interface ArticleLinkListProps {
 const ArticleLinkList: React.VFC<ArticleLinkListProps> = ({ articles }) => {
   return (
     <Card title="Articles">
-      {articles.map((article) => (
-        <Link key={article.id} href={`/articles/${article.id}`}>
-          <a className={styles.a}>
-            <div className={styles.article}>
-              <h3 className={styles.title}>{article.title}</h3>
-              <span className={styles.date}>{article.published}</span>
-            </div>
-          </a>
-        </Link>
-      ))}
+      <ul className={styles.articleList}>
+        {articles.map((article) => (
+          <li key={article.id}>
+            <Link href={`/articles/${article.id}`}>
+              <a className={styles.a}>
+                <div className={styles.article}>
+                  <h3 className={styles.title}>{article.title}</h3>
+                  <span className={styles.date}>{article.published}</span>
+                </div>
+              </a>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </Card>
   )
 }

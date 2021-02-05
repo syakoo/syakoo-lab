@@ -8,16 +8,18 @@ import styles from './styles.module.scss'
 const Footer: React.VFC = () => {
   return (
     <footer className={styles.footer}>
-      <div>© 2021 Syakoo&apos;s Lab</div>
-      <div className={styles.nav}>
-        <nav>
-          <Link href="/about-site">
-            <a>このサイトについて</a>
-          </Link>
-          <Link href="/privacy-policy">
-            <a>プライバシーポリシー</a>
-          </Link>
-        </nav>
+      <div className={styles.inner}>
+        <div>© 2021 Syakoo&apos;s Lab</div>
+        <div className={styles.nav}>
+          <nav>
+            <Link href="/">
+              <a>ホーム</a>
+            </Link>
+            <Link href="/privacy-policy">
+              <a>プライバシーポリシー</a>
+            </Link>
+          </nav>
+        </div>
       </div>
     </footer>
   )

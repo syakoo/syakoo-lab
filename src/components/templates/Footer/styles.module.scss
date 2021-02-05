@@ -1,14 +1,18 @@
 .footer {
-  margin: 0px 0.5rem;
-  font-size: 0.9rem;
-  color: var(--gray6);
-  display: flex;
-  justify-content: space-between;
+  margin: 0.5rem;
+  .inner {
+    max-width: var(--width-md);
+    margin: 0px auto;
+    font-size: 0.9rem;
+    color: var(--gray6);
+    display: flex;
+    justify-content: space-between;
 
-  .nav {
-    a {
-      margin-left: 1rem;
-      color: var(--gray6);
+    .nav {
+      a {
+        margin-left: 1rem;
+        color: var(--gray6);
+      }
     }
   }
 }

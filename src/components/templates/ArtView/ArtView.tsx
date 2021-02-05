@@ -3,6 +3,7 @@ import Image from 'next/image'
 
 import { Card } from '@/components/atoms/Card'
 import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
+import { TagList } from '@/components/molecules/TagList'
 import type { Art } from '@/types'
 
 import styles from './styles.module.scss'
@@ -32,6 +33,7 @@ const ArtView: React.VFC<ArtViewProps> = ({ art }) => {
         <div className={styles.description}>
           <MarkdownRenderer source={art.descriptionSource} />
         </div>
+        <TagList tags={art.tags} baseUrl="/arts" />
       </div>
     </Card>
   )

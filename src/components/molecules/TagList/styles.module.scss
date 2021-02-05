@@ -1,0 +1,25 @@
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+
+  .linkedTag {
+    color: var(--primary);
+    a {
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .normalTag {
+    color: var(--gray6);
+  }
+  .linkedTag,
+  .normalTag {
+    margin-right: 5px;
+    font-size: 0.9rem;
+  }
+}

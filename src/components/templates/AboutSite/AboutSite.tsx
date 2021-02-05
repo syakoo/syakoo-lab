@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'next/link'
 
 import { SiteLogo } from '@/components/atoms/SiteLogo'
 import { Card } from '@/components/atoms/Card'

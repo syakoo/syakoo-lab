@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import Link from 'next/link'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import { ArticleLinkList } from '@/components/templates/ArticleLinkList'

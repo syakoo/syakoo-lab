@@ -22,8 +22,9 @@
     padding-bottom: 3rem;
     :global {
       h2 {
-        margin-top: 3rem;
+        margin-top: 2em;
         border-bottom: 1px solid var(--gray2);
+        font-size: 1.75rem;
         &:before {
           content: '';
           display: inline-block;
@@ -35,6 +36,14 @@
           top: 3px;
         }
       }
+      h3 {
+        font-size: 1.5rem;
+        margin-top: 2em;
+        margin-bottom: 1rem;
+      }
+      strong {
+        color: var(--primary);
+      }
       code {
         border: 1px solid var(--gray3);
         border-radius: 5px;
@@ -45,6 +54,11 @@
           padding: 0.75rem;
           font-size: 0.9rem;
         }
+      }
+      img {
+        max-width: 100%;
+        margin: 1rem auto;
+        display: block;
       }
     }
   }

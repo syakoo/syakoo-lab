@@ -1,0 +1,39 @@
+.PreViewArt {
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: var(--bg2);
+  position: relative;
+  a > div {
+    vertical-align: bottom;
+  }
+  .img {
+    transform: scale(1.5);
+    width: 300px;
+    animation: fadeInOut 60s 0s ease-in-out infinite;
+  }
+  .text {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    padding: 2px;
+    font-size: small;
+    background-color: var(--gray6);
+    color: var(--gray);
+    text-decoration: none;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  97% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

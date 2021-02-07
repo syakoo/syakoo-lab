@@ -1,6 +1,6 @@
 .article {
   background-color: var(--bg2);
-  padding: 2rem;
+  padding: 3rem 4rem;
   margin: 0px 1rem;
   border-radius: 5px;
   box-shadow: 0px 0px 7px 0px var(--gray2);
@@ -36,6 +36,9 @@
           top: 3px;
         }
       }
+      p {
+        line-height: 2rem;
+      }
       h3 {
         font-size: 1.5rem;
         margin-top: 2em;
@@ -48,10 +51,12 @@
         border: 1px solid var(--gray3);
         border-radius: 5px;
         padding: 2px 0.25rem;
+        margin: 0px 5px;
       }
       pre {
         code {
           padding: 0.75rem;
+          margin: 0px;
           font-size: 0.9rem;
         }
       }

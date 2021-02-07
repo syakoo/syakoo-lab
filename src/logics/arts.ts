@@ -25,6 +25,13 @@ export const readArtsManifest = async () => {
 
 // ___________
 //
+export const getRecentlyArts = async () => {
+  const artInfos = await readArtsManifest()
+  const result = artInfos.slice(0, 2)
+
+  return result
+}
+
 export const getArtDescriptionSource = async (artId: string) => {
   const { content } = await readArt(artId)
   const result = await convertMdx2Source(content)

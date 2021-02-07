@@ -30,8 +30,8 @@ const ArticlePage: NextPage<ArticlePageProps> = ({ article, aboutme }) => {
 // ___________
 //
 export const getStaticPaths: GetStaticPaths = async () => {
-  const articleInfos = await readArticlesManifest()
-  const paths = articleInfos.map((info) => `/articles/${info.id}`)
+  const { posts } = await readArticlesManifest()
+  const paths = posts.map((info) => `/articles/${info.id}`)
 
   return {
     paths,

@@ -37,10 +37,10 @@ const ArticlesPage: NextPage<ArticlesPageProps> = ({
 // ___________
 //
 export const getStaticProps: GetStaticProps<ArticlesPageProps> = async () => {
-  const articleInfos = await readArticlesManifest()
+  const { posts } = await readArticlesManifest()
   const artInfos = await getRecentlyArts()
 
-  return { props: { articleInfos, artInfos } }
+  return { props: { articleInfos: posts, artInfos } }
 }
 
 export default ArticlesPage

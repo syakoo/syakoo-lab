@@ -19,6 +19,11 @@ export interface Article extends ArticleInfo {
   source: Source
 }
 
+export interface ArticleManifest {
+  posts: ArticleInfo[]
+  tags: string[]
+}
+
 // ___________
 // AboutMe
 export interface AboutMeLink {

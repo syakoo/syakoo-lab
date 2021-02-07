@@ -1,6 +1,6 @@
 import matter from 'gray-matter'
 
-import type { ArticleInfo } from '@/types'
+import type { ArticleInfo, ArticleManifest } from '@/types'
 import { readFile, getDirs } from './utils/fileSystem'
 import { convertMdx2Source } from './utils/mdx'
 
@@ -14,12 +14,11 @@ export const readArticle = async (articleId: string) => {
 }
 
 export const readArticlesManifest = async () => {
-  const { posts }: { posts: ArticleInfo[] } = await readFile(
-    'articles',
-    'manifest.json'
-  ).then((data) => JSON.parse(data))
+  const result = await readFile('articles', 'manifest.json').then((data) =>
+    JSON.parse(data)
+  )
 
-  return posts
+  return result as ArticleManifest
 }
 
 // ___________
@@ -32,8 +31,8 @@ export const getArticleSource = async (articleId: string) => {
 }
 
 export const getArticleInfoFromManifest = async (articleId: string) => {
-  const articleInfos = await readArticlesManifest()
-  const result = articleInfos.find((article) => article.id === articleId)
+  const { posts } = await readArticlesManifest()
+  const result = posts.find((article) => article.id === articleId)
 
   return result
 }

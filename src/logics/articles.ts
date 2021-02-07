@@ -51,6 +51,10 @@ export const collectArticlesInfo = async () => {
       return articleInfo
     })
   )
+  const result = articlesInfo.sort(
+    (art1, art2) =>
+      new Date(art2.published).getTime() - new Date(art1.published).getTime()
+  )
 
-  return articlesInfo
+  return result
 }

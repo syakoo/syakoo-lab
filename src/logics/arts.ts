@@ -41,7 +41,7 @@ export const getArtInfoFromManifest = async (artId: string) => {
 
 export const collectArtInfos = async () => {
   const artIds = await getDirs('arts')
-  const result: ArtInfo[] = await Promise.all(
+  const artInfos: ArtInfo[] = await Promise.all(
     artIds.map(async (id) => {
       const { data } = await readArt(id)
       const { width, height } = sizeOf(withPublicDir(data.imgUrl))
@@ -53,6 +53,10 @@ export const collectArtInfos = async () => {
 
       return artInfo
     })
+  )
+  const result = artInfos.sort(
+    (art1, art2) =>
+      new Date(art2.published).getTime() - new Date(art1.published).getTime()
   )
 
   return result

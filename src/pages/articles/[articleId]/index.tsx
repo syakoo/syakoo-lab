@@ -6,6 +6,7 @@ import {
   SubBlock,
 } from '@/components/layouts/DoubleLayout'
 import { ArticleView } from '@/components/templates/ArticleView'
+import { TOC } from '@/components/templates/TOC'
 import { PreviewArt } from '@/components/organisms/PreviewArt'
 import type { Article, AboutMeInfo, Source, ArtInfo } from '@/types'
 import {
@@ -38,6 +39,7 @@ const ArticlePage: NextPage<ArticlePageProps> = ({
       </MainBlock>
       <SubBlock>
         <PreviewArt artInfos={artInfos} />
+        <TOC />
       </SubBlock>
     </DoubleLayout>
   )

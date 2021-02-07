@@ -1,0 +1,28 @@
+.TOC {
+  margin: 1rem 0.5rem;
+  position: sticky;
+  top: 10%;
+
+  .title {
+    margin: 0.2rem 0px;
+  }
+  .list {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+
+    .item {
+      padding: 2px;
+      font-size: small;
+
+      &:hover {
+        background-color: #45454522;
+      }
+      a {
+        display: block;
+        color: var(--gray6);
+        text-decoration: none;
+      }
+    }
+  }
+}

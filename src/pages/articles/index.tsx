@@ -1,8 +1,13 @@
 import { NextPage, GetStaticProps } from 'next'
 
-import { DoubleLayout } from '@/components/layouts/DoubleLayout'
+import {
+  DoubleLayout,
+  MainBlock,
+  SubBlock,
+} from '@/components/layouts/DoubleLayout'
 import { ArticleLinkList } from '@/components/templates/ArticleLinkList'
 import { PreviewArt } from '@/components/organisms/PreviewArt'
+import { TagListCard } from '@/components/organisms/TagListCard'
 import { readArticlesManifest } from '@/logics/articles'
 import { getRecentlyArts } from '@/logics/arts'
 import type { ArticleInfo, ArtInfo } from '@/types'
@@ -12,35 +17,36 @@ import type { ArticleInfo, ArtInfo } from '@/types'
 type ArticlesPageProps = {
   articleInfos: ArticleInfo[]
   artInfos: ArtInfo[]
+  allTags: string[]
 }
 
 // ___________
 //
-const Side = ({ artInfos }: { artInfos: ArtInfo[] }) => (
-  <div>
-    <PreviewArt artInfos={artInfos} />
-  </div>
-)
-
 const ArticlesPage: NextPage<ArticlesPageProps> = ({
   articleInfos,
   artInfos,
+  allTags,
 }) => {
   return (
-    <DoubleLayout
-      mainComponent={<ArticleLinkList articles={articleInfos} />}
-      subComponent={<Side artInfos={artInfos} />}
-    />
+    <DoubleLayout>
+      <MainBlock>
+        <ArticleLinkList articles={articleInfos} />
+      </MainBlock>
+      <SubBlock>
+        <PreviewArt artInfos={artInfos} />
+        <TagListCard tags={allTags} />
+      </SubBlock>
+    </DoubleLayout>
   )
 }
 
 // ___________
 //
 export const getStaticProps: GetStaticProps<ArticlesPageProps> = async () => {
-  const { posts } = await readArticlesManifest()
+  const { posts, tags } = await readArticlesManifest()
   const artInfos = await getRecentlyArts()
 
-  return { props: { articleInfos: posts, artInfos } }
+  return { props: { articleInfos: posts, artInfos, allTags: tags } }
 }
 
 export default ArticlesPage

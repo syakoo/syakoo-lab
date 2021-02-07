@@ -1,1 +1,1 @@
-export { default as DoubleLayout } from './DoubleLayout'
+export { default as DoubleLayout, MainBlock, SubBlock } from './DoubleLayout'

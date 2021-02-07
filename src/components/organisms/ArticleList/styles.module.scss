@@ -1,0 +1,29 @@
+.ArticleListShort {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px 0.5rem;
+
+  .list {
+    padding: 5px 0px;
+    .a {
+      text-decoration: none;
+      color: var(--secondary);
+      h4 {
+        display: inline;
+        margin: 0px;
+        &::before {
+          content: '>';
+          margin-right: 0.5rem;
+          color: var(--primary);
+        }
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .date {
+      font-size: small;
+      color: var(--gray5);
+    }
+  }
+}

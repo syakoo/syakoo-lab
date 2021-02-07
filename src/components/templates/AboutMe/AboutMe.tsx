@@ -34,6 +34,7 @@ const AboutMe: React.VFC<AboutMeProps> = ({
           alt="me"
           width={120}
           height={120}
+          priority
         />
         <div className={styles.right}>
           <h3 className={styles.name}>{name}</h3>

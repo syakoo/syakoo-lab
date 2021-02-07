@@ -1,13 +1,19 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
-import { SingleLayout } from '@/components/layouts/SingleLayout'
+import {
+  DoubleLayout,
+  MainBlock,
+  SubBlock,
+} from '@/components/layouts/DoubleLayout'
 import { ArticleView } from '@/components/templates/ArticleView'
-import type { Article, AboutMeInfo, Source } from '@/types'
+import { PreviewArt } from '@/components/organisms/PreviewArt'
+import type { Article, AboutMeInfo, Source, ArtInfo } from '@/types'
 import {
   readArticlesManifest,
   getArticleInfoFromManifest,
   getArticleSource,
 } from '@/logics/articles'
+import { getRecentlyArts } from '@/logics/arts'
 import { getAboutMeInfo, getAboutMeShortSource } from '@/logics/aboutme'
 
 // ___________
@@ -15,15 +21,25 @@ import { getAboutMeInfo, getAboutMeShortSource } from '@/logics/aboutme'
 type ArticlePageProps = {
   article: Article
   aboutme: { info: AboutMeInfo; source: Source }
+  artInfos: ArtInfo[]
 }
 
 // ___________
 //
-const ArticlePage: NextPage<ArticlePageProps> = ({ article, aboutme }) => {
+const ArticlePage: NextPage<ArticlePageProps> = ({
+  article,
+  aboutme,
+  artInfos,
+}) => {
   return (
-    <SingleLayout>
-      <ArticleView article={article} aboutme={aboutme} />
-    </SingleLayout>
+    <DoubleLayout>
+      <MainBlock>
+        <ArticleView article={article} aboutme={aboutme} />
+      </MainBlock>
+      <SubBlock>
+        <PreviewArt artInfos={artInfos} />
+      </SubBlock>
+    </DoubleLayout>
   )
 }
 
@@ -52,9 +68,14 @@ export const getStaticProps: GetStaticProps<ArticlePageProps> = async ({
 
   const aboutmeInfo = await getAboutMeInfo()
   const aboutmeSource = await getAboutMeShortSource()
+  const artInfos = await getRecentlyArts()
 
   return {
-    props: { article, aboutme: { info: aboutmeInfo, source: aboutmeSource } },
+    props: {
+      article,
+      aboutme: { info: aboutmeInfo, source: aboutmeSource },
+      artInfos,
+    },
   }
 }
 

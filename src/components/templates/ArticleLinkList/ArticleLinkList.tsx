@@ -10,13 +10,18 @@ import type { ArticleInfo } from '@/types'
 //
 interface ArticleLinkListProps {
   articles: ArticleInfo[]
+  selectedTag?: string
 }
 
 // ___________
 //
-const ArticleLinkList: React.VFC<ArticleLinkListProps> = ({ articles }) => {
+const ArticleLinkList: React.VFC<ArticleLinkListProps> = ({
+  articles,
+  selectedTag,
+}) => {
+  const title = selectedTag ? `Articles #${selectedTag}` : 'Articles'
   return (
-    <Card title="Articles">
+    <Card title={title}>
       <ArticleList articles={articles} />
     </Card>
   )

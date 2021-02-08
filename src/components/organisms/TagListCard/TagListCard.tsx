@@ -16,7 +16,7 @@ const TagListCard: React.VFC<TagListCardProps> = ({ tags }) => {
   return (
     <div className={styles.TagListCard}>
       <h3 className={styles.title}>タグ一覧</h3>
-      <TagList tags={tags} baseUrl="/tags" />
+      <TagList tags={tags} baseUrl="/articles" />
     </div>
   )
 }

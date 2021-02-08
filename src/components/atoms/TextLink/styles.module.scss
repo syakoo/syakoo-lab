@@ -1,0 +1,12 @@
+.link {
+  color: var(--secondary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &[data-is-small] {
+    font-size: 0.9rem;
+  }
+}

@@ -5,21 +5,12 @@
   padding: 0px;
   list-style: none;
 
-  .linkedTag {
-    color: var(--primary);
-    a {
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
   .normalTag {
     color: var(--gray6);
+    font-size: 0.9rem;
   }
   .linkedTag,
   .normalTag {
     margin-right: 5px;
-    font-size: 0.9rem;
   }
 }

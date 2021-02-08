@@ -4,6 +4,7 @@ import Image from 'next/image'
 
 import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
 import { Card } from '@/components/atoms/Card'
+import { TextLink } from '@/components/atoms/TextLink'
 import type { App } from '@/types'
 
 import styles from './styles.module.scss'
@@ -35,7 +36,7 @@ const AppList: React.VFC<AppListProps> = ({ apps }) => {
             {app.repoUrl && (
               <div className={styles.repo}>
                 <span>repo: </span>
-                <Link href={app.repoUrl}>{app.repoUrl}</Link>
+                <TextLink href={app.repoUrl}>{app.repoUrl}</TextLink>
               </div>
             )}
             <div className={styles.description}>

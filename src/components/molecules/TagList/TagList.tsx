@@ -1,5 +1,6 @@
 import React from 'react'
-import Link from 'next/link'
+
+import { TextLink } from '@/components/atoms/TextLink'
 
 import styles from './styles.module.scss'
 
@@ -27,9 +28,9 @@ const TagList: React.VFC<TagListProps> = ({ tags, baseUrl }) => {
     <ul className={styles.tagList}>
       {tags.map((tag) => (
         <li key={tag} className={styles.linkedTag}>
-          <Link href={`${baseUrl}/tags/${tag}`}>
-            <a>{`#${tag}`}</a>
-          </Link>
+          <TextLink href={`${baseUrl}/tags/${tag}`} isSmall>
+            {`#${tag}`}
+          </TextLink>
         </li>
       ))}
     </ul>

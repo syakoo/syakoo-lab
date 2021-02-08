@@ -9,7 +9,8 @@
     "start": "next start",
     "test": "jest",
     "add:fc": "hygen component add",
-    "add:article": "hygen article add"
+    "add:article": "hygen article add",
+    "add:art": "hygen art add"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.5.0",

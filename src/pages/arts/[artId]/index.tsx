@@ -1,5 +1,4 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
-import Image from 'next/image'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import { ArtView } from '@/components/templates/ArtView'
@@ -29,8 +28,8 @@ const ArtPage: NextPage<ArtPageProps> = ({ art }) => {
 // ___________
 //
 export const getStaticPaths: GetStaticPaths = async () => {
-  const artInfos = await readArtsManifest()
-  const paths = artInfos.map((info) => `/arts/${info.id}`)
+  const { posts } = await readArtsManifest()
+  const paths = posts.map((info) => `/arts/${info.id}`)
 
   return {
     paths,

@@ -1,7 +1,7 @@
 import matter from 'gray-matter'
 import sizeOf from 'image-size'
 
-import type { ArtInfo } from '@/types'
+import type { ArtInfo, ArtManifest } from '@/types'
 import { readFile, getDirs, withPublicDir } from './utils/fileSystem'
 import { convertMdx2Source } from './utils/mdx'
 
@@ -15,19 +15,18 @@ export const readArt = async (artId: string) => {
 }
 
 export const readArtsManifest = async () => {
-  const { posts }: { posts: ArtInfo[] } = await readFile(
-    'arts',
-    'manifest.json'
-  ).then((data) => JSON.parse(data))
+  const result = await readFile('arts', 'manifest.json').then((data) =>
+    JSON.parse(data)
+  )
 
-  return posts
+  return result as ArtManifest
 }
 
 // ___________
 //
 export const getRecentlyArts = async () => {
-  const artInfos = await readArtsManifest()
-  const result = artInfos.slice(0, 2)
+  const { posts } = await readArtsManifest()
+  const result = posts.slice(0, 2)
 
   return result
 }
@@ -40,8 +39,8 @@ export const getArtDescriptionSource = async (artId: string) => {
 }
 
 export const getArtInfoFromManifest = async (artId: string) => {
-  const artInfos = await readArtsManifest()
-  const result = artInfos.find((art) => art.id === artId)
+  const { posts } = await readArtsManifest()
+  const result = posts.find((art) => art.id === artId)
 
   return result
 }

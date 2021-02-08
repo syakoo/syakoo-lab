@@ -70,3 +70,8 @@ export interface ArtInfo {
 export interface Art extends ArtInfo {
   descriptionSource: Source
 }
+
+export interface ArtManifest {
+  posts: ArtInfo[]
+  tags: string[]
+}

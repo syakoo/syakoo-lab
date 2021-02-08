@@ -22,9 +22,9 @@ const ArtsPage: NextPage<ArtsPageProps> = ({ artInfos }) => (
 // ___________
 //
 export const getStaticProps: GetStaticProps<ArtsPageProps> = async () => {
-  const artInfos = await readArtsManifest()
+  const { posts } = await readArtsManifest()
 
-  return { props: { artInfos } }
+  return { props: { artInfos: posts } }
 }
 
 export default ArtsPage

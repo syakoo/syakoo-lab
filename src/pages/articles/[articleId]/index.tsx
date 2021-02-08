@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps<ArticlePageProps> = async ({
 
   const { posts } = await readArticlesManifest()
   const relatedArticles = posts
-    .filter((a) => a.tags.includes(article.tags[0]))
+    .filter((a) => a.tags.includes(article.tags[0]) && a.id !== article.id)
     .slice(0, 5)
 
   return {

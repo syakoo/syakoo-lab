@@ -11,11 +11,15 @@ import styles from './styles.module.scss'
 //
 interface ArtLinkListProps {
   artInfos: ArtInfo[]
+  selectedTag?: string
 }
 
 // ___________
 //
-const ArtLinkList: React.VFC<ArtLinkListProps> = ({ artInfos }) => {
+const ArtLinkList: React.VFC<ArtLinkListProps> = ({
+  artInfos,
+  selectedTag,
+}) => {
   const reSize = useCallback(
     (size: ArtInfo['size']) => {
       const scale = Math.max(240 / size.height, 320 / size.width)
@@ -24,8 +28,10 @@ const ArtLinkList: React.VFC<ArtLinkListProps> = ({ artInfos }) => {
     [artInfos]
   )
 
+  const title = selectedTag ? `Arts #${selectedTag}` : 'Arts'
+
   return (
-    <Card title="Arts">
+    <Card title={title}>
       <ul className={styles.artList}>
         {artInfos.map((art) => (
           <li key={art.id} className={styles.imgBody}>

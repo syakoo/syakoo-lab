@@ -11,6 +11,7 @@
     margin: 2px;
     border: 1px solid transparent;
     box-shadow: 0px 0px 4px 0px var(--gray3);
+    max-height: 240px !important;
     .a {
       & > div {
         vertical-align: bottom;

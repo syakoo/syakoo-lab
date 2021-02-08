@@ -54,4 +54,4 @@ const ArtLinkList: React.VFC<ArtLinkListProps> = ({
   )
 }
 
-export default ArtLinkList
+export default React.memo(ArtLinkList)

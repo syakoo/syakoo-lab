@@ -27,4 +27,4 @@ const ArticleLinkList: React.VFC<ArticleLinkListProps> = ({
   )
 }
 
-export default ArticleLinkList
+export default React.memo(ArticleLinkList)

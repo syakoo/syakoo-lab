@@ -22,6 +22,15 @@
   }
 }
 
+.FavSection {
+  display: flex;
+  align-items: center;
+  .text {
+    font-weight: bold;
+    color: var(--gray5);
+  }
+}
+
 @media screen and (max-width: 500px) {
   .footer {
     margin: 0px;

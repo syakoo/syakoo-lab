@@ -12,15 +12,6 @@
     margin: 2px;
     border: 1px solid transparent;
     box-shadow: 0px 0px 4px 0px var(--gray3);
-    max-height: 240px !important;
-    .a {
-      & > div {
-        vertical-align: bottom;
-      }
-      .img {
-        transform: scale(1.5);
-      }
-    }
     &:hover {
       transition: 0.2s;
       opacity: 0.7;
@@ -28,6 +19,25 @@
     &:active {
       border: 1px solid var(--primary);
     }
+  }
+}
+
+.ArtLink {
+  max-height: 240px !important;
+  position: relative;
+  .a {
+    & > div {
+      vertical-align: bottom;
+    }
+    .img {
+      transform: scale(1.5);
+    }
+  }
+
+  .favBtn {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
   }
 }
 

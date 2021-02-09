@@ -1,8 +1,5 @@
 import React, { ReactElement, ReactNode } from 'react'
 
-import { Header } from '@/components/templates/Header'
-import { Footer } from '@/components/templates/Footer'
-
 import styles from './styles.module.scss'
 
 // ___________
@@ -35,14 +32,10 @@ export const SubBlock: BlockFC<SubBlock> = ({ children }) => {
 //
 const DoubleLayout: React.VFC<DoubleLayoutProps> = ({ children }) => {
   return (
-    <>
-      <Header />
-      <main className={styles.main}>
-        {children[0]}
-        {children[1]}
-      </main>
-      <Footer />
-    </>
+    <main className={styles.main}>
+      {children[0]}
+      {children[1]}
+    </main>
   )
 }
 

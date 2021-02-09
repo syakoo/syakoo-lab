@@ -3,6 +3,8 @@
   overflow: hidden;
   background-color: var(--bg2);
   position: relative;
+  max-width: 280px;
+  margin: auto;
   a > div {
     vertical-align: bottom;
   }

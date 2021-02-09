@@ -6,6 +6,7 @@ import { MarkdownRenderer } from '@/components/organisms/MarkdownRenderer'
 import { TagList } from '@/components/molecules/TagList'
 import type { Art } from '@/types'
 
+import { FavSection } from './FavSection'
 import styles from './styles.module.scss'
 
 // ___________
@@ -28,12 +29,13 @@ const ArtView: React.VFC<ArtViewProps> = ({ art }) => {
         />
       </div>
       <div className={styles.footer}>
-        <div className={styles.date}>{art.published}</div>
+        <FavSection artId={art.id} />
         <h1 className={styles.title}>{art.title}</h1>
         <div className={styles.description}>
           <MarkdownRenderer source={art.descriptionSource} />
         </div>
         <TagList tags={art.tags} baseUrl="/arts" />
+        <div className={styles.date}>{art.published}</div>
       </div>
     </Card>
   )

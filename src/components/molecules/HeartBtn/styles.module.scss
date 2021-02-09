@@ -1,0 +1,28 @@
+.HeartBtn {
+  background-color: transparent;
+  border: none;
+
+  svg {
+    width: 28px;
+    height: 28px;
+    path {
+      stroke: var(--gray6);
+      stroke-width: 40px;
+      fill: none;
+      transform: scale(0.9) translate(30px, 10px);
+      &:hover {
+        transition: 0.5s;
+        fill: var(--gray2);
+        cursor: pointer;
+      }
+    }
+  }
+  &[data-is-actived] {
+    svg {
+      path {
+        stroke: var(--red);
+        fill: var(--red);
+      }
+    }
+  }
+}

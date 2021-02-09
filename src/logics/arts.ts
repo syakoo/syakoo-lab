@@ -26,7 +26,7 @@ export const readArtsManifest = async () => {
 //
 export const getRecentlyArts = async () => {
   const { posts } = await readArtsManifest()
-  const result = posts.slice(0, 2)
+  const result = posts.slice(0, 6)
 
   return result
 }

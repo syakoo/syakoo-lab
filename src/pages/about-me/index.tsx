@@ -2,6 +2,7 @@ import { NextPage, GetStaticProps } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
 import { CustomHead } from '@/components/atoms/CustomHead'
+import { WishList } from '@/components/templates/WishList'
 import { AboutMe } from '@/components/templates/AboutMe'
 import { Certificates } from '@/components/templates/Certificates'
 import { TimeLine } from '@/components/templates/TimeLine'
@@ -29,6 +30,7 @@ const AboutMePage: NextPage<AboutMePageProps> = ({
       descriptionSource={descriptionSource}
       links={aboutmeInfo.links}
     />
+    <WishList />
     <Certificates certificates={aboutmeInfo.certificates} />
     <TimeLine timeline={aboutmeInfo.timeline} />
   </SingleLayout>

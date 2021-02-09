@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 import { Card } from '@/components/atoms/Card'
+import { reSize as reSizeImg } from '@/logics/utils/img'
 import type { ArtInfo } from '@/types'
 
 import styles from './styles.module.scss'
@@ -20,14 +21,9 @@ const ArtLinkList: React.VFC<ArtLinkListProps> = ({
   artInfos,
   selectedTag,
 }) => {
-  const reSize = useCallback(
-    (size: ArtInfo['size']) => {
-      const scale = Math.max(240 / size.height, 320 / size.width)
-      return { height: size.height * scale, width: size.width * scale }
-    },
-    [artInfos]
-  )
-
+  const reSize = (size: { width: number; height: number }) => {
+    return reSizeImg(size, { width: 320, height: 240 })
+  }
   const title = selectedTag ? `Arts #${selectedTag}` : 'Arts'
 
   return (

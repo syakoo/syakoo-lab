@@ -29,3 +29,13 @@
     }
   }
 }
+
+@media screen and (max-width: 685px) {
+  .artList {
+    flex-direction: column;
+
+    .imgBody {
+      margin: 2px auto;
+    }
+  }
+}

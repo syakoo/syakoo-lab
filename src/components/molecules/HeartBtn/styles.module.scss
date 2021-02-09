@@ -8,11 +8,11 @@
     path {
       stroke: var(--gray6);
       stroke-width: 40px;
-      fill: none;
+      fill: var(--bg2);
       transform: scale(0.9) translate(30px, 10px);
       &:hover {
         transition: 0.5s;
-        fill: var(--gray2);
+        fill: var(--gray4);
         cursor: pointer;
       }
     }

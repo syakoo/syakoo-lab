@@ -5,6 +5,7 @@ import {
   MainBlock,
   SubBlock,
 } from '@/components/layouts/DoubleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { ArticleLinkList } from '@/components/templates/ArticleLinkList'
 import { PreviewArt } from '@/components/organisms/PreviewArt'
 import { TagListCard } from '@/components/organisms/TagListCard'
@@ -30,15 +31,21 @@ const ArticlesFilteredTagPage: NextPage<ArticlesFilteredTagPageProps> = ({
   selectedTag,
 }) => {
   return (
-    <DoubleLayout>
-      <MainBlock>
-        <ArticleLinkList articles={articleInfos} selectedTag={selectedTag} />
-      </MainBlock>
-      <SubBlock>
-        <PreviewArt artInfos={artInfos} />
-        <TagListCard tags={allTags} />
-      </SubBlock>
-    </DoubleLayout>
+    <>
+      <CustomHead
+        url={`articles/tags/${selectedTag}`}
+        title={`記事一覧#${selectedTag}`}
+      />
+      <DoubleLayout>
+        <MainBlock>
+          <ArticleLinkList articles={articleInfos} selectedTag={selectedTag} />
+        </MainBlock>
+        <SubBlock>
+          <PreviewArt artInfos={artInfos} />
+          <TagListCard tags={allTags} />
+        </SubBlock>
+      </DoubleLayout>
+    </>
   )
 }
 

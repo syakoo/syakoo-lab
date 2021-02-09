@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { AboutSite } from '@/components/templates/AboutSite'
 import { getAboutSiteSource } from '@/logics/aboutsite'
 import type { Source } from '@/types'
@@ -16,6 +17,7 @@ type HomePageProps = {
 const HomePage: NextPage<HomePageProps> = ({ aboutSiteSource }) => {
   return (
     <SingleLayout>
+      <CustomHead url="/" title="ホーム" />
       <AboutSite aboutSiteSource={aboutSiteSource} />
     </SingleLayout>
   )

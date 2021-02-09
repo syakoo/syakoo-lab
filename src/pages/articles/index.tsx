@@ -5,6 +5,7 @@ import {
   MainBlock,
   SubBlock,
 } from '@/components/layouts/DoubleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { ArticleLinkList } from '@/components/templates/ArticleLinkList'
 import { PreviewArt } from '@/components/organisms/PreviewArt'
 import { TagListCard } from '@/components/organisms/TagListCard'
@@ -28,15 +29,18 @@ const ArticlesPage: NextPage<ArticlesPageProps> = ({
   allTags,
 }) => {
   return (
-    <DoubleLayout>
-      <MainBlock>
-        <ArticleLinkList articles={articleInfos} />
-      </MainBlock>
-      <SubBlock>
-        <PreviewArt artInfos={artInfos} />
-        <TagListCard tags={allTags} />
-      </SubBlock>
-    </DoubleLayout>
+    <>
+      <CustomHead url="/articles" title="記事一覧" />
+      <DoubleLayout>
+        <MainBlock>
+          <ArticleLinkList articles={articleInfos} />
+        </MainBlock>
+        <SubBlock>
+          <PreviewArt artInfos={artInfos} />
+          <TagListCard tags={allTags} />
+        </SubBlock>
+      </DoubleLayout>
+    </>
   )
 }
 

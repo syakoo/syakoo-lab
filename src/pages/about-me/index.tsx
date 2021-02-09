@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { AboutMe } from '@/components/templates/AboutMe'
 import { Certificates } from '@/components/templates/Certificates'
 import { TimeLine } from '@/components/templates/TimeLine'
@@ -21,6 +22,7 @@ const AboutMePage: NextPage<AboutMePageProps> = ({
   descriptionSource,
 }) => (
   <SingleLayout>
+    <CustomHead url="/about-me" title="About Me" />
     <AboutMe
       name={aboutmeInfo.name}
       imgUrl={aboutmeInfo.imgUrl}

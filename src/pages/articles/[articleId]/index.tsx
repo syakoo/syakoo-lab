@@ -5,6 +5,7 @@ import {
   MainBlock,
   SubBlock,
 } from '@/components/layouts/DoubleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { ArticleView } from '@/components/templates/ArticleView'
 import { TOC } from '@/components/templates/TOC'
 import { RelatedArticleListBlock } from '@/components/templates/RelatedArticleListBlock'
@@ -42,16 +43,19 @@ const ArticlePage: NextPage<ArticlePageProps> = ({
   relatedArticles,
 }) => {
   return (
-    <DoubleLayout>
-      <MainBlock>
-        <ArticleView article={article} aboutme={aboutme} />
-        <RelatedArticleListBlock relatedArticles={relatedArticles} />
-      </MainBlock>
-      <SubBlock>
-        <PreviewArt artInfos={artInfos} />
-        <TOC />
-      </SubBlock>
-    </DoubleLayout>
+    <>
+      <CustomHead url={`articles/${article.id}`} title={article.title} />
+      <DoubleLayout>
+        <MainBlock>
+          <ArticleView article={article} aboutme={aboutme} />
+          <RelatedArticleListBlock relatedArticles={relatedArticles} />
+        </MainBlock>
+        <SubBlock>
+          <PreviewArt artInfos={artInfos} />
+          <TOC />
+        </SubBlock>
+      </DoubleLayout>
+    </>
   )
 }
 

@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { ArtView } from '@/components/templates/ArtView'
 import type { Art } from '@/types'
 import {
@@ -20,6 +21,11 @@ type ArtPageProps = {
 const ArtPage: NextPage<ArtPageProps> = ({ art }) => {
   return (
     <SingleLayout>
+      <CustomHead
+        url={`/arts/${art.id}`}
+        title={art.title}
+        imgUrl={art.imgUrl}
+      />
       <ArtView art={art} />
     </SingleLayout>
   )

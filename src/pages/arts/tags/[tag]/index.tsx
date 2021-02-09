@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps, GetStaticPaths } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { ArtLinkList } from '@/components/templates/ArtLinkList'
 import { readArtsManifest } from '@/logics/arts'
 import type { ArtInfo } from '@/types'
@@ -19,6 +20,10 @@ const ArtsFilteredTagPage: NextPage<ArtsFilteredTagPageProps> = ({
   selectedTag,
 }) => (
   <SingleLayout isLarge>
+    <CustomHead
+      url={`/arts/tags/${selectedTag}`}
+      title={`イラスト一覧#${selectedTag}`}
+    />
     <ArtLinkList artInfos={artInfos} selectedTag={selectedTag} />
   </SingleLayout>
 )

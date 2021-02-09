@@ -1,6 +1,7 @@
 import { NextPage, GetStaticProps } from 'next'
 
 import { SingleLayout } from '@/components/layouts/SingleLayout'
+import { CustomHead } from '@/components/atoms/CustomHead'
 import { ArtLinkList } from '@/components/templates/ArtLinkList'
 import { readArtsManifest } from '@/logics/arts'
 import type { ArtInfo } from '@/types'
@@ -15,6 +16,7 @@ type ArtsPageProps = {
 //
 const ArtsPage: NextPage<ArtsPageProps> = ({ artInfos }) => (
   <SingleLayout isLarge>
+    <CustomHead url="/arts" title="イラスト一覧" />
     <ArtLinkList artInfos={artInfos} />
   </SingleLayout>
 )

@@ -1,8 +1,9 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
 import { reSize } from '@/logics/utils/img'
+import { fireEvent } from '@/logics/analytics'
 import type { ArtInfo } from '@/types'
 
 import styles from './styles.module.scss'
@@ -24,6 +25,14 @@ const PreviewArt: React.VFC<PreviewArtProps> = ({ artInfos }) => {
     return reSize(artInfos[artIdx].size, { width: 280 })
   }, [artIdx, artInfos])
 
+  const onClick = useCallback(() => {
+    fireEvent({
+      action: 'click_art_link',
+      category: 'Art',
+      label: { artId: artInfos[artIdx].id },
+    })
+  }, [artIdx, artInfos])
+
   useEffect(() => {
     const id = setInterval(() => {
       setArtIdx((pre) => (pre + 1) % artInfos.length)
@@ -43,6 +52,7 @@ const PreviewArt: React.VFC<PreviewArtProps> = ({ artInfos }) => {
             title="イラスト一覧へ"
             width={imgSize.width}
             height={imgSize.height}
+            onClick={onClick}
           />
           <div className={styles.text}>イラスト一覧へ</div>
         </a>

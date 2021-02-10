@@ -18,8 +18,15 @@ type Event = ClickArtLinkEvent | ClickArtFavEvent
 
 // ___________
 //
+export const isValidGA = (GAID?: string): GAID is string => {
+  if (!GAID) return false
+  if (process.env.NODE_ENV !== 'production') return false
+
+  return true
+}
+
 export const pageViewEvent = (path: string) => {
-  if (!GA_ID) return
+  if (!isValidGA(GA_ID)) return
 
   window.gtag('config', GA_ID, {
     page_path: path,
@@ -27,7 +34,7 @@ export const pageViewEvent = (path: string) => {
 }
 
 export const fireEvent = ({ action, category, label }: Event) => {
-  if (!GA_ID) return
+  if (!isValidGA(GA_ID)) return
 
   window.gtag('event', action, {
     event_category: category,

@@ -1,6 +1,6 @@
 import Parser from 'rss-parser'
 
-import type { ArticleInfo } from '@/types'
+import type { ArticleInfo, SiteName } from '@/types'
 import { formatDate } from './utils/date'
 
 // ___________
@@ -9,7 +9,7 @@ const parser = new Parser()
 
 // ___________
 //
-export const fetchFeedItems = async (url: string, siteName: string) => {
+export const fetchFeedItems = async (url: string, siteName: SiteName) => {
   const feed = await parser.parseURL(url)
   if (!feed.items?.length) return []
 

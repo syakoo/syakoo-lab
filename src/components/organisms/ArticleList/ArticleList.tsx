@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { TagList } from '@/components/molecules/TagList'
-import type { ArticleInfo } from '@/types'
+import type { ArticleInfo, SiteName } from '@/types'
 
 import styles from './styles.module.scss'
 
@@ -15,7 +15,7 @@ interface ArticleListProps {
 
 // ___________
 //
-const siteImgs: { [k: string]: string } = {
+const siteImgs: { [k in SiteName]: string } = {
   Qiita: '/img/links/qiita.png',
   "Syakoo's Lab": '/logo.png',
 }

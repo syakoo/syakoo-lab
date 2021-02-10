@@ -1,3 +1,5 @@
+import { fireEvent } from '@/logics/analytics'
+
 // ___________
 //
 const ENDPOINT = 'https://syakoo-lab-functions.azurewebsites.net/api'
@@ -17,5 +19,7 @@ export const incrementArtFav = async (artId: string) => {
   const data = await fetch(favArtURL(artId), { method: 'POST' }).then((res) =>
     res.json()
   )
+  fireEvent({ action: 'click_art_fav', category: 'Art', label: { artId } })
+
   return data.favs as number
 }

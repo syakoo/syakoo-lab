@@ -7,12 +7,16 @@ export type Source = MdxRemote.Source
 
 // ___________
 // Article
+export type SiteName = "Syakoo's Lab" | 'Qiita'
+
 export interface ArticleInfo {
   title: string
   published: string
   updated?: string
   tags: string[]
   id: string
+  link: string
+  siteName: SiteName
 }
 
 export interface Article extends ArticleInfo {

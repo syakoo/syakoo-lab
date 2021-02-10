@@ -63,7 +63,9 @@ const ArticlePage: NextPage<ArticlePageProps> = ({
 //
 export const getStaticPaths: GetStaticPaths = async () => {
   const { posts } = await readArticlesManifest()
-  const paths = posts.map((info) => `/articles/${info.id}`)
+  const paths = posts
+    .filter((p) => p.siteName === "Syakoo's Lab")
+    .map((info) => `/articles/${info.id}`)
 
   return {
     paths,

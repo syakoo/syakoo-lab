@@ -1,7 +1,10 @@
+import { useEffect } from 'react'
 import { AppProps } from 'next/app'
+import { useRouter } from 'next/router'
 
 import { Header } from '@/components/templates/Header'
 import { Footer } from '@/components/templates/Footer'
+import { GA_ID, pageViewEvent } from '@/logics/analytics'
 
 import '../../public/style.css'
 import '../../public/prism.css'
@@ -9,6 +12,17 @@ import '../../public/prism.css'
 // ___________
 //
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  const router = useRouter()
+  useEffect(() => {
+    if (!GA_ID) return
+
+    router.events.on('routeChangeComplete', pageViewEvent)
+    // eslint-disable-next-line consistent-return
+    return () => {
+      router.events.off('routeChangeComplete', pageViewEvent)
+    }
+  }, [router.events])
+
   return (
     <>
       <link

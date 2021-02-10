@@ -9,6 +9,13 @@ import { Card } from '@/components/atoms/Card'
 const PrivacyPolicy: React.VFC = () => {
   return (
     <>
+      <Card title="アクセス解析ツールについて">
+        <p>
+          当ブログでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。
+          このGoogleアナリティクスはトラフィックデータの収集のためにクッキー（Cookie）を使用しております。
+          トラフィックデータは匿名で収集されており、個人を特定するものではありません。
+        </p>
+      </Card>
       <Card title="免責事項">
         <p>
           当ブログからのリンクやバナーなどで移動したサイトで提供される情報、

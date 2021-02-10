@@ -1,6 +1,7 @@
 import matter from 'gray-matter'
 
 import type { ArticleInfo, ArticleManifest } from '@/types'
+import { fetchFeedItems } from './rssFetcher'
 import { readFile, getDirs } from './utils/fileSystem'
 import { convertMdx2Source } from './utils/mdx'
 
@@ -45,15 +46,25 @@ export const collectArticlesInfo = async () => {
       const articleInfo = {
         ...data,
         id,
+        tags: [...data.tags, "Syakoo's Lab"],
+        link: `/articles/${id}`,
+        siteName: "Syakoo's Lab",
       } as ArticleInfo
 
       return articleInfo
     })
   )
-  const result = articlesInfo.sort(
-    (art1, art2) =>
-      new Date(art2.published).getTime() - new Date(art1.published).getTime()
+  const qiitaArticles = await fetchFeedItems(
+    'https://qiita.com/syakoo/feed.atom',
+    'Qiita'
   )
+
+  const result = articlesInfo
+    .concat(qiitaArticles)
+    .sort(
+      (art1, art2) =>
+        new Date(art2.published).getTime() - new Date(art1.published).getTime()
+    )
 
   return result
 }

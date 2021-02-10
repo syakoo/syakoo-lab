@@ -13,6 +13,8 @@ export interface ArticleInfo {
   updated?: string
   tags: string[]
   id: string
+  link: string
+  siteName: string
 }
 
 export interface Article extends ArticleInfo {

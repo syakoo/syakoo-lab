@@ -4,6 +4,7 @@ import {
   DoubleLayout,
   MainBlock,
   SubBlock,
+  StickyBlock,
 } from '@/components/layouts/DoubleLayout'
 import { CustomHead } from '@/components/atoms/CustomHead'
 import { ArticleView } from '@/components/templates/ArticleView'
@@ -51,8 +52,10 @@ const ArticlePage: NextPage<ArticlePageProps> = ({
           <RelatedArticleListBlock relatedArticles={relatedArticles} />
         </MainBlock>
         <SubBlock>
-          <PreviewArt artInfos={artInfos} />
-          <TOC />
+          <StickyBlock>
+            <PreviewArt artInfos={artInfos} />
+            <TOC />
+          </StickyBlock>
         </SubBlock>
       </DoubleLayout>
     </>

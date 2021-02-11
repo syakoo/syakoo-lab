@@ -33,3 +33,11 @@
     }
   }
 }
+
+@media screen and (max-width: 500px) {
+  .inner {
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+  }
+}

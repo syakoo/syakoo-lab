@@ -8,12 +8,16 @@ import { MdxRemote } from 'next-mdx-remote/types'
 //
 interface MarkdownRendererProps {
   source: MdxRemote.Source
+  components?: MdxRemote.Components
 }
 
 // ___________
 //
-const MarkdownRenderer: React.VFC<MarkdownRendererProps> = ({ source }) => {
-  const content = hydrate(source, {})
+const MarkdownRenderer: React.VFC<MarkdownRendererProps> = ({
+  source,
+  components,
+}) => {
+  const content = hydrate(source, { components })
 
   return <>{content}</>
 }

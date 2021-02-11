@@ -46,7 +46,6 @@ export const collectArticlesInfo = async () => {
       const articleInfo = {
         ...data,
         id,
-        tags: [...data.tags, "Syakoo's Lab"],
         link: `/articles/${id}`,
         siteName: "Syakoo's Lab",
       } as ArticleInfo

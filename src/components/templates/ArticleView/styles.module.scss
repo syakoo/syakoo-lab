@@ -36,6 +36,12 @@
           top: 3px;
         }
       }
+      blockquote {
+        border-left: 5px solid var(--gray3);
+        margin: 0px;
+        padding: 0px 1rem;
+        color: var(--gray5);
+      }
       p {
         line-height: 2rem;
       }

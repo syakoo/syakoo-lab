@@ -18,7 +18,7 @@ const CustomHead: React.VFC<CustomHeadProps> = ({
   card,
   imgUrl,
 }) => {
-  const toFullPath = (path: string) => `https://syakoo-lab.work${path}`
+  const toFullPath = (path: string) => `https://syakoo-lab.com${path}`
   return (
     <Head>
       <title>{`${title} - Syakoo's Lab`}</title>

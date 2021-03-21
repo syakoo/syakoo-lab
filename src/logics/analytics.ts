@@ -25,8 +25,11 @@ export const isValidGA = (GAID?: string): GAID is string => {
   return true
 }
 
-export const pageViewEvent = (path: string) => {
-  if (!isValidGA(GA_ID)) return
+export const pageViewEvent = (
+  path: string,
+  { shallow }: { shallow: boolean }
+) => {
+  if (!isValidGA(GA_ID) || shallow) return
 
   window.gtag('config', GA_ID, {
     page_path: path,

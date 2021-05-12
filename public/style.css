@@ -12,6 +12,7 @@
   --bg2: #fff;
   --font: #3b3c3d;
   --red: #f33e62;
+  --cyan: rgb(0, 171, 238);
 
   --width-sm: 850px;
   --width-md: 1200px;
@@ -24,6 +25,11 @@ body {
   margin: 0px;
   color: var(--font);
   background-color: var(--bg1);
+}
+
+::selection {
+  background-color: var(--cyan);
+  color: var(--gray);
 }
 
 a {

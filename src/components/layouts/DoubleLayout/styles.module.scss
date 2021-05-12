@@ -2,6 +2,7 @@
   max-width: 1200px;
   min-height: calc(95vh - 4rem);
   margin: 2rem auto;
+  padding: 0px 1em;
   display: flex;
 
   .mainComp {
@@ -21,6 +22,7 @@
   .main {
     flex-direction: column;
     justify-content: center;
+    padding: 0px;
     .mainComp,
     .subComp {
       width: 100%;

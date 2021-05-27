@@ -43,14 +43,14 @@
 
   &[data-type='note'] {
     border: 1px solid var(--green);
-    background-color: #f3683e25;
+    background-color: #2ab43510;
 
     &:before {
       content: 'Note';
       display: block;
       font-size: small;
       font-weight: bold;
-      color: var(--red);
+      color: var(--green);
       margin-bottom: 0.5em;
     }
     p, ul, pre {

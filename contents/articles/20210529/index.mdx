@@ -1,0 +1,69 @@
+---
+title: 'React で Fade in, out のカスタムフックを作成する'
+published: '2021-05-29'
+tags:
+  - React
+  - TypeScript
+---
+
+React で Fade in, out のアニメーションの実装にハマったので、残していきます
+
+## visibility で実装
+
+普通なら `display && <Modal />` のような感じでそもそも描写しない方向で考えたいのですが、アニメーションが厄介なので CSS の `visibility` で制御します。
+`visibility: hidden` になると表示されなくなるため、この時は `opacity` のアニメーションを待つようにします
+
+```tsx
+import { useCallback, useMemo, useState } from "react";
+
+const useFadeInOut = (durationSec: number) => {
+  const [display, setDisplay] = useState(false);
+
+  const handleClose = useCallback(() => {
+    setDisplay(false);
+  }, [setDisplay]);
+
+  const handleOpen = useCallback(() => {
+    setDisplay(true);
+  }, [setDisplay]);
+
+  const toggleDisplay = useCallback(() => {
+    setDisplay((prev) => !prev);
+  }, [setDisplay]);
+
+  const boxStyle = useMemo((): React.CSSProperties => {
+    if (display) {
+      return {
+        opacity: 1,
+        visibility: "visible",
+        transition: `opacity ${durationSec}s`,
+      };
+    }
+
+    return {
+      opacity: 0,
+      visibility: "hidden",
+      transition: `opacity ${durationSec}s, visibility 0s ${durationSec}s`,
+    };
+  }, [durationSec, display]);
+
+  return { display, handleOpen, handleClose, toggleDisplay, boxStyle };
+};
+```
+
+あとは次のように使います:
+
+```tsx
+const App: React.VFC = () => {
+  const { toggleDisplay, boxStyle } = useFadeInOut(0.2);
+
+  return (
+    <>
+      <button onClick={toggleDisplay}>Button</button>
+      <div style={boxStyle}>
+        <Modal />
+      </div>
+    </>
+  );
+};
+```

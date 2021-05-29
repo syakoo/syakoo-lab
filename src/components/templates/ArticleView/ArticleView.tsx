@@ -6,12 +6,17 @@ import { AboutMeShort } from '@/components/templates/AboutMe'
 import type { Article, AboutMeInfo, Source } from '@/types'
 
 import styles from './styles.module.scss'
+import { Card } from './components/Card'
 
 // ___________
 //
 interface ArticleViewProps {
   article: Article
   aboutme: { info: AboutMeInfo; source: Source }
+}
+
+const components: Record<string, React.ReactNode> = {
+  Card,
 }
 
 // ___________
@@ -36,7 +41,7 @@ const ArticleView: React.VFC<ArticleViewProps> = ({ article, aboutme }) => {
         <TagList tags={article.tags} baseUrl="/articles" />
       </div>
       <section className={styles.body}>
-        <MarkdownRenderer source={article.source} />
+        <MarkdownRenderer source={article.source} components={components} />
       </section>
       <AboutMeShort aboutme={aboutme} />
     </article>

@@ -1,0 +1,60 @@
+.card {
+  border: 1px solid var(--primary);
+  padding: 0.5rem;
+  border-radius: 5px;
+
+  &[data-type='caution'] {
+    border: 1px solid var(--red);
+    background-color: #f3683e25;
+
+    &:before {
+      content: '注意';
+      display: block;
+      font-size: small;
+      font-weight: bold;
+      color: var(--red);
+      margin-bottom: 0.5em;
+    }
+    p, ul, pre {
+      margin: 0.25em 0px;
+    }
+  }
+
+  &[data-type='problem'] {
+    border: 1px solid var(--primary);
+    background-color: #73747710;
+
+    &:before {
+      content: '問題';
+      display: block;
+      font-size: small;
+      font-weight: bold;
+      color: var(--primary);
+      margin-bottom: 0.5em;
+    }
+    p, ul, pre {
+      margin: 0.25em 0px;
+    }
+    h3, h4 {
+      margin-top: 1em;
+      margin-bottom: .5em;
+    }
+  }
+
+  &[data-type='note'] {
+    border: 1px solid var(--green);
+    background-color: #2ab43510;
+
+    &:before {
+      content: 'Note';
+      display: block;
+      font-size: small;
+      font-weight: bold;
+      color: var(--green);
+      margin-bottom: 0.5em;
+    }
+    p, ul, pre {
+      margin: 0.25em 0px;
+    }
+  }
+}

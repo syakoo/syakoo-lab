@@ -1,9 +1,9 @@
-import type { MdxRemote } from 'next-mdx-remote/types'
+import type { MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 // ___________
 //
 export type ContentDirs = 'articles' | 'aboutme' | 'apps' | 'arts' | 'aboutsite'
-export type Source = MdxRemote.Source
+export type Source = MDXRemoteSerializeResult
 
 // ___________
 // Article

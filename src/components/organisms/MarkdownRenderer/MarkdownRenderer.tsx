@@ -1,25 +1,22 @@
 import React from 'react'
-import hydrate from 'next-mdx-remote/hydrate'
-import { MdxRemote } from 'next-mdx-remote/types'
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 
 // import styles from './styles.module.scss'
 
 // ___________
 //
-interface MarkdownRendererProps {
-  source: MdxRemote.Source
-  components?: MdxRemote.Components
-}
+type MarkdownRendererProps = { source: MDXRemoteSerializeResult } & Omit<
+  Parameters<typeof MDXRemote>[0],
+  'compiledSource'
+>
 
 // ___________
 //
 const MarkdownRenderer: React.VFC<MarkdownRendererProps> = ({
   source,
-  components,
+  ...props
 }) => {
-  const content = hydrate(source, { components })
-
-  return <>{content}</>
+  return <MDXRemote {...source} {...props} />
 }
 
 export default MarkdownRenderer

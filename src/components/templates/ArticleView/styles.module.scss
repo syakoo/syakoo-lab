@@ -81,6 +81,21 @@
           text-decoration: underline;
         }
       }
+      table {
+        margin: 0.5em auto;
+        border-collapse: collapse;
+        border-spacing: 0;
+        tr {
+          border: solid 1px var(--gray2);
+          cursor: pointer;
+    
+          th,
+          td {
+            border: solid 1px var(--gray2);
+            padding: 0.2em 0.5em;
+          }
+        }
+      }
     }
   }
 }

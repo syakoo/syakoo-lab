@@ -7,6 +7,7 @@ import type { Article, AboutMeInfo, Source } from '@/types'
 
 import styles from './styles.module.scss'
 import { Card } from './components/Card'
+import { CodeSandbox } from './components/CodeSandbox'
 
 // ___________
 //
@@ -17,6 +18,7 @@ interface ArticleViewProps {
 
 const components: Record<string, React.ReactNode> = {
   Card,
+  CodeSandbox,
 }
 
 // ___________

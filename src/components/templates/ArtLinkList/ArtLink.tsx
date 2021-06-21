@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import { reSize } from '@/logics/utils/img'
-import { incrementArtFav } from '@/logics/api/favArt'
+import { api } from '@/logics/api'
 import { HeartBtn } from '@/components/molecules/HeartBtn'
 import type { ArtInfo } from '@/types'
 
@@ -19,7 +19,7 @@ interface ArtLinkProps {
 //
 const ArtLinkComp: React.VFC<ArtLinkProps> = ({ artInfo }) => {
   const incrementFav = useCallback(async () => {
-    await incrementArtFav(artInfo.id)
+    await api.artFav.incrementArtFav(artInfo.id)
   }, [artInfo])
 
   const size = useMemo(() => {

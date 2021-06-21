@@ -1,7 +1,12 @@
+import dotenv from 'dotenv'
+
 import { collectArticlesInfo } from './articles'
 import { collectArtInfos } from './arts'
 import { collectTags } from './tags'
 import { writeFile } from './utils/fileSystem'
+import { api } from './api'
+
+dotenv.config()
 
 // ___________
 //
@@ -25,6 +30,10 @@ const execArts = async () => {
     tags,
   }
   writeFile('arts', 'manifest.json', JSON.stringify(manifest))
+
+  // update DB
+  const artIds = artInfos.map((art) => art.id)
+  await api.artFav.syncArts(artIds)
 }
 
 ;(async function () {

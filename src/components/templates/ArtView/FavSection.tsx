@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from 'react'
 
 import { HeartBtn } from '@/components/molecules/HeartBtn'
-import { getArtFav, incrementArtFav } from '@/logics/api/favArt'
+import { api } from '@/logics/api'
 
 import styles from './styles.module.scss'
 
@@ -23,12 +23,12 @@ const FavSectionComp: React.VFC<FavSection> = ({ artId }) => {
       }
       return f + 1
     })
-    await incrementArtFav(artId)
+    await api.artFav.incrementArtFav(artId)
   }, [setFav])
 
   useEffect(() => {
-    getArtFav(artId).then((value) => {
-      setFav(value)
+    api.artFav.fetchArtFav(artId).then((resp) => {
+      setFav(resp.fav)
     })
   }, [artId, setFav])
 

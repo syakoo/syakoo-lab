@@ -13,6 +13,7 @@ type APIIncrementArtFav = {
 export async function incrementArtFav(artId: string) {
   const response = await axios.put<APIIncrementArtFav>(
     withAPIRoot('/art-fav'),
+    {},
     {
       params: { artId },
     }

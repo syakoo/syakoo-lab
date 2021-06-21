@@ -10,9 +10,11 @@
     align-items: center;
 
     .title {
+      a {
+        text-decoration: none;
+      }
       svg {
-        font-weight: bold;
-        height: 2rem;
+        height: 1.5rem;
         vertical-align: bottom;
       }
     }

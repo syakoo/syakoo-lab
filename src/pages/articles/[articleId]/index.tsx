@@ -45,7 +45,11 @@ const ArticlePage: NextPage<ArticlePageProps> = ({
 }) => {
   return (
     <>
-      <CustomHead url={`articles/${article.id}`} title={article.title} />
+      <CustomHead
+        url={`articles/${article.id}`}
+        title={article.title}
+        noIndex={article.tags.includes('雑記')}
+      />
       <DoubleLayout>
         <MainBlock>
           <ArticleView article={article} aboutme={aboutme} />

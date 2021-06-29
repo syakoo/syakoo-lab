@@ -16,7 +16,7 @@ type ArtsPageProps = {
 //
 const ArtsPage: NextPage<ArtsPageProps> = ({ artInfos }) => (
   <SingleLayout isLarge>
-    <CustomHead url="/arts" title="イラスト一覧" />
+    <CustomHead url="/arts" title="イラスト一覧" noIndex />
     <ArtLinkList artInfos={artInfos} />
   </SingleLayout>
 )

@@ -8,6 +8,7 @@ interface CustomHeadProps {
   title: string
   card?: 'summary_large_image' | 'summary'
   imgUrl?: string
+  noIndex?: boolean
 }
 
 // ___________
@@ -17,6 +18,7 @@ const CustomHead: React.VFC<CustomHeadProps> = ({
   title,
   card,
   imgUrl,
+  noIndex,
 }) => {
   const toFullPath = (path: string) => `https://syakoo-lab.com${path}`
   return (
@@ -37,6 +39,7 @@ const CustomHead: React.VFC<CustomHeadProps> = ({
         name="twitter:image"
         content={imgUrl ? toFullPath(imgUrl) : toFullPath('/logo.png')}
       />
+      {noIndex && <meta name="robots" content="noindex" />}
     </Head>
   )
 }

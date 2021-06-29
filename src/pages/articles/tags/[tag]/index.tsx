@@ -35,6 +35,7 @@ const ArticlesFilteredTagPage: NextPage<ArticlesFilteredTagPageProps> = ({
       <CustomHead
         url={`articles/tags/${selectedTag}`}
         title={`記事一覧#${selectedTag}`}
+        noIndex
       />
       <DoubleLayout>
         <MainBlock>
@@ -61,22 +62,21 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-export const getStaticProps: GetStaticProps<ArticlesFilteredTagPageProps> = async ({
-  params,
-}) => {
-  const tag = params?.tag as string
-  const { posts, tags } = await readArticlesManifest()
-  const filteredPosts = posts.filter((post) => post.tags.includes(tag))
-  const artInfos = await getRecentlyArts()
+export const getStaticProps: GetStaticProps<ArticlesFilteredTagPageProps> =
+  async ({ params }) => {
+    const tag = params?.tag as string
+    const { posts, tags } = await readArticlesManifest()
+    const filteredPosts = posts.filter((post) => post.tags.includes(tag))
+    const artInfos = await getRecentlyArts()
 
-  return {
-    props: {
-      articleInfos: filteredPosts,
-      artInfos,
-      allTags: tags,
-      selectedTag: tag,
-    },
+    return {
+      props: {
+        articleInfos: filteredPosts,
+        artInfos,
+        allTags: tags,
+        selectedTag: tag,
+      },
+    }
   }
-}
 
 export default ArticlesFilteredTagPage

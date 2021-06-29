@@ -30,7 +30,7 @@ const ArticlesPage: NextPage<ArticlesPageProps> = ({
 }) => {
   return (
     <>
-      <CustomHead url="/articles" title="記事一覧" />
+      <CustomHead url="/articles" title="記事一覧" noIndex />
       <DoubleLayout>
         <MainBlock>
           <ArticleLinkList articles={articleInfos} />

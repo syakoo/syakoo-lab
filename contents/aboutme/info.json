@@ -16,6 +16,11 @@
       "name": "Github",
       "url": "https://github.com/syakoo",
       "imgUrl": "/img/links/github.png"
+    },
+    {
+      "name": "AtCoder",
+      "url": "https://atcoder.jp/users/syakoo",
+      "imgUrl": "/img/links/atcoder.png"
     }
   ],
   "certificates": [

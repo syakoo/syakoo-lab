@@ -9,7 +9,7 @@ import { PrivacyPolicy } from '@/components/templates/PrivacyPolicy'
 const PrivacyPolicyPage: NextPage = () => {
   return (
     <SingleLayout>
-      <CustomHead url="/privacy-policy" title="プライバシーポリシー" />
+      <CustomHead url="/privacy-policy" title="プライバシーポリシー" noIndex />
       <PrivacyPolicy />
     </SingleLayout>
   )

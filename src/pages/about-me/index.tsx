@@ -9,6 +9,8 @@ import { TimeLine } from '@/components/templates/TimeLine'
 import { getAboutMeInfo, getAboutMeSource } from '@/logics/aboutme'
 import type { AboutMeInfo, Source } from '@/types'
 
+import styles from './styles.module.scss'
+
 // ___________
 //
 type AboutMePageProps = {
@@ -23,16 +25,26 @@ const AboutMePage: NextPage<AboutMePageProps> = ({
   descriptionSource,
 }) => (
   <SingleLayout>
-    <CustomHead url="/about-me" title="About Me" />
-    <AboutMe
-      name={aboutmeInfo.name}
-      imgUrl={aboutmeInfo.imgUrl}
-      descriptionSource={descriptionSource}
-      links={aboutmeInfo.links}
-    />
-    <WishList />
-    <Certificates certificates={aboutmeInfo.certificates} />
-    <TimeLine timeline={aboutmeInfo.timeline} />
+    <div className={styles.CardList}>
+      <div>
+        <CustomHead url="/about-me" title="About Me" />
+      </div>
+      <div>
+        <AboutMe
+          name={aboutmeInfo.name}
+          imgUrl={aboutmeInfo.imgUrl}
+          descriptionSource={descriptionSource}
+          links={aboutmeInfo.links}
+        />
+      </div>
+      <WishList />
+      <div>
+        <Certificates certificates={aboutmeInfo.certificates} />
+      </div>
+      <div>
+        <TimeLine timeline={aboutmeInfo.timeline} />
+      </div>
+    </div>
   </SingleLayout>
 )
 

@@ -2,6 +2,7 @@
   border: 1px solid var(--primary);
   padding: 0.5rem;
   border-radius: 5px;
+  margin: 2em 0px;
 
   &[data-type='caution'] {
     border: 1px solid var(--red);
@@ -15,7 +16,9 @@
       color: var(--red);
       margin-bottom: 0.5em;
     }
-    p, ul, pre {
+    p,
+    ul,
+    pre {
       margin: 0.25em 0px;
     }
   }
@@ -32,12 +35,15 @@
       color: var(--primary);
       margin-bottom: 0.5em;
     }
-    p, ul, pre {
+    p,
+    ul,
+    pre {
       margin: 0.25em 0px;
     }
-    h3, h4 {
+    h3,
+    h4 {
       margin-top: 1em;
-      margin-bottom: .5em;
+      margin-bottom: 0.5em;
     }
   }
 
@@ -53,7 +59,9 @@
       color: var(--green);
       margin-bottom: 0.5em;
     }
-    p, ul, pre {
+    p,
+    ul,
+    pre {
       margin: 0.25em 0px;
     }
   }

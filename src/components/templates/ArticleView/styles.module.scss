@@ -26,14 +26,19 @@
         border-bottom: 1px solid var(--gray2);
         font-size: 1.75rem;
         &:before {
+          background: linear-gradient(
+            to right bottom,
+            var(--primary),
+            var(--secondary)
+          );
+          border-radius: 2px;
           content: '';
           display: inline-block;
-          margin-right: 0.5rem;
-          width: 4px;
           height: 1.5rem;
-          background-color: var(--primary);
+          margin-right: 0.5rem;
           position: relative;
           top: 3px;
+          width: 10px;
         }
       }
       .twitter-tweet {
@@ -55,12 +60,6 @@
       }
       strong {
         color: var(--primary);
-      }
-      code {
-        border: 1px solid var(--gray3);
-        border-radius: 5px;
-        padding: 2px 0.25rem;
-        margin: 0px 5px;
       }
       pre {
         code {
@@ -88,7 +87,7 @@
         tr {
           border: solid 1px var(--gray2);
           cursor: pointer;
-    
+
           th,
           td {
             border: solid 1px var(--gray2);

@@ -7,7 +7,7 @@ import { Footer } from '@/components/templates/Footer'
 import { GA_ID, pageViewEvent } from '@/logics/analytics'
 
 import '../../public/style.css'
-import '../../public/prism.css'
+import '../../public/code.css'
 
 // ___________
 //

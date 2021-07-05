@@ -12,7 +12,9 @@ export const generateSitemapXML = async () => {
 
   const { posts } = await readArticlesManifest()
   posts
-    .filter((post) => post.siteName === "Syakoo's Lab")
+    .filter(
+      (post) => post.siteName === "Syakoo's Lab" && !post.tags.includes('雑記')
+    )
     .forEach((post) => {
       xml += `
     <url>

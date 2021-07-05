@@ -30,7 +30,7 @@ pre[class*='language-'] {
 }
 pre[class*='language-'] > code {
   position: relative;
-  background-color: var(--black);
+  background-color: #2e333b;
   background-size: 3em 3em;
   background-origin: content-box;
   background-attachment: local;

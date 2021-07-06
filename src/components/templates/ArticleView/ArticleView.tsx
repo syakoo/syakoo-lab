@@ -38,7 +38,10 @@ const ArticleView: React.VFC<ArticleViewProps> = ({ article, aboutme }) => {
   return (
     <article className={styles.article}>
       <div className={styles.header}>
-        <div className={styles.date}>{article.published}</div>
+        <div className={styles.date}>
+          <span>{`${article.published} 公開`}</span>
+          {article.updated && `, ${article.updated} 更新`}
+        </div>
         <h1 className={styles.title}>{article.title}</h1>
         <TagList tags={article.tags} baseUrl="/articles" />
       </div>

@@ -58,11 +58,13 @@ export const collectArticlesInfo = async () => {
     'Qiita'
   )
 
+  // 日付でソートする
   const result = articlesInfo
     .concat(qiitaArticles)
     .sort(
       (art1, art2) =>
-        new Date(art2.published).getTime() - new Date(art1.published).getTime()
+        new Date(art2.updated ? art2.updated : art2.published).getTime() -
+        new Date(art1.updated ? art1.updated : art1.published).getTime()
     )
 
   return result

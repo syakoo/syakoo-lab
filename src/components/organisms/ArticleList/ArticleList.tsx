@@ -41,7 +41,9 @@ const ArticleList: React.VFC<ArticleListProps> = ({ articles }) => {
                 </div>
                 <h3 className={styles.title}>{article.title}</h3>
                 <TagList tags={article.tags} />
-                <span className={styles.date}>{article.published}</span>
+                <span className={styles.date}>
+                  {article.updated ? article.updated : article.published}
+                </span>
               </div>
             </a>
           </Link>

@@ -3,15 +3,18 @@
   overflow: hidden;
   background-color: var(--bg2);
   position: relative;
-  max-width: 280px;
-  max-height: 240px;
+  width: 250px;
+  height: 200px;
   margin: auto;
   a > div {
     vertical-align: bottom;
+    height: 100%;
   }
   .img {
     transform: scale(1.5);
     width: 300px;
+    height: auto !important;
+    max-height: none !important;
     animation: fadeInOut 60s 0s ease-in-out infinite;
   }
   .text {

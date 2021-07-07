@@ -51,10 +51,10 @@ const PreviewArt: React.VFC<PreviewArtProps> = ({ artInfos }) => {
             alt="イラスト一覧へ"
             title="イラスト一覧へ"
             width={imgSize.width}
-            height={imgSize.height}
+            height="fill"
             onClick={onClick}
           />
-          <div className={styles.text}>イラスト一覧へ</div>
+          <span className={styles.text}>イラスト一覧へ</span>
         </a>
       </Link>
     </div>

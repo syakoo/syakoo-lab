@@ -1,9 +1,12 @@
 import dotenv from 'dotenv'
 
+import fs from 'fs'
+
 import { collectArticlesInfo } from './articles'
 import { collectArtInfos } from './arts'
 import { collectTags } from './tags'
 import { writeFile } from './utils/fileSystem'
+import { generateSitemapXML } from './sitemap'
 import { api } from './api'
 
 dotenv.config()
@@ -19,6 +22,9 @@ const execArticles = async () => {
     tags,
   }
   writeFile('articles', 'manifest.json', JSON.stringify(manifest))
+  // Generate a sitemap
+  const sitemapXML = await generateSitemapXML(articleInfos)
+  fs.writeFileSync('./public/sitemap.xml', sitemapXML)
 }
 
 const execArts = async () => {

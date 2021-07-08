@@ -95,6 +95,20 @@
           }
         }
       }
+      details {
+        margin: 1.5rem 0px;
+        border-radius: 5px;
+        summary {
+          padding: 0.5em;
+          border-radius: 5px;
+          background-color: var(--gray);
+          border: 1px solid var(--gray);
+          cursor: pointer;
+          &:hover {
+            border: 1px solid var(--primary);
+          }
+        }
+      }
     }
   }
 }

@@ -22,9 +22,7 @@
 }
 
 body {
-  font-family: 'Inter', 'BlinkMacSystemFont', 'Hiragino Kaku Gothic ProN',
-    'Hiragino Sans', Meiryo, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji';
+  font-family: 'Roboto', sans-serif;
   margin: 0px;
   color: var(--font);
   background-color: var(--bg1);

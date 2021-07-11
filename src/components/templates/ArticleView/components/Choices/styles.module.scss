@@ -1,0 +1,36 @@
+.Choice {
+  display: block;
+  border: 1px solid var(--gray3);
+  background-color: var(--bg2);
+  border-radius: 15px;
+  margin: 6px 0px;
+  padding: 2px 12px;
+  width: 100%;
+  min-height: 2rem;
+
+  p {
+    margin: 0px;
+  }
+
+  &:hover:not(:disabled) {
+    cursor: pointer;
+    border: 1px solid var(--primary);
+    background-color: var(--gray);
+  }
+
+  &:disabled {
+    color: currentColor;
+  }
+  &[data-mode='UNSELECTED'] {
+    border: 1px solid var(--gray);
+    background-color: var(--gray);
+  }
+  &[data-mode='CORRECT'] {
+    border: 1px solid var(--correct);
+    background-color: var(--correct);
+  }
+  &[data-mode='INCORRECT'] {
+    border: 1px solid var(--incorrect);
+    background-color: var(--incorrect);
+  }
+}

@@ -6,19 +6,13 @@ import { AboutMeShort } from '@/components/templates/AboutMe'
 import type { Article, AboutMeInfo, Source } from '@/types'
 
 import styles from './styles.module.scss'
-import { Card } from './components/Card'
-import { CodeSandbox } from './components/CodeSandbox'
+import { components } from './components'
 
 // ___________
 //
 interface ArticleViewProps {
   article: Article
   aboutme: { info: AboutMeInfo; source: Source }
-}
-
-const components: Record<string, React.ReactNode> = {
-  Card,
-  CodeSandbox,
 }
 
 // ___________

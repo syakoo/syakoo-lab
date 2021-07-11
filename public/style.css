@@ -14,6 +14,8 @@
   --red: #f33e62;
   --cyan: rgb(0, 171, 238);
   --green: #2ab435;
+  --correct: #2ab43560;
+  --incorrect: #f33e6260;
 
   --width-sm: 850px;
   --width-md: 1200px;

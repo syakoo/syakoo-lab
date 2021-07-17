@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Noto Sans JP', 'Roboto', sans-serif;
   margin: 0px;
   color: var(--font);
   background-color: var(--bg1);

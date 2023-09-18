@@ -1,3 +1,4 @@
 {
   "cSpell.words": ["autodocs", "commitlint", "astro"],
+  "editor.formatOnSave": false
 }

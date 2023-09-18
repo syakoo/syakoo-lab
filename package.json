@@ -3,17 +3,37 @@
   "type": "module",
   "version": "6.0.0",
   "scripts": {
+    "prepare": "simple-git-hooks",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
+  "simple-git-hooks": {
+    "commit-msg": "pnpm exec commitlint --edit ${1} && pnpm exec emoji-prefix-commit",
+    "pre-commit": "pnpm dlx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,astro,cjs,mjs}": [
+      "eslint --fix"
+    ],
+    "*.{js,ts,astro,cjs,mjs,css}": [
+      "prettier --write --plugin=prettier-plugin-astro"
+    ]
+  },
   "dependencies": {
     "astro": "^3.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0"
+    "@commitlint/config-conventional": "^17.7.0",
+    "@syakoo/emoji-prefix-commit": "github:syakoo/emoji-prefix-commit",
+    "eslint": "^8.49.0",
+    "eslint-plugin-astro": "^0.29.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-astro": "^0.12.0",
+    "simple-git-hooks": "^2.9.0"
   }
 }

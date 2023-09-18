@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ["plugin:astro/recommended"],
+  extends: ["plugin:astro/recommended", "plugin:storybook/recommended"],
   parserOptions: {
     files: ["astro.config.mjs"],
     sourceType: "module",

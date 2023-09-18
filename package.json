@@ -11,7 +11,9 @@
     "astro": "astro",
     "format": "prettier --write . --plugin=prettier-plugin-astro",
     "lint": "eslint --ext .js,.ts,.astro src",
-    "lint:fix": "eslint --ext .js,.ts,.astro --fix src"
+    "lint:fix": "eslint --ext .js,.ts,.astro --fix src",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "simple-git-hooks": {
     "commit-msg": "pnpm exec commitlint --edit ${1} && pnpm exec emoji-prefix-commit",
@@ -35,6 +37,14 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "@storybook/addon-essentials": "^7.4.2",
+    "@storybook/addon-interactions": "^7.4.2",
+    "@storybook/addon-links": "^7.4.2",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.4.2",
+    "@storybook/react": "^7.4.2",
+    "@storybook/react-vite": "^7.4.2",
+    "@storybook/testing-library": "^0.2.1",
     "@syakoo/emoji-prefix-commit": "github:syakoo/emoji-prefix-commit",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
@@ -42,9 +52,12 @@
     "@vanilla-extract/vite-plugin": "^3.9.0",
     "eslint": "^8.49.0",
     "eslint-plugin-astro": "^0.29.0",
+    "eslint-plugin-storybook": "^0.6.13",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0",
-    "simple-git-hooks": "^2.9.0"
+    "prop-types": "^15.8.1",
+    "simple-git-hooks": "^2.9.0",
+    "storybook": "^7.4.2"
   }
 }

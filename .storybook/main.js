@@ -22,4 +22,5 @@ const config = {
     return config;
   },
 };
+
 export default config;

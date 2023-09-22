@@ -1,4 +1,5 @@
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 /** @type { import('@storybook/react-vite').StorybookConfig } */
 const config = {
@@ -6,7 +7,6 @@ const config = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
   ],
   framework: {
@@ -18,6 +18,7 @@ const config = {
   },
   async viteFinal(config) {
     config.plugins.push(vanillaExtractPlugin());
+    config.plugins.push(tsconfigPaths());
 
     return config;
   },

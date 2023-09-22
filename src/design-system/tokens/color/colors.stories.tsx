@@ -3,7 +3,7 @@ import type { Meta } from "@storybook/react";
 import { colors } from "./colors";
 
 const meta = {
-  title: "tokens/colors",
+  title: "design-system/tokens/colors",
 } satisfies Meta;
 
 export default meta;

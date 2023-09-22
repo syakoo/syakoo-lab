@@ -5,7 +5,7 @@ import { sizes } from "./sizes";
 import { spaces } from "./spaces";
 
 const meta = {
-  title: "tokens/sizes",
+  title: "design-system/tokens/sizes",
 } satisfies Meta;
 
 export default meta;

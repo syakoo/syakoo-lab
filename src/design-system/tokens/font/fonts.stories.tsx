@@ -4,7 +4,7 @@ import { fontFamilies } from "./fontFamilies";
 import { fontSizes } from "./fontSizes";
 
 const meta = {
-  title: "tokens/fonts",
+  title: "design-system/tokens/fonts",
 } satisfies Meta;
 
 export default meta;

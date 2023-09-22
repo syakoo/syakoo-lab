@@ -9,18 +9,14 @@ const meta = {
 export default meta;
 
 export const Default = () => {
-  return (
-    <>
-      <Link href="#">Default Link</Link>
-    </>
-  );
+  return <Link href="#">Default Link</Link>;
 };
 
 export const Variants = () => {
   return (
     <>
       <div>
-        <Link href="#" colored>
+        <Link colored href="#">
           Colored Link
         </Link>
       </div>

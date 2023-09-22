@@ -18,8 +18,8 @@ export const Link: React.FC<LinkProps> = ({
 }) => {
   return (
     <a
-      href={href}
       className={`${linkStyle({ colored, underlined, noHovered })}`}
+      href={href}
     >
       {children}
     </a>

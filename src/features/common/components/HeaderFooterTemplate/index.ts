@@ -1,0 +1,1 @@
+export { HeaderFooterTemplate } from "./HeaderFooterTemplate";

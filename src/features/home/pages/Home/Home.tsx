@@ -1,10 +1,5 @@
-import "@/globalStyle.css";
-import { Header } from "@/features/common/components/Header";
+import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 
 export const Home: React.FC = () => {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+  return <HeaderFooterTemplate>Home page</HeaderFooterTemplate>;
 };

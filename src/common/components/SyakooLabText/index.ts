@@ -1,0 +1,1 @@
+export { SyakooLabText } from "./SyakooLabText";

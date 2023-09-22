@@ -2,6 +2,7 @@
 import type React from "react";
 // NOTE: これもやりすぎ
 import "@/globalStyle.css";
+import { Footer } from "./Footer";
 import { Header } from "./Header";
 import {
   containerFooterStyle,
@@ -22,6 +23,8 @@ export const HeaderFooterTemplate: React.FC<HeaderFooterTemplateProps> = ({
       <Header />
     </div>
     <div className={containerMainStyle}>{children}</div>
-    <div className={containerFooterStyle}></div>
+    <div className={containerFooterStyle}>
+      <Footer />
+    </div>
   </div>
 );

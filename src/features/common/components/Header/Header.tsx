@@ -1,7 +1,7 @@
 import React from "react";
-import { SyakooLabText } from "@/common/components/SyakooLabText";
 import { Center, Container, Row } from "@/design-system/layout";
 import { Link } from "@/design-system/ui";
+import { SyakooLabText } from "@/features/common/components/SyakooLabText";
 
 export const Header: React.FC = () => {
   return (

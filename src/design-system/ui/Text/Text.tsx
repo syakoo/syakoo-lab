@@ -1,6 +1,7 @@
 import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { textStyle } from "./Text.css";
+import { PolymorphicComponent } from "@/utils/polymorphic-component";
 
 type TextProps = {
   children: React.ReactNode;
@@ -13,13 +14,16 @@ export const Text: React.FC<TextProps> = ({
   color = "primary",
   size = "100",
   weight = "normal",
-}) => {
-  const Tag = as;
-
-  // NOTE: Tag はプリミティブなコンポーネントになる
-  // eslint-disable-next-line react/forbid-component-props
-  return <Tag className={textStyle({ color, size, weight })}>{children}</Tag>;
-};
+}) => (
+  <PolymorphicComponent
+    as={as}
+    // NOTE: polymorphic component なのでヨシ
+    // eslint-disable-next-line react/forbid-component-props
+    className={textStyle({ color, size, weight })}
+  >
+    {children}
+  </PolymorphicComponent>
+);
 
 export const H1: React.FC<TextProps> = ({
   as = "h1",

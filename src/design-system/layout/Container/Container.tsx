@@ -1,9 +1,10 @@
 import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { containerStyle } from "./Container.css";
+import { PolymorphicComponent } from "@/utils/polymorphic-component";
 
 type ContainerProps = {
-  as?: keyof JSX.IntrinsicElements;
+  as?: React.ElementType;
   children: React.ReactNode;
 } & RecipeVariants<typeof containerStyle>;
 
@@ -15,14 +16,13 @@ export const Container: React.FC<ContainerProps> = ({
   children,
   size = "100",
   ...otherVariantProps
-}) => {
-  const Tag = as;
-
-  return (
-    // NOTE: Tag はプリミティブな要素
+}) => (
+  <PolymorphicComponent
+    as={as}
+    // NOTE: polymorphic component なのでヨシ
     // eslint-disable-next-line react/forbid-component-props
-    <Tag className={containerStyle({ size, ...otherVariantProps })}>
-      {children}
-    </Tag>
-  );
-};
+    className={containerStyle({ size, ...otherVariantProps })}
+  >
+    {children}
+  </PolymorphicComponent>
+);

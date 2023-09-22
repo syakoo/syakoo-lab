@@ -1,6 +1,7 @@
 import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { flexItemStyle, flexStyle } from "./Flex.css";
+import { PolymorphicComponent } from "@/utils/polymorphic-component";
 
 type FlexProps = {
   as?: keyof JSX.IntrinsicElements;
@@ -36,13 +37,16 @@ export const FlexItem: React.FC<FlexItemProps> = ({
   as = "div",
   children,
   ...variantProps
-}) => {
-  const Tag = as;
-
-  // NOTE: Tag はプリミティブな要素
-  // eslint-disable-next-line react/forbid-component-props
-  return <Tag className={flexItemStyle(variantProps)}>{children}</Tag>;
-};
+}) => (
+  <PolymorphicComponent
+    as={as}
+    // NOTE: polymorphic component なのでヨシ
+    // eslint-disable-next-line react/forbid-component-props
+    className={flexItemStyle(variantProps)}
+  >
+    {children}
+  </PolymorphicComponent>
+);
 
 /**
  * 横向きの Flex レイアウトコンポーネント

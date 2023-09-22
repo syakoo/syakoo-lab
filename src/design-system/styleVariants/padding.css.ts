@@ -2,8 +2,8 @@
  * vanilla-extract の styleVariants はそれだけで CSS クラスを生成する。
  * そのため、ユーティリティ CSS のような Variants での管理を行う。
  */
-import { tokens } from "@design-system/tokens";
 import { styleVariants } from "@vanilla-extract/css";
+import { tokens } from "@/design-system/tokens";
 
 export const paddingLeftVariants = styleVariants(tokens.spaces, (value) => ({
   paddingLeft: value,

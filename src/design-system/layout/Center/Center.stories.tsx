@@ -1,7 +1,7 @@
 import React from "react";
-import { tokens } from "@design-system/tokens";
 import type { Meta } from "@storybook/react";
 import { Center } from ".";
+import { tokens } from "@/design-system/tokens";
 
 const meta = {
   component: Center,

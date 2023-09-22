@@ -1,7 +1,7 @@
-import { paddingVariantsCollection } from "@design-system/styleVariants/padding.css";
-import { tokens } from "@design-system/tokens";
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { paddingVariantsCollection } from "@/design-system/styleVariants/padding.css";
+import { tokens } from "@/design-system/tokens";
 
 export const containerStyle = recipe({
   base: {

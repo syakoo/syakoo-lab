@@ -53,7 +53,7 @@ export const Palette = () => {
       {Object.entries(colors).map(([key1, value1]) => {
         // value が string <=> カラーコード
         if (typeof value1 === "string") {
-          return <ColorInfo key={value1} name={key1} color={value1} />;
+          return <ColorInfo key={value1} color={value1} name={key1} />;
         }
 
         return (
@@ -74,8 +74,8 @@ export const Palette = () => {
                   return (
                     <ColorInfo
                       key={key2}
-                      name={[key1, key2].join(".")}
                       color={value2}
+                      name={[key1, key2].join(".")}
                     />
                   );
                 }
@@ -88,8 +88,8 @@ export const Palette = () => {
                         return (
                           <ColorInfo
                             key={key3}
-                            name={[key1, key2, key3].join(".")}
                             color={value3}
+                            name={[key1, key2, key3].join(".")}
                           />
                         );
                       }

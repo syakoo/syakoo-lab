@@ -16,6 +16,8 @@ export const Text: React.FC<TextProps> = ({
 }) => {
   const Tag = as;
 
+  // NOTE: Tag はプリミティブなコンポーネントになる
+  // eslint-disable-next-line react/forbid-component-props
   return <Tag className={textStyle({ color, size, weight })}>{children}</Tag>;
 };
 

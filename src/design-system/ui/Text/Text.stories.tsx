@@ -50,7 +50,9 @@ export const Sizes = () => {
 export const Weights = () => {
   return (
     <>
-      <Text weight="normal">normal (default)</Text>
+      <Text size="100" weight="normal">
+        normal (default)
+      </Text>
       <Text weight="bold">bold</Text>
     </>
   );

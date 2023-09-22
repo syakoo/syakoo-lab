@@ -10,8 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "format": "prettier --write . --plugin=prettier-plugin-astro",
-    "lint": "eslint --ext .js,.ts,.astro src",
-    "lint:fix": "eslint --ext .js,.ts,.astro --fix src",
+    "lint": "eslint --ext .js,.ts,.tsx,.astro src",
+    "lint:fix": "eslint --ext .js,.ts,.tsx,.astro --fix src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -20,10 +20,10 @@
     "pre-commit": "pnpm dlx lint-staged"
   },
   "lint-staged": {
-    "*.{js,ts,astro,cjs,mjs}": [
+    "*.{js,ts,tsx,astro,cjs,mjs}": [
       "eslint --fix"
     ],
-    "*.{js,ts,astro,cjs,mjs,css}": [
+    "*.{js,ts,tsx,astro,cjs,mjs,css}": [
       "prettier --write --plugin=prettier-plugin-astro"
     ]
   },
@@ -52,10 +52,12 @@
     "@syakoo/emoji-prefix-commit": "github:syakoo/emoji-prefix-commit",
     "@types/react": "^18.2.21",
     "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^6.7.0",
     "@vanilla-extract/vite-plugin": "^3.9.0",
     "eslint": "^8.49.0",
     "eslint-plugin-astro": "^0.29.0",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-storybook": "^0.6.13",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",

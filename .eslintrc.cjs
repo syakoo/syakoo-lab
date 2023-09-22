@@ -1,9 +1,30 @@
 module.exports = {
-  extends: ["plugin:astro/recommended", "plugin:storybook/recommended"],
+  env: {
+    browser: true,
+    es2022: true,
+    node: true,
+  },
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    files: ["astro.config.mjs"],
+    ecmaVersion: "latest",
     sourceType: "module",
-    ecmaVersion: 2020,
+  },
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:astro/recommended",
+    "plugin:storybook/recommended",
+  ],
+  plugins: ["@typescript-eslint", "react"],
+  rules: {
+    "react/jsx-sort-props": ["error", { reservedFirst: true }],
+    "react/forbid-component-props": ["error"],
+    "react/jsx-curly-brace-presence": ["error", { props: "never" }],
+    "react/jsx-handler-names": ["error"],
+    "react/jsx-no-leaked-render": ["error"],
+    "react/jsx-no-useless-fragment": ["error"],
   },
   overrides: [
     {
@@ -20,4 +41,9 @@ module.exports = {
       parser: "@typescript-eslint/parser",
     },
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 };

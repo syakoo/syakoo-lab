@@ -16,14 +16,14 @@ export const FontFamilies = () => {
     <div>
       <div>
         <input
-          type="text"
-          value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           style={{
             padding: "4px",
             border: "gray 1px solid",
             color: "gray",
           }}
+          type="text"
+          value={inputValue}
         />
       </div>
 
@@ -60,14 +60,14 @@ export const FontSizes = () => {
     <div>
       <div>
         <input
-          type="text"
-          value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           style={{
             padding: "4px",
             border: "gray 1px solid",
             color: "gray",
           }}
+          type="text"
+          value={inputValue}
         />
       </div>
 

@@ -1,6 +1,6 @@
 import React from "react";
-import { textStyle } from "./Text.css";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
+import { textStyle } from "./Text.css";
 
 type TextProps = {
   children: React.ReactNode;

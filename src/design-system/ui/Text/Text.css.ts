@@ -1,5 +1,5 @@
-import { styleVariants } from "@vanilla-extract/css";
 import { tokens } from "@design-system/tokens";
+import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 export const textStyle = recipe({

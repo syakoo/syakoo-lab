@@ -6,7 +6,6 @@ globalStyle("html, body", {
   color: tokens.colors.text.primary,
   fontFamily: tokens.fontFamilies.primary,
   fontSize: tokens.fontSizes[100],
-  margin: 0,
 });
 
 globalStyle("img, svg", {

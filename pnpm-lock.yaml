@@ -17,6 +17,9 @@ dependencies:
   astro:
     specifier: ^3.1.0
     version: 3.1.0(@types/node@20.4.7)
+  probe-image-size:
+    specifier: ^7.2.3
+    version: 7.2.3
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -64,6 +67,9 @@ devDependencies:
   '@syakoo/emoji-prefix-commit':
     specifier: github:syakoo/emoji-prefix-commit
     version: github.com/syakoo/emoji-prefix-commit/12d9cd06efa6a83062bea59eb5979eaf8edabaab
+  '@types/probe-image-size':
+    specifier: ^7.2.1
+    version: 7.2.1
   '@types/react':
     specifier: ^18.2.21
     version: 18.2.21
@@ -112,6 +118,9 @@ devDependencies:
   storybook:
     specifier: ^7.4.2
     version: 7.4.2
+  vite:
+    specifier: ^4.4.9
+    version: 4.4.9(@types/node@20.4.7)
   vite-tsconfig-paths:
     specifier: ^4.2.1
     version: 4.2.1(typescript@5.2.2)(vite@4.4.9)
@@ -4286,6 +4295,12 @@ packages:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: false
 
+  /@types/needle@3.2.1:
+    resolution: {integrity: sha512-RETMl27VIoMo/HfT3UzizZHB0nYa5oOTrTHtDsTqBF1V8UpFVZyItRlxThI3QeyBLWplCZRn6BLj4OaIpCLjgg==}
+    dependencies:
+      '@types/node': 20.4.7
+    dev: true
+
   /@types/nlcst@1.0.1:
     resolution: {integrity: sha512-aVIyXt6pZiiMOtVByE4Y0gf+BLm1Cxc4ZLSK8VRHn1CgkO+kXbQwN/EBhQmhPdBMjFJCMBKtmNW2zWQuFywz8Q==}
     dependencies:
@@ -4316,6 +4331,13 @@ packages:
 
   /@types/pretty-hrtime@1.0.1:
     resolution: {integrity: sha512-VjID5MJb1eGKthz2qUerWT8+R4b9N+CHvGCzg9fn4kWZgaF9AhdYikQio3R7wV8YY1NsQKPaCwKz1Yff+aHNUQ==}
+    dev: true
+
+  /@types/probe-image-size@7.2.1:
+    resolution: {integrity: sha512-TrcjYgMlJbzUWs8XW2TrgxJ4yzJucRQcCQdE3jGUOFBGbDlvdumiQdxNgZ8saofLWiuEXRZUjY1z1ZkeWNq52A==}
+    dependencies:
+      '@types/needle': 3.2.1
+      '@types/node': 20.4.7
     dev: true
 
   /@types/prop-types@15.7.5:

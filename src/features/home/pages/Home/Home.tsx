@@ -1,3 +1,4 @@
+import "@/features/common/logics/globalSettings";
 import { Center, Container } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";

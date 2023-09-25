@@ -1,7 +1,7 @@
 import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { textStyle } from "./Text.css";
-import { PolymorphicComponent } from "@/utils/polymorphic-component";
+import { PolymorphicComponent } from "@/utils/polymorphicComponent";
 
 type TextProps = {
   children: React.ReactNode;

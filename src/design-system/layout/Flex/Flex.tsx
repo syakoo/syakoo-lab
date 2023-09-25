@@ -1,7 +1,7 @@
 import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { flexItemStyle, flexStyle } from "./Flex.css";
-import { PolymorphicComponent } from "@/utils/polymorphic-component";
+import { PolymorphicComponent } from "@/utils/polymorphicComponent";
 
 type FlexProps = {
   as?: keyof JSX.IntrinsicElements;

@@ -2,6 +2,7 @@
 import type React from "react";
 // NOTE: これもやりすぎ
 import "@/globalStyle.css";
+import "ress";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import {

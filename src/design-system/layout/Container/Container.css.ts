@@ -11,6 +11,11 @@ export const containerStyle = recipe({
     size: styleVariants(tokens.sizes, (value) => ({
       maxWidth: value,
     })),
+    center: {
+      true: {
+        margin: "auto",
+      },
+    },
     ...paddingVariantsCollection,
   },
 });

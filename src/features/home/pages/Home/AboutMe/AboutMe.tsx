@@ -2,7 +2,6 @@ import { aboutMeImageStyle } from "./AboutMe.css";
 import meImg from "./me.jpg";
 import { Col, Row } from "@/design-system/layout";
 import { Text } from "@/design-system/ui";
-import { resolveImageProps } from "@/libs/astro-image/resolveImageProps";
 
 export const AboutMe: React.FC = () => {
   return (
@@ -11,7 +10,9 @@ export const AboutMe: React.FC = () => {
         <img
           alt="me"
           className={aboutMeImageStyle}
-          {...resolveImageProps(meImg)}
+          height={meImg.height}
+          src={meImg.src}
+          width={meImg.width}
         />
         <div>
           <Text as="h3" size="400" weight="bold">

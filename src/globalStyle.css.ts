@@ -12,7 +12,3 @@ globalStyle("html, body", {
 globalStyle("img, svg", {
   verticalAlign: "middle",
 });
-
-globalStyle("*", {
-  boxSizing: "border-box",
-});

@@ -18,7 +18,7 @@ export const AboutMe: React.FC = () => {
           <Text as="h3" size="400" weight="bold">
             syakoo
           </Text>
-          {/* Links */}
+          {/* TODO: Links */}
         </div>
       </Row>
       <Text>

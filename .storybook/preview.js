@@ -1,5 +1,6 @@
 import { theme } from "./manager";
 import { tokens } from "../src/design-system/tokens";
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import "ress";
 import "../src/globalStyle.css";
 
@@ -28,6 +29,9 @@ const preview = {
     },
     docs: {
       theme,
+    },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
     },
   },
 };

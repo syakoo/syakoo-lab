@@ -17,7 +17,7 @@
   },
   "simple-git-hooks": {
     "commit-msg": "pnpm exec commitlint --edit ${1} && pnpm exec emoji-prefix-commit",
-    "pre-commit": "pnpm dlx lint-staged"
+    "pre-commit": "pnpm exec lint-staged"
   },
   "lint-staged": {
     "*.{js,ts,tsx,astro,cjs,mjs}": [

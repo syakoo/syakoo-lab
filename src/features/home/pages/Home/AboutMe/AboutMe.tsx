@@ -5,8 +5,8 @@ import { Text } from "@/design-system/ui";
 
 export const AboutMe: React.FC = () => {
   return (
-    <Col gap="200">
-      <Row gap="100">
+    <Col gap="100">
+      <Row>
         <img
           alt="me"
           className={aboutMeImageStyle}
@@ -14,12 +14,12 @@ export const AboutMe: React.FC = () => {
           src={meImg.src}
           width={meImg.width}
         />
-        <div>
+        <Col gap="100">
           <Text as="h3" size="400" weight="bold">
             syakoo
           </Text>
           {/* TODO: Links */}
-        </div>
+        </Col>
       </Row>
       <Text>
         気分駆動フロントエンドエンジニア。言語・フレームワーク仕様よりは設計やアルゴリズムなどの抽象的な部分に興味があります。

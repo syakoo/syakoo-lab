@@ -9,7 +9,7 @@ export const Home: React.FC = () => {
   return (
     <HeaderFooterTemplate>
       <Col align="stretch" gap="400">
-        <Container as="main" center paddingTop="200" paddingX="200" size="100">
+        <Container as="main" center paddingTop="400" paddingX="200" size="100">
           <Col gap="200">
             <Center>
               <SyakooLabLogoWithAnimation height="140px" />
@@ -22,7 +22,13 @@ export const Home: React.FC = () => {
             </Center>
           </Col>
         </Container>
-        <Container as="section" center paddingX="200" size="100">
+        <Container
+          as="section"
+          center
+          paddingBottom="400"
+          paddingX="200"
+          size="100"
+        >
           <Col gap="100">
             <H2>About Me</H2>
             <AboutMe />

@@ -16,6 +16,7 @@ export const FontFamilies = () => {
     <div>
       <div>
         <input
+          // eslint-disable-next-line react/jsx-handler-names
           onChange={(e) => setInputValue(e.target.value)}
           style={{
             padding: "4px",
@@ -60,6 +61,7 @@ export const FontSizes = () => {
     <div>
       <div>
         <input
+          // eslint-disable-next-line react/jsx-handler-names
           onChange={(e) => setInputValue(e.target.value)}
           style={{
             padding: "4px",

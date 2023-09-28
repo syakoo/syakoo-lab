@@ -22,7 +22,10 @@ module.exports = {
     "react/jsx-sort-props": ["error", { reservedFirst: true }],
     "react/forbid-component-props": ["error"],
     "react/jsx-curly-brace-presence": ["error", { props: "never" }],
-    "react/jsx-handler-names": ["error"],
+    "react/jsx-handler-names": [
+      "error",
+      { checkLocalVariables: true, checkInlineFunction: true },
+    ],
     "react/jsx-no-leaked-render": ["error"],
     "react/jsx-no-useless-fragment": ["error"],
     "import/order": [

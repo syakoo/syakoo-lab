@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer renders Sample 1`] = `
+<body>
+  <div>
+    <div
+      class="Center_centerStyle__7ojglz0"
+    >
+      <footer
+        class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_200__1b3ljla6 Container_containerStyle_variants_size_200__1b3ljla2 Container_containerStyle_paddingBottom_200__1b3ljlas padding_paddingBottomVariants_200__1i0pzy6k Container_containerStyle_paddingTop_300__1b3ljlan padding_paddingTopVariants_300__1i0pzy6f Container_containerStyle_paddingX_200__1b3ljlay padding_paddingXVariants_200__1i0pzy6q"
+      >
+        <div
+          class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_center__15ivi84r Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_spaceBetween__15ivi84n Flex_flexStyle_variants_justify_spaceBetween__15ivi843"
+        >
+          <span
+            class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+          >
+            © 2021 syakoo
+          </span>
+          <nav>
+            <div
+              class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_stretch__15ivi84t Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84k Flex_flexStyle_variants_justify_flexStart__15ivi840"
+            >
+              <a
+                class="Link_linkStyle__m4v9430"
+                href="/"
+              >
+                <span
+                  class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                >
+                  Home
+                </span>
+              </a>
+              <a
+                class="Link_linkStyle__m4v9430"
+                href="/privacy-policy"
+              >
+                <span
+                  class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                >
+                  Privacy Policy
+                </span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+`;

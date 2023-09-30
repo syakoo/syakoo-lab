@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderFooterTemplate renders Sample 1`] = `
+<body>
+  <div>
+    <div
+      class="HeaderFooterTemplate_containerStyle__1mfom0q0"
+    >
+      <div
+        class="HeaderFooterTemplate_containerHeaderStyle__1mfom0q1"
+      >
+        <div
+          class="Center_centerStyle__7ojglz0"
+        >
+          <header
+            class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_200__1b3ljla6 Container_containerStyle_variants_size_200__1b3ljla2 Container_containerStyle_paddingX_200__1b3ljlay padding_paddingXVariants_200__1i0pzy6q Container_containerStyle_paddingY_300__1b3ljla15 padding_paddingYVariants_300__1i0pzy6x"
+          >
+            <div
+              class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_center__15ivi84r Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_spaceBetween__15ivi84n Flex_flexStyle_variants_justify_spaceBetween__15ivi843 Flex_flexStyle_wrap_true__15ivi8411"
+            >
+              <a
+                class="Link_linkStyle__m4v9430"
+                href="/"
+              >
+                <svg
+                  height="24px"
+                  viewBox="0 0 400 63.381"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3.11-1.746V-11.9a19.515,19.515,0,0,0,6,3.475,19.282,19.282,0,0,0,6.538,1.158,14.5,14.5,0,0,0,3.38-.349,7.918,7.918,0,0,0,2.412-.968,4.222,4.222,0,0,0,1.444-1.46,3.643,3.643,0,0,0,.476-1.825,3.945,3.945,0,0,0-.762-2.38,8.2,8.2,0,0,0-2.079-1.936A21.722,21.722,0,0,0,17.393-17.9q-1.809-.825-3.9-1.682a19.924,19.924,0,0,1-7.95-5.427A11.849,11.849,0,0,1,2.92-32.754a12.334,12.334,0,0,1,1.428-6.11,12.13,12.13,0,0,1,3.888-4.205,17.433,17.433,0,0,1,5.7-2.428,29.273,29.273,0,0,1,6.855-.778,41.233,41.233,0,0,1,6.3.428,24.776,24.776,0,0,1,5.062,1.317v9.49a15.307,15.307,0,0,0-2.491-1.4,19.739,19.739,0,0,0-2.777-1,21.183,21.183,0,0,0-2.841-.587,20.1,20.1,0,0,0-2.682-.19,13.986,13.986,0,0,0-3.174.333,8.141,8.141,0,0,0-2.412.936A4.658,4.658,0,0,0,14.25-35.5a3.423,3.423,0,0,0-.54,1.888,3.607,3.607,0,0,0,.6,2.047,6.917,6.917,0,0,0,1.714,1.714,18.188,18.188,0,0,0,2.7,1.587q1.587.778,3.586,1.6a39.964,39.964,0,0,1,4.9,2.428,17.432,17.432,0,0,1,3.729,2.9,11.313,11.313,0,0,1,2.38,3.7,13.065,13.065,0,0,1,.825,4.84,12.965,12.965,0,0,1-1.444,6.4,11.724,11.724,0,0,1-3.92,4.189A17,17,0,0,1,23.026.1a33.291,33.291,0,0,1-6.935.7A38.561,38.561,0,0,1,8.966.159,21.509,21.509,0,0,1,3.11-1.746ZM69.983-32.5,56.78,2.6Q52.019,15.266,42.434,15.266a18.38,18.38,0,0,1-6-.825v-8a8.435,8.435,0,0,0,4.348,1.174,5.432,5.432,0,0,0,5.4-3.65L47.893-.063,34.69-32.5H45.8L51.86-12.727a25.7,25.7,0,0,1,.889,4.348h.127a30.318,30.318,0,0,1,1.047-4.285L60.049-32.5ZM101.055,0h-9.49V-4.666h-.127A10.592,10.592,0,0,1,81.758.793a10.126,10.126,0,0,1-7.443-2.682A9.61,9.61,0,0,1,71.6-9.045q0-9.458,11.2-10.918l8.823-1.174q0-5.332-5.776-5.332A19.717,19.717,0,0,0,74.807-23.01v-7.554a24.848,24.848,0,0,1,5.729-1.9,30.114,30.114,0,0,1,6.617-.825q13.9,0,13.9,13.87ZM91.628-13.2v-2.19l-5.9.762Q80.837-14,80.837-10.22a3.646,3.646,0,0,0,1.19,2.809,4.573,4.573,0,0,0,3.221,1.095,5.938,5.938,0,0,0,4.6-1.952A7.05,7.05,0,0,0,91.628-13.2ZM141.553,0H129.524L119.146-16.123h-.127V0H108.989V-48.115h10.029v30.627h.127l9.68-15.012h11.9L129.08-17.234ZM159.9.793q-8.125,0-12.775-4.554t-4.65-12.362q0-8.062,4.824-12.616t13.044-4.554q8.093,0,12.7,4.554t4.6,12.045q0,8.093-4.745,12.791T159.9.793Zm.254-26.406a6.69,6.69,0,0,0-5.522,2.444q-1.968,2.444-1.968,6.919,0,9.363,7.554,9.363,7.2,0,7.2-9.617Q167.419-25.613,160.151-25.613ZM199.634.793q-8.125,0-12.775-4.554t-4.65-12.362q0-8.062,4.824-12.616t13.044-4.554q8.093,0,12.7,4.554t4.6,12.045q0,8.093-4.745,12.791T199.634.793Zm.254-26.406a6.69,6.69,0,0,0-5.522,2.444Q192.4-20.725,192.4-16.25q0,9.363,7.554,9.363,7.2,0,7.2-9.617Q207.156-25.613,199.888-25.613Zm27.739-20.471v14.028H220.01V-46.084Z"
+                    fill="#BABEC3EE"
+                    transform="translate(-2.92 48.115)"
+                  />
+                  <path
+                    d="M2.095-.857V-8.982A21.353,21.353,0,0,0,7.03-6.76a16.364,16.364,0,0,0,4.65.73,9.973,9.973,0,0,0,4.205-.73,2.358,2.358,0,0,0,1.539-2.222,2.056,2.056,0,0,0-.7-1.587,6.491,6.491,0,0,0-1.793-1.111,20.349,20.349,0,0,0-2.4-.857q-1.3-.381-2.507-.857a24.023,24.023,0,0,1-3.412-1.571,9.862,9.862,0,0,1-2.476-1.952,7.672,7.672,0,0,1-1.523-2.571,10.259,10.259,0,0,1-.524-3.459,8.906,8.906,0,0,1,1.19-4.7,9.722,9.722,0,0,1,3.174-3.221A14.5,14.5,0,0,1,11-32.706a23.665,23.665,0,0,1,5.316-.587,29.5,29.5,0,0,1,4.38.333,32.69,32.69,0,0,1,4.38.968v7.744a15.826,15.826,0,0,0-4.078-1.666,17.2,17.2,0,0,0-4.269-.555,9.458,9.458,0,0,0-1.857.175,6.115,6.115,0,0,0-1.539.508,2.827,2.827,0,0,0-1.047.857,1.973,1.973,0,0,0-.381,1.19,2.2,2.2,0,0,0,.571,1.523,4.962,4.962,0,0,0,1.492,1.095,14.726,14.726,0,0,0,2.047.825q1.127.365,2.238.746a29.091,29.091,0,0,1,3.618,1.523,11.569,11.569,0,0,1,2.777,1.936,7.6,7.6,0,0,1,1.777,2.6,9.25,9.25,0,0,1,.619,3.555A9.272,9.272,0,0,1,25.787-5a10.037,10.037,0,0,1-3.333,3.333A15.113,15.113,0,0,1,17.662.206a26.568,26.568,0,0,1-5.634.587A29.042,29.042,0,0,1,2.095-.857Z"
+                    fill="#59616AEE"
+                    transform="translate(242.095 48.293) rotate(-20)"
+                  />
+                  <path
+                    d="M32.31,0H5.205V-45.513H15.457v37.2H32.31ZM64.492,0H55V-4.666h-.127A10.592,10.592,0,0,1,45.2.793a10.126,10.126,0,0,1-7.443-2.682,9.61,9.61,0,0,1-2.714-7.157q0-9.458,11.2-10.918l8.823-1.174q0-5.332-5.776-5.332A19.717,19.717,0,0,0,38.245-23.01v-7.554a24.848,24.848,0,0,1,5.729-1.9,30.114,30.114,0,0,1,6.617-.825q13.9,0,13.9,13.87ZM55.066-13.2v-2.19l-5.9.762Q44.275-14,44.275-10.22a3.646,3.646,0,0,0,1.19,2.809,4.573,4.573,0,0,0,3.221,1.095,5.938,5.938,0,0,0,4.6-1.952A7.05,7.05,0,0,0,55.066-13.2ZM82.583-3.777h-.127V0H72.427V-48.115H82.456v20.5h.127a11.9,11.9,0,0,1,10.569-5.681q6.284,0,9.68,4.316t3.4,11.807q0,8.125-3.967,13.044A12.923,12.923,0,0,1,91.66.793,10.24,10.24,0,0,1,82.583-3.777ZM82.3-17.488v3.333A7.607,7.607,0,0,0,84.106-8.95,5.885,5.885,0,0,0,88.74-6.887a6.149,6.149,0,0,0,5.316-2.65q1.888-2.65,1.888-7.506a10.18,10.18,0,0,0-1.73-6.3,5.837,5.837,0,0,0-4.935-2.269,6.376,6.376,0,0,0-5,2.253A8.56,8.56,0,0,0,82.3-17.488Z"
+                    fill="#3063D4"
+                    transform="translate(285.205 48.115)"
+                  />
+                </svg>
+              </a>
+              <nav
+                class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_center__15ivi84r Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84k Flex_flexStyle_variants_justify_flexStart__15ivi840"
+              >
+                <a
+                  class="Link_linkStyle__m4v9430"
+                  href="/writings"
+                >
+                  Writings
+                </a>
+                <a
+                  class="Link_linkStyle__m4v9430"
+                  href="/works"
+                >
+                  Works
+                </a>
+                <a
+                  class="Link_linkStyle__m4v9430"
+                  href="/arts"
+                >
+                  Arts
+                </a>
+              </nav>
+            </div>
+          </header>
+        </div>
+      </div>
+      <div
+        class="HeaderFooterTemplate_containerMainStyle__1mfom0q2"
+      >
+        <div>
+          children
+        </div>
+      </div>
+      <div
+        class="HeaderFooterTemplate_containerFooterStyle__1mfom0q3"
+      >
+        <div
+          class="Center_centerStyle__7ojglz0"
+        >
+          <footer
+            class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_200__1b3ljla6 Container_containerStyle_variants_size_200__1b3ljla2 Container_containerStyle_paddingBottom_200__1b3ljlas padding_paddingBottomVariants_200__1i0pzy6k Container_containerStyle_paddingTop_300__1b3ljlan padding_paddingTopVariants_300__1i0pzy6f Container_containerStyle_paddingX_200__1b3ljlay padding_paddingXVariants_200__1i0pzy6q"
+          >
+            <div
+              class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_center__15ivi84r Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_spaceBetween__15ivi84n Flex_flexStyle_variants_justify_spaceBetween__15ivi843"
+            >
+              <span
+                class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+              >
+                © 2021 syakoo
+              </span>
+              <nav>
+                <div
+                  class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_stretch__15ivi84t Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84k Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                >
+                  <a
+                    class="Link_linkStyle__m4v9430"
+                    href="/"
+                  >
+                    <span
+                      class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                    >
+                      Home
+                    </span>
+                  </a>
+                  <a
+                    class="Link_linkStyle__m4v9430"
+                    href="/privacy-policy"
+                  >
+                    <span
+                      class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                    >
+                      Privacy Policy
+                    </span>
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

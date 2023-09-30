@@ -76,8 +76,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run Test:Unit
-        run: yarn test:unit
+      - name: Run unit test
+        run: pnpm test
 
   build-check:
     runs-on: ubuntu-latest
@@ -114,4 +114,4 @@ jobs:
         run: pnpm install
 
       - name: Run Build
-        run: yarn build:prod
+        run: pnpm build

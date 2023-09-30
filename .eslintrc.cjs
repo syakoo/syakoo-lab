@@ -19,6 +19,7 @@ module.exports = {
   ],
   plugins: ["@typescript-eslint", "react", "import"],
   rules: {
+    "react/prop-types": "off",
     "react/jsx-sort-props": ["error", { reservedFirst: true }],
     "react/forbid-component-props": ["error"],
     "react/jsx-curly-brace-presence": ["error", { props: "never" }],

@@ -1,4 +1,3 @@
-import "@/features/common/logics/globalSettings";
 import { AboutMe } from "./AboutMe";
 import { Center, Col, Container } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";

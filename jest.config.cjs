@@ -9,6 +9,7 @@ module.exports = {
   modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
   transform: {
+    "\\.css\\.ts$": "@vanilla-extract/jest-transform",
     "^.+\\.tsx?$": [
       "ts-jest",
       {

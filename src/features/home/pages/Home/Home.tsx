@@ -8,7 +8,7 @@ import { SyakooLabLogoWithAnimation } from "@/features/common/components/SyakooL
 export const Home: React.FC = () => {
   return (
     <HeaderFooterTemplate>
-      <Col align="stretch" gap="400">
+      <Col align="stretch" gap="500">
         <Container as="main" center paddingTop="400" paddingX="200" size="100">
           <Col gap="200">
             <Center>

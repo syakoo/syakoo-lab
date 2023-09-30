@@ -11,6 +11,8 @@
     "astro": "astro",
     "test": "jest --verbose",
     "test:watch": "jest --watch",
+    "test:clear": "jest --clearCache",
+    "test:update": "jest --updateSnapshot",
     "format": "prettier --write . --plugin=prettier-plugin-astro",
     "lint": "eslint --ext .js,.ts,.tsx,.astro src",
     "lint:fix": "eslint --ext .js,.ts,.tsx,.astro --fix src",

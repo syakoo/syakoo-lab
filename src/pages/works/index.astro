@@ -1,0 +1,16 @@
+---
+import { Meta } from "@/features/common/components/meta";
+import "@/features/common/logics/globalSettings";
+import { formatPageTitle } from "@/features/common/logics/pageTitle";
+import { Works } from "@/features/works/pages/Works";
+---
+
+<html lang="ja">
+  <head>
+    <Meta title={formatPageTitle("Works")} url="/works" />
+    <meta content={Astro.generator} name="generator" />
+  </head>
+  <body>
+    <Works />
+  </body>
+</html>

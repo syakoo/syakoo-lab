@@ -4,7 +4,7 @@ exports[`Col renders Col_ 1`] = `
 <body>
   <div>
     <div
-      class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_stretch__15ivi84t Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84j Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84k Flex_flexStyle_variants_justify_flexStart__15ivi840"
+      class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
     >
       <div
         style="border-radius: 8px; background: rgb(64, 74, 84); width: 260px; height: 260px; display: flex; align-items: center; justify-content: center;"
@@ -43,7 +43,7 @@ exports[`Col renders ColWithItem 1`] = `
 <body>
   <div>
     <div
-      class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_stretch__15ivi84t Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84j Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84k Flex_flexStyle_variants_justify_flexStart__15ivi840"
+      class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
     >
       <div
         style="border-radius: 8px; background: rgb(64, 74, 84); width: 260px; height: 260px; display: flex; align-items: center; justify-content: center;"
@@ -53,7 +53,7 @@ exports[`Col renders ColWithItem 1`] = `
         260px
       </div>
       <div
-        class="Flex_flexItemStyle__15ivi8417 Flex_flexItemStyle_align_center__15ivi841b Flex_flexItemStyle_variants_align_center__15ivi8413"
+        class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_align_center__15ivi841d Flex_flexItemStyle_variants_align_center__15ivi8415"
       >
         <div
           style="border-radius: 8px; background: rgb(64, 74, 84); width: 100%; height: 140px; display: flex; align-items: center; justify-content: center;"
@@ -64,7 +64,7 @@ exports[`Col renders ColWithItem 1`] = `
         </div>
       </div>
       <div
-        class="Flex_flexItemStyle__15ivi8417 Flex_flexItemStyle_align_stretch__15ivi841d Flex_flexItemStyle_variants_align_stretch__15ivi8415"
+        class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_align_stretch__15ivi841f Flex_flexItemStyle_variants_align_stretch__15ivi8417"
       >
         <div
           style="border-radius: 8px; background: rgb(64, 74, 84); width: 100%; height: 200px; display: flex; align-items: center; justify-content: center;"

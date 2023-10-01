@@ -13,10 +13,10 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
           class="Center_centerStyle__7ojglz0"
         >
           <header
-            class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_200__1b3ljla6 Container_containerStyle_variants_size_200__1b3ljla2 Container_containerStyle_paddingX_200__1b3ljlay padding_paddingXVariants_200__1i0pzy6q Container_containerStyle_paddingY_300__1b3ljla15 padding_paddingYVariants_300__1i0pzy6x"
+            class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_200__1b3ljla6 Container_containerStyle_variants_size_200__1b3ljla2 Container_containerStyle_paddingX_200__1b3ljla13 padding_paddingXVariants_200__1i0pzy6v Container_containerStyle_paddingY_300__1b3ljla1b padding_paddingYVariants_300__1i0pzy613"
           >
             <div
-              class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_center__15ivi84r Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_spaceBetween__15ivi84n Flex_flexStyle_variants_justify_spaceBetween__15ivi843 Flex_flexStyle_wrap_true__15ivi8411"
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_spaceBetween__15ivi84o Flex_flexStyle_variants_justify_spaceBetween__15ivi843 Flex_flexStyle_wrap_true__15ivi8413"
             >
               <a
                 class="Link_linkStyle__m4v9430"
@@ -38,7 +38,7 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
                 </svg>
               </a>
               <nav
-                class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_center__15ivi84r Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84k Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
               >
                 <a
                   class="Link_linkStyle__m4v9430"
@@ -77,10 +77,10 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
           class="Center_centerStyle__7ojglz0"
         >
           <footer
-            class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_200__1b3ljla6 Container_containerStyle_variants_size_200__1b3ljla2 Container_containerStyle_paddingBottom_200__1b3ljlas padding_paddingBottomVariants_200__1i0pzy6k Container_containerStyle_paddingTop_300__1b3ljlan padding_paddingTopVariants_300__1i0pzy6f Container_containerStyle_paddingX_200__1b3ljlay padding_paddingXVariants_200__1i0pzy6q"
+            class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_200__1b3ljla6 Container_containerStyle_variants_size_200__1b3ljla2 Container_containerStyle_paddingBottom_200__1b3ljlaw padding_paddingBottomVariants_200__1i0pzy6o Container_containerStyle_paddingTop_300__1b3ljlaq padding_paddingTopVariants_300__1i0pzy6i Container_containerStyle_paddingX_200__1b3ljla13 padding_paddingXVariants_200__1i0pzy6v"
           >
             <div
-              class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_center__15ivi84r Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_spaceBetween__15ivi84n Flex_flexStyle_variants_justify_spaceBetween__15ivi843"
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_spaceBetween__15ivi84o Flex_flexStyle_variants_justify_spaceBetween__15ivi843"
             >
               <span
                 class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
@@ -89,7 +89,7 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
               </span>
               <nav>
                 <div
-                  class="Flex_flexStyle__15ivi84h Flex_flexStyle_align_stretch__15ivi84t Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84i Flex_flexStyle_gap_100__15ivi84w Flex_flexStyle_variants_gap_100__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84k Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                  class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
                 >
                   <a
                     class="Link_linkStyle__m4v9430"

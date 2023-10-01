@@ -1,15 +1,13 @@
 ---
 import "@/features/common/logics/globalSettings";
+import { Meta } from "@/features/common/components/Meta";
 import { Home } from "@/features/home/pages/Home";
 ---
 
-<html lang="en">
+<html lang="ja">
   <head>
-    <meta charset="utf-8" />
-    <link href="/logo.svg" rel="icon" type="image/svg+xml" />
-    <meta content="width=device-width" name="viewport" />
+    <Meta title="Syakoo Lab" url="/" />
     <meta content={Astro.generator} name="generator" />
-    <title>Astro</title>
   </head>
   <body>
     <Home />

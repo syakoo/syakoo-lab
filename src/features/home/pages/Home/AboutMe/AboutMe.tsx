@@ -1,6 +1,6 @@
 import { aboutMeImageStyle } from "./AboutMe.css";
 import { Links } from "./Links";
-import { aboutMeConfig } from "./contents/aboutMeConfig";
+import { aboutMeConfig } from "@/contents/aboutMe/config";
 import { Col, Row } from "@/design-system/layout";
 import { Text } from "@/design-system/ui";
 

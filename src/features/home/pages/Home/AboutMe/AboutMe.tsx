@@ -8,8 +8,8 @@ export const AboutMe: React.FC = () => {
   const { imageSrc, name, bio, links } = aboutMeConfig;
 
   return (
-    <Col gap="100">
-      <Row>
+    <Col gap="200">
+      <Row gap="200">
         <img
           alt="me"
           className={aboutMeImageStyle}

@@ -10,5 +10,6 @@ export const linkStyle = style({
 
 export const linkImageStyle = style({
   width: 16,
-  height: "auto",
+  height: 16,
+  objectFit: "contain",
 });

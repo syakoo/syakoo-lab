@@ -1,10 +1,10 @@
-import type { AboutMeConfig } from "../types";
 import atcoderImageSrc from "./atcoder.png";
 import githubImageSrc from "./github.png";
 import leetCodeImageSrc from "./leetcode.png";
 import meImageSrc from "./me.jpg";
 import steamImageSrc from "./steam.png";
 import xImageSrc from "./x.svg";
+import type { AboutMeConfig } from "@/features/home/pages/Home/AboutMe/types";
 
 export const aboutMeConfig = {
   name: "syakoo",

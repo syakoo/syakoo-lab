@@ -18,6 +18,8 @@ export const Sample: Story = {
         height: 50,
         format: "png",
       },
+      releasedAt: "2023/10/03",
+      siteUrl: "#",
       repositoryUrl: "https://github.com/syakoo",
       description: "ここに作品の説明文が入ります。",
     },

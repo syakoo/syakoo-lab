@@ -64,6 +64,14 @@ export const flexItemStyle = recipe({
         flexShrink: 1,
       },
     },
+    grow: {
+      0: {
+        flexGrow: 0,
+      },
+      1: {
+        flexGrow: 1,
+      },
+    },
     align: styleVariants(alignProperties, (value) => ({
       alignSelf: value,
     })),

@@ -57,7 +57,7 @@ exports[`Row renders RowWithItem 1`] = `
         </div>
       </div>
       <div
-        class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_align_stretch__15ivi841f Flex_flexItemStyle_variants_align_stretch__15ivi8417"
+        class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_align_stretch__15ivi841h Flex_flexItemStyle_variants_align_stretch__15ivi8417"
       >
         <div
           style="border-radius: 8px; background: rgb(64, 74, 84); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"

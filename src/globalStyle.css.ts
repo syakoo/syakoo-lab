@@ -11,3 +11,7 @@ globalStyle("html, body", {
 globalStyle("img, svg", {
   verticalAlign: "middle",
 });
+
+globalStyle("ul", {
+  listStyleType: "none",
+});

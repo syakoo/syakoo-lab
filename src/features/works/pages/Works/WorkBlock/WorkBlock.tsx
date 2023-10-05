@@ -1,3 +1,4 @@
+import { format } from "date-fns";
 import { workBlockStyle } from "./WorkBlock.css";
 import { FlexItem, Row } from "@/design-system/layout";
 import { H3, Link, Span } from "@/design-system/ui";
@@ -7,10 +8,15 @@ type WorkBlockProps = {
   work: Work;
 };
 
+const formatDate = (dateString: string) =>
+  format(new Date(dateString), "yyyy-MM-dd");
+const formatRepositoryUrl = (url: string) =>
+  url.replace("https://github.com/", "");
+
 export const WorkBlock: React.FC<WorkBlockProps> = ({ work }) => {
   return (
-    <Row align="center" as="article" gap="200">
-      <div>
+    <Row align="center" as="article" gap="100">
+      <div className={workBlockStyle.imageWrapper}>
         <img
           alt=""
           className={workBlockStyle.image}
@@ -24,15 +30,17 @@ export const WorkBlock: React.FC<WorkBlockProps> = ({ work }) => {
           <H3 size="300">
             <Link href={work.siteUrl}>{work.name}</Link>
           </H3>
-          <div>{work.description}</div>
-          <Row gap="25">
-            <Span color="secondary" size="50">
-              {work.releasedAt} released, repo:{" "}
-              <Link href={work.repositoryUrl} underlined>
-                {work.repositoryUrl}
-              </Link>
-            </Span>
-          </Row>
+          <div>
+            <div>{work.description}</div>
+            <Row gap="25">
+              <Span color="secondary" size="50">
+                released: {formatDate(work.releasedAt)}, repo:{" "}
+                <Link href={work.repositoryUrl} underlined>
+                  {formatRepositoryUrl(work.repositoryUrl)}
+                </Link>
+              </Span>
+            </Row>
+          </div>
         </div>
       </FlexItem>
     </Row>

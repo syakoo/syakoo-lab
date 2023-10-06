@@ -17,9 +17,11 @@ export const Works: React.FC = () => {
         >
           <Col gap="200">
             <H2>Works</H2>
-            <Col as="ul" gap="200">
+            <Col as="ul" gap="100">
               {works.map((work) => (
-                <WorkBlock key={work.name} work={work} />
+                <li key={work.name}>
+                  <WorkBlock work={work} />
+                </li>
               ))}
             </Col>
           </Col>

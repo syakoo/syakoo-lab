@@ -79,169 +79,190 @@ exports[`Works renders Sample 1`] = `
                 Works
               </h2>
               <ul
-                class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_200__15ivi84z Flex_flexStyle_variants_gap_200__15ivi84e Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
               >
-                <article
-                  class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_200__15ivi84z Flex_flexStyle_variants_gap_200__15ivi84e Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
-                >
-                  <div>
-                    <img
-                      alt=""
-                      class="WorkBlock_workBlockStyle_image__1wtn06k1"
-                      height="1563"
-                      src="/mock-dir/MagicSquare.png"
-                      width="1563"
-                    />
-                  </div>
-                  <div
-                    class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
+                <li>
+                  <article
+                    class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
                   >
                     <div
-                      class="WorkBlock_workBlockStyle_body__1wtn06k0"
+                      class="WorkBlock_workBlockStyle_imageWrapper__1wtn06k1"
                     >
-                      <h3
-                        class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_bold__jzpfqdr"
-                      >
-                        <a
-                          class="Link_linkStyle__m4v9430"
-                          href="https://magic-square.firebaseapp.com"
-                        >
-                          MagicSquare
-                        </a>
-                      </h3>
-                      <div>
-                        魔法陣のタイムアタックアプリ。初めて作った Web アプリケーションです。React + TS で作っています。
-                      </div>
-                      <div
-                        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
-                      >
-                        <span
-                          class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
-                        >
-                          2019-08-31T19:12:03.284Z
-                           released, repo:
-                           
-                          <a
-                            class="Link_linkStyle__m4v9430 Link_linkStyle_underlined_true__m4v9432"
-                            href="https://github.com/syakoo/MagicSquare"
-                          >
-                            https://github.com/syakoo/MagicSquare
-                          </a>
-                        </span>
-                      </div>
+                      <img
+                        alt=""
+                        class="WorkBlock_workBlockStyle_image__1wtn06k2"
+                        height="1563"
+                        src="/mock-dir/MagicSquare.png"
+                        width="1563"
+                      />
                     </div>
-                  </div>
-                </article>
-                <article
-                  class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_200__15ivi84z Flex_flexStyle_variants_gap_200__15ivi84e Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
-                >
-                  <div>
-                    <img
-                      alt=""
-                      class="WorkBlock_workBlockStyle_image__1wtn06k1"
-                      height="64"
-                      src="/mock-dir/RealSharing.png"
-                      width="64"
-                    />
-                  </div>
-                  <div
-                    class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
-                  >
                     <div
-                      class="WorkBlock_workBlockStyle_body__1wtn06k0"
+                      class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
                     >
-                      <h3
-                        class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_bold__jzpfqdr"
-                      >
-                        <a
-                          class="Link_linkStyle__m4v9430"
-                          href="https://syakoo.github.io/real_share_app"
-                        >
-                          Real Sharing
-                        </a>
-                      </h3>
-                      <div>
-                        Web NFC を使った秘密分散共有法のシミュレーションアプリ。React + TypeScript + Redux-saga で作成しています。
-                      </div>
                       <div
-                        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                        class="WorkBlock_workBlockStyle_body__1wtn06k0"
                       >
-                        <span
-                          class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
+                        <h3
+                          class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_bold__jzpfqdr"
                         >
-                          2020-04-17T19:12:03.284Z
-                           released, repo:
-                           
                           <a
-                            class="Link_linkStyle__m4v9430 Link_linkStyle_underlined_true__m4v9432"
-                            href="https://github.com/syakoo/real_share_app"
+                            class="Link_linkStyle__m4v9430"
+                            href="https://magic-square.firebaseapp.com"
                           >
-                            https://github.com/syakoo/real_share_app
+                            MagicSquare
                           </a>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </article>
-                <article
-                  class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_200__15ivi84z Flex_flexStyle_variants_gap_200__15ivi84e Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
-                >
-                  <div>
-                    <img
-                      alt=""
-                      class="WorkBlock_workBlockStyle_image__1wtn06k1"
-                      height="128"
-                      src="/mock-dir/HaskellFunctionPuzzle.png"
-                      width="128"
-                    />
-                  </div>
-                  <div
-                    class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
-                  >
-                    <div
-                      class="WorkBlock_workBlockStyle_body__1wtn06k0"
-                    >
-                      <h3
-                        class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_bold__jzpfqdr"
-                      >
-                        <a
-                          class="Link_linkStyle__m4v9430"
-                          href="https://haskell-function-puzzle.vercel.app"
-                        >
-                          Haskell Function Puzzle
-                        </a>
-                      </h3>
-                      <div>
+                        </h3>
                         <div>
-                          Haskell の関数合成パズルサイト。React + TypeScript で作成しています。
-                          <a
-                            class="Link_linkStyle__m4v9430 Link_linkStyle_colored_true__m4v9431"
-                            href="/writings/20210316"
+                          <div>
+                            魔法陣のタイムアタックアプリ。初めて作った Web アプリケーションです。React + TS で作っています。
+                          </div>
+                          <div
+                            class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
                           >
-                            紹介サイト
-                          </a>
+                            <span
+                              class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
+                            >
+                              released: 
+                              2019-08-31
+                              , repo:
+                               
+                              <a
+                                class="Link_linkStyle__m4v9430 Link_linkStyle_underlined_true__m4v9432"
+                                href="https://github.com/syakoo/MagicSquare"
+                              >
+                                syakoo/MagicSquare
+                              </a>
+                            </span>
+                          </div>
                         </div>
                       </div>
+                    </div>
+                  </article>
+                </li>
+                <li>
+                  <article
+                    class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                  >
+                    <div
+                      class="WorkBlock_workBlockStyle_imageWrapper__1wtn06k1"
+                    >
+                      <img
+                        alt=""
+                        class="WorkBlock_workBlockStyle_image__1wtn06k2"
+                        height="64"
+                        src="/mock-dir/RealSharing.png"
+                        width="64"
+                      />
+                    </div>
+                    <div
+                      class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
+                    >
                       <div
-                        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                        class="WorkBlock_workBlockStyle_body__1wtn06k0"
                       >
-                        <span
-                          class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
+                        <h3
+                          class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_bold__jzpfqdr"
                         >
-                          2021-03-16
-                           released, repo:
-                           
                           <a
-                            class="Link_linkStyle__m4v9430 Link_linkStyle_underlined_true__m4v9432"
-                            href="https://github.com/syakoo/haskell-function-puzzle"
+                            class="Link_linkStyle__m4v9430"
+                            href="https://syakoo.github.io/real_share_app"
                           >
-                            https://github.com/syakoo/haskell-function-puzzle
+                            Real Sharing
                           </a>
-                        </span>
+                        </h3>
+                        <div>
+                          <div>
+                            Web NFC を使った秘密分散共有法のシミュレーションアプリ。React + TypeScript + Redux-saga で作成しています。
+                          </div>
+                          <div
+                            class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                          >
+                            <span
+                              class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
+                            >
+                              released: 
+                              2020-04-17
+                              , repo:
+                               
+                              <a
+                                class="Link_linkStyle__m4v9430 Link_linkStyle_underlined_true__m4v9432"
+                                href="https://github.com/syakoo/real_share_app"
+                              >
+                                syakoo/real_share_app
+                              </a>
+                            </span>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </li>
+                <li>
+                  <article
+                    class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                  >
+                    <div
+                      class="WorkBlock_workBlockStyle_imageWrapper__1wtn06k1"
+                    >
+                      <img
+                        alt=""
+                        class="WorkBlock_workBlockStyle_image__1wtn06k2"
+                        height="128"
+                        src="/mock-dir/HaskellFunctionPuzzle.png"
+                        width="128"
+                      />
+                    </div>
+                    <div
+                      class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
+                    >
+                      <div
+                        class="WorkBlock_workBlockStyle_body__1wtn06k0"
+                      >
+                        <h3
+                          class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_bold__jzpfqdr"
+                        >
+                          <a
+                            class="Link_linkStyle__m4v9430"
+                            href="https://haskell-function-puzzle.vercel.app"
+                          >
+                            Haskell Function Puzzle
+                          </a>
+                        </h3>
+                        <div>
+                          <div>
+                            <div>
+                              Haskell の関数合成パズルサイト。React + TypeScript で作成しています。
+                              <a
+                                class="Link_linkStyle__m4v9430 Link_linkStyle_colored_true__m4v9431"
+                                href="/writings/20210316"
+                              >
+                                紹介サイト
+                              </a>
+                            </div>
+                          </div>
+                          <div
+                            class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+                          >
+                            <span
+                              class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
+                            >
+                              released: 
+                              2021-03-16
+                              , repo:
+                               
+                              <a
+                                class="Link_linkStyle__m4v9430 Link_linkStyle_underlined_true__m4v9432"
+                                href="https://github.com/syakoo/haskell-function-puzzle"
+                              >
+                                syakoo/haskell-function-puzzle
+                              </a>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </li>
               </ul>
             </div>
           </section>

@@ -11,17 +11,19 @@ export const Links: React.FC<LinksProps> = ({ links }) => {
   return (
     <Row as="ul">
       {links.map((link) => (
-        <Link key={link.url} href={link.url}>
-          <div className={linkStyle} title={link.name}>
-            <img
-              alt={link.name}
-              className={linkImageStyle}
-              height={link.imageSrc.height}
-              src={link.imageSrc.src}
-              width={link.imageSrc.width}
-            />
-          </div>
-        </Link>
+        <li key={link.url}>
+          <Link href={link.url}>
+            <div className={linkStyle} title={link.name}>
+              <img
+                alt={link.name}
+                className={linkImageStyle}
+                height={link.imageSrc.height}
+                src={link.imageSrc.src}
+                width={link.imageSrc.width}
+              />
+            </div>
+          </Link>
+        </li>
       ))}
     </Row>
   );

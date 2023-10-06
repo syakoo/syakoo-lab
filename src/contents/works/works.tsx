@@ -8,7 +8,7 @@ export const works: Work[] = [
   {
     name: "MagicSquare",
     imageSrc: magicSquareImageSrc,
-    releasedAt: "2019-08-31T19:12:03.284Z",
+    releasedAt: "2019-08-31",
     siteUrl: "https://magic-square.firebaseapp.com",
     repositoryUrl: "https://github.com/syakoo/MagicSquare",
     description:
@@ -17,7 +17,7 @@ export const works: Work[] = [
   {
     name: "Real Sharing",
     imageSrc: realSharingImageSrc,
-    releasedAt: "2020-04-17T19:12:03.284Z",
+    releasedAt: "2020-04-17",
     siteUrl: "https://syakoo.github.io/real_share_app",
     repositoryUrl: "https://github.com/syakoo/real_share_app",
     description:

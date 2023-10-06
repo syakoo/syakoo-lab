@@ -123,7 +123,7 @@ exports[`Works renders Sample 1`] = `
                               class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
                             >
                               released: 
-                              2019-09-01
+                              2019-08-31
                               , repo:
                                
                               <a
@@ -181,7 +181,7 @@ exports[`Works renders Sample 1`] = `
                               class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
                             >
                               released: 
-                              2020-04-18
+                              2020-04-17
                               , repo:
                                
                               <a

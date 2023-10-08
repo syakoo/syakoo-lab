@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WritingListPage renders Sample 1`] = `
+<body>
+  <div>
+    <div>
+      <div>
+        children
+      </div>
+    </div>
+  </div>
+</body>
+`;

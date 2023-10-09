@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { WritingListPage } from ".";
+import { WritingList } from ".";
 
 const meta = {
-  component: WritingListPage,
+  component: WritingList,
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof WritingListPage>;
+} satisfies Meta<typeof WritingList>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 export const Sample: Story = {
   args: {
-    children: <div>children</div>,
+    type: "all",
   },
 };

@@ -1,4 +1,5 @@
 import { WritingTab } from "./WritingTab";
+import { WritingTypeDescription } from "./WritingTypeDescription";
 import type { WritingListType } from "./shared/writingListType";
 import { Col, Container } from "@/design-system/layout";
 import { H2 } from "@/design-system/ui";
@@ -22,6 +23,7 @@ export const WritingList: React.FC<WritingListProps> = ({ type }) => {
           <Col gap="200">
             <H2>Writings</H2>
             <WritingTab selectedType={type} />
+            <WritingTypeDescription type={type} />
           </Col>
         </Container>
       </main>

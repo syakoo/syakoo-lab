@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { WritingBlock } from ".";
+import type { WritingMeta } from "@/features/writings/types";
 
 const meta = {
   component: WritingBlock,
@@ -22,7 +23,7 @@ export const Sample: Story = {
 };
 
 export const Types = () => {
-  const data: Parameters<typeof WritingBlock>[0]["meta"][] = [
+  const data: WritingMeta[] = [
     {
       id: "sample-writing-meta-id1",
       link: "/writing/post/20231009",

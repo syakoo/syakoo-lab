@@ -4,7 +4,7 @@ import "@/features/common/logics/globalSettings";
 import { formatPageTitle } from "@/features/common/logics/pageTitle";
 import { WritingList } from "@/features/writings/WritingList";
 import { WRITING_TYPES } from "@/features/writings/shared/writingType";
-import type { WritingType } from "@/features/writings/types";
+import type { WritingMeta, WritingType } from "@/features/writings/types";
 
 export function getStaticPaths() {
   return WRITING_TYPES.map(({ type }) => ({
@@ -15,6 +15,34 @@ export function getStaticPaths() {
 }
 
 const { type } = Astro.params;
+
+// TODO: 仮データ
+const sampleMetas: WritingMeta[] = [
+  {
+    id: "sample-writing-meta-id1",
+    link: "/writing/post/20231009",
+    title: "Sample Article",
+    type: "article",
+    tags: ["雑記", "Sample"],
+    published: "2023-10-09",
+  },
+  {
+    id: "sample-writing-meta-id2",
+    link: "/writing/post/20231010",
+    title: "Sample Note",
+    type: "note",
+    tags: ["雑記", "Sample"],
+    published: "2023-10-10",
+  },
+  {
+    id: "sample-writing-meta-id3",
+    link: "/writing/post/20231011",
+    title: "Sample Diary",
+    type: "diary",
+    tags: ["雑記"],
+    published: "2023-10-11",
+  },
+];
 ---
 
 <html lang="ja">
@@ -23,6 +51,6 @@ const { type } = Astro.params;
     <meta content={Astro.generator} name="generator" />
   </head>
   <body>
-    <WritingList type={type as WritingType} />
+    <WritingList metas={sampleMetas} type={type as WritingType} />
   </body>
 </html>

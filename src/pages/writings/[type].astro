@@ -1,4 +1,6 @@
 ---
+import { Container } from "@/design-system/layout";
+import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 import { Meta } from "@/features/common/components/Meta";
 import "@/features/common/logics/globalSettings";
 import { formatPageTitle } from "@/features/common/logics/pageTitle";
@@ -51,6 +53,10 @@ const sampleMetas: WritingMeta[] = [
     <meta content={Astro.generator} name="generator" />
   </head>
   <body>
-    <WritingList metas={sampleMetas} type={type as WritingType} />
+    <HeaderFooterTemplate>
+      <Container as="main" center paddingBottom="400" paddingX="200" size="100">
+        <WritingList metas={sampleMetas} type={type as WritingType} />
+      </Container>
+    </HeaderFooterTemplate>
   </body>
 </html>

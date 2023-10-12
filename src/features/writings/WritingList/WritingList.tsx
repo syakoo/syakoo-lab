@@ -19,11 +19,12 @@ export const WritingList: React.FC<WritingListProps> = ({ type, metas }) => {
 
   return (
     <section>
-      <Col gap="100">
-        <H2>Writings</H2>
-        <WritingTab selectedType={type} />
-        <WritingTypeDescription type={type} />
-        {/* TODO: 空白を入れたい */}
+      <Col gap="300">
+        <Col gap="100">
+          <H2>Writings</H2>
+          <WritingTab selectedType={type} />
+          <WritingTypeDescription type={type} />
+        </Col>
         <Col gap="200">
           {filteredMetas.map((meta) => (
             <WritingBlock key={meta.id} meta={meta} />

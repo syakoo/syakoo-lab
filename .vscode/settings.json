@@ -5,6 +5,7 @@
     "astro",
     "astrojs",
     "ress",
-    "hygen"
+    "hygen",
+    "metas"
   ]
 }

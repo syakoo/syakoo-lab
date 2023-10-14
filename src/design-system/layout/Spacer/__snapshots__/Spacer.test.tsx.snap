@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spacer renders X 1`] = `
+<body>
+  <div>
+    <div
+      style="display: flex;"
+    >
+      <div
+        style="border-radius: 8px; background: rgb(64, 74, 84); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+      />
+      <div
+        aria-hidden="true"
+        class="Spacer__1jyq491e Spacer_spacerStyle_x_200__1jyq491i Spacer_spacerStyle_variants_x_200__1jyq4913"
+      />
+      <div
+        style="border-radius: 8px; background: rgb(64, 74, 84); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+      />
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Spacer renders Y 1`] = `
+<body>
+  <div>
+    <div>
+      <div
+        style="border-radius: 8px; background: rgb(64, 74, 84); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+      />
+      <div
+        aria-hidden="true"
+        class="Spacer__1jyq491e Spacer_spacerStyle_y_200__1jyq491p Spacer_spacerStyle_variants_y_200__1jyq491a"
+      />
+      <div
+        style="border-radius: 8px; background: rgb(64, 74, 84); width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;"
+      />
+    </div>
+  </div>
+</body>
+`;

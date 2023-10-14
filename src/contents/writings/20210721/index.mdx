@@ -1,0 +1,84 @@
+---
+id: "20210721"
+type: "note"
+title: "TypeScript で combinations を実装する"
+published: "2021-07-21"
+tags:
+  - "競プロ"
+  - "TypeScript"
+---
+
+Python の [itertools.combinations](https://docs.python.org/ja/3/library/itertools.html#itertools.combinations) のようなものを TypeScript で実装しました。
+
+## コード
+
+```typescript
+function* combinations<T>(iterable: Iterable<T>, r: number) {
+  const pool = [...iterable];
+  const n = pool.length;
+  if (n < r) return;
+
+  const indices = [...new Array(r)].map((_, i) => i);
+  yield indices.map((i) => pool[i]);
+  while (true) {
+    let i;
+    for (i = r - 1; i >= 0; i--) {
+      if (indices[i] !== n - (r - i)) {
+        break;
+      }
+    }
+    if (i === -1) return;
+    indices[i]++;
+    for (let j = i + 1; j < r; j++) {
+      indices[j] = indices[j - 1] + 1;
+    }
+    yield indices.map((i) => pool[i]);
+  }
+}
+```
+
+配列やジェネレータなどの `Iterable` から `r` 個の組み合わせを取得する**ジェネレーター**です。
+
+## 使い方
+
+### 0, 1, 2, ..., 4 から 3 個の組み合わせを持ってくる
+
+```typescript
+const xs = [0, 1, 2, 3, 4];
+const combs = [...combinations(xs, 3)];
+/**
+ * combs = [
+ *   [0, 1, 2],
+ *   [0, 1, 3],
+ *   [0, 1, 4],
+ *   [0, 2, 3],
+ *   [0, 2, 4],
+ *   [0, 3, 4],
+ *   [1, 2, 3],
+ *   [1, 2, 4],
+ *   [1, 3, 4],
+ *   [2, 3, 4],
+ * ]
+ **/
+```
+
+### 部分集合を取得する
+
+```typescript
+const xs = ["A", "B", "C"];
+const subsets = [[]];
+
+xs.forEach((_, i) => subsets.push(...combinations(xs, i + 1)));
+/**
+ * subsets = [
+ *   [],
+ *   [ 'A' ],
+ *   [ 'B' ],
+ *   [ 'C' ],
+ *   [ 'A', 'B' ],
+ *   [ 'A', 'C' ],
+ *   [ 'B', 'C' ],
+ *   [ 'A', 'B', 'C' ]
+ * ]
+ **/
+```

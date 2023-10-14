@@ -1,0 +1,85 @@
+---
+id: "20210722"
+type: "note"
+title: "TypeScript で product を実装する"
+published: "2021-07-22"
+tags:
+  - "競プロ"
+  - "TypeScript"
+---
+
+Python の直積のイテレーターを出力する関数 [itertools.product](https://docs.python.org/ja/3/library/itertools.html#itertools.product) のようなものを TypeScript で実装しました。
+
+## コード
+
+```typescript
+function* product<T>(iterables: Iterable<T>[], repeat = 1) {
+  const pools = iterables.map((iter) => [...iter]);
+  const lens = pools.map((pool) => pool.length);
+  const indices = [...new Array(pools.length * repeat)].fill(0);
+  const n = indices.length;
+  const result = indices.map((v, i) => pools[Math.floor(i / repeat)][v]);
+  yield result;
+  while (true) {
+    let i;
+    for (i = n - 1; i >= 0; i--) {
+      if (indices[i] === lens[Math.floor(i / repeat)] - 1) {
+        indices[i] = 0;
+        result[i] = pools[Math.floor(i / repeat)][0];
+      } else {
+        break;
+      }
+    }
+    if (i === -1) return;
+    indices[i]++;
+    result[i] = pools[Math.floor(i / repeat)][indices[i]];
+    yield [...result];
+  }
+}
+```
+
+配列やジェネレータなどの `iterable` の配列からそれらの直積を返す**ジェネレータ**です。
+`repeat` は配列をそれぞれ何回繰り返すかを指定することができます。
+
+## 使い方
+
+### 複数の配列の直積をとる
+
+```typescript
+const prods = [
+  ...product([
+    [1, 2],
+    [3, 4, 5],
+  ]),
+];
+/**
+ * prods = [
+ *   [1, 3],
+ *   [1, 4],
+ *   [1, 5],
+ *   [2, 3],
+ *   [2, 4],
+ *   [2, 5]
+ * ]
+ **/
+```
+
+### bit 全探索
+
+```typescript
+const bits = [...product([[0, 1]], 3)];
+/**
+ * bits = [
+ *   [ 0, 0, 0 ],
+ *   [ 0, 0, 1 ],
+ *   [ 0, 1, 0 ],
+ *   [ 0, 1, 1 ],
+ *   [ 1, 0, 0 ],
+ *   [ 1, 0, 1 ],
+ *   [ 1, 1, 0 ],
+ *   [ 1, 1, 1 ]
+ * ]
+ **/
+```
+
+Python の `itertools.product` と違い、第一引数には**2 次元配列**を入力する必要があります。

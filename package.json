@@ -38,6 +38,8 @@
     "@vanilla-extract/recipes": "^0.5.0",
     "astro": "^3.1.0",
     "date-fns": "^2.30.0",
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3",
     "probe-image-size": "^7.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

@@ -1,0 +1,56 @@
+---
+id: "20210316"
+type: "note"
+title: "Haskell 入門者に向けたパズルサイトを作成しました"
+published: "2021-03-16"
+tags:
+  - "Haskell"
+  - "React"
+  - "個人開発"
+---
+
+ちょうど一日前、React のドラッグアンドドロップを簡単に実装できるライブラリである [React DnD](https://react-dnd.github.io/react-dnd/about) を知って、
+何か作りたいって思ったときに Haskell の関数パズルゲームを作りたいと思い、作成しました
+
+この記事では、このサイトについての簡単な説明と使用した技術について説明していきたいと思います
+
+## Haskell Function Puzzle
+
+![Haskell Function Puzzle のロゴ](/img/writings/20210316/logo.png)
+
+[Haskell Function Puzzle](https://haskell-function-puzzle.vercel.app/) は、Haskell 初学者に向けた関数合成のパズルサイトです。
+主に関数合成についての問題を作成しています
+
+このサイトを作った理由は、自分が Haskell を勉強する際に、**関数合成などの新しい書き方に慣れるのが大変だと感じた**のがきっかけです。
+他の言語と違い、コードを簡潔に書くことができる言語なのですが、その書き方の違いで初学者にとっては逆に書くのが遅くなってしまったり、読むのに時間がかかってしまいます。
+そこで、このサイトを通じて**楽しみながら問題を解くことによって、簡単に経験値を積む**ことが可能になります
+
+### 問題を作成したい
+
+問題を作りたい方は**ぜひプルリクエストを飛ばしてください**。
+このサイトは GitHub 上に公開しており、コードや問題の修正や追加を歓迎しています 🎉
+
+[<img src="/img/writings/20210316/github.png" alt="repo" width="400px" />](https://github.com/syakoo/haskell-function-puzzle)
+
+## 技術的な話
+
+このサイトは冒頭にも触れたとおり、React のドラッグアンドドロップを簡単に実装できる [React DnD](https://react-dnd.github.io/react-dnd/about) というものを使って作成しています。
+これによって非常に簡単に実装することができ、このサイトも一日で作成することができました
+
+簡単に説明すると、React DnD には大きく二つの Hooks があります：
+
+- useDrag : ドラッグしたいコンポーネントで使用する Hook
+- useDrop : ドロップ先のコンポーネントで使用する Hook
+
+これによって、ドラッグ対象とドロップ先のコンポーネントを別々に考えることができます。
+これが実現できる理由として、内部では **Redux** が使用されていると公式ドキュメントでは説明されています：
+
+> Some of these concepts resemble the Flux and Redux architectures.
+> This is not a coincidence, as React DnD uses Redux internally.
+>
+> [Overview | React DnD](https://react-dnd.github.io/react-dnd/docs/overview)
+
+## おわりに
+
+現在別の開発もしているのですが、こっちに熱中してしまいました。
+簡単な開発の方がまだ自分には向いているようです

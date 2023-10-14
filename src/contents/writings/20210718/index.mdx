@@ -1,0 +1,45 @@
+---
+id: "20210718"
+type: "note"
+title: "TypeScript で range を実装する"
+published: "2021-07-18"
+tags:
+  - "TypeScript"
+  - "競プロ"
+---
+
+Python の `range()` のようなものを TypeScript で実装しました
+
+## コード
+
+```typescript
+function* range(start: number, end: number, step = 1) {
+  if ((start < end && step <= 0) || (start > end && step >= 0))
+    throw new Error();
+
+  const symbol = step > 0 ? 1 : -1;
+  for (let i = start * symbol; i < end * symbol; i += step * symbol) {
+    yield i && i * symbol;
+  }
+}
+```
+
+`start` から始まり `end` で終わる**ジェネレータ―**です。
+`step` はステップの間隔で、 `2` とすると 1 つ飛ばしに、`-1` でデクリメントすることもできます
+
+## 使い方
+
+### 0, 1, ..., 9 まで足す
+
+```typescript
+let sum = 0;
+for (const x of range(0, 10)) {
+  sum += x;
+}
+```
+
+### 100 までの奇数を取得する
+
+```typescript
+const odds = [...range(1, 101, 2)];
+```

@@ -1,0 +1,88 @@
+---
+id: "20230510"
+type: "note"
+title: "サイトの Storybook を使ってスナップショットテストを簡単に入れた話"
+published: "2023-05-10"
+tags:
+  - "雑記"
+  - "Storybook"
+  - "React"
+---
+
+こんにちは、お久しぶりです。
+
+このサイトはもともと、全然難しい処理はしていなく個人開発のものであるためテストはなく、実装のお供として Storybook を用意しているだけでした。
+しかし、年月が経つにつれライブラリの更新やディレクトリ構成の変更をしたくなり変更を加えようとすると、
+難しい処理はないものの「**もとの実装が壊れていないか**」という不安を持ちながら作業をしないといけないということに気が付き満を持してテストを入れたいと思うようになりました。
+
+今回はそれの対応として Storybook からスナップショットテストを導入したので、それのログを残します。
+
+## composeStories を使用
+
+今回、Storybook からスナップショットテストを導入するにあたり、Storybook が提供している [Storyshots](https://storybook.js.org/addons/@storybook/addon-storyshots) が使えそうと思ったのですが、
+色々考えた結果同じく Storybook が提供している Story を取得する関数 `composeStories` を用いてテストファイルを直で記述する方法にしました。
+
+Story の中には play 関数を用いてインタラクションを表現していたので次のように動作した後のスナップショットを取るようにしました:
+
+```tsx
+// Component.test.tsx
+import { composeStories } from "@storybook/react";
+import { act, render } from "@testing-library/react";
+import * as stories from "./Footer.stories";
+
+const { ...componentStories } = composeStories(stories);
+
+describe("Component", () => {
+  const testCases = Object.values(componentStories).map(
+    (Story) => [Story.storyName, Story] as const,
+  );
+  test.each(testCases)("renders %s", async (_, Story) => {
+    const tree = render(<Story />);
+    await act(async () => {
+      if (Story.play) {
+        await Story.play({ canvasElement: tree.container });
+      }
+    });
+
+    expect(tree.baseElement).toMatchSnapshot();
+  });
+});
+```
+
+## 後は任せた
+
+さあ、後はこのテストファイルを Story を登録している全てのコンポーネントに対してイイ感じに作りたいので例の AI に任せます:
+
+<Image
+  src={"/img/writings/20230510/prompt.png"}
+  caption="困ったら投げる人"
+  style={{ width: 500 }}
+/>
+
+少しコードを修正してさも自分が書いたスクリプトのように実行します:
+
+```bash
+node script.js
+```
+
+## ヨシ！
+
+```bash
+Test Suites: 46 passed, 46 total
+Tests:       75 passed, 75 total
+Snapshots:   75 passed, 75 total
+Time:        15.887 s
+Ran all test suites.
+Done in 22.37s.
+```
+
+（コンポーネントによっては少しモックをしましたが）あっという間にスナップショットを入れることができました。🎉
+
+めでたしめでたし
+
+## おわりに
+
+以上でスナップショットを Story から入れることができました。
+元々 Story はある程度充実していたので、これのおかげで救われる日が来ると思います。
+
+結構日記のような内容になってしまいましたが、スナップショットテストの導入を考えていましたらぜひ参考にしてみてください。

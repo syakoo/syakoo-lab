@@ -1,0 +1,170 @@
+---
+id: "20210529"
+type: "note"
+title: "React で Fade in, out を実装する"
+published: "2021-05-29"
+updated: "2021-06-01"
+noindex: true
+tags:
+  - React
+  - TypeScript
+---
+
+React で Fade in, out のアニメーションの実装にハマったので、残していきます
+
+visibility を用いたカスタムフックを使う方法と、レンダリングを制御したコンポーネントによる実装を紹介します
+
+## visibility で実装
+
+一つ目は、CSS の `visibility` を用いてカスタムフックで実装します。
+`visibility: hidden` になると表示されなくなるため、この時は **`opacity` のアニメーションを待つ**ようにします
+
+```tsx
+import { CSSProperties, useCallback, useMemo, useState } from "react";
+
+const useFadeInOut = (durationSec: number) => {
+  const [display, setDisplay] = useState(false);
+
+  const handleClose = useCallback(() => {
+    setDisplay(false);
+  }, [setDisplay]);
+
+  const handleOpen = useCallback(() => {
+    setDisplay(true);
+  }, [setDisplay]);
+
+  const toggleDisplay = useCallback(() => {
+    setDisplay((prev) => !prev);
+  }, [setDisplay]);
+
+  const boxStyle = useMemo((): CSSProperties => {
+    if (display) {
+      return {
+        opacity: 1,
+        visibility: "visible",
+        transition: `opacity ${durationSec}s`,
+      };
+    }
+
+    return {
+      opacity: 0,
+      visibility: "hidden",
+      transition: `opacity ${durationSec}s, visibility 0s ${durationSec}s`,
+    };
+  }, [durationSec, display]);
+
+  return { display, handleOpen, handleClose, toggleDisplay, boxStyle };
+};
+```
+
+あとは次のように使います:
+
+```tsx
+const App: React.VFC = () => {
+  const { toggleDisplay, boxStyle } = useFadeInOut(0.2);
+
+  return (
+    <>
+      <button onClick={toggleDisplay}>Button</button>
+      <div style={boxStyle}>
+        <Modal />
+      </div>
+    </>
+  );
+};
+```
+
+### デモ (CodeSandbox)
+
+<CodeSandbox
+  src="https://codesandbox.io/embed/fade-inout-sample-with-visibility-zd015"
+  title="fade in/out sample With Visibility"
+></CodeSandbox>
+
+## レンダリングを制御
+
+表示しないときはレンダリングしないようにします。
+次のように結構複雑になります:
+
+```tsx
+import React, { useEffect, useMemo, useRef, useState } from "react";
+
+type FadeInOutBoxProps = {
+  display: boolean;
+};
+
+type DisplayState = "DISPLAY" | "HIDDEN";
+
+const FadeInOutBox: React.FC<FadeInOutBoxProps> = ({ children, display }) => {
+  const [displayState, setDisplayState] = useState<DisplayState>("HIDDEN");
+  const boxRef = useRef<HTMLDivElement>(null);
+
+  const style = useMemo((): React.CSSProperties => {
+    if (!display || displayState === "HIDDEN") {
+      return {
+        opacity: 0,
+        transition: "0.2s",
+      };
+    }
+
+    return {
+      opacity: 1,
+      transition: "0.2s",
+    };
+  }, [display, displayState]);
+
+  useEffect(() => {
+    if (display && displayState === "HIDDEN") {
+      setDisplayState("DISPLAY");
+    }
+    const onEvent = () => {
+      if (!display && displayState === "DISPLAY") {
+        setDisplayState("HIDDEN");
+      }
+    };
+    const box = boxRef.current;
+
+    box?.addEventListener("transitionend", onEvent);
+    return () => {
+      box?.removeEventListener("transitionend", onEvent);
+    };
+  }, [display, displayState, boxRef]);
+
+  return (
+    <>
+      {(display || displayState === "DISPLAY") && (
+        <div
+          ref={boxRef}
+          style={{
+            background: "red",
+            ...style,
+          }}
+        >
+          <div>{children}</div>
+        </div>
+      )}
+    </>
+  );
+};
+```
+
+簡単に解説すると、表示の状態である `displayState` を定義して次の 4 つの状態を持つようにします:
+
+| `display` | `displayState` |    状態    |
+| :-------: | :------------: | :--------: |
+|   True    |    "HIDDEN"    |  Fade in   |
+|   True    |   "DISPLAY"    |  描写済み  |
+|   False   |   "DISPLAY"    |  Fade out  |
+|   False   |    "HIDDEN"    | 描写しない |
+
+描写しないのは `display = false, displayState = "HIDDEN"` の時のみで、それ以外は描写はするようにします。
+また、描写はじめと描写おわりの時は `opacity` を `0` にする必要があります。
+さいごに、`useEffect` を使って、`display = True` になったときは `displayState = "DISPLAY"` に、
+`display = False` でアニメーションが終わったら `displayState = "HIDDEN"` にします。
+
+### デモ (CodeSandbox)
+
+<CodeSandbox
+  src="https://codesandbox.io/embed/fade-inout-sample-with-rendering-component-3vqf9"
+  title="fade in/out sample With Rendering Component"
+></CodeSandbox>

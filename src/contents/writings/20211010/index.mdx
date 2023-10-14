@@ -1,0 +1,286 @@
+---
+id: "20211010"
+type: "article"
+title: "線形空間の Lattice と PG(n, q)"
+published: "2021-10-10"
+updated: "2021-12-24"
+tags:
+  - "数学"
+  - "Galois Geometry"
+---
+
+有限体上の線形空間 $\mathbb{F}_q^n$ は集合の包含関係 $\subseteq$ を用いて、束 (Lattice) にも射影幾何 ${\rm PG}(n-1, q)$ にも考えることができます。
+この束と ${\rm PG}(n-1, q)$ の関係について、特に束における結び (join) と交わり (meet) が ${\rm PG}(n-1, q)$ におけるどの操作に当たるのでしょうか。
+考えてみれば難しくないのですが、自分がこれまで確認したどの書籍にも載っていませんでした。
+
+個人的にはこの理解は非常に大事なポイントであると考えているため、説明していきます。
+
+<Figure>
+  <Geometry domain={{ x: [0, 500], y: [0, 200] }}>
+    <GLine points={['p1', 'p2']} />
+    <GLine points={['p1', 'p3']} />
+    <GLine points={['p1', 'p4']} />
+    <GLine points={['p2', 'p5']} />
+    <GLine points={['p2', 'p6']} />
+    <GLine points={['p3', 'p6']} />
+    <GLine points={['p3', 'p7']} />
+    <GLine points={['p4', 'p5']} />
+    <GLine points={['p4', 'p7']} />
+    <GLine points={['p8', 'p5']} />
+    <GLine points={['p8', 'p6']} />
+    <GLine points={['p8', 'p7']} />
+    <GPoint id="p1" x={125} y={30} />
+    <GPoint id="p2" x={75} y={80} />
+    <GPoint id="p3" x={125} y={80} />
+    <GPoint id="p4" x={175} y={80} />
+    <GPoint id="p5" x={75} y={130} />
+    <GPoint id="p6" x={125} y={130} />
+    <GPoint id="p7" x={175} y={130} />
+    <GPoint id="p8" x={125} y={180} />
+    <GLine points={['f1', 'f2']} />
+    <GLine points={['f2', 'f3']} />
+    <GLine points={['f3', 'f1']} />
+    <GLine points={['f1', 'f5']} />
+    <GLine points={['f2', 'f6']} />
+    <GLine points={['f3', 'f7']} />
+    <GCircle points={['f5', 'f6', 'f7']} />
+    <GPoint id="f1" x={375} y={30} />
+    <GPoint id="f2" x={300} y={180} />
+    <GPoint id="f3" x={450} y={180} />
+    <GPoint id="f4" x={375} y={130} />
+    <GPoint id="f5" x={375} y={180} />
+    <GPoint id="f6" x={413} y={105} />
+    <GPoint id="f7" x={337} y={105} />
+  </Geometry>
+  <Figure.Caption>$\mathbb{F}_2^3$ の束と ${\rm PG}(2, 2)$</Figure.Caption>
+</Figure>
+
+## 交わり (meet)
+
+<Figure>
+  <Geometry domain={{ x: [0, 500], y: [0, 200] }}>
+    <GLine points={["p5", [25, 50]]} color="textTernary" strokeDasharray="4" />
+    <GLine points={["p7", [225, 50]]} color="textTernary" strokeDasharray="4" />
+    <GLine points={["p5", [25, 150]]} color="textTernary" strokeDasharray="4" />
+    <GLine points={["p6", [75, 150]]} color="textTernary" strokeDasharray="4" />
+    <GLine
+      points={["p6", [175, 150]]}
+      color="textTernary"
+      strokeDasharray="4"
+    />
+    <GLine
+      points={["p7", [225, 150]]}
+      color="textTernary"
+      strokeDasharray="4"
+    />
+    <GLine points={["p2", "p5"]} />
+    <GLine points={["p2", "p6"]} color="textTernary" />
+    <GLine points={["p3", "p6"]} color="textTernary" />
+    <GLine points={["p3", "p7"]} color="textTernary" />
+    <GLine points={["p4", "p5"]} color="textTernary" />
+    <GLine points={["p4", "p7"]} color="textTernary" />
+    <GLine points={["p8", "p5"]} />
+    <GLine points={["p8", "p6"]} color="textTernary" />
+    <GLine points={["p8", "p7"]} />
+    <GPoint id="p2" x={75} y={50} color="secondary" />
+    <GPoint id="p3" x={125} y={50} color="textTernary" />
+    <GPoint id="p4" x={175} y={50} color="textTernary" />
+    <GPoint id="p5" x={75} y={100} color="textTernary" />
+    <GPoint id="p6" x={125} y={100} color="textTernary" />
+    <GPoint id="p7" x={175} y={100} color="secondary" />
+    <GPoint id="p8" x={125} y={150} color="primary" />
+    <GLine points={["pg1", [300, 180]]} color="secondary" strokeDasharray="4" />
+    <GPlane
+      points={[
+        [275, 50],
+        [450, 50],
+        [475, 150],
+        [300, 150],
+      ]}
+      color="secondary"
+      opacity="0.5"
+    />
+    <GLine points={["pg1", [500, 20]]} color="secondary" />
+    <GPoint id="pg1" x={400} y={100} color="primary" />
+    <GText x={40} y={30}>
+      $V_1$
+    </GText>
+    <GText x={190} y={90}>
+      $V_2$
+    </GText>
+    <GText x={90} y={160}>
+      $V_1 \wedge V_2$
+    </GText>
+    <GText x={290} y={55}>
+      $V_1$
+    </GText>
+    <GText x={470} y={45}>
+      $V_2$
+    </GText>
+    <GText x={410} y={110}>
+      $V_1 \wedge V_2$
+    </GText>
+  </Geometry>
+  <Figure.Caption>$V_1$ と $V_2$ の交わり (meet)</Figure.Caption>
+</Figure>
+
+2 つの線形空間 $V_1, V_2$ の交わり $V_1 \wedge V_2$ は、射影幾何においても言葉通りで 2 つのオブジェクトの**交わり**を表します。
+また、この演算は集合における積 $\cap$ と同じになります。
+
+## 結び (join)
+
+<Figure>
+  <Geometry domain={{ x: [0, 500], y: [0, 200] }}>
+    <GLine points={["p5", [25, 50]]} color="textTernary" strokeDasharray="4" />
+    <GLine points={["p7", [225, 50]]} color="textTernary" strokeDasharray="4" />
+    <GLine points={["p5", [25, 150]]} color="textTernary" strokeDasharray="4" />
+    <GLine points={["p6", [75, 50]]} color="textTernary" strokeDasharray="4" />
+    <GLine points={["p6", [175, 50]]} color="textTernary" strokeDasharray="4" />
+    <GLine
+      points={["p7", [225, 150]]}
+      color="textTernary"
+      strokeDasharray="4"
+    />
+    <GLine points={["p2", "p5"]} />
+    <GLine points={["p2", "p6"]} color="textTernary" />
+    <GLine points={["p3", "p6"]} color="textTernary" />
+    <GLine points={["p3", "p7"]} color="textTernary" />
+    <GLine points={["p4", "p5"]} color="textTernary" />
+    <GLine points={["p4", "p7"]} color="textTernary" />
+    <GLine points={["p8", "p5"]} />
+    <GLine points={["p8", "p6"]} color="textTernary" />
+    <GLine points={["p8", "p7"]} />
+    <GPoint id="p2" x={75} y={150} color="secondary" />
+    <GPoint id="p3" x={125} y={150} color="textTernary" />
+    <GPoint id="p4" x={175} y={150} color="textTernary" />
+    <GPoint id="p5" x={75} y={100} color="textTernary" />
+    <GPoint id="p6" x={125} y={100} color="textTernary" />
+    <GPoint id="p7" x={175} y={100} color="secondary" />
+    <GPoint id="p8" x={125} y={50} color="primary" />
+    <GPlane
+      points={[
+        [275, 100],
+        [450, 100],
+        [475, 150],
+        [300, 150],
+      ]}
+      color="secondary"
+      opacity="0.5"
+    />
+    <GLine points={["pg1", "pg2"]} color="primary" extend={60} />
+    <GLine points={["pg1", "pg3"]} color="primary" extend={60} />
+    <GLine points={["pg1", "pg4"]} color="primary" extend={60} />
+    <GLine points={["pg1", "pg5"]} color="primary" extend={60} />
+    <GLine points={["pg1", "pg6"]} color="primary" extend={60} />
+    <GPoint id="pg1" x={375} y={50} color="secondary" />
+    <GPoint id="pg2" x={325} y={130} color="secondary" />
+    <GPoint id="pg3" x={335} y={110} color="secondary" />
+    <GPoint id="pg4" x={360} y={115} color="secondary" />
+    <GPoint id="pg5" x={390} y={130} color="secondary" />
+    <GPoint id="pg6" x={410} y={112} color="secondary" />
+    <GText x={40} y={150}>
+      $V_1$
+    </GText>
+    <GText x={190} y={90}>
+      $V_2$
+    </GText>
+    <GText x={90} y={20}>
+      $V_1 \vee V_2$
+    </GText>
+    <GText x={340} y={40}>
+      $V_1$
+    </GText>
+    <GText x={445} y={125}>
+      $V_2$
+    </GText>
+    <GText x={400} y={10}>
+      $V_1 \vee V_2$
+    </GText>
+  </Geometry>
+  <Figure.Caption>$V_1$ と $V_2$ の結び (join)</Figure.Caption>
+</Figure>
+
+2 つの線形空間 $V_1, V_2$ の結び $V_1 \vee V_2$ は、射影幾何において 2 つのオブジェクトを結ぶ直線を通る点全体、つまり $V_1$ と $V_2$ が交わっていないのであれば cone $V_1 V_2$ になります。
+
+## 何が嬉しいのか
+
+線形空間の関係を示す 2 つの表現について、それらの関係を見ていきました。
+これによって、線形空間に関する見え方のバリエーションが増えていきます。
+
+線形空間の部分空間の束は modular になります。つまり、
+
+$$
+{\rm rk}(V_1) + {\rm rk}(V_2) = {\rm rk}(V_1 \wedge V_2) + {\rm rk}(V_1 \vee V_2)
+$$
+
+を満たします。
+これを用いることによって、射影幾何 ${\rm PG}(n, q)$ でのオブジェクトの交わりの次元がわかりやすくなります。
+また、基底の話になると点と直線の関係が決められている射影幾何が便利になったりします。
+
+## おわりに
+
+有限体上の線形空間 $\mathbb{F}_q^n$ を扱ってる方は束と射影幾何とも仲良くなると幸せになると思います。
+自分もまだ入門段階であるためこれから精進していきます。
+
+## プチ問題
+
+### Q 1
+
+${\rm PG}(n, q)$ 上において、次元がそれぞれ $k, n-k$ の射影空間を $\Pi_k, \Pi_{n-k}$ とする。
+$\Pi_k$ と $\Pi_{n-k}$ は必ず交差する。
+
+<Choices correct={0}>
+  <Choice>はい</Choice>
+
+  <Choice>いいえ</Choice>
+</Choices>
+
+<details>
+<summary>解説</summary>
+
+束が modular であることから、
+
+$$
+\begin{aligned}
+  {\rm rk}(\Pi_k \wedge \Pi_{n-k}) &= {\rm rk}(\Pi_k) + {\rm rk}(\Pi_{n-k}) - {\rm rk}(\Pi_k \vee \Pi_{n-k}) \\
+  &= k + n-k - {\rm rk}(\Pi_k \vee \Pi_{n-k}) \\
+  &\geq k + n-k - n = 0.
+\end{aligned}
+$$
+
+0 次元射影空間は点にあたるため、少なくとも点で交差します。
+
+</details>
+
+### Q 2
+
+${\rm PG}(n, q)$ 上において、次元がそれぞれ $k, n-1$ の射影空間を $\Pi_k, \Pi_{n-1}$ とする。
+$\Pi_k \not\subseteq \Pi_{n-1}$ のとき、$\Pi_k \cap \Pi_{n-1}$ の次元は？
+
+<Choices correct={0}>
+<Choice>$k-1$</Choice>
+
+<Choice>$k$</Choice>
+
+<Choice>一意に定まらない</Choice>
+
+<Choice>射影空間にならない</Choice>
+</Choices>
+
+<details>
+<summary>解説</summary>
+
+射影空間の集合の積は、線形空間の束の交わり (meet) と同じであり、射影空間になります。
+$\Pi_k$ と $\Pi_{n-1}$ の結び (join) は ${\rm PG}(n, q)$ そのものになり、
+
+$$
+\begin{aligned}
+  {\rm rk}(\Pi_k \wedge \Pi_{n-1}) &= {\rm rk}(\Pi_k) + {\rm rk}(\Pi_{n-1}) - {\rm rk}(\Pi_k \vee \Pi_{n-1}) \\
+  &= k + n-1 - n\\
+  &= k-1.
+\end{aligned}
+$$
+
+つまり、射影空間における次元は $k-1$ になります。
+
+</details>

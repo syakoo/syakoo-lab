@@ -1,4 +1,4 @@
-import { WRITING_TYPES } from "../../shared/writingType";
+import { writingTypeConfig } from "../../shared/writingType";
 import { writingBlockStyles } from "./WritingBlock.css";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";
@@ -10,7 +10,9 @@ type WritingBlockProps = {
 };
 
 export const WritingBlock: React.FC<WritingBlockProps> = ({ meta }) => {
-  const { iconName } = WRITING_TYPES.find(({ type }) => type === meta.type)!;
+  const { iconName } = writingTypeConfig.find(
+    ({ type }) => type === meta.type,
+  )!;
 
   return (
     <Row align="center" as="article" gap="200">

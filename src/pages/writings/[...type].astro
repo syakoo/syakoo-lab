@@ -13,7 +13,7 @@ import { formatPageTitle } from "@/features/common/logics/pageTitle";
 import { WritingList } from "@/features/writings/WritingList";
 import type { WritingListType } from "@/features/writings/WritingList/shared/writingListType";
 import { getWritingMetaFromFrontMatter } from "@/features/writings/resolveWritingMeta";
-import { WRITING_TYPES } from "@/features/writings/shared/writingType";
+import { writingTypeConfig } from "@/features/writings/shared/writingType";
 import type { WritingType } from "@/features/writings/types";
 import { glob } from "glob";
 import matter from "gray-matter";
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
         type: undefined,
       },
     },
-    ...WRITING_TYPES.map(({ type }) => ({
+    ...writingTypeConfig.map(({ type }) => ({
       params: {
         type,
       },

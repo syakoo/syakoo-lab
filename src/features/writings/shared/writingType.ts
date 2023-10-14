@@ -6,7 +6,7 @@ type WritingTypeConfigItem = {
   label: string;
   iconName: IconName;
 };
-export const WRITING_TYPES = [
+export const writingTypeConfig = [
   { type: "article", label: "Article", iconName: "document" },
   { type: "note", label: "Note", iconName: "note" },
   { type: "diary", label: "Diary", iconName: "book" },

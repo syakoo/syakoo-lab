@@ -1,0 +1,113 @@
+---
+id: "20220723"
+type: "note"
+title: "このサイトの設計を俯瞰する"
+published: "2022-07-23"
+noindex: true
+tags:
+  - "Design"
+  - "React"
+  - "TypeScript"
+---
+
+突然ですがみなさん、
+自分で作ったプロダクトのモジュールの依存関係やディレクトリ構成がどうなっているのか遠くから眺めたいと思ったことはありませんか？
+
+筆者はあります。
+特に長い期間をかけて書いたコードだと、始めたときの思考と現在の思考はもちろん変わっているので、
+構成もいつの間にか変わっているかもしれません。漫画の 1 巻と最終巻のイラストのタッチくらい違うかもしれません。
+
+しかし、それを実現するツールが筆者のググり力が弱いために見つからず、
+「ほなら作るかぁ」と思って Vite のモジュールスキャンを参考に作っていたら、**それ**は目の前に突然現れたのです。
+
+https://github.com/sverweij/dependency-cruiser
+
+今回はこの Dependency cruiser を使用してこのサイトの依存関係を確認していきます。
+
+## Dependency cruiser
+
+> Validate and visualise dependencies. With your rules. JavaScript. TypeScript. CoffeeScript. ES6, CommonJS, AMD.
+
+モジュールの依存関係にバリデーションをかけたり、図示することができるツールです。
+調べてみたら、メルカリでは循環参照の検証に使われているみたいです ([参考](https://engineering.mercari.com/blog/entry/20220218-mercari-shops-automation/))。
+
+また、GitHub Actions で描画してくれるものもあるみたいです ([参考](https://zenn.dev/mh4gf/writings/12fcdcba14e576))。これ普通に使えそう...!
+
+## このサイトの設計をみてみる
+
+そろそろ本題に戻ります。
+Dependency cruiser を使用してこのサイトの設計を図示してみます。
+
+今回は dot 形式として出力してから png, html に変形するので、dot 言語を画像形式に変換してくれる Graphviz というものをインストールしてきます:
+
+```bash
+brew install graphviz
+```
+
+結構時間かかりますね 😕
+
+次にパッケージをインストールしてきます:
+
+```bash
+npm i -D dependency-cruiser
+```
+
+グローバルにインストールする方法もありますが、モジュールのパス解決をしてくれません。
+それで数日ぶっ飛びましたので無難にローカルに入れましょう。
+
+### About Me ページ以下の依存関係をディレクトリレベルで png に出力してみる
+
+サイト全体だと量が多すぎてここに載せても見るのが大変なので、About Me ページ以下をディレクトリレベルで見ていきます。
+
+次のコマンドを実行します:
+
+```bash
+./node_modules/.bin/dependency-cruise --ts-config -x node_modules -T ddot src/pages/about-me/index.tsx | dot -T png > out.png
+```
+
+すると、次のような `out.png` が出力されます:
+
+<Image
+  src={"/img/writings/20220723/dg-about-me.png"}
+  alt="dependency graph - /about-me"
+  caption="About Me ページ以下の依存グラフ"
+  style={{ width: 500 }}
+/>
+
+このサイトでは、`src/components` 以下のディレクトリには `index.tsx` を置いて、そのディレクトリ外からのアクセスはすべて `index.tsx` からするようにしているので、それがきれいに現れていることがわかります。
+しかし、build 時には tree shaking してくれるとはいえ、そのディレクトリ以下のすべてのモジュールが `index.tsx` につながってしまっているので具体的にどのモジュールにアクセスしているのかがわかりません。
+
+また、`src/components/ui` が他のドメインを含むようなモジュールにアクセスしない atomic 的な設計になってるのは安心します。
+
+### イラスト一覧コンポーネントの依存関係をモジュールレベルで png に出力してみる
+
+続いて、`src/components/arts/ArtListView/index.tsx` 以下のコンポーネントをモジュールレベルで見ていきます。
+
+次のコマンドを入力すると同様に png ファイルが出力されます:
+
+```bash
+./node_modules/.bin/dependency-cruise --ts-config -x node_modules -T dot src/components/arts/ArtListView/index.tsx | dot -T png > out.png
+```
+
+<Image
+  src={"/img/writings/20220723/dg-art-list-view.png"}
+  alt="dependency graph - /src/components/arts/ArtListView"
+  caption="イラスト一覧コンポーネントの依存グラフ"
+  style={{ width: 500 }}
+/>
+
+`index.tsx` にモジュールがつながっているせいでどれが関係しているのかわかりませんね（笑）。
+しかし、結構設計は一貫していそうです。 `hygen` を使ってコンポーネントのテンプレートを生成しているおかげだと思います。
+
+## まとめ
+
+今回は Dependency cruiser を使用してこのサイトの依存関係を確認してみましたが、思ったより設計が一貫してそうだったので安心しました。
+ここでは紹介しませんでしたが、大きいファイルを確認するときは次のようにして HTML ファイルとして出力すると、楽なのかなと思います:
+
+```bash
+./node_modules/.bin/dependency-cruise <HOGEHOGE> | dot -T svg | depcruise-wrap-stream-in-html > out.html
+```
+
+まあどちらにせよ、このサイトは少しずつ見直していこうかと思っています。
+
+皆さんも、現在の設計が気になったら確認してみたり、GitHub Actions に導入して設計を管理していきましょう。

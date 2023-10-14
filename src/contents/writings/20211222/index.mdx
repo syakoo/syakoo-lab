@@ -1,0 +1,164 @@
+---
+id: "20211222"
+type: "article"
+title: "線形符号の符号語と射影空間の超平面"
+published: "2021-12-22"
+updated: "2021-12-25"
+tags:
+  - "数学"
+  - "Galois Geometry"
+---
+
+線形符号 (特に projective codes) の符号語と射影空間の超平面には深い繋がりがあるのでまとめていきます。
+今回はわかりやすくするために 2 元符号を使いますが、基本的にどの有限体上でも同じです。
+
+## 2 元シンプレックス符号の符号語と超平面
+
+$r$ 次元の**シンプレックス符号** (simplex codes) は ${\rm PG}(r-1, q)$ の全ての点を列ベクトルとした生成行列で表される符号であり、
+特に 2 元シンプレックス符号 (binary simplex codes) は、非零ベクトルを列ベクトルとして並べたものを生成行列としてもつ $[2^r-1, r, 2^{r-1}]_2$ 線形符号です。
+
+ここでは例として、$[7, 3, 4]_2$ シンプレックス符号 $C$ を考えます。$C$ の生成行列 $G$ は次ようになります:
+
+$$
+G=\begin{pmatrix}
+1 & 0 & 0 & 1 & 1 & 0 & 1 \\
+0 & 1 & 0 & 1 & 0 & 1 & 1 \\
+0 & 0 & 1 & 0 & 1 & 1 & 1 \\
+\end{pmatrix}.
+$$
+
+次に射影空間の超平面について考えていきます。
+射影空間 ${\rm PG}(r-1, q)$ における任意の超平面 $H$ は双対性により、ある点 $v \in {\rm PG}(r-1, q)$ が存在して次のように書くことができます:
+
+$$
+H = \{p \in {\rm PG}(r-1, q) \mid v \cdot p = 0\}.
+$$
+
+つまり、点 $v$ に対して直交するベクトルを集めたものになります。
+例として、${\rm PG}(2, 2)$ 上の $v=(1, 1, 1)^\mathsf{T}$ に対応する超平面 $H$ は次のようになります:
+
+$$
+H = \left\{
+\begin{pmatrix}
+1 \\ 1 \\ 0
+\end{pmatrix},
+\begin{pmatrix}
+1 \\ 0 \\ 1
+\end{pmatrix},
+\begin{pmatrix}
+0 \\ 1 \\ 1
+\end{pmatrix}
+\right\}.
+$$
+
+ファノ平面で考えると確かに超平面である直線になってることがわかります:
+
+<Figure>
+  <Geometry domain={{ x: [0, 200], y: [0, 200] }}>
+    <GLine points={["p1", "p2"]} color="textTernary" />
+    <GLine points={["p2", "p3"]} color="textTernary" />
+    <GLine points={["p3", "p1"]} color="textTernary" />
+    <GLine points={["p1", "p5"]} color="textTernary" />
+    <GLine points={["p2", "p6"]} color="textTernary" />
+    <GLine points={["p3", "p7"]} color="textTernary" />
+    <GCircle points={["p5", "p6", "p7"]} />
+    <GPoint id="p1" x={100} y={10} color="textTernary" />
+    <GPoint id="p2" x={10} y={190} color="textTernary" />
+    <GPoint id="p3" x={190} y={190} color="textTernary" />
+    <GPoint id="p4" x={100} y={130} color="textTernary" />
+    <GPoint id="p5" x={100} y={190} color="primary" />
+    <GPoint id="p6" x={145} y={100} color="primary" />
+    <GPoint id="p7" x={55} y={100} color="primary" />
+  </Geometry>
+  <Figure.Caption>ファノ平面</Figure.Caption>
+</Figure>
+
+勘のいい方は気付いたかもしれませんが、シンプレックス符号の生成行列は射影空間の全ての点を並べたものであるため、$v^\mathsf{T}G$ を計算して $0$ となっている列のベクトルを集めると超平面になります。
+つまり、**シンプレックス符号における符号語 $c=v^\mathsf{T}G$ の 0 の列と超平面が対応していることがわかります。**(符号語の情報ベクトルの直交補空間が超平面になる)
+
+具体的には、生成行列の $i$ 列目のベクトルを $g_i$、符号語 $c=v^\mathsf{T}G$ に対して ${\rm supp}(c) := \{i \mid c_i \neq 0\}$、$E_n:=\{1, 2, \dots, n\}$ とすると、
+
+$$
+\begin{aligned}
+ H  &= \left\{p \in {\rm PG}(r-1, q) \mid v \cdot p = 0\right\}\\
+    &= \{g_i \mid i \in E_n \setminus {\rm supp}(c)\}
+\end{aligned}
+$$
+
+となります。
+
+### 2 元シンプレックス符号の符号語の重み
+
+このことから、次の事が射影幾何から示すことができます:
+
+#### 定理
+
+$r$ 次元の 2 元シンプレックス符号の符号語は零ベクトルを除いて重みが $2^{r-1}$ となる。
+
+#### 証明
+
+シンプレックス符号の零ベクトルを除く任意の符号語 $c$ の $0$ の数は、射影空間 ${\rm PG}(r-1, q)$ における超平面 $H$ に含まれる点の個数に対応しているため
+
+$$
+\begin{aligned}
+  wt(c) &= 2^{r} - 1 - |H| \\
+        &= 2^{r} - 1 - (2^{r-1} - 1) \\
+        &= 2^{r-1}.
+\end{aligned}
+$$
+
+<div style={{float: 'right'}}>
+
+$\square$
+
+</div>
+
+## projective codes の符号語と超平面
+
+**projective codes** とは、射影空間上の点を列ベクトルとして集めたものを生成行列とする符号です。
+最大な projective codes がシンプレックス符号になります。
+
+シンプレックス符号から列ベクトルを削除しただけのものなので、符号語 $c$ が $0$ となるものを集めたものは生成行列からなるマトロイドのフラットに対応します。
+
+また、次のような命題を示すことができます:
+
+#### 命題
+
+$[n, r]_q$ projective codes $C$ の生成行列を $G$、${\rm PG}(r-1, q)$ 上における $G$ の列ベクトルに対応する点の集合を $S$ とする。
+$k$ 個の符号語 $c_1, c_2, \dots, c_k$ に対して、$\bigcup_{i=0}^{k} {\rm supp}(c_i) = E_n$ であることと、${\rm PG}(r-1, q)\setminus S$ に $r-k-1$ 次元射影空間が存在することは同値である。
+
+#### 証明
+
+${\rm PG}(r-1, q)$ における任意の $r-k-1$ 次元部分空間 $\Pi_{r-k-1}$ は $k$ 個の超平面 $H_i$ の交わりによって表現でき、任意の $k$ 個の超平面の交わりは $r-k-1$ 次元部分空間を含む。
+
+ここで、${\rm PG}(r-1, q) \setminus S$ 上の全ての点を $G$ の列ベクトルに加えた生成行列を $G'$ とすると、$G'$ から生成される符号はシンプレックス符号 $C'$ になる。
+$[n', r]$ シンプレックス符号の符号語 $c'_i$ に対して超平面 $H_i$ は $E_{n'} \setminus {\rm supp}(c'_i)$ に対応することから、
+
+$$
+\begin{aligned}
+  \bigcap_{i=0}^{k} H_i
+              &= \bigcap_{i=0}^{k} \{g'_j \mid j \in E_{n'} \setminus {\rm supp}(c'_i)\} \\
+              &= \left\{g'_j\ \middle|\ j \in E_{n'} \setminus \bigcup_{i=0}^{k} {\rm supp}(c'_i)\right\}.
+\end{aligned}
+$$
+
+したがって、
+
+$$
+  \begin{aligned}
+    &{}^\exists c_1, c_2, \dots, c_k \in C {\rm \ s.t.\ } \bigcup_{i=0}^{k} {\rm supp}(c_i) = E_n \\
+    &\Leftrightarrow {}^\exists c'_1, c'_2, \dots, c'_k \in C' {\rm \ s.t.\ } E_{n'} \setminus \bigcup_{i=0}^{k} {\rm supp}(c'_i) \subseteq E_{n'} \setminus E_n \\
+    &\Leftrightarrow {}^\exists\Pi_{r-k-1} \subseteq {\rm PG}(r-1, q) \setminus S.
+  \end{aligned}
+$$
+
+<div style={{float: 'right'}}>
+
+$\square$
+
+</div>
+
+## おわりに
+
+線形符号 (特に projective codes) の符号語と射影空間の超平面の関係について説明しました。
+線形符号と射影幾何の繋がりをこれからもまとめていければなと思います。🙃

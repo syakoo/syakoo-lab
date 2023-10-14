@@ -1,0 +1,178 @@
+---
+id: "20200627"
+type: "note"
+title: "React + Tesseract.js でリアルタイム文字認識してみた"
+published: "2020-06-27"
+updated: "2021-06-20"
+noindex: true
+tags:
+  - "React"
+  - "TypeScript"
+---
+
+今回は React と文字認識用(OCR)のライブラリである `Tesseract.js` を使ってリアルタイムの文字認識を Web 上でやってみました。
+
+## Tesseract.js
+
+公式ページ - https://tesseract.projectnaptha.com/
+
+`Tesseract.js` は、有名(らしい)な文字認識のエンジンである **Tesseract OCR engine** を使っている JavaScript のライブラリです。
+JS で使えるため、**ブラウザ上でも Node.js(サーバー)上でも動く**のが強みです
+
+## 簡単な使い方
+
+公式ドキュメントにもありますが、使い方を軽く説明します。
+
+まず、ライブラリの `createWorker()` を使って `worker` を作成、初期化します：
+
+```ts
+const worker = createWorker();
+await worker.load();
+await worker.loadLanguage("eng");
+await worker.initialize("eng");
+```
+
+今回は英語("eng")でしていますが、**日本語**("jpn")もあるみたいです
+
+あとは対象の画像ファイルから文字を認識したい場合は、
+
+```ts
+const data = await worker.recognize("sample.png");
+```
+
+これで認識の結果が返ってきます！
+簡単ですね
+
+## リアルタイムでの文字認識
+
+画像ファイルからの読み込みを紹介しましたが、リアルタイムでの文字認識を実現するためには、カメラを使い、写った情報を取得する必要があります
+
+今回は、カメラの映像を 2 秒ごとに `canvas` に変換してそれを読み込むように作成していきます。
+まずは各関数を紹介していきます：
+
+### initWorker()
+
+```ts
+const initWorker = async () => {
+  const worker = createWorker();
+  await worker.load();
+  await worker.loadLanguage("eng");
+  await worker.initialize("eng");
+  setWorker(worker);
+};
+```
+
+今回は React の `useState()` を使用しているため、`setWorker()` で作成した worker を保管しています
+
+### initStream()
+
+```ts
+const initStream = async () => {
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: { width: 500, height: 300 },
+    audio: false,
+  });
+  setStream(stream);
+};
+```
+
+`getUserMedia()` でユーザーにカメラの使用の許可をもらいます。stream は同様に `useState()` で保管します。
+
+### onRecognizeText()
+
+```ts
+const onRecognizeText = () => {
+  const timerId = setInterval(async () => {
+    if (videoRef.current === null || !worker) return;
+
+    const c = document.createElement("canvas");
+    c.width = 500;
+    c.height = 300;
+    c.getContext("2d")?.drawImage(videoRef.current, 0, 0, 500, 300);
+
+    // canvasから文字を認識！！
+    const {
+      data: { text },
+    } = await worker.recognize(c);
+    setText(text);
+  }, 2000);
+  return () => clearInterval(timerId);
+};
+```
+
+2 秒ごとに `<video />` のデータを `canvas` に変換して `worker.recognize()` で文字認識をします。
+
+コード全体は以下のようになります。上で紹介した関数は省略しています：
+
+```tsx
+import React, { useState, useRef, useEffect } from "react";
+import { createWorker } from "tesseract.js";
+
+const App = () => {
+  const [stream, setStream] = useState<MediaStream | null>(null);
+  const [worker, setWorker] = useState<Tesseract.Worker | null>(null);
+  const [text, setText] = useState("");
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const initWorker = async () => {
+    // ...
+  };
+  const initStream = async () => {
+    // ...
+  };
+  const onRecognizeText = () => {
+    // ...
+  };
+
+  useEffect(() => {
+    if (!worker) initWorker();
+    if (!stream) initStream();
+
+    if (worker && stream && videoRef.current !== null) {
+      videoRef.current.srcObject = stream;
+      const clear = onRecognizeText();
+      return clear;
+    }
+  }, [worker, stream]);
+
+  return (
+    <div>
+      <video ref={videoRef} autoPlay />
+      <pre>
+        <h1>{text}</h1>
+      </pre>
+    </div>
+  );
+};
+
+export default App;
+```
+
+## 動作結果
+
+このようになりました。簡単に実装できましたが、精度としては難ありかなと感じます(日本語だとより難しいそうです)
+
+<blockquote className="twitter-tweet">
+  <p lang="ja" dir="ltr">
+    JSでの文字認識をやってみた。精度いいとは言えんなぁ...
+    <a href="https://t.co/0FrjQRWsMM">pic.twitter.com/0FrjQRWsMM</a>
+  </p>
+  &mdash; さっこー (@sako_data)
+  <a href="https://twitter.com/sako_data/status/1276770658626592768?ref_src=twsrc%5Etfw">
+    June 27, 2020
+  </a>
+</blockquote>
+
+<note>
+
+2021/06/20
+
+もう一度試してみたところ、バージョンが上がったのか撮り方が良かったのかはわかりませんが、精度が良くなっていました。
+ぜひ実際に試してみてください。
+
+</note>
+
+## さいごに
+
+React + Tesseract.js でリアルタイム文字認識をしていきました。
+実際に使うためには、画像の前処理とかをして精度を上げていく必要がありそうです

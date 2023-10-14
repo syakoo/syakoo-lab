@@ -1,0 +1,301 @@
+---
+id: "20210711"
+type: "note"
+title: "競プロでも使える Python の便利な標準ライブラリ Tips"
+published: "2021-07-11"
+tags:
+  - "競プロ"
+  - "Python"
+---
+
+こんにちは、[syakoo](/about-me) です。
+
+自分は AtCoder や LeetCode などの競技プログラミングでのメインの言語として Python を現在使用しているのですが、
+問題を解く中で便利な標準ライブラリが多くあったのでピックアップしていきたいと思います。
+
+競プロ**"でも"**と書いてあるように、開発や研究でも知っているとかなり便利です。
+
+今回紹介する内容は Python 3.7 以降を想定しています。
+
+## itertools
+
+イテレータを扱うモジュールです。
+イテレータはループの構造を表しているため、非常に長いループを扱うときに便利です。
+
+### itertools.product
+
+配列の**デカルト積(直積)**のイテレータを作成します。
+`repeat` でサイズを指定できるので bit 全探索などに使えます。
+
+```python
+xs = ['x1', 'x2', 'x3']
+ys = ['y1', 'y2']
+
+itertools.product(xs, ys)
+# ('x1', 'y1') ('x1', 'y2') ('x2', 'y1') ('x2', 'y2') ('x3', 'y1') ('x3', 'y2')
+# の順に返す(ループ数は |xs|*|ys| = 6)
+
+itertools.product(range(2), repeat=2)
+# (0, 0) (0, 1) (1, 0) (1, 1)
+# の順に返す(ループ数は |{0, 1}|^2 = 4)
+```
+
+### itertools.combinations
+
+配列の中から $r$ 個の**組み合わせ**を作るイテレータを作成します。
+組み合わせの**数**のみを必要としている場合は使わない方がいいです。
+
+```python
+xs = ['x1', 'x2', 'x3']
+
+itertools.combinations(xs, r=2)
+# ('x1', 'x2') ('x1', 'x3') ('x2', 'x3')
+# の順に返す(ループ数は |xs|C2)
+```
+
+### itertools.permutations
+
+配列の中から $r$ 個の**順列**を作るイテレータを作成します。
+
+```python
+xs = ['x1', 'x2', 'x3']
+
+itertools.permutations(xs, r=2)
+# ('x1', 'x2') ('x1', 'x3') ('x2', 'x1') ('x2', 'x3') ('x3', 'x1') ('x3', 'x2')
+# の順に返す(ループ数は |xs|P2)
+```
+
+### itertools.accumulate
+
+配列の**累積結果**を返す関数です。
+デフォルトでは和なので、これだけで**累積和を取ることができます。**
+
+```python
+xs = [1, 2, 3, 4, 5]
+
+itertools.accumulate(xs)
+# 1 3 6 10 15
+# の順に返す
+
+itertools.accumulate(xs, func=lambda x1, x2: x1*x2)
+# 1 2 6 24 120
+# の順に返す
+```
+
+## collections
+
+`list`, `dict`, `set`, `tuple` 以外の特殊なデータ型を集めたモジュール。
+データ構造としてよく使います。
+
+### collections.deque
+
+スタックとキューを一般化した**デック(double-ended queue)**です。
+単にキューとしてデータを扱う場合も基本的にこれを使います。
+
+```python
+dque = collections.deque([0, 1, 2, 3])
+
+x = dque.pop()
+# x = 3, dque = deque([0, 1, 2])
+# 最後の要素をポップします。O(1)
+
+x = dque.popleft()
+# x = 0, dque = deque([1, 2])
+# 最初の要素をポップします。O(1)
+
+dque.append(4)
+# deque([1, 2, 4])
+# 最後に値を追加します。O(1)
+
+dque.appendleft(5)
+# deque([5, 1, 2, 4])
+# 最初に値を追加します。O(1)
+```
+
+### collections.defaultdict
+
+初期値をあらかじめ設定することができる `dict` です。第一引数には初期値を返す関数を入れます。
+
+```python
+cnts = collections.defaultdict(int)
+# 初期値を 0 として作成
+
+cnts['x1'] += 1
+cnts['x2'] += 2
+cnts['x3'] += 3
+# defaultdict(<class 'int'>, {'x1': 1, 'x2': 2, 'x3': 3})
+# dict でやると KeyError になる
+```
+
+### collections.Counter
+
+**カウントに特化**した `dict` のサブクラスです。数え上げに良く使います。
+
+```python
+cnt1 = collections.Counter(['a', 'a', 'b'])
+# Counter({'a': 2, 'b': 1})
+cnt2 = collections.Counter(['b', 'c', 'b'])
+# Counter({'b': 2, 'c': 1})
+
+cnt1 + cnt2
+# Counter({'b': 3, 'a': 2, 'c': 1})
+cnt2 - cnt1
+# Counter({'b': 1, 'c': 1})
+cnt1['d'] += 2
+# Counter({'a': 2, 'd': 2, 'b': 1})
+cnt1['e']
+# 0
+# 存在しない要素に対しては 0 を返す
+```
+
+## bisect
+
+**配列二分法**のアルゴリズムです。配列の二分探索をするときに使います。
+
+### bisect.bisect_left
+
+ソートされた配列から**二分探索**で挿入する場所を求めます。同じ値があった場合、その中で**一番前**のインデックスになります。
+計算量は配列の長さを $N$ としたとき、$O(\log N)$ です。
+
+```python
+#     0  1  2  3  4  5  6  7  8
+xs = [1, 1, 2, 3, 4, 4, 4, 7, 8]
+
+i = bisect.bisect_left(xs, 5)
+# i = 7
+i = bisect.bisect_left(xs, 4)
+# i = 4
+# 同じ数字の中の先頭のインデックスになる
+```
+
+### bisect.bisect_right
+
+`bisect_left` とほとんど同じです。同じ値があったとき、その中の**一番後ろ**に挿入するためのインデックスを返します。
+
+```python
+#     0  1  2  3  4  5  6  7  8
+xs = [1, 1, 2, 3, 4, 4, 4, 7, 8]
+
+i = bisect.bisect_right(xs, 5)
+# i = 7
+i = bisect.bisect_right(xs, 4)
+# i = 7
+# 同じ数字の中の最後のインデックス + 1 になる
+```
+
+## functools
+
+高階関数などの関数に影響したり関数を返したりするようなものがあるモジュールです。
+
+### functools.lru_cache
+
+関数の結果を **LRU(Least Recently Used) を用いてメモ化**します。
+つまり、関数(引数 -> 返り値)に対して最近使われた引数に対する結果をメモ化することで、関数の中身を処理することなくキャッシュを返します。
+**再起関数を用いたメモ化**処理にはかなり便利です。
+
+引数には保存する個数を設定します。`None` であれば全て保存します(メモリに注意)。
+
+```Python
+@functools.lru_cache(maxsize=2)
+def memo_double(x: int) -> int:
+    print(f'x: {x}')
+    return x * 2
+
+memo_double(1)
+# x: 1
+# 2
+memo_double(2)
+# x: 2
+# 4
+memo_double(1)
+# 2
+# print() が実行されていないことがわかる
+memo_double(2)
+# 4
+# print() が実行されていないことがわかる
+memo_double(3)
+# x: 3
+# 6
+memo_double(1)
+# x: 1
+# 2
+memo_double(2)
+# x: 2
+# 4
+```
+
+## 練習問題
+
+何となく練習問題です。ここで紹介したものの復習です。
+
+### Q1
+
+bit 全探索(0000 -> 0001 -> 0010 -> 0011 -> ... -> 1111) を行うには次のどの関数を使うのが適切ですか？
+
+<Choices correct={1}>
+  <Choice>
+
+`itertools.permutations`
+
+  </Choice>
+  <Choice>
+
+`itertools.product`
+
+  </Choice>
+  <Choice>
+
+`itertools.combinations`
+
+  </Choice>
+</Choices>
+
+### Q2
+
+`dque = collections.deque([1, 2, 3, 4])` があります。
+`1` を取り出すには次のどれを実行するのが適切ですか？
+
+<Choices correct={0}>
+  <Choice>
+
+`dque.popleft()`
+
+  </Choice>
+  <Choice>
+
+`dque.pop()`
+
+  </Choice>
+</Choices>
+
+### Q3
+
+要素が整数のソートされた配列 `xs` があります。
+ある整数 `x` に対して、`xs` 内の** `x` 未満の要素の数**を求めたいとき、次のどれを実行するのが適切ですか？
+
+<Choices correct={0}>
+  <Choice>
+
+`bisect.bisect_left(xs, x)`
+
+  </Choice>
+  <Choice>
+
+`bisect.bisect_left(xs, x) + 1`
+
+  </Choice>
+  <Choice>
+
+`bisect.bisect_right(xs, x)`
+
+  </Choice>
+  <Choice>
+
+`bisect.bisect_right(xs, x) + 1`
+
+  </Choice>
+</Choices>
+
+## おわりに
+
+今回紹介したほかにも便利な標準ライブラリはたくさんあるので、興味を持ちましたら [公式ドキュメント](https://docs.python.org/ja/3/library/index.html) 等から探してみてください。

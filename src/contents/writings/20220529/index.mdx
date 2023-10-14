@@ -1,0 +1,85 @@
+---
+id: "20220529"
+type: "note"
+title: "コンポーネントにおける各スタイリングライブラリの責務"
+published: "2022-06-08"
+noindex: true
+tags:
+  - "Design"
+  - "React"
+---
+
+<Scrap createdAt="2022-05-29">
+
+React にはスタイリングライブラリの種類が様々あり、これが一番良いといったものがあるわけではなく、最終的には好みで決定される場面が多いかと思います。
+しかし、これらのライブラリはそれが担うコンポーネントにおける責務が異なるため、あるライブラリでは使用される方法が他のライブラリではアンチパターンになり得るため注意が必要です。
+
+そこで、ここではコンポーネントにおける責務を定義し、それらのどこを各スタイリングライブラリが担っているのかについて随時まとめていきます。
+
+## Preliminaries
+
+ここでは、[Vue.js | Single-File Components](https://vuejs.org/guide/scaling-up/sfc.html) を参考にして、コンポーネントは props を受け取り次の 3 つを果たす責務があると定義します:
+
+- **View** - JSX.Element などの骨格の定義
+- **Logic** - React Hook などの処理の定義
+- **Styling** - View に当てる装飾の定義
+
+<Image
+  src={"/img/writings/20220529/responsibility-of-react-component.png"}
+  alt="react component の責務"
+  caption="component の責務"
+/>
+
+</Scrap>
+
+<Scrap createdAt="2022-06-08">
+
+## styled-components
+
+https://styled-components.com/
+
+<Image
+  src={"/img/writings/20220529/c1.png"}
+  alt="styled-components の構造"
+  caption="styled-components の構造"
+/>
+
+styled-components はコンポーネントをラップする形でスタイリングを決定するやり方であり、
+具体的には、コンポーネントの props に新たに props を追加し、それらの値からスタイルを決定して `className` としてコンポーネントの props へスタイルに対応するクラス名を渡しています。
+
+構造を見るに、styled-components におけるスタイリングの責務はコンポーネントの props に少し影響していることがわかります。
+
+</Scrap>
+
+<Scrap createdAt="2022-05-29">
+
+## CSS Modules
+
+https://github.com/css-modules/css-modules
+
+<Image
+  src={"/img/writings/20220529/c2.png"}
+  alt="CSS Modules の構造"
+  caption="CSS Modules の構造"
+/>
+
+CSS Modules は View のクラス名などの CSS Selector に紐づけてスタイリングをします。
+あくまでスタイリングの指定は CSS ファイルなどで行い、View とのインターフェースに当たるのが CSS Selector になります。
+
+</Scrap>
+
+<Scrap createdAt="2022-05-29">
+
+## tailwindcss
+
+https://tailwindcss.com/
+
+<Image
+  src={"/img/writings/20220529/c3.png"}
+  alt="tailwindcss の構造"
+  caption="tailwindcss の構造"
+/>
+
+tailwindcss は CSS Modules のようにクラス名を紐付けてスタイリングをしますが、その粒度が小さいため、スタイリングの責務がほとんど View に移ります。
+
+</Scrap>

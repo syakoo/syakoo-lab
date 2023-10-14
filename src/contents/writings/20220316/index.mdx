@@ -1,0 +1,113 @@
+---
+id: "20220316"
+type: "note"
+title: "Headless UI を勉強する"
+published: "2022-03-16"
+updated: "2022-03-17"
+noindex: true
+tags:
+  - "TypeScript"
+  - "React"
+---
+
+<Scrap createdAt='2022-03-16'>
+
+正直、Headless UI に対する知識があやふやなので、今回勉強していく。
+
+具体的には、
+
+- Headless UI が何なのか
+- Headless UI のライブラリの実装
+
+について見ていきたい。
+
+</Scrap>
+
+<Scrap createdAt='2022-03-16'>
+
+## Headless UI
+
+[Headless UI](https://headlessui.dev/) は、tailwind Labs が中心となって開発している OSS の UI ライブラリのこと。
+サイトにも、コードの README にも次のような文句が書かれている:
+
+> A set of completely unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS.
+>
+> [Headless UI](https://headlessui.dev/)
+
+つまり、**スタイルはないがアクセシビリティは確保したコンポーネントを提供してくれるライブラリ**ということである。
+Tailwind CSS でスタイリングすることを想定してるっぽい。
+
+正直、「スタイルのないコンポーネント」のことを Headless UI と呼ぶと思っていたが、このライブラリ自体のことを言うみたい。
+とはいえ、 tailwind CSS でスタイリングしないときとかにこのライブラリでは不満がある箇所があるとは思うので、
+Headless UI は概念として理解した方が良さそう。コードを読んでないどころか触ったこともないため、とりあえず触ってみる。
+
+</Scrap>
+
+<Scrap createdAt='2022-03-16'>
+
+## 触ってみた
+
+10 種類ほどあるみたいなので、一通り触ってみた。
+
+すごい。とても感動した。
+スタイル当てるだけになるのでとても楽。
+触ったことないのであれば、触ってみるか、サイトにある例を見てみるだけでもわかると思う。
+
+スタイルを親に任せるのは基本的には良い方法ではないとは思うが、これの場合は一切のスタイルを持たないので、親と子のスタイリングの齟齬が起こることはないはずだし、いいんじゃないかなとは思う。
+
+</Scrap>
+
+<Scrap createdAt='2022-03-17'>
+
+## 実装を見る
+
+次のブロックから実装が理解でき次第、参考になった箇所をメモしていく。
+
+</Scrap>
+
+<Scrap createdAt='2022-03-17'>
+
+### src/utils/render.ts
+
+Headless UI としてレンダリングを行うための関数 `render` を定義している。
+ここがこのライブラリの核と言っても過言じゃないんじゃないかと思う。
+
+抽象的な処理であるので、一番簡単そうな `<Switch />` を例として見ていこう。
+このコンポーネントを使用すると、次のようにしてスイッチを実装することができる:
+
+```tsx
+const SampleSwitch = () => {
+  const [isChecked, setIsChecked] = useState(false);
+
+  return (
+    <Switch checked={isChecked} onChange={setIsChecked}>
+      {`${isChecked}`}
+    </Switch>
+  );
+};
+```
+
+このコンポーネントはデフォルトで `button` タグとしてレンダリングされるが、`div` タグの方が都合がいいとなったとしよう。
+そうすると、関数 `render` によって、次の 2 パターンの書き方を可能にしている:
+
+```tsx
+<Switch as="div" checked={isChecked} onChange={setIsChecked}>
+  {`${isChecked}`}
+</Switch>
+```
+
+```tsx
+<Switch as={Fragment} checked={isChecked} onChange={setIsChecked}>
+  <div>{`${isChecked}`}</div>
+</Switch>
+```
+
+つまり、**`<Switch />` に直接タグ名を記載する方法と、 `<Switch />` を `React.Fragment` とすることによって、子要素である `div` に props を流すことができるといった方法**である。
+今回は `div` タグであったため一つ目の方法も可能だが、React コンポーネントである場合二つ目の方法が便利になる (`ref` を含む全ての props を流すためそうすること自体がどうなのかということは置いといて)。
+
+この処理の実装についての概要だが、タグが `Fragment` であるとき `React.cloneElement` によって children を props を流しながら作り直しており、
+`Fragment` ではないときは `React.createElement` でそのタグを新しく作成している。
+
+また、ここでは詳しくは触れないが、レンダリングするかどうかといった判定もこの関数内で行われている。
+
+</Scrap>

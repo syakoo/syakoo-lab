@@ -1,0 +1,225 @@
+---
+id: "20210920-2"
+type: "note"
+title: "ブログで幾何を描きたい(MDX, React)"
+published: "2021-09-20"
+noindex: true
+tags:
+  - "数学"
+  - "React"
+  - "TypeScript"
+  - "Syakoo's Lab"
+---
+
+幾何を描写したいとき、$\LaTeX$ では tikz を使えば非常に簡単に実現することができます。
+しかし、ブログで書く場合は画像で作成して張り付けるくらいしかやり方がありません。
+それでは画像を一枚一枚作るのが面倒ですし、このブログのようにダークモードがあると対応するのは大変です。
+
+ということで、実装していきます。
+このブログは MDX で作成しているため、React コンポーネントを作っていきます。
+完成したコードは[こちら](https://github.com/syakoo/syakoo-lab/tree/master/src/components/writings/MDXComponents/Geometry)にあります。
+
+## Geometry
+
+まずは土台となるコンポーネントです。svg で作成し、図のタイトルとサイズを決めます。
+また、後述しますが点(point)の情報を保持しておきたいので、useContext を使って点の情報と図のサイズを流します。
+
+## 点(GPoint)
+
+<Figure>
+  <Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+    <GPoint x={10} y={10} />
+    <GPoint x={30} y={20} r={5} />
+    <GPoint x={40} y={50} r={10} />
+    <GPoint x={70} y={80} color="primary" />
+    <GPoint x={90} y={30} color="secondary" />
+  </Geometry>
+  <Figure.Caption>点のデモ</Figure.Caption>
+</Figure>
+
+```tsx
+<Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+  <GPoint x={10} y={10} />
+  <GPoint x={30} y={20} r={5} />
+  <GPoint x={40} y={50} r={10} />
+  <GPoint x={70} y={80} color="primary" />
+  <GPoint id="p4" x={90} y={30} color="secondary" />
+</Geometry>
+```
+
+点のコンポーネントです。`x`, `y` で座標を、`r` で大きさを決められます。
+また、`color` で点の色を設定することができます。
+
+ポイントとなるのが `id` というプロパティで、これを設定することで useContext の点情報に追加されます。
+
+## 直線(GLine)
+
+<Figure>
+  <Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+    <GLine
+      points={[
+        [10, 10],
+        [50, 20],
+      ]}
+    />
+    <GLine
+      points={[
+        [90, 10],
+        [80, 90],
+      ]}
+      strokeWidth={5}
+    />
+    <GLine
+      points={[
+        [10, 90],
+        [50, 50],
+      ]}
+      color="primary"
+    />
+  </Geometry>
+  <Figure.Caption>直線のデモ1</Figure.Caption>
+</Figure>
+
+```tsx
+<Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+  <GLine
+    points={[
+      [10, 10],
+      [50, 20],
+    ]}
+  />
+  <GLine
+    points={[
+      [90, 10],
+      [80, 90],
+    ]}
+    strokeWidth={5}
+  />
+  <GLine
+    points={[
+      [10, 90],
+      [50, 50],
+    ]}
+    color="primary"
+  />
+</Geometry>
+```
+
+直線のコンポーネントです。
+`points` で座標を決定して、`strokeWidth` で太さ、`color` で色を決めることができます。
+
+また、`points` に Point コンポーネントの `id` を指定することで、対象の点を通る直線が引けます:
+
+<Figure>
+  <Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+    <GLine points={["p1", "p2"]} />
+    <GLine points={["p2", "p3"]} extend={20} />
+    <GLine points={["p3", "p1"]} extend={[-15, 30]} />
+    <GPoint id="p1" x={50} y={15} />
+    <GPoint id="p2" x={15} y={85} />
+    <GPoint id="p3" x={85} y={85} />
+  </Geometry>
+  <Figure.Caption>直線のデモ2</Figure.Caption>
+</Figure>
+
+```tsx
+<Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+  <GLine points={["p1", "p2"]} />
+  <GLine points={["p2", "p3"]} extend={20} />
+  <GLine points={["p3", "p1"]} extend={[-15, 30]} />
+  <GPoint id="p1" x={50} y={15} />
+  <GPoint id="p2" x={15} y={85} />
+  <GPoint id="p3" x={85} y={85} />
+</Geometry>
+```
+
+`extend` プロパティによって直線を伸ばすこともできます。
+
+## 円(GCircle)
+
+<Figure>
+  <Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+    <GCircle x={30} y={30} r={20} />
+    <GCircle x={30} y={50} r={20} width={5} />
+    <GCircle points={["p1", "p2", "p3"]} color="info" />
+    <GPoint id="p1" x={80} y={15} />
+    <GPoint id="p2" x={50} y={85} />
+    <GPoint id="p3" x={85} y={65} />
+  </Geometry>
+  <Figure.Caption>円のデモ</Figure.Caption>
+</Figure>
+
+```tsx
+<Geometry domain={{ x: [0, 100], y: [0, 100] }}>
+  <GCircle x={30} y={30} r={20} />
+  <GCircle x={30} y={50} r={20} width={5} />
+  <GCircle points={["p1", "p2", "p3"]} color="info" />
+  <GPoint id="p1" x={80} y={15} />
+  <GPoint id="p2" x={50} y={85} />
+  <GPoint id="p3" x={85} y={65} />
+</Geometry>
+```
+
+円のコンポーネントです。中心点 `x`,`y`、半径 `r` を設定することで書くことができます。
+また、直線と同様に、三点を設定することでそれらを通る円を描くことも可能です。
+
+この三点から中心点と半径を求める方法は、中学の頃に定規とコンパスでやった垂直二等分線の交点を使っています。
+
+<Figure>
+  <Geometry domain={{ x: [0, 150], y: [0, 120] }}>
+    <GCircle x={80} y={15} r={60} color="textTernary" />
+    <GCircle x={85} y={75} r={60} color="textTernary" />
+    <GCircle x={85} y={75} r={30} color="textSecondary" />
+    <GCircle x={60} y={90} r={30} color="textSecondary" />
+    <GLine
+      points={[
+        [58, 47],
+        [25, 50],
+      ]}
+      extend={100}
+      color="textTernary"
+    />
+    <GLine
+      points={[
+        [51.5, 47.6],
+        [55.3, 54],
+      ]}
+      extend={100}
+      color="textSecondary"
+    />
+    <GCircle points={["p1", "p2", "p3"]} />
+    <GPoint id="p1" x={80} y={15} />
+    <GPoint id="p2" x={60} y={90} />
+    <GPoint id="p3" x={85} y={75} />
+    <GPoint x={51.5} y={47.6} color="primary" />
+  </Geometry>
+  <Figure.Caption>中心点の決定</Figure.Caption>
+</Figure>
+
+## おわりに
+
+これらによって、ブログ内で定規とコンパスによる作図ができるようになりました。
+ユークリッド幾何であればこれで十分かと思いますが、射影幾何などの非ユークリッド幾何では困るときがありそうです。
+必要となったときにまた追加したいと思います。
+
+ファノ平面を置いておわります。
+
+<Figure>
+  <Geometry domain={{ x: [0, 200], y: [0, 200] }}>
+    <GLine points={["p1", "p2"]} />
+    <GLine points={["p2", "p3"]} />
+    <GLine points={["p3", "p1"]} />
+    <GLine points={["p1", "p5"]} />
+    <GLine points={["p2", "p6"]} />
+    <GLine points={["p3", "p7"]} />
+    <GCircle points={["p5", "p6", "p7"]} />
+    <GPoint id="p1" x={100} y={10} />
+    <GPoint id="p2" x={10} y={190} />
+    <GPoint id="p3" x={190} y={190} />
+    <GPoint id="p4" x={100} y={130} />
+    <GPoint id="p5" x={100} y={190} />
+    <GPoint id="p6" x={145} y={100} />
+    <GPoint id="p7" x={55} y={100} />
+  </Geometry>
+  <Figure.Caption>Fano 平面</Figure.Caption>
+</Figure>

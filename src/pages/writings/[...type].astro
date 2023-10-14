@@ -1,0 +1,62 @@
+---
+/**
+ * Writing 一覧ページ
+ *   - /writings
+ *   - /writings/[type]
+ */
+import type { WritingContentFrontMatter } from "@/contents/writings/types";
+import { Container } from "@/design-system/layout";
+import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
+import { Meta } from "@/features/common/components/Meta";
+import "@/features/common/logics/globalSettings";
+import { formatPageTitle } from "@/features/common/logics/pageTitle";
+import { WritingList } from "@/features/writings/WritingList";
+import type { WritingListType } from "@/features/writings/WritingList/shared/writingListType";
+import { getWritingMetaFromFrontMatter } from "@/features/writings/resolveWritingMeta";
+import { WRITING_TYPES } from "@/features/writings/shared/writingType";
+import type { WritingType } from "@/features/writings/types";
+import { glob } from "glob";
+import matter from "gray-matter";
+
+export async function getStaticPaths() {
+  return [
+    {
+      // これで `/writings` 扱いとなる
+      params: {
+        type: undefined,
+      },
+    },
+    ...WRITING_TYPES.map(({ type }) => ({
+      params: {
+        type,
+      },
+    })),
+  ];
+}
+
+const { type } = Astro.params;
+const writingType: WritingListType = (type as WritingType | undefined) ?? "all";
+
+// STEP1: 対象の MDX ファイルパスを取得する
+const MDXFilePaths = await glob("src/contents/writings/**/index.mdx");
+// STEP2: それらのパスを読み、frontmatter を取り出す
+const frontMatters = MDXFilePaths.map(
+  (path) => matter.read(path).data as WritingContentFrontMatter,
+);
+// STEP3: frontmatter -> writingMeta
+const metas = frontMatters.map(getWritingMetaFromFrontMatter);
+---
+
+<html lang="ja">
+  <head>
+    <Meta title={formatPageTitle("Writings")} url={Astro.url.pathname} />
+    <meta content={Astro.generator} name="generator" />
+  </head>
+  <body>
+    <HeaderFooterTemplate>
+      <Container as="main" center paddingBottom="400" paddingX="200" size="100">
+        <WritingList metas={metas} type={writingType} />
+      </Container>
+    </HeaderFooterTemplate>
+  </body>
+</html>

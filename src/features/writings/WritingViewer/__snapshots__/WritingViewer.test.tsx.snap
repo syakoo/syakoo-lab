@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WritingViewer renders Sample 1`] = `
+<body>
+  <div>
+    <article>
+      <header>
+        Sample Article
+      </header>
+      <div>
+        <div />
+        <aside />
+      </div>
+    </article>
+  </div>
+</body>
+`;

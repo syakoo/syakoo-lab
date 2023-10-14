@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WritingHeader renders Sample 1`] = `
+<body>
+  <div>
+    <header>
+      Sample Article
+    </header>
+  </div>
+</body>
+`;

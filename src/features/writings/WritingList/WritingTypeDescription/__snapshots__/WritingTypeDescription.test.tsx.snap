@@ -5,17 +5,17 @@ exports[`WritingTypeDescription renders All 1`] = `
   <div>
     <div>
       <p
-        class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+        class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
       >
         Article は気合いの入った書き物を残しています。
       </p>
       <p
-        class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+        class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
       >
         Note はその時の思いつきやメモなど、アウトプットを目的としています。
       </p>
       <p
-        class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+        class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
       >
         Diary は著者の身の回りで起こったことや全く中身のない話を残しています。
       </p>

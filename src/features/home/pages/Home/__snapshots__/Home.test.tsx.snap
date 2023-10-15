@@ -137,7 +137,7 @@ exports[`Home renders Sample 1`] = `
                 class="Center_centerStyle__7ojglz0"
               >
                 <p
-                  class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                  class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
                 >
                   このサイトは syakoo 個人のサイトです。 作成したアプリやイラスト、記事を公開しています。
                 </p>
@@ -151,7 +151,7 @@ exports[`Home renders Sample 1`] = `
               class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
             >
               <h2
-                class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_500__jzpfqdn Text_textStyle_variants_size_500__jzpfqd9 Text_textStyle_weight_bold__jzpfqdr"
+                class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_500__jzpfqdp Text_textStyle_variants_size_500__jzpfqda Text_textStyle_weight_bold__jzpfqdt"
               >
                 About Me
               </h2>
@@ -172,7 +172,7 @@ exports[`Home renders Sample 1`] = `
                     class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
                   >
                     <h3
-                      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_400__jzpfqdm Text_textStyle_variants_size_400__jzpfqd8 Text_textStyle_weight_bold__jzpfqdr"
+                      class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_400__jzpfqdo Text_textStyle_variants_size_400__jzpfqd9 Text_textStyle_weight_bold__jzpfqdt"
                     >
                       syakoo
                     </h3>
@@ -278,7 +278,7 @@ exports[`Home renders Sample 1`] = `
                   </div>
                 </div>
                 <p
-                  class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                  class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
                 >
                   気分駆動フロントエンドエンジニア。言語・フレームワーク仕様よりは設計やアルゴリズムなどの抽象的な部分に興味があります。
                 </p>
@@ -300,7 +300,7 @@ exports[`Home renders Sample 1`] = `
               class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_spaceBetween__15ivi84o Flex_flexStyle_variants_justify_spaceBetween__15ivi843"
             >
               <span
-                class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
               >
                 © 2021 syakoo
               </span>
@@ -313,7 +313,7 @@ exports[`Home renders Sample 1`] = `
                     href="/"
                   >
                     <span
-                      class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                      class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
                     >
                       Home
                     </span>
@@ -323,7 +323,7 @@ exports[`Home renders Sample 1`] = `
                     href="/privacy-policy"
                   >
                     <span
-                      class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+                      class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
                     >
                       Privacy Policy
                     </span>

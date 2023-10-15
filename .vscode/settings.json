@@ -6,6 +6,8 @@
     "astrojs",
     "ress",
     "hygen",
-    "metas"
+    "metas",
+    "katex",
+    "rehype"
   ]
 }

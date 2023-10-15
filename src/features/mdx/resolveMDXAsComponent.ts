@@ -2,6 +2,7 @@ import { compile, run } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import { markupLinkCard } from "./plugins/linkCardPlugin";
 
 export type MDXComponent = React.FC<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -16,8 +17,10 @@ export type MDXComponent = React.FC<{
 export const resolveMDXAsComponent = async (
   mdxContent: string,
 ): Promise<MDXComponent> => {
+  const resolvedCustomPlugins = await markupLinkCard(mdxContent);
+
   // MDX string -> JS string
-  const compiledContent = await compile(mdxContent, {
+  const compiledContent = await compile(resolvedCustomPlugins, {
     outputFormat: "function-body",
     development: false,
     remarkPlugins: [remarkMath],

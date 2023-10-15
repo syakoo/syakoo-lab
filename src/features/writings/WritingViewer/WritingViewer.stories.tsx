@@ -22,7 +22,7 @@ export const Sample: Story = {
         tags: ["雑記", "Sample"],
         published: "2023-10-09",
       },
-      source: "仮のテキスト",
+      content: () => <div>本文</div>,
     },
   },
 };

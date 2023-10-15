@@ -1,3 +1,5 @@
+import type { MDXComponent } from "../mdx/resolveMDXAsComponent";
+
 export type WritingType = "article" | "note" | "diary";
 
 export type WritingMeta = {
@@ -13,5 +15,5 @@ export type WritingMeta = {
 
 export type Writing = {
   meta: WritingMeta;
-  source: string;
+  content: MDXComponent;
 };

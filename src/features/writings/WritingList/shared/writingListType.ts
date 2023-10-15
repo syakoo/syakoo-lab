@@ -8,7 +8,7 @@ type WritingListTypeConfigItem = {
   url: string;
 };
 // TODO: ここで url の定義をしているのが気になる
-export const WRITING_LIST_TYPES = [
+export const writingListTypeConfig = [
   {
     type: "all",
     label: "All",

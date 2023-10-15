@@ -30,6 +30,7 @@ export const resolveMDXAsComponent = async (
     rehypePlugins: [rehypeKatex],
   }).then(String);
 
+  // JS string -> MDXComponent
   const MDXContent: MDXComponent = await run(compiledContent, {
     ...runtime,
   }).then((result) => result.default);

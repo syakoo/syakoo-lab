@@ -11,7 +11,7 @@ type TextProps = {
 export const Text: React.FC<TextProps> = ({
   children,
   as = "p",
-  color = "primary",
+  color = "currentColor",
   size = "100",
   weight = "normal",
 }) => (

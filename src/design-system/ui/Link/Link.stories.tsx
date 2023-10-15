@@ -1,5 +1,6 @@
 import type { Meta } from "@storybook/react";
 import { Link } from ".";
+import { tokens } from "@/design-system/tokens";
 
 const meta = {
   component: Link,
@@ -28,6 +29,18 @@ export const Variants = () => {
       <div>
         <Link href="#" noHovered>
           no hovered Link
+        </Link>
+      </div>
+      <div>
+        <Link display="block" href="#">
+          <div
+            style={{
+              border: `1px solid ${tokens.colors.brand.primary}`,
+              borderRadius: tokens.radii[100],
+            }}
+          >
+            Block Link
+          </div>
         </Link>
       </div>
     </>

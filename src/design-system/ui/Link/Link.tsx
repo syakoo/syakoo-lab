@@ -1,13 +1,11 @@
 import React from "react";
+import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { linkStyle } from "./Link.css";
 
 type LinkProps = {
   href: string;
   children: React.ReactNode;
-  colored?: boolean;
-  underlined?: boolean;
-  noHovered?: boolean;
-};
+} & Partial<RecipeVariants<typeof linkStyle>>;
 
 export const Link: React.FC<LinkProps> = ({
   href,
@@ -15,10 +13,11 @@ export const Link: React.FC<LinkProps> = ({
   colored = false,
   underlined = false,
   noHovered = false,
+  display,
 }) => {
   return (
     <a
-      className={`${linkStyle({ colored, underlined, noHovered })}`}
+      className={`${linkStyle({ colored, underlined, noHovered, display })}`}
       href={href}
     >
       {children}

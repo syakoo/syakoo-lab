@@ -4,7 +4,7 @@ import { tokens } from "@/design-system/tokens";
 export const sectionTitleStyle = style({
   marginTop: tokens.spaces[400],
   marginBottom: tokens.spaces[200],
-  paddingBlock: tokens.spaces[100],
+  paddingBlock: tokens.spaces[200],
   fontSize: tokens.fontSizes[500],
   scrollMarginTop: tokens.spaces[200],
   position: "relative",

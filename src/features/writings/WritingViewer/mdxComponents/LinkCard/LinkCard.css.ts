@@ -7,7 +7,7 @@ export const linkCardStyles = {
     display: "flex",
     gap: tokens.spaces[50],
     justifyContent: "space-between",
-    marginBlock: tokens.spaces[100],
+    marginBlock: tokens.spaces[200],
     backgroundColor: tokens.colors.background.primary,
     border: `1px solid ${tokens.colors.background.secondary}`,
     borderRadius: tokens.radii[100],

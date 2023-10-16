@@ -2,12 +2,14 @@ import { memo } from "react";
 import { BookIcon } from "./BookIcon";
 import { DocumentIcon } from "./DocumentIcon";
 import { NoteIcon } from "./NoteIcon";
+import { WarnIcon } from "./WarnIcon";
 import type { IconComponentProps } from "./types";
 
 export const iconDictionary = {
   document: DocumentIcon,
   note: NoteIcon,
   book: BookIcon,
+  warn: WarnIcon,
 };
 
 export type IconName = keyof typeof iconDictionary;

@@ -10,7 +10,7 @@ import { Note } from "./Note";
 import { Scrap } from "./Scrap";
 import { SectionTitle, SubSectionTitle } from "./SectionTitle";
 
-export const mdxComponents = {
+export const mdxParts = {
   Big,
   BookView,
   Note,

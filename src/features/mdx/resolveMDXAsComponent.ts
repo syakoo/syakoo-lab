@@ -6,7 +6,7 @@ import { markupLinkCard } from "./plugins/linkCardPlugin";
 
 export type MDXComponent = React.FC<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  components: Record<string, React.FC<any>>;
+  components?: Record<string, React.FC<any>>;
 }>;
 
 /**
@@ -24,9 +24,6 @@ export const resolveMDXAsComponent = async (
     outputFormat: "function-body",
     development: false,
     remarkPlugins: [remarkMath],
-    // バージョンによる型エラー
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     rehypePlugins: [rehypeKatex],
   }).then(String);
 

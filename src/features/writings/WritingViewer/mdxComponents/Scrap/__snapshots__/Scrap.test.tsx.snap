@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Scrap renders Sample 1`] = `
+<body>
+  <div>
+    <article
+      class="Scrap_scrapStyles_root__jq7fdq0"
+    >
+      <div
+        class="Scrap_scrapStyles_dateWrapper__jq7fdq1"
+      >
+        <time>
+          2020-10-23
+        </time>
+      </div>
+      <div
+        class="Scrap_scrapStyles_body__jq7fdq2"
+      >
+        <div
+          style="border: 1px solid #3063d4; border-radius: 8px; padding: 24px;"
+        >
+          Children
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+`;

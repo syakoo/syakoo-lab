@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Big renders Sample 1`] = `
+<body>
+  <div>
+    <p
+      class="Big_bigStyles__xc9his0"
+    >
+      Sample
+    </p>
+  </div>
+</body>
+`;

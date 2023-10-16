@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SectionTitle renders ContainElements 1`] = `
+<body>
+  <div>
+    <h2
+      class="SectionTitle_sectionTitleStyle__1ew4bvi0"
+      id="undefined"
+    >
+      <a
+        class="Link_linkStyle__m4v9430"
+        href="#undefined"
+      >
+        Sample 
+        <code>
+          Title
+        </code>
+      </a>
+    </h2>
+  </div>
+</body>
+`;
+
+exports[`SectionTitle renders Sample 1`] = `
+<body>
+  <div>
+    <h2
+      class="SectionTitle_sectionTitleStyle__1ew4bvi0"
+      id="undefined"
+    >
+      <a
+        class="Link_linkStyle__m4v9430"
+        href="#undefined"
+      >
+        Sample Title
+      </a>
+    </h2>
+  </div>
+</body>
+`;
+
+exports[`SectionTitle renders SubSection 1`] = `
+<body>
+  <div>
+    <h3
+      class="SectionTitle_subsectionTitleStyle__1ew4bvi1"
+      id="undefined"
+    >
+      <a
+        class="Link_linkStyle__m4v9430"
+        href="#undefined"
+      >
+        Sample SubTitle
+      </a>
+    </h3>
+  </div>
+</body>
+`;

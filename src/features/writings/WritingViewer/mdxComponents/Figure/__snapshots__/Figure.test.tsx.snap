@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Figure renders NoCaption 1`] = `
+<body>
+  <div>
+    <figure
+      class="Figure_figureStyle__1gb4ddk0"
+    >
+      <img
+        src="https://placehold.jp/3063D4/ffffff/150x200.png"
+      />
+    </figure>
+  </div>
+</body>
+`;
+
+exports[`Figure renders Sample 1`] = `
+<body>
+  <div>
+    <figure
+      class="Figure_figureStyle__1gb4ddk0"
+    >
+      <img
+        src="https://placehold.jp/3063D4/ffffff/400x300.png"
+      />
+      <figcaption
+        class="Figure_figureCaptionStyle__1gb4ddk1"
+      >
+        sample caption
+      </figcaption>
+    </figure>
+  </div>
+</body>
+`;

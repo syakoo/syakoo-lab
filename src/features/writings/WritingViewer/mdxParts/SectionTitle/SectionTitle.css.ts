@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 import { tokens } from "@/design-system/tokens";
 
 export const sectionTitleStyle = style({
-  marginTop: tokens.spaces[400],
+  marginTop: tokens.spaces[500],
   marginBottom: tokens.spaces[200],
   paddingBlock: tokens.spaces[200],
   fontSize: tokens.fontSizes[500],

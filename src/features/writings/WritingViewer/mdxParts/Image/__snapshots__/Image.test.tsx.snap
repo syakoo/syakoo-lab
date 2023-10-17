@@ -4,7 +4,7 @@ exports[`Image renders Sample 1`] = `
 <body>
   <div>
     <figure
-      class="Image_figureStyle__vczoou0"
+      class="Image_figureStyle__a2vf3b0"
     >
       <img
         alt="Sample Caption"
@@ -13,7 +13,7 @@ exports[`Image renders Sample 1`] = `
         width="400"
       />
       <figcaption
-        class="Image_figureCaptionStyle__vczoou1"
+        class="Image_figureCaptionStyle__a2vf3b1"
       >
         Sample Caption
       </figcaption>

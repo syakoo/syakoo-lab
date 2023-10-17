@@ -4,7 +4,7 @@ exports[`Figure renders NoCaption 1`] = `
 <body>
   <div>
     <figure
-      class="Figure_figureStyle__1gb4ddk0"
+      class="Figure_figureStyle__1n6pbf20"
     >
       <img
         src="https://placehold.jp/3063D4/ffffff/150x200.png"
@@ -18,13 +18,13 @@ exports[`Figure renders Sample 1`] = `
 <body>
   <div>
     <figure
-      class="Figure_figureStyle__1gb4ddk0"
+      class="Figure_figureStyle__1n6pbf20"
     >
       <img
         src="https://placehold.jp/3063D4/ffffff/400x300.png"
       />
       <figcaption
-        class="Figure_figureCaptionStyle__1gb4ddk1"
+        class="Figure_figureCaptionStyle__1n6pbf21"
       >
         sample caption
       </figcaption>

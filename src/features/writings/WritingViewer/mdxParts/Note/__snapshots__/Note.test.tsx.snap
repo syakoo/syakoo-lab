@@ -4,10 +4,10 @@ exports[`Note renders Sample 1`] = `
 <body>
   <div>
     <aside
-      class="Note_noteStyles_root__1d3wq4k0 Note_noteStyles_root_variant_note__1d3wq4k1"
+      class="Note_noteStyles_root__uz4h5i0 Note_noteStyles_root_variant_note__uz4h5i1"
     >
       <div
-        class="Note_noteStyles_iconWrapper__1d3wq4k3 Note_noteStyles_iconWrapper_variant_note__1d3wq4k4"
+        class="Note_noteStyles_iconWrapper__uz4h5i3 Note_noteStyles_iconWrapper_variant_note__uz4h5i4"
       >
         <svg
           fill="none"
@@ -36,10 +36,10 @@ exports[`Note renders Variants 1`] = `
   <div>
     <div>
       <aside
-        class="Note_noteStyles_root__1d3wq4k0 Note_noteStyles_root_variant_note__1d3wq4k1"
+        class="Note_noteStyles_root__uz4h5i0 Note_noteStyles_root_variant_note__uz4h5i1"
       >
         <div
-          class="Note_noteStyles_iconWrapper__1d3wq4k3 Note_noteStyles_iconWrapper_variant_note__1d3wq4k4"
+          class="Note_noteStyles_iconWrapper__uz4h5i3 Note_noteStyles_iconWrapper_variant_note__uz4h5i4"
         >
           <svg
             fill="none"
@@ -60,10 +60,10 @@ exports[`Note renders Variants 1`] = `
         </div>
       </aside>
       <aside
-        class="Note_noteStyles_root__1d3wq4k0 Note_noteStyles_root_variant_warn__1d3wq4k2"
+        class="Note_noteStyles_root__uz4h5i0 Note_noteStyles_root_variant_warn__uz4h5i2"
       >
         <div
-          class="Note_noteStyles_iconWrapper__1d3wq4k3 Note_noteStyles_iconWrapper_variant_warn__1d3wq4k5"
+          class="Note_noteStyles_iconWrapper__uz4h5i3 Note_noteStyles_iconWrapper_variant_warn__uz4h5i5"
         >
           <svg
             fill="none"

@@ -4,7 +4,7 @@ exports[`SectionTitle renders ContainElements 1`] = `
 <body>
   <div>
     <h2
-      class="SectionTitle_sectionTitleStyle__1ew4bvi0"
+      class="SectionTitle_sectionTitleStyle__okyso80"
       id="undefined"
     >
       <a
@@ -25,7 +25,7 @@ exports[`SectionTitle renders Sample 1`] = `
 <body>
   <div>
     <h2
-      class="SectionTitle_sectionTitleStyle__1ew4bvi0"
+      class="SectionTitle_sectionTitleStyle__okyso80"
       id="undefined"
     >
       <a
@@ -43,7 +43,7 @@ exports[`SectionTitle renders SubSection 1`] = `
 <body>
   <div>
     <h3
-      class="SectionTitle_subsectionTitleStyle__1ew4bvi1"
+      class="SectionTitle_subsectionTitleStyle__okyso81"
       id="undefined"
     >
       <a

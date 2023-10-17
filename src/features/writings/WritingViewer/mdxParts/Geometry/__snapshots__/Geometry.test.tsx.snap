@@ -4,7 +4,7 @@ exports[`Geometry renders Circles 1`] = `
 <body>
   <div>
     <svg
-      class="Geometry_geometrySVGstyle__1u02mme0"
+      class="Geometry_geometrySVGstyle__1ersd7n0"
       height="min(100%, 300px)"
       viewBox="0 0 500 300"
       width="min(100%, 500px)"
@@ -106,10 +106,10 @@ exports[`Geometry renders FanoPlane 1`] = `
 <body>
   <div>
     <figure
-      class="Figure_figureStyle__1gb4ddk0"
+      class="Figure_figureStyle__1n6pbf20"
     >
       <svg
-        class="Geometry_geometrySVGstyle__1u02mme0"
+        class="Geometry_geometrySVGstyle__1ersd7n0"
         height="min(100%, 300px)"
         viewBox="0 0 500 300"
         width="min(100%, 500px)"
@@ -214,7 +214,7 @@ exports[`Geometry renders FanoPlane 1`] = `
         />
       </svg>
       <figcaption
-        class="Figure_figureCaptionStyle__1gb4ddk1"
+        class="Figure_figureCaptionStyle__1n6pbf21"
       >
         Fano Plane
       </figcaption>
@@ -227,7 +227,7 @@ exports[`Geometry renders Lines 1`] = `
 <body>
   <div>
     <svg
-      class="Geometry_geometrySVGstyle__1u02mme0"
+      class="Geometry_geometrySVGstyle__1ersd7n0"
       height="min(100%, 300px)"
       viewBox="0 0 500 300"
       width="min(100%, 500px)"
@@ -363,7 +363,7 @@ exports[`Geometry renders Planes 1`] = `
 <body>
   <div>
     <svg
-      class="Geometry_geometrySVGstyle__1u02mme0"
+      class="Geometry_geometrySVGstyle__1ersd7n0"
       height="min(100%, 300px)"
       viewBox="0 0 500 300"
       width="min(100%, 500px)"
@@ -413,7 +413,7 @@ exports[`Geometry renders Points 1`] = `
 <body>
   <div>
     <svg
-      class="Geometry_geometrySVGstyle__1u02mme0"
+      class="Geometry_geometrySVGstyle__1ersd7n0"
       height="min(100%, 300px)"
       viewBox="0 0 500 300"
       width="min(100%, 500px)"
@@ -511,7 +511,7 @@ exports[`Geometry renders Texts 1`] = `
 <body>
   <div>
     <svg
-      class="Geometry_geometrySVGstyle__1u02mme0"
+      class="Geometry_geometrySVGstyle__1ersd7n0"
       height="min(100%, 300px)"
       viewBox="0 0 500 300"
       width="min(100%, 500px)"

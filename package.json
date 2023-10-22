@@ -42,6 +42,7 @@
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
     "jsdom": "^22.1.0",
+    "mermaid": "^10.5.1",
     "probe-image-size": "^7.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

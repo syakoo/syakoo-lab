@@ -13,7 +13,7 @@ export const sectionTitleStyle = style({
     "&:before": {
       position: "absolute",
       top: "0",
-      left: `-${tokens.spaces[100]}`,
+      left: `-${tokens.spaces[200]}`,
       display: "inline-block",
       width: "1em",
       height: "4px",

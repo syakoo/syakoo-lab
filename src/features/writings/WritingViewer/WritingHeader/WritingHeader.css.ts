@@ -3,12 +3,12 @@ import { tokens } from "@/design-system/tokens";
 
 export const writingHeaderStyles = {
   iconWrapper: style({
-    width: 56,
-    height: 56,
+    width: 48,
+    height: 48,
     color: tokens.colors.text.primary,
     background: tokens.colors.background.secondary,
-    padding: 12,
-    borderRadius: tokens.radii.swaying,
+    padding: 8,
+    borderRadius: tokens.radii[200],
     display: "flex",
   }),
 };

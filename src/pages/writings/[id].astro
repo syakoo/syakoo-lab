@@ -4,7 +4,6 @@
  *   - /writings/[writingId]
  */
 import type { WritingContentFrontMatter } from "@/contents/writings/types";
-import { Container } from "@/design-system/layout";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 import { Meta } from "@/features/common/components/Meta";
 import "@/features/common/logics/globalSettings";
@@ -74,9 +73,9 @@ const writing: Writing = {
   </head>
   <body>
     <HeaderFooterTemplate>
-      <Container as="main" center paddingBottom="400" paddingX="200" size="100">
+      <main>
         <WritingViewer client:load writing={writing} />
-      </Container>
+      </main>
     </HeaderFooterTemplate>
   </body>
 </html>

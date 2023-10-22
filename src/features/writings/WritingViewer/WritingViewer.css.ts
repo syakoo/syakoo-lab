@@ -84,6 +84,7 @@ globalStyle(`${cn} code`, {
   padding: "0.3em",
   marginInline: tokens.spaces[25],
   borderRadius: tokens.radii[50],
+  fontFamily: tokens.fontFamilies.code,
 });
 
 // blockquote

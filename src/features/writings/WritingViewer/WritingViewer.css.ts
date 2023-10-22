@@ -30,6 +30,14 @@ export const writingViewerStyles = {
  */
 const cn = writingViewerStyles.contentWrapper;
 
+// p
+globalStyle(`${cn} p`, {
+  lineHeight: 1.88,
+});
+globalStyle(`${cn} p + p`, {
+  marginTop: tokens.spaces[200],
+});
+
 // code
 globalStyle(`${cn} pre`, {
   display: "flex",

@@ -25,7 +25,7 @@ export const sectionTitleStyle = style({
 });
 
 export const subsectionTitleStyle = style({
-  marginTop: tokens.spaces[300],
+  marginTop: tokens.spaces[400],
   marginBottom: tokens.spaces[200],
   fontSize: tokens.fontSizes[300],
   scrollMarginTop: tokens.spaces[200],

@@ -101,7 +101,9 @@ exports[`WritingViewer renders Sample 1`] = `
       <aside
         class="WritingViewer_writingViewerStyles_asideWrapper__6wp7f83"
       >
-        TOC
+        <div
+          class="WritingViewer_writingViewerStyles_stickyContainer__6wp7f84"
+        />
       </aside>
     </article>
   </div>

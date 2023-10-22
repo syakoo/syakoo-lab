@@ -22,6 +22,10 @@ export const writingViewerStyles = {
     gridArea: "aside",
     padding: tokens.spaces[200],
   }),
+  stickyContainer: style({
+    position: "sticky",
+    top: tokens.spaces[200],
+  }),
 };
 
 // 以下 MDX のスタイル

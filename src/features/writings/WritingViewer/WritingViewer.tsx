@@ -1,4 +1,5 @@
 import type { Writing } from "../types";
+import { TOC } from "./TOC";
 import { WritingHeader } from "./WritingHeader";
 import { writingViewerStyles } from "./WritingViewer.css";
 import { mdxParts } from "./mdxParts/index";
@@ -30,8 +31,9 @@ export const WritingViewer: React.FC<WritingViewerProps> = ({ writing }) => {
         <MDXComponent components={components} />
       </div>
       <aside className={writingViewerStyles.asideWrapper}>
-        TOC
-        {/* TODO: TOC */}
+        <div className={writingViewerStyles.stickyContainer}>
+          <TOC />
+        </div>
       </aside>
     </article>
   );

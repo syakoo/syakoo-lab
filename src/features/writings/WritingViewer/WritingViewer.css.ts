@@ -47,6 +47,14 @@ globalStyle(`${cn} ul`, {
 globalStyle(`${cn} ul li::marker`, {
   color: tokens.colors.text.tertiary,
 });
+// ol
+globalStyle(`${cn} ol`, {
+  marginLeft: tokens.spaces[300],
+  marginBlock: tokens.spaces[200],
+});
+globalStyle(`${cn} ol li::marker`, {
+  color: tokens.colors.text.secondary,
+});
 
 // code
 globalStyle(`${cn} pre`, {

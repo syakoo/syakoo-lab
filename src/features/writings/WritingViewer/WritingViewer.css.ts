@@ -78,6 +78,7 @@ globalStyle(`${cn} code`, {
   backgroundColor: tokens.colors.code.background,
   fontSize: tokens.fontSizes[75],
   padding: "0.3em",
+  marginInline: tokens.spaces[25],
   borderRadius: tokens.radii[50],
 });
 

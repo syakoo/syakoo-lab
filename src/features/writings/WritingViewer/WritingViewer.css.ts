@@ -38,6 +38,16 @@ globalStyle(`${cn} p + p`, {
   marginTop: tokens.spaces[200],
 });
 
+// ul
+globalStyle(`${cn} ul`, {
+  listStyleType: "disc",
+  marginLeft: tokens.spaces[300],
+  marginBlock: tokens.spaces[200],
+});
+globalStyle(`${cn} ul li::marker`, {
+  color: tokens.colors.text.tertiary,
+});
+
 // code
 globalStyle(`${cn} pre`, {
   display: "flex",

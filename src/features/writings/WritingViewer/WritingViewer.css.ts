@@ -84,3 +84,7 @@ globalStyle(`${cn} .mermaid`, {
   display: "flex",
   justifyContent: "center",
 });
+// X (twitter)
+globalStyle(`${cn} .twitter-tweet`, {
+  marginInline: "auto",
+});

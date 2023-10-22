@@ -5,6 +5,7 @@ import { mdxParts } from "./mdxParts/index";
 import { Link } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
 import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
+import { useTwitter } from "@/features/mdx/useTwitter";
 
 type WritingViewerProps = {
   writing: Writing;
@@ -17,6 +18,7 @@ const components = {
 
 export const WritingViewer: React.FC<WritingViewerProps> = ({ writing }) => {
   useMermaid();
+  useTwitter();
   const MDXComponent = resolveMDXAsComponent(writing.content);
 
   return (

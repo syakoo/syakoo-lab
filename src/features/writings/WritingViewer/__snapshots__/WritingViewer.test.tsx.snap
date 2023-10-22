@@ -105,5 +105,8 @@ exports[`WritingViewer renders Sample 1`] = `
       </aside>
     </article>
   </div>
+  <script
+    src="https://platform.twitter.com/widgets.js"
+  />
 </body>
 `;

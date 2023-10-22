@@ -46,6 +46,7 @@ globalStyle(`${cn} pre`, {
   overflowX: "auto",
   color: tokens.colors.code.text,
   backgroundColor: tokens.colors.code.background,
+  borderRadius: tokens.radii[100],
 });
 globalStyle(`${cn} pre code`, {
   display: "block",

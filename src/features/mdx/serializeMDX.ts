@@ -20,7 +20,10 @@ export const serializeMDX = async (
     outputFormat: "function-body",
     development: false,
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex, rehypePrettyCode],
+    rehypePlugins: [
+      rehypeKatex,
+      [rehypePrettyCode, { theme: "github-dark", keepBackground: false }],
+    ],
   }).then(String);
 
   return compiledContent;

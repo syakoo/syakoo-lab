@@ -14,8 +14,10 @@ import type { SerializedMDX } from "./types";
 export const serializeMDX = async (
   mdxContent: string,
 ): Promise<SerializedMDX> => {
-  const resolvedCustomPlugins =
-    await markupLinkCard(mdxContent).then(markupMermaid);
+  // NOTE: プラグインをわかりやすく見せるため
+  const resolvedCustomPlugins = await (async () => mdxContent)()
+    .then(markupLinkCard)
+    .then(markupMermaid);
 
   // MDX string -> JS string
   const compiledContent = await compile(resolvedCustomPlugins, {

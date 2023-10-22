@@ -1,4 +1,5 @@
 import { JSDOM } from "jsdom";
+import type { MDXCustomTextPlugin } from "../types";
 
 export type LinkCardProps = {
   imgSrc: string;
@@ -80,7 +81,7 @@ async function getLinkCardProps(url: string): Promise<LinkCardProps> {
  *
  * NOTE: このプラグインを使用する場合は、 {@link LinkCardProps} を props として持つ `LinkCard` コンポーネントを定義する必要がある
  */
-export async function markupLinkCard(mdText: string): Promise<string> {
+export const markupLinkCard: MDXCustomTextPlugin = async (mdText) => {
   const splittedMdTexts = mdText.split("\n");
 
   const resultSplittedTexts = await Promise.all(
@@ -99,4 +100,4 @@ export async function markupLinkCard(mdText: string): Promise<string> {
   );
 
   return resultSplittedTexts.join("\n");
-}
+};

@@ -3,6 +3,7 @@ import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkMath from "remark-math";
 import { markupLinkCard } from "./plugins/linkCardPlugin";
+import { markupMermaid } from "./plugins/mermaid/mermaidPlugin";
 import type { SerializedMDX } from "./types";
 
 /**
@@ -13,7 +14,8 @@ import type { SerializedMDX } from "./types";
 export const serializeMDX = async (
   mdxContent: string,
 ): Promise<SerializedMDX> => {
-  const resolvedCustomPlugins = await markupLinkCard(mdxContent);
+  const resolvedCustomPlugins =
+    await markupLinkCard(mdxContent).then(markupMermaid);
 
   // MDX string -> JS string
   const compiledContent = await compile(resolvedCustomPlugins, {

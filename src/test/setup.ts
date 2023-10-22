@@ -9,3 +9,14 @@ jest.mock("@mdx-js/mdx", () => {
       .mockImplementation(() => ({ default: exampleMDXComponent })),
   };
 });
+
+// NOTE: `mermaid` の esm がうまく解決できなかったためまとめてモック化
+// これが原因でおかしくなっていたらごめんなさい
+jest.mock("mermaid", () => ({
+  initialize: () => {
+    return;
+  },
+  run: () => {
+    return;
+  },
+}));

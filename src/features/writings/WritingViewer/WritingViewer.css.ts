@@ -79,3 +79,8 @@ globalStyle(`${cn} .katex-display`, {
   overflowX: "auto",
   overflowY: "hidden",
 });
+// mermaid
+globalStyle(`${cn} .mermaid`, {
+  display: "flex",
+  justifyContent: "center",
+});

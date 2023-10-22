@@ -1,5 +1,6 @@
 import { compile } from "@mdx-js/mdx";
 import rehypeKatex from "rehype-katex";
+import rehypePrettyCode from "rehype-pretty-code";
 import remarkMath from "remark-math";
 import { markupLinkCard } from "./plugins/linkCardPlugin";
 import type { SerializedMDX } from "./types";
@@ -19,7 +20,7 @@ export const serializeMDX = async (
     outputFormat: "function-body",
     development: false,
     remarkPlugins: [remarkMath],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeKatex, rehypePrettyCode],
   }).then(String);
 
   return compiledContent;

@@ -12,18 +12,18 @@ Python の [itertools.accumulate](https://docs.python.org/ja/3/library/itertools
 
 ## コード
 
-```TypeScript
+```typescript
 function* accumulate<T>(
   iterable: Iterable<T>,
   func: (x: T, y: T) => T,
-  initial?: T
+  initial?: T,
 ) {
-  let x = initial
-  if (x !== undefined) yield x
+  let x = initial;
+  if (x !== undefined) yield x;
 
   for (let y of iterable) {
-    x = x === undefined ? y : func(x, y)
-    yield x
+    x = x === undefined ? y : func(x, y);
+    yield x;
   }
 }
 ```
@@ -37,16 +37,16 @@ Python のとは違い、演算 `func` にデフォルト引数はありませ�
 
 ### 配列の累積和を取得する(初期値なし)
 
-```TypeScript
-const xs = [1, 2, 3, 4, 5]
-const sums = [...accumulate(xs, (x, y) => x + y)]
+```typescript
+const xs = [1, 2, 3, 4, 5];
+const sums = [...accumulate(xs, (x, y) => x + y)];
 // sums = [1, 3, 6, 10, 15]
 ```
 
 ### 配列の累積和を取得する(初期値あり)
 
-```TypeScript
-const xs = [1, 2, 3, 4, 5]
-const sums = [...accumulate(xs, (x, y) => x + y, 100)]
+```typescript
+const xs = [1, 2, 3, 4, 5];
+const sums = [...accumulate(xs, (x, y) => x + y, 100)];
 // sums = [100, 101, 103, 106, 110, 115]
 ```

@@ -3,6 +3,8 @@
  * Writing 詳細ページ
  *   - /writings/[writingId]
  */
+import { glob } from "glob";
+import matter from "gray-matter";
 import type { WritingContentFrontMatter } from "@/contents/writings/types";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 import { Meta } from "@/features/common/components/Meta";
@@ -12,8 +14,6 @@ import { serializeMDX } from "@/features/mdx/serializeMDX";
 import { WritingViewer } from "@/features/writings/WritingViewer";
 import { getWritingMetaFromFrontMatter } from "@/features/writings/resolveWritingMeta";
 import type { Writing } from "@/features/writings/types";
-import { glob } from "glob";
-import matter from "gray-matter";
 
 interface Props {
   id: string;

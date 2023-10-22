@@ -73,6 +73,14 @@ globalStyle(`${cn} code`, {
   borderRadius: tokens.radii[50],
 });
 
+// blockquote
+globalStyle(`${cn} blockquote`, {
+  padding: `0 ${tokens.spaces[100]}`,
+  margin: `${tokens.spaces[300]} 0`,
+  color: tokens.colors.text.secondary,
+  borderLeft: `5px solid ${tokens.colors.text.tertiary}`,
+});
+
 // katex
 globalStyle(`${cn} .katex-display`, {
   marginBlock: tokens.spaces[200],

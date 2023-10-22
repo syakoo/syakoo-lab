@@ -8,6 +8,15 @@ dependencies:
   '@astrojs/react':
     specifier: ^3.0.2
     version: 3.0.2(@types/react-dom@18.2.7)(@types/react@18.2.21)(react-dom@18.2.0)(react@18.2.0)(vite@4.4.9)
+  '@fontsource-variable/fira-code':
+    specifier: ^5.0.15
+    version: 5.0.15
+  '@fontsource-variable/noto-sans-jp':
+    specifier: ^5.0.16
+    version: 5.0.16
+  '@fontsource/roboto':
+    specifier: ^5.0.8
+    version: 5.0.8
   '@mdx-js/mdx':
     specifier: ^2.3.0
     version: 2.3.0
@@ -2432,6 +2441,18 @@ packages:
   /@floating-ui/utils@0.1.4:
     resolution: {integrity: sha512-qprfWkn82Iw821mcKofJ5Pk9wgioHicxcQMxx+5zt5GSKoqdWvgG5AxVmpmUUjzTLPVSH5auBrhI93Deayn/DA==}
     dev: true
+
+  /@fontsource-variable/fira-code@5.0.15:
+    resolution: {integrity: sha512-tp56A54PjfH1RBJQ3Jdqh5cvrEHd4n302z3v6sGAnTKW9+oQgU0dK4WAMIXgDhFY35BrhpoIElowfkAT7NYJfA==}
+    dev: false
+
+  /@fontsource-variable/noto-sans-jp@5.0.16:
+    resolution: {integrity: sha512-suU5NNybimn+KgVHKJxpFzQ/HTrQFO3lSYo/umKsqdAFDxhPyRTyjN6V8Ha/IAj01Mnaj2HbL6xvMDEQuGwwCQ==}
+    dev: false
+
+  /@fontsource/roboto@5.0.8:
+    resolution: {integrity: sha512-XxPltXs5R31D6UZeLIV1td3wTXU3jzd3f2DLsXI8tytMGBkIsGcc9sIyiupRtA8y73HAhuSCeweOoBqf6DbWCA==}
+    dev: false
 
   /@humanwhocodes/config-array@0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}

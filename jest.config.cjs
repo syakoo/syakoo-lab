@@ -20,4 +20,5 @@ module.exports = {
       "<rootDir>/__mocks__/fileMock.cjs",
     "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.cjs",
   },
+  setupFiles: ["<rootDir>/src/test/setup.ts"],
 };

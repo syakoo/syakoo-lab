@@ -7,7 +7,16 @@ export const writingViewerStyles = {
     gridTemplateColumns: `1fr minmax(${tokens.sizes[50]}, ${tokens.sizes[100]}) minmax(${tokens.sizes[50]}, 1fr)`,
     gridTemplateRows: "auto auto",
     gridTemplateAreas: `"l header r"
-    "l content aside"`,
+                        "l content aside"`,
+
+    "@media": {
+      "screen and (max-width: 800px)": {
+        gridTemplateColumns: "1fr",
+        gridTemplateRows: "auto auto",
+        gridTemplateAreas: `"header"
+                            "content"`,
+      },
+    },
   }),
   headerWrapper: style({
     gridArea: "header",
@@ -21,6 +30,12 @@ export const writingViewerStyles = {
   asideWrapper: style({
     gridArea: "aside",
     padding: tokens.spaces[200],
+
+    "@media": {
+      "screen and (max-width: 800px)": {
+        display: "none",
+      },
+    },
   }),
   stickyContainer: style({
     position: "sticky",

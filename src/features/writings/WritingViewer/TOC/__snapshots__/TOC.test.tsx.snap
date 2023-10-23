@@ -5,7 +5,7 @@ exports[`TOC renders Sample 1`] = `
   <div>
     <nav>
       <p
-        class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
+        class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
       >
         目次
       </p>

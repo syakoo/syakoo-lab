@@ -83,7 +83,7 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
               class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_spaceBetween__15ivi84o Flex_flexStyle_variants_justify_spaceBetween__15ivi843"
             >
               <span
-                class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
               >
                 © 2021 syakoo
               </span>
@@ -96,7 +96,7 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
                     href="/"
                   >
                     <span
-                      class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                      class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
                     >
                       Home
                     </span>
@@ -106,7 +106,7 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
                     href="/privacy-policy"
                   >
                     <span
-                      class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                      class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
                     >
                       Privacy Policy
                     </span>

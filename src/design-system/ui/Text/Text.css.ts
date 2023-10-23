@@ -8,6 +8,10 @@ const colors = {
 } as const;
 
 export const textStyle = recipe({
+  base: {
+    lineHeight: 1.5,
+  },
+
   variants: {
     // TODO: 詳細はパス
     color: styleVariants(colors, (color) => ({

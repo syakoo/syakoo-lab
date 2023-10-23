@@ -17,7 +17,7 @@ exports[`LinkCard renders LongText 1`] = `
             class="LinkCard_linkCardStyles_textContainer__a5rrhk2 LinkCard_linkCardStyles_textContainer_lines_2__a5rrhk4"
           >
             <span
-              class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
+              class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
             >
               Sample Title Sample Title Sample Title Sample Title Sample Title
             </span>
@@ -26,7 +26,7 @@ exports[`LinkCard renders LongText 1`] = `
             class="LinkCard_linkCardStyles_textContainer__a5rrhk2 LinkCard_linkCardStyles_textContainer_lines_1__a5rrhk3"
           >
             <span
-              class="Text__jzpfqde Text_textStyle_color_tertiary__jzpfqdh Text_textStyle_variants_color_tertiary__jzpfqd2 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+              class="Text_textStyle__jzpfqde Text_textStyle_color_tertiary__jzpfqdh Text_textStyle_variants_color_tertiary__jzpfqd2 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
             >
               sample description sample description sample description sample description
             </span>
@@ -41,7 +41,7 @@ exports[`LinkCard renders LongText 1`] = `
               width="14"
             />
             <span
-              class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
             >
               syakoo-lab.com
             </span>
@@ -79,7 +79,7 @@ exports[`LinkCard renders Sample 1`] = `
             class="LinkCard_linkCardStyles_textContainer__a5rrhk2 LinkCard_linkCardStyles_textContainer_lines_2__a5rrhk4"
           >
             <span
-              class="Text__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
+              class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
             >
               Sample Title
             </span>
@@ -88,7 +88,7 @@ exports[`LinkCard renders Sample 1`] = `
             class="LinkCard_linkCardStyles_textContainer__a5rrhk2 LinkCard_linkCardStyles_textContainer_lines_1__a5rrhk3"
           >
             <span
-              class="Text__jzpfqde Text_textStyle_color_tertiary__jzpfqdh Text_textStyle_variants_color_tertiary__jzpfqd2 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+              class="Text_textStyle__jzpfqde Text_textStyle_color_tertiary__jzpfqdh Text_textStyle_variants_color_tertiary__jzpfqd2 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
             >
               sample description
             </span>
@@ -103,7 +103,7 @@ exports[`LinkCard renders Sample 1`] = `
               width="14"
             />
             <span
-              class="Text__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
             >
               syakoo-lab.com
             </span>

@@ -49,6 +49,11 @@ export const writingViewerStyles = {
  */
 const cn = writingViewerStyles.contentWrapper;
 
+// NOTE: 一つ目の要素は上の空白を消す
+globalStyle(`${cn} > *:first-child`, {
+  marginTop: "0 !important",
+});
+
 // p
 globalStyle(`${cn} p`, {
   lineHeight: 1.88,

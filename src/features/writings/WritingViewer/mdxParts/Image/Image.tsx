@@ -1,4 +1,4 @@
-import { figureCaptionStyle, figureStyle } from "./Image.css";
+import { imageStyles } from "./Image.css";
 
 type ImageProps = {
   caption?: string;
@@ -6,10 +6,10 @@ type ImageProps = {
 
 export const Image: React.FC<ImageProps> = ({ caption, ...imageProps }) => {
   return (
-    <figure className={figureStyle}>
-      <img alt={caption || ""} {...imageProps} />
+    <figure className={imageStyles.figure}>
+      <img alt={caption || ""} className={imageStyles.image} {...imageProps} />
       {caption ? (
-        <figcaption className={figureCaptionStyle}>{caption}</figcaption>
+        <figcaption className={imageStyles.caption}>{caption}</figcaption>
       ) : null}
     </figure>
   );

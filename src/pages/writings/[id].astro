@@ -1,0 +1,81 @@
+---
+/**
+ * Writing 詳細ページ
+ *   - /writings/[writingId]
+ */
+import { glob } from "glob";
+import matter from "gray-matter";
+import type { WritingContentFrontMatter } from "@/contents/writings/types";
+import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
+import { Meta } from "@/features/common/components/Meta";
+import "@/features/common/logics/globalSettings";
+import { formatPageTitle } from "@/features/common/logics/pageTitle";
+import { serializeMDX } from "@/features/mdx/serializeMDX";
+import { WritingViewer } from "@/features/writings/WritingViewer";
+import { getWritingMetaFromFrontMatter } from "@/features/writings/resolveWritingMeta";
+import type { Writing } from "@/features/writings/types";
+
+interface Props {
+  id: string;
+}
+
+export async function getStaticPaths() {
+  // NOTE: 全ての writing を評価して流す
+  const MDXFilePaths = await glob("src/contents/writings/**/index.mdx");
+  const writingIds = MDXFilePaths.map(
+    (path) => matter.read(path).data as WritingContentFrontMatter,
+  ).map(({ id }) => id);
+
+  return [
+    ...writingIds.map((id) => ({
+      params: {
+        id,
+      },
+      props: {
+        id,
+      },
+    })),
+  ];
+}
+
+const { id } = Astro.props;
+
+const MDXFilePaths = await glob("src/contents/writings/**/index.mdx");
+const selectedWritingContent = MDXFilePaths.map(
+  (path) =>
+    matter.read(path) as unknown as {
+      content: string;
+      data: WritingContentFrontMatter;
+    },
+)
+  // NOTE: 存在するはず
+  .find(({ data }) => data.id === id)!;
+
+const writing: Writing = {
+  meta: getWritingMetaFromFrontMatter(selectedWritingContent.data),
+  content: await serializeMDX(selectedWritingContent.content),
+};
+---
+
+<html lang="ja">
+  <head>
+    <Meta
+      title={formatPageTitle(writing.meta.title)}
+      url={Astro.url.pathname}
+    />
+    <meta content={Astro.generator} name="generator" />
+    <link
+      crossOrigin="anonymous"
+      href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+      integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <HeaderFooterTemplate>
+      <main>
+        <WritingViewer client:load writing={writing} />
+      </main>
+    </HeaderFooterTemplate>
+  </body>
+</html>

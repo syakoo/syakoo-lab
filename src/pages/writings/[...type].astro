@@ -4,6 +4,8 @@
  *   - /writings
  *   - /writings/[type]
  */
+import { glob } from "glob";
+import matter from "gray-matter";
 import type { WritingContentFrontMatter } from "@/contents/writings/types";
 import { Container } from "@/design-system/layout";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
@@ -15,8 +17,6 @@ import type { WritingListType } from "@/features/writings/WritingList/shared/wri
 import { getWritingMetaFromFrontMatter } from "@/features/writings/resolveWritingMeta";
 import { writingTypeConfig } from "@/features/writings/shared/writingType";
 import type { WritingType } from "@/features/writings/types";
-import { glob } from "glob";
-import matter from "gray-matter";
 
 export async function getStaticPaths() {
   return [

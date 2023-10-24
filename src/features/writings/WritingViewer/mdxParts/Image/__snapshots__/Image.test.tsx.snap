@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image renders Sample 1`] = `
+<body>
+  <div>
+    <figure
+      class="Image_imageStyles_figure__a2vf3b0"
+    >
+      <img
+        alt="Sample Caption"
+        class="Image_imageStyles_image__a2vf3b2"
+        height="300"
+        src="https://placehold.jp/3063D4/ffffff/400x300.png"
+        width="400"
+      />
+      <figcaption
+        class="Image_imageStyles_caption__a2vf3b1"
+      >
+        Sample Caption
+      </figcaption>
+    </figure>
+  </div>
+</body>
+`;

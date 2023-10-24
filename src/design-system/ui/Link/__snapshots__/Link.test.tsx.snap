@@ -40,6 +40,18 @@ exports[`Link renders Variants 1`] = `
         no hovered Link
       </a>
     </div>
+    <div>
+      <a
+        class="Link_linkStyle__m4v9430 Link_linkStyle_display_block__m4v9434"
+        href="#"
+      >
+        <div
+          style="border: 1px solid #3063d4; border-radius: 8px;"
+        >
+          Block Link
+        </div>
+      </a>
+    </div>
   </div>
 </body>
 `;

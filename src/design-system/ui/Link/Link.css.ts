@@ -34,5 +34,10 @@ export const linkStyle = recipe({
         },
       },
     },
+    display: {
+      block: {
+        display: "block",
+      },
+    },
   },
 });

@@ -4,17 +4,22 @@ exports[`Text renders Colors 1`] = `
 <body>
   <div>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
     >
-      primary (default)
+      currentColor (default)
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_secondary__jzpfqdf Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_primary__jzpfqdf Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+    >
+      primary
+    </p>
+    <p
+      class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
     >
       secondary
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_tertiary__jzpfqdg Text_textStyle_variants_color_tertiary__jzpfqd2 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_tertiary__jzpfqdh Text_textStyle_variants_color_tertiary__jzpfqd2 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
     >
       tertiary
     </p>
@@ -26,32 +31,32 @@ exports[`Text renders Sample 1`] = `
 <body>
   <div>
     <h1
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_600__jzpfqdo Text_textStyle_variants_size_600__jzpfqda Text_textStyle_weight_bold__jzpfqdr"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_600__jzpfqdq Text_textStyle_variants_size_600__jzpfqdb Text_textStyle_weight_bold__jzpfqdt"
     >
       H1
     </h1>
     <h2
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_500__jzpfqdn Text_textStyle_variants_size_500__jzpfqd9 Text_textStyle_weight_bold__jzpfqdr"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_500__jzpfqdp Text_textStyle_variants_size_500__jzpfqda Text_textStyle_weight_bold__jzpfqdt"
     >
       H2
     </h2>
     <h3
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_400__jzpfqdm Text_textStyle_variants_size_400__jzpfqd8 Text_textStyle_weight_bold__jzpfqdr"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_400__jzpfqdo Text_textStyle_variants_size_400__jzpfqd9 Text_textStyle_weight_bold__jzpfqdt"
     >
       H3
     </h3>
     <h4
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_bold__jzpfqdr"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_300__jzpfqdn Text_textStyle_variants_size_300__jzpfqd8 Text_textStyle_weight_bold__jzpfqdt"
     >
       H4
     </h4>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
     >
       P
     </p>
     <span
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
     >
       Span
     </span>
@@ -63,47 +68,47 @@ exports[`Text renders Sizes 1`] = `
 <body>
   <div>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_50__jzpfqdh Text_textStyle_variants_size_50__jzpfqd3 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
     >
       50
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
     >
       100 (default)
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_200__jzpfqdk Text_textStyle_variants_size_200__jzpfqd6 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_200__jzpfqdm Text_textStyle_variants_size_200__jzpfqd7 Text_textStyle_weight_normal__jzpfqdu"
     >
       200
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_300__jzpfqdl Text_textStyle_variants_size_300__jzpfqd7 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_300__jzpfqdn Text_textStyle_variants_size_300__jzpfqd8 Text_textStyle_weight_normal__jzpfqdu"
     >
       300
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_400__jzpfqdm Text_textStyle_variants_size_400__jzpfqd8 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_400__jzpfqdo Text_textStyle_variants_size_400__jzpfqd9 Text_textStyle_weight_normal__jzpfqdu"
     >
       400
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_500__jzpfqdn Text_textStyle_variants_size_500__jzpfqd9 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_500__jzpfqdp Text_textStyle_variants_size_500__jzpfqda Text_textStyle_weight_normal__jzpfqdu"
     >
       500
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_600__jzpfqdo Text_textStyle_variants_size_600__jzpfqda Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_600__jzpfqdq Text_textStyle_variants_size_600__jzpfqdb Text_textStyle_weight_normal__jzpfqdu"
     >
       600
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_700__jzpfqdp Text_textStyle_variants_size_700__jzpfqdb Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_700__jzpfqdr Text_textStyle_variants_size_700__jzpfqdc Text_textStyle_weight_normal__jzpfqdu"
     >
       700
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_800__jzpfqdq Text_textStyle_variants_size_800__jzpfqdc Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_800__jzpfqds Text_textStyle_variants_size_800__jzpfqdd Text_textStyle_weight_normal__jzpfqdu"
     >
       800
     </p>
@@ -115,12 +120,12 @@ exports[`Text renders Weights 1`] = `
 <body>
   <div>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_normal__jzpfqds"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
     >
       normal (default)
     </p>
     <p
-      class="Text__jzpfqdd Text_textStyle_color_primary__jzpfqde Text_textStyle_variants_color_primary__jzpfqd0 Text_textStyle_size_100__jzpfqdj Text_textStyle_variants_size_100__jzpfqd5 Text_textStyle_weight_bold__jzpfqdr"
+      class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
     >
       bold
     </p>

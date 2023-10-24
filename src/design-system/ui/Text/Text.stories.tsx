@@ -24,7 +24,8 @@ export const Sample = () => {
 export const Colors = () => {
   return (
     <>
-      <Text color="primary">primary (default)</Text>
+      <Text color="currentColor">currentColor (default)</Text>
+      <Text color="primary">primary</Text>
       <Text color="secondary">secondary</Text>
       <Text color="tertiary">tertiary</Text>
     </>

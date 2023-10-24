@@ -8,6 +8,10 @@
     "hygen",
     "metas",
     "katex",
-    "rehype"
+    "rehype",
+    "fontsource",
+    "noto-sans-jp",
+    "fira-code",
+    "roboto"
   ]
 }

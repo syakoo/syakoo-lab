@@ -1,4 +1,4 @@
-import { writingTypeConfig } from "../../shared/writingType";
+import { writingTypeConfig } from "../../_shared/writingType";
 import type { WritingMeta } from "../../types";
 import { writingHeaderStyles } from "./WritingHeader.css";
 import { Col, Row, Spacer } from "@/design-system/layout";

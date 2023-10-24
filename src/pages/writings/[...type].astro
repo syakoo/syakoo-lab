@@ -4,9 +4,6 @@
  *   - /writings
  *   - /writings/[type]
  */
-import { glob } from "glob";
-import matter from "gray-matter";
-import type { WritingContentFrontMatter } from "@/contents/writings/types";
 import { Container } from "@/design-system/layout";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 import { Meta } from "@/features/common/components/Meta";
@@ -14,9 +11,10 @@ import "@/features/common/logics/globalSettings";
 import { formatPageTitle } from "@/features/common/logics/pageTitle";
 import { WritingList } from "@/features/writings/WritingList";
 import type { WritingListType } from "@/features/writings/WritingList/shared/writingListType";
-import { getWritingMetaFromFrontMatter } from "@/features/writings/resolveWritingMeta";
 import { writingTypeConfig } from "@/features/writings/shared/writingType";
 import type { WritingType } from "@/features/writings/types";
+import { readWritingContents } from "@/contents/writings/reader";
+import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 
 export async function getStaticPaths() {
   return [
@@ -37,14 +35,9 @@ export async function getStaticPaths() {
 const { type } = Astro.params;
 const writingType: WritingListType = (type as WritingType | undefined) ?? "all";
 
-// STEP1: 対象の MDX ファイルパスを取得する
-const MDXFilePaths = await glob("src/contents/writings/**/index.mdx");
-// STEP2: それらのパスを読み、frontmatter を取り出す
-const frontMatters = MDXFilePaths.map(
-  (path) => matter.read(path).data as WritingContentFrontMatter,
+const metas = (await readWritingContents()).map(({ frontMatter }) =>
+  resolveWritingMeta({ frontMatter }),
 );
-// STEP3: frontmatter -> writingMeta
-const metas = frontMatters.map(getWritingMetaFromFrontMatter);
 ---
 
 <html lang="ja">

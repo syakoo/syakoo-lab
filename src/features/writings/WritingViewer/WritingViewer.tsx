@@ -20,7 +20,7 @@ const components = {
 export const WritingViewer: React.FC<WritingViewerProps> = ({ writing }) => {
   useMermaid();
   useTwitter();
-  const MDXComponent = resolveMDXAsComponent(writing.content);
+  const MDXComponent = resolveMDXAsComponent(writing.serializedBody);
 
   return (
     <article className={writingViewerStyles.root}>

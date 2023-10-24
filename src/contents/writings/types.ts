@@ -10,3 +10,8 @@ export type WritingContentFrontMatter = {
   noindex?: boolean;
   tags: string[];
 };
+
+export type WritingContent = {
+  frontMatter: WritingContentFrontMatter;
+  body: string;
+};

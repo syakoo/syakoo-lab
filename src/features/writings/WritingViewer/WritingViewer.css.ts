@@ -1,6 +1,10 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { tokens } from "@/design-system/tokens";
 
+// 縦配置のメディア条件式
+const columnLayoutScreen =
+  `screen and (max-width: ${tokens.sizes[100]})` as const;
+
 export const writingViewerStyles = {
   root: style({
     display: "grid",
@@ -10,8 +14,8 @@ export const writingViewerStyles = {
                         "l content aside"`,
 
     "@media": {
-      "screen and (max-width: 800px)": {
-        gridTemplateColumns: "1fr",
+      [columnLayoutScreen]: {
+        gridTemplateColumns: "100%",
         gridTemplateRows: "auto auto",
         gridTemplateAreas: `"header"
                             "content"`,
@@ -32,7 +36,7 @@ export const writingViewerStyles = {
     padding: tokens.spaces[200],
 
     "@media": {
-      "screen and (max-width: 800px)": {
+      [columnLayoutScreen]: {
         display: "none",
       },
     },
@@ -89,6 +93,12 @@ globalStyle(`${cn} pre`, {
   color: tokens.colors.code.text,
   backgroundColor: tokens.colors.code.background,
   borderRadius: tokens.radii[100],
+
+  "@media": {
+    [columnLayoutScreen]: {
+      borderRadius: 0,
+    },
+  },
 });
 globalStyle(`${cn} pre code`, {
   display: "block",

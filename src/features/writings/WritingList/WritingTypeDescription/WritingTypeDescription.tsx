@@ -1,4 +1,4 @@
-import type { WritingListType } from "../shared/writingListType";
+import type { WritingListType } from "../_shared/writingListType";
 import { Text } from "@/design-system/ui";
 
 type WritingTypeDescriptionProps = {

@@ -3,57 +3,39 @@
  * Writing 詳細ページ
  *   - /writings/[writingId]
  */
-import { glob } from "glob";
-import matter from "gray-matter";
-import type { WritingContentFrontMatter } from "@/contents/writings/types";
+import type { WritingContent } from "@/contents/writings/types";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 import { Meta } from "@/features/common/components/Meta";
 import "@/features/common/logics/globalSettings";
 import { formatPageTitle } from "@/features/common/logics/pageTitle";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
 import { WritingViewer } from "@/features/writings/WritingViewer";
-import { getWritingMetaFromFrontMatter } from "@/features/writings/resolveWritingMeta";
 import type { Writing } from "@/features/writings/types";
+import { readWritingContents } from "@/contents/writings/reader";
+import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 
 interface Props {
-  id: string;
+  writingContent: WritingContent;
 }
 
 export async function getStaticPaths() {
-  // NOTE: 全ての writing を評価して流す
-  const MDXFilePaths = await glob("src/contents/writings/**/index.mdx");
-  const writingIds = MDXFilePaths.map(
-    (path) => matter.read(path).data as WritingContentFrontMatter,
-  ).map(({ id }) => id);
+  const writingContents = await readWritingContents();
 
-  return [
-    ...writingIds.map((id) => ({
-      params: {
-        id,
-      },
-      props: {
-        id,
-      },
-    })),
-  ];
+  return writingContents.map((writingContent) => ({
+    params: {
+      id: writingContent.frontMatter.id,
+    },
+    props: {
+      writingContent: writingContent,
+    },
+  }));
 }
 
-const { id } = Astro.props;
-
-const MDXFilePaths = await glob("src/contents/writings/**/index.mdx");
-const selectedWritingContent = MDXFilePaths.map(
-  (path) =>
-    matter.read(path) as unknown as {
-      content: string;
-      data: WritingContentFrontMatter;
-    },
-)
-  // NOTE: 存在するはず
-  .find(({ data }) => data.id === id)!;
+const { writingContent } = Astro.props;
 
 const writing: Writing = {
-  meta: getWritingMetaFromFrontMatter(selectedWritingContent.data),
-  content: await serializeMDX(selectedWritingContent.content),
+  meta: resolveWritingMeta({ frontMatter: writingContent.frontMatter }),
+  serializedBody: await serializeMDX(writingContent.body),
 };
 ---
 

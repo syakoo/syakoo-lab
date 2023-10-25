@@ -7,8 +7,12 @@ export const writingHeaderStyles = {
     height: 48,
     color: tokens.colors.text.primary,
     background: tokens.colors.background.secondary,
-    padding: 8,
-    borderRadius: tokens.radii[200],
+    padding: 12,
+    borderRadius: tokens.radii.swaying,
     display: "flex",
+    marginInline: "auto",
+  }),
+  titleWrapper: style({
+    textAlign: "center",
   }),
 };

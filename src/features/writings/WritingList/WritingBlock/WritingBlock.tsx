@@ -1,4 +1,4 @@
-import { writingTypeConfig } from "../../shared/writingType";
+import { writingTypeConfig } from "../../_shared/writingType";
 import { writingBlockStyles } from "./WritingBlock.css";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";

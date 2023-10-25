@@ -1,9 +1,15 @@
+/**
+ * src/contents/writings 以下のコンテンツにアクセスしてよしなに処理してくれるやつ。
+ *
+ * CAUTION: node で使用すること
+ */
 import type { WritingMeta } from "./types";
 import type { WritingContentFrontMatter } from "@/contents/writings/types";
 
-export const getWritingMetaFromFrontMatter = (
-  frontMatter: WritingContentFrontMatter,
-): WritingMeta => {
+type ResolveWritingMeta = (arg: {
+  frontMatter: WritingContentFrontMatter;
+}) => WritingMeta;
+export const resolveWritingMeta: ResolveWritingMeta = ({ frontMatter }) => {
   const link = `/writings/${frontMatter.id}`;
 
   return {

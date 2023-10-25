@@ -13,5 +13,5 @@ export type WritingMeta = {
 
 export type Writing = {
   meta: WritingMeta;
-  content: string;
+  serializedBody: string;
 };

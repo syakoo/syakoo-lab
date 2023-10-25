@@ -19,7 +19,7 @@ export const Sample: Story = {
         tags: ["雑記", "Sample"],
         published: "2023-10-09",
       },
-      content: `/*@jsxRuntime automatic @jsxImportSource react*/
+      serializedBody: `/*@jsxRuntime automatic @jsxImportSource react*/
 const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
 function _createMdxContent(props) {
   const _components = Object.assign({

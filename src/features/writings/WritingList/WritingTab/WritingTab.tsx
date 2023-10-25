@@ -4,7 +4,7 @@ import { Link } from "@/design-system/ui";
 import {
   writingListTypeConfig,
   type WritingListType,
-} from "@/features/writings/WritingList/shared/writingListType";
+} from "@/features/writings/WritingList/_shared/writingListType";
 
 type WritingTabProps = {
   selectedType: WritingListType;

@@ -56,7 +56,9 @@ module.exports = {
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
-      rules: {},
+      rules: {
+        "react/no-unknown-property": "off",
+      },
     },
     {
       files: ["*.ts"],

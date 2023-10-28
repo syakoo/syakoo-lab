@@ -91,9 +91,9 @@ exports[`Works renders Sample 1`] = `
                       <img
                         alt=""
                         class="WorkBlock_workBlockStyle_image__1wtn06k2"
-                        height="1563"
-                        src="/mock-dir/MagicSquare.png"
-                        width="1563"
+                        height="40"
+                        src="/img.jpg"
+                        width="40"
                       />
                     </div>
                     <div
@@ -149,9 +149,9 @@ exports[`Works renders Sample 1`] = `
                       <img
                         alt=""
                         class="WorkBlock_workBlockStyle_image__1wtn06k2"
-                        height="64"
-                        src="/mock-dir/RealSharing.png"
-                        width="64"
+                        height="40"
+                        src="/img.jpg"
+                        width="40"
                       />
                     </div>
                     <div
@@ -207,9 +207,9 @@ exports[`Works renders Sample 1`] = `
                       <img
                         alt=""
                         class="WorkBlock_workBlockStyle_image__1wtn06k2"
-                        height="128"
-                        src="/mock-dir/HaskellFunctionPuzzle.png"
-                        width="128"
+                        height="40"
+                        src="/img.jpg"
+                        width="40"
                       />
                     </div>
                     <div

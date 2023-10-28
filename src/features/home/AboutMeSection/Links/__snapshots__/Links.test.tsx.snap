@@ -12,12 +12,12 @@ exports[`Links renders Sample 1`] = `
           href="#"
         >
           <div
-            class="Links_linkStyle__dou6ce0"
+            class="Links_linkStyle__yhrdxz0"
             title="Name1"
           >
             <img
               alt="Name1"
-              class="Links_linkImageStyle__dou6ce1"
+              class="Links_linkImageStyle__yhrdxz1"
               height="50"
               src="https://placehold.jp/3063D4/ffffff/50x50.png"
               width="50"
@@ -31,12 +31,12 @@ exports[`Links renders Sample 1`] = `
           href="#"
         >
           <div
-            class="Links_linkStyle__dou6ce0"
+            class="Links_linkStyle__yhrdxz0"
             title="Name2"
           >
             <img
               alt="Name2"
-              class="Links_linkImageStyle__dou6ce1"
+              class="Links_linkImageStyle__yhrdxz1"
               height="50"
               src="https://placehold.jp/294e80/ffffff/50x50.png"
               width="50"
@@ -50,12 +50,12 @@ exports[`Links renders Sample 1`] = `
           href="#"
         >
           <div
-            class="Links_linkStyle__dou6ce0"
+            class="Links_linkStyle__yhrdxz0"
             title="Name3"
           >
             <img
               alt="Name3"
-              class="Links_linkImageStyle__dou6ce1"
+              class="Links_linkImageStyle__yhrdxz1"
               height="100"
               src="https://placehold.jp/00ABEE/ffffff/100x100.png"
               width="100"

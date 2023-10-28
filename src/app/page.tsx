@@ -1,7 +1,6 @@
 import { Col, Container } from "@/design-system/layout";
-import { H2 } from "@/design-system/ui";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
-import { AboutMe } from "@/features/home/AboutMe";
+import { AboutMeSection } from "@/features/home/AboutMeSection";
 import { Home } from "@/features/home/Home";
 
 const HomePage = () => {
@@ -18,10 +17,7 @@ const HomePage = () => {
           paddingX="200"
           size="100"
         >
-          <Col gap="100">
-            <H2>About Me</H2>
-            <AboutMe />
-          </Col>
+          <AboutMeSection />
         </Container>
       </Col>
     </HeaderFooterTemplate>

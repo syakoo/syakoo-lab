@@ -11,10 +11,10 @@ exports[`AboutMe renders Sample 1`] = `
       >
         <img
           alt="me"
-          class="AboutMe_aboutMeImageStyle__bm25w70"
-          height="425"
-          src="/mock-dir/me.jpg"
-          width="425"
+          class="AboutMe_aboutMeImageStyle__xung5y0"
+          height="40"
+          src="/img.jpg"
+          width="40"
         />
         <div
           class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
@@ -33,15 +33,15 @@ exports[`AboutMe renders Sample 1`] = `
                 href="https://github.com/syakoo"
               >
                 <div
-                  class="Links_linkStyle__1p0vcii0"
+                  class="Links_linkStyle__dou6ce0"
                   title="Github"
                 >
                   <img
                     alt="Github"
-                    class="Links_linkImageStyle__1p0vcii1"
-                    height="240"
-                    src="/mock-dir/github.png"
-                    width="240"
+                    class="Links_linkImageStyle__dou6ce1"
+                    height="40"
+                    src="/img.jpg"
+                    width="40"
                   />
                 </div>
               </a>
@@ -52,15 +52,15 @@ exports[`AboutMe renders Sample 1`] = `
                 href="https://twitter.com/sako_data"
               >
                 <div
-                  class="Links_linkStyle__1p0vcii0"
+                  class="Links_linkStyle__dou6ce0"
                   title="X (Twitter)"
                 >
                   <img
                     alt="X (Twitter)"
-                    class="Links_linkImageStyle__1p0vcii1"
-                    height="1227"
-                    src="/mock-dir/x.svg"
-                    width="1200"
+                    class="Links_linkImageStyle__dou6ce1"
+                    height="40"
+                    src="/img.jpg"
+                    width="40"
                   />
                 </div>
               </a>
@@ -71,15 +71,15 @@ exports[`AboutMe renders Sample 1`] = `
                 href="https://leetcode.com/syakoo/"
               >
                 <div
-                  class="Links_linkStyle__1p0vcii0"
+                  class="Links_linkStyle__dou6ce0"
                   title="LeetCode"
                 >
                   <img
                     alt="LeetCode"
-                    class="Links_linkImageStyle__1p0vcii1"
-                    height="512"
-                    src="/mock-dir/leetcode.png"
-                    width="512"
+                    class="Links_linkImageStyle__dou6ce1"
+                    height="40"
+                    src="/img.jpg"
+                    width="40"
                   />
                 </div>
               </a>
@@ -90,15 +90,15 @@ exports[`AboutMe renders Sample 1`] = `
                 href="https://steamcommunity.com/profiles/76561198944381322/"
               >
                 <div
-                  class="Links_linkStyle__1p0vcii0"
+                  class="Links_linkStyle__dou6ce0"
                   title="Steam"
                 >
                   <img
                     alt="Steam"
-                    class="Links_linkImageStyle__1p0vcii1"
-                    height="1024"
-                    src="/mock-dir/steam.png"
-                    width="1024"
+                    class="Links_linkImageStyle__dou6ce1"
+                    height="40"
+                    src="/img.jpg"
+                    width="40"
                   />
                 </div>
               </a>
@@ -109,15 +109,15 @@ exports[`AboutMe renders Sample 1`] = `
                 href="https://atcoder.jp/users/syakoo"
               >
                 <div
-                  class="Links_linkStyle__1p0vcii0"
+                  class="Links_linkStyle__dou6ce0"
                   title="AtCoder"
                 >
                   <img
                     alt="AtCoder"
-                    class="Links_linkImageStyle__1p0vcii1"
-                    height="38"
-                    src="/mock-dir/atcoder.png"
-                    width="45"
+                    class="Links_linkImageStyle__dou6ce1"
+                    height="40"
+                    src="/img.jpg"
+                    width="40"
                   />
                 </div>
               </a>

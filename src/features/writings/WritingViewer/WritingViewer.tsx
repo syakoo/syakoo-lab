@@ -1,3 +1,5 @@
+"use client";
+
 import type { Writing } from "../types";
 import { TOC } from "./TOC";
 import { WritingHeader } from "./WritingHeader";

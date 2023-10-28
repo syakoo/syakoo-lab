@@ -1,24 +1,39 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const nextJest = require("next/jest");
 const { pathsToModuleNameMapper } = require("ts-jest");
 const { compilerOptions } = require("./tsconfig.json");
 
+const createJestConfig = nextJest({
+  dir: "./",
+});
+
 /** @type{import('jest').Config} */
-module.exports = {
-  preset: "ts-jest",
+const customJestConfig = {
   testEnvironment: "jest-environment-jsdom",
-  modulePaths: [compilerOptions.baseUrl],
-  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
-  transform: {
-    "\\.css\\.ts$": "@vanilla-extract/jest-transform",
-    "^.+\\.tsx?$": [
-      "ts-jest",
-      {
-        tsconfig: "tsconfig.jest.json",
-      },
-    ],
-    "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-      "<rootDir>/__mocks__/fileMock.cjs",
-    "\\.(css|scss)$": "<rootDir>/__mocks__/styleMock.cjs",
-  },
   setupFiles: ["<rootDir>/src/test/setup.ts"],
+  moduleNameMapper: {
+    ...pathsToModuleNameMapper(compilerOptions.paths),
+  },
+  modulePaths: [compilerOptions.baseUrl],
+};
+
+module.exports = async () => {
+  const finalJestConfig = await createJestConfig(customJestConfig)();
+
+  // NOTE: next がデフォルトで入れる CSS のモックで vanilla-extract のファイルがモックされてしまうため無理矢理だが削除
+  // - ref: https://github.com/vercel/next.js/blob/ee9a13aaa0592102e229bb3e5959cebe0a7a060c/packages/next/src/build/jest/jest.ts#L120C1-L120C1
+  const moduleNameMapper = finalJestConfig.moduleNameMapper;
+  delete moduleNameMapper["^.+\\.(css|sass|scss)$"];
+
+  /** @type{import('jest').Config} */
+  const result = {
+    ...finalJestConfig,
+    // NOTE: vanilla-extract を ts より先に読ませる必要がある
+    transform: {
+      "\\.css\\.ts$": "@vanilla-extract/jest-transform",
+      ...finalJestConfig.transform,
+    },
+    moduleNameMapper,
+  };
+  return result;
 };

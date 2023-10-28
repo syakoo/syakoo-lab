@@ -8,6 +8,7 @@ import "@fontsource-variable/fira-code";
 
 export const metadata: Metadata = {
   title: "Syakoo Lab",
+  metadataBase: new URL("https://syakoo-lab.com"),
   authors: {
     name: "syakoo",
   },

@@ -4,7 +4,7 @@ import leetCodeImageSrc from "./leetcode.png";
 import meImageSrc from "./me.jpg";
 import steamImageSrc from "./steam.png";
 import xImageSrc from "./x.svg";
-import type { AboutMeConfig } from "@/features/home/AboutMe/types";
+import type { AboutMeConfig } from "@/features/home/AboutMeSection/types";
 
 export const aboutMeConfig = {
   name: "syakoo",

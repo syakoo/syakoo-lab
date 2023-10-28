@@ -1,11 +1,11 @@
 import { theme } from "./manager";
 import { tokens } from "../src/design-system/tokens";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import { Preview } from "@storybook/react";
 import "ress";
 import "../src/globalStyle.css";
 
-/** @type { import('@storybook/react').Preview } */
-const preview = {
+const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {

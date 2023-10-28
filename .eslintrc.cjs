@@ -10,11 +10,11 @@ module.exports = {
     sourceType: "module",
   },
   extends: [
+    "next/core-web-vitals",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:astro/recommended",
     "plugin:storybook/recommended",
   ],
   plugins: ["@typescript-eslint", "react", "import"],
@@ -49,17 +49,6 @@ module.exports = {
     ],
   },
   overrides: [
-    {
-      files: ["*.astro"],
-      parser: "astro-eslint-parser",
-      parserOptions: {
-        parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".astro"],
-      },
-      rules: {
-        "react/no-unknown-property": "off",
-      },
-    },
     {
       files: ["*.ts"],
       parser: "@typescript-eslint/parser",

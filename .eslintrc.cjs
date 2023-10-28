@@ -8,11 +8,14 @@ module.exports = {
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
+    project: true,
+    tsconfigRootDir: __dirname,
   },
   extends: [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
     "plugin:storybook/recommended",
@@ -29,6 +32,7 @@ module.exports = {
     ],
     "react/jsx-no-leaked-render": ["error"],
     "react/jsx-no-useless-fragment": ["error"],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "import/order": [
       "warn",
       {
@@ -48,12 +52,6 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ["*.ts"],
-      parser: "@typescript-eslint/parser",
-    },
-  ],
   settings: {
     react: {
       version: "detect",

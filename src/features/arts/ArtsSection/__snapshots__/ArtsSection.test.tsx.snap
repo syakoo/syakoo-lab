@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtsSection renders Sample 1`] = `
+<body>
+  <div>
+    <section
+      class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_100__1b3ljla5 Container_containerStyle_variants_size_100__1b3ljla1 Container_containerStyle_center_true__1b3ljla7 Container_containerStyle_paddingBottom_400__1b3ljlay padding_paddingBottomVariants_400__1i0pzy6q Container_containerStyle_paddingX_200__1b3ljla13 padding_paddingXVariants_200__1i0pzy6v"
+    >
+      <div
+        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_200__15ivi84z Flex_flexStyle_variants_gap_200__15ivi84e Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+      >
+        <h2
+          class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_500__jzpfqdp Text_textStyle_variants_size_500__jzpfqda Text_textStyle_weight_bold__jzpfqdt"
+        >
+          Arts
+        </h2>
+        <ul
+          class="ArtsSection_artsSectionStyles_listContainer__75hg4s0"
+        >
+          <li>
+            <article
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+            >
+              <div>
+                <img
+                  alt="Sample Art Title"
+                  class="ArtGalleryItem_artGalleryItemStyles_image__ddg6rx0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="1500"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75 1x"
+                  style="color: transparent;"
+                  width="2500"
+                />
+              </div>
+              <div
+                class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+              >
+                <div
+                  class="ArtGalleryItem_artGalleryItemStyles_titleWrapper__ddg6rx1"
+                >
+                  <h3
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_bold__jzpfqdt"
+                  >
+                    Sample Art Title
+                  </h3>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+            >
+              <div>
+                <img
+                  alt="Sample Art Title 2"
+                  class="ArtGalleryItem_artGalleryItemStyles_image__ddg6rx0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="1500"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2500x1500.png&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2500x1500.png&w=3840&q=75 1x"
+                  style="color: transparent;"
+                  width="2500"
+                />
+              </div>
+              <div
+                class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+              >
+                <div
+                  class="ArtGalleryItem_artGalleryItemStyles_titleWrapper__ddg6rx1"
+                >
+                  <h3
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_bold__jzpfqdt"
+                  >
+                    Sample Art Title 2
+                  </h3>
+                </div>
+              </div>
+            </article>
+          </li>
+          <li>
+            <article
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+            >
+              <div>
+                <img
+                  alt="Sample Art Title 3"
+                  class="ArtGalleryItem_artGalleryItemStyles_image__ddg6rx0"
+                  data-nimg="1"
+                  decoding="async"
+                  height="2000"
+                  loading="lazy"
+                  src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F1500x2000.png&w=3840&q=75"
+                  srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F1500x2000.png&w=1920&q=75 1x, /_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F1500x2000.png&w=3840&q=75 2x"
+                  style="color: transparent;"
+                  width="1500"
+                />
+              </div>
+              <div
+                class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+              >
+                <div
+                  class="ArtGalleryItem_artGalleryItemStyles_titleWrapper__ddg6rx1"
+                >
+                  <h3
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_bold__jzpfqdt"
+                  >
+                    Sample Art Title 3
+                  </h3>
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+`;

@@ -8,7 +8,7 @@ import type { WritingContent, WritingContentFrontMatter } from "./types";
  * NOTE: node で実行すること
  */
 export const readWritingContents = async (): Promise<WritingContent[]> => {
-  const mdxFilePaths = await glob("./**/index.mdx");
+  const mdxFilePaths = await glob("**/contents/writings/**/index.mdx");
 
   return mdxFilePaths
     .map((path) => matter.read(path))

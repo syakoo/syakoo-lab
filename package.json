@@ -29,9 +29,6 @@
     ],
     "*.{js,ts,tsx,cjs,mjs,css}": [
       "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "pnpm run type-check"
     ]
   },
   "dependencies": {

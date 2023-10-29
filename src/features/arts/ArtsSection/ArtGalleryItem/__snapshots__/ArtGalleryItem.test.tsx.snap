@@ -30,7 +30,7 @@ exports[`ArtGalleryItem renders Sample 1`] = `
             class="ArtGalleryItem_artGalleryItemStyles_titleWrapper__ddg6rx1"
           >
             <h3
-              class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
+              class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_bold__jzpfqdt"
             >
               Sample Art Title
             </h3>

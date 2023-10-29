@@ -3,7 +3,7 @@ import { tokens } from "@/design-system/tokens";
 
 export const artGalleryItemStyles = {
   image: style({
-    aspectRatio: "5 / 4",
+    aspectRatio: "1 / 1",
     objectFit: "cover",
     width: "auto",
     height: "auto",

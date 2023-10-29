@@ -22,7 +22,7 @@ export const ArtGalleryItem: React.FC<ArtGalleryItemProps> = ({ meta }) => {
       </div>
       <Row>
         <div className={artGalleryItemStyles.titleWrapper}>
-          <H3 size="100">{meta.title}</H3>
+          <H3 size="75">{meta.title}</H3>
         </div>
       </Row>
     </Col>

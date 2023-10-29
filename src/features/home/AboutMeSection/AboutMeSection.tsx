@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { aboutMeImageStyle } from "./AboutMeSection.css";
 import { Links } from "./Links";
 import { aboutMeConfig } from "@/contents/aboutMe/config";
@@ -12,7 +13,7 @@ export const AboutMeSection: React.FC = () => {
       <H2>About Me</H2>
       <Col gap="200">
         <Row gap="200">
-          <img
+          <Image
             alt="me"
             className={aboutMeImageStyle}
             height={imageSrc.height}

@@ -15,9 +15,7 @@ export type PointData = Coordinates | PointId;
 
 // __________
 // Context
-type StoredPoints = {
-  [k: string]: Coordinates;
-};
+type StoredPoints = Record<string, Coordinates>;
 
 export const GeometryContext = createContext<{
   domain: Domain;

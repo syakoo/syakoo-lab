@@ -27,8 +27,13 @@ exports[`WorksSection renders Sample 1`] = `
                 <img
                   alt=""
                   class="WorkBlock_workBlockStyle_image__1ykhki82"
+                  data-nimg="1"
+                  decoding="async"
                   height="40"
-                  src="/img.jpg"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
                   width="40"
                 />
               </div>
@@ -85,8 +90,13 @@ exports[`WorksSection renders Sample 1`] = `
                 <img
                   alt=""
                   class="WorkBlock_workBlockStyle_image__1ykhki82"
+                  data-nimg="1"
+                  decoding="async"
                   height="40"
-                  src="/img.jpg"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
                   width="40"
                 />
               </div>
@@ -143,8 +153,13 @@ exports[`WorksSection renders Sample 1`] = `
                 <img
                   alt=""
                   class="WorkBlock_workBlockStyle_image__1ykhki82"
+                  data-nimg="1"
+                  decoding="async"
                   height="40"
-                  src="/img.jpg"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
                   width="40"
                 />
               </div>

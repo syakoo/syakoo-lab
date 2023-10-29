@@ -13,6 +13,7 @@ export const PolymorphicComponent = forwardRef(
     { as, ...otherProps }: PolymorphicComponentProps<C>,
     ref?: PolymorphicRef<C>,
   ) => {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     const Component = as;
 
     return <Component {...otherProps} ref={ref} />;

@@ -21,7 +21,8 @@ export const BookView: React.FC<BookViewProps> = ({
     <div className={bookViewStyles.root}>
       <Row gap="200" wrap={false}>
         <div className={bookViewStyles.imageWrapper}>
-          <img alt={title} src={imgSrc} width="100px" />
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img alt={title} src={imgSrc} width={100} />
         </div>
         <div className={bookViewStyles.description}>
           <div>

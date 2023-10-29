@@ -31,6 +31,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({
             </Text>
           </div>
           <Row align="center" gap="50">
+            {/* eslint-disable @next/next/no-img-element */}
             <img alt="" height={14} src={faviconSrc} width={14} />
             <Text as="span" color="secondary" size="50">
               {domain}
@@ -39,6 +40,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({
         </div>
 
         <div className={linkCardStyles.thumbnailWrapper}>
+          {/* eslint-disable @next/next/no-img-element */}
           <img alt={title} className={linkCardStyles.thumbnail} src={imgSrc} />
         </div>
       </div>

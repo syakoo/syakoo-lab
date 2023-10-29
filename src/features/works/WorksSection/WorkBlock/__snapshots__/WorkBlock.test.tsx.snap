@@ -12,8 +12,13 @@ exports[`WorkBlock renders Sample 1`] = `
         <img
           alt=""
           class="WorkBlock_workBlockStyle_image__1ykhki82"
+          data-nimg="1"
+          decoding="async"
           height="50"
-          src="https://placehold.jp/3063D4/ffffff/50x50.png"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=128&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=128&q=75 2x"
+          style="color: transparent;"
           width="50"
         />
       </div>

@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import Image from "next/image";
 import { workBlockStyle } from "./WorkBlock.css";
 import { FlexItem, Row } from "@/design-system/layout";
 import { H3, Link, Span } from "@/design-system/ui";
@@ -17,7 +18,7 @@ export const WorkBlock: React.FC<WorkBlockProps> = ({ work }) => {
   return (
     <Row align="center" as="article" gap="100">
       <div className={workBlockStyle.imageWrapper}>
-        <img
+        <Image
           alt=""
           className={workBlockStyle.image}
           height={work.imageSrc.height}

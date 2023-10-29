@@ -6,10 +6,7 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: true,
-    tsconfigRootDir: __dirname,
+    project: "./tsconfig.json",
   },
   extends: [
     "next/core-web-vitals",
@@ -24,7 +21,18 @@ module.exports = {
   rules: {
     "react/prop-types": "off",
     "react/jsx-sort-props": ["error", { reservedFirst: true }],
-    "react/forbid-component-props": ["error"],
+    "react/forbid-component-props": [
+      "error",
+      {
+        forbid: [
+          "style",
+          {
+            propName: "className",
+            allowedFor: ["PolymorphicComponent", "Image"],
+          },
+        ],
+      },
+    ],
     "react/jsx-curly-brace-presence": ["error", { props: "never" }],
     "react/jsx-handler-names": [
       "error",

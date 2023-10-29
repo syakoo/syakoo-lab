@@ -3,7 +3,7 @@ import githubImageSrc from "./github.png";
 import leetCodeImageSrc from "./leetcode.png";
 import meImageSrc from "./me.jpg";
 import steamImageSrc from "./steam.png";
-import xImageSrc from "./x.svg";
+import xImageSrc from "./x.png";
 import type { AboutMeConfig } from "@/features/home/AboutMeSection/types";
 
 export const aboutMeConfig = {

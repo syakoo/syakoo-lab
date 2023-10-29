@@ -38,12 +38,7 @@ export const FlexItem: React.FC<FlexItemProps> = ({
   children,
   ...variantProps
 }) => (
-  <PolymorphicComponent
-    as={as}
-    // NOTE: polymorphic component なのでヨシ
-    // eslint-disable-next-line react/forbid-component-props
-    className={flexItemStyle(variantProps)}
-  >
+  <PolymorphicComponent as={as} className={flexItemStyle(variantProps)}>
     {children}
   </PolymorphicComponent>
 );

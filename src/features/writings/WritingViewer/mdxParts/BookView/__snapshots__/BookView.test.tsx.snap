@@ -15,7 +15,7 @@ exports[`BookView renders Sample 1`] = `
           <img
             alt="BookTitle"
             src="https://placehold.jp/3063D4/ffffff/150x200.png"
-            width="100px"
+            width="100"
           />
         </div>
         <div

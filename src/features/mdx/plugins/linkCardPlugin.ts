@@ -32,13 +32,12 @@ async function getLinkCardProps(url: string): Promise<LinkCardProps> {
 
   const dom = await fetch(url)
     .then((res) => res.text())
-    .then((text) => {
+    .then((text: string) => {
       return new JSDOM(text);
     });
   const metaData = dom.window.document.getElementsByTagName("meta");
 
-  for (let i = 0; i < metaData.length; i += 1) {
-    const meta = metaData[i];
+  for (const meta of metaData) {
     const propOrName =
       meta.getAttribute("property") || meta.getAttribute("name");
     const content = meta.getAttribute("content");
@@ -57,8 +56,7 @@ async function getLinkCardProps(url: string): Promise<LinkCardProps> {
   }
 
   const linkData = dom.window.document.getElementsByTagName("link");
-  for (let i = 0; i < linkData.length; i += 1) {
-    const link = linkData[i];
+  for (const link of linkData) {
     const rel = link.getAttribute("rel");
     const content = link.getAttribute("href");
 

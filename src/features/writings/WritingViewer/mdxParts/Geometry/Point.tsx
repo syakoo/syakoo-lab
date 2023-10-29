@@ -1,6 +1,6 @@
-import { useEffect } from "react";
 import { type PointId, useGeometry } from "./core";
 import { type ColorKey, resolveGeometryColor } from "./core";
+import { useMount } from "@/utils/useMount";
 
 type PointProps = {
   id?: PointId;
@@ -18,10 +18,9 @@ export const Point: React.FC<PointProps> = ({
 }) => {
   const { setPoint } = useGeometry();
 
-  useEffect(() => {
+  useMount(() => {
     if (id) setPoint(id, [x, y]);
-    // 最初のレンダーのみで ok
-  }, []);
+  });
 
   return (
     <circle

@@ -24,6 +24,7 @@ mermaid.initialize({
  */
 export const useMermaid = () => {
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     mermaid.run();
   }, []);
 };

@@ -10,7 +10,7 @@ import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 // TODO: 今下を入れると /writings の時も 404 になるのでなんとかする
 // export const dynamicParams = false;
 
-export const generateStaticParams = async () => {
+export const generateStaticParams = () => {
   return [
     {},
     ...writingTypeConfig.map(({ type }) => ({

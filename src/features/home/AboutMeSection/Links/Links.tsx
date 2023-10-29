@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { UserLink } from "../types";
 import { linkImageStyle, linkStyle } from "./Links.css";
 import { Row } from "@/design-system/layout";
@@ -14,7 +15,7 @@ export const Links: React.FC<LinksProps> = ({ links }) => {
         <li key={link.name}>
           <Link href={link.url}>
             <div className={linkStyle} title={link.name}>
-              <img
+              <Image
                 alt={link.name}
                 className={linkImageStyle}
                 height={link.imageSrc.height}

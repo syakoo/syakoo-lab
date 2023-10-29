@@ -9,9 +9,11 @@ export const resolveMDXAsComponent = (
   serializedMDX: SerializedMDX,
 ): MDXComponent => {
   // JS string -> MDXComponent
-  const MDXContent: MDXComponent = runSync(serializedMDX, {
-    ...runtime,
-  }).default;
+  const MDXContent = (
+    runSync(serializedMDX, {
+      ...runtime,
+    }) as { default: MDXComponent }
+  ).default;
 
   return MDXContent;
 };

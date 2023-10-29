@@ -7,6 +7,7 @@ exports[`Figure renders NoCaption 1`] = `
       class="Figure_figureStyle__1n6pbf20"
     >
       <img
+        alt=""
         src="https://placehold.jp/3063D4/ffffff/150x200.png"
       />
     </figure>
@@ -21,6 +22,7 @@ exports[`Figure renders Sample 1`] = `
       class="Figure_figureStyle__1n6pbf20"
     >
       <img
+        alt=""
         src="https://placehold.jp/3063D4/ffffff/400x300.png"
       />
       <figcaption

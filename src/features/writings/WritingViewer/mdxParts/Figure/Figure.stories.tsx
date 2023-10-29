@@ -10,7 +10,8 @@ export default meta;
 export const Sample = () => {
   return (
     <Figure>
-      <img src="https://placehold.jp/3063D4/ffffff/400x300.png" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img alt="" src="https://placehold.jp/3063D4/ffffff/400x300.png" />
       <Figure.Caption>sample caption</Figure.Caption>
     </Figure>
   );
@@ -19,7 +20,8 @@ export const Sample = () => {
 export const NoCaption = () => {
   return (
     <Figure>
-      <img src="https://placehold.jp/3063D4/ffffff/150x200.png" />
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img alt="" src="https://placehold.jp/3063D4/ffffff/150x200.png" />
     </Figure>
   );
 };

@@ -68,42 +68,44 @@ export const Palette = () => {
                 gridTemplateColumns: "repeat(auto-fit, 160px)",
               }}
             >
-              {Object.entries(value1).map(([key2, value2]) => {
-                // value が string <=> カラーコード
-                if (typeof value2 === "string") {
+              {Object.entries(value1).map(
+                ([key2, value2]: [string, string | Record<string, string>]) => {
+                  // value が string <=> カラーコード
+                  if (typeof value2 === "string") {
+                    return (
+                      <ColorInfo
+                        key={key2}
+                        color={value2}
+                        name={[key1, key2].join(".")}
+                      />
+                    );
+                  }
+
                   return (
-                    <ColorInfo
-                      key={key2}
-                      color={value2}
-                      name={[key1, key2].join(".")}
-                    />
-                  );
-                }
+                    <Fragment key={key2}>
+                      {Object.entries(value2).map(([key3, value3]) => {
+                        // value が string <=> カラーコード
+                        if (typeof value3 === "string") {
+                          return (
+                            <ColorInfo
+                              key={key3}
+                              color={value3}
+                              name={[key1, key2, key3].join(".")}
+                            />
+                          );
+                        }
 
-                return (
-                  <Fragment key={key2}>
-                    {Object.entries(value2).map(([key3, value3]) => {
-                      // value が string <=> カラーコード
-                      if (typeof value3 === "string") {
                         return (
-                          <ColorInfo
-                            key={key3}
-                            color={value3}
-                            name={[key1, key2, key3].join(".")}
-                          />
+                          <div key={key3}>
+                            <h3>{key3}</h3>
+                            <div>用意してませんw</div>
+                          </div>
                         );
-                      }
-
-                      return (
-                        <div key={key3}>
-                          <h3>{key3}</h3>
-                          <div>用意してませんw</div>
-                        </div>
-                      );
-                    })}
-                  </Fragment>
-                );
-              })}
+                      })}
+                    </Fragment>
+                  );
+                },
+              )}
             </div>
           </div>
         );

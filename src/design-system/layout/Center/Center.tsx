@@ -11,12 +11,7 @@ type CenterProps = {
  * `children` を中央配置するためのコンポーネント
  */
 export const Center: React.FC<CenterProps> = ({ as = "div", children }) => (
-  <PolymorphicComponent
-    as={as}
-    // NOTE: polymorphic component なのでヨシ
-    // eslint-disable-next-line react/forbid-component-props
-    className={centerStyle}
-  >
+  <PolymorphicComponent as={as} className={centerStyle}>
     {children}
   </PolymorphicComponent>
 );

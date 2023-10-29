@@ -15,7 +15,9 @@ export const serializeMDX = async (
   mdxContent: string,
 ): Promise<SerializedMDX> => {
   // NOTE: プラグインをわかりやすく見せるため
-  const resolvedCustomPlugins = await (async () => mdxContent)()
+  const resolvedCustomPlugins = await new Promise<string>((resolve) =>
+    resolve(mdxContent),
+  )
     .then(markupLinkCard)
     .then(markupMermaid);
 

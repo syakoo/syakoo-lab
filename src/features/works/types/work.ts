@@ -1,6 +1,8 @@
+import type { StaticImageData } from "next/image";
+
 export type Work = {
   name: string;
-  imageSrc: ImageMetadata;
+  imageSrc: StaticImageData;
   releasedAt: string;
   siteUrl: string;
   repositoryUrl: string;

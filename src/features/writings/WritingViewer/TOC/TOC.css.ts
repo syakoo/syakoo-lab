@@ -5,6 +5,10 @@ import { tokens } from "@/design-system/tokens";
 export const tocStyles = {
   list: style({
     marginTop: tokens.spaces[100],
+    maxWidth: tokens.sizes[50],
+    display: "flex",
+    flexDirection: "column",
+    gap: tokens.spaces[50],
   }),
   item: recipe({
     base: {

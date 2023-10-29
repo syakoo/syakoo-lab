@@ -6,22 +6,33 @@ module.exports = {
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: "latest",
-    sourceType: "module",
+    project: "./tsconfig.json",
   },
   extends: [
+    "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:@typescript-eslint/stylistic",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:astro/recommended",
     "plugin:storybook/recommended",
   ],
   plugins: ["@typescript-eslint", "react", "import"],
   rules: {
     "react/prop-types": "off",
     "react/jsx-sort-props": ["error", { reservedFirst: true }],
-    "react/forbid-component-props": ["error"],
+    "react/forbid-component-props": [
+      "error",
+      {
+        forbid: [
+          "style",
+          {
+            propName: "className",
+            allowedFor: ["PolymorphicComponent", "Image"],
+          },
+        ],
+      },
+    ],
     "react/jsx-curly-brace-presence": ["error", { props: "never" }],
     "react/jsx-handler-names": [
       "error",
@@ -29,6 +40,7 @@ module.exports = {
     ],
     "react/jsx-no-leaked-render": ["error"],
     "react/jsx-no-useless-fragment": ["error"],
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
     "import/order": [
       "warn",
       {
@@ -48,21 +60,6 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ["*.astro"],
-      parser: "astro-eslint-parser",
-      parserOptions: {
-        parser: "@typescript-eslint/parser",
-        extraFileExtensions: [".astro"],
-      },
-      rules: {},
-    },
-    {
-      files: ["*.ts"],
-      parser: "@typescript-eslint/parser",
-    },
-  ],
   settings: {
     react: {
       version: "detect",

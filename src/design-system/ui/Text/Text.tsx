@@ -15,12 +15,7 @@ export const Text: React.FC<TextProps> = ({
   size = "100",
   weight = "normal",
 }) => (
-  <PolymorphicComponent
-    as={as}
-    // NOTE: polymorphic component なのでヨシ
-    // eslint-disable-next-line react/forbid-component-props
-    className={textStyle({ color, size, weight })}
-  >
+  <PolymorphicComponent as={as} className={textStyle({ color, size, weight })}>
     {children}
   </PolymorphicComponent>
 );

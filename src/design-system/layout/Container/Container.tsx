@@ -19,8 +19,6 @@ export const Container: React.FC<ContainerProps> = ({
 }) => (
   <PolymorphicComponent
     as={as}
-    // NOTE: polymorphic component なのでヨシ
-    // eslint-disable-next-line react/forbid-component-props
     className={containerStyle({ size, ...otherVariantProps })}
   >
     {children}

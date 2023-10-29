@@ -16,7 +16,6 @@ export const Sample: Story = {
         src: "https://placehold.jp/3063D4/ffffff/50x50.png",
         width: 50,
         height: 50,
-        format: "png",
       },
       releasedAt: "2023/10/03",
       siteUrl: "#",

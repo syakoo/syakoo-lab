@@ -18,7 +18,6 @@ export const Sample: Story = {
           src: "https://placehold.jp/3063D4/ffffff/50x50.png",
           width: 50,
           height: 50,
-          format: "png",
         },
       },
       {
@@ -28,7 +27,6 @@ export const Sample: Story = {
           src: "https://placehold.jp/294e80/ffffff/50x50.png",
           width: 50,
           height: 50,
-          format: "png",
         },
       },
       {
@@ -38,7 +36,6 @@ export const Sample: Story = {
           src: "https://placehold.jp/00ABEE/ffffff/100x100.png",
           width: 100,
           height: 100,
-          format: "png",
         },
       },
     ],

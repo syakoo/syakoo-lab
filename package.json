@@ -14,6 +14,7 @@
     "format": "prettier --write .",
     "lint": "next lint",
     "lint:fix": "pnpm run lint --fix",
+    "type-check": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "generate:component": "hygen component new"
@@ -28,6 +29,9 @@
     ],
     "*.{js,ts,tsx,cjs,mjs,css}": [
       "prettier --write"
+    ],
+    "*.{ts,tsx}": [
+      "pnpm run type-check"
     ]
   },
   "dependencies": {
@@ -94,6 +98,7 @@
     "simple-git-hooks": "^2.9.0",
     "storybook": "^7.4.2",
     "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-tsconfig-paths": "^4.2.1"
   }

@@ -12,7 +12,7 @@ export const ArtGalleryItem: React.FC<ArtGalleryItemProps> = ({ meta }) => {
   return (
     <Col as="article">
       <div>
-        <Link href={`/arts/${meta.id}`}>
+        <Link display="block" href={`/arts/${meta.id}`}>
           <Image
             alt={meta.title}
             className={artGalleryItemStyles.image}

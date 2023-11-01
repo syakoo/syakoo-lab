@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
 import "ress";
 import "@/globalStyle.css";
-// TODO: next.js のフォント定義の形式に変更する
-import "@fontsource-variable/noto-sans-jp";
-import "@fontsource/roboto";
-import "@fontsource-variable/fira-code";
+import { Roboto, Fira_Code, Noto_Sans_JP } from "next/font/google";
+
+const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
+const roboto = Roboto({
+  weight: "100",
+  subsets: ["latin"],
+});
+const firaCode = Fira_Code({
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Syakoo Lab",
@@ -26,7 +32,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
+    <html
+      // NOTE: あんま意味はないが良い方法も思いつかないので
+      className={[
+        notoSansJP.className,
+        roboto.className,
+        firaCode.className,
+      ].join(" ")}
+      lang="ja"
+    >
       <body>{children}</body>
     </html>
   );

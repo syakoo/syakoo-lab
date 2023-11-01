@@ -23,7 +23,7 @@ exports[`ArtsSection renders Sample 1`] = `
             >
               <div>
                 <a
-                  class="Link_linkStyle__m4v9430"
+                  class="Link_linkStyle__m4v9430 Link_linkStyle_display_block__m4v9434"
                   href="/arts/sample-id-1"
                 >
                   <img
@@ -61,7 +61,7 @@ exports[`ArtsSection renders Sample 1`] = `
             >
               <div>
                 <a
-                  class="Link_linkStyle__m4v9430"
+                  class="Link_linkStyle__m4v9430 Link_linkStyle_display_block__m4v9434"
                   href="/arts/sample-id-2"
                 >
                   <img
@@ -99,7 +99,7 @@ exports[`ArtsSection renders Sample 1`] = `
             >
               <div>
                 <a
-                  class="Link_linkStyle__m4v9430"
+                  class="Link_linkStyle__m4v9430 Link_linkStyle_display_block__m4v9434"
                   href="/arts/sample-id-3"
                 >
                   <img

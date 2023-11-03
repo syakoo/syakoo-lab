@@ -1,30 +1,25 @@
+import { Metadata } from "next";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
+import { formatPageTitle } from "@/features/common/logics/pageTitle";
 import { WritingList } from "@/features/writings/WritingList";
 import { WritingListType } from "@/features/writings/WritingList/_shared/writingListType";
-import { writingTypeConfig } from "@/features/writings/_shared/writingType";
 import { WritingType } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 
-// TODO: 今下を入れると /writings の時も 404 になるのでなんとかする
-// export const dynamicParams = false;
-
-export const generateStaticParams = () => {
-  return [
-    {},
-    ...writingTypeConfig.map(({ type }) => ({
-      types: [type],
-    })),
-  ];
+type Props = {
+  searchParams: {
+    type?: WritingType;
+  };
 };
 
-const WritingsPage = async ({
-  params,
-}: {
-  params: { types?: WritingType[] };
-}) => {
-  const type: WritingListType = params.types?.[0] ?? "all";
+export const metadata: Metadata = {
+  title: formatPageTitle("Writings"),
+};
+
+const WritingsPage = async ({ searchParams: { type } }: Props) => {
+  const selectedWritingListType: WritingListType = type ?? "all";
   const metas = (await readWritingContents()).map(({ frontMatter }) =>
     resolveWritingMeta({ frontMatter }),
   );
@@ -32,7 +27,7 @@ const WritingsPage = async ({
   return (
     <HeaderFooterTemplate>
       <Container as="main" center paddingBottom="400" paddingX="200" size="100">
-        <WritingList metas={metas} type={type} />
+        <WritingList metas={metas} type={selectedWritingListType} />
       </Container>
     </HeaderFooterTemplate>
   );

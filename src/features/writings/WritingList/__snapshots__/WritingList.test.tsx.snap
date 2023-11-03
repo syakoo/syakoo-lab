@@ -31,7 +31,7 @@ exports[`WritingList renders Sample 1`] = `
             </a>
             <a
               class="Link_linkStyle__m4v9430"
-              href="/writings/article"
+              href="/writings?type=article"
             >
               <div
                 aria-current="false"
@@ -42,7 +42,7 @@ exports[`WritingList renders Sample 1`] = `
             </a>
             <a
               class="Link_linkStyle__m4v9430"
-              href="/writings/note"
+              href="/writings?type=note"
             >
               <div
                 aria-current="false"
@@ -53,7 +53,7 @@ exports[`WritingList renders Sample 1`] = `
             </a>
             <a
               class="Link_linkStyle__m4v9430"
-              href="/writings/diary"
+              href="/writings?type=diary"
             >
               <div
                 aria-current="false"

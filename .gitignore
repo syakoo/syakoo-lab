@@ -22,3 +22,6 @@ storybook-static
 
 # tsbuildinfo
 *.tsbuildinfo
+
+# jest coverage
+coverage

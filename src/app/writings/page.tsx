@@ -16,6 +16,9 @@ type Props = {
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),
+  robots: {
+    index: false,
+  },
 };
 
 const WritingsPage = async ({ searchParams: { type } }: Props) => {

@@ -8,6 +8,9 @@ import { formatPageTitle } from "@/features/common/logics/pageTitle";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Arts"),
+  robots: {
+    index: false,
+  },
 };
 
 const ArtsPage = async () => {

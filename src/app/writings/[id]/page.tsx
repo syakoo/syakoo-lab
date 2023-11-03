@@ -1,12 +1,13 @@
+import { Metadata } from "next";
 import { readWritingContents } from "@/contents/writings/reader";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
+import { formatPageTitle } from "@/features/common/logics/pageTitle";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
 import { WritingViewer } from "@/features/writings/WritingViewer";
 import { Writing } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 
 export const dynamicParams = false;
-
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();
 
@@ -17,7 +18,25 @@ export const generateStaticParams = async () => {
   ];
 };
 
-const WritingsContentPage = async ({ params }: { params: { id: string } }) => {
+type Props = {
+  params: { id: string };
+};
+export const generateMetadata = async ({
+  params,
+}: Props): Promise<Metadata> => {
+  const writingContent = (await readWritingContents()).find(
+    ({ frontMatter }) => frontMatter.id === params.id,
+  )!;
+
+  return {
+    title: formatPageTitle(writingContent.frontMatter.title),
+    robots: {
+      index: !writingContent.frontMatter.noindex,
+    },
+  };
+};
+
+const WritingsContentPage = async ({ params }: Props) => {
   const writingContent = (await readWritingContents()).find(
     ({ frontMatter }) => frontMatter.id === params.id,
   )!;

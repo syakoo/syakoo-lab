@@ -1,3 +1,4 @@
+import { compareDesc } from "date-fns";
 import { Metadata } from "next";
 import { readArtContents } from "@/contents/arts/reader";
 import { ArtsSection } from "@/features/arts/ArtsSection";
@@ -14,9 +15,11 @@ export const metadata: Metadata = {
 };
 
 const ArtsPage = async () => {
-  const artMetas: ArtMeta[] = (await readArtContents()).map(({ frontMatter }) =>
-    resolveArtMeta({ frontMatter }),
-  );
+  const artMetas: ArtMeta[] = (await readArtContents())
+    .map(({ frontMatter }) => resolveArtMeta({ frontMatter }))
+    .sort((left, right) =>
+      compareDesc(new Date(left.published), new Date(right.published)),
+    );
 
   return (
     <HeaderFooterTemplate>

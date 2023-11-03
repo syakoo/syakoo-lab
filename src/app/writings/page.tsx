@@ -1,3 +1,4 @@
+import { compareDesc } from "date-fns";
 import { Metadata } from "next";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
@@ -23,9 +24,11 @@ export const metadata: Metadata = {
 
 const WritingsPage = async ({ searchParams: { type } }: Props) => {
   const selectedWritingListType: WritingListType = type ?? "all";
-  const metas = (await readWritingContents()).map(({ frontMatter }) =>
-    resolveWritingMeta({ frontMatter }),
-  );
+  const metas = (await readWritingContents())
+    .map(({ frontMatter }) => resolveWritingMeta({ frontMatter }))
+    .sort((left, right) =>
+      compareDesc(new Date(left.published), new Date(right.published)),
+    );
 
   return (
     <HeaderFooterTemplate>

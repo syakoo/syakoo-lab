@@ -43,16 +43,30 @@ exports[`WritingHeader renders Article 1`] = `
         class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
       >
         <div
+          class="Center_centerStyle__7ojglz0"
+        >
+          <a
+            class="Link_linkStyle__m4v9430"
+            href="/"
+          >
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+            >
+              syakoo
+            </span>
+          </a>
+        </div>
+        <div
           class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_50__15ivi84x Flex_flexStyle_variants_gap_50__15ivi84c Flex_flexStyle_justify_center__15ivi84m Flex_flexStyle_variants_justify_center__15ivi841"
         >
           <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
           >
             #
             雑記
           </p>
           <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
           >
             #
             Sample
@@ -61,23 +75,18 @@ exports[`WritingHeader renders Article 1`] = `
         <div
           class="Center_centerStyle__7ojglz0"
         >
-          <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
-          >
-            <a
-              class="Link_linkStyle__m4v9430"
-              href="/"
+          <div>
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
             >
-              syakoo
-            </a>
-             posted on
-             
-            <time
-              datetime="2023-10-09"
-            >
-              2023-10-09
-            </time>
-          </p>
+              投稿日 
+              <time
+                datetime="2023-10-09"
+              >
+                2023-10-09
+              </time>
+            </span>
+          </div>
         </div>
       </div>
     </header>
@@ -128,10 +137,24 @@ exports[`WritingHeader renders Diary 1`] = `
         class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
       >
         <div
+          class="Center_centerStyle__7ojglz0"
+        >
+          <a
+            class="Link_linkStyle__m4v9430"
+            href="/"
+          >
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+            >
+              syakoo
+            </span>
+          </a>
+        </div>
+        <div
           class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_50__15ivi84x Flex_flexStyle_variants_gap_50__15ivi84c Flex_flexStyle_justify_center__15ivi84m Flex_flexStyle_variants_justify_center__15ivi841"
         >
           <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
           >
             #
             雑記
@@ -140,23 +163,18 @@ exports[`WritingHeader renders Diary 1`] = `
         <div
           class="Center_centerStyle__7ojglz0"
         >
-          <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
-          >
-            <a
-              class="Link_linkStyle__m4v9430"
-              href="/"
+          <div>
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
             >
-              syakoo
-            </a>
-             posted on
-             
-            <time
-              datetime="2023-10-09"
-            >
-              2023-10-09
-            </time>
-          </p>
+              投稿日 
+              <time
+                datetime="2023-10-09"
+              >
+                2023-10-09
+              </time>
+            </span>
+          </div>
         </div>
       </div>
     </header>
@@ -207,22 +225,36 @@ exports[`WritingHeader renders Note 1`] = `
         class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
       >
         <div
+          class="Center_centerStyle__7ojglz0"
+        >
+          <a
+            class="Link_linkStyle__m4v9430"
+            href="/"
+          >
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+            >
+              syakoo
+            </span>
+          </a>
+        </div>
+        <div
           class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_50__15ivi84x Flex_flexStyle_variants_gap_50__15ivi84c Flex_flexStyle_justify_center__15ivi84m Flex_flexStyle_variants_justify_center__15ivi841"
         >
           <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
           >
             #
             雑記
           </p>
           <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
           >
             #
             Sample
           </p>
           <p
-            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+            class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
           >
             #
             Note
@@ -231,23 +263,112 @@ exports[`WritingHeader renders Note 1`] = `
         <div
           class="Center_centerStyle__7ojglz0"
         >
+          <div>
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+            >
+              投稿日 
+              <time
+                datetime="2023-10-09"
+              >
+                2023-10-09
+              </time>
+            </span>
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+</body>
+`;
+
+exports[`WritingHeader renders Updated 1`] = `
+<body>
+  <div>
+    <header>
+      <div
+        class="WritingHeader_writingHeaderStyles_iconWrapper__1ewgsa40"
+      >
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <div
+        aria-hidden="true"
+        class="Spacer__1jyq491e Spacer_spacerStyle_y_100__1jyq491o Spacer_spacerStyle_variants_y_100__1jyq4919"
+      />
+      <div
+        class="WritingHeader_writingHeaderStyles_titleWrapper__1ewgsa41"
+      >
+        <h1
+          class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_600__jzpfqdq Text_textStyle_variants_size_600__jzpfqdb Text_textStyle_weight_bold__jzpfqdt"
+        >
+          Sample Diary
+        </h1>
+      </div>
+      <div
+        aria-hidden="true"
+        class="Spacer__1jyq491e Spacer_spacerStyle_y_100__1jyq491o Spacer_spacerStyle_variants_y_100__1jyq4919"
+      />
+      <div
+        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+      >
+        <div
+          class="Center_centerStyle__7ojglz0"
+        >
+          <a
+            class="Link_linkStyle__m4v9430"
+            href="/"
+          >
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+            >
+              syakoo
+            </span>
+          </a>
+        </div>
+        <div
+          class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_50__15ivi84x Flex_flexStyle_variants_gap_50__15ivi84c Flex_flexStyle_justify_center__15ivi84m Flex_flexStyle_variants_justify_center__15ivi841"
+        >
           <p
             class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
           >
-            <a
-              class="Link_linkStyle__m4v9430"
-              href="/"
-            >
-              syakoo
-            </a>
-             posted on
-             
-            <time
-              datetime="2023-10-09"
-            >
-              2023-10-09
-            </time>
+            #
+            雑記
           </p>
+        </div>
+        <div
+          class="Center_centerStyle__7ojglz0"
+        >
+          <div>
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+            >
+              投稿日 
+              <time
+                datetime="2023-10-09"
+              >
+                2023-10-09
+              </time>
+            </span>
+            <span
+              class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+            >
+              ・最終更新日 
+              2023-11-03
+            </span>
+          </div>
         </div>
       </div>
     </header>

@@ -31,7 +31,7 @@ module.exports = {
           },
           {
             propName: "className",
-            allowedFor: ["PolymorphicComponent", "Image"],
+            allowedFor: ["PolymorphicComponent", "Image", "NextLink"],
           },
         ],
       },

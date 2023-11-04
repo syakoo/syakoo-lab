@@ -1,5 +1,6 @@
 import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
+import NextLink from "next/link";
 import { linkStyle } from "./Link.css";
 
 type LinkProps = {
@@ -16,11 +17,11 @@ export const Link: React.FC<LinkProps> = ({
   display,
 }) => {
   return (
-    <a
+    <NextLink
       className={`${linkStyle({ colored, underlined, noHovered, display })}`}
       href={href}
     >
       {children}
-    </a>
+    </NextLink>
   );
 };

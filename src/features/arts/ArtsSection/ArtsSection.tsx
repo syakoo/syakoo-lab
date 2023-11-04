@@ -1,7 +1,7 @@
 import { ArtGalleryItem } from "./ArtGalleryItem";
 import { artsSectionStyles } from "./ArtsSection.css";
 import { Col, Container } from "@/design-system/layout";
-import { H2 } from "@/design-system/ui";
+import { H2, FadeIn } from "@/design-system/ui";
 import type { ArtMeta } from "@/features/arts/types";
 
 type ArtsSectionProps = {
@@ -20,10 +20,10 @@ export const ArtsSection: React.FC<ArtsSectionProps> = ({ metas }) => {
       <Col gap="200">
         <H2>Arts</H2>
         <ul className={artsSectionStyles.listContainer}>
-          {metas.map((meta) => (
-            <li key={meta.id}>
+          {metas.map((meta, i) => (
+            <FadeIn key={meta.id} as="li" delaySec={0.05 * i}>
               <ArtGalleryItem meta={meta} />
-            </li>
+            </FadeIn>
           ))}
         </ul>
       </Col>

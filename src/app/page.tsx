@@ -1,4 +1,5 @@
 import { Col, Container } from "@/design-system/layout";
+import { FadeIn } from "@/design-system/ui";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 import { AboutMeSection } from "@/features/home/AboutMeSection";
 import { Home } from "@/features/home/Home";
@@ -8,7 +9,9 @@ const HomePage = () => {
     <HeaderFooterTemplate>
       <Col align="stretch" gap="500">
         <Container as="main" center paddingTop="400" paddingX="200" size="100">
-          <Home />
+          <FadeIn>
+            <Home />
+          </FadeIn>
         </Container>
         <Container
           as="section"
@@ -17,7 +20,9 @@ const HomePage = () => {
           paddingX="200"
           size="100"
         >
-          <AboutMeSection />
+          <FadeIn delaySec={0.1}>
+            <AboutMeSection />
+          </FadeIn>
         </Container>
       </Col>
     </HeaderFooterTemplate>

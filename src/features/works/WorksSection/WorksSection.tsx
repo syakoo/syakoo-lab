@@ -1,7 +1,7 @@
 import { WorkBlock } from "./WorkBlock";
 import { works } from "@/contents/works/works";
 import { Col, Container } from "@/design-system/layout";
-import { H2 } from "@/design-system/ui";
+import { H2, FadeIn } from "@/design-system/ui";
 
 export const WorksSection: React.FC = () => {
   return (
@@ -15,10 +15,10 @@ export const WorksSection: React.FC = () => {
       <Col gap="200">
         <H2>Works</H2>
         <Col as="ul" gap="100">
-          {works.map((work) => (
-            <li key={work.name}>
+          {works.map((work, i) => (
+            <FadeIn key={work.name} as="li" delaySec={0.1 * i}>
               <WorkBlock work={work} />
-            </li>
+            </FadeIn>
           ))}
         </Col>
       </Col>

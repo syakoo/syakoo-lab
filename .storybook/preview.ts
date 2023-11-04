@@ -33,6 +33,9 @@ const preview: Preview = {
     viewport: {
       viewports: INITIAL_VIEWPORTS,
     },
+    nextjs: {
+      appDirectory: true,
+    },
   },
 };
 

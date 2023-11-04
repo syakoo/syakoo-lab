@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FadeIn renders Sample 1`] = `
+<body>
+  <div>
+    <div
+      class="FadeIn_fadeInStyle__r7lc2h1"
+      style="animation-duration: 0.5s; animation-delay: 0s;"
+    >
+      <div
+        style="border-radius: 8px; background: rgb(64, 74, 84); padding: 50px; text-align: center;"
+      >
+        Children
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -23,7 +23,7 @@ describe("isIntersect", () => {
       array1: ["4", "8", "12"],
       array2: ["1", "2", "3", "5", "8"],
     },
-  ])("$1 ∩ $2 /== φ", ({ array1, array2 }) => {
+  ])("$array1 ∩ $array2 /= φ", ({ array1, array2 }) => {
     expect(isIntersect(array1, array2)).toBeTruthy();
   });
 
@@ -48,7 +48,7 @@ describe("isIntersect", () => {
       array1: [],
       array2: [],
     },
-  ])("$1 ∩ $2 === φ", ({ array1, array2 }) => {
+  ])("$array1 ∩ $array2 = φ", ({ array1, array2 }) => {
     expect(isIntersect(array1, array2)).toBeFalsy();
   });
 });

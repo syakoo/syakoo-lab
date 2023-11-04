@@ -1,6 +1,6 @@
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import { noteStyles } from "./Note.css";
-import { Icon } from "@/features/icons";
+import { Icon } from "@/design-system/icons";
 
 type NoteProps = {
   children: React.ReactNode;

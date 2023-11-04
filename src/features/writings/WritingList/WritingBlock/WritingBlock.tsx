@@ -1,8 +1,8 @@
 import { writingTypeConfig } from "../../_shared/writingType";
 import { writingBlockStyles } from "./WritingBlock.css";
+import { Icon } from "@/design-system/icons";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";
-import { Icon } from "@/features/icons";
 import type { WritingMeta } from "@/features/writings/types";
 
 type WritingBlockProps = {

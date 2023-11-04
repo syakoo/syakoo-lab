@@ -1,8 +1,8 @@
 import { writingLinkStyles } from "./WritingLink.css";
+import { Icon } from "@/design-system/icons";
 import { Col, Row } from "@/design-system/layout";
 import { Link } from "@/design-system/ui";
 import { H4, Span } from "@/design-system/ui/Text/Text";
-import { Icon } from "@/features/icons";
 import { writingTypeConfig } from "@/features/writings/_shared/writingType";
 import { WritingMeta } from "@/features/writings/types";
 

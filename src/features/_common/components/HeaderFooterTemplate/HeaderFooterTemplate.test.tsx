@@ -4,6 +4,10 @@ import * as stories from "./HeaderFooterTemplate.stories";
 
 const { ...otherStories } = composeStories(stories);
 
+jest.mock("next/navigation", () => ({
+  usePathname: jest.fn().mockReturnValue("/other-path"),
+}));
+
 describe("HeaderFooterTemplate", () => {
   const testCases = Object.values(otherStories).map(
     (Story) => [Story.storyName, Story] as const,

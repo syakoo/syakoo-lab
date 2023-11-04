@@ -44,19 +44,31 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
                   class="Link_linkStyle__m4v9430"
                   href="/writings"
                 >
-                  Writings
+                  <span
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                  >
+                    Writings
+                  </span>
                 </a>
                 <a
                   class="Link_linkStyle__m4v9430"
                   href="/works"
                 >
-                  Works
+                  <span
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                  >
+                    Works
+                  </span>
                 </a>
                 <a
                   class="Link_linkStyle__m4v9430"
                   href="/arts"
                 >
-                  Arts
+                  <span
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                  >
+                    Arts
+                  </span>
                 </a>
               </nav>
             </div>

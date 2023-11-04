@@ -1,7 +1,24 @@
+"use client";
+
 import React from "react";
+import { usePathname } from "next/navigation";
 import { Center, Container, Row } from "@/design-system/layout";
-import { Link } from "@/design-system/ui";
+import { Link, Span } from "@/design-system/ui";
 import { SyakooLabText } from "@/features/_common/components/SyakooLabText";
+
+const NavLink: React.FC<{ children: React.ReactNode; href: string }> = ({
+  children,
+  href,
+}) => {
+  const pathname = usePathname();
+  const isActive = pathname.startsWith(href);
+
+  return (
+    <Link href={href} noHovered={isActive}>
+      <Span color={isActive ? "primary" : "secondary"}>{children}</Span>
+    </Link>
+  );
+};
 
 export const Header: React.FC = () => {
   return (
@@ -12,9 +29,9 @@ export const Header: React.FC = () => {
             <SyakooLabText />
           </Link>
           <Row align="center" as="nav">
-            <Link href="/writings">Writings</Link>
-            <Link href="/works">Works</Link>
-            <Link href="/arts">Arts</Link>
+            <NavLink href="/writings">Writings</NavLink>
+            <NavLink href="/works">Works</NavLink>
+            <NavLink href="/arts">Arts</NavLink>
           </Row>
         </Row>
       </Container>

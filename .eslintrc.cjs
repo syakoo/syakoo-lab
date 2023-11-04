@@ -25,7 +25,10 @@ module.exports = {
       "error",
       {
         forbid: [
-          "style",
+          {
+            propName: "style",
+            allowedFor: ["PolymorphicComponent", "Image"],
+          },
           {
             propName: "className",
             allowedFor: ["PolymorphicComponent", "Image"],

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { artGalleryItemStyles } from "./ArtGalleryItem.css";
 import { Col, Row } from "@/design-system/layout";
-import { H3 } from "@/design-system/ui";
+import { H3, Link } from "@/design-system/ui";
 import type { ArtMeta } from "@/features/arts/types";
 
 type ArtGalleryItemProps = {
@@ -12,13 +12,15 @@ export const ArtGalleryItem: React.FC<ArtGalleryItemProps> = ({ meta }) => {
   return (
     <Col as="article">
       <div>
-        <Image
-          alt={meta.title}
-          className={artGalleryItemStyles.image}
-          height={meta.size.height}
-          src={meta.imgUrl}
-          width={meta.size.width}
-        />
+        <Link display="block" href={`/arts/${meta.id}`}>
+          <Image
+            alt={meta.title}
+            className={artGalleryItemStyles.image}
+            height={meta.size.height}
+            src={meta.imgUrl}
+            width={meta.size.width}
+          />
+        </Link>
       </div>
       <Row>
         <div className={artGalleryItemStyles.titleWrapper}>

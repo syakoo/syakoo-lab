@@ -49,3 +49,17 @@ export const Diary: Story = {
     },
   },
 };
+
+export const Updated: Story = {
+  args: {
+    meta: {
+      id: "sample-writing-meta-id1",
+      link: "/writing/post/20231009",
+      title: "Sample Diary",
+      type: "diary",
+      tags: ["雑記"],
+      published: "2023-10-09",
+      updated: "2023-11-03",
+    },
+  },
+};

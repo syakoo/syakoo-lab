@@ -17,16 +17,16 @@ export const writingListTypeConfig = [
   {
     type: "article",
     label: "Article",
-    url: "/writings/article",
+    url: "/writings?type=article",
   },
   {
     type: "note",
     label: "Note",
-    url: "/writings/note",
+    url: "/writings?type=note",
   },
   {
     type: "diary",
     label: "Diary",
-    url: "/writings/diary",
+    url: "/writings?type=diary",
   },
 ] as const satisfies readonly WritingListTypeConfigItem[];

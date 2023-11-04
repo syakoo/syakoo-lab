@@ -1,8 +1,10 @@
 import { Metadata } from "next";
 import { readWritingContents } from "@/contents/writings/reader";
+import { Container, Spacer } from "@/design-system/layout";
 import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/features/common/logics/pageTitle";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
+import { RelatedWritingsNav } from "@/features/writings/RelatedWritingsNav";
 import { WritingViewer } from "@/features/writings/WritingViewer";
 import { Writing } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
@@ -51,6 +53,11 @@ const WritingsContentPage = async ({ params }: Props) => {
       <main>
         <WritingViewer writing={writing} />
       </main>
+      <Spacer y="500" />
+      <Container center>
+        <RelatedWritingsNav tags={writing.meta.tags} />
+      </Container>
+      <Spacer y="400" />
     </HeaderFooterTemplate>
   );
 };

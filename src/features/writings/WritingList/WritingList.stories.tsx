@@ -13,7 +13,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Sample: Story = {
   args: {
-    type: "all",
     metas: [
       {
         id: "sample-writing-meta-id1",

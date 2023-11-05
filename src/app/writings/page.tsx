@@ -5,15 +5,7 @@ import { Container } from "@/design-system/layout";
 import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/features/_common/logics/pageTitle";
 import { WritingList } from "@/features/writings/WritingList";
-import { WritingListType } from "@/features/writings/WritingList/_shared/writingListType";
-import { WritingType } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
-
-type Props = {
-  searchParams: {
-    type?: WritingType;
-  };
-};
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),
@@ -22,8 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-const WritingsPage = async ({ searchParams: { type } }: Props) => {
-  const selectedWritingListType: WritingListType = type ?? "all";
+const WritingsPage = async () => {
   const metas = (await readWritingContents())
     .map(({ frontMatter }) => resolveWritingMeta({ frontMatter }))
     .sort((left, right) =>
@@ -33,7 +24,7 @@ const WritingsPage = async ({ searchParams: { type } }: Props) => {
   return (
     <HeaderFooterTemplate>
       <Container as="main" center paddingBottom="400" paddingX="200" size="100">
-        <WritingList metas={metas} type={selectedWritingListType} />
+        <WritingList metas={metas} />
       </Container>
     </HeaderFooterTemplate>
   );

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RelatedWritingsNavView renders Sample 1`] = `
+exports[`RelatedWritingsNav renders Sample 1`] = `
 <body>
   <div>
     <nav

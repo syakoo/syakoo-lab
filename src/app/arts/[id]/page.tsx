@@ -7,7 +7,6 @@ import { resolveArtMeta } from "@/features/arts/artContentResolver";
 import type { Art } from "@/features/arts/types";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
 
-export const dynamicParams = false;
 export const generateStaticParams = async () => {
   const artContents = await readArtContents();
 

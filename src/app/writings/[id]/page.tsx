@@ -9,7 +9,6 @@ import { WritingViewer } from "@/features/writings/WritingViewer";
 import { Writing } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 
-export const dynamicParams = false;
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();
 

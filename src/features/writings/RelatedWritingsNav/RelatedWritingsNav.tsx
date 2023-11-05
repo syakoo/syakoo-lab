@@ -1,28 +1,27 @@
-"use server";
-
-import { Writing } from "../types";
-import { resolveWritingMeta } from "../writingContentResolver";
-import { RelatedWritingsNavView } from "./RelatedWritingsNavView";
-import { readWritingContents } from "@/contents/writings/reader";
-import { isIntersect } from "@/utils/array/isIntersect";
+import { WritingMeta } from "../types";
+import { WritingLink } from "./WritingLink";
+import { Col } from "@/design-system/layout";
+import { H3 } from "@/design-system/ui";
 
 type RelatedWritingsNavProps = {
-  tags: Writing["meta"]["tags"];
+  metas: WritingMeta[];
 };
 /**
- * 関連文書表示サーバーコンポーネント
+ * 関連文書表示コンポーネント
  */
-export const RelatedWritingsNav: React.FC<RelatedWritingsNavProps> = async ({
-  tags,
+export const RelatedWritingsNav: React.FC<RelatedWritingsNavProps> = ({
+  metas,
 }) => {
-  const relatedWritingMetas = (await readWritingContents())
-    .map(({ frontMatter }) => resolveWritingMeta({ frontMatter }))
-    .filter((meta) => isIntersect(meta.tags, tags))
-    .slice(0, 5);
-
-  if (relatedWritingMetas.length === 0) {
-    return null;
-  }
-
-  return <RelatedWritingsNavView metas={relatedWritingMetas} />;
+  return (
+    <Col as="nav" gap="200">
+      <H3>Related Writings</H3>
+      <Col as="ul">
+        {metas.map((meta) => (
+          <li key={meta.id}>
+            <WritingLink meta={meta} />
+          </li>
+        ))}
+      </Col>
+    </Col>
+  );
 };

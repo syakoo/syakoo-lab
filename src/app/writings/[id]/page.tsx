@@ -5,6 +5,7 @@ import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooter
 import { formatPageTitle } from "@/features/_common/logics/pageTitle";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
 import { RelatedWritingsNav } from "@/features/writings/RelatedWritingsNav";
+import { findRelatedWritingMetas } from "@/features/writings/RelatedWritingsNav/findRelatedWritingMetas";
 import { WritingViewer } from "@/features/writings/WritingViewer";
 import { Writing } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
@@ -47,15 +48,21 @@ const WritingsContentPage = async ({ params }: Props) => {
     serializedBody: await serializeMDX(writingContent.body),
   };
 
+  const relatedWritingMetas = await findRelatedWritingMetas(writing.meta.tags);
+
   return (
     <HeaderFooterTemplate>
       <main>
         <WritingViewer writing={writing} />
       </main>
-      <Spacer y="500" />
-      <Container center>
-        <RelatedWritingsNav tags={writing.meta.tags} />
-      </Container>
+      {relatedWritingMetas.length > 0 && (
+        <>
+          <Spacer y="500" />
+          <Container center>
+            <RelatedWritingsNav metas={relatedWritingMetas} />
+          </Container>
+        </>
+      )}
       <Spacer y="400" />
     </HeaderFooterTemplate>
   );

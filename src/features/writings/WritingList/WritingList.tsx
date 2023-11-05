@@ -30,7 +30,7 @@ export const WritingList: React.FC<WritingListProps> = ({ metas }) => {
           <WritingTab selectedType={type} />
           <WritingTypeDescription type={type} />
         </Col>
-        <Col as="ul" gap="200">
+        <Col key={type} as="ul" gap="200">
           {filteredMetas.map((meta, i) => (
             <FadeIn key={meta.id} as="li" delaySec={0.05 * i}>
               <WritingBlock meta={meta} />

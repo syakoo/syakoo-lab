@@ -1,11 +1,11 @@
 import { compareDesc } from "date-fns";
 import { Metadata } from "next";
 import { readArtContents } from "@/contents/arts/reader";
+import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";
+import { formatPageTitle } from "@/features/_common/logics/pageTitle";
 import { ArtsSection } from "@/features/arts/ArtsSection";
 import { resolveArtMeta } from "@/features/arts/artContentResolver";
 import { ArtMeta } from "@/features/arts/types";
-import { HeaderFooterTemplate } from "@/features/common/components/HeaderFooterTemplate";
-import { formatPageTitle } from "@/features/common/logics/pageTitle";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Arts"),

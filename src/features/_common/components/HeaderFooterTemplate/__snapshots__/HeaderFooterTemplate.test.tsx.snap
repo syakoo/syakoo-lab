@@ -4,10 +4,10 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
 <body>
   <div>
     <div
-      class="HeaderFooterTemplate_containerStyle__1mfom0q0"
+      class="HeaderFooterTemplate_containerStyle__1uj9mfn0"
     >
       <div
-        class="HeaderFooterTemplate_containerHeaderStyle__1mfom0q1"
+        class="HeaderFooterTemplate_containerHeaderStyle__1uj9mfn1"
       >
         <div
           class="Center_centerStyle__7ojglz0"
@@ -44,19 +44,31 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
                   class="Link_linkStyle__m4v9430"
                   href="/writings"
                 >
-                  Writings
+                  <span
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                  >
+                    Writings
+                  </span>
                 </a>
                 <a
                   class="Link_linkStyle__m4v9430"
                   href="/works"
                 >
-                  Works
+                  <span
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                  >
+                    Works
+                  </span>
                 </a>
                 <a
                   class="Link_linkStyle__m4v9430"
                   href="/arts"
                 >
-                  Arts
+                  <span
+                    class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+                  >
+                    Arts
+                  </span>
                 </a>
               </nav>
             </div>
@@ -64,14 +76,14 @@ exports[`HeaderFooterTemplate renders Sample 1`] = `
         </div>
       </div>
       <div
-        class="HeaderFooterTemplate_containerMainStyle__1mfom0q2"
+        class="HeaderFooterTemplate_containerMainStyle__1uj9mfn2"
       >
         <div>
           children
         </div>
       </div>
       <div
-        class="HeaderFooterTemplate_containerFooterStyle__1mfom0q3"
+        class="HeaderFooterTemplate_containerFooterStyle__1uj9mfn3"
       >
         <div
           class="Center_centerStyle__7ojglz0"

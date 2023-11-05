@@ -1,6 +1,6 @@
 import { Center, Col } from "@/design-system/layout";
 import { Text } from "@/design-system/ui";
-import { SyakooLabLogoWithAnimation } from "@/features/common/components/SyakooLabLogoWithAnimation";
+import { SyakooLabLogoWithAnimation } from "@/features/_common/components/SyakooLabLogoWithAnimation";
 
 export const Home: React.FC = () => {
   return (

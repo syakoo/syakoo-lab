@@ -1,10 +1,10 @@
-import { theme } from "./manager";
-import { tokens } from "../src/design-system/tokens";
+import "ress";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { Preview } from "@storybook/react";
-import "ress";
-import "../src/globalStyle.css";
 import { initialize, mswLoader } from "msw-storybook-addon";
+import { tokens } from "../src/design-system/tokens";
+import { theme } from "./manager";
+import "../src/globalStyle.css";
 import { defaultHandlers } from "@/api/_mocks/msw";
 
 initialize({ onUnhandledRequest: "bypass" });

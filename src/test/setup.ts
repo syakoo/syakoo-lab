@@ -1,5 +1,5 @@
 import { setProjectAnnotations } from "@storybook/react";
-import globalStorybookConfig from "../../.storybook/preview"; // path of your preview.js file
+import globalStorybookConfig from "../../.storybook/preview";
 import { exampleMDXComponent } from "@/features/mdx/__mocks__/fixtureMDXComponent";
 
 setProjectAnnotations(globalStorybookConfig);

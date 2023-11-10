@@ -11,7 +11,13 @@ const createJestConfig = nextJest({
 /** @type{import('jest').Config} */
 const customJestConfig = {
   testEnvironment: "jest-environment-jsdom",
-  setupFiles: ["<rootDir>/src/test/setup.ts"],
+  setupFiles: [
+    "<rootDir>/src/test/msw-jest.polyfill.cjs",
+    "<rootDir>/src/test/setup.ts",
+  ],
+  testEnvironmentOptions: {
+    customExportConditions: [""],
+  },
   moduleNameMapper: {
     ...pathsToModuleNameMapper(compilerOptions.paths),
   },

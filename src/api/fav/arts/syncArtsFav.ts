@@ -4,14 +4,14 @@ import {
   withAPIKeyHeader,
 } from "@/api/_shared/config";
 
-export const syncArtsFavPath = () =>
-  withAPIBasePath(`/fav/arts?key=${getAPIAdminPass()}`);
+export const syncArtsFavPath = () => withAPIBasePath("/fav/arts");
 
 /**
  * art のいいねの項目を同期する API
  */
 export const syncArtsFav = async () => {
-  await fetch(syncArtsFavPath(), {
+  const pathWithQuery = `${syncArtsFavPath()}?key=${getAPIAdminPass()}`;
+  await fetch(pathWithQuery, {
     method: "post",
     headers: withAPIKeyHeader({}),
   });

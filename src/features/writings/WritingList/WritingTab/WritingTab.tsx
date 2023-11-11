@@ -1,10 +1,11 @@
-import { writingTabStyle } from "./WritingTab.css";
 import { Row } from "@/design-system/layout";
 import { Link } from "@/design-system/ui";
 import {
   writingListTypeConfig,
   type WritingListType,
 } from "@/features/writings/WritingList/_shared/writingListType";
+
+import { writingTabStyle } from "./WritingTab.css";
 
 type WritingTabProps = {
   selectedType: WritingListType;

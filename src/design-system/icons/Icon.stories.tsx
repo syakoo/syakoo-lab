@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { iconDictionary } from "./Icon";
-import { Icon } from ".";
+
 import { tokens } from "@/design-system/tokens";
+
+import { Icon } from ".";
+import { iconDictionary } from "./Icon";
 
 const meta = {
   component: Icon,

@@ -1,16 +1,18 @@
 "use client";
 
 import { addYears, isBefore } from "date-fns";
-import type { Writing } from "../types";
+
+import { Link, FadeIn } from "@/design-system/ui";
+import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
+import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
+import { useTwitter } from "@/features/mdx/useTwitter";
+import type { Writing } from "@/features/writings/types";
+
 import { TOC } from "./TOC";
 import { WritingHeader } from "./WritingHeader";
 import { writingViewerStyles } from "./WritingViewer.css";
 import { Note } from "./mdxParts/Note";
 import { mdxParts } from "./mdxParts/index";
-import { Link, FadeIn } from "@/design-system/ui";
-import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
-import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
-import { useTwitter } from "@/features/mdx/useTwitter";
 
 type WritingViewerProps = {
   writing: Writing;

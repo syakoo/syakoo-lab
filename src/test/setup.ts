@@ -1,6 +1,8 @@
 import { setProjectAnnotations } from "@storybook/react";
-import globalStorybookConfig from "../../.storybook/preview";
+
 import { exampleMDXComponent } from "@/features/mdx/__mocks__/fixtureMDXComponent";
+
+import globalStorybookConfig from "../../.storybook/preview";
 
 setProjectAnnotations(globalStorybookConfig);
 

@@ -1,5 +1,7 @@
 import type { StoryFn, Meta, StoryObj } from "@storybook/react";
-import { Figure } from "../Figure";
+
+import { Figure } from "@/features/writings/WritingViewer/mdxParts/Figure";
+
 import { Geometry, GCircle, GLine, GPlane, GPoint, GText } from ".";
 
 const meta = {

@@ -1,9 +1,11 @@
 import { useMemo } from "react";
-import { linkCardStyles } from "./LinkCard.css";
+
 import { Row } from "@/design-system/layout";
 import { Link, Text } from "@/design-system/ui";
 // NOTE: コンパイル時に評価するためそちらで I/F を保持
 import type { LinkCardProps } from "@/features/mdx/plugins/linkCardPlugin";
+
+import { linkCardStyles } from "./LinkCard.css";
 
 export const LinkCard: React.FC<LinkCardProps> = ({
   imgSrc,

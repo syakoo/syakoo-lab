@@ -1,8 +1,10 @@
 import Image from "next/image";
-import { artGalleryItemStyles } from "./ArtGalleryItem.css";
+
 import { Col, Row } from "@/design-system/layout";
 import { H3, Link } from "@/design-system/ui";
 import type { ArtMeta } from "@/features/arts/types";
+
+import { artGalleryItemStyles } from "./ArtGalleryItem.css";
 
 type ArtGalleryItemProps = {
   meta: ArtMeta;

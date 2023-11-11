@@ -1,6 +1,7 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { tokens } from "../../tokens";
+
+import { tokens } from "@/design-system/tokens";
 
 const justifyProperties = {
   flexStart: "flex-start",

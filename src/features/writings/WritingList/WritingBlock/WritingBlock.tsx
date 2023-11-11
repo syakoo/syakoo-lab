@@ -1,9 +1,10 @@
-import { writingTypeConfig } from "../../_shared/writingType";
-import { writingBlockStyles } from "./WritingBlock.css";
 import { Icon } from "@/design-system/icons";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";
+import { writingTypeConfig } from "@/features/writings/_shared/writingType";
 import type { WritingMeta } from "@/features/writings/types";
+
+import { writingBlockStyles } from "./WritingBlock.css";
 
 type WritingBlockProps = {
   meta: WritingMeta;

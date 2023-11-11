@@ -1,6 +1,7 @@
-import { bookViewStyles } from "./BookView.css";
 import { Row } from "@/design-system/layout";
 import { Link, Text } from "@/design-system/ui";
+
+import { bookViewStyles } from "./BookView.css";
 
 type BookViewProps = {
   title: string;

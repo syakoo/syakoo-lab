@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { aboutMeImageStyle } from "./AboutMeSection.css";
-import { Links } from "./Links";
+
 import { aboutMeConfig } from "@/contents/aboutMe/config";
 import { Col, Row } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
+
+import { aboutMeImageStyle } from "./AboutMeSection.css";
+import { Links } from "./Links";
 
 export const AboutMeSection: React.FC = () => {
   const { imageSrc, name, bio, links } = aboutMeConfig;

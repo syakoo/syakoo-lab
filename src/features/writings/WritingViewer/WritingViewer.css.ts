@@ -1,4 +1,5 @@
 import { globalStyle, style } from "@vanilla-extract/css";
+
 import { tokens } from "@/design-system/tokens";
 
 // 縦配置のメディア条件式

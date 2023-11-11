@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { useMountedState } from "../../mount/useMountedState";
+
+import { useMountedState } from "@/utils/mount/useMountedState";
+
 import {
   AsyncStateError,
   AsyncStateIdle,

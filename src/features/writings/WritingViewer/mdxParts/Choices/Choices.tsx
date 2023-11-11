@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import { useState } from "react";
+
 import { choiceStyle, choicesStyle } from "./Choices.css";
 
 type ChoiceProps = {

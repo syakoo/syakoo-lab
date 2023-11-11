@@ -1,4 +1,5 @@
 import React from "react";
+
 import { tokens } from "@/design-system/tokens";
 
 type SyakooLabTextProps = {

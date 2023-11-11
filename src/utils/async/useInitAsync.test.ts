@@ -1,4 +1,5 @@
 import { act, renderHook, waitFor } from "@testing-library/react";
+
 import { useInitAsync } from "./useInitAsync";
 
 const makeExampleAsyncFunction = () => {

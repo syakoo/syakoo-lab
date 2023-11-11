@@ -1,9 +1,11 @@
 import Image from "next/image";
-import { artSectionStyles } from "./ArtSection.css";
+
 import { Col, Row } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
 import { Art } from "@/features/arts/types";
 import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
+
+import { artSectionStyles } from "./ArtSection.css";
 
 type ArtSectionProps = {
   art: Art;

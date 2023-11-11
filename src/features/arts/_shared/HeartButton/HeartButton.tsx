@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { heartButtonStyles } from "./HeartButton.css";
+
 import { Icon } from "@/design-system/icons";
 import { range } from "@/utils/array/range";
+
+import { heartButtonStyles } from "./HeartButton.css";
 
 type HeartButtonProps = {
   onClick: () => void;

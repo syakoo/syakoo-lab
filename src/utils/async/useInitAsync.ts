@@ -1,4 +1,5 @@
-import { useMount } from "../mount/useMount";
+import { useMount } from "@/utils/mount/useMount";
+
 import {
   AsyncStateError,
   AsyncStateLoading,

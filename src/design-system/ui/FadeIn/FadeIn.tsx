@@ -1,5 +1,6 @@
-import { fadeInStyle } from "./FadeIn.css";
 import { PolymorphicComponent } from "@/utils/polymorphicComponent";
+
+import { fadeInStyle } from "./FadeIn.css";
 
 type FadeInProps = {
   children: React.ReactNode;

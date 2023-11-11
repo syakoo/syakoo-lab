@@ -1,6 +1,8 @@
 import type { Meta } from "@storybook/react";
-import { Link } from ".";
+
 import { tokens } from "@/design-system/tokens";
+
+import { Link } from ".";
 
 const meta = {
   component: Link,

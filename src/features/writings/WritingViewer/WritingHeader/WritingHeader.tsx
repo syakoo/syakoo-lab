@@ -1,9 +1,10 @@
-import { writingTypeConfig } from "../../_shared/writingType";
-import type { WritingMeta } from "../../types";
-import { writingHeaderStyles } from "./WritingHeader.css";
 import { Icon } from "@/design-system/icons";
 import { Center, Col, Row, Spacer } from "@/design-system/layout";
 import { H1, Link, Span, Text } from "@/design-system/ui";
+import { writingTypeConfig } from "@/features/writings/_shared/writingType";
+import type { WritingMeta } from "@/features/writings/types";
+
+import { writingHeaderStyles } from "./WritingHeader.css";
 
 type WritingHeaderProps = {
   meta: WritingMeta;

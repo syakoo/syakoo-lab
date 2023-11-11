@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { tocStyles } from "./TOC.css";
+
 import { Link, Text } from "@/design-system/ui";
+
+import { tocStyles } from "./TOC.css";
 
 type TOCItem = {
   label: string;

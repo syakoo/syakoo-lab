@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Spacer } from ".";
+
 import { tokens } from "@/design-system/tokens";
+
+import { Spacer } from ".";
 
 const meta = {
   component: Spacer,

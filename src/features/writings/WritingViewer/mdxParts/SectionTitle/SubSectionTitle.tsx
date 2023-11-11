@@ -1,6 +1,7 @@
+import { Link } from "@/design-system/ui";
+
 import { subsectionTitleStyle } from "./SectionTitle.css";
 import { useSectionTitleId } from "./useSectionTitleId";
-import { Link } from "@/design-system/ui";
 
 type SubSectionTitleProps = {
   children: React.ReactNode;

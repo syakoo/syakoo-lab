@@ -32,3 +32,17 @@ export const Sample: Story = {
     },
   },
 };
+
+export const LongText: Story = {
+  args: {
+    meta: {
+      id: "sample-id-2",
+      title:
+        "Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title",
+      published: "20231029",
+      imgUrl: "https://placehold.jp/3063D4/ffffff/2000x1500.png",
+      size: { width: 2500, height: 1500 },
+      tags: ["sampleTag"],
+    },
+  },
+};

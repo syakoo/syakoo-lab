@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 import { api } from "@/api";
-import { Col, Row } from "@/design-system/layout";
+import { Col, FlexItem, Row } from "@/design-system/layout";
 import { H3, Link } from "@/design-system/ui";
 import { HeartButton } from "@/features/arts/_shared/HeartButton";
 import type { ArtMeta } from "@/features/arts/types";
@@ -35,9 +35,11 @@ export const ArtGalleryItem: React.FC<ArtGalleryItemProps> = ({ meta }) => {
         <div className={artGalleryItemStyles.titleWrapper}>
           <H3 size="75">{meta.title}</H3>
         </div>
-        <div className={artGalleryItemStyles.heartButtonWrapper}>
-          <HeartButton onClick={handleClickHeartButton} />
-        </div>
+        <FlexItem shrink={0}>
+          <div className={artGalleryItemStyles.heartButtonWrapper}>
+            <HeartButton onClick={handleClickHeartButton} />
+          </div>
+        </FlexItem>
       </Row>
     </Col>
   );

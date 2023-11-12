@@ -1,5 +1,82 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ArtGalleryItem renders LongText 1`] = `
+<body>
+  <div>
+    <div
+      style="max-width: 500px;"
+    >
+      <article
+        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_50__15ivi84x Flex_flexStyle_variants_gap_50__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+      >
+        <div>
+          <a
+            class="Link_linkStyle__m4v9430 Link_linkStyle_display_block__m4v9434"
+            href="/arts/sample-id-2"
+          >
+            <img
+              alt="Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title"
+              class="ArtGalleryItem_artGalleryItemStyles_image__ddg6rx0"
+              data-nimg="1"
+              decoding="async"
+              height="1500"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75 1x"
+              style="color: transparent;"
+              width="2500"
+            />
+          </a>
+        </div>
+        <div
+          class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_spaceBetween__15ivi84o Flex_flexStyle_variants_justify_spaceBetween__15ivi843"
+        >
+          <div
+            class="ArtGalleryItem_artGalleryItemStyles_titleWrapper__ddg6rx1"
+          >
+            <h3
+              class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_bold__jzpfqdt"
+            >
+              Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title
+            </h3>
+          </div>
+          <div
+            class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_shrink_0__15ivi841a"
+          >
+            <div
+              class="ArtGalleryItem_artGalleryItemStyles_heartButtonWrapper__ddg6rx2"
+            >
+              <button
+                class="HeartButton_heartButtonStyles_root__ap10oo3"
+                type="button"
+              >
+                <div
+                  class="HeartButton_heartButtonStyles_iconWrapper__ap10oo4"
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+`;
+
 exports[`ArtGalleryItem renders Sample 1`] = `
 <body>
   <div>
@@ -41,30 +118,34 @@ exports[`ArtGalleryItem renders Sample 1`] = `
             </h3>
           </div>
           <div
-            class="ArtGalleryItem_artGalleryItemStyles_heartButtonWrapper__ddg6rx2"
+            class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_shrink_0__15ivi841a"
           >
-            <button
-              class="HeartButton_heartButtonStyles_root__ap10oo3"
-              type="button"
+            <div
+              class="ArtGalleryItem_artGalleryItemStyles_heartButtonWrapper__ddg6rx2"
             >
-              <div
-                class="HeartButton_heartButtonStyles_iconWrapper__ap10oo4"
+              <button
+                class="HeartButton_heartButtonStyles_root__ap10oo3"
+                type="button"
               >
-                <svg
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+                <div
+                  class="HeartButton_heartButtonStyles_iconWrapper__ap10oo4"
                 >
-                  <path
-                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-            </button>
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </article>

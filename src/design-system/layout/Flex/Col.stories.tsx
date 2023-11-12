@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { tokens } from "../../tokens";
+
+import { tokens } from "@/design-system/tokens";
+
 import { Col, FlexItem } from ".";
 
 const meta = {

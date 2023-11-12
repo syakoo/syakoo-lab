@@ -3,6 +3,7 @@
  * そのため、ユーティリティ CSS のような Variants での管理を行う。
  */
 import { styleVariants } from "@vanilla-extract/css";
+
 import { tokens } from "@/design-system/tokens";
 
 export const paddingLeftVariants = styleVariants(tokens.spaces, (value) => ({

@@ -1,7 +1,8 @@
 "use client";
 
-import React from "react";
 import { usePathname } from "next/navigation";
+import React from "react";
+
 import { Center, Container, Row } from "@/design-system/layout";
 import { Link, Span } from "@/design-system/ui";
 import { SyakooLabText } from "@/features/_common/components/SyakooLabText";

@@ -1,8 +1,9 @@
-import { ArtGalleryItem } from "./ArtGalleryItem";
-import { artsSectionStyles } from "./ArtsSection.css";
 import { Col, Container } from "@/design-system/layout";
 import { H2, FadeIn } from "@/design-system/ui";
 import type { ArtMeta } from "@/features/arts/types";
+
+import { ArtGalleryItem } from "./ArtGalleryItem";
+import { artsSectionStyles } from "./ArtsSection.css";
 
 type ArtsSectionProps = {
   metas: ArtMeta[];

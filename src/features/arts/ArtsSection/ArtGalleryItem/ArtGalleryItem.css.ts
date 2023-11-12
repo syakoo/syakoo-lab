@@ -1,4 +1,5 @@
 import { style } from "@vanilla-extract/css";
+
 import { tokens } from "@/design-system/tokens";
 
 export const artGalleryItemStyles = {
@@ -14,5 +15,8 @@ export const artGalleryItemStyles = {
     overflow: "hidden",
     WebkitLineClamp: "1",
     WebkitBoxOrient: "vertical",
+  }),
+  heartButtonWrapper: style({
+    width: 26,
   }),
 };

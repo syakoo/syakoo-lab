@@ -1,8 +1,10 @@
 import Image from "next/image";
-import type { UserLink } from "../types";
-import { linkImageStyle, linkStyle } from "./Links.css";
+
 import { Row } from "@/design-system/layout";
 import { Link } from "@/design-system/ui";
+import type { UserLink } from "@/features/home/AboutMeSection/types";
+
+import { linkImageStyle, linkStyle } from "./Links.css";
 
 type LinksProps = {
   links: UserLink[];

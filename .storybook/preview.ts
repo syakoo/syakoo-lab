@@ -1,9 +1,15 @@
-import { theme } from "./manager";
-import { tokens } from "../src/design-system/tokens";
+import "ress";
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import { Preview } from "@storybook/react";
-import "ress";
-import "../src/globalStyle.css";
+import { initialize, mswLoader } from "msw-storybook-addon";
+
+import { defaultHandlers } from "@/api/_mocks/msw";
+import { tokens } from "@/design-system/tokens";
+import "@/globalStyle.css";
+
+import { theme } from "./manager";
+
+initialize({ onUnhandledRequest: "bypass" });
 
 const preview: Preview = {
   parameters: {
@@ -36,7 +42,11 @@ const preview: Preview = {
     nextjs: {
       appDirectory: true,
     },
+    msw: {
+      handlers: [...defaultHandlers],
+    },
   },
+  loaders: [mswLoader],
 };
 
 export default preview;

@@ -1,6 +1,8 @@
 import { memo } from "react";
+
 import { BookIcon } from "./BookIcon";
 import { DocumentIcon } from "./DocumentIcon";
+import { HeartIcon } from "./HeartIcon";
 import { NoteIcon } from "./NoteIcon";
 import { WarnIcon } from "./WarnIcon";
 import type { IconComponentProps } from "./types";
@@ -10,6 +12,7 @@ export const iconDictionary = {
   note: NoteIcon,
   book: BookIcon,
   warn: WarnIcon,
+  heart: HeartIcon,
 };
 
 export type IconName = keyof typeof iconDictionary;

@@ -1,5 +1,6 @@
-import { Fragment } from "react";
 import type { Meta } from "@storybook/react";
+import { Fragment } from "react";
+
 import { colors } from "./colors";
 
 const meta = {

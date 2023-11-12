@@ -1,7 +1,9 @@
-import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
-import { containerStyle } from "./Container.css";
+import React from "react";
+
 import { PolymorphicComponent } from "@/utils/polymorphicComponent";
+
+import { containerStyle } from "./Container.css";
 
 type ContainerProps = {
   as?: React.ElementType;

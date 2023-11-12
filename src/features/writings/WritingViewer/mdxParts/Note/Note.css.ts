@@ -1,5 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { tokens } from "@/design-system/tokens";
 
 export const noteStyles = {

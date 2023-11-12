@@ -1,5 +1,6 @@
 import { runSync } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
+
 import type { MDXComponent, SerializedMDX } from "./types";
 
 /**

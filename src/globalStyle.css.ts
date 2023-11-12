@@ -1,4 +1,5 @@
 import { globalStyle } from "@vanilla-extract/css";
+
 import { tokens } from "./design-system/tokens";
 
 globalStyle("html, body", {

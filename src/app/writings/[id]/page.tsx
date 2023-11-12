@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container, Spacer } from "@/design-system/layout";
 import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";

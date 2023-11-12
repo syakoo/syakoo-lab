@@ -2,6 +2,7 @@ import { compile } from "@mdx-js/mdx";
 import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkMath from "remark-math";
+
 import { markupLinkCard } from "./plugins/linkCardPlugin";
 import { markupMermaid } from "./plugins/mermaid/mermaidPlugin";
 import type { SerializedMDX } from "./types";

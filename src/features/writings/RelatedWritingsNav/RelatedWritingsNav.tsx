@@ -1,7 +1,8 @@
-import { WritingMeta } from "../types";
-import { WritingLink } from "./WritingLink";
 import { Col } from "@/design-system/layout";
 import { H3 } from "@/design-system/ui";
+import { WritingMeta } from "@/features/writings/types";
+
+import { WritingLink } from "./WritingLink";
 
 type RelatedWritingsNavProps = {
   metas: WritingMeta[];

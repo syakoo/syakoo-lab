@@ -1,5 +1,6 @@
-import { useState } from "react";
 import type { Meta } from "@storybook/react";
+import { useState } from "react";
+
 import { fontFamilies } from "./fontFamilies";
 import { fontSizes } from "./fontSizes";
 

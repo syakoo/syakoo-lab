@@ -5,9 +5,12 @@
  */
 import fs from "fs";
 import path from "path";
+
 import probe from "probe-image-size";
-import type { ArtMeta } from "./types";
+
 import type { ArtContentFrontMatter } from "@/contents/arts/types";
+
+import type { ArtMeta } from "./types";
 
 type ResolveArtMeta = (arg: { frontMatter: ArtContentFrontMatter }) => ArtMeta;
 export const resolveArtMeta: ResolveArtMeta = ({ frontMatter }) => {

@@ -1,5 +1,6 @@
-import { Fragment } from "react";
 import type { Meta } from "@storybook/react";
+import { Fragment } from "react";
+
 import { radii } from "./radii";
 import { sizes } from "./sizes";
 import { spaces } from "./spaces";

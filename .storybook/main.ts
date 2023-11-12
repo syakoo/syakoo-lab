@@ -3,6 +3,7 @@ import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  staticDirs: ["../public"],
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",

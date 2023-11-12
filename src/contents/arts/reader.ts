@@ -1,5 +1,6 @@
 import { glob } from "glob";
 import matter from "gray-matter";
+
 import type { ArtContent, ArtContentFrontMatter } from "./types";
 
 /**

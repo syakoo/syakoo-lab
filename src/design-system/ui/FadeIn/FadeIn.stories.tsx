@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FadeIn } from ".";
+
 import { tokens } from "@/design-system/tokens";
+
+import { FadeIn } from ".";
 
 const meta = {
   component: FadeIn,

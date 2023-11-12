@@ -1,4 +1,5 @@
 import React from "react";
+
 import { geometrySVGstyle } from "./Geometry.css";
 import { type Domain, GeometryProvider } from "./core";
 

@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/react";
-import { TOCView } from "./TOC";
+
 import { TOC } from ".";
+import { TOCView } from "./TOC";
 
 const meta = {
   component: TOC,

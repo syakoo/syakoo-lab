@@ -17,7 +17,13 @@ module.exports = {
     "plugin:react/jsx-runtime",
     "plugin:storybook/recommended",
   ],
-  plugins: ["@typescript-eslint", "react", "import"],
+  plugins: [
+    "@typescript-eslint",
+    "react",
+    "import",
+    "unused-imports",
+    "no-relative-import-paths",
+  ],
   rules: {
     "react/prop-types": "off",
     "react/jsx-sort-props": ["error", { reservedFirst: true }],
@@ -47,20 +53,23 @@ module.exports = {
     "import/order": [
       "warn",
       {
-        groups: ["builtin", "external", "parent", "sibling", "index", "object"],
-        pathGroups: [
-          {
-            pattern: "{react,react-dom,vite}",
-            group: "builtin",
-            position: "before",
-          },
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling", "index"],
+          "object",
         ],
-        pathGroupsExcludedImportTypes: ["react", "react-dom", "vite"],
         alphabetize: {
           order: "asc",
         },
-        "newlines-between": "never",
+        "newlines-between": "always",
       },
+    ],
+    "unused-imports/no-unused-imports": "error",
+    "no-relative-import-paths/no-relative-import-paths": [
+      "error",
+      { allowSameFolder: true, rootDir: "src", prefix: "@" },
     ],
   },
   settings: {

@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { WritingBlock } from ".";
+
 import type { WritingMeta } from "@/features/writings/types";
+
+import { WritingBlock } from ".";
 
 const meta = {
   component: WritingBlock,

@@ -1,13 +1,15 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
+
+import { Col } from "@/design-system/layout";
+import { H2, FadeIn } from "@/design-system/ui";
+import type { WritingMeta } from "@/features/writings/types";
+
 import { WritingBlock } from "./WritingBlock";
 import { WritingTab } from "./WritingTab";
 import { WritingTypeDescription } from "./WritingTypeDescription";
 import type { WritingListType } from "./_shared/writingListType";
-import { Col } from "@/design-system/layout";
-import { H2, FadeIn } from "@/design-system/ui";
-import type { WritingMeta } from "@/features/writings/types";
 
 type WritingListProps = {
   metas: WritingMeta[];

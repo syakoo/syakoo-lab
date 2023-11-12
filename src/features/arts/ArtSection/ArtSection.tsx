@@ -1,16 +1,25 @@
+"use client";
+
 import Image from "next/image";
-import { artSectionStyles } from "./ArtSection.css";
+
 import { Col, Row } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
+import { HeartButton } from "@/features/arts/_shared/HeartButton/HeartButton";
 import { Art } from "@/features/arts/types";
 import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
+
+import { artSectionStyles } from "./ArtSection.css";
+import { useFav } from "./useFav";
 
 type ArtSectionProps = {
   art: Art;
 };
 
 export const ArtSection: React.FC<ArtSectionProps> = ({ art }) => {
+  const { fav, incrementFav } = useFav(art.meta.id);
   const MDXComponent = resolveMDXAsComponent(art.serializedBody);
+
+  const handleClickHeartButton = () => void incrementFav();
 
   return (
     <article className={artSectionStyles.root}>
@@ -24,7 +33,12 @@ export const ArtSection: React.FC<ArtSectionProps> = ({ art }) => {
         />
       </div>
       <div className={artSectionStyles.body}>
-        <div>heart</div>
+        <Row align="flexEnd" gap="50">
+          <div className={artSectionStyles.heartButtonWrapper}>
+            <HeartButton onClick={handleClickHeartButton} />
+          </div>
+          <div>{fav !== null && <Text color="secondary">{fav}</Text>} </div>
+        </Row>
         <div>
           <H2 size="400">{art.meta.title}</H2>
           <Col>

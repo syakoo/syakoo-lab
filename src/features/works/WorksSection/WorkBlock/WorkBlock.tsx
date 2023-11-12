@@ -1,9 +1,11 @@
 import { format } from "date-fns";
 import Image from "next/image";
-import { workBlockStyle } from "./WorkBlock.css";
+
 import { FlexItem, Row } from "@/design-system/layout";
 import { H3, Link, Span } from "@/design-system/ui";
 import type { Work } from "@/features/works/types/work";
+
+import { workBlockStyle } from "./WorkBlock.css";
 
 type WorkBlockProps = {
   work: Work;

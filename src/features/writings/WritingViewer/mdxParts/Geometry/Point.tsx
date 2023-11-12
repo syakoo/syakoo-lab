@@ -1,6 +1,7 @@
+import { useMount } from "@/utils/mount/useMount";
+
 import { type PointId, useGeometry } from "./core";
 import { type ColorKey, resolveGeometryColor } from "./core";
-import { useMount } from "@/utils/useMount";
 
 type PointProps = {
   id?: PointId;

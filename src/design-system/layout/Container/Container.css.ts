@@ -1,5 +1,6 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+
 import { paddingVariantsCollection } from "@/design-system/styleVariants/padding.css";
 import { tokens } from "@/design-system/tokens";
 

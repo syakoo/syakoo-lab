@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+
 import { Col, Container, Spacer } from "@/design-system/layout";
 import { H2, H3, Link, P } from "@/design-system/ui";
 import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";

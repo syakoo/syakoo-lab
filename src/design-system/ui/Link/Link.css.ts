@@ -1,5 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
-import { tokens } from "../../tokens";
+
+import { tokens } from "@/design-system/tokens";
 
 export const linkStyle = recipe({
   base: {

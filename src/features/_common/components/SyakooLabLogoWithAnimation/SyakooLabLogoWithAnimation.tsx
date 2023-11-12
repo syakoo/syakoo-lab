@@ -1,4 +1,7 @@
 import React from "react";
+
+import { tokens } from "@/design-system/tokens";
+
 import {
   bGBorderStyle,
   cupSpoonPath,
@@ -6,7 +9,6 @@ import {
   literalSStyle,
   scaleUpCircleStyle,
 } from "./SyakooLabLogoWithAnimation.css";
-import { tokens } from "@/design-system/tokens";
 
 type SyakooLabLogoWithAnimationProps = {
   height?: string;

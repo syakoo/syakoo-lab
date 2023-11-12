@@ -1,7 +1,8 @@
-import { WorkBlock } from "./WorkBlock";
 import { works } from "@/contents/works/works";
 import { Col, Container } from "@/design-system/layout";
 import { H2, FadeIn } from "@/design-system/ui";
+
+import { WorkBlock } from "./WorkBlock";
 
 export const WorksSection: React.FC = () => {
   return (

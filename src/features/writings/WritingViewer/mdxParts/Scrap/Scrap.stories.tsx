@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Scrap } from ".";
+
 import { tokens } from "@/design-system/tokens";
+
+import { Scrap } from ".";
 
 const meta = {
   component: Scrap,

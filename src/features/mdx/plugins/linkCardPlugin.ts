@@ -1,5 +1,6 @@
 import { JSDOM } from "jsdom";
-import type { MDXCustomTextPlugin } from "../types";
+
+import type { MDXCustomTextPlugin } from "@/features/mdx/types";
 
 export type LinkCardProps = {
   imgSrc: string;

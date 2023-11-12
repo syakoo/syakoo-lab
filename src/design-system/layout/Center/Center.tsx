@@ -1,6 +1,8 @@
 import React from "react";
-import { centerStyle } from "./Center.css";
+
 import { PolymorphicComponent } from "@/utils/polymorphicComponent";
+
+import { centerStyle } from "./Center.css";
 
 type CenterProps = {
   as?: keyof JSX.IntrinsicElements;

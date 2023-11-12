@@ -3,8 +3,9 @@
  *
  * CAUTION: node で使用すること
  */
-import type { WritingMeta } from "./types";
 import type { WritingContentFrontMatter } from "@/contents/writings/types";
+
+import type { WritingMeta } from "./types";
 
 type ResolveWritingMeta = (arg: {
   frontMatter: WritingContentFrontMatter;

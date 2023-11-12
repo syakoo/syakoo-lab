@@ -1,6 +1,7 @@
-import React from "react";
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import NextLink from "next/link";
+import React from "react";
+
 import { linkStyle } from "./Link.css";
 
 type LinkProps = {

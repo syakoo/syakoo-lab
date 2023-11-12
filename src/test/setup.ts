@@ -1,8 +1,4 @@
-import { setProjectAnnotations } from "@storybook/react";
-import globalStorybookConfig from "../../.storybook/preview"; // path of your preview.js file
 import { exampleMDXComponent } from "@/features/mdx/__mocks__/fixtureMDXComponent";
-
-setProjectAnnotations(globalStorybookConfig);
 
 // NOTE: `@mdx-js/mdx` の esm がうまく解決できなかったためまとめてモック化
 // これが原因でおかしくなっていたらごめんなさい

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+
 import { figureCaptionStyle, figureStyle } from "./Figure.css";
 
 type FigureCaptionProps = {

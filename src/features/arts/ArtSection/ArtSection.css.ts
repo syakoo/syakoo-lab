@@ -6,6 +6,9 @@ export const artSectionStyles = {
   root: style({
     paddingBlock: tokens.spaces[400],
   }),
+  heartButtonWrapper: style({
+    width: 36,
+  }),
   imageWrapper: style({
     width: "100%",
     maxWidth: tokens.sizes[100],
@@ -18,8 +21,11 @@ export const artSectionStyles = {
   body: style({
     maxWidth: "500px",
     margin: "auto",
-    marginTop: tokens.spaces[400],
+    marginTop: tokens.spaces[300],
     paddingInline: tokens.spaces[200],
     width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    gap: tokens.spaces[100],
   }),
 };

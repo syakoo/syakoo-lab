@@ -3,6 +3,8 @@ import "ress";
 import "@/globalStyle.css";
 import { Roboto, Fira_Code, Noto_Sans_JP } from "next/font/google";
 
+import { GoogleAnalytics } from "@/features/_common/components/GoogleAnalytics";
+
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 const roboto = Roboto({
   weight: "100",
@@ -41,6 +43,9 @@ export default function RootLayout({
       ].join(" ")}
       lang="ja"
     >
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body>{children}</body>
     </html>
   );

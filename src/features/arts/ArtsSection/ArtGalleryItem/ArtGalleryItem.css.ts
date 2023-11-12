@@ -16,4 +16,7 @@ export const artGalleryItemStyles = {
     WebkitLineClamp: "1",
     WebkitBoxOrient: "vertical",
   }),
+  heartButtonWrapper: style({
+    width: 26,
+  }),
 };

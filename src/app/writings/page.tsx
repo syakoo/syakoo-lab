@@ -1,5 +1,6 @@
 import { compareDesc } from "date-fns";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
@@ -25,7 +26,9 @@ const WritingsPage = async () => {
   return (
     <HeaderFooterTemplate>
       <Container as="main" center paddingBottom="400" paddingX="200" size="100">
-        <WritingList metas={metas} />
+        <Suspense>
+          <WritingList metas={metas} />
+        </Suspense>
       </Container>
     </HeaderFooterTemplate>
   );

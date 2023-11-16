@@ -1,9 +1,5 @@
-import path from "path";
-
-import dotenv from "dotenv";
-
-dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+import "./_shared/env";
 
 // NOTE: 動的にすることで読むタイミングを遅らせる
-const { runServer } = await import("@/api/_mocks/server");
+const { runServer } = await import("@/api/mocks/server");
 runServer();

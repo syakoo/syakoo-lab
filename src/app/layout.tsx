@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "ress";
 import "@/globalStyle.css";
 import { Roboto, Fira_Code, Noto_Sans_JP } from "next/font/google";
+import { Suspense } from "react";
 
 import { GoogleAnalytics } from "@/features/_common/components/GoogleAnalytics";
 
@@ -44,7 +45,13 @@ export default function RootLayout({
       lang="ja"
     >
       <head>
-        <GoogleAnalytics />
+        <link
+          href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
+          rel="stylesheet"
+        />
+        <Suspense>
+          <GoogleAnalytics />
+        </Suspense>
       </head>
       <body>{children}</body>
     </html>

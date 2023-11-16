@@ -1,8 +1,8 @@
 import { composeStories } from "@storybook/react";
 import { act, render } from "@testing-library/react";
 
-import { setupJestMockServer } from "@/api/_mocks/jest";
-import { defaultHandlers } from "@/api/_mocks/msw";
+import { setupJestMockServer } from "@/api/mocks/jest";
+import { defaultHandlers } from "@/api/mocks/msw";
 
 import * as stories from "./ArtSection.stories";
 

@@ -59,7 +59,7 @@ const WritingsContentPage = async ({ params }: Props) => {
       {relatedWritingMetas.length > 0 && (
         <>
           <Spacer y="500" />
-          <Container center>
+          <Container center paddingX="200">
             <RelatedWritingsNav metas={relatedWritingMetas} />
           </Container>
         </>

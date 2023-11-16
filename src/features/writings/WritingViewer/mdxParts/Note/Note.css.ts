@@ -12,7 +12,7 @@ export const noteStyles = {
       marginBlock: tokens.spaces[200],
       marginInline: 0,
       borderRadius: tokens.radii[50],
-      alignItems: "start",
+      alignItems: "flex-start",
     },
     variants: {
       variant: {

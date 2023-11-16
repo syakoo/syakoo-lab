@@ -1,9 +1,14 @@
 import { composeStories } from "@storybook/react";
 import { act, render } from "@testing-library/react";
 
+import { setupJestMockServer } from "@/api/mocks/jest";
+import { defaultHandlers } from "@/api/mocks/msw";
+
 import * as stories from "./ArtGalleryItem.stories";
 
 const { ...otherStories } = composeStories(stories);
+
+setupJestMockServer(...defaultHandlers);
 
 describe("ArtGalleryItem", () => {
   const testCases = Object.values(otherStories).map(

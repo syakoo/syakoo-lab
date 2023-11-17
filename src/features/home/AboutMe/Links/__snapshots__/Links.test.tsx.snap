@@ -12,12 +12,12 @@ exports[`Links renders Sample 1`] = `
           href="#"
         >
           <div
-            class="Links_linkStyle__yhrdxz0"
+            class="Links_linkStyle__dou6ce0"
             title="Name1"
           >
             <img
               alt="Name1"
-              class="Links_linkImageStyle__yhrdxz1"
+              class="Links_linkImageStyle__dou6ce1"
               data-nimg="1"
               decoding="async"
               height="50"
@@ -36,12 +36,12 @@ exports[`Links renders Sample 1`] = `
           href="#"
         >
           <div
-            class="Links_linkStyle__yhrdxz0"
+            class="Links_linkStyle__dou6ce0"
             title="Name2"
           >
             <img
               alt="Name2"
-              class="Links_linkImageStyle__yhrdxz1"
+              class="Links_linkImageStyle__dou6ce1"
               data-nimg="1"
               decoding="async"
               height="50"
@@ -60,12 +60,12 @@ exports[`Links renders Sample 1`] = `
           href="#"
         >
           <div
-            class="Links_linkStyle__yhrdxz0"
+            class="Links_linkStyle__dou6ce0"
             title="Name3"
           >
             <img
               alt="Name3"
-              class="Links_linkImageStyle__yhrdxz1"
+              class="Links_linkImageStyle__dou6ce1"
               data-nimg="1"
               decoding="async"
               height="100"

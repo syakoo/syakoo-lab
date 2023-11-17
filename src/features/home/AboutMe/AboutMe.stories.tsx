@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { AboutMeSection } from ".";
+import { AboutMe } from ".";
 
 const meta = {
-  component: AboutMeSection,
+  component: AboutMe,
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof AboutMeSection>;
+} satisfies Meta<typeof AboutMe>;
 
 export default meta;
 

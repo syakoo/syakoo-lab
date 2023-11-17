@@ -1,7 +1,7 @@
 import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { Col, Container } from "@/design-system/layout";
 import { FadeIn } from "@/design-system/ui";
-import { AboutMeSection } from "@/features/home/AboutMeSection";
+import { AboutMe } from "@/features/home/AboutMe";
 import { AboutSite } from "@/features/home/AboutSite";
 
 const HomePage = () => {
@@ -13,15 +13,9 @@ const HomePage = () => {
             <AboutSite />
           </FadeIn>
         </Container>
-        <Container
-          as="section"
-          center
-          paddingBottom="400"
-          paddingX="200"
-          size="100"
-        >
+        <Container center paddingBottom="400" paddingX="200" size="100">
           <FadeIn delaySec={0.1}>
-            <AboutMeSection />
+            <AboutMe />
           </FadeIn>
         </Container>
       </Col>

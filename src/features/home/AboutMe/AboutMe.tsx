@@ -4,14 +4,14 @@ import { aboutMeConfig } from "@/contents/aboutMe/config";
 import { Col, Row } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
 
-import { aboutMeImageStyle } from "./AboutMeSection.css";
+import { aboutMeImageStyle } from "./AboutMe.css";
 import { Links } from "./Links";
 
-export const AboutMeSection: React.FC = () => {
+export const AboutMe: React.FC = () => {
   const { imageSrc, name, bio, links } = aboutMeConfig;
 
   return (
-    <Col gap="100">
+    <Col as="section" gap="100">
       <H2>About Me</H2>
       <Col gap="200">
         <Row gap="200">

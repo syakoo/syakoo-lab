@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Row } from "@/design-system/layout";
 import { Link } from "@/design-system/ui";
-import type { UserLink } from "@/features/home/AboutMeSection/types";
+import type { UserLink } from "@/features/home/AboutMe/types";
 
 import { linkImageStyle, linkStyle } from "./Links.css";
 

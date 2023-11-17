@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AboutMeSection renders Sample 1`] = `
+exports[`AboutMe renders Sample 1`] = `
 <body>
   <div>
-    <div
+    <section
       class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
     >
       <h2
@@ -19,7 +19,7 @@ exports[`AboutMeSection renders Sample 1`] = `
         >
           <img
             alt="me"
-            class="AboutMeSection_aboutMeImageStyle__1g4f7mo0"
+            class="AboutMe_aboutMeImageStyle__xung5y0"
             data-nimg="1"
             decoding="async"
             height="40"
@@ -46,12 +46,12 @@ exports[`AboutMeSection renders Sample 1`] = `
                   href="https://github.com/syakoo"
                 >
                   <div
-                    class="Links_linkStyle__yhrdxz0"
+                    class="Links_linkStyle__dou6ce0"
                     title="Github"
                   >
                     <img
                       alt="Github"
-                      class="Links_linkImageStyle__yhrdxz1"
+                      class="Links_linkImageStyle__dou6ce1"
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -70,12 +70,12 @@ exports[`AboutMeSection renders Sample 1`] = `
                   href="https://twitter.com/sako_data"
                 >
                   <div
-                    class="Links_linkStyle__yhrdxz0"
+                    class="Links_linkStyle__dou6ce0"
                     title="X (Twitter)"
                   >
                     <img
                       alt="X (Twitter)"
-                      class="Links_linkImageStyle__yhrdxz1"
+                      class="Links_linkImageStyle__dou6ce1"
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -94,12 +94,12 @@ exports[`AboutMeSection renders Sample 1`] = `
                   href="https://leetcode.com/syakoo/"
                 >
                   <div
-                    class="Links_linkStyle__yhrdxz0"
+                    class="Links_linkStyle__dou6ce0"
                     title="LeetCode"
                   >
                     <img
                       alt="LeetCode"
-                      class="Links_linkImageStyle__yhrdxz1"
+                      class="Links_linkImageStyle__dou6ce1"
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -118,12 +118,12 @@ exports[`AboutMeSection renders Sample 1`] = `
                   href="https://steamcommunity.com/profiles/76561198944381322/"
                 >
                   <div
-                    class="Links_linkStyle__yhrdxz0"
+                    class="Links_linkStyle__dou6ce0"
                     title="Steam"
                   >
                     <img
                       alt="Steam"
-                      class="Links_linkImageStyle__yhrdxz1"
+                      class="Links_linkImageStyle__dou6ce1"
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -142,12 +142,12 @@ exports[`AboutMeSection renders Sample 1`] = `
                   href="https://atcoder.jp/users/syakoo"
                 >
                   <div
-                    class="Links_linkStyle__yhrdxz0"
+                    class="Links_linkStyle__dou6ce0"
                     title="AtCoder"
                   >
                     <img
                       alt="AtCoder"
-                      class="Links_linkImageStyle__yhrdxz1"
+                      class="Links_linkImageStyle__dou6ce1"
                       data-nimg="1"
                       decoding="async"
                       height="40"
@@ -169,7 +169,7 @@ exports[`AboutMeSection renders Sample 1`] = `
           気分駆動フロントエンドエンジニア。言語・フレームワーク仕様よりは設計やアルゴリズムなどの抽象的な部分に興味があります。
         </p>
       </div>
-    </div>
+    </section>
   </div>
 </body>
 `;

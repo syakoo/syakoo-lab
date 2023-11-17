@@ -2,9 +2,9 @@ import { compareDesc } from "date-fns";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
+import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
-import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/features/_common/logics/pageTitle";
 import { WritingList } from "@/features/writings/WritingList";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";

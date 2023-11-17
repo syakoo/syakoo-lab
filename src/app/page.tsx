@@ -1,6 +1,6 @@
+import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { Col, Container } from "@/design-system/layout";
 import { FadeIn } from "@/design-system/ui";
-import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";
 import { AboutMeSection } from "@/features/home/AboutMeSection";
 import { Home } from "@/features/home/Home";
 

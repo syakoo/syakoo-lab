@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
+import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container, Spacer } from "@/design-system/layout";
-import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/features/_common/logics/pageTitle";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
 import { RelatedWritingsNav } from "@/features/writings/RelatedWritingsNav";

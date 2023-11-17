@@ -1,11 +1,11 @@
 import { composeStories } from "@storybook/react";
 import { act, render } from "@testing-library/react";
 
-import * as stories from "./Home.stories";
+import * as stories from "./AboutSite.stories";
 
 const { ...otherStories } = composeStories(stories);
 
-describe("Home", () => {
+describe("AboutSite", () => {
   const testCases = Object.values(otherStories).map(
     (Story) => [Story.storyName, Story] as const,
   );

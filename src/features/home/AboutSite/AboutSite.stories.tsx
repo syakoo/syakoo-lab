@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Home } from ".";
+import { AboutSite } from ".";
 
 const meta = {
-  component: Home,
+  component: AboutSite,
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof Home>;
+} satisfies Meta<typeof AboutSite>;
 
 export default meta;
 

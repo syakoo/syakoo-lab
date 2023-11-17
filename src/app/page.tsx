@@ -2,7 +2,7 @@ import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { Col, Container } from "@/design-system/layout";
 import { FadeIn } from "@/design-system/ui";
 import { AboutMeSection } from "@/features/home/AboutMeSection";
-import { Home } from "@/features/home/Home";
+import { AboutSite } from "@/features/home/AboutSite";
 
 const HomePage = () => {
   return (
@@ -10,7 +10,7 @@ const HomePage = () => {
       <Col align="stretch" gap="500">
         <Container as="main" center paddingTop="400" paddingX="200" size="100">
           <FadeIn>
-            <Home />
+            <AboutSite />
           </FadeIn>
         </Container>
         <Container

@@ -3,7 +3,7 @@ import { Text } from "@/design-system/ui";
 
 import { SyakooLabLogoWithAnimation } from "./SyakooLabLogoWithAnimation";
 
-export const Home: React.FC = () => {
+export const AboutSite: React.FC = () => {
   return (
     <Col gap="200">
       <Center>

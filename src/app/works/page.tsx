@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
-import { formatPageTitle } from "@/features/_common/logics/pageTitle";
+import { formatPageTitle } from "@/config/pageTitle";
 import { WorksSection } from "@/features/works/WorksSection";
 
 export const metadata: Metadata = {

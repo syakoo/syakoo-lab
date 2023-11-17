@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
 import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
+import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
-import { formatPageTitle } from "@/features/_common/logics/pageTitle";
 import { ArtSection } from "@/features/arts/ArtSection";
 import { resolveArtMeta } from "@/features/arts/artContentResolver";
 import type { Art } from "@/features/arts/types";

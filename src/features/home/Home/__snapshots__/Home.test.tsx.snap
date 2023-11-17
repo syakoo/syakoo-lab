@@ -19,7 +19,7 @@ exports[`Home renders Sample 1`] = `
             id="syakoo-lab_bg-rect"
           >
             <circle
-              class="SyakooLabLogoWithAnimation_scaleUpCircleStyle__5iiawc1"
+              class="SyakooLabLogoWithAnimation_scaleUpCircleStyle__1c6cmio1"
               cx="60"
               cy="120"
               r="140"
@@ -31,7 +31,7 @@ exports[`Home renders Sample 1`] = `
             fill="white"
           />
           <path
-            class="SyakooLabLogoWithAnimation_bGBorderStyle__5iiawc3"
+            class="SyakooLabLogoWithAnimation_bGBorderStyle__1c6cmio3"
             d="M3.15143 3H116.447V116.536H3.15143V3Z"
             stroke="#294E80"
             stroke-linecap="round"
@@ -39,17 +39,17 @@ exports[`Home renders Sample 1`] = `
             stroke-width="6"
           />
           <path
-            class="SyakooLabLogoWithAnimation_literalSStyle__5iiawc5"
+            class="SyakooLabLogoWithAnimation_literalSStyle__1c6cmio5"
             d="M45.7044 5.13562C37.2804 6.06032 29.0241 6.73346 18.2937 11.1178C7.86797 15.969 3.73244 21.4252 2.49012 26.2963C0.837455 35.2134 3.61032 41.3101 7.13297 46.6535C10.941 51.9904 18.4928 53.7062 31.3294 52.1892C38.1573 51.518 48.9005 48.9601 50.883 55.6714C52.5735 61.7838 48.7441 65.0771 44.0973 67.3678L41.9106 68.3622L37.4008 69.4214L64.008 69.2428C67.908 63.1827 69.4537 56.1238 65.5258 46.7428C61.7012 40.2572 58.8071 33.2379 39.2758 35.7606C30.2289 37.0656 19.7636 40.504 17.0437 32.5463C15.1002 25.3602 23.6021 22.3805 29.8115 19.6892C35.8163 17.7018 43.5988 17.4296 50.0794 18.082L45.7044 5.13562Z"
             fill="#454545"
             stroke="#454545"
             stroke-width="0.999999"
           />
           <g
-            class="SyakooLabLogoWithAnimation_cupStyle__5iiawc7"
+            class="SyakooLabLogoWithAnimation_cupStyle__1c6cmio7"
           >
             <path
-              class="SyakooLabLogoWithAnimation_cupSpoonPath__5iiawc9"
+              class="SyakooLabLogoWithAnimation_cupSpoonPath__1c6cmio9"
               d="M93.8437 47.7807L83.6847 46.0824C83.4123 46.0369 83.1546 46.2208 83.1091 46.4932L74.2338 99.5865C74.1883 99.8588 74.3722 100.117 74.6446 100.162L84.8036 101.86C85.076 101.906 85.3337 101.722 85.3792 101.45L94.2544 48.3562C94.3 48.0839 94.1161 47.8262 93.8437 47.7807Z"
               fill="#294E80"
             />

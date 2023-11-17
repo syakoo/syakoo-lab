@@ -1,6 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { tokens } from "./design-system/tokens";
+import { tokens } from "./tokens";
 
 globalStyle("html, body", {
   backgroundColor: tokens.colors.background.primary,

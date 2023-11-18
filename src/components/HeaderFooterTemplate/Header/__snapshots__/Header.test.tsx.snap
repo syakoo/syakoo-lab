@@ -13,6 +13,7 @@ exports[`Header renders Sample 1`] = `
           class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_spaceBetween__15ivi84o Flex_flexStyle_variants_justify_spaceBetween__15ivi843 Flex_flexStyle_wrap_true__15ivi8413"
         >
           <a
+            aria-label="Go to the homepage"
             class="Link_linkStyle__m4v9430"
             href="/"
           >

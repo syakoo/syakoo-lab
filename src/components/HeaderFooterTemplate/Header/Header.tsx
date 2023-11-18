@@ -26,7 +26,7 @@ export const Header: React.FC = () => {
     <Center>
       <Container as="header" paddingX="200" paddingY="300" size="200">
         <Row align="center" justify="spaceBetween" wrap>
-          <Link href="/">
+          <Link aria-label="Go to the homepage" href="/">
             <SyakooLabText />
           </Link>
           <Row align="center" as="nav">

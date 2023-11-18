@@ -25,6 +25,7 @@ export const HeartButton: React.FC<HeartButtonProps> = ({
 
   return (
     <button
+      aria-label="heart button"
       className={heartButtonStyles.root}
       disabled={value}
       onClick={handleClick}

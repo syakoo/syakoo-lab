@@ -8,33 +8,33 @@ import { HeartButton } from "@/features/arts/_shared/HeartButton/HeartButton";
 import { Art } from "@/features/arts/types";
 import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
 
-import { artSectionStyles } from "./ArtSection.css";
+import { artDetailStyles } from "./ArtDetail.css";
 import { useFav } from "./useFav";
 
-type ArtSectionProps = {
+type ArtDetailProps = {
   art: Art;
 };
 
-export const ArtSection: React.FC<ArtSectionProps> = ({ art }) => {
+export const ArtDetail: React.FC<ArtDetailProps> = ({ art }) => {
   const { fav, incrementFav } = useFav(art.meta.id);
   const MDXComponent = resolveMDXAsComponent(art.serializedBody);
 
   const handleClickHeartButton = () => void incrementFav();
 
   return (
-    <article className={artSectionStyles.root}>
-      <div className={artSectionStyles.imageWrapper}>
+    <article className={artDetailStyles.root}>
+      <div className={artDetailStyles.imageWrapper}>
         <Image
           alt={art.meta.title}
-          className={artSectionStyles.image}
+          className={artDetailStyles.image}
           height={art.meta.size.height}
           src={art.meta.imgUrl}
           width={art.meta.size.width}
         />
       </div>
-      <div className={artSectionStyles.body}>
+      <div className={artDetailStyles.body}>
         <Row align="flexEnd" gap="50">
-          <div className={artSectionStyles.heartButtonWrapper}>
+          <div className={artDetailStyles.heartButtonWrapper}>
             <HeartButton onClick={handleClickHeartButton} />
           </div>
           <div>{fav !== null && <Text color="secondary">{fav}</Text>} </div>

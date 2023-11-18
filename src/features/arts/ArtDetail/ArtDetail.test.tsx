@@ -4,13 +4,13 @@ import { act, render } from "@testing-library/react";
 import { setupJestMockServer } from "@/api/mocks/jest";
 import { defaultHandlers } from "@/api/mocks/msw";
 
-import * as stories from "./ArtSection.stories";
+import * as stories from "./ArtDetail.stories";
 
 const { ...otherStories } = composeStories(stories);
 
 setupJestMockServer(...defaultHandlers);
 
-describe("ArtSection", () => {
+describe("ArtDetail", () => {
   const testCases = Object.values(otherStories).map(
     (Story) => [Story.storyName, Story] as const,
   );

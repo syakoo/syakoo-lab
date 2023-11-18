@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { tokens } from "@/design-system/tokens";
 
-export const artSectionStyles = {
+export const artDetailStyles = {
   root: style({
     paddingBlock: tokens.spaces[400],
   }),

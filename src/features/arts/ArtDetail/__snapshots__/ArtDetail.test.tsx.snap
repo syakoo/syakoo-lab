@@ -32,6 +32,7 @@ exports[`ArtDetail renders Sample 1`] = `
             class="ArtDetail_artDetailStyles_heartButtonWrapper__rsqydk1"
           >
             <button
+              aria-label="heart button"
               class="HeartButton_heartButtonStyles_root__ap10oo3"
               type="button"
             >

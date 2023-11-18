@@ -7,6 +7,7 @@ exports[`HeartButton renders Activated 1`] = `
       style="width: 36px;"
     >
       <button
+        aria-label="heart button"
         class="HeartButton_heartButtonStyles_root__ap10oo3"
         disabled=""
         type="button"
@@ -41,6 +42,7 @@ exports[`HeartButton renders ClickButton 1`] = `
       style="width: 36px;"
     >
       <button
+        aria-label="heart button"
         class="HeartButton_heartButtonStyles_root__ap10oo3"
         disabled=""
         type="button"
@@ -97,6 +99,7 @@ exports[`HeartButton renders Default 1`] = `
       style="width: 36px;"
     >
       <button
+        aria-label="heart button"
         class="HeartButton_heartButtonStyles_root__ap10oo3"
         type="button"
       >

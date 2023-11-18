@@ -62,6 +62,7 @@ exports[`ArtList renders Sample 1`] = `
                     class="ArtGalleryItem_artGalleryItemStyles_heartButtonWrapper__hmcg32"
                   >
                     <button
+                      aria-label="heart button"
                       class="HeartButton_heartButtonStyles_root__ap10oo3"
                       type="button"
                     >
@@ -133,6 +134,7 @@ exports[`ArtList renders Sample 1`] = `
                     class="ArtGalleryItem_artGalleryItemStyles_heartButtonWrapper__hmcg32"
                   >
                     <button
+                      aria-label="heart button"
                       class="HeartButton_heartButtonStyles_root__ap10oo3"
                       type="button"
                     >
@@ -204,6 +206,7 @@ exports[`ArtList renders Sample 1`] = `
                     class="ArtGalleryItem_artGalleryItemStyles_heartButtonWrapper__hmcg32"
                   >
                     <button
+                      aria-label="heart button"
                       class="HeartButton_heartButtonStyles_root__ap10oo3"
                       type="button"
                     >

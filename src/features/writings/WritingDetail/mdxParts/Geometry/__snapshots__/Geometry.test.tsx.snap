@@ -1,0 +1,555 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Geometry renders Circles 1`] = `
+<body>
+  <div>
+    <svg
+      class="Geometry_geometrySVGstyle__1crdev50"
+      height="min(100%, 300px)"
+      viewBox="0 0 500 300"
+      width="min(100%, 500px)"
+    >
+      <circle
+        cx="50"
+        cy="50"
+        fill="transparent"
+        r="45"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <circle
+        cx="150"
+        cy="50"
+        fill="transparent"
+        r="45"
+        stroke="currentColor"
+        stroke-width="4"
+      />
+      <circle
+        cx="250"
+        cy="50"
+        fill="transparent"
+        r="45"
+        stroke="currentColor"
+        stroke-width="6"
+      />
+      <circle
+        cx="50"
+        cy="150"
+        fill="transparent"
+        r="45"
+        stroke="#3063D4"
+        stroke-width="2"
+      />
+      <circle
+        cx="150"
+        cy="150"
+        fill="transparent"
+        r="45"
+        stroke="#294e80"
+        stroke-width="2"
+      />
+      <circle
+        cx="250"
+        cy="150"
+        fill="transparent"
+        r="45"
+        stroke="#00ABEE"
+        stroke-width="2"
+      />
+      <circle
+        cx="380"
+        cy="84"
+        fill="transparent"
+        r="34"
+        stroke="currentColor"
+        stroke-width="2"
+      />
+      <circle
+        cx="404.2857142857143"
+        cy="98.57142857142857"
+        fill="transparent"
+        r="54.30450802499489"
+        stroke="#2AB435"
+        stroke-width="2"
+      />
+      <circle
+        cx="380"
+        cy="50"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="410"
+        cy="100"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="350"
+        cy="100"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="360"
+        cy="130"
+        fill="#3063D4"
+        r="8"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`Geometry renders FanoPlane 1`] = `
+<body>
+  <div>
+    <figure
+      class="Figure_figureStyle__yphxa20"
+    >
+      <svg
+        class="Geometry_geometrySVGstyle__1crdev50"
+        height="min(100%, 300px)"
+        viewBox="0 0 500 300"
+        width="min(100%, 500px)"
+      >
+        <line
+          stroke="currentColor"
+          stroke-width="2"
+          x1="250"
+          x2="100"
+          y1="10"
+          y2="290"
+        />
+        <line
+          stroke="currentColor"
+          stroke-width="2"
+          x1="100"
+          x2="400"
+          y1="290"
+          y2="290"
+        />
+        <line
+          stroke="currentColor"
+          stroke-width="2"
+          x1="400"
+          x2="250"
+          y1="290"
+          y2="10"
+        />
+        <line
+          stroke="currentColor"
+          stroke-width="2"
+          x1="250"
+          x2="250"
+          y1="10"
+          y2="290"
+        />
+        <line
+          stroke="currentColor"
+          stroke-width="2"
+          x1="100"
+          x2="326"
+          y1="290"
+          y2="155"
+        />
+        <line
+          stroke="currentColor"
+          stroke-width="2"
+          x1="400"
+          x2="174"
+          y1="290"
+          y2="155"
+        />
+        <circle
+          cx="250"
+          cy="201.1074074074074"
+          fill="transparent"
+          r="88.89259259259259"
+          stroke="currentColor"
+          stroke-width="2"
+        />
+        <circle
+          cx="250"
+          cy="10"
+          fill="currentColor"
+          r="10"
+        />
+        <circle
+          cx="100"
+          cy="290"
+          fill="currentColor"
+          r="10"
+        />
+        <circle
+          cx="400"
+          cy="290"
+          fill="currentColor"
+          r="10"
+        />
+        <circle
+          cx="250"
+          cy="200"
+          fill="currentColor"
+          r="10"
+        />
+        <circle
+          cx="250"
+          cy="290"
+          fill="currentColor"
+          r="10"
+        />
+        <circle
+          cx="326"
+          cy="155"
+          fill="currentColor"
+          r="10"
+        />
+        <circle
+          cx="174"
+          cy="155"
+          fill="currentColor"
+          r="10"
+        />
+      </svg>
+      <figcaption
+        class="Figure_figureCaptionStyle__yphxa21"
+      >
+        Fano Plane
+      </figcaption>
+    </figure>
+  </div>
+</body>
+`;
+
+exports[`Geometry renders Lines 1`] = `
+<body>
+  <div>
+    <svg
+      class="Geometry_geometrySVGstyle__1crdev50"
+      height="min(100%, 300px)"
+      viewBox="0 0 500 300"
+      width="min(100%, 500px)"
+    >
+      <line
+        stroke="currentColor"
+        stroke-width="2"
+        x1="10"
+        x2="90"
+        y1="10"
+        y2="10"
+      />
+      <line
+        stroke="currentColor"
+        stroke-width="2"
+        x1="10"
+        x2="90"
+        y1="30"
+        y2="30"
+      />
+      <line
+        stroke="currentColor"
+        stroke-width="4"
+        x1="10"
+        x2="90"
+        y1="50"
+        y2="50"
+      />
+      <line
+        stroke="currentColor"
+        stroke-width="6"
+        x1="10"
+        x2="90"
+        y1="70"
+        y2="70"
+      />
+      <line
+        stroke="currentColor"
+        stroke-width="8"
+        x1="10"
+        x2="90"
+        y1="90"
+        y2="90"
+      />
+      <line
+        stroke="#3063D4"
+        stroke-width="2"
+        x1="110"
+        x2="190"
+        y1="10"
+        y2="10"
+      />
+      <line
+        stroke="#294e80"
+        stroke-width="2"
+        x1="110"
+        x2="190"
+        y1="30"
+        y2="30"
+      />
+      <line
+        stroke="#00ABEE"
+        stroke-width="2"
+        x1="110"
+        x2="190"
+        y1="50"
+        y2="50"
+      />
+      <line
+        stroke="#2AB435"
+        stroke-width="2"
+        x1="110"
+        x2="190"
+        y1="70"
+        y2="70"
+      />
+      <line
+        stroke="#F33E62"
+        stroke-width="2"
+        x1="110"
+        x2="190"
+        y1="90"
+        y2="90"
+      />
+      <line
+        stroke="currentColor"
+        stroke-width="2"
+        x1="330"
+        x2="360"
+        y1="50"
+        y2="100"
+      />
+      <line
+        stroke="currentColor"
+        stroke-width="2"
+        x1="350"
+        x2="290"
+        y1="100"
+        y2="100"
+      />
+      <line
+        stroke="currentColor"
+        stroke-width="2"
+        x1="289.71008489144947"
+        x2="340.28991510855053"
+        y1="117.14985851425088"
+        y2="32.85014148574912"
+      />
+      <circle
+        cx="330"
+        cy="50"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="360"
+        cy="100"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="300"
+        cy="100"
+        fill="#3063D4"
+        r="8"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`Geometry renders Planes 1`] = `
+<body>
+  <div>
+    <svg
+      class="Geometry_geometrySVGstyle__1crdev50"
+      height="min(100%, 300px)"
+      viewBox="0 0 500 300"
+      width="min(100%, 500px)"
+    >
+      <polygon
+        fill="#3063D4"
+        opacity="0.5"
+        points="10, 10 200, 10 250, 100 50, 100"
+        stroke="#3063D4"
+      />
+      <polygon
+        fill="#294e80"
+        opacity="0.5"
+        points="330, 50 360, 100 300, 100"
+        stroke="#294e80"
+      />
+      <polygon
+        fill="#294e80"
+        opacity="0.5"
+        points="330, 50 360, 100 300, 100"
+        stroke="#294e80"
+      />
+      <circle
+        cx="330"
+        cy="50"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="360"
+        cy="100"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="300"
+        cy="100"
+        fill="#3063D4"
+        r="8"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`Geometry renders Points 1`] = `
+<body>
+  <div>
+    <svg
+      class="Geometry_geometrySVGstyle__1crdev50"
+      height="min(100%, 300px)"
+      viewBox="0 0 500 300"
+      width="min(100%, 500px)"
+    >
+      <circle
+        cx="10"
+        cy="10"
+        fill="currentColor"
+        r="8"
+      />
+      <circle
+        cx="30"
+        cy="10"
+        fill="currentColor"
+        r="5"
+      />
+      <circle
+        cx="52"
+        cy="10"
+        fill="currentColor"
+        r="6"
+      />
+      <circle
+        cx="76"
+        cy="10"
+        fill="currentColor"
+        r="7"
+      />
+      <circle
+        cx="102"
+        cy="10"
+        fill="currentColor"
+        r="8"
+      />
+      <circle
+        cx="130"
+        cy="10"
+        fill="currentColor"
+        r="9"
+      />
+      <circle
+        cx="162"
+        cy="10"
+        fill="currentColor"
+        r="10"
+      />
+      <circle
+        cx="10"
+        cy="50"
+        fill="#3063D4"
+        r="8"
+      />
+      <circle
+        cx="30"
+        cy="50"
+        fill="#294e80"
+        r="5"
+      />
+      <circle
+        cx="52"
+        cy="50"
+        fill="#00ABEE"
+        r="6"
+      />
+      <circle
+        cx="76"
+        cy="50"
+        fill="#2AB435"
+        r="7"
+      />
+      <circle
+        cx="102"
+        cy="50"
+        fill="#F33E62"
+        r="8"
+      />
+      <circle
+        cx="130"
+        cy="50"
+        fill="#899096EE"
+        r="9"
+      />
+      <circle
+        cx="162"
+        cy="50"
+        fill="#59616AEE"
+        r="10"
+      />
+    </svg>
+  </div>
+</body>
+`;
+
+exports[`Geometry renders Texts 1`] = `
+<body>
+  <div>
+    <svg
+      class="Geometry_geometrySVGstyle__1crdev50"
+      height="min(100%, 300px)"
+      viewBox="0 0 500 300"
+      width="min(100%, 500px)"
+    >
+      <foreignobject
+        height="40"
+        requiredExtensions="http://www.w3.org/1999/xhtml"
+        style="color: currentColor;"
+        width="300"
+        x="0"
+        y="0"
+      >
+        こいつの正体は,
+        <code>
+          foreignObject
+        </code>
+      </foreignobject>
+      <foreignobject
+        height="40"
+        requiredExtensions="http://www.w3.org/1999/xhtml"
+        style="color: currentColor;"
+        width="100"
+        x="20"
+        y="100"
+      >
+        (20, 100)
+      </foreignobject>
+      <foreignobject
+        height="40"
+        requiredExtensions="http://www.w3.org/1999/xhtml"
+        style="color: rgb(48, 99, 212);"
+        width="100"
+        x="50"
+        y="50"
+      >
+        (50, 50)
+      </foreignobject>
+    </svg>
+  </div>
+</body>
+`;

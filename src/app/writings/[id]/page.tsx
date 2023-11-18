@@ -7,7 +7,7 @@ import { Container, Spacer } from "@/design-system/layout";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
 import { RelatedWritingsNav } from "@/features/writings/RelatedWritingsNav";
 import { findRelatedWritingMetas } from "@/features/writings/RelatedWritingsNav/findRelatedWritingMetas";
-import { WritingViewer } from "@/features/writings/WritingViewer";
+import { WritingDetail } from "@/features/writings/WritingDetail";
 import { Writing } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 
@@ -54,7 +54,7 @@ const WritingsContentPage = async ({ params }: Props) => {
   return (
     <HeaderFooterTemplate>
       <main>
-        <WritingViewer writing={writing} />
+        <WritingDetail writing={writing} />
       </main>
       {relatedWritingMetas.length > 0 && (
         <>

@@ -5,8 +5,10 @@ import { formatPageTitle } from "@/config/pageTitle";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container, Spacer } from "@/design-system/layout";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
-import { RelatedWritingsNav } from "@/features/writings/RelatedWritingsNav";
-import { findRelatedWritingMetas } from "@/features/writings/RelatedWritingsNav/findRelatedWritingMetas";
+import {
+  RelatedWritingsNav,
+  findRelatedWritingMetas,
+} from "@/features/writings/RelatedWritingsNav";
 import { WritingDetail } from "@/features/writings/WritingDetail";
 import { Writing } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";

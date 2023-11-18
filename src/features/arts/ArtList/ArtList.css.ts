@@ -2,7 +2,7 @@ import { style } from "@vanilla-extract/css";
 
 import { tokens } from "@/design-system/tokens";
 
-export const artsSectionStyles = {
+export const artListStyles = {
   listContainer: style({
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",

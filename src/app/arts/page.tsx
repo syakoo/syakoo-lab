@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
-import { ArtsSection } from "@/features/arts/ArtsSection";
+import { ArtList } from "@/features/arts/ArtList";
 import { resolveArtMeta } from "@/features/arts/artContentResolver";
 import { ArtMeta } from "@/features/arts/types";
 
@@ -25,7 +25,7 @@ const ArtsPage = async () => {
   return (
     <HeaderFooterTemplate>
       <main>
-        <ArtsSection metas={artMetas} />
+        <ArtList metas={artMetas} />
       </main>
     </HeaderFooterTemplate>
   );

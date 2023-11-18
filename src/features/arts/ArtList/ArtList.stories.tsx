@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { ArtsSection } from ".";
+import { ArtList } from ".";
 
 const meta = {
-  component: ArtsSection,
+  component: ArtList,
   parameters: {
     layout: "fullscreen",
   },
-} satisfies Meta<typeof ArtsSection>;
+} satisfies Meta<typeof ArtList>;
 
 export default meta;
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WorksSection renders Sample 1`] = `
+exports[`WorkList renders Sample 1`] = `
 <body>
   <div>
     <section
@@ -25,11 +25,11 @@ exports[`WorksSection renders Sample 1`] = `
               class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
             >
               <div
-                class="WorkBlock_workBlockStyle_imageWrapper__1ykhki81"
+                class="WorkBlock_workBlockStyle_imageWrapper__8mmmgg1"
               >
                 <img
                   alt=""
-                  class="WorkBlock_workBlockStyle_image__1ykhki82"
+                  class="WorkBlock_workBlockStyle_image__8mmmgg2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -44,7 +44,7 @@ exports[`WorksSection renders Sample 1`] = `
                 class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
               >
                 <div
-                  class="WorkBlock_workBlockStyle_body__1ykhki80"
+                  class="WorkBlock_workBlockStyle_body__8mmmgg0"
                 >
                   <h3
                     class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_300__jzpfqdn Text_textStyle_variants_size_300__jzpfqd8 Text_textStyle_weight_bold__jzpfqdt"
@@ -91,11 +91,11 @@ exports[`WorksSection renders Sample 1`] = `
               class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
             >
               <div
-                class="WorkBlock_workBlockStyle_imageWrapper__1ykhki81"
+                class="WorkBlock_workBlockStyle_imageWrapper__8mmmgg1"
               >
                 <img
                   alt=""
-                  class="WorkBlock_workBlockStyle_image__1ykhki82"
+                  class="WorkBlock_workBlockStyle_image__8mmmgg2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -110,7 +110,7 @@ exports[`WorksSection renders Sample 1`] = `
                 class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
               >
                 <div
-                  class="WorkBlock_workBlockStyle_body__1ykhki80"
+                  class="WorkBlock_workBlockStyle_body__8mmmgg0"
                 >
                   <h3
                     class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_300__jzpfqdn Text_textStyle_variants_size_300__jzpfqd8 Text_textStyle_weight_bold__jzpfqdt"
@@ -157,11 +157,11 @@ exports[`WorksSection renders Sample 1`] = `
               class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
             >
               <div
-                class="WorkBlock_workBlockStyle_imageWrapper__1ykhki81"
+                class="WorkBlock_workBlockStyle_imageWrapper__8mmmgg1"
               >
                 <img
                   alt=""
-                  class="WorkBlock_workBlockStyle_image__1ykhki82"
+                  class="WorkBlock_workBlockStyle_image__8mmmgg2"
                   data-nimg="1"
                   decoding="async"
                   height="40"
@@ -176,7 +176,7 @@ exports[`WorksSection renders Sample 1`] = `
                 class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
               >
                 <div
-                  class="WorkBlock_workBlockStyle_body__1ykhki80"
+                  class="WorkBlock_workBlockStyle_body__8mmmgg0"
                 >
                   <h3
                     class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_300__jzpfqdn Text_textStyle_variants_size_300__jzpfqd8 Text_textStyle_weight_bold__jzpfqdt"

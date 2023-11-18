@@ -4,7 +4,7 @@ import { H2, FadeIn } from "@/design-system/ui";
 
 import { WorkBlock } from "./WorkBlock";
 
-export const WorksSection: React.FC = () => {
+export const WorkList: React.FC = () => {
   return (
     <Container
       as="section"

@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/config/pageTitle";
-import { WorksSection } from "@/features/works/WorksSection";
+import { WorkList } from "@/features/works/WorkList";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Works"),
@@ -12,7 +12,7 @@ const WorksPage = () => {
   return (
     <HeaderFooterTemplate>
       <main>
-        <WorksSection />
+        <WorkList />
       </main>
     </HeaderFooterTemplate>
   );

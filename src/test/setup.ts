@@ -1,4 +1,4 @@
-import { exampleMDXComponent } from "@/features/mdx/__mocks__/fixtureMDXComponent";
+import { exampleMDXComponent } from "@/features/mdx/mocks/fixtureMDXComponent";
 
 // NOTE: `@mdx-js/mdx` の esm がうまく解決できなかったためまとめてモック化
 // これが原因でおかしくなっていたらごめんなさい

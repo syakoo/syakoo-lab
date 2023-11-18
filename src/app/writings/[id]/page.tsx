@@ -1,15 +1,15 @@
 import { Metadata } from "next";
 
+import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
+import { formatPageTitle } from "@/config/pageTitle";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container, Spacer } from "@/design-system/layout";
-import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";
-import { formatPageTitle } from "@/features/_common/logics/pageTitle";
-import { serializeMDX } from "@/features/mdx/serializeMDX";
-import { RelatedWritingsNav } from "@/features/writings/RelatedWritingsNav";
-import { findRelatedWritingMetas } from "@/features/writings/RelatedWritingsNav/findRelatedWritingMetas";
-import { WritingViewer } from "@/features/writings/WritingViewer";
-import { Writing } from "@/features/writings/types";
-import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
+import {
+  RelatedWritingsNav,
+  findRelatedWritingMetas,
+} from "@/features/writings/RelatedWritingsNav";
+import { WritingDetail } from "@/features/writings/WritingDetail";
+import { findWriting } from "@/features/writings/WritingDetail/findWriting";
 
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();
@@ -40,21 +40,13 @@ export const generateMetadata = async ({
 };
 
 const WritingsContentPage = async ({ params }: Props) => {
-  const writingContent = (await readWritingContents()).find(
-    ({ frontMatter }) => frontMatter.id === params.id,
-  )!;
-
-  const writing: Writing = {
-    meta: resolveWritingMeta({ frontMatter: writingContent.frontMatter }),
-    serializedBody: await serializeMDX(writingContent.body),
-  };
-
+  const writing = await findWriting(params.id);
   const relatedWritingMetas = await findRelatedWritingMetas(writing.meta.tags);
 
   return (
     <HeaderFooterTemplate>
       <main>
-        <WritingViewer writing={writing} />
+        <WritingDetail writing={writing} />
       </main>
       {relatedWritingMetas.length > 0 && (
         <>

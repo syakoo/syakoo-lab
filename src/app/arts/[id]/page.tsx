@@ -1,9 +1,9 @@
 import { Metadata } from "next";
 
+import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
+import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
-import { HeaderFooterTemplate } from "@/features/_common/components/HeaderFooterTemplate";
-import { formatPageTitle } from "@/features/_common/logics/pageTitle";
-import { ArtSection } from "@/features/arts/ArtSection";
+import { ArtDetail } from "@/features/arts/ArtDetail";
 import { resolveArtMeta } from "@/features/arts/artContentResolver";
 import type { Art } from "@/features/arts/types";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
@@ -50,7 +50,7 @@ const ArtsContentPage = async ({ params }: Props) => {
   return (
     <HeaderFooterTemplate>
       <main>
-        <ArtSection art={art} />
+        <ArtDetail art={art} />
       </main>
     </HeaderFooterTemplate>
   );

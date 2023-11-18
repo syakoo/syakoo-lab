@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound renders Sample 1`] = `
+<body>
+  <div>
+    <section>
+      <header
+        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_flexEnd__15ivi84t Flex_flexStyle_variants_align_flexEnd__15ivi848 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_300__15ivi8410 Flex_flexStyle_variants_gap_300__15ivi84f Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+      >
+        <div
+          class="PageNotFound_errorCodeStyles__q3xvsf0"
+        >
+          404
+        </div>
+        <div>
+          <h1
+            class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_500__jzpfqdp Text_textStyle_variants_size_500__jzpfqda Text_textStyle_weight_bold__jzpfqdt"
+          >
+            Not Found
+          </h1>
+          <div
+            aria-hidden="true"
+            class="Spacer__1jyq491e Spacer_spacerStyle_y_50__1jyq491n Spacer_spacerStyle_variants_y_50__1jyq4918"
+          />
+        </div>
+      </header>
+      <div>
+        <span
+          class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_normal__jzpfqdu"
+        >
+          ページが見つかりませんでした。正しいURLかもう一度お確かめください。
+        </span>
+        <a
+          class="Link_linkStyle__m4v9430 Link_linkStyle_colored_true__m4v9431"
+          href="/"
+        >
+          Home に戻る
+        </a>
+      </div>
+    </section>
+  </div>
+</body>
+`;

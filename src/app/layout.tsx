@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import "ress";
-import "@/globalStyle.css";
 import { Roboto, Fira_Code, Noto_Sans_JP } from "next/font/google";
 import { Suspense } from "react";
 
-import { GoogleAnalytics } from "@/features/_common/components/GoogleAnalytics";
+import "@/config/globalSettings";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
 const roboto = Roboto({

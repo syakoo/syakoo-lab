@@ -1,0 +1,1 @@
+export { WritingDetail } from "./WritingDetail";

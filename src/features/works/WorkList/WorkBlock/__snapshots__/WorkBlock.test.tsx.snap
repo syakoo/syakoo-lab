@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkBlock renders Sample 1`] = `
+<body>
+  <div>
+    <article
+      class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+    >
+      <div
+        class="WorkBlock_workBlockStyle_imageWrapper__8mmmgg1"
+      >
+        <img
+          alt=""
+          class="WorkBlock_workBlockStyle_image__8mmmgg2"
+          data-nimg="1"
+          decoding="async"
+          height="50"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=128&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=128&q=75 2x"
+          style="color: transparent;"
+          width="50"
+        />
+      </div>
+      <div
+        class="Flex_flexItemStyle__15ivi8419 Flex_flexItemStyle_grow_1__15ivi841d"
+      >
+        <div
+          class="WorkBlock_workBlockStyle_body__8mmmgg0"
+        >
+          <h3
+            class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_300__jzpfqdn Text_textStyle_variants_size_300__jzpfqd8 Text_textStyle_weight_bold__jzpfqdt"
+          >
+            <a
+              class="Link_linkStyle__m4v9430"
+              href="#"
+            >
+              Work Name
+            </a>
+          </h3>
+          <div>
+            <div>
+              ここに作品の説明文が入ります。
+            </div>
+            <div
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_25__15ivi84w Flex_flexStyle_variants_gap_25__15ivi84b Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+            >
+              <span
+                class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_50__jzpfqdj Text_textStyle_variants_size_50__jzpfqd4 Text_textStyle_weight_normal__jzpfqdu"
+              >
+                released: 
+                2023-10-03
+                , repo:
+                 
+                <a
+                  class="Link_linkStyle__m4v9430 Link_linkStyle_underlined_true__m4v9432"
+                  href="https://github.com/syakoo"
+                >
+                  syakoo
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+`;

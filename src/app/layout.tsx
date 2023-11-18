@@ -22,7 +22,6 @@ export const metadata: Metadata = {
   },
   description: "syakoo の個人ブログ",
   openGraph: {
-    title: "Syakoo Lab",
     type: "website",
     images: "/icon.svg",
   },

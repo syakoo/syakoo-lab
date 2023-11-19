@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   robots: {
     index: false,
   },
+  openGraph: {
+    url: "/writings",
+  },
 };
 
 const WritingsPage = async () => {

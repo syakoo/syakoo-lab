@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   robots: {
     index: false,
   },
+  openGraph: {
+    url: `/privacy-policy`,
+  },
 };
 
 const PrivacyPolicyPage = () => {

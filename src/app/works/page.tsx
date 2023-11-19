@@ -6,6 +6,9 @@ import { WorkList } from "@/features/works/WorkList";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Works"),
+  openGraph: {
+    url: `/works`,
+  },
 };
 
 const WorksPage = () => {

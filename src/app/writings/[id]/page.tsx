@@ -36,6 +36,9 @@ export const generateMetadata = async ({
     robots: {
       index: !writingContent.frontMatter.noindex,
     },
+    openGraph: {
+      url: `/writings/${writingContent.frontMatter.id}`,
+    },
   };
 };
 

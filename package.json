@@ -21,7 +21,8 @@
     "type-check": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate:component": "hygen component new"
+    "generate:component": "hygen component new",
+    "generate:writing": "hygen writings new"
   },
   "simple-git-hooks": {
     "commit-msg": "pnpm exec commitlint --edit ${1} && pnpm exec emoji-prefix-commit",
@@ -61,12 +62,14 @@
     "rehype-pretty-code": "^0.10.2",
     "remark-math": "^5.1.1",
     "ress": "^5.0.2",
+    "sharp": "^0.32.6",
     "shiki": "^0.14.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
     "@next/eslint-plugin-next": "^14.0.2",
+    "@storybook/addon-a11y": "^7.5.3",
     "@storybook/addon-essentials": "^7.5.3",
     "@storybook/addon-interactions": "^7.5.3",
     "@storybook/addon-links": "^7.5.3",

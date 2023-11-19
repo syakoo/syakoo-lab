@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     images: "/icon.svg",
+    url: "/",
+  },
+  twitter: {
+    card: "summary",
   },
 };
 

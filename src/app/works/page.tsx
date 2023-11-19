@@ -7,6 +7,8 @@ import { WorkList } from "@/features/works/WorkList";
 export const metadata: Metadata = {
   title: formatPageTitle("Works"),
   openGraph: {
+    type: "website",
+    images: "/logo.png",
     url: `/works`,
   },
 };

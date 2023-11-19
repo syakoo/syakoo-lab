@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     index: false,
   },
   openGraph: {
+    type: "website",
+    images: "/logo.png",
     url: `/arts`,
   },
 };

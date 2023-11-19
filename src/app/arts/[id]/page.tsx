@@ -35,6 +35,8 @@ export const generateMetadata = async ({
       index: false,
     },
     openGraph: {
+      type: "website",
+      images: "/logo.png",
       url: `/arts/${artContent.frontMatter.id}`,
     },
   };

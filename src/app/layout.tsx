@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   description: "syakoo の個人ブログ",
   openGraph: {
     type: "website",
-    images: "/icon.svg",
+    images: "/logo.png",
     url: "/",
   },
   twitter: {

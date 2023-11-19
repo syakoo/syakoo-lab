@@ -21,7 +21,8 @@
     "type-check": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate:component": "hygen component new"
+    "generate:component": "hygen component new",
+    "generate:writing": "hygen writings new"
   },
   "simple-git-hooks": {
     "commit-msg": "pnpm exec commitlint --edit ${1} && pnpm exec emoji-prefix-commit",

@@ -1,3 +1,5 @@
+"use client";
+
 export { default as Geometry } from "./Geometry";
 // GHogeHoge の形で export する
 export { Circle as GCircle } from "./Circle";

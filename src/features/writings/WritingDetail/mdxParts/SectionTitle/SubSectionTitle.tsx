@@ -1,10 +1,12 @@
+"use client";
+
 import { Link } from "@/design-system/ui";
 
 import { subsectionTitleStyle } from "./SectionTitle.css";
-import { useSectionTitleId } from "./useSectionTitleId";
 
 type SubSectionTitleProps = {
   children: React.ReactNode;
+  id?: string;
 };
 
 /**
@@ -12,12 +14,11 @@ type SubSectionTitleProps = {
  */
 export const SubSectionTitle: React.FC<SubSectionTitleProps> = ({
   children,
+  id,
 }) => {
-  const { titleRef, sectionId } = useSectionTitleId();
-
   return (
-    <h3 ref={titleRef} className={subsectionTitleStyle} id={sectionId}>
-      <Link href={`#${sectionId}`}>{children}</Link>
+    <h3 className={subsectionTitleStyle} id={id}>
+      <Link href={`#${id}`}>{children}</Link>
     </h3>
   );
 };

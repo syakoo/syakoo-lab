@@ -1,5 +1,3 @@
-"use server";
-
 import { JSDOM } from "jsdom";
 import React from "react";
 

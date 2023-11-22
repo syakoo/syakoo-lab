@@ -1,5 +1,3 @@
-"use server";
-
 import { JSDOM } from "jsdom";
 
 import type { MDXCustomTextPlugin } from "@/features/mdx/types";

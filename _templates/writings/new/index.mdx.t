@@ -3,6 +3,7 @@ to: src/contents/writings/<%= id %>/index.mdx
 ---
 
 ---
+id: <%= id %>
 type: '<%= type %>'
 title: 'Sample Writing'
 published: ''

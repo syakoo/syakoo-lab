@@ -21,7 +21,7 @@ export const mdxParts = {
   Choices,
   Scrap,
   Image,
-  h2: SectionTitle,
-  h3: SubSectionTitle,
+  SectionTitle,
+  SubSectionTitle,
   Figure,
 };

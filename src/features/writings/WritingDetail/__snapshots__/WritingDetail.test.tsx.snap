@@ -107,16 +107,8 @@ exports[`WritingDetail renders Sample 1`] = `
           <p>
             Sample MDX Component
           </p>
-          <h2
-            class="SectionTitle_sectionTitleStyle__h3t63f0"
-            id="undefined"
-          >
-            <a
-              class="Link_linkStyle__m4v9430"
-              href="#undefined"
-            >
-              Sample Title
-            </a>
+          <h2>
+            Sample Title
           </h2>
         </div>
         <aside

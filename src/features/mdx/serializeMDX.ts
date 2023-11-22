@@ -3,9 +3,7 @@ import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkMath from "remark-math";
 
-import { markupLinkCard } from "./plugins/linkCardPlugin";
-import { markupMermaid } from "./plugins/mermaid/mermaidPlugin";
-import type { SerializedMDX } from "./types";
+import type { MDXCustomTextPlugin, SerializedMDX } from "./types";
 
 /**
  * MDX 本文をシリアライズする関数
@@ -14,13 +12,13 @@ import type { SerializedMDX } from "./types";
  */
 export const serializeMDX = async (
   mdxContent: string,
+  option?: { plugins: MDXCustomTextPlugin[] },
 ): Promise<SerializedMDX> => {
-  // NOTE: プラグインをわかりやすく見せるため
-  const resolvedCustomPlugins = await new Promise<string>((resolve) =>
-    resolve(mdxContent),
-  )
-    .then(markupLinkCard)
-    .then(markupMermaid);
+  const plugins = option?.plugins ?? [];
+  const resolvedCustomPlugins = await plugins.reduce(
+    (promise, plugin) => promise.then(plugin),
+    Promise.resolve(mdxContent),
+  );
 
   // MDX string -> JS string
   const compiledContent = await compile(resolvedCustomPlugins, {

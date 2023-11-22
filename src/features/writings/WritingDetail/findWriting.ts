@@ -1,10 +1,10 @@
 import { readWritingContents } from "@/contents/writings/reader";
-import { markupLinkCard } from "@/features/mdx/plugins/linkCardPlugin";
 import { markupMermaid } from "@/features/mdx/plugins/mermaid/mermaidPlugin";
 import { serializeMDX } from "@/features/mdx/serializeMDX";
 import { Writing } from "@/features/writings/types";
 import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
 
+import { markupLinkCardPlugin } from "./mdxParts/LinkCard/markupLinkCardPlugin";
 import { markupSectionTitlePlugin } from "./mdxParts/SectionTitle/markupSectionTitlePlugin";
 
 /**
@@ -22,7 +22,7 @@ export const findWriting = async (id: string): Promise<Writing> => {
   const writing: Writing = {
     meta: resolveWritingMeta({ frontMatter: writingContent.frontMatter }),
     serializedBody: await serializeMDX(writingContent.body, {
-      plugins: [markupLinkCard, markupMermaid, markupSectionTitlePlugin],
+      plugins: [markupLinkCardPlugin, markupMermaid, markupSectionTitlePlugin],
     }),
   };
 

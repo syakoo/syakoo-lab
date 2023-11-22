@@ -1,29 +1,25 @@
+"use server";
+
 import { JSDOM } from "jsdom";
 
 import type { MDXCustomTextPlugin } from "@/features/mdx/types";
 
-export type LinkCardProps = {
-  imgSrc: string;
-  title: string;
-  url: string;
-  description?: string;
-  faviconSrc: string;
-};
+import type { LinkCardProps } from "./LinkCard";
 
-function joinPathRoot(path: string, url: string) {
+const joinPathRoot = (path: string, url: string) => {
   if (path.match("https://")) {
     return path;
   }
 
   const base = url.split("/").slice(0, 3).join("/");
   return `${base}/${path}`;
-}
+};
 
-function isExpectImgSrc(content: string): boolean {
+const isExpectImgSrc = (content: string): boolean => {
   return content.startsWith("http") || content.startsWith("/");
-}
+};
 
-async function getLinkCardProps(url: string): Promise<LinkCardProps> {
+const getLinkCardProps = async (url: string): Promise<LinkCardProps> => {
   const result: LinkCardProps = {
     url,
     imgSrc: "",
@@ -73,14 +69,12 @@ async function getLinkCardProps(url: string): Promise<LinkCardProps> {
   }
 
   return result;
-}
+};
 
 /**
- * 外部リンクのカードを OGP を取得しコンポーネントの引数に渡すプラグイン
- *
- * NOTE: このプラグインを使用する場合は、 {@link LinkCardProps} を props として持つ `LinkCard` コンポーネントを定義する必要がある
+ * 外部リンクのカードを OGP を取得し LinkCard に変換するプラグイン
  */
-export const markupLinkCard: MDXCustomTextPlugin = async (mdText) => {
+export const markupLinkCardPlugin: MDXCustomTextPlugin = async (mdText) => {
   const splittedMdTexts = mdText.split("\n");
 
   const resultSplittedTexts = await Promise.all(
@@ -90,7 +84,6 @@ export const markupLinkCard: MDXCustomTextPlugin = async (mdText) => {
       if (regex.test(text.trim())) {
         const linkCardProps = await getLinkCardProps(text.trim());
 
-        // NOTE: コンポーネント名もここで決定している
         return `<LinkCard {...${JSON.stringify(linkCardProps)}} />`;
       }
 

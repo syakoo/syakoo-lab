@@ -1,4 +1,4 @@
-import type { WritingType } from "@/features/writings/types";
+import type { WritingType } from "@/features/writings/models/types";
 
 export type WritingListType = WritingType | "all";
 

@@ -6,7 +6,7 @@ import { readWritingContents } from "@/contents/writings/reader";
 import { Container, Spacer } from "@/design-system/layout";
 import {
   RelatedWritingsNav,
-  findRelatedWritingMetas,
+  findRelatedWritingHeads,
 } from "@/features/writings/RelatedWritingsNav";
 import { WritingDetail } from "@/features/writings/WritingDetail";
 import { findWriting } from "@/features/writings/WritingDetail/findWriting";
@@ -46,18 +46,18 @@ export const generateMetadata = async ({
 
 const WritingsContentPage = async ({ params }: Props) => {
   const writing = await findWriting(params.id);
-  const relatedWritingMetas = await findRelatedWritingMetas(writing.meta.tags);
+  const relatedWritingHeads = await findRelatedWritingHeads(writing.head.tags);
 
   return (
     <HeaderFooterTemplate>
       <main>
         <WritingDetail writing={writing} />
       </main>
-      {relatedWritingMetas.length > 0 && (
+      {relatedWritingHeads.length > 0 && (
         <>
           <Spacer y="500" />
           <Container center paddingX="200">
-            <RelatedWritingsNav metas={relatedWritingMetas} />
+            <RelatedWritingsNav heads={relatedWritingHeads} />
           </Container>
         </>
       )}

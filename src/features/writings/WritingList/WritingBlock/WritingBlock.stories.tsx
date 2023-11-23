@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import type { WritingMeta } from "@/features/writings/types";
+import { WritingHead } from "@/features/writings/models/types";
 
 import { WritingBlock } from ".";
 
@@ -13,7 +13,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Sample: Story = {
   args: {
-    meta: {
+    head: {
       id: "sample-writing-meta-id",
       link: "/writing/post/20231009",
       title: "Sample Article",
@@ -25,7 +25,7 @@ export const Sample: Story = {
 };
 
 export const Types = () => {
-  const data: WritingMeta[] = [
+  const data: WritingHead[] = [
     {
       id: "sample-writing-meta-id1",
       link: "/writing/post/20231009",
@@ -54,9 +54,9 @@ export const Types = () => {
 
   return (
     <div>
-      {data.map((meta) => (
-        <div key={meta.id}>
-          <WritingBlock meta={meta} />
+      {data.map((head) => (
+        <div key={head.id}>
+          <WritingBlock head={head} />
         </div>
       ))}
     </div>

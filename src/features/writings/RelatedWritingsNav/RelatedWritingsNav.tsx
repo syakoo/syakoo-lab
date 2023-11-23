@@ -1,25 +1,25 @@
 import { Col } from "@/design-system/layout";
 import { H3 } from "@/design-system/ui";
-import { WritingMeta } from "@/features/writings/types";
+import { WritingHead } from "@/features/writings/models/types";
 
 import { WritingLink } from "./WritingLink";
 
 type RelatedWritingsNavProps = {
-  metas: WritingMeta[];
+  heads: WritingHead[];
 };
 /**
  * 関連文書表示コンポーネント
  */
 export const RelatedWritingsNav: React.FC<RelatedWritingsNavProps> = ({
-  metas,
+  heads,
 }) => {
   return (
     <Col as="nav" gap="200">
       <H3>Related Writings</H3>
       <Col as="ul">
-        {metas.map((meta) => (
-          <li key={meta.id}>
-            <WritingLink meta={meta} />
+        {heads.map((head) => (
+          <li key={head.id}>
+            <WritingLink head={head} />
           </li>
         ))}
       </Col>

@@ -12,7 +12,7 @@ type Story = StoryObj<typeof meta>;
 export const Sample: Story = {
   args: {
     writing: {
-      meta: {
+      head: {
         id: "sample-writing-meta-id1",
         link: "/writing/post/20231009",
         title: "Sample Article",
@@ -20,7 +20,9 @@ export const Sample: Story = {
         tags: ["雑記", "Sample"],
         published: "2023-10-09",
       },
-      serializedBody: `/*@jsxRuntime automatic @jsxImportSource react*/
+      body: {
+        type: "serialized",
+        data: `/*@jsxRuntime automatic @jsxImportSource react*/
 const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
 function _createMdxContent(props) {
   const _components = Object.assign({
@@ -95,6 +97,7 @@ return {
   default: MDXContent
 };
 `,
+      },
     },
   },
 };

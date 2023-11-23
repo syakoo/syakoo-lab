@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 import { Col } from "@/design-system/layout";
 import { H2, FadeIn } from "@/design-system/ui";
-import type { WritingMeta } from "@/features/writings/types";
+import { WritingHead } from "@/features/writings/models/types";
 
 import { WritingBlock } from "./WritingBlock";
 import { WritingTab } from "./WritingTab";
@@ -12,16 +12,16 @@ import { WritingTypeDescription } from "./WritingTypeDescription";
 import type { WritingListType } from "./_shared/writingListType";
 
 type WritingListProps = {
-  metas: WritingMeta[];
+  heads: WritingHead[];
 };
 
-export const WritingList: React.FC<WritingListProps> = ({ metas }) => {
+export const WritingList: React.FC<WritingListProps> = ({ heads }) => {
   const searchParams = useSearchParams();
   const type = (searchParams.get("type") ?? "all") as WritingListType;
 
-  const filteredMetas = metas.filter((meta) => {
+  const filteredHeads = heads.filter((head) => {
     if (type === "all") return true;
-    return type === meta.type;
+    return type === head.type;
   });
 
   return (
@@ -33,9 +33,9 @@ export const WritingList: React.FC<WritingListProps> = ({ metas }) => {
           <WritingTypeDescription type={type} />
         </Col>
         <Col key={type} as="ul" gap="200">
-          {filteredMetas.map((meta, i) => (
-            <FadeIn key={meta.id} as="li" delaySec={0.05 * i}>
-              <WritingBlock meta={meta} />
+          {filteredHeads.map((head, i) => (
+            <FadeIn key={head.id} as="li" delaySec={0.05 * i}>
+              <WritingBlock head={head} />
             </FadeIn>
           ))}
         </Col>

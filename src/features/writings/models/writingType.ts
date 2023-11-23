@@ -1,5 +1,6 @@
 import type { IconName } from "@/design-system/icons";
-import type { WritingType } from "@/features/writings/types";
+
+import type { WritingType } from "./types";
 
 type WritingTypeConfigItem = {
   type: WritingType;

@@ -7,7 +7,7 @@ import { formatPageTitle } from "@/config/pageTitle";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
 import { WritingList } from "@/features/writings/WritingList";
-import { resolveWritingHead } from "@/features/writings/models/headResolver";
+import { resolveWritingHead } from "@/features/writings/_models/headResolver";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),

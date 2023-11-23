@@ -1,6 +1,6 @@
 import { readWritingContents } from "@/contents/writings/reader";
-import { resolveWritingHead } from "@/features/writings/models/headResolver";
-import { type WritingHead } from "@/features/writings/models/types";
+import { resolveWritingHead } from "@/features/writings/_models/headResolver";
+import { type WritingHead } from "@/features/writings/_models/types";
 import { isIntersect } from "@/utils/array/isIntersect";
 
 /**

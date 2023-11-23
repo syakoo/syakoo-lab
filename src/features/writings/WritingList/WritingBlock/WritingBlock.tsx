@@ -1,8 +1,8 @@
 import { Icon } from "@/design-system/icons";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";
-import { WritingHead } from "@/features/writings/models/types";
-import { writingTypeConfig } from "@/features/writings/models/writingType";
+import { WritingHead } from "@/features/writings/_models/types";
+import { writingTypeConfig } from "@/features/writings/_models/writingType";
 
 import { writingBlockStyles } from "./WritingBlock.css";
 

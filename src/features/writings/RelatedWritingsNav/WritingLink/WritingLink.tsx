@@ -2,8 +2,8 @@ import { Icon } from "@/design-system/icons";
 import { Col, Row } from "@/design-system/layout";
 import { Link } from "@/design-system/ui";
 import { H4, Span } from "@/design-system/ui/Text/Text";
-import { WritingHead } from "@/features/writings/models/types";
-import { writingTypeConfig } from "@/features/writings/models/writingType";
+import { WritingHead } from "@/features/writings/_models/types";
+import { writingTypeConfig } from "@/features/writings/_models/writingType";
 
 import { writingLinkStyles } from "./WritingLink.css";
 

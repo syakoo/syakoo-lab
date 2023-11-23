@@ -5,8 +5,8 @@ import { addYears, isBefore } from "date-fns";
 import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
 import { useTwitter } from "@/features/mdx/useTwitter";
-import { resolveWritingBody } from "@/features/writings/models/bodyResolver";
-import { SerializedWriting } from "@/features/writings/models/types";
+import { resolveWritingBody } from "@/features/writings/_models/bodyResolver";
+import { SerializedWriting } from "@/features/writings/_models/types";
 
 import { TOC } from "./TOC";
 import { writingDetailStyles } from "./WritingDetail.css";

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { WritingHead } from "@/features/writings/models/types";
+import { WritingHead } from "@/features/writings/_models/types";
 
 import { WritingBlock } from ".";
 

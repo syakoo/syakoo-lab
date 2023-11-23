@@ -1,7 +1,7 @@
 import { readWritingContents } from "@/contents/writings/reader";
-import { serializeWritingBody } from "@/features/writings/models/bodySerializer";
-import { resolveWritingHead } from "@/features/writings/models/headResolver";
-import { SerializedWriting } from "@/features/writings/models/types";
+import { serializeWritingBody } from "@/features/writings/_models/bodySerializer";
+import { resolveWritingHead } from "@/features/writings/_models/headResolver";
+import { SerializedWriting } from "@/features/writings/_models/types";
 
 /**
  * 書き物を取得する関数

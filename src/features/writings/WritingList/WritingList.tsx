@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 
 import { Col } from "@/design-system/layout";
 import { H2, FadeIn } from "@/design-system/ui";
-import { WritingHead } from "@/features/writings/models/types";
+import { WritingHead } from "@/features/writings/_models/types";
 
 import { WritingBlock } from "./WritingBlock";
 import { WritingTab } from "./WritingTab";

@@ -21,8 +21,6 @@ export type WritingResolvedBody = {
   type: "resolved";
   data: MDXComponent;
 };
-// body は string (plaintext) -> string (MDXComponent) -> MDXComponent
-export type WritingBody = WritingSerializedBody | WritingResolvedBody;
 
 export type SerializedWriting = {
   head: WritingHead;

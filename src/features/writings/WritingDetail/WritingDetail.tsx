@@ -4,7 +4,7 @@ import { addYears, isBefore } from "date-fns";
 
 import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
-import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
+import { resolveMDXContent } from "@/features/mdx/resolver";
 import { useTwitter } from "@/features/mdx/useTwitter";
 import { SerializedWriting } from "@/features/writings/_models/types";
 
@@ -26,7 +26,7 @@ const components = {
 export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
   useMermaid();
   useTwitter();
-  const MDXComponent = resolveMDXAsComponent(writing.body).data;
+  const MDXComponent = resolveMDXContent(writing.body).data;
   const isOldWriting = (() => {
     // NOTE: diary の場合は古くても表示する必要はないと判断
     if (writing.head.type === "diary") return false;

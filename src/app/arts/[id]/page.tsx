@@ -6,7 +6,7 @@ import { readArtContents } from "@/contents/arts/reader";
 import { ArtDetail } from "@/features/arts/ArtDetail";
 import { resolveArtHead } from "@/features/arts/_models/headResolver";
 import { SerializedArt } from "@/features/arts/_models/types";
-import { serializeMDX } from "@/features/mdx/serializeMDX";
+import { serializeMDXContent } from "@/features/mdx/serializer";
 
 export const generateStaticParams = async () => {
   const artContents = await readArtContents();
@@ -49,7 +49,7 @@ const ArtsContentPage = async ({ params }: Props) => {
 
   const art: SerializedArt = {
     head: resolveArtHead(artContent.frontMatter),
-    body: await serializeMDX(artContent.body),
+    body: await serializeMDXContent(artContent.body),
   };
 
   return (

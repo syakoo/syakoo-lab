@@ -10,7 +10,7 @@ import type {
 /**
  * シリアライズされた MDX をコンポーネントに解決する関数
  */
-export const resolveMDXAsComponent = (
+export const resolveMDXContent = (
   serializedMDXContent: SerializedMDXContent,
 ): ResolvedMDXContent => {
   // JS string -> MDXComponent

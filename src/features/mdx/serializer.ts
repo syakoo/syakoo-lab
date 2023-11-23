@@ -10,7 +10,7 @@ import type { MDXCustomTextPlugin, SerializedMDXContent } from "./types";
  *
  * NOTE: node で実行する必要がある
  */
-export const serializeMDX = async (
+export const serializeMDXContent = async (
   mdxContent: string,
   option?: { plugins: MDXCustomTextPlugin[] },
 ): Promise<SerializedMDXContent> => {

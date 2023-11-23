@@ -6,7 +6,7 @@ import { Col, Row } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
 import { SerializedArt } from "@/features/arts/_models/types";
 import { HeartButton } from "@/features/arts/_shared/HeartButton/HeartButton";
-import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
+import { resolveMDXContent } from "@/features/mdx/resolver";
 
 import { artDetailStyles } from "./ArtDetail.css";
 import { useFav } from "./useFav";
@@ -17,7 +17,7 @@ type ArtDetailProps = {
 
 export const ArtDetail: React.FC<ArtDetailProps> = ({ art }) => {
   const { fav, incrementFav } = useFav(art.head.id);
-  const MDXComponent = resolveMDXAsComponent(art.body).data;
+  const MDXComponent = resolveMDXContent(art.body).data;
 
   const handleClickHeartButton = () => void incrementFav();
 

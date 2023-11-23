@@ -21,8 +21,7 @@
     "type-check": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "generate:component": "hygen component new",
-    "generate:writing": "hygen writings new"
+    "generate": "scaffdog generate"
   },
   "simple-git-hooks": {
     "commit-msg": "pnpm exec commitlint --edit ${1} && pnpm exec emoji-prefix-commit",
@@ -103,7 +102,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-unused-imports": "^3.0.0",
-    "hygen": "^6.2.11",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^14.0.1",
@@ -112,6 +110,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^3.1.0",
     "prop-types": "^15.8.1",
+    "scaffdog": "^3.0.0",
     "simple-git-hooks": "^2.9.0",
     "storybook": "^7.5.3",
     "ts-jest": "^29.1.1",

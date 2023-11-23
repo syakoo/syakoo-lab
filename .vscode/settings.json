@@ -3,13 +3,13 @@
     "autodocs",
     "commitlint",
     "ress",
-    "hygen",
     "metas",
     "katex",
     "rehype",
     "fontsource",
     "noto-sans-jp",
     "fira-code",
-    "roboto"
+    "roboto",
+    "scaffdog"
   ]
 }

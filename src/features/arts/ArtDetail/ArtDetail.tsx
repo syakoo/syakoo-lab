@@ -4,9 +4,9 @@ import Image from "next/image";
 
 import { Col, Row } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
+import { resolveArtBody } from "@/features/arts/_models/bodyResolver";
+import { SerializedArt } from "@/features/arts/_models/types";
 import { HeartButton } from "@/features/arts/_shared/HeartButton/HeartButton";
-import { resolveArtBody } from "@/features/arts/models/bodyResolver";
-import { SerializedArt } from "@/features/arts/models/types";
 
 import { artDetailStyles } from "./ArtDetail.css";
 import { useFav } from "./useFav";

@@ -5,8 +5,8 @@ import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
 import { ArtList } from "@/features/arts/ArtList";
-import { resolveArtHead } from "@/features/arts/models/headResolver";
-import { ArtHead } from "@/features/arts/models/types";
+import { resolveArtHead } from "@/features/arts/_models/headResolver";
+import { ArtHead } from "@/features/arts/_models/types";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Arts"),

@@ -5,8 +5,8 @@ import Image from "next/image";
 import { api } from "@/api";
 import { Col, FlexItem, Row } from "@/design-system/layout";
 import { H3, Link } from "@/design-system/ui";
+import type { ArtHead } from "@/features/arts/_models/types";
 import { HeartButton } from "@/features/arts/_shared/HeartButton";
-import type { ArtHead } from "@/features/arts/models/types";
 
 import { artGalleryItemStyles } from "./ArtGalleryItem.css";
 

@@ -35,7 +35,7 @@ export const markupSectionTitlePlugin: MDXCustomTextPlugin = async (mdText) => {
         // HACK: 見出しが無限に続くことはないため循環が続くことはない
         // NOTE: 見出しにオプションは使用しなくていいだろうと判断
         const serializedMDX = await serializeMDX(content);
-        const MDXComponent = resolveMDXAsComponent(serializedMDX);
+        const MDXComponent = resolveMDXAsComponent(serializedMDX).data;
 
         // JSDOM へ描画し、評価後の内部のテキストだけを取得する
         const jsdom = new JSDOM(

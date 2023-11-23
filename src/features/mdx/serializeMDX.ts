@@ -3,7 +3,7 @@ import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkMath from "remark-math";
 
-import type { MDXCustomTextPlugin, SerializedMDX } from "./types";
+import type { MDXCustomTextPlugin, SerializedMDXContent } from "./types";
 
 /**
  * MDX 本文をシリアライズする関数
@@ -13,7 +13,7 @@ import type { MDXCustomTextPlugin, SerializedMDX } from "./types";
 export const serializeMDX = async (
   mdxContent: string,
   option?: { plugins: MDXCustomTextPlugin[] },
-): Promise<SerializedMDX> => {
+): Promise<SerializedMDXContent> => {
   const plugins = option?.plugins ?? [];
   const resolvedCustomPlugins = await plugins.reduce(
     (promise, plugin) => promise.then(plugin),
@@ -31,5 +31,8 @@ export const serializeMDX = async (
     ],
   }).then(String);
 
-  return compiledContent;
+  return {
+    type: "serialized",
+    data: compiledContent,
+  };
 };

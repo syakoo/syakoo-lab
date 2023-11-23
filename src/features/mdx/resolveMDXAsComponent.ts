@@ -1,20 +1,27 @@
 import { runSync } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 
-import type { MDXComponent, SerializedMDX } from "./types";
+import type {
+  MDXComponent,
+  ResolvedMDXContent,
+  SerializedMDXContent,
+} from "./types";
 
 /**
  * シリアライズされた MDX をコンポーネントに解決する関数
  */
 export const resolveMDXAsComponent = (
-  serializedMDX: SerializedMDX,
-): MDXComponent => {
+  serializedMDXContent: SerializedMDXContent,
+): ResolvedMDXContent => {
   // JS string -> MDXComponent
   const MDXContent = (
-    runSync(serializedMDX, {
+    runSync(serializedMDXContent.data, {
       ...runtime,
     }) as { default: MDXComponent }
   ).default;
 
-  return MDXContent;
+  return {
+    type: "resolved",
+    data: MDXContent,
+  };
 };

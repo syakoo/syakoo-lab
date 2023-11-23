@@ -1,6 +1,4 @@
 /**
- * src/contents/arts 以下のコンテンツにアクセスしてよしなに処理してくれるやつ。
- *
  * CAUTION: node で使用すること
  */
 import fs from "fs";
@@ -10,10 +8,12 @@ import probe from "probe-image-size";
 
 import type { ArtContentFrontMatter } from "@/contents/arts/types";
 
-import type { ArtMeta } from "./types";
+import type { ArtHead } from "./types";
 
-type ResolveArtMeta = (arg: { frontMatter: ArtContentFrontMatter }) => ArtMeta;
-export const resolveArtMeta: ResolveArtMeta = ({ frontMatter }) => {
+/**
+ * イラストのヘッダーコンテンツを変換する関数
+ */
+export const resolveArtHead = (frontMatter: ArtContentFrontMatter): ArtHead => {
   const publicDir = path.join(process.cwd(), "public");
   const imgData = fs.readFileSync(path.join(publicDir, frontMatter.imgUrl));
 

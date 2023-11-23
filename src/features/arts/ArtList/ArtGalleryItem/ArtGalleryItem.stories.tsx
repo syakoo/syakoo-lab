@@ -22,7 +22,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Sample: Story = {
   args: {
-    meta: {
+    head: {
       id: "sample-id-1",
       title: "Sample Art Title",
       published: "20231029",
@@ -35,7 +35,7 @@ export const Sample: Story = {
 
 export const LongText: Story = {
   args: {
-    meta: {
+    head: {
       id: "sample-id-2",
       title:
         "Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title",

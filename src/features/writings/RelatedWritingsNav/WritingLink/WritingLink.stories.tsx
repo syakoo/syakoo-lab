@@ -12,7 +12,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Article: Story = {
   args: {
-    meta: {
+    head: {
       id: "sample-writing-meta-id",
       link: "/writing/post/20231009",
       title: "Sample Article",
@@ -25,7 +25,7 @@ export const Article: Story = {
 
 export const Note: Story = {
   args: {
-    meta: {
+    head: {
       id: "sample-writing-meta-id",
       link: "/writing/post/20231009",
       title: "Sample Note",
@@ -38,7 +38,7 @@ export const Note: Story = {
 
 export const Sample: Story = {
   args: {
-    meta: {
+    head: {
       id: "sample-writing-meta-id",
       link: "/writing/post/20231009",
       title: "Sample Diary",

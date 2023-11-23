@@ -1,16 +1,12 @@
 import { readWritingContents } from "@/contents/writings/reader";
-import { markupMermaid } from "@/features/mdx/plugins/mermaid/mermaidPlugin";
-import { serializeMDX } from "@/features/mdx/serializeMDX";
-import { Writing } from "@/features/writings/types";
-import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
-
-import { markupLinkCardPlugin } from "./mdxParts/LinkCard/markupLinkCardPlugin";
-import { markupSectionTitlePlugin } from "./mdxParts/SectionTitle/markupSectionTitlePlugin";
+import { serializeWritingBody } from "@/features/writings/_models/bodySerializer";
+import { resolveWritingHead } from "@/features/writings/_models/headResolver";
+import { SerializedWriting } from "@/features/writings/_models/types";
 
 /**
  * 書き物を取得する関数
  */
-export const findWriting = async (id: string): Promise<Writing> => {
+export const findWriting = async (id: string): Promise<SerializedWriting> => {
   const writingContent = (await readWritingContents()).find(
     ({ frontMatter }) => frontMatter.id === id,
   );
@@ -19,11 +15,9 @@ export const findWriting = async (id: string): Promise<Writing> => {
     throw new Error(`id=${id} の記事が見つかりませんでした。`);
   }
 
-  const writing: Writing = {
-    meta: resolveWritingMeta({ frontMatter: writingContent.frontMatter }),
-    serializedBody: await serializeMDX(writingContent.body, {
-      plugins: [markupLinkCardPlugin, markupMermaid, markupSectionTitlePlugin],
-    }),
+  const writing: SerializedWriting = {
+    head: resolveWritingHead(writingContent.frontMatter),
+    body: await serializeWritingBody(writingContent.body),
   };
 
   return writing;

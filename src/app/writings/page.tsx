@@ -7,7 +7,7 @@ import { formatPageTitle } from "@/config/pageTitle";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
 import { WritingList } from "@/features/writings/WritingList";
-import { resolveWritingMeta } from "@/features/writings/writingContentResolver";
+import { resolveWritingHead } from "@/features/writings/_models/headResolver";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const WritingsPage = async () => {
   const metas = (await readWritingContents())
-    .map(({ frontMatter }) => resolveWritingMeta({ frontMatter }))
+    .map(({ frontMatter }) => resolveWritingHead(frontMatter))
     .sort((left, right) =>
       compareDesc(new Date(left.published), new Date(right.published)),
     );
@@ -32,7 +32,7 @@ const WritingsPage = async () => {
     <HeaderFooterTemplate>
       <Container as="main" center paddingBottom="400" paddingX="200" size="100">
         <Suspense>
-          <WritingList metas={metas} />
+          <WritingList heads={metas} />
         </Suspense>
       </Container>
     </HeaderFooterTemplate>

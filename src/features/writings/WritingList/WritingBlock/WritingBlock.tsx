@@ -1,18 +1,18 @@
 import { Icon } from "@/design-system/icons";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";
-import { writingTypeConfig } from "@/features/writings/_shared/writingType";
-import type { WritingMeta } from "@/features/writings/types";
+import { WritingHead } from "@/features/writings/_models/types";
+import { writingTypeConfig } from "@/features/writings/_models/writingType";
 
 import { writingBlockStyles } from "./WritingBlock.css";
 
 type WritingBlockProps = {
-  meta: WritingMeta;
+  head: WritingHead;
 };
 
-export const WritingBlock: React.FC<WritingBlockProps> = ({ meta }) => {
+export const WritingBlock: React.FC<WritingBlockProps> = ({ head }) => {
   const { iconName } = writingTypeConfig.find(
-    ({ type }) => type === meta.type,
+    ({ type }) => type === head.type,
   )!;
 
   return (
@@ -21,14 +21,14 @@ export const WritingBlock: React.FC<WritingBlockProps> = ({ meta }) => {
         <Icon name={iconName} />
       </div>
       <div>
-        <Link href={meta.link}>
-          <H3 size="200">{meta.title}</H3>
+        <Link href={head.link}>
+          <H3 size="200">{head.title}</H3>
         </Link>
         <Text color="secondary" size="50">
-          {meta.published}
+          {head.published}
         </Text>
         <Row gap="50">
-          {meta.tags.map((tag) => (
+          {head.tags.map((tag) => (
             <Text key={tag} color="secondary" size="50">
               #{tag}
             </Text>

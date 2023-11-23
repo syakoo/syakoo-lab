@@ -4,9 +4,9 @@ import { addYears, isBefore } from "date-fns";
 
 import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
-import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
 import { useTwitter } from "@/features/mdx/useTwitter";
-import type { Writing } from "@/features/writings/types";
+import { resolveWritingBody } from "@/features/writings/_models/bodyResolver";
+import { SerializedWriting } from "@/features/writings/_models/types";
 
 import { TOC } from "./TOC";
 import { writingDetailStyles } from "./WritingDetail.css";
@@ -15,7 +15,7 @@ import { Note } from "./mdxParts/Note";
 import { mdxParts } from "./mdxParts/index";
 
 type WritingDetailProps = {
-  writing: Writing;
+  writing: SerializedWriting;
 };
 
 const components = {
@@ -26,19 +26,19 @@ const components = {
 export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
   useMermaid();
   useTwitter();
-  const MDXComponent = resolveMDXAsComponent(writing.serializedBody);
+  const MDXComponent = resolveWritingBody(writing.body).data;
   const isOldWriting = (() => {
     // NOTE: diary の場合は古くても表示する必要はないと判断
-    if (writing.meta.type === "diary") return false;
+    if (writing.head.type === "diary") return false;
 
-    return isBefore(new Date(writing.meta.published), addYears(new Date(), -1));
+    return isBefore(new Date(writing.head.published), addYears(new Date(), -1));
   })();
 
   return (
     <FadeIn>
       <article className={writingDetailStyles.root}>
         <div className={writingDetailStyles.headerWrapper}>
-          <WritingHeader meta={writing.meta} />
+          <WritingHeader head={writing.head} />
         </div>
         <div className={writingDetailStyles.contentWrapper}>
           {isOldWriting ? (

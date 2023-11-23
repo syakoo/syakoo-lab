@@ -4,8 +4,8 @@ import { addYears, isBefore } from "date-fns";
 
 import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
+import { useTwitter } from "@/features/mdx/plugins/twitter/useTwitter";
 import { resolveMDXContent } from "@/features/mdx/resolver";
-import { useTwitter } from "@/features/mdx/useTwitter";
 import { SerializedWriting } from "@/features/writings/_models/types";
 
 import { TOC } from "./TOC";

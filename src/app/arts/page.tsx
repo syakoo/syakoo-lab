@@ -5,8 +5,8 @@ import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
 import { ArtList } from "@/features/arts/ArtList";
-import { resolveArtMeta } from "@/features/arts/artContentResolver";
-import { ArtMeta } from "@/features/arts/types";
+import { resolveArtHead } from "@/features/arts/models/headResolver";
+import { ArtHead } from "@/features/arts/models/types";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Arts"),
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 };
 
 const ArtsPage = async () => {
-  const artMetas: ArtMeta[] = (await readArtContents())
-    .map(({ frontMatter }) => resolveArtMeta({ frontMatter }))
+  const artMetas: ArtHead[] = (await readArtContents())
+    .map(({ frontMatter }) => resolveArtHead(frontMatter))
     .sort((left, right) =>
       compareDesc(new Date(left.published), new Date(right.published)),
     );
@@ -30,7 +30,7 @@ const ArtsPage = async () => {
   return (
     <HeaderFooterTemplate>
       <main>
-        <ArtList metas={artMetas} />
+        <ArtList heads={artMetas} />
       </main>
     </HeaderFooterTemplate>
   );

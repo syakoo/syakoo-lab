@@ -14,7 +14,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 export const Sample: Story = {
   args: {
-    metas: [
+    heads: [
       {
         id: "sample-id-1",
         title: "Sample Art Title",

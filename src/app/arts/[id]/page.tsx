@@ -4,9 +4,9 @@ import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
 import { ArtDetail } from "@/features/arts/ArtDetail";
-import { resolveArtMeta } from "@/features/arts/artContentResolver";
-import type { Art } from "@/features/arts/types";
-import { serializeMDX } from "@/features/mdx/serializeMDX";
+import { serializeArtBody } from "@/features/arts/models/bodySerializer";
+import { resolveArtHead } from "@/features/arts/models/headResolver";
+import { SerializedArt } from "@/features/arts/models/types";
 
 export const generateStaticParams = async () => {
   const artContents = await readArtContents();
@@ -47,9 +47,9 @@ const ArtsContentPage = async ({ params }: Props) => {
     ({ frontMatter }) => frontMatter.id === params.id,
   )!;
 
-  const art: Art = {
-    meta: resolveArtMeta({ frontMatter: artContent.frontMatter }),
-    serializedBody: await serializeMDX(artContent.body),
+  const art: SerializedArt = {
+    head: resolveArtHead(artContent.frontMatter),
+    body: await serializeArtBody(artContent.body),
   };
 
   return (

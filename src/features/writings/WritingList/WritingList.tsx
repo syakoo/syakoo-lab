@@ -1,7 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-
 import { Col } from "@/design-system/layout";
 import { H2, FadeIn, Text } from "@/design-system/ui";
 import { WritingHead } from "@/features/writings/_models/types";
@@ -9,15 +7,14 @@ import { writingTypeConfig } from "@/features/writings/_models/writingType";
 
 import { WritingBlock } from "./WritingBlock";
 import { WritingTab } from "./WritingTab";
-import type { WritingListType } from "./_shared/writingListType";
+import { useGetWritingListType } from "./_shared/writingListType";
 
 type WritingListProps = {
   heads: WritingHead[];
 };
 
 export const WritingList: React.FC<WritingListProps> = ({ heads }) => {
-  const searchParams = useSearchParams();
-  const type = (searchParams.get("type") ?? "all") as WritingListType;
+  const type = useGetWritingListType();
 
   const filteredHeads = heads.filter((head) => {
     if (type === "all") return true;

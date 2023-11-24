@@ -47,7 +47,7 @@ export const generateMetadata = async ({
 
 const WritingsContentPage = async ({ params }: Props) => {
   const writing = await findWriting(params.id);
-  const relatedWritingHeads = await findRelatedWritingHeads(writing.head.tags);
+  const relatedWritingHeads = await findRelatedWritingHeads(writing.head);
 
   return (
     <HeaderFooterTemplate>

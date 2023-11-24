@@ -18,6 +18,7 @@ export const imageStyles = {
   image: style({
     // NOTE: はみ出さないように
     maxWidth: "100%",
+    borderRadius: tokens.radii[50],
   }),
 };
 

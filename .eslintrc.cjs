@@ -50,6 +50,7 @@ module.exports = {
     "react/jsx-no-leaked-render": ["error"],
     "react/jsx-no-useless-fragment": ["error"],
     "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/consistent-type-imports": "error",
     "import/order": [
       "warn",
       {

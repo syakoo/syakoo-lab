@@ -1,4 +1,5 @@
-import { HttpHandler, HttpResponse, delay, http } from "msw";
+import type { HttpHandler } from "msw";
+import { HttpResponse, delay, http } from "msw";
 
 import { syncArtsFavPath } from "./syncArtsFav";
 

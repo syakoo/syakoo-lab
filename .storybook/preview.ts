@@ -1,5 +1,5 @@
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
-import { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/react";
 import { initialize, mswLoader } from "msw-storybook-addon";
 
 import { defaultHandlers } from "@/api/mocks/msw";

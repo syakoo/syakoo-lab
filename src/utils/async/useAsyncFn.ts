@@ -1,6 +1,7 @@
-import { DependencyList, useCallback } from "react";
+import type { DependencyList } from "react";
+import { useCallback } from "react";
 
-import {
+import type {
   AsyncStateError,
   AsyncStateIdle,
   AsyncStateLoading,

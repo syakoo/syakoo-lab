@@ -7,7 +7,7 @@ import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
 import { useTwitter } from "@/features/mdx/plugins/twitter/useTwitter";
 import { resolveMDXContent } from "@/features/mdx/resolver";
-import { SerializedWriting } from "@/features/writings/_models/types";
+import type { SerializedWriting } from "@/features/writings/_models/types";
 
 import { TOC } from "./TOC";
 import { writingDetailStyles } from "./WritingDetail.css";

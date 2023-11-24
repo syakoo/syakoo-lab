@@ -2,7 +2,7 @@
 
 import { Col } from "@/design-system/layout";
 import { H2, FadeIn, Text } from "@/design-system/ui";
-import { WritingHead } from "@/features/writings/_models/types";
+import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writingType";
 
 import { WritingBlock } from "./WritingBlock";

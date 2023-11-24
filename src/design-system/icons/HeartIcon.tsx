@@ -1,4 +1,4 @@
-import { IconComponentProps } from "./types";
+import type { IconComponentProps } from "./types";
 
 export const HeartIcon: React.FC<IconComponentProps> = (props) => {
   return (

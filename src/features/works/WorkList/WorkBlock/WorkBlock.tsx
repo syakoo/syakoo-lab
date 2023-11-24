@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import Image from "next/image";
 
-import { Work } from "@/contents/works/types";
+import type { Work } from "@/contents/works/types";
 import { FlexItem, Row } from "@/design-system/layout";
 import { H3, Link, Span } from "@/design-system/ui";
 

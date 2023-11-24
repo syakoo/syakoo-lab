@@ -1,6 +1,6 @@
 import { Col } from "@/design-system/layout";
 import { H3 } from "@/design-system/ui";
-import { WritingHead } from "@/features/writings/_models/types";
+import type { WritingHead } from "@/features/writings/_models/types";
 
 import { WritingLink } from "./WritingLink";
 

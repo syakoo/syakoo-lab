@@ -1,6 +1,7 @@
-import { HttpHandler, HttpResponse, delay, http } from "msw";
+import type { HttpHandler } from "msw";
+import { HttpResponse, delay, http } from "msw";
 
-import { FetchArtFavResponseBody } from "./fetchArtFav";
+import type { FetchArtFavResponseBody } from "./fetchArtFav";
 import { incrementArtFavPath } from "./incrementArtFav";
 
 export const handleAPIIncrementArtFav: HttpHandler = http.post(

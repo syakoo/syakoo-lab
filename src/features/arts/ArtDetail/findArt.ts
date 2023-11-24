@@ -1,6 +1,6 @@
 import { readArtContents } from "@/contents/arts/reader";
 import { resolveArtHead } from "@/features/arts/_models/headResolver";
-import { SerializedArt } from "@/features/arts/_models/types";
+import type { SerializedArt } from "@/features/arts/_models/types";
 import { serializeMDXContent } from "@/features/mdx/serializer";
 
 /**

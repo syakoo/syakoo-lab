@@ -1,5 +1,5 @@
 import type { RecipeVariants } from "@vanilla-extract/recipes";
-import React from "react";
+import type React from "react";
 
 import { PolymorphicComponent } from "@/utils/polymorphicComponent";
 

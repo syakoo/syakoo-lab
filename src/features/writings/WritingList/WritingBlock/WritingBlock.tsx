@@ -1,7 +1,7 @@
 import { Icon } from "@/design-system/icons";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";
-import { WritingHead } from "@/features/writings/_models/types";
+import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writingType";
 import { writingPaths } from "@/features/writings/config/paths";
 

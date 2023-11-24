@@ -1,5 +1,5 @@
 import type { Meta } from "@storybook/react";
-import React from "react";
+import type React from "react";
 
 import { tokens } from "@/design-system/tokens";
 

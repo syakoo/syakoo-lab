@@ -26,7 +26,7 @@ exports[`WritingBlock renders Sample 1`] = `
       <div>
         <a
           class="Link_linkStyle__m4v9430"
-          href="/writing/post/20231009"
+          href="/writings/sample-writing-meta-id"
         >
           <h3
             class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_200__jzpfqdm Text_textStyle_variants_size_200__jzpfqd7 Text_textStyle_weight_bold__jzpfqdt"
@@ -89,7 +89,7 @@ exports[`WritingBlock renders Types 1`] = `
           <div>
             <a
               class="Link_linkStyle__m4v9430"
-              href="/writing/post/20231009"
+              href="/writings/sample-writing-meta-id1"
             >
               <h3
                 class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_200__jzpfqdm Text_textStyle_variants_size_200__jzpfqd7 Text_textStyle_weight_bold__jzpfqdt"
@@ -145,7 +145,7 @@ exports[`WritingBlock renders Types 1`] = `
           <div>
             <a
               class="Link_linkStyle__m4v9430"
-              href="/writing/post/20231010"
+              href="/writings/sample-writing-meta-id2"
             >
               <h3
                 class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_200__jzpfqdm Text_textStyle_variants_size_200__jzpfqd7 Text_textStyle_weight_bold__jzpfqdt"
@@ -201,7 +201,7 @@ exports[`WritingBlock renders Types 1`] = `
           <div>
             <a
               class="Link_linkStyle__m4v9430"
-              href="/writing/post/20231011"
+              href="/writings/sample-writing-meta-id3"
             >
               <h3
                 class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_200__jzpfqdm Text_textStyle_variants_size_200__jzpfqd7 Text_textStyle_weight_bold__jzpfqdt"

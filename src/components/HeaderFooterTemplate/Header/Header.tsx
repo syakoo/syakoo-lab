@@ -6,6 +6,7 @@ import React from "react";
 import { SyakooLabText } from "@/components/SyakooLabText";
 import { Center, Container, Row } from "@/design-system/layout";
 import { Link, Span } from "@/design-system/ui";
+import { writingPaths } from "@/features/writings/config/paths";
 
 const NavLink: React.FC<{ children: React.ReactNode; href: string }> = ({
   children,
@@ -30,7 +31,7 @@ export const Header: React.FC = () => {
             <SyakooLabText />
           </Link>
           <Row align="center" as="nav">
-            <NavLink href="/writings">Writings</NavLink>
+            <NavLink href={writingPaths.list()}>Writings</NavLink>
             <NavLink href="/works">Works</NavLink>
             <NavLink href="/arts">Arts</NavLink>
           </Row>

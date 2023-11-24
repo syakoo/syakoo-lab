@@ -4,6 +4,7 @@ import { Link } from "@/design-system/ui";
 import { H4, Span } from "@/design-system/ui/Text/Text";
 import { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writingType";
+import { writingPaths } from "@/features/writings/config/paths";
 
 import { writingLinkStyles } from "./WritingLink.css";
 
@@ -22,7 +23,7 @@ export const WritingLink: React.FC<WritingLinkProps> = ({ head }) => {
         <Icon name={iconName} />
       </div>
       <Col gap="50">
-        <Link href={head.link}>
+        <Link href={writingPaths.detail(head.id)}>
           <H4 size="100">{head.title}</H4>
         </Link>
         <Span color="secondary" size="50">

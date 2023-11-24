@@ -4,7 +4,6 @@ export type WritingType = "article" | "note" | "diary";
 
 export type WritingHead = {
   id: string;
-  link: string;
   title: string;
   type: WritingType;
   tags: string[];

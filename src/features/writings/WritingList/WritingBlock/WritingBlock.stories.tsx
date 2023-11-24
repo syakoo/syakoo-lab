@@ -15,7 +15,6 @@ export const Sample: Story = {
   args: {
     head: {
       id: "sample-writing-meta-id",
-      link: "/writing/post/20231009",
       title: "Sample Article",
       type: "article",
       tags: ["雑記", "Sample"],
@@ -28,7 +27,6 @@ export const Types = () => {
   const data: WritingHead[] = [
     {
       id: "sample-writing-meta-id1",
-      link: "/writing/post/20231009",
       title: "Sample Article",
       type: "article",
       tags: ["雑記", "Sample"],
@@ -36,7 +34,6 @@ export const Types = () => {
     },
     {
       id: "sample-writing-meta-id2",
-      link: "/writing/post/20231010",
       title: "Sample Note",
       type: "note",
       tags: ["雑記", "Sample"],
@@ -44,7 +41,6 @@ export const Types = () => {
     },
     {
       id: "sample-writing-meta-id3",
-      link: "/writing/post/20231011",
       title: "Sample Diary",
       type: "diary",
       tags: ["雑記"],

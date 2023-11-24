@@ -2,6 +2,7 @@
 
 import { addYears, isBefore } from "date-fns";
 
+import { Spacer } from "@/design-system/layout";
 import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
 import { useTwitter } from "@/features/mdx/plugins/twitter/useTwitter";
@@ -11,6 +12,7 @@ import { SerializedWriting } from "@/features/writings/_models/types";
 import { TOC } from "./TOC";
 import { writingDetailStyles } from "./WritingDetail.css";
 import { WritingHeader } from "./WritingHeader";
+import { WritingTypeDescription } from "./WritingTypeDescription";
 import { Note } from "./mdxParts/Note";
 import { mdxParts } from "./mdxParts/index";
 
@@ -47,8 +49,15 @@ export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
             </Note>
           ) : null}
           <MDXComponent components={components} />
+          <Spacer y="400" />
+          <hr />
+          <Spacer y="100" />
+          <aside>
+            <WritingTypeDescription type={writing.head.type} />
+          </aside>
         </div>
         <aside className={writingDetailStyles.asideWrapper}>
+          <WritingTypeDescription type={writing.head.type} />
           <div className={writingDetailStyles.stickyContainer}>
             <TOC />
           </div>

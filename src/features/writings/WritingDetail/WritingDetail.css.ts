@@ -9,6 +9,9 @@ const columnLayoutScreen =
 export const writingDetailStyles = {
   root: style({
     display: "grid",
+    maxWidth: 1500,
+    margin: "auto",
+    justifyContent: "center",
     gridTemplateColumns: `1fr minmax(${tokens.sizes[50]}, ${tokens.sizes[100]}) minmax(${tokens.sizes[50]}, 1fr)`,
     gridTemplateRows: "auto auto",
     gridTemplateAreas: `"l header r"
@@ -35,6 +38,10 @@ export const writingDetailStyles = {
   asideWrapper: style({
     gridArea: "aside",
     padding: tokens.spaces[200],
+    display: "flex",
+    flexDirection: "column",
+    gap: tokens.spaces[200],
+    height: "100%",
 
     "@media": {
       [columnLayoutScreen]: {
@@ -124,6 +131,11 @@ globalStyle(`${cn} blockquote`, {
   margin: `${tokens.spaces[300]} 0`,
   color: tokens.colors.text.secondary,
   borderLeft: `5px solid ${tokens.colors.text.tertiary}`,
+});
+
+globalStyle(`${cn} hr`, {
+  marginBlock: tokens.spaces[100],
+  borderColor: tokens.colors.palette.gray[200],
 });
 
 // katex

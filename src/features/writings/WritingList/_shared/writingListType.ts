@@ -1,32 +1,32 @@
+import { useSearchParams } from "next/navigation";
+
 import type { WritingType } from "@/features/writings/_models/types";
+import { writingTypes } from "@/features/writings/_models/writingType";
+import { writingPaths } from "@/features/writings/config/paths";
 
 export type WritingListType = WritingType | "all";
 
-type WritingListTypeConfigItem = {
-  type: WritingListType;
-  label: string;
-  url: string;
+const writingListTypeQueryKey = "type";
+
+export const writingListTypePath = (type: WritingListType) =>
+  type === "all"
+    ? writingPaths.list()
+    : (`${writingPaths.list()}?${writingListTypeQueryKey}=${type}` as const);
+
+export const useGetWritingListType = (): WritingListType => {
+  const searchParams = useSearchParams();
+  const type = (() => {
+    const queryParamType = searchParams.get(writingListTypeQueryKey);
+
+    const isNotWritingType = !(writingTypes as string[]).includes(
+      queryParamType ?? "",
+    );
+    if (isNotWritingType) {
+      return "all";
+    }
+
+    return queryParamType as WritingType;
+  })();
+
+  return type;
 };
-// TODO: ここで url の定義をしているのが気になる
-export const writingListTypeConfig = [
-  {
-    type: "all",
-    label: "All",
-    url: "/writings",
-  },
-  {
-    type: "article",
-    label: "Article",
-    url: "/writings?type=article",
-  },
-  {
-    type: "note",
-    label: "Note",
-    url: "/writings?type=note",
-  },
-  {
-    type: "diary",
-    label: "Diary",
-    url: "/writings?type=diary",
-  },
-] as const satisfies readonly WritingListTypeConfigItem[];

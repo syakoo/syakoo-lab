@@ -1,8 +1,8 @@
 import { Row } from "@/design-system/layout";
 import { Link } from "@/design-system/ui";
 import {
-  writingListTypeConfig,
   type WritingListType,
+  writingListTypePath,
 } from "@/features/writings/WritingList/_shared/writingListType";
 
 import { writingTabStyle } from "./WritingTab.css";
@@ -12,13 +12,39 @@ type WritingTabProps = {
 };
 
 export const WritingTab: React.FC<WritingTabProps> = ({ selectedType }) => {
+  const writingListTypes = [
+    {
+      type: "all",
+      label: "All",
+    },
+    {
+      type: "article",
+      label: "Article",
+    },
+    {
+      type: "note",
+      label: "Note",
+    },
+    {
+      type: "diary",
+      label: "Diary",
+    },
+  ] as const satisfies readonly {
+    type: WritingListType;
+    label: string;
+  }[];
+
   return (
     <Row>
-      {writingListTypeConfig.map(({ label, type, url }) => {
+      {writingListTypes.map(({ label, type }) => {
         const isActive = selectedType === type;
 
         return (
-          <Link key={type} href={url} noHovered={isActive}>
+          <Link
+            key={type}
+            href={writingListTypePath(type)}
+            noHovered={isActive}
+          >
             <div
               aria-current={isActive}
               className={writingTabStyle.item({

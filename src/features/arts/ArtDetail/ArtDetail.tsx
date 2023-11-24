@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { Col, Row } from "@/design-system/layout";
 import { H2, Text } from "@/design-system/ui";
-import { SerializedArt } from "@/features/arts/_models/types";
+import type { SerializedArt } from "@/features/arts/_models/types";
 import { HeartButton } from "@/features/arts/_shared/HeartButton/HeartButton";
 import { resolveMDXContent } from "@/features/mdx/resolver";
 

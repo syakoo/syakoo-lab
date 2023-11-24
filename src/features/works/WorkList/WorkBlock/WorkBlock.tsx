@@ -1,9 +1,9 @@
 import { format } from "date-fns";
 import Image from "next/image";
 
+import type { Work } from "@/contents/works/types";
 import { FlexItem, Row } from "@/design-system/layout";
 import { H3, Link, Span } from "@/design-system/ui";
-import type { Work } from "@/features/works/types/work";
 
 import { workBlockStyle } from "./WorkBlock.css";
 
@@ -18,7 +18,7 @@ const formatRepositoryUrl = (url: string) =>
 
 export const WorkBlock: React.FC<WorkBlockProps> = ({ work }) => {
   return (
-    <Row align="center" as="article" gap="100">
+    <Row align="flexStart" as="article" gap="100">
       <div className={workBlockStyle.imageWrapper}>
         <Image
           alt=""

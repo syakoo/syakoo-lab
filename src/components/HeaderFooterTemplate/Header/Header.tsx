@@ -1,11 +1,14 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import React from "react";
+import type React from "react";
 
 import { SyakooLabText } from "@/components/SyakooLabText";
 import { Center, Container, Row } from "@/design-system/layout";
 import { Link, Span } from "@/design-system/ui";
+import { artPaths } from "@/features/arts/config/paths";
+import { workPaths } from "@/features/works/config/paths";
+import { writingPaths } from "@/features/writings/config/paths";
 
 const NavLink: React.FC<{ children: React.ReactNode; href: string }> = ({
   children,
@@ -30,9 +33,9 @@ export const Header: React.FC = () => {
             <SyakooLabText />
           </Link>
           <Row align="center" as="nav">
-            <NavLink href="/writings">Writings</NavLink>
-            <NavLink href="/works">Works</NavLink>
-            <NavLink href="/arts">Arts</NavLink>
+            <NavLink href={writingPaths.list()}>Writings</NavLink>
+            <NavLink href={workPaths.list()}>Works</NavLink>
+            <NavLink href={artPaths.list()}>Arts</NavLink>
           </Row>
         </Row>
       </Container>

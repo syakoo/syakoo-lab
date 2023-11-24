@@ -1,6 +1,8 @@
-import { HttpHandler, HttpResponse, delay, http } from "msw";
+import type { HttpHandler } from "msw";
+import { HttpResponse, delay, http } from "msw";
 
-import { FetchArtFavResponseBody, fetchArtFavPath } from "./fetchArtFav";
+import type { FetchArtFavResponseBody } from "./fetchArtFav";
+import { fetchArtFavPath } from "./fetchArtFav";
 
 export const handleAPIFetchArtFav: HttpHandler = http.get(
   fetchArtFavPath(":id"),

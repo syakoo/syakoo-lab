@@ -2,7 +2,7 @@ import { Icon } from "@/design-system/icons";
 import { Col, Row } from "@/design-system/layout";
 import { tokens } from "@/design-system/tokens";
 import { P, Text } from "@/design-system/ui";
-import { WritingType } from "@/features/writings/_models/types";
+import type { WritingType } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writingType";
 
 type WritingTypeDescriptionProps = {

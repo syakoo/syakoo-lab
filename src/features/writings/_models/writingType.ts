@@ -30,3 +30,5 @@ export const writingTypeConfig = [
       "Diary は著者の身の回りで起こったことや全く中身のない話を残しています。",
   },
 ] as const satisfies readonly WritingTypeConfigItem[];
+
+export const writingTypes = writingTypeConfig.map(({ type }) => type);

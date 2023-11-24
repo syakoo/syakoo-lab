@@ -1,5 +1,5 @@
 import { compareDesc } from "date-fns";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
@@ -8,6 +8,7 @@ import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
 import { WritingList } from "@/features/writings/WritingList";
 import { resolveWritingHead } from "@/features/writings/_models/headResolver";
+import { writingPaths } from "@/features/writings/config/paths";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     images: "/logo.png",
-    url: "/writings",
+    url: writingPaths.list(),
   },
 };
 

@@ -3,7 +3,7 @@ import React from "react";
 
 import { resolveMDXContent } from "@/features/mdx/resolver";
 import { serializeMDXContent } from "@/features/mdx/serializer";
-import { MDXCustomTextPlugin } from "@/features/mdx/types";
+import type { MDXCustomTextPlugin } from "@/features/mdx/types";
 
 /**
  * 見出し2, 3 (`## xxx`, `### xxx`) を Section, SubSection に変換するプラグイン

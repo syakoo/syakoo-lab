@@ -7,6 +7,7 @@ import { Col, FlexItem, Row } from "@/design-system/layout";
 import { H3, Link } from "@/design-system/ui";
 import type { ArtHead } from "@/features/arts/_models/types";
 import { HeartButton } from "@/features/arts/_shared/HeartButton";
+import { artPaths } from "@/features/arts/config/paths";
 
 import { artGalleryItemStyles } from "./ArtGalleryItem.css";
 
@@ -21,7 +22,7 @@ export const ArtGalleryItem: React.FC<ArtGalleryItemProps> = ({ head }) => {
   return (
     <Col as="article" gap="50">
       <div>
-        <Link display="block" href={`/arts/${head.id}`}>
+        <Link display="block" href={artPaths.detail(head.id)}>
           <Image
             alt={head.title}
             className={artGalleryItemStyles.image}

@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useMountedState } from "@/utils/mount/useMountedState";
 
-import {
+import type {
   AsyncStateError,
   AsyncStateIdle,
   AsyncStateLoading,

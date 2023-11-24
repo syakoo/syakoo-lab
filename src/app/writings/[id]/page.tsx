@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/config/pageTitle";
@@ -10,6 +10,7 @@ import {
 } from "@/features/writings/RelatedWritingsNav";
 import { WritingDetail } from "@/features/writings/WritingDetail";
 import { findWriting } from "@/features/writings/WritingDetail/findWriting";
+import { writingPaths } from "@/features/writings/config/paths";
 
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();
@@ -39,7 +40,7 @@ export const generateMetadata = async ({
     openGraph: {
       type: "website",
       images: "/logo.png",
-      url: `/writings/${writingContent.frontMatter.id}`,
+      url: writingPaths.detail(writingContent.frontMatter.id),
     },
   };
 };

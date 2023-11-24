@@ -14,7 +14,6 @@ export const Sample: Story = {
     writing: {
       head: {
         id: "sample-writing-meta-id1",
-        link: "/writing/post/20231009",
         title: "Sample Article",
         type: "article",
         tags: ["雑記", "Sample"],

@@ -1,8 +1,9 @@
 import { Icon } from "@/design-system/icons";
 import { Row } from "@/design-system/layout";
 import { H3, Link, Text } from "@/design-system/ui";
-import { WritingHead } from "@/features/writings/_models/types";
+import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writingType";
+import { writingPaths } from "@/features/writings/config/paths";
 
 import { writingBlockStyles } from "./WritingBlock.css";
 
@@ -21,7 +22,7 @@ export const WritingBlock: React.FC<WritingBlockProps> = ({ head }) => {
         <Icon name={iconName} />
       </div>
       <div>
-        <Link href={head.link}>
+        <Link href={writingPaths.detail(head.id)}>
           <H3 size="200">{head.title}</H3>
         </Link>
         <Text color="secondary" size="50">

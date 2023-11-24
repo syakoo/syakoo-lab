@@ -8,11 +8,8 @@ import type { WritingHead } from "./types";
 export const resolveWritingHead = (
   frontMatter: WritingContentFrontMatter,
 ): WritingHead => {
-  const link = `/writings/${frontMatter.id}`;
-
   return {
     id: frontMatter.id,
-    link,
     title: frontMatter.title,
     type: frontMatter.type,
     tags: frontMatter.tags,

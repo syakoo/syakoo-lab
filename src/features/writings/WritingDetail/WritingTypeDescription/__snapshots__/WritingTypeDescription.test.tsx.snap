@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WritingTypeDescription renders Sample 1`] = `
+<body>
+  <div>
+    <section
+      class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_50__15ivi84x Flex_flexStyle_variants_gap_50__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+    >
+      <div
+        class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_50__15ivi84x Flex_flexStyle_variants_gap_50__15ivi84c Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+      >
+        <svg
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          width="18px"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <p
+          class="Text_textStyle__jzpfqde Text_textStyle_color_currentColor__jzpfqdi Text_textStyle_variants_color_currentColor__jzpfqd3 Text_textStyle_size_100__jzpfqdl Text_textStyle_variants_size_100__jzpfqd6 Text_textStyle_weight_bold__jzpfqdt"
+        >
+          Article
+        </p>
+      </div>
+      <div>
+        <p
+          class="Text_textStyle__jzpfqde Text_textStyle_color_secondary__jzpfqdg Text_textStyle_variants_color_secondary__jzpfqd1 Text_textStyle_size_75__jzpfqdk Text_textStyle_variants_size_75__jzpfqd5 Text_textStyle_weight_normal__jzpfqdu"
+        >
+          Article は気合いの入った文書を残しています。
+        </p>
+      </div>
+    </section>
+  </div>
+</body>
+`;

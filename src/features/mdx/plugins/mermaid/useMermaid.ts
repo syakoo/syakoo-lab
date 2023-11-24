@@ -1,7 +1,7 @@
 import mermaid from "mermaid";
-import { useEffect } from "react";
 
 import { tokens } from "@/design-system/tokens";
+import { useMount } from "@/utils/mount/useMount";
 
 mermaid.initialize({
   // NOTE: このタイミングでは描画できないためフックで行うようにする
@@ -24,8 +24,7 @@ mermaid.initialize({
  * mermaid の描画をするために必要なフック
  */
 export const useMermaid = () => {
-  useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
-    mermaid.run();
-  }, []);
+  useMount(() => {
+    void mermaid.run();
+  });
 };

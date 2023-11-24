@@ -2,15 +2,17 @@
 
 import { addYears, isBefore } from "date-fns";
 
+import { Spacer } from "@/design-system/layout";
 import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/useMermaid";
-import { useTwitter } from "@/features/mdx/useTwitter";
-import { resolveWritingBody } from "@/features/writings/_models/bodyResolver";
+import { useTwitter } from "@/features/mdx/plugins/twitter/useTwitter";
+import { resolveMDXContent } from "@/features/mdx/resolver";
 import { SerializedWriting } from "@/features/writings/_models/types";
 
 import { TOC } from "./TOC";
 import { writingDetailStyles } from "./WritingDetail.css";
 import { WritingHeader } from "./WritingHeader";
+import { WritingTypeDescription } from "./WritingTypeDescription";
 import { Note } from "./mdxParts/Note";
 import { mdxParts } from "./mdxParts/index";
 
@@ -26,7 +28,7 @@ const components = {
 export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
   useMermaid();
   useTwitter();
-  const MDXComponent = resolveWritingBody(writing.body).data;
+  const MDXComponent = resolveMDXContent(writing.body).data;
   const isOldWriting = (() => {
     // NOTE: diary の場合は古くても表示する必要はないと判断
     if (writing.head.type === "diary") return false;
@@ -47,8 +49,15 @@ export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
             </Note>
           ) : null}
           <MDXComponent components={components} />
+          <Spacer y="400" />
+          <hr />
+          <Spacer y="100" />
+          <aside>
+            <WritingTypeDescription type={writing.head.type} />
+          </aside>
         </div>
         <aside className={writingDetailStyles.asideWrapper}>
+          <WritingTypeDescription type={writing.head.type} />
           <div className={writingDetailStyles.stickyContainer}>
             <TOC />
           </div>

@@ -1,4 +1,4 @@
-import { MDXComponent } from "@/features/mdx/types";
+import { SerializedMDXContent } from "@/features/mdx/types";
 
 export type ArtHead = {
   id: string;
@@ -9,16 +9,7 @@ export type ArtHead = {
   tags: string[];
 };
 
-export type ArtSerializedBody = {
-  type: "serialized";
-  data: string;
-};
-export type ArtResolvedBody = {
-  type: "resolved";
-  data: MDXComponent;
-};
-
 export type SerializedArt = {
   head: ArtHead;
-  body: ArtSerializedBody;
+  body: SerializedMDXContent;
 };

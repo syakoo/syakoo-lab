@@ -1,8 +1,8 @@
 import { JSDOM } from "jsdom";
 import React from "react";
 
-import { resolveMDXAsComponent } from "@/features/mdx/resolveMDXAsComponent";
-import { serializeMDX } from "@/features/mdx/serializeMDX";
+import { resolveMDXContent } from "@/features/mdx/resolver";
+import { serializeMDXContent } from "@/features/mdx/serializer";
 import { MDXCustomTextPlugin } from "@/features/mdx/types";
 
 /**
@@ -34,8 +34,8 @@ export const markupSectionTitlePlugin: MDXCustomTextPlugin = async (mdText) => {
       const getInnerTextContent = async (content: string) => {
         // HACK: 見出しが無限に続くことはないため循環が続くことはない
         // NOTE: 見出しにオプションは使用しなくていいだろうと判断
-        const serializedMDX = await serializeMDX(content);
-        const MDXComponent = resolveMDXAsComponent(serializedMDX);
+        const serializedMDX = await serializeMDXContent(content);
+        const MDXComponent = resolveMDXContent(serializedMDX).data;
 
         // JSDOM へ描画し、評価後の内部のテキストだけを取得する
         const jsdom = new JSDOM(

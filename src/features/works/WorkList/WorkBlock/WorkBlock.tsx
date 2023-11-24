@@ -18,7 +18,7 @@ const formatRepositoryUrl = (url: string) =>
 
 export const WorkBlock: React.FC<WorkBlockProps> = ({ work }) => {
   return (
-    <Row align="center" as="article" gap="100">
+    <Row align="flexStart" as="article" gap="100">
       <div className={workBlockStyle.imageWrapper}>
         <Image
           alt=""

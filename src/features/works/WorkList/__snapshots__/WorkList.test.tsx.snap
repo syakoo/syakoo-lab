@@ -3,9 +3,7 @@
 exports[`WorkList renders Sample 1`] = `
 <body>
   <div>
-    <section
-      class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_100__1b3ljla5 Container_containerStyle_variants_size_100__1b3ljla1 Container_containerStyle_center_true__1b3ljla7 Container_containerStyle_paddingBottom_400__1b3ljlay padding_paddingBottomVariants_400__1i0pzy6q Container_containerStyle_paddingX_200__1b3ljla13 padding_paddingXVariants_200__1i0pzy6v"
-    >
+    <section>
       <div
         class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_200__15ivi84z Flex_flexStyle_variants_gap_200__15ivi84e Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
       >
@@ -15,14 +13,14 @@ exports[`WorkList renders Sample 1`] = `
           Works
         </h2>
         <ul
-          class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+          class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_stretch__15ivi84u Flex_flexStyle_variants_align_stretch__15ivi849 Flex_flexStyle_direction_column__15ivi84k Flex_flexStyle_gap_300__15ivi8410 Flex_flexStyle_variants_gap_300__15ivi84f Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
         >
           <li
             class="FadeIn_fadeInStyle__r7lc2h1"
             style="animation-duration: 0.5s; animation-delay: 0s;"
           >
             <article
-              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_flexStart__15ivi84r Flex_flexStyle_variants_align_flexStart__15ivi846 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
             >
               <div
                 class="WorkBlock_workBlockStyle_imageWrapper__8mmmgg1"
@@ -88,7 +86,7 @@ exports[`WorkList renders Sample 1`] = `
             style="animation-duration: 0.5s; animation-delay: 0.1s;"
           >
             <article
-              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_flexStart__15ivi84r Flex_flexStyle_variants_align_flexStart__15ivi846 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
             >
               <div
                 class="WorkBlock_workBlockStyle_imageWrapper__8mmmgg1"
@@ -154,7 +152,7 @@ exports[`WorkList renders Sample 1`] = `
             style="animation-duration: 0.5s; animation-delay: 0.2s;"
           >
             <article
-              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_center__15ivi84s Flex_flexStyle_variants_align_center__15ivi847 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
+              class="Flex_flexStyle__15ivi84i Flex_flexStyle_align_flexStart__15ivi84r Flex_flexStyle_variants_align_flexStart__15ivi846 Flex_flexStyle_direction_row__15ivi84j Flex_flexStyle_gap_100__15ivi84y Flex_flexStyle_variants_gap_100__15ivi84d Flex_flexStyle_justify_flexStart__15ivi84l Flex_flexStyle_variants_justify_flexStart__15ivi840"
             >
               <div
                 class="WorkBlock_workBlockStyle_imageWrapper__8mmmgg1"

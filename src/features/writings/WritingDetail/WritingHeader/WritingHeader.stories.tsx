@@ -16,7 +16,6 @@ export const Article: Story = {
   args: {
     head: {
       id: "sample-writing-meta-id1",
-      link: "/writing/post/20231009",
       title: "Sample Article",
       type: "article",
       tags: ["雑記", "Sample"],
@@ -29,7 +28,6 @@ export const Note: Story = {
   args: {
     head: {
       id: "sample-writing-meta-id1",
-      link: "/writing/post/20231009",
       title: "Sample Note",
       type: "note",
       tags: ["雑記", "Sample", "Note"],
@@ -42,7 +40,6 @@ export const Diary: Story = {
   args: {
     head: {
       id: "sample-writing-meta-id1",
-      link: "/writing/post/20231009",
       title: "Sample Diary",
       type: "diary",
       tags: ["雑記"],
@@ -55,7 +52,6 @@ export const Updated: Story = {
   args: {
     head: {
       id: "sample-writing-meta-id1",
-      link: "/writing/post/20231009",
       title: "Sample Diary",
       type: "diary",
       tags: ["雑記"],

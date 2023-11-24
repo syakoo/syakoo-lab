@@ -5,6 +5,7 @@ import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
 import { ArtDetail } from "@/features/arts/ArtDetail";
 import { findArt } from "@/features/arts/ArtDetail/findArt";
+import { artPaths } from "@/features/arts/config/paths";
 
 export const generateStaticParams = async () => {
   const artContents = await readArtContents();
@@ -35,7 +36,7 @@ export const generateMetadata = async ({
     openGraph: {
       type: "website",
       images: "/logo.png",
-      url: `/arts/${artContent.frontMatter.id}`,
+      url: artPaths.detail(artContent.frontMatter.id),
     },
   };
 };

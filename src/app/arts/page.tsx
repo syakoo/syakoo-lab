@@ -7,6 +7,7 @@ import { readArtContents } from "@/contents/arts/reader";
 import { ArtList } from "@/features/arts/ArtList";
 import { resolveArtHead } from "@/features/arts/_models/headResolver";
 import { ArtHead } from "@/features/arts/_models/types";
+import { artPaths } from "@/features/arts/config/paths";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Arts"),
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     images: "/logo.png",
-    url: `/arts`,
+    url: artPaths.list(),
   },
 };
 

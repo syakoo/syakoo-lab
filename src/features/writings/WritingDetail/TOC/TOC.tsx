@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { Link, Text } from "@/design-system/ui";
+import { useMount } from "@/utils/mount/useMount";
 
 import { tocStyles } from "./TOC.css";
 
@@ -41,31 +42,26 @@ export const TOC: React.FC = () => {
   const [toc, setToc] = useState<TOCData>([]);
   const [activeSectionLabel, setActiveSectionLabel] = useState<string>();
 
-  useEffect(() => {
-    if (toc.length) return;
+  // TOC 取得
+  useMount(() => {
+    const h2Els = document.querySelectorAll("article h2");
+    const tocItems: TOCData = [];
 
-    // FIXME: 筋が悪いので直したい
-    // 遷移先である DOM Id の導入から修正する
-    setTimeout(() => {
-      const h2Els = document.querySelectorAll("article h2");
-      const tocItems: TOCData = [];
+    h2Els.forEach((el) => {
+      const label = el.textContent || "";
 
-      h2Els.forEach((el) => {
-        const label = el.textContent || "";
-
-        tocItems.push({
-          label,
-          href: `#${el.id}`,
-          positionY:
-            el.getBoundingClientRect().top +
-            window.scrollY -
-            window.innerHeight / 2,
-        });
+      tocItems.push({
+        label,
+        href: `#${el.id}`,
+        positionY:
+          el.getBoundingClientRect().top +
+          window.scrollY -
+          window.innerHeight / 2,
       });
+    });
 
-      setToc(tocItems);
-    }, 100);
-  }, [toc]);
+    setToc(tocItems);
+  });
 
   useEffect(() => {
     const scrollEvent = () => {
@@ -88,10 +84,6 @@ export const TOC: React.FC = () => {
       window.removeEventListener("scroll", scrollEvent);
     };
   }, [toc]);
-
-  useEffect(() => {
-    setToc([]);
-  }, []);
 
   if (toc.length === 0) {
     return null;

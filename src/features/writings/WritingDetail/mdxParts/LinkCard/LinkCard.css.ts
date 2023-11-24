@@ -18,7 +18,8 @@ export const linkCardStyles = {
     display: "flex",
     flexDirection: "column",
     gap: tokens.spaces[50],
-    padding: tokens.spaces[100],
+    paddingBlock: tokens.spaces[200],
+    paddingInline: tokens.spaces[100],
   }),
   textContainer: recipe({
     base: {
@@ -39,7 +40,8 @@ export const linkCardStyles = {
     },
   }),
   thumbnailWrapper: style({
-    maxWidth: "100px",
+    maxWidth: "300px",
+    minWidth: "100px",
   }),
   thumbnail: style({
     flexShrink: 0,

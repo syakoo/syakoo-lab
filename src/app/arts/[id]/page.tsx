@@ -4,9 +4,7 @@ import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
 import { formatPageTitle } from "@/config/pageTitle";
 import { readArtContents } from "@/contents/arts/reader";
 import { ArtDetail } from "@/features/arts/ArtDetail";
-import { resolveArtHead } from "@/features/arts/_models/headResolver";
-import { SerializedArt } from "@/features/arts/_models/types";
-import { serializeMDXContent } from "@/features/mdx/serializer";
+import { findArt } from "@/features/arts/ArtDetail/findArt";
 
 export const generateStaticParams = async () => {
   const artContents = await readArtContents();
@@ -43,14 +41,7 @@ export const generateMetadata = async ({
 };
 
 const ArtsContentPage = async ({ params }: Props) => {
-  const artContent = (await readArtContents()).find(
-    ({ frontMatter }) => frontMatter.id === params.id,
-  )!;
-
-  const art: SerializedArt = {
-    head: resolveArtHead(artContent.frontMatter),
-    body: await serializeMDXContent(artContent.body),
-  };
+  const art = await findArt(params.id);
 
   return (
     <HeaderFooterTemplate>

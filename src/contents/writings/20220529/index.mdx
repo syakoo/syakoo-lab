@@ -3,13 +3,10 @@ id: "20220529"
 type: "note"
 title: "コンポーネントにおける各スタイリングライブラリの責務"
 published: "2022-06-08"
-noindex: true
 tags:
-  - "Design"
+  - "設計"
   - "React"
 ---
-
-<Scrap createdAt="2022-05-29">
 
 React にはスタイリングライブラリの種類が様々あり、これが一番良いといったものがあるわけではなく、最終的には好みで決定される場面が多いかと思います。
 しかし、これらのライブラリはそれが担うコンポーネントにおける責務が異なるため、あるライブラリでは使用される方法が他のライブラリではアンチパターンになり得るため注意が必要です。
@@ -30,10 +27,6 @@ React にはスタイリングライブラリの種類が様々あり、これ�
   caption="component の責務"
 />
 
-</Scrap>
-
-<Scrap createdAt="2022-06-08">
-
 ## styled-components
 
 https://styled-components.com/
@@ -49,10 +42,6 @@ styled-components はコンポーネントをラップする形でスタイリ�
 
 構造を見るに、styled-components におけるスタイリングの責務はコンポーネントの props に少し影響していることがわかります。
 
-</Scrap>
-
-<Scrap createdAt="2022-05-29">
-
 ## CSS Modules
 
 https://github.com/css-modules/css-modules
@@ -66,10 +55,6 @@ https://github.com/css-modules/css-modules
 CSS Modules は View のクラス名などの CSS Selector に紐づけてスタイリングをします。
 あくまでスタイリングの指定は CSS ファイルなどで行い、View とのインターフェースに当たるのが CSS Selector になります。
 
-</Scrap>
-
-<Scrap createdAt="2022-05-29">
-
 ## tailwindcss
 
 https://tailwindcss.com/
@@ -81,5 +66,3 @@ https://tailwindcss.com/
 />
 
 tailwindcss は CSS Modules のようにクラス名を紐付けてスタイリングをしますが、その粒度が小さいため、スタイリングの責務がほとんど View に移ります。
-
-</Scrap>

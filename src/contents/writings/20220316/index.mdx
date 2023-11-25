@@ -4,13 +4,10 @@ type: "note"
 title: "Headless UI を勉強する"
 published: "2022-03-16"
 updated: "2022-03-17"
-noindex: true
 tags:
   - "TypeScript"
   - "React"
 ---
-
-<Scrap createdAt='2022-03-16'>
 
 正直、Headless UI に対する知識があやふやなので、今回勉強していく。
 
@@ -20,10 +17,6 @@ tags:
 - Headless UI のライブラリの実装
 
 について見ていきたい。
-
-</Scrap>
-
-<Scrap createdAt='2022-03-16'>
 
 ## Headless UI
 
@@ -41,10 +34,6 @@ Tailwind CSS でスタイリングすることを想定してるっぽい。
 とはいえ、 tailwind CSS でスタイリングしないときとかにこのライブラリでは不満がある箇所があるとは思うので、
 Headless UI は概念として理解した方が良さそう。コードを読んでないどころか触ったこともないため、とりあえず触ってみる。
 
-</Scrap>
-
-<Scrap createdAt='2022-03-16'>
-
 ## 触ってみた
 
 10 種類ほどあるみたいなので、一通り触ってみた。
@@ -55,17 +44,9 @@ Headless UI は概念として理解した方が良さそう。コードを読�
 
 スタイルを親に任せるのは基本的には良い方法ではないとは思うが、これの場合は一切のスタイルを持たないので、親と子のスタイリングの齟齬が起こることはないはずだし、いいんじゃないかなとは思う。
 
-</Scrap>
-
-<Scrap createdAt='2022-03-17'>
-
 ## 実装を見る
 
 次のブロックから実装が理解でき次第、参考になった箇所をメモしていく。
-
-</Scrap>
-
-<Scrap createdAt='2022-03-17'>
 
 ### src/utils/render.ts
 
@@ -109,5 +90,3 @@ const SampleSwitch = () => {
 `Fragment` ではないときは `React.createElement` でそのタグを新しく作成している。
 
 また、ここでは詳しくは触れないが、レンダリングするかどうかといった判定もこの関数内で行われている。
-
-</Scrap>

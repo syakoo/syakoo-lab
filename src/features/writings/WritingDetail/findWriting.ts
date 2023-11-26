@@ -4,8 +4,7 @@ import { serializeMDXContent } from "@/features/mdx/serializer";
 import { resolveWritingHead } from "@/features/writings/_models/headResolver";
 import type { SerializedWriting } from "@/features/writings/_models/types";
 
-import { markupLinkCardPlugin } from "./mdxParts/LinkCard/markupLinkCardPlugin";
-import { markupSectionTitlePlugin } from "./mdxParts/SectionTitle/markupSectionTitlePlugin";
+import { mdxPlugins } from "./mdx/plugins";
 
 /**
  * 書き物を取得する関数
@@ -22,7 +21,7 @@ export const findWriting = async (id: string): Promise<SerializedWriting> => {
   const writing: SerializedWriting = {
     head: resolveWritingHead(writingContent.frontMatter),
     body: await serializeMDXContent(writingContent.body, {
-      plugins: [markupLinkCardPlugin, markupMermaid, markupSectionTitlePlugin],
+      plugins: [markupMermaid, ...mdxPlugins],
     }),
   };
 

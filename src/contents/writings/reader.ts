@@ -6,7 +6,8 @@ import type { WritingContent, WritingContentFrontMatter } from "./types";
 /**
  * writing contents を取得する関数
  *
- * NOTE: node で実行すること
+ * この時点で archive はフィルタリングされる.
+ * @note node で実行すること
  */
 export const readWritingContents = async (): Promise<WritingContent[]> => {
   const mdxFilePaths = await glob("**/contents/writings/**/index.mdx");
@@ -16,5 +17,6 @@ export const readWritingContents = async (): Promise<WritingContent[]> => {
     .map((matterFile) => ({
       frontMatter: matterFile.data as WritingContentFrontMatter,
       body: matterFile.content,
-    }));
+    }))
+    .filter((d) => !d.frontMatter.archived);
 };

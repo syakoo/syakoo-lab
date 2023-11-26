@@ -8,6 +8,7 @@ export type WritingContentFrontMatter = {
   published: string;
   updated?: string;
   noindex?: boolean;
+  archived?: boolean;
   tags: string[];
 };
 

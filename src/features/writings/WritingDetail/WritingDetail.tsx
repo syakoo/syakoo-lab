@@ -13,15 +13,15 @@ import { TOC } from "./TOC";
 import { writingDetailStyles } from "./WritingDetail.css";
 import { WritingHeader } from "./WritingHeader";
 import { WritingTypeDescription } from "./WritingTypeDescription";
-import { Note } from "./mdxParts/Note";
-import { mdxParts } from "./mdxParts/index";
+import { mdxComponents } from "./mdx";
+import { Note } from "./mdx/Note";
 
 type WritingDetailProps = {
   writing: SerializedWriting;
 };
 
 const components = {
-  ...mdxParts,
+  ...mdxComponents,
   a: (props: Parameters<typeof Link>[0]) => <Link colored {...props} />,
 };
 

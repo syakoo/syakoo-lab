@@ -16,9 +16,11 @@ export const imageStyles = {
     textAlign: "center",
   }),
   image: style({
-    // NOTE: はみ出さないように
     maxWidth: "100%",
     borderRadius: tokens.radii[50],
+    width: "auto",
+    height: "auto",
+    backgroundColor: tokens.colors.palette.gray[100],
   }),
 };
 

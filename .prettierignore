@@ -4,3 +4,6 @@
 .gitignore
 .node-version
 .env.*
+*.jpg
+*.png
+*.svg

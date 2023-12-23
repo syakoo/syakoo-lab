@@ -1,1 +1,6 @@
 *.yaml
+.prettierignore
+.eslintignore
+.gitignore
+.node-version
+.env.*

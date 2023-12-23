@@ -1,1 +1,4 @@
 .eslintrc.cjs
+# `.storybook` 以下は捜査対象とする。デフォルトで eslint は dot-folder を対象外としている
+# ref: https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file
+!.storybook

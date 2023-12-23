@@ -65,7 +65,6 @@
     "@storybook/react": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.5.3",
-    "@syakoo/emoji-prefix-commit": "github:syakoo/emoji-prefix-commit",
     "@testing-library/react": "^14.1.0",
     "@types/cors": "^2.8.16",
     "@types/express": "^4.17.21",

@@ -127,9 +127,6 @@ devDependencies:
   '@storybook/theming':
     specifier: ^7.5.3
     version: 7.5.3(react-dom@18.2.0)(react@18.2.0)
-  '@syakoo/emoji-prefix-commit':
-    specifier: github:syakoo/emoji-prefix-commit
-    version: github.com/syakoo/emoji-prefix-commit/12d9cd06efa6a83062bea59eb5979eaf8edabaab
   '@testing-library/react':
     specifier: ^14.1.0
     version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
@@ -15811,11 +15808,3 @@ packages:
   /zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
     dev: false
-
-  github.com/syakoo/emoji-prefix-commit/12d9cd06efa6a83062bea59eb5979eaf8edabaab:
-    resolution: {tarball: https://codeload.github.com/syakoo/emoji-prefix-commit/tar.gz/12d9cd06efa6a83062bea59eb5979eaf8edabaab}
-    name: '@syakoo/emoji-prefix-commit'
-    version: 0.2.0
-    hasBin: true
-    requiresBuild: true
-    dev: true

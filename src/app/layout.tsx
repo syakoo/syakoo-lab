@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import "@/config/globalSettings";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
-const notoSansJP = Noto_Sans_JP({ subsets: ["latin"] });
+const notoSansJP = Noto_Sans_JP({ weight: ["100", "700"], subsets: ["latin"] });
 const roboto = Roboto({
   weight: "100",
   subsets: ["latin"],

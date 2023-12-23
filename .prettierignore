@@ -1,1 +1,9 @@
 *.yaml
+.prettierignore
+.eslintignore
+.gitignore
+.node-version
+.env.*
+*.jpg
+*.png
+*.svg

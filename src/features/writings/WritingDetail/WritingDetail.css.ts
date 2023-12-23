@@ -68,7 +68,7 @@ globalStyle(`${cn} > *:first-child`, {
 
 // p
 globalStyle(`${cn} p`, {
-  lineHeight: 1.88,
+  lineHeight: 2,
 });
 globalStyle(`${cn} p + p`, {
   marginTop: tokens.spaces[200],
@@ -136,6 +136,11 @@ globalStyle(`${cn} blockquote`, {
 globalStyle(`${cn} hr`, {
   marginBlock: tokens.spaces[100],
   borderColor: tokens.colors.palette.gray[200],
+});
+
+// strong
+globalStyle(`${cn} strong`, {
+  fontWeight: 700,
 });
 
 // katex

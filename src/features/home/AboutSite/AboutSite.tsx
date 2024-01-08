@@ -10,9 +10,14 @@ export const AboutSite: React.FC = () => {
         <SyakooLabLogoWithAnimation height="140px" />
       </Center>
       <Center>
-        <Text>
-          このサイトは syakoo 個人のサイトです。
-          作成したアプリやイラスト、記事を公開しています。
+        <Text as="p">
+          このサイトは syakoo が運営している個人のウェブサイトです。
+        </Text>
+        <Text as="p">
+          <Text as="span" weight="bold">
+            「興味の広がり、深まり、発見」
+          </Text>
+          をモットーに、作成した文書やイラストを公開しています。
         </Text>
       </Center>
     </Col>

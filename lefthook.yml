@@ -2,7 +2,7 @@ pre-commit:
   parallel: true
   commands:
     format:
-      glob: "*"
+      glob: "*.{js,cjs,mjs,ts,jsx,tsx,md,mdx,json}"
       run: pnpm exec prettier --write "{staged_files}" && git add {staged_files}
     lint:
       glob: "*.{js,ts,jsx,tsx}"

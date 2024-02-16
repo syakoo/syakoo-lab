@@ -97,7 +97,7 @@
     "storybook": "^7.5.3",
     "ts-jest": "^29.1.1",
     "typescript": "^5.2.2",
-    "undici": "^5.27.2"
+    "undici": "^5.28.3"
   },
   "msw": {
     "workerDirectory": "public"

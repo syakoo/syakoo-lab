@@ -12,6 +12,11 @@
     "roboto",
     "scaffdog",
     "lefthook",
-    "devmoji"
+    "devmoji",
+    "mswjs",
+    "shiki",
+    "nextjs",
+    "gtag",
+    "undici"
   ]
 }

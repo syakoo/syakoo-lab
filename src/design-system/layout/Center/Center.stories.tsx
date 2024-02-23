@@ -8,6 +8,7 @@ import { Center } from ".";
 const meta = {
   component: Center,
   tags: ["autodocs"],
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Center>;
 
 export default meta;

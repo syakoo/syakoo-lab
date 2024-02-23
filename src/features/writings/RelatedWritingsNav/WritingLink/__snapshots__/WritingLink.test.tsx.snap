@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WritingLink renders Article 1`] = `
+exports[`WritingLink スナップショット Article 1`] = `
 <body>
   <div>
     <article
@@ -47,7 +47,7 @@ exports[`WritingLink renders Article 1`] = `
 </body>
 `;
 
-exports[`WritingLink renders Note 1`] = `
+exports[`WritingLink スナップショット Note 1`] = `
 <body>
   <div>
     <article
@@ -94,7 +94,7 @@ exports[`WritingLink renders Note 1`] = `
 </body>
 `;
 
-exports[`WritingLink renders Sample 1`] = `
+exports[`WritingLink スナップショット Sample 1`] = `
 <body>
   <div>
     <article

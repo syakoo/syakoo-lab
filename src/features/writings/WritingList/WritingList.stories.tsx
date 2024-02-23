@@ -6,6 +6,7 @@ const meta = {
   component: WritingList,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof WritingList>;
 

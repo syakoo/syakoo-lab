@@ -5,6 +5,7 @@ import { Note } from ".";
 const meta = {
   component: Note,
   tags: ["autodocs"],
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Note>;
 
 export default meta;

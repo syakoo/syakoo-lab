@@ -4,6 +4,7 @@ import { Big } from ".";
 
 const meta = {
   component: Big,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Big>;
 
 export default meta;

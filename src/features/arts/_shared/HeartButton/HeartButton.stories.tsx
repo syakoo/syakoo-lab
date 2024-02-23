@@ -12,6 +12,7 @@ const meta = {
       </div>
     ),
   ],
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof HeartButton>;
 
 export default meta;

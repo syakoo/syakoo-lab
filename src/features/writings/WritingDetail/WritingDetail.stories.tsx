@@ -4,6 +4,7 @@ import { WritingDetail } from ".";
 
 const meta = {
   component: WritingDetail,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof WritingDetail>;
 
 export default meta;

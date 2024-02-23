@@ -60,26 +60,11 @@ export const Sample: Story = {
 # `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.test.tsx`
 
 ```tsx
-import { composeStories } from "@storybook/react";
-import { act, render } from "@testing-library/react";
+import { testStories } from "@/test/testStories";
 
 import * as stories from "./{{ inputs.name | pascal }}.stories";
 
-const { ...otherStories } = composeStories(stories);
-
 describe("{{ inputs.name | pascal }}", () => {
-  const testCases = Object.values(otherStories).map(
-    (Story) => [Story.storyName, Story] as const,
-  );
-  test.each(testCases)("renders %s", async (_, Story) => {
-    const tree = render(<Story />);
-    await act(async () => {
-      if (Story.play) {
-        await Story.play({ canvasElement: tree.container });
-      }
-    });
-
-    expect(tree.baseElement).toMatchSnapshot();
-  });
+  testStories(stories);
 });
 ```

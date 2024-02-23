@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Geometry renders Circles 1`] = `
+exports[`Geometry スナップショット Circles 1`] = `
 <body>
   <div>
     <svg
@@ -102,7 +102,7 @@ exports[`Geometry renders Circles 1`] = `
 </body>
 `;
 
-exports[`Geometry renders FanoPlane 1`] = `
+exports[`Geometry スナップショット FanoPlane 1`] = `
 <body>
   <div>
     <figure
@@ -223,7 +223,7 @@ exports[`Geometry renders FanoPlane 1`] = `
 </body>
 `;
 
-exports[`Geometry renders Lines 1`] = `
+exports[`Geometry スナップショット Lines 1`] = `
 <body>
   <div>
     <svg
@@ -359,7 +359,7 @@ exports[`Geometry renders Lines 1`] = `
 </body>
 `;
 
-exports[`Geometry renders Planes 1`] = `
+exports[`Geometry スナップショット Planes 1`] = `
 <body>
   <div>
     <svg
@@ -409,7 +409,7 @@ exports[`Geometry renders Planes 1`] = `
 </body>
 `;
 
-exports[`Geometry renders Points 1`] = `
+exports[`Geometry スナップショット Points 1`] = `
 <body>
   <div>
     <svg
@@ -507,7 +507,7 @@ exports[`Geometry renders Points 1`] = `
 </body>
 `;
 
-exports[`Geometry renders Texts 1`] = `
+exports[`Geometry スナップショット Texts 1`] = `
 <body>
   <div>
     <svg

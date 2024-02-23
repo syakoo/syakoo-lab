@@ -4,6 +4,7 @@ import { WritingTab } from ".";
 
 const meta = {
   component: WritingTab,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof WritingTab>;
 
 export default meta;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Image renders Sample 1`] = `
+exports[`Image スナップショット Sample 1`] = `
 <body>
   <div>
     <figure

@@ -4,6 +4,7 @@ import { BookView } from ".";
 
 const meta = {
   component: BookView,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof BookView>;
 
 export default meta;

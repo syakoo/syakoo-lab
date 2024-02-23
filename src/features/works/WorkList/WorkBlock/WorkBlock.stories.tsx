@@ -4,6 +4,7 @@ import { WorkBlock } from ".";
 
 const meta = {
   component: WorkBlock,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof WorkBlock>;
 
 export default meta;

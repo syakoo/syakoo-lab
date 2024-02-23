@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WritingHeader renders Article 1`] = `
+exports[`WritingHeader スナップショット Article 1`] = `
 <body>
   <div>
     <header>
@@ -94,7 +94,7 @@ exports[`WritingHeader renders Article 1`] = `
 </body>
 `;
 
-exports[`WritingHeader renders Diary 1`] = `
+exports[`WritingHeader スナップショット Diary 1`] = `
 <body>
   <div>
     <header>
@@ -182,7 +182,7 @@ exports[`WritingHeader renders Diary 1`] = `
 </body>
 `;
 
-exports[`WritingHeader renders Note 1`] = `
+exports[`WritingHeader スナップショット Note 1`] = `
 <body>
   <div>
     <header>
@@ -282,7 +282,7 @@ exports[`WritingHeader renders Note 1`] = `
 </body>
 `;
 
-exports[`WritingHeader renders Updated 1`] = `
+exports[`WritingHeader スナップショット Updated 1`] = `
 <body>
   <div>
     <header>

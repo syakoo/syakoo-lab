@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ArtGalleryItem renders LongText 1`] = `
+exports[`ArtGalleryItem スナップショット LongText 1`] = `
 <body>
   <div>
     <div
@@ -78,7 +78,7 @@ exports[`ArtGalleryItem renders LongText 1`] = `
 </body>
 `;
 
-exports[`ArtGalleryItem renders Sample 1`] = `
+exports[`ArtGalleryItem スナップショット Sample 1`] = `
 <body>
   <div>
     <div

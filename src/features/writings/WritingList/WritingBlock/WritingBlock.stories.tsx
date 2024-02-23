@@ -6,6 +6,7 @@ import { WritingBlock } from ".";
 
 const meta = {
   component: WritingBlock,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof WritingBlock>;
 
 export default meta;

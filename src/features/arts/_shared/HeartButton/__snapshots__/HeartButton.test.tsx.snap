@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HeartButton renders Activated 1`] = `
+exports[`HeartButton スナップショット Activated 1`] = `
 <body>
   <div>
     <div
@@ -35,7 +35,7 @@ exports[`HeartButton renders Activated 1`] = `
 </body>
 `;
 
-exports[`HeartButton renders ClickButton 1`] = `
+exports[`HeartButton スナップショット ClickButton 1`] = `
 <body>
   <div>
     <div
@@ -92,7 +92,7 @@ exports[`HeartButton renders ClickButton 1`] = `
 </body>
 `;
 
-exports[`HeartButton renders Default 1`] = `
+exports[`HeartButton スナップショット Default 1`] = `
 <body>
   <div>
     <div

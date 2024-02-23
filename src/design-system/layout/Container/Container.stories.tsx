@@ -8,6 +8,7 @@ import { Container } from ".";
 const meta = {
   component: Container,
   tags: ["autodocs"],
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Container>;
 
 export default meta;

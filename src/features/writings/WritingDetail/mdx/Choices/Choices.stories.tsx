@@ -4,6 +4,7 @@ import { Choices, Choice } from ".";
 
 const meta = {
   component: Choices,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Choices>;
 
 export default meta;

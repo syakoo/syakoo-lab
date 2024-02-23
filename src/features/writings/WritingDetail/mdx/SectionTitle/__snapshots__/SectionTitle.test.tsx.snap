@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SectionTitle renders ContainElements 1`] = `
+exports[`SectionTitle スナップショット ContainElements 1`] = `
 <body>
   <div>
     <h2
@@ -20,7 +20,7 @@ exports[`SectionTitle renders ContainElements 1`] = `
 </body>
 `;
 
-exports[`SectionTitle renders Sample 1`] = `
+exports[`SectionTitle スナップショット Sample 1`] = `
 <body>
   <div>
     <h2
@@ -37,7 +37,7 @@ exports[`SectionTitle renders Sample 1`] = `
 </body>
 `;
 
-exports[`SectionTitle renders SubSection 1`] = `
+exports[`SectionTitle スナップショット SubSection 1`] = `
 <body>
   <div>
     <h3

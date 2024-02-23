@@ -6,6 +6,7 @@ const meta = {
   component: RelatedWritingsNav,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof RelatedWritingsNav>;
 

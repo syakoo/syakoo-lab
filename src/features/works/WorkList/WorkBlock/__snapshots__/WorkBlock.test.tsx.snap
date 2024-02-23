@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WorkBlock renders Sample 1`] = `
+exports[`WorkBlock スナップショット Sample 1`] = `
 <body>
   <div>
     <article

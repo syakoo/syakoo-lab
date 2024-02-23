@@ -6,6 +6,7 @@ const meta = {
   component: ArtList,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof ArtList>;
 

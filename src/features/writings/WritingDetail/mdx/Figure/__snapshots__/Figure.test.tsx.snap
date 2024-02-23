@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Figure renders NoCaption 1`] = `
+exports[`Figure スナップショット NoCaption 1`] = `
 <body>
   <div>
     <figure
@@ -15,7 +15,7 @@ exports[`Figure renders NoCaption 1`] = `
 </body>
 `;
 
-exports[`Figure renders Sample 1`] = `
+exports[`Figure スナップショット Sample 1`] = `
 <body>
   <div>
     <figure

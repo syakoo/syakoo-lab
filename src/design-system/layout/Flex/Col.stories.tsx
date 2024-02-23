@@ -7,6 +7,7 @@ import { Col, FlexItem } from ".";
 const meta = {
   component: Col,
   tags: ["autodocs"],
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Col>;
 
 export default meta;

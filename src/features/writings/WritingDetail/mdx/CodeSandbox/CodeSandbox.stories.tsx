@@ -4,6 +4,7 @@ import { CodeSandbox } from ".";
 
 const meta = {
   component: CodeSandbox,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof CodeSandbox>;
 
 export default meta;

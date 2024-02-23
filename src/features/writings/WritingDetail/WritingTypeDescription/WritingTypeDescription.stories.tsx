@@ -6,6 +6,7 @@ const meta = {
   component: WritingTypeDescription,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof WritingTypeDescription>;
 

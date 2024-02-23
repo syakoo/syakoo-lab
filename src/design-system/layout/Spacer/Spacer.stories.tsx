@@ -8,6 +8,7 @@ const meta = {
   component: Spacer,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Spacer>;

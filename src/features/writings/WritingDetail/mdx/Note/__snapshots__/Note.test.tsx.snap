@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Note renders Sample 1`] = `
+exports[`Note スナップショット Sample 1`] = `
 <body>
   <div>
     <aside
@@ -31,7 +31,7 @@ exports[`Note renders Sample 1`] = `
 </body>
 `;
 
-exports[`Note renders Variants 1`] = `
+exports[`Note スナップショット Variants 1`] = `
 <body>
   <div>
     <div>

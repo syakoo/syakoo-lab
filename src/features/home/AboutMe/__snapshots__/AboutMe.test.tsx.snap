@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AboutMe renders Sample 1`] = `
+exports[`AboutMe スナップショット Sample 1`] = `
 <body>
   <div>
     <section

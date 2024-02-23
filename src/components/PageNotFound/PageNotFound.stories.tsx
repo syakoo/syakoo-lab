@@ -6,6 +6,7 @@ const meta = {
   component: PageNotFound,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof PageNotFound>;
 

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Text renders Colors 1`] = `
+exports[`Text スナップショット Colors 1`] = `
 <body>
   <div>
     <p
@@ -27,7 +27,7 @@ exports[`Text renders Colors 1`] = `
 </body>
 `;
 
-exports[`Text renders Sample 1`] = `
+exports[`Text スナップショット Sample 1`] = `
 <body>
   <div>
     <h1
@@ -64,7 +64,7 @@ exports[`Text renders Sample 1`] = `
 </body>
 `;
 
-exports[`Text renders Sizes 1`] = `
+exports[`Text スナップショット Sizes 1`] = `
 <body>
   <div>
     <p
@@ -116,7 +116,7 @@ exports[`Text renders Sizes 1`] = `
 </body>
 `;
 
-exports[`Text renders Weights 1`] = `
+exports[`Text スナップショット Weights 1`] = `
 <body>
   <div>
     <p

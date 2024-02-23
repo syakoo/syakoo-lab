@@ -7,6 +7,7 @@ import { Link } from ".";
 const meta = {
   component: Link,
   tags: ["autodocs"],
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Link>;
 
 export default meta;

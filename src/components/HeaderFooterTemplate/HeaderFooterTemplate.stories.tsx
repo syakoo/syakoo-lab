@@ -6,6 +6,7 @@ const meta = {
   component: HeaderFooterTemplate,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof HeaderFooterTemplate>;
 

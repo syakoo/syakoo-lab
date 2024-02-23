@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Row renders Row_ 1`] = `
+exports[`Row スナップショット Row_ 1`] = `
 <body>
   <div>
     <div
@@ -39,7 +39,7 @@ exports[`Row renders Row_ 1`] = `
 </body>
 `;
 
-exports[`Row renders RowWithItem 1`] = `
+exports[`Row スナップショット RowWithItem 1`] = `
 <body>
   <div>
     <div

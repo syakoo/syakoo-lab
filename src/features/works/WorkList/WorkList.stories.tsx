@@ -6,6 +6,7 @@ const meta = {
   component: WorkList,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof WorkList>;
 

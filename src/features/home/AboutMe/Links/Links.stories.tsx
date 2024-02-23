@@ -4,6 +4,7 @@ import { Links } from ".";
 
 const meta = {
   component: Links,
+  parameters: { testLevel: "snapshot" },
 } satisfies Meta<typeof Links>;
 
 export default meta;

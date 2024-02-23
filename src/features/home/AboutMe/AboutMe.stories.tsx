@@ -6,6 +6,7 @@ const meta = {
   component: AboutMe,
   parameters: {
     layout: "fullscreen",
+    testLevel: "snapshot",
   },
 } satisfies Meta<typeof AboutMe>;
 

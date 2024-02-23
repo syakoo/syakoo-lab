@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Spacer renders X 1`] = `
+exports[`Spacer スナップショット X 1`] = `
 <body>
   <div>
     <div
@@ -21,7 +21,7 @@ exports[`Spacer renders X 1`] = `
 </body>
 `;
 
-exports[`Spacer renders Y 1`] = `
+exports[`Spacer スナップショット Y 1`] = `
 <body>
   <div>
     <div>

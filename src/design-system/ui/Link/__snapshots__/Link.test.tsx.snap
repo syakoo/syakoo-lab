@@ -46,7 +46,7 @@ exports[`Link スナップショット Variants 1`] = `
         href="#"
       >
         <div
-          style="border: 1px solid #3063d4; border-radius: 8px;"
+          style="border-radius: var(--radius-100__13jk9q11g);"
         >
           Block Link
         </div>

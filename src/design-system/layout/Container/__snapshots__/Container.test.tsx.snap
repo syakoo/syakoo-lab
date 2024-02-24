@@ -11,7 +11,7 @@ exports[`Container スナップショット Sample 1`] = `
           class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_100__1b3ljla5 Container_containerStyle_variants_size_100__1b3ljla1"
         >
           <div
-            style="border-radius: 8px; background: rgb(64, 74, 84); padding: 50px;"
+            style="border-radius: var(--radius-100__13jk9q11g); padding: 50px;"
           >
             size: 100 (default)
           </div>
@@ -22,7 +22,7 @@ exports[`Container スナップショット Sample 1`] = `
           class="Container_containerStyle__1b3ljla3 Container_containerStyle_size_50__1b3ljla4 Container_containerStyle_variants_size_50__1b3ljla0"
         >
           <div
-            style="border-radius: 8px; background: rgb(64, 74, 84); padding: 50px;"
+            style="border-radius: var(--radius-100__13jk9q11g); padding: 50px;"
           >
             size: 50
           </div>

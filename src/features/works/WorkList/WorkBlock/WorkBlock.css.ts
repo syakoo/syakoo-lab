@@ -1,17 +1,17 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const workBlockStyle = {
   body: style({
-    borderRadius: tokens.radii[200],
-    paddingInline: tokens.spaces[200],
+    borderRadius: theme.radius[200],
+    paddingInline: theme.space[200],
   }),
   imageWrapper: style({
-    backgroundColor: tokens.colors.palette.gray[600],
-    borderRadius: tokens.radii[200],
-    padding: tokens.spaces[50],
-    marginTop: tokens.spaces[100],
+    backgroundColor: theme.color.palette.gray[600],
+    borderRadius: theme.radius[200],
+    padding: theme.space[50],
+    marginTop: theme.space[100],
   }),
   image: style({
     width: 40,

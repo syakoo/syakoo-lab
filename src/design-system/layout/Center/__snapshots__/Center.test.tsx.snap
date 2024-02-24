@@ -7,7 +7,7 @@ exports[`Center スナップショット Sample 1`] = `
       class="Center_centerStyle__7ojglz0"
     >
       <div
-        style="border-radius: 8px; background: rgb(64, 74, 84); padding: 50px; width: 500px;"
+        style="border-radius: var(--radius-100__13jk9q11g); padding: 50px; width: 500px;"
       >
         <div
           class="Center_centerStyle__7ojglz0"

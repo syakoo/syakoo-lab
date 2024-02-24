@@ -1,26 +1,26 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const imageStyles = {
   figure: style({
-    marginBlock: tokens.spaces[200],
+    marginBlock: theme.space[200],
     marginInline: "auto",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    gap: tokens.spaces[100],
+    gap: theme.space[100],
   }),
   caption: style({
-    color: tokens.colors.text.secondary,
+    color: theme.color.text.secondary,
     textAlign: "center",
   }),
   image: style({
     maxWidth: "100%",
-    borderRadius: tokens.radii[50],
+    borderRadius: theme.radius[50],
     width: "auto",
     height: "auto",
-    backgroundColor: tokens.colors.palette.gray[100],
+    backgroundColor: theme.color.palette.gray[100],
   }),
 };
 

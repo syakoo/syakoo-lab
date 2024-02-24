@@ -8,6 +8,7 @@ mermaid.initialize({
   startOnLoad: false,
   theme: "base",
   themeVariables: {
+    // NOTE: CSS Variables を入れれないため直接指定
     primaryColor: tokens.colors.background.secondary,
     primaryTextColor: tokens.colors.text.primary,
     primaryBorderColor: tokens.colors.palette.gray[100],

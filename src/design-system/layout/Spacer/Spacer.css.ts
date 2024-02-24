@@ -1,14 +1,14 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const spacerStyle = recipe({
   variants: {
-    x: styleVariants(tokens.spaces, (value) => ({
+    x: styleVariants(theme.space, (value) => ({
       width: value,
     })),
-    y: styleVariants(tokens.spaces, (value) => ({
+    y: styleVariants(theme.space, (value) => ({
       height: value,
     })),
   },

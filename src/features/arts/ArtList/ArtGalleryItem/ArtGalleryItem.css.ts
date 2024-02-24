@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const artGalleryItemStyles = {
   image: style({
@@ -8,7 +8,7 @@ export const artGalleryItemStyles = {
     objectFit: "cover",
     width: "100%",
     height: "auto",
-    borderRadius: tokens.radii[200],
+    borderRadius: theme.radius[200],
   }),
   titleWrapper: style({
     display: "-webkit-box",

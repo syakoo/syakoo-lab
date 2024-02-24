@@ -1,27 +1,27 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const scrapStyles = {
   root: style({
-    padding: tokens.spaces[100],
+    padding: theme.space[100],
     overflow: "hidden",
-    backgroundColor: tokens.colors.background.secondary,
-    borderRadius: tokens.radii[100],
+    backgroundColor: theme.color.background.secondary,
+    borderRadius: theme.radius[100],
 
     selectors: {
       "& + &": {
-        marginTop: tokens.spaces[300],
+        marginTop: theme.space[300],
       },
     },
   }),
 
   dateWrapper: style({
     display: "flex",
-    gap: tokens.spaces[50],
+    gap: theme.space[50],
     alignItems: "center",
-    fontSize: tokens.fontSizes[50],
-    color: tokens.colors.text.secondary,
+    fontSize: theme.fontSize[50],
+    color: theme.color.text.secondary,
   }),
 
   body: style({}),
@@ -29,7 +29,7 @@ export const scrapStyles = {
 
 globalStyle(`${scrapStyles.body} > *:first-child`, {
   paddingTop: 0,
-  marginTop: tokens.spaces[50],
+  marginTop: theme.space[50],
 });
 
 globalStyle(`${scrapStyles.body} > *:last-child`, {

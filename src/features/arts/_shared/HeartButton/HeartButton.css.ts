@@ -2,7 +2,7 @@ import type { ComplexStyleRule } from "@vanilla-extract/css";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 import { range } from "@/utils/array/range";
 
 const circleOption = {
@@ -65,18 +65,18 @@ export const heartButtonStyles = {
     display: "flex",
     width: "100%",
     padding: "5px 4px 3px 4px",
-    color: tokens.colors.text.secondary,
+    color: theme.color.text.secondary,
     background: "transparent",
     border: "none",
-    borderRadius: tokens.radii[1000],
+    borderRadius: theme.radius[1000],
 
     ":disabled": {
-      color: tokens.colors.accent.error.foreground,
+      color: theme.color.accent.error.foreground,
     },
     selectors: {
       "&:not(:disabled):hover": {
         cursor: "pointer",
-        background: tokens.colors.text.tertiary,
+        background: theme.color.text.tertiary,
         transition: "0.4s",
       },
       "&:not(:disabled):active": {
@@ -116,20 +116,20 @@ export const heartButtonStyles = {
       minWidth: 4,
       width: "15%",
       aspectRatio: "1 / 1",
-      borderRadius: tokens.radii[1000],
+      borderRadius: theme.radius[1000],
 
       selectors: {
         "&:nth-child(4n)": {
-          backgroundColor: tokens.colors.accent.error.foreground,
+          backgroundColor: theme.color.accent.error.foreground,
         },
         "&:nth-child(4n+1)": {
-          backgroundColor: tokens.colors.accent.success.foreground,
+          backgroundColor: theme.color.accent.success.foreground,
         },
         "&:nth-child(4n+2)": {
-          backgroundColor: tokens.colors.accent.info.foreground,
+          backgroundColor: theme.color.accent.info.foreground,
         },
         "&:nth-child(4n+3)": {
-          backgroundColor: tokens.colors.accent.warn.foreground,
+          backgroundColor: theme.color.accent.warn.foreground,
         },
       },
     },

@@ -4,31 +4,31 @@
  */
 import { styleVariants } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
-export const paddingLeftVariants = styleVariants(tokens.spaces, (value) => ({
+export const paddingLeftVariants = styleVariants(theme.space, (value) => ({
   paddingLeft: value,
 }));
-export const paddingRightVariants = styleVariants(tokens.spaces, (value) => ({
+export const paddingRightVariants = styleVariants(theme.space, (value) => ({
   paddingRight: value,
 }));
-export const paddingTopVariants = styleVariants(tokens.spaces, (value) => ({
+export const paddingTopVariants = styleVariants(theme.space, (value) => ({
   paddingTop: value,
 }));
-export const paddingBottomVariants = styleVariants(tokens.spaces, (value) => ({
+export const paddingBottomVariants = styleVariants(theme.space, (value) => ({
   paddingBottom: value,
 }));
 
-export const paddingXVariants = styleVariants(tokens.spaces, (value) => ({
+export const paddingXVariants = styleVariants(theme.space, (value) => ({
   paddingLeft: value,
   paddingRight: value,
 }));
-export const paddingYVariants = styleVariants(tokens.spaces, (value) => ({
+export const paddingYVariants = styleVariants(theme.space, (value) => ({
   paddingTop: value,
   paddingBottom: value,
 }));
 
-export const paddingVariants = styleVariants(tokens.spaces, (value) => ({
+export const paddingVariants = styleVariants(theme.space, (value) => ({
   paddingTop: value,
   paddingBottom: value,
   paddingLeft: value,

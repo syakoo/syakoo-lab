@@ -1,10 +1,9 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 // 縦配置のメディア条件式
-const columnLayoutScreen =
-  `screen and (max-width: ${tokens.sizes[100]})` as const;
+const columnLayoutScreen = `screen and (max-width: 800px)` as const;
 
 export const writingDetailStyles = {
   root: style({
@@ -12,7 +11,7 @@ export const writingDetailStyles = {
     maxWidth: 1500,
     margin: "auto",
     justifyContent: "center",
-    gridTemplateColumns: `1fr minmax(${tokens.sizes[50]}, ${tokens.sizes[100]}) minmax(${tokens.sizes[50]}, 1fr)`,
+    gridTemplateColumns: `1fr minmax(${theme.size[50]}, ${theme.size[100]}) minmax(${theme.size[50]}, 1fr)`,
     gridTemplateRows: "auto auto",
     gridTemplateAreas: `"l header r"
                         "l content aside"`,
@@ -28,19 +27,19 @@ export const writingDetailStyles = {
   }),
   headerWrapper: style({
     gridArea: "header",
-    padding: tokens.spaces[200],
-    paddingBlock: tokens.spaces[300],
+    padding: theme.space[200],
+    paddingBlock: theme.space[400],
   }),
   contentWrapper: style({
     gridArea: "content",
-    padding: tokens.spaces[200],
+    padding: theme.space[200],
   }),
   asideWrapper: style({
     gridArea: "aside",
-    padding: tokens.spaces[200],
+    padding: theme.space[200],
     display: "flex",
     flexDirection: "column",
-    gap: tokens.spaces[200],
+    gap: theme.space[200],
     height: "100%",
 
     "@media": {
@@ -51,7 +50,7 @@ export const writingDetailStyles = {
   }),
   stickyContainer: style({
     position: "sticky",
-    top: tokens.spaces[200],
+    top: theme.space[200],
   }),
 };
 
@@ -68,39 +67,39 @@ globalStyle(`${cn} > *:first-child`, {
 
 // p
 globalStyle(`${cn} p`, {
-  lineHeight: 2,
+  lineHeight: 2.1,
 });
 globalStyle(`${cn} p + p`, {
-  marginTop: tokens.spaces[200],
+  marginTop: theme.space[300],
 });
 
 // ul
 globalStyle(`${cn} ul`, {
   listStyleType: "disc",
-  marginLeft: tokens.spaces[300],
-  marginBlock: tokens.spaces[200],
+  marginLeft: theme.space[300],
+  marginBlock: theme.space[200],
 });
 globalStyle(`${cn} ul li::marker`, {
-  color: tokens.colors.text.tertiary,
+  color: theme.color.text.tertiary,
 });
 // ol
 globalStyle(`${cn} ol`, {
-  marginLeft: tokens.spaces[300],
-  marginBlock: tokens.spaces[200],
+  marginLeft: theme.space[300],
+  marginBlock: theme.space[200],
 });
 globalStyle(`${cn} ol li::marker`, {
-  color: tokens.colors.text.secondary,
+  color: theme.color.text.secondary,
 });
 
 // code
 globalStyle(`${cn} pre`, {
   display: "flex",
-  marginBlock: tokens.spaces[200],
-  marginInline: `-${tokens.spaces[200]}`,
+  marginBlock: theme.space[200],
+  marginInline: `calc(-1 * ${theme.space[200]})`,
   overflowX: "auto",
-  color: tokens.colors.code.text,
-  backgroundColor: tokens.colors.code.background,
-  borderRadius: tokens.radii[100],
+  color: theme.color.code.text,
+  backgroundColor: theme.color.code.background,
+  borderRadius: theme.radius[100],
 
   "@media": {
     [columnLayoutScreen]: {
@@ -110,32 +109,32 @@ globalStyle(`${cn} pre`, {
 });
 globalStyle(`${cn} pre code`, {
   display: "block",
-  padding: tokens.spaces[200],
-  fontSize: tokens.fontSizes[75],
+  padding: theme.space[200],
+  fontSize: theme.fontSize[75],
   lineHeight: 1.5,
 });
 // インラインの code
 globalStyle(`${cn} code`, {
-  color: tokens.colors.code.text,
-  backgroundColor: tokens.colors.code.background,
-  fontSize: tokens.fontSizes[75],
+  color: theme.color.code.text,
+  backgroundColor: theme.color.code.background,
+  fontSize: theme.fontSize[75],
   padding: "0.3em",
-  marginInline: tokens.spaces[25],
-  borderRadius: tokens.radii[50],
-  fontFamily: tokens.fontFamilies.code,
+  marginInline: theme.space[25],
+  borderRadius: theme.radius[50],
+  fontFamily: theme.fontFamily.code,
 });
 
 // blockquote
 globalStyle(`${cn} blockquote`, {
-  padding: `0 ${tokens.spaces[100]}`,
-  margin: `${tokens.spaces[300]} 0`,
-  color: tokens.colors.text.secondary,
-  borderLeft: `5px solid ${tokens.colors.text.tertiary}`,
+  padding: `0 ${theme.space[100]}`,
+  margin: `${theme.space[300]} 0`,
+  color: theme.color.text.secondary,
+  borderLeft: `5px solid ${theme.color.text.tertiary}`,
 });
 
 globalStyle(`${cn} hr`, {
-  marginBlock: tokens.spaces[100],
-  borderColor: tokens.colors.palette.gray[200],
+  marginBlock: theme.space[100],
+  borderColor: theme.color.palette.gray[200],
 });
 
 // strong
@@ -145,7 +144,7 @@ globalStyle(`${cn} strong`, {
 
 // katex
 globalStyle(`${cn} .katex-display`, {
-  marginBlock: tokens.spaces[200],
+  marginBlock: theme.space[200],
   overflowX: "auto",
   overflowY: "hidden",
 });

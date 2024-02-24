@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 import { Spacer } from ".";
 
@@ -18,8 +18,8 @@ export default meta;
 const DummyBlock = ({ width, height }: { width: string; height: string }) => (
   <div
     style={{
-      borderRadius: tokens.radii[100],
-      background: tokens.colors.palette.gray[100],
+      borderRadius: theme.radius[100],
+      background: theme.color.palette.gray[100],
       width,
       height,
       display: "flex",

@@ -1,11 +1,11 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const writingTabStyle = {
   item: recipe({
     base: {
-      padding: tokens.spaces[100],
+      padding: theme.space[100],
       textDecoration: "none",
     },
 
@@ -13,10 +13,10 @@ export const writingTabStyle = {
       active: {
         true: {
           borderBottom: "4px solid currentColor",
-          color: tokens.colors.text.primary,
+          color: theme.color.text.primary,
         },
         false: {
-          color: tokens.colors.text.secondary,
+          color: theme.color.text.secondary,
         },
       },
     },

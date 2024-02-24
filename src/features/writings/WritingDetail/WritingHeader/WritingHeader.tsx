@@ -1,58 +1,55 @@
 import { Icon } from "@/design-system/icons";
-import { Center, Col, Row, Spacer } from "@/design-system/layout";
+import { Row, Spacer } from "@/design-system/layout";
+import { theme } from "@/design-system/theme.css";
 import { H1, Link, Span, Text } from "@/design-system/ui";
 import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writingType";
-
-import { writingHeaderStyles } from "./WritingHeader.css";
 
 type WritingHeaderProps = {
   head: WritingHead;
 };
 
 export const WritingHeader: React.FC<WritingHeaderProps> = ({ head }) => {
-  const { iconName } = writingTypeConfig.find(
+  const { iconName, label } = writingTypeConfig.find(
     ({ type }) => type === head.type,
   )!;
 
   return (
     <header>
-      <div className={writingHeaderStyles.iconWrapper}>
-        <Icon name={iconName} width="100%" />
-      </div>
+      <H1>{head.title}</H1>
       <Spacer y="100" />
-      <div className={writingHeaderStyles.titleWrapper}>
-        <H1>{head.title}</H1>
-      </div>
-      <Spacer y="100" />
-      <Col gap="25">
-        <Center>
-          <Link href="/">
-            <Span color="secondary" size="75">
-              syakoo
-            </Span>
-          </Link>
-        </Center>
-        <Row gap="50" justify="center">
-          {head.tags.map((tag) => (
-            <Text key={tag} color="secondary" size="75">
-              #{tag}
-            </Text>
-          ))}
+      <Row gap="100">
+        <Row align="center" gap="50">
+          <Icon
+            name={iconName}
+            stroke={theme.color.text.secondary}
+            width="1em"
+          />
+          <Text color="secondary" size="75">
+            {label}
+          </Text>
         </Row>
-        <Center>
-          <div>
-            <Span color="secondary" size="75">
-              投稿日 <time dateTime={head.published}>{head.published}</time>
-            </Span>
-            {head.updated ? (
-              <Span color="secondary" size="75">
-                ・最終更新日 {head.updated}
-              </Span>
-            ) : null}
-          </div>
-        </Center>
-      </Col>
+        {head.tags.map((tag) => (
+          <Text key={tag} color="secondary" size="75">
+            #{tag}
+          </Text>
+        ))}
+      </Row>
+      <div>
+        <Link href="/">
+          <Span color="secondary" size="75">
+            syakoo
+          </Span>
+        </Link>
+        <Span color="secondary" size="75">
+          ・<time dateTime={head.published}>{head.published}</time>
+        </Span>
+        {head.updated ? (
+          <Span color="secondary" size="75">
+            （{head.updated} 更新）
+          </Span>
+        ) : null}
+      </div>
     </header>
   );
 };

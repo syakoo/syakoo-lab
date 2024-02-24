@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const artListStyles = {
   listContainer: style({
     display: "grid",
     gridTemplateColumns: "repeat(4, 1fr)",
-    gap: tokens.spaces[200],
+    gap: theme.space[200],
 
     "@media": {
       "screen and (max-width: 700px)": {

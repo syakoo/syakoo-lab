@@ -1,14 +1,14 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const bookViewStyles = {
   root: style({
-    marginBlock: tokens.spaces[100],
+    marginBlock: theme.space[100],
   }),
   imageWrapper: style({
     flexShrink: 0,
-    boxShadow: `0 0 5px 0px ${tokens.colors.text.secondary}`,
+    boxShadow: `0 0 5px 0px ${theme.color.text.secondary}`,
   }),
   description: style({
     wordBreak: "break-word",

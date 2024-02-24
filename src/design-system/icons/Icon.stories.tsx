@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 import { Icon } from ".";
 import { iconDictionary } from "./Icon";
@@ -26,7 +26,7 @@ export const Gallery = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: "32px",
-        color: tokens.colors.text.primary,
+        color: theme.color.text.primary,
       }}
     >
       {Object.entries(iconDictionary).map(([name, Component]) => (
@@ -43,7 +43,7 @@ export const Gallery = () => {
             style={{
               width: "48px",
               padding: "8px",
-              backgroundColor: tokens.colors.background.secondary,
+              backgroundColor: theme.color.background.secondary,
               borderRadius: "8px",
             }}
           >

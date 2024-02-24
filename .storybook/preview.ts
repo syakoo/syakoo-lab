@@ -3,10 +3,10 @@ import type { Preview } from "@storybook/react";
 import { initialize, mswLoader } from "msw-storybook-addon";
 
 import { defaultHandlers } from "@/api/mocks/msw";
-import { tokens } from "@/design-system/tokens";
-import "@/config/globalSettings";
+import { theme } from "@/design-system/theme.css";
 
-import { theme } from "./manager";
+import "@/config/globalSettings";
+import { storyTheme } from "./manager";
 
 initialize({ onUnhandledRequest: "bypass" });
 
@@ -24,16 +24,16 @@ const preview: Preview = {
       values: [
         {
           name: "primary",
-          value: tokens.colors.background.primary,
+          value: theme.color.background.primary,
         },
         {
           name: "secondary",
-          value: tokens.colors.background.secondary,
+          value: theme.color.background.secondary,
         },
       ],
     },
     docs: {
-      theme,
+      theme: storyTheme,
     },
     viewport: {
       viewports: INITIAL_VIEWPORTS,

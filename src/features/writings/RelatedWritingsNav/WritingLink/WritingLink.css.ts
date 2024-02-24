@@ -1,9 +1,9 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const writingLinkStyles = {
   iconWrapper: style({
-    width: tokens.fontSizes[100],
+    width: theme.fontSize[100],
   }),
 };

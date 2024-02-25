@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
 import type React from "react";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 import { Center } from ".";
 
@@ -16,8 +16,8 @@ export default meta;
 const SampleInnerContent = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      borderRadius: tokens.radii[100],
-      background: tokens.colors.palette.gray[100],
+      borderRadius: theme.radius[100],
+      background: theme.color.palette.gray[100],
       padding: "50px",
       width: "500px",
     }}

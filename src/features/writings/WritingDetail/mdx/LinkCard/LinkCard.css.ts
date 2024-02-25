@@ -1,25 +1,25 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const linkCardStyles = {
   root: style({
     display: "flex",
-    gap: tokens.spaces[50],
+    gap: theme.space[50],
     justifyContent: "space-between",
-    marginBlock: tokens.spaces[200],
-    backgroundColor: tokens.colors.background.primary,
-    border: `1px solid ${tokens.colors.background.secondary}`,
-    borderRadius: tokens.radii[100],
+    marginBlock: theme.space[200],
+    backgroundColor: theme.color.background.primary,
+    border: `1px solid ${theme.color.background.secondary}`,
+    borderRadius: theme.radius[100],
     overflow: "hidden",
   }),
   body: style({
     display: "flex",
     flexDirection: "column",
-    gap: tokens.spaces[50],
-    paddingBlock: tokens.spaces[200],
-    paddingInline: tokens.spaces[100],
+    gap: theme.space[50],
+    paddingBlock: theme.space[200],
+    paddingInline: theme.space[100],
   }),
   textContainer: recipe({
     base: {

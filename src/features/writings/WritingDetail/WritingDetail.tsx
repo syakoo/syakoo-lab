@@ -57,7 +57,6 @@ export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
           </aside>
         </div>
         <aside className={writingDetailStyles.asideWrapper}>
-          <WritingTypeDescription type={writing.head.type} />
           <div className={writingDetailStyles.stickyContainer}>
             <TOC />
           </div>

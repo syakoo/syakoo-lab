@@ -17,7 +17,7 @@ exports[`Scrap スナップショット Sample 1`] = `
         class="Scrap_scrapStyles_body__19bnvd72"
       >
         <div
-          style="border: 1px solid #3063d4; border-radius: 8px; padding: 24px;"
+          style="border-radius: var(--radius-100__13jk9q11g);"
         >
           Children
         </div>

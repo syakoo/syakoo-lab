@@ -1,10 +1,10 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const errorCodeStyles = style({
   fontFamily: "arial black",
-  fontSize: tokens.fontSizes[800],
+  fontSize: theme.fontSize[800],
   fontWeight: "bold",
-  color: tokens.colors.brand.primary,
+  color: theme.color.brand.primary,
 });

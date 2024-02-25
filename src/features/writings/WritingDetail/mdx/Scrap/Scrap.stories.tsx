@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 import { Scrap } from ".";
 
@@ -19,9 +19,9 @@ export const Sample: Story = {
     children: (
       <div
         style={{
-          border: `1px solid ${tokens.colors.brand.primary}`,
-          borderRadius: tokens.radii[100],
-          padding: tokens.spaces[300],
+          border: `1px solid ${theme.color.brand.primary}`,
+          borderRadius: theme.radius[100],
+          padding: theme.space[300],
         }}
       >
         Children

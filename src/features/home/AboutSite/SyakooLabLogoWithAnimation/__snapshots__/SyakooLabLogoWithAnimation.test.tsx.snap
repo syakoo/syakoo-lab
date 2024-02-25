@@ -5,7 +5,7 @@ exports[`SyakooLabLogoWithAnimation スナップショット Sample 1`] = `
   <div>
     <svg
       fill="none"
-      height="300px"
+      height="300"
       viewBox="0 0 120 120"
       xmlns="http://www.w3.org/2000/svg"
     >

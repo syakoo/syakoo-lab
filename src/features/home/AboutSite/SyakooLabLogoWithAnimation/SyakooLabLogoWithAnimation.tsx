@@ -1,7 +1,5 @@
 import type React from "react";
 
-import { tokens } from "@/design-system/tokens";
-
 import {
   bGBorderStyle,
   cupSpoonPath,
@@ -16,7 +14,7 @@ type SyakooLabLogoWithAnimationProps = {
 
 export const SyakooLabLogoWithAnimation: React.FC<
   SyakooLabLogoWithAnimationProps
-> = ({ height = tokens.sizes[50] }) => {
+> = ({ height = 300 }) => {
   return (
     <svg
       fill="none"

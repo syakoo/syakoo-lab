@@ -8,7 +8,7 @@ exports[`FadeIn スナップショット Sample 1`] = `
       style="animation-duration: 0.5s; animation-delay: 0s;"
     >
       <div
-        style="border-radius: 8px; background: rgb(64, 74, 84); padding: 50px; text-align: center;"
+        style="border-radius: var(--radius-100__13jk9q11g); padding: 50px; text-align: center;"
       >
         Children
       </div>

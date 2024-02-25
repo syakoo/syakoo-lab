@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/react";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 import { Link } from ".";
 
@@ -38,8 +38,8 @@ export const Variants = () => {
         <Link display="block" href="#">
           <div
             style={{
-              border: `1px solid ${tokens.colors.brand.primary}`,
-              borderRadius: tokens.radii[100],
+              border: `1px solid ${theme.color.brand.primary}`,
+              borderRadius: theme.radius[100],
             }}
           >
             Block Link

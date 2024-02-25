@@ -1,7 +1,7 @@
 import { addons } from "@storybook/manager-api";
 import { create } from "@storybook/theming";
 
-export const theme = create({
+export const storyTheme = create({
   base: "dark",
   appBg: "#020D1F",
   barBg: "#132134",
@@ -9,5 +9,5 @@ export const theme = create({
 });
 
 addons.setConfig({
-  theme,
+  theme: storyTheme,
 });

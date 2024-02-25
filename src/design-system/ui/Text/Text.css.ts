@@ -1,10 +1,10 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 const colors = {
-  ...tokens.colors.text,
+  ...theme.color.text,
   currentColor: "currentColor",
 } as const;
 
@@ -18,7 +18,7 @@ export const textStyle = recipe({
     color: styleVariants(colors, (color) => ({
       color,
     })),
-    size: styleVariants(tokens.fontSizes, (size) => ({
+    size: styleVariants(theme.fontSize, (size) => ({
       fontSize: size,
     })),
     weight: {

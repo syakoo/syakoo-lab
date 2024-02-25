@@ -1,33 +1,33 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const sectionTitleStyle = style({
-  marginTop: tokens.spaces[500],
-  marginBottom: tokens.spaces[200],
-  paddingBlock: tokens.spaces[200],
-  fontSize: tokens.fontSizes[500],
-  scrollMarginTop: tokens.spaces[200],
+  marginTop: theme.space[500],
+  marginBottom: theme.space[200],
+  paddingBlock: theme.space[200],
+  fontSize: theme.fontSize[500],
+  scrollMarginTop: theme.space[200],
   position: "relative",
 
   selectors: {
     "&:before": {
       position: "absolute",
       top: "0",
-      left: `-${tokens.spaces[200]}`,
+      left: `calc(-1 * ${theme.space[200]})`,
       display: "inline-block",
       width: "1em",
       height: "4px",
       content: "",
-      background: `linear-gradient(to right bottom, ${tokens.colors.brand.primary}, ${tokens.colors.brand.secondary})`,
-      borderTopRightRadius: tokens.radii[100],
+      background: `linear-gradient(to right bottom, ${theme.color.brand.primary}, ${theme.color.brand.secondary})`,
+      borderTopRightRadius: theme.radius[100],
     },
   },
 });
 
 export const subsectionTitleStyle = style({
-  marginTop: tokens.spaces[400],
-  marginBottom: tokens.spaces[200],
-  fontSize: tokens.fontSizes[300],
-  scrollMarginTop: tokens.spaces[200],
+  marginTop: theme.space[400],
+  marginBottom: theme.space[200],
+  fontSize: theme.fontSize[300],
+  scrollMarginTop: theme.space[200],
 });

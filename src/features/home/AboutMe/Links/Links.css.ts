@@ -1,12 +1,12 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const linkStyle = style({
-  backgroundColor: tokens.colors.palette.gray[700],
-  padding: tokens.spaces[25],
+  backgroundColor: theme.color.palette.gray[700],
+  padding: theme.space[25],
   display: "flex",
-  borderRadius: tokens.radii[50],
+  borderRadius: theme.radius[50],
 });
 
 export const linkImageStyle = style({

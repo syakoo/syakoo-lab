@@ -1,7 +1,7 @@
 import { styleVariants } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 const justifyProperties = {
   flexStart: "flex-start",
@@ -40,7 +40,7 @@ export const flexStyle = recipe({
     align: styleVariants(alignProperties, (value) => ({
       alignItems: value,
     })),
-    gap: styleVariants(tokens.spaces, (value) => ({
+    gap: styleVariants(theme.space, (value) => ({
       gap: value,
     })),
     wrap: {

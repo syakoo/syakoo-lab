@@ -1,26 +1,26 @@
 import { globalStyle } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const noteStyles = {
   root: recipe({
     base: {
       display: "flex",
-      gap: tokens.spaces[100],
-      padding: tokens.spaces[100],
-      marginBlock: tokens.spaces[200],
+      gap: theme.space[100],
+      padding: theme.space[100],
+      marginBlock: theme.space[200],
       marginInline: 0,
-      borderRadius: tokens.radii[50],
+      borderRadius: theme.radius[50],
       alignItems: "flex-start",
     },
     variants: {
       variant: {
         note: {
-          backgroundColor: tokens.colors.accent.success.background,
+          backgroundColor: theme.color.accent.success.background,
         },
         warn: {
-          backgroundColor: tokens.colors.accent.warn.background,
+          backgroundColor: theme.color.accent.warn.background,
         },
       },
     },
@@ -35,10 +35,10 @@ export const noteStyles = {
     variants: {
       variant: {
         note: {
-          color: tokens.colors.accent.success.foreground,
+          color: theme.color.accent.success.foreground,
         },
         warn: {
-          color: tokens.colors.accent.warn.foreground,
+          color: theme.color.accent.warn.foreground,
         },
       },
     },
@@ -53,5 +53,5 @@ globalStyle(
 );
 
 globalStyle(`${noteStyles.root.classNames.base} p + p`, {
-  marginTop: tokens.spaces[50],
+  marginTop: theme.space[50],
 });

@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback } from "react";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 // __________
 // Utility Types
@@ -80,14 +80,14 @@ export function points2Coordinates(
 }
 
 const colorMap = {
-  primary: tokens.colors.brand.primary,
-  secondary: tokens.colors.brand.secondary,
-  info: tokens.colors.accent.info.foreground,
-  success: tokens.colors.accent.success.foreground,
-  error: tokens.colors.accent.error.foreground,
-  text: tokens.colors.text.primary,
-  textSecondary: tokens.colors.text.secondary,
-  textTertiary: tokens.colors.text.tertiary,
+  primary: theme.color.brand.primary,
+  secondary: theme.color.brand.secondary,
+  info: theme.color.accent.info.foreground,
+  success: theme.color.accent.success.foreground,
+  error: theme.color.accent.error.foreground,
+  text: theme.color.text.primary,
+  textSecondary: theme.color.text.secondary,
+  textTertiary: theme.color.text.tertiary,
 };
 export type ColorKey = keyof typeof colorMap | `#${string}`;
 export const resolveGeometryColor = (colorKey: ColorKey): string => {

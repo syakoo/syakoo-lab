@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/design-system/tokens";
+import { theme } from "@/design-system/theme.css";
 
 export const linkStyle = recipe({
   base: {
@@ -18,7 +18,7 @@ export const linkStyle = recipe({
   variants: {
     colored: {
       true: {
-        color: tokens.colors.accent.info.foreground,
+        color: theme.color.accent.info.foreground,
       },
     },
     underlined: {

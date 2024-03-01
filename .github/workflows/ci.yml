@@ -76,7 +76,7 @@ jobs:
         run: pnpm install
 
       - name: Run unit test
-        run: pnpm test
+        run: pnpm test:ci
 
   build-check:
     runs-on: ubuntu-latest

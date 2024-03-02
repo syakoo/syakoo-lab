@@ -9,34 +9,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ./.node-version
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
 
       - name: Run Lint
         run: pnpm lint
@@ -46,34 +22,13 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ./.node-version
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
 
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Collect Workflow Telemetry
+        uses: catchpoint/workflow-telemetry-action@v2
 
       - name: Run unit test
         run: pnpm test
@@ -83,34 +38,10 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: ./.node-version
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          version: 8
-          run_install: false
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
 
       - name: Run Build
         run: pnpm build

@@ -10,6 +10,7 @@
  * Consider migrating to a more modern test runner if
  * you don't want to deal with this.
  */
+
 if (
   typeof globalThis.TextEncoder === "undefined" ||
   typeof globalThis.TextDecoder === "undefined"

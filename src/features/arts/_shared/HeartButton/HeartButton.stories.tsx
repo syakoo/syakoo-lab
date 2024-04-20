@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { userEvent, within } from "@storybook/test";
+import { fn, userEvent, within } from "@storybook/test";
 
 import { HeartButton } from ".";
 
@@ -19,11 +19,14 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  args: { onClick: fn() },
+};
 
 export const Activated: Story = {
   args: {
     initialValue: true,
+    onClick: fn(),
   },
 };
 

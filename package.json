@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "run-p dev:*",
     "dev:local": "next dev",
-    "dev:mock-server": "pnpm dlx tsx ./scripts/mock-server.ts",
+    "dev:mock-server": "tsx ./scripts/mock-server.ts",
     "build": "run-s build:prebuild build:next",
     "build:next": "next build",
-    "build:prebuild": "pnpm dlx tsx ./scripts/prebuild.ts",
+    "build:prebuild": "tsx --tsconfig ./tsconfig.json ./scripts/prebuild.ts",
     "start": "next start",
     "test": "jest --verbose",
     "test:watch": "jest --watch",
@@ -93,6 +93,7 @@
     "scaffdog": "^3.0.0",
     "storybook": "^8.0.8",
     "ts-jest": "^29.1.2",
+    "tsx": "^4.15.7",
     "typescript": "^5.4.5",
     "undici": "^5.28.4"
   },

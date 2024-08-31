@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List スナップショット Sample 1`] = `
+<body>
+  <div>
+    <ul
+      class="List_listStyles_root__1mkigv60"
+    >
+      <li
+        class="List_listStyles_item__1mkigv61"
+      >
+        List.Item
+      </li>
+      <li
+        class="List_listStyles_item__1mkigv61"
+      >
+        List.Item
+      </li>
+      <li
+        class="List_listStyles_item__1mkigv61"
+      >
+        List.Item
+      </li>
+    </ul>
+  </div>
+</body>
+`;

@@ -11,12 +11,12 @@ export const Footer: React.FC = () => {
         paddingX="200"
         size="200"
       >
-        <Row align="center" justify="spaceBetween">
+        <Row align="center" justify="spaceBetween" wrap>
           <Text as="span" color="secondary">
             © 2021 syakoo
           </Text>
           <nav>
-            <Row gap="100">
+            <Row gap="200">
               <Link href="/">
                 <Text as="span" color="secondary">
                   Home
@@ -25,6 +25,11 @@ export const Footer: React.FC = () => {
               <Link href="/privacy-policy">
                 <Text as="span" color="secondary">
                   Privacy Policy
+                </Text>
+              </Link>
+              <Link href="/terms">
+                <Text as="span" color="secondary">
+                  Terms
                 </Text>
               </Link>
             </Row>

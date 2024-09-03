@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeartButton スナップショット Activated 1`] = `
+<body>
+  <div>
+    <div
+      style="width: 36px;"
+    >
+      <button
+        aria-label="heart button"
+        class="heart-button_heartButtonStyles_root__gy39e23"
+        disabled=""
+        type="button"
+      >
+        <div
+          class="heart-button_heartButtonStyles_iconWrapper__gy39e24"
+        >
+          <svg
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`HeartButton スナップショット ClickButton 1`] = `
+<body>
+  <div>
+    <div
+      style="width: 36px;"
+    >
+      <button
+        aria-label="heart button"
+        class="heart-button_heartButtonStyles_root__gy39e23"
+        disabled=""
+        type="button"
+      >
+        <div
+          class="heart-button_heartButtonStyles_animationCircleContainer__gy39e26"
+        >
+          <div
+            class="heart-button_heartButtonStyles_animationCircle__gy39e27 heart-button_heartButtonStyles_animationCircle_index_0__gy39e28"
+          />
+          <div
+            class="heart-button_heartButtonStyles_animationCircle__gy39e27 heart-button_heartButtonStyles_animationCircle_index_1__gy39e29"
+          />
+          <div
+            class="heart-button_heartButtonStyles_animationCircle__gy39e27 heart-button_heartButtonStyles_animationCircle_index_2__gy39e2a"
+          />
+          <div
+            class="heart-button_heartButtonStyles_animationCircle__gy39e27 heart-button_heartButtonStyles_animationCircle_index_3__gy39e2b"
+          />
+          <div
+            class="heart-button_heartButtonStyles_animationCircle__gy39e27 heart-button_heartButtonStyles_animationCircle_index_4__gy39e2c"
+          />
+          <div
+            class="heart-button_heartButtonStyles_animationCircle__gy39e27 heart-button_heartButtonStyles_animationCircle_index_5__gy39e2d"
+          />
+        </div>
+        <div
+          class="heart-button_heartButtonStyles_iconWrapper__gy39e24 heart-button_heartButtonStyles_iconWrapper_animationFired_true__gy39e25"
+        >
+          <svg
+            fill="currentColor"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`HeartButton スナップショット Default 1`] = `
+<body>
+  <div>
+    <div
+      style="width: 36px;"
+    >
+      <button
+        aria-label="heart button"
+        class="heart-button_heartButtonStyles_root__gy39e23"
+        type="button"
+      >
+        <div
+          class="heart-button_heartButtonStyles_iconWrapper__gy39e24"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+</body>
+`;

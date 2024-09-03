@@ -1,1 +1,0 @@
-export { WritingTypeDescription } from "./WritingTypeDescription";

@@ -1,8 +1,8 @@
-import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
+import { HeaderFooterTemplate } from "@/components/header-footer-template";
 import { Col, Container } from "@/design-system/layout";
 import { FadeIn } from "@/design-system/ui";
-import { AboutMe } from "@/features/home/AboutMe";
-import { AboutSite } from "@/features/home/AboutSite";
+import { AboutMe } from "@/features/home/about-me";
+import { AboutSite } from "@/features/home/about-site";
 
 const HomePage = () => {
   return (

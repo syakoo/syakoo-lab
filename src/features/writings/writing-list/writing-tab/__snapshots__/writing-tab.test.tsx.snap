@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WritingTab スナップショット Sample 1`] = `
+<body>
+  <div>
+    <div
+      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+    >
+      <a
+        class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3"
+        href="/writings"
+      >
+        <div
+          aria-current="true"
+          class="writing-tab_writingTabStyle_item__1g56vq60 writing-tab_writingTabStyle_item_active_true__1g56vq61"
+        >
+          All
+        </div>
+      </a>
+      <a
+        class="link_linkStyle__jc9bkl0"
+        href="/writings?type=article"
+      >
+        <div
+          aria-current="false"
+          class="writing-tab_writingTabStyle_item__1g56vq60 writing-tab_writingTabStyle_item_active_false__1g56vq62"
+        >
+          Article
+        </div>
+      </a>
+      <a
+        class="link_linkStyle__jc9bkl0"
+        href="/writings?type=note"
+      >
+        <div
+          aria-current="false"
+          class="writing-tab_writingTabStyle_item__1g56vq60 writing-tab_writingTabStyle_item_active_false__1g56vq62"
+        >
+          Note
+        </div>
+      </a>
+      <a
+        class="link_linkStyle__jc9bkl0"
+        href="/writings?type=diary"
+      >
+        <div
+          aria-current="false"
+          class="writing-tab_writingTabStyle_item__1g56vq60 writing-tab_writingTabStyle_item_active_false__1g56vq62"
+        >
+          Diary
+        </div>
+      </a>
+    </div>
+  </div>
+</body>
+`;

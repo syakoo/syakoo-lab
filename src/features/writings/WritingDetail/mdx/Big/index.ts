@@ -1,1 +1,0 @@
-export { Big } from "./Big";

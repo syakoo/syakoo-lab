@@ -1,8 +1,8 @@
 import { Link } from "@/design-system/ui";
 
-import haskellFunctionPuzzleImageSrc from "./images/HaskellFunctionPuzzle.png";
-import magicSquareImageSrc from "./images/MagicSquare.png";
-import realSharingImageSrc from "./images/RealSharing.png";
+import haskellFunctionPuzzleImageSrc from "./images/haskell-function-puzzle.png";
+import magicSquareImageSrc from "./images/magic-square.png";
+import realSharingImageSrc from "./images/real-sharing.png";
 import type { Work } from "./types";
 
 export const works: Work[] = [

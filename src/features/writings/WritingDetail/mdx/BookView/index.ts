@@ -1,1 +1,0 @@
-export { BookView } from "./BookView";

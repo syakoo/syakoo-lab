@@ -1,1 +1,0 @@
-export { SyakooLabText } from "./SyakooLabText";

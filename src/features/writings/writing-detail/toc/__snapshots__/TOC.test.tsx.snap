@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TOC スナップショット Sample 1`] = `
+<body>
+  <div>
+    <nav>
+      <p
+        class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_bold__xbx8xut"
+      >
+        目次
+      </p>
+      <ul
+        class="toc_tocStyles_list__1yz9ns40"
+      >
+        <li
+          class="toc_tocStyles_item__1yz9ns41"
+        >
+          <a
+            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            href="#"
+          >
+            導入
+          </a>
+        </li>
+        <li
+          class="toc_tocStyles_item__1yz9ns41 toc_tocStyles_item_active_true__1yz9ns42"
+        >
+          <a
+            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            href="#"
+          >
+            基本的な概念
+          </a>
+        </li>
+        <li
+          class="toc_tocStyles_item__1yz9ns41"
+        >
+          <a
+            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            href="#"
+          >
+            開発環境のセットアップ
+          </a>
+        </li>
+        <li
+          class="toc_tocStyles_item__1yz9ns41"
+        >
+          <a
+            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            href="#"
+          >
+            プログラミングの基礎
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+`;

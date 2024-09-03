@@ -1,5 +1,5 @@
-import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
-import { PageNotFound } from "@/components/PageNotFound";
+import { HeaderFooterTemplate } from "@/components/header-footer-template";
+import { PageNotFound } from "@/components/page-not-found";
 import { Container } from "@/design-system/layout";
 
 const NotFoundPage = () => {

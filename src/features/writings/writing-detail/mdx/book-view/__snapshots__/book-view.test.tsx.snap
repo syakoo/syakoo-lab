@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookView スナップショット Sample 1`] = `
+<body>
+  <div>
+    <div
+      class="book-view_bookViewStyles_root__19xudmx0"
+    >
+      <div
+        class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_200__12xne02z flex_flexStyle_variants_gap_200__12xne02e flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      >
+        <div
+          class="book-view_bookViewStyles_imageWrapper__19xudmx1"
+        >
+          <img
+            alt="BookTitle"
+            src="https://placehold.jp/3063D4/ffffff/150x200.png"
+            width="100"
+          />
+        </div>
+        <div
+          class="book-view_bookViewStyles_description__19xudmx2"
+        >
+          <div>
+            <p
+              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_300__xbx8xun text_textStyle_variants_size_300__xbx8xu8 text_textStyle_weight_bold__xbx8xut"
+            >
+              BookTitle
+            </p>
+          </div>
+          <div>
+            <div
+              class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+            >
+              <span
+                class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              >
+                syakoo
+              </span>
+              <span
+                class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              >
+                2022-04-07
+              </span>
+            </div>
+            <a
+              class="link_linkStyle__jc9bkl0 link_linkStyle_colored_true__jc9bkl1 link_linkStyle_underlined_true__jc9bkl2"
+              href="/"
+            >
+              <span
+                class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              >
+                Amazon
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

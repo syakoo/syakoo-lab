@@ -2,13 +2,13 @@ import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
-import { formatPageTitle } from "@/config/pageTitle";
+import { HeaderFooterTemplate } from "@/components/header-footer-template";
+import { formatPageTitle } from "@/config/page-title";
 import { readWritingContents } from "@/contents/writings/reader";
 import { Container } from "@/design-system/layout";
-import { WritingList } from "@/features/writings/WritingList";
-import { resolveWritingHead } from "@/features/writings/_models/headResolver";
+import { resolveWritingHead } from "@/features/writings/_models/head-resolver";
 import { writingPaths } from "@/features/writings/config/paths";
+import { WritingList } from "@/features/writings/writing-list";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),

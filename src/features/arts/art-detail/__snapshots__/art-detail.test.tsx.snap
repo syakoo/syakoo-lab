@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtDetail スナップショット Sample 1`] = `
+<body>
+  <div>
+    <article
+      class="art-detail_artDetailStyles_root__w0s1yq0"
+    >
+      <div
+        class="art-detail_artDetailStyles_imageWrapper__w0s1yq2"
+      >
+        <img
+          alt="Art Title"
+          class="art-detail_artDetailStyles_image__w0s1yq3"
+          data-nimg="1"
+          decoding="async"
+          height="1500"
+          loading="lazy"
+          src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75 1x"
+          style="color: transparent;"
+          width="2500"
+        />
+      </div>
+      <div
+        class="art-detail_artDetailStyles_body__w0s1yq4"
+      >
+        <div
+          class="flex_flexStyle__12xne02i flex_flexStyle_align_flexEnd__12xne02t flex_flexStyle_variants_align_flexEnd__12xne028 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+        >
+          <div
+            class="art-detail_artDetailStyles_heartButtonWrapper__w0s1yq1"
+          >
+            <button
+              aria-label="heart button"
+              class="heart-button_heartButtonStyles_root__gy39e23"
+              type="button"
+            >
+              <div
+                class="heart-button_heartButtonStyles_iconWrapper__gy39e24"
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </button>
+          </div>
+          <div>
+             
+          </div>
+        </div>
+        <div>
+          <h2
+            class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_400__xbx8xuo text_textStyle_variants_size_400__xbx8xu9 text_textStyle_weight_bold__xbx8xut"
+          >
+            Art Title
+          </h2>
+          <div
+            class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+          >
+            <div>
+              <p>
+                Sample MDX Component
+              </p>
+              <h2>
+                Sample Title
+              </h2>
+            </div>
+            <div>
+              <div
+                class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+              >
+                <p
+                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+                >
+                  #
+                  雑記
+                </p>
+                <p
+                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+                >
+                  #
+                  Sample
+                </p>
+              </div>
+              <p
+                class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              >
+                2023-10-31
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</body>
+`;

@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Links スナップショット Sample 1`] = `
+<body>
+  <div>
+    <ul
+      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+    >
+      <li>
+        <a
+          class="link_linkStyle__jc9bkl0"
+          href="#"
+        >
+          <div
+            class="links_linkStyle__1grgam80"
+            title="Name1"
+          >
+            <img
+              alt="Name1"
+              class="links_linkImageStyle__1grgam81"
+              data-nimg="1"
+              decoding="async"
+              height="50"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=128&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F50x50.png&w=128&q=75 2x"
+              style="color: transparent;"
+              width="50"
+            />
+          </div>
+        </a>
+      </li>
+      <li>
+        <a
+          class="link_linkStyle__jc9bkl0"
+          href="#"
+        >
+          <div
+            class="links_linkStyle__1grgam80"
+            title="Name2"
+          >
+            <img
+              alt="Name2"
+              class="links_linkImageStyle__1grgam81"
+              data-nimg="1"
+              decoding="async"
+              height="50"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F294e80%2Fffffff%2F50x50.png&w=128&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F294e80%2Fffffff%2F50x50.png&w=64&q=75 1x, /_next/image?url=https%3A%2F%2Fplacehold.jp%2F294e80%2Fffffff%2F50x50.png&w=128&q=75 2x"
+              style="color: transparent;"
+              width="50"
+            />
+          </div>
+        </a>
+      </li>
+      <li>
+        <a
+          class="link_linkStyle__jc9bkl0"
+          href="#"
+        >
+          <div
+            class="links_linkStyle__1grgam80"
+            title="Name3"
+          >
+            <img
+              alt="Name3"
+              class="links_linkImageStyle__1grgam81"
+              data-nimg="1"
+              decoding="async"
+              height="100"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F00ABEE%2Fffffff%2F100x100.png&w=256&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F00ABEE%2Fffffff%2F100x100.png&w=128&q=75 1x, /_next/image?url=https%3A%2F%2Fplacehold.jp%2F00ABEE%2Fffffff%2F100x100.png&w=256&q=75 2x"
+              style="color: transparent;"
+              width="100"
+            />
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</body>
+`;

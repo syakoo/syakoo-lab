@@ -1,1 +1,0 @@
-export { SyakooLabLogoWithAnimation } from "./SyakooLabLogoWithAnimation";

@@ -1,12 +1,12 @@
 import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
 
-import { HeaderFooterTemplate } from "@/components/HeaderFooterTemplate";
-import { formatPageTitle } from "@/config/pageTitle";
+import { HeaderFooterTemplate } from "@/components/header-footer-template";
+import { formatPageTitle } from "@/config/page-title";
 import { readArtContents } from "@/contents/arts/reader";
-import { ArtList } from "@/features/arts/ArtList";
-import { resolveArtHead } from "@/features/arts/_models/headResolver";
+import { resolveArtHead } from "@/features/arts/_models/head-resolver";
 import type { ArtHead } from "@/features/arts/_models/types";
+import { ArtList } from "@/features/arts/art-list";
 import { artPaths } from "@/features/arts/config/paths";
 
 export const metadata: Metadata = {

@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtGalleryItem スナップショット LongText 1`] = `
+<body>
+  <div>
+    <div
+      style="max-width: 500px;"
+    >
+      <article
+        class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      >
+        <div>
+          <a
+            class="link_linkStyle__jc9bkl0 link_linkStyle_display_block__jc9bkl4"
+            href="/arts/sample-id-2"
+          >
+            <img
+              alt="Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title"
+              class="art-gallery-item_artGalleryItemStyles_image__1jhogya0"
+              data-nimg="1"
+              decoding="async"
+              height="1500"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75 1x"
+              style="color: transparent;"
+              width="2500"
+            />
+          </a>
+        </div>
+        <div
+          class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_spaceBetween__12xne02o flex_flexStyle_variants_justify_spaceBetween__12xne023"
+        >
+          <div
+            class="art-gallery-item_artGalleryItemStyles_titleWrapper__1jhogya1"
+          >
+            <h3
+              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_bold__xbx8xut"
+            >
+              Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title
+            </h3>
+          </div>
+          <div
+            class="flex_flexItemStyle__12xne0219 flex_flexItemStyle_shrink_0__12xne021a"
+          >
+            <div
+              class="art-gallery-item_artGalleryItemStyles_heartButtonWrapper__1jhogya2"
+            >
+              <button
+                aria-label="heart button"
+                class="heart-button_heartButtonStyles_root__gy39e23"
+                type="button"
+              >
+                <div
+                  class="heart-button_heartButtonStyles_iconWrapper__gy39e24"
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`ArtGalleryItem スナップショット Sample 1`] = `
+<body>
+  <div>
+    <div
+      style="max-width: 500px;"
+    >
+      <article
+        class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      >
+        <div>
+          <a
+            class="link_linkStyle__jc9bkl0 link_linkStyle_display_block__jc9bkl4"
+            href="/arts/sample-id-1"
+          >
+            <img
+              alt="Sample Art Title"
+              class="art-gallery-item_artGalleryItemStyles_image__1jhogya0"
+              data-nimg="1"
+              decoding="async"
+              height="1500"
+              loading="lazy"
+              src="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75"
+              srcset="/_next/image?url=https%3A%2F%2Fplacehold.jp%2F3063D4%2Fffffff%2F2000x1500.png&w=3840&q=75 1x"
+              style="color: transparent;"
+              width="2500"
+            />
+          </a>
+        </div>
+        <div
+          class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_spaceBetween__12xne02o flex_flexStyle_variants_justify_spaceBetween__12xne023"
+        >
+          <div
+            class="art-gallery-item_artGalleryItemStyles_titleWrapper__1jhogya1"
+          >
+            <h3
+              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_bold__xbx8xut"
+            >
+              Sample Art Title
+            </h3>
+          </div>
+          <div
+            class="flex_flexItemStyle__12xne0219 flex_flexItemStyle_shrink_0__12xne021a"
+          >
+            <div
+              class="art-gallery-item_artGalleryItemStyles_heartButtonWrapper__1jhogya2"
+            >
+              <button
+                aria-label="heart button"
+                class="heart-button_heartButtonStyles_root__gy39e23"
+                type="button"
+              >
+                <div
+                  class="heart-button_heartButtonStyles_iconWrapper__gy39e24"
+                >
+                  <svg
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</body>
+`;

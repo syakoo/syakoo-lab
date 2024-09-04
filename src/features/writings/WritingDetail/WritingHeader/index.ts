@@ -1,1 +1,0 @@
-export { WritingHeader } from "./WritingHeader";

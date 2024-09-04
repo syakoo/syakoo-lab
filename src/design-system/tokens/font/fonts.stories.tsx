@@ -1,8 +1,8 @@
 import type { Meta } from "@storybook/react";
 import { useState } from "react";
 
-import { fontFamilies } from "./fontFamilies";
-import { fontSizes } from "./fontSizes";
+import { fontFamilies } from "./font-families";
+import { fontSizes } from "./font-sizes";
 
 const meta = {
   title: "design-system/tokens/fonts",

@@ -1,3 +1,3 @@
-export * from "./FadeIn";
-export * from "./Text";
-export * from "./Link";
+export * from "./fade-in";
+export * from "./text";
+export * from "./link";

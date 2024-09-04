@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AboutMe スナップショット Sample 1`] = `
+<body>
+  <div>
+    <section
+      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+    >
+      <h2
+        class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_500__xbx8xup text_textStyle_variants_size_500__xbx8xua text_textStyle_weight_bold__xbx8xut"
+      >
+        About Me
+      </h2>
+      <div
+        class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_200__12xne02z flex_flexStyle_variants_gap_200__12xne02e flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      >
+        <div
+          class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_200__12xne02z flex_flexStyle_variants_gap_200__12xne02e flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+        >
+          <img
+            alt="me"
+            class="about-me_aboutMeImageStyle__gjpojs0"
+            data-nimg="1"
+            decoding="async"
+            height="40"
+            loading="lazy"
+            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+            style="color: transparent;"
+            width="40"
+          />
+          <div
+            class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+          >
+            <h3
+              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_400__xbx8xuo text_textStyle_variants_size_400__xbx8xu9 text_textStyle_weight_bold__xbx8xut"
+            >
+              syakoo
+            </h3>
+            <ul
+              class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+            >
+              <li>
+                <a
+                  class="link_linkStyle__jc9bkl0"
+                  href="https://github.com/syakoo"
+                >
+                  <div
+                    class="links_linkStyle__1grgam80"
+                    title="Github"
+                  >
+                    <img
+                      alt="Github"
+                      class="links_linkImageStyle__1grgam81"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link_linkStyle__jc9bkl0"
+                  href="https://twitter.com/sako_data"
+                >
+                  <div
+                    class="links_linkStyle__1grgam80"
+                    title="X (Twitter)"
+                  >
+                    <img
+                      alt="X (Twitter)"
+                      class="links_linkImageStyle__1grgam81"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link_linkStyle__jc9bkl0"
+                  href="https://leetcode.com/syakoo/"
+                >
+                  <div
+                    class="links_linkStyle__1grgam80"
+                    title="LeetCode"
+                  >
+                    <img
+                      alt="LeetCode"
+                      class="links_linkImageStyle__1grgam81"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link_linkStyle__jc9bkl0"
+                  href="https://steamcommunity.com/profiles/76561198944381322/"
+                >
+                  <div
+                    class="links_linkStyle__1grgam80"
+                    title="Steam"
+                  >
+                    <img
+                      alt="Steam"
+                      class="links_linkImageStyle__1grgam81"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="link_linkStyle__jc9bkl0"
+                  href="https://atcoder.jp/users/syakoo"
+                >
+                  <div
+                    class="links_linkStyle__1grgam80"
+                    title="AtCoder"
+                  >
+                    <img
+                      alt="AtCoder"
+                      class="links_linkImageStyle__1grgam81"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p
+          class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+        >
+          気分駆動フロントエンドエンジニア。言語・フレームワーク仕様よりは設計やアルゴリズムなどの抽象的な部分に興味があります。
+        </p>
+      </div>
+    </section>
+  </div>
+</body>
+`;

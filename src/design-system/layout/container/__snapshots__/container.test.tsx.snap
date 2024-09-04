@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container スナップショット Sample 1`] = `
+<body>
+  <div>
+    <div
+      style="display: flex; flex-direction: column; gap: 50px;"
+    >
+      <div>
+        <div
+          class="container_containerStyle__s76bfe3 container_containerStyle_size_100__s76bfe5 container_containerStyle_variants_size_100__s76bfe1"
+        >
+          <div
+            style="border-radius: var(--radius-100__13jk9q11g); padding: 50px;"
+          >
+            size: 100 (default)
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="container_containerStyle__s76bfe3 container_containerStyle_size_50__s76bfe4 container_containerStyle_variants_size_50__s76bfe0"
+        >
+          <div
+            style="border-radius: var(--radius-100__13jk9q11g); padding: 50px;"
+          >
+            size: 50
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

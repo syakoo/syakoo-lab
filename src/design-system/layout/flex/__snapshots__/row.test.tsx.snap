@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row スナップショット Row_ 1`] = `
+<body>
+  <div>
+    <div
+      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+    >
+      <div
+        style="border-radius: var(--radius-100__13jk9q11g); width: 260px; height: 260px; display: flex; align-items: center; justify-content: center;"
+      >
+        260px
+         x 
+        260px
+      </div>
+      <div
+        style="border-radius: var(--radius-100__13jk9q11g); width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;"
+      >
+        140px
+         x 
+        140px
+      </div>
+      <div
+        style="border-radius: var(--radius-100__13jk9q11g); width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;"
+      >
+        200px
+         x 
+        200px
+      </div>
+      <div
+        style="border-radius: var(--radius-100__13jk9q11g); width: 400px; height: auto; display: flex; align-items: center; justify-content: center;"
+      >
+        400px
+         x 
+        auto
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Row スナップショット RowWithItem 1`] = `
+<body>
+  <div>
+    <div
+      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+    >
+      <div
+        class="flex_flexItemStyle__12xne0219 flex_flexItemStyle_shrink_0__12xne021a"
+      >
+        <div
+          style="border-radius: var(--radius-100__13jk9q11g); width: 260px; height: 260px; display: flex; align-items: center; justify-content: center;"
+        >
+          260px
+           x 
+          260px
+        </div>
+      </div>
+      <div
+        class="flex_flexItemStyle__12xne0219 flex_flexItemStyle_align_stretch__12xne021h flex_flexItemStyle_variants_align_stretch__12xne0217"
+      >
+        <div
+          style="border-radius: var(--radius-100__13jk9q11g); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"
+        >
+          100%
+           x 
+          100%
+        </div>
+      </div>
+      <div
+        class="flex_flexItemStyle__12xne0219"
+      >
+        <div
+          style="border-radius: var(--radius-100__13jk9q11g); width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;"
+        >
+          200px
+           x 
+          200px
+        </div>
+      </div>
+      <div
+        style="border-radius: var(--radius-100__13jk9q11g); width: 400px; height: auto; display: flex; align-items: center; justify-content: center;"
+      >
+        400px
+         x 
+        auto
+      </div>
+    </div>
+  </div>
+</body>
+`;

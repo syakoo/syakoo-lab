@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer スナップショット Sample 1`] = `
+<body>
+  <div>
+    <div
+      class="center_centerStyle__1yvz6qj0"
+    >
+      <footer
+        class="container_containerStyle__s76bfe3 container_containerStyle_size_200__s76bfe6 container_containerStyle_variants_size_200__s76bfe2 container_containerStyle_paddingBottom_200__s76bfew padding_paddingBottomVariants_200__409uzlo container_containerStyle_paddingTop_300__s76bfeq padding_paddingTopVariants_300__409uzli container_containerStyle_paddingX_200__s76bfe13 padding_paddingXVariants_200__409uzlv"
+      >
+        <div
+          class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_spaceBetween__12xne02o flex_flexStyle_variants_justify_spaceBetween__12xne023 flex_flexStyle_wrap_true__12xne0213"
+        >
+          <span
+            class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+          >
+            © 2021 syakoo
+          </span>
+          <nav>
+            <div
+              class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_200__12xne02z flex_flexStyle_variants_gap_200__12xne02e flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+            >
+              <a
+                class="link_linkStyle__jc9bkl0"
+                href="/"
+              >
+                <span
+                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+                >
+                  Home
+                </span>
+              </a>
+              <a
+                class="link_linkStyle__jc9bkl0"
+                href="/privacy-policy"
+              >
+                <span
+                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+                >
+                  Privacy Policy
+                </span>
+              </a>
+              <a
+                class="link_linkStyle__jc9bkl0"
+                href="/terms"
+              >
+                <span
+                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+                >
+                  Terms
+                </span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+`;

@@ -1,1 +1,0 @@
-export { ArtGalleryItem } from "./ArtGalleryItem";

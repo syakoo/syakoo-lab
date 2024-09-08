@@ -2,7 +2,7 @@ import { createMiddleware } from "@mswjs/http-middleware";
 import cors from "cors";
 import express from "express";
 
-import { withAPIBasePath } from "@/api/_shared/config";
+import { supabaseUrl } from "@/api/supabase/_shared/config";
 
 import { defaultHandlers } from "./msw";
 
@@ -21,6 +21,6 @@ export const runServer = () => {
     });
   });
 
-  const { port } = new URL(withAPIBasePath(""));
+  const { port } = new URL(supabaseUrl);
   app.listen(port);
 };

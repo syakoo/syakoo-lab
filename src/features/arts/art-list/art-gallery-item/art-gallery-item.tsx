@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { api } from "@/api";
+import { api } from "@/api/supabase";
 import { Col, FlexItem, Row } from "@/design-system/layout";
 import { H3, Link } from "@/design-system/ui";
 import type { ArtHead } from "@/features/arts/_models/types";
@@ -16,8 +16,7 @@ type ArtGalleryItemProps = {
 };
 
 export const ArtGalleryItem: React.FC<ArtGalleryItemProps> = ({ head }) => {
-  const handleClickHeartButton = () =>
-    void api.incrementArtFav({ id: head.id });
+  const handleClickHeartButton = () => void api.incrementArtLikes(head.id);
 
   return (
     <Col as="article" gap="50">

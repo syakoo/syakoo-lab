@@ -1,4 +1,4 @@
-import { api } from "@/api";
+import { api } from "@/api/supabase";
 import { readArtContents } from "@/contents/arts/reader";
 
 /**
@@ -11,5 +11,5 @@ export const buildArtContents = async () => {
     ({ frontMatter }) => frontMatter.id,
   );
 
-  await api.syncArtsFav({ artIds });
+  await api.syncArts(artIds);
 };

@@ -14,6 +14,7 @@ mermaid.initialize({
     primaryBorderColor: tokens.colors.palette.gray[100],
     lineColor: tokens.colors.palette.gray[500],
     secondaryColor: tokens.colors.palette.gray[100],
+    tertiaryColor: tokens.colors.palette.gray[100],
     git0: tokens.colors.palette.gray[100],
     git1: tokens.colors.brand.primary,
     git2: tokens.colors.brand.secondary,

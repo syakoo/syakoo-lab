@@ -7,13 +7,13 @@ questions:
   name: "コンポーネント名を入力してください"
 ---
 
-# `{{ inputs.name | pascal }}/index.ts`
+# `{{ inputs.name | kebab }}/index.ts`
 
 ```typescript
-export { {{ inputs.name | pascal }} } from "./{{ inputs.name | pascal }}";
+export { {{ inputs.name | pascal }} } from "./{{ inputs.name | kebab }}";
 ```
 
-# `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.tsx`
+# `{{ inputs.name | kebab }}/{{ inputs.name | kebab }}.tsx`
 
 ```tsx
 type {{ inputs.name | pascal }}Props = {
@@ -26,13 +26,13 @@ export const {{ inputs.name | pascal }}: React.FC<{{ inputs.name | pascal }}Prop
 
 ```
 
-# `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.css.ts`
+# `{{ inputs.name | kebab }}/{{ inputs.name | kebab }}.css.ts`
 
 ```typescript
 
 ```
 
-# `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.stories.tsx`
+# `{{ inputs.name | kebab }}/{{ inputs.name | kebab }}.stories.tsx`
 
 ```tsx
 import type { Meta, StoryObj } from "@storybook/react";
@@ -57,12 +57,12 @@ export const Sample: Story = {
 
 ```
 
-# `{{ inputs.name | pascal }}/{{ inputs.name | pascal }}.test.tsx`
+# `{{ inputs.name | kebab }}/{{ inputs.name | kebab }}.test.tsx`
 
 ```tsx
-import { testStories } from "@/test/testStories";
+import { testStories } from "@/test/test-stories";
 
-import * as stories from "./{{ inputs.name | pascal }}.stories";
+import * as stories from "./{{ inputs.name | kebab }}.stories";
 
 describe("{{ inputs.name | pascal }}", () => {
   testStories(stories);

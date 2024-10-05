@@ -1,5 +1,6 @@
 import { Big } from "./big";
 import { BookView } from "./book-view";
+import { Chat } from "./chat";
 import { Choices, Choice } from "./choices";
 import { CodeSandbox } from "./code-sandbox";
 import { Figure } from "./figure";
@@ -13,6 +14,7 @@ import { SectionTitle, SubSectionTitle } from "./section-title";
 export const mdxComponents = {
   Big,
   BookView,
+  Chat,
   Note,
   CodeSandbox,
   ...GeometryComponents,

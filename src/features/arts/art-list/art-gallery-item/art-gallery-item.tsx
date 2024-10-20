@@ -2,10 +2,11 @@
 
 import Image from "next/image";
 
-import { api } from "@/api/supabase";
+import { api } from "@/api/reaction-system";
 import { Col, FlexItem, Row } from "@/design-system/layout";
 import { H3, Link } from "@/design-system/ui";
 import type { ArtHead } from "@/features/arts/_models/types";
+import { convertArtIdToReactionId } from "@/features/arts/_shared/art-id-to-reaction-id";
 import { HeartButton } from "@/features/arts/_shared/heart-button";
 import { artPaths } from "@/features/arts/config/paths";
 
@@ -16,7 +17,10 @@ type ArtGalleryItemProps = {
 };
 
 export const ArtGalleryItem: React.FC<ArtGalleryItemProps> = ({ head }) => {
-  const handleClickHeartButton = () => void api.incrementArtLikes(head.id);
+  const handleClickHeartButton = () =>
+    void api.postReactionIncrement(convertArtIdToReactionId(head.id), {
+      likes: 1,
+    });
 
   return (
     <Col as="article" gap="50">

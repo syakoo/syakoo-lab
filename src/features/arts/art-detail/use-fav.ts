@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-import { api } from "@/api/supabase";
+import { api } from "@/api/reaction-system";
+import { convertArtIdToReactionId } from "@/features/arts/_shared/art-id-to-reaction-id";
 import { useMount } from "@/utils/mount/use-mount";
 
 type UseFavReturn = {
@@ -15,14 +16,16 @@ export const useFav = (id: string): UseFavReturn => {
 
   useMount(() => {
     void (async () => {
-      const result = await api.fetchArtLikes(id);
+      const result = await api.getReaction(convertArtIdToReactionId(id));
       setFav(result.likes);
     })();
   });
 
   const incrementFav = async () => {
     setIncrementedValue(1);
-    await api.incrementArtLikes(id);
+    await api.postReactionIncrement(convertArtIdToReactionId(id), {
+      likes: 1,
+    });
   };
 
   const resolvedFav = (() => {

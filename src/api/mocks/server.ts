@@ -2,7 +2,7 @@ import { createMiddleware } from "@mswjs/http-middleware";
 import cors from "cors";
 import express from "express";
 
-import { supabaseUrl } from "@/api/supabase/_shared/config";
+import { reactionSystemUrl } from "@/api/reaction-system/_shared/config";
 
 import { defaultHandlers } from "./msw";
 
@@ -21,6 +21,6 @@ export const runServer = () => {
     });
   });
 
-  const { port } = new URL(supabaseUrl);
+  const { port } = new URL(reactionSystemUrl);
   app.listen(port);
 };

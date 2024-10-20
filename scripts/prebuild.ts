@@ -1,6 +1,6 @@
-import "./_shared/env";
+import { env } from "env";
 
-if (process.env.ENABLE_BUILD_CONTENTS === "true") {
+if (env.ENABLE_BUILD_CONTENTS) {
   console.log("[start] build contents");
   const { buildArtContents } = await import(
     "@/features/arts/art-content-builder"

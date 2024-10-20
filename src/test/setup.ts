@@ -1,5 +1,7 @@
 import { exampleMDXComponent } from "@/features/mdx/mocks/fixture-mdxcomponent";
 
+import { loadEnv } from "./nextjs/env";
+
 // NOTE: `@mdx-js/mdx` の esm がうまく解決できなかったためまとめてモック化
 // これが原因でおかしくなっていたらごめんなさい
 jest.mock("@mdx-js/mdx", () => {
@@ -20,3 +22,5 @@ jest.mock("mermaid", () => ({
     return;
   },
 }));
+
+loadEnv();

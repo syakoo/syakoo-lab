@@ -1,7 +1,7 @@
-import { handleAPIFetchArtLikes } from "@/api/supabase/arts/fetch-art-likes.mocks";
-import { handleAPIIncrementArtLikes } from "@/api/supabase/arts/increment-art-likes.mocks";
+import { handleAPIGetReaction } from "@/api/reaction-system/get-reaction.mocks";
+import { handleAPIPostReactionIncrement } from "@/api/reaction-system/post-reaction-increment.mocks";
 
 export const defaultHandlers = [
-  handleAPIFetchArtLikes,
-  handleAPIIncrementArtLikes,
+  handleAPIGetReaction,
+  handleAPIPostReactionIncrement,
 ];

@@ -1,5 +1,3 @@
-import "./_shared/env";
+import { runServer } from "@/api/mocks/server";
 
-// NOTE: 動的にすることで読むタイミングを遅らせる
-const { runServer } = await import("@/api/mocks/server");
 runServer();

@@ -1,5 +1,7 @@
-import { api } from "@/api/supabase";
+import { syncReaction } from "@/api/reaction-system/sync-reaction";
 import { readArtContents } from "@/contents/arts/reader";
+
+import { convertArtIdToReactionId } from "./_shared/art-id-to-reaction-id";
 
 /**
  * サイトビルド時に art で必要な処理
@@ -11,5 +13,5 @@ export const buildArtContents = async () => {
     ({ frontMatter }) => frontMatter.id,
   );
 
-  await api.syncArts(artIds);
+  await syncReaction(artIds.map(convertArtIdToReactionId));
 };

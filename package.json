@@ -3,6 +3,7 @@
   "type": "module",
   "version": "6.0.0",
   "scripts": {
+    "prepare": "lefthook install",
     "dev": "run-p dev:*",
     "dev:local": "next dev",
     "dev:mock-server": "tsx ./scripts/mock-server.ts",

@@ -1,4 +1,4 @@
-import { api } from "@/api/reaction-system";
+import { syncReaction } from "@/api/reaction-system/sync-reaction";
 import { readArtContents } from "@/contents/arts/reader";
 
 import { convertArtIdToReactionId } from "./_shared/art-id-to-reaction-id";
@@ -13,5 +13,5 @@ export const buildArtContents = async () => {
     ({ frontMatter }) => frontMatter.id,
   );
 
-  await api.syncReaction(artIds.map(convertArtIdToReactionId));
+  await syncReaction(artIds.map(convertArtIdToReactionId));
 };

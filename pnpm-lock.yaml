@@ -17,6 +17,9 @@ importers:
       '@supabase/supabase-js':
         specifier: ^2.45.3
         version: 2.45.3
+      '@t3-oss/env-nextjs':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.4.5)(zod@3.23.8)
       '@vanilla-extract/css':
         specifier: ^1.14.2
         version: 1.14.2
@@ -32,9 +35,6 @@ importers:
       date-fns:
         specifier: ^2.30.0
         version: 2.30.0
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
       express:
         specifier: ^4.19.2
         version: 4.19.2
@@ -80,6 +80,9 @@ importers:
       shiki:
         specifier: ^0.14.7
         version: 0.14.7
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@commitlint/cli':
         specifier: ^17.8.1
@@ -87,6 +90,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^17.8.1
         version: 17.8.1
+      '@next/env':
+        specifier: ^14.2.15
+        version: 14.2.15
       '@next/eslint-plugin-next':
         specifier: ^14.2.2
         version: 14.2.2
@@ -1612,6 +1618,9 @@ packages:
   '@ndelangen/get-tarball@3.0.9':
     resolution: {integrity: sha512-9JKTEik4vq+yGosHYhZ1tiH/3WpUS0Nh0kej4Agndhox8pAdWhEx5knFVRcb/ya9knCRCs1rPxNrSXTDdfVqpA==}
 
+  '@next/env@14.2.15':
+    resolution: {integrity: sha512-S1qaj25Wru2dUpcIZMjxeMVSwkt8BK4dmWHHiBuRstcIyOsMapqT4A4jSB6onvqeygkSSmOkyny9VVx8JIGamQ==}
+
   '@next/env@14.2.2':
     resolution: {integrity: sha512-sk72qRfM1Q90XZWYRoJKu/UWlTgihrASiYw/scb15u+tyzcze3bOuJ/UV6TBOQEeUaxOkRqGeuGUdiiuxc5oqw==}
 
@@ -2110,6 +2119,24 @@ packages:
   '@szmarczak/http-timer@5.0.1':
     resolution: {integrity: sha512-+PmQX0PiAYPMeVYe237LJAYvOMYW1j2rH5YROyS3b4CTVJum34HfRvKvAzozHAQG0TnHNdUfY9nCeUyRAs//cw==}
     engines: {node: '>=14.16'}
+
+  '@t3-oss/env-core@0.11.1':
+    resolution: {integrity: sha512-MaxOwEoG1ntCFoKJsS7nqwgcxLW1SJw238AJwfJeaz3P/8GtkxXZsPPolsz1AdYvUTbe3XvqZ/VCdfjt+3zmKw==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+      zod: ^3.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+
+  '@t3-oss/env-nextjs@0.11.1':
+    resolution: {integrity: sha512-rx2XL9+v6wtOqLNJbD5eD8OezKlQD1BtC0WvvtHwBgK66jnF5+wGqtgkKK4Ygie1LVmoDClths2T4tdFmRvGrQ==}
+    peerDependencies:
+      typescript: '>=5.0.0'
+      zod: ^3.0.0
+    peerDependenciesMeta:
+      typescript:
+        optional: true
 
   '@testing-library/dom@9.3.4':
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -7947,8 +7974,8 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
 
-  zod@3.22.5:
-    resolution: {integrity: sha512-HqnGsCdVZ2xc0qWPLdO25WnseXThh0kEYKIdV5F/hTHO75hNZFp8thxSeHhiPrHZKrFTo1SOgkAj9po5bexZlw==}
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -9464,6 +9491,8 @@ snapshots:
       pump: 3.0.0
       tar-fs: 2.1.1
 
+  '@next/env@14.2.15': {}
+
   '@next/env@14.2.2': {}
 
   '@next/eslint-plugin-next@14.2.2':
@@ -9619,7 +9648,7 @@ snapshots:
     dependencies:
       '@scaffdog/types': 3.0.0
       jiti: 1.21.0
-      zod: 3.22.5
+      zod: 3.23.8
 
   '@scaffdog/core@3.0.0':
     dependencies:
@@ -10450,6 +10479,19 @@ snapshots:
   '@szmarczak/http-timer@5.0.1':
     dependencies:
       defer-to-connect: 2.0.1
+
+  '@t3-oss/env-core@0.11.1(typescript@5.4.5)(zod@3.23.8)':
+    dependencies:
+      zod: 3.23.8
+    optionalDependencies:
+      typescript: 5.4.5
+
+  '@t3-oss/env-nextjs@0.11.1(typescript@5.4.5)(zod@3.23.8)':
+    dependencies:
+      '@t3-oss/env-core': 0.11.1(typescript@5.4.5)(zod@3.23.8)
+      zod: 3.23.8
+    optionalDependencies:
+      typescript: 5.4.5
 
   '@testing-library/dom@9.3.4':
     dependencies:
@@ -16464,7 +16506,7 @@ snapshots:
       valid-filename: 4.0.0
       wrap-ansi: 8.1.0
       yargs: 17.7.2
-      zod: 3.22.5
+      zod: 3.23.8
     transitivePeerDependencies:
       - supports-color
 
@@ -17664,6 +17706,6 @@ snapshots:
 
   yocto-queue@1.0.0: {}
 
-  zod@3.22.5: {}
+  zod@3.23.8: {}
 
   zwitch@2.0.4: {}

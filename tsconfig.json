@@ -21,8 +21,8 @@
     "skipLibCheck": true,
     "noEmit": true,
     "module": "esnext",
-    "moduleResolution": "node",
-    "isolatedModules": true
+    "isolatedModules": true,
+    "moduleResolution": "Bundler"
   },
   "include": [
     "next-env.d.ts",

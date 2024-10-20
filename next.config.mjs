@@ -7,6 +7,7 @@ const nextConfig = {
   eslint: {
     dirs: ["src", ".storybook"],
   },
+  transpilePackages: ["@t3-oss/env-nextjs", "@t3-oss/env-core"],
 };
 
 export default createVanillaExtractPlugin()(nextConfig);

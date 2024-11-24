@@ -10,6 +10,7 @@
     "build": "run-s build:prebuild build:next",
     "build:next": "next build",
     "build:prebuild": "tsx --env-file=.env.local --tsconfig ./tsconfig.json ./scripts/prebuild.ts",
+    "build:optimize-image": "tsx --env-file=.env.local --tsconfig ./tsconfig.json ./scripts/optimize-image.ts",
     "start": "next start",
     "test": "jest --verbose",
     "test:watch": "jest --watch",

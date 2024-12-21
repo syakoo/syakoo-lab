@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
+import { headerHeightPx } from "@/components/header-footer-template/header/header.css";
 import { theme } from "@/design-system/theme.css";
 
 export const sectionTitleStyle = style({
@@ -7,7 +8,7 @@ export const sectionTitleStyle = style({
   marginBottom: theme.space[200],
   paddingBlock: theme.space[200],
   fontSize: theme.fontSize[500],
-  scrollMarginTop: theme.space[200],
+  scrollMarginTop: `calc(${theme.space[200]} + ${headerHeightPx}px)`,
   position: "relative",
 
   selectors: {

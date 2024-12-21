@@ -31,7 +31,7 @@ const WritingsPage = async () => {
 
   return (
     <HeaderFooterTemplate>
-      <Container as="main" center paddingBottom="400" paddingX="200" size="100">
+      <Container as="main" center paddingX="200" paddingY="400" size="100">
         <Suspense>
           <WritingList heads={metas} />
         </Suspense>

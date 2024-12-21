@@ -1,6 +1,6 @@
 "use client";
 
-import { addYears, isBefore } from "date-fns";
+import { differenceInYears } from "date-fns";
 
 import { Spacer } from "@/design-system/layout";
 import { Link, FadeIn } from "@/design-system/ui";
@@ -29,11 +29,10 @@ export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
   useMermaid();
   useTwitter();
   const MDXComponent = resolveMDXContent(writing.body).data;
-  const isOldWriting = (() => {
-    // NOTE: diary の場合は古くても表示する必要はないと判断
-    if (writing.head.type === "diary") return false;
 
-    return isBefore(new Date(writing.head.published), addYears(new Date(), -1));
+  const yearsSinceLastUpdate = (() => {
+    const writingUpdated = writing.head.updated ?? writing.head.published;
+    return differenceInYears(new Date(), new Date(writingUpdated));
   })();
 
   return (
@@ -43,9 +42,11 @@ export const WritingDetail: React.FC<WritingDetailProps> = ({ writing }) => {
           <WritingHeader head={writing.head} />
         </div>
         <div className={writingDetailStyles.contentWrapper}>
-          {isOldWriting ? (
+          {/* NOTE: Diary の記事は古くても良い */}
+          {writing.head.type !== "diary" && yearsSinceLastUpdate >= 1 ? (
             <Note variant="warn">
-              この記事は古い内容である可能性があります。
+              この記事は最終更新日から{yearsSinceLastUpdate}年経過しています。
+              内容が古い可能性があります。
             </Note>
           ) : null}
           <MDXComponent components={components} />

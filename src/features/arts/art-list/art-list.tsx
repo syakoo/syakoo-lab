@@ -11,13 +11,7 @@ type ArtListProps = {
 
 export const ArtList: React.FC<ArtListProps> = ({ heads }) => {
   return (
-    <Container
-      as="section"
-      center
-      paddingBottom="400"
-      paddingX="200"
-      size="100"
-    >
+    <Container as="section" center paddingX="200" paddingY="400" size="100">
       <Col gap="200">
         <H2>Arts</H2>
         <ul className={artListStyles.listContainer}>

@@ -12,6 +12,9 @@ export const containerStyle = style({
 
 export const containerHeaderStyle = style({
   gridArea: "header",
+  position: "sticky",
+  top: 0,
+  zIndex: 100,
 });
 export const containerMainStyle = style({
   gridArea: "main",

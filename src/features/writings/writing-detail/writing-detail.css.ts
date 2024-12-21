@@ -1,5 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
+import { headerHeightPx } from "@/components/header-footer-template/header/header.css";
 import { theme } from "@/design-system/theme.css";
 
 // 縦配置のメディア条件式
@@ -50,7 +51,7 @@ export const writingDetailStyles = {
   }),
   stickyContainer: style({
     position: "sticky",
-    top: theme.space[200],
+    top: `calc(${theme.space[200]} + ${headerHeightPx}px)`,
   }),
 };
 

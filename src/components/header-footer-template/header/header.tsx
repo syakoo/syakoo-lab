@@ -10,6 +10,8 @@ import { artPaths } from "@/features/arts/config/paths";
 import { workPaths } from "@/features/works/config/paths";
 import { writingPaths } from "@/features/writings/config/paths";
 
+import { headerStyle } from "./header.css";
+
 const NavLink: React.FC<{ children: React.ReactNode; href: string }> = ({
   children,
   href,
@@ -27,8 +29,8 @@ const NavLink: React.FC<{ children: React.ReactNode; href: string }> = ({
 export const Header: React.FC = () => {
   return (
     <Center>
-      <Container as="header" paddingX="200" paddingY="300" size="200">
-        <Row align="center" justify="spaceBetween" wrap>
+      <Container as="header" size="200">
+        <div className={headerStyle}>
           <Link aria-label="Go to the homepage" href="/">
             <SyakooLabText />
           </Link>
@@ -37,7 +39,7 @@ export const Header: React.FC = () => {
             <NavLink href={workPaths.list()}>Works</NavLink>
             <NavLink href={artPaths.list()}>Arts</NavLink>
           </Row>
-        </Row>
+        </div>
       </Container>
     </Center>
   );

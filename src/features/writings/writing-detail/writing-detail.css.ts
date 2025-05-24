@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { headerHeightPx } from "@/components/header-footer-template/header/header.css";
-import { theme } from "@/design-system/theme.css";
+import { headerHeightPx } from "@/features/layout/header-footer-template/header/header.css";
+import { theme } from "@/shared/design-system/theme.css";
 
 // 縦配置のメディア条件式
 const columnLayoutScreen = `screen and (max-width: 800px)` as const;

@@ -4,7 +4,7 @@ exports[`WritingDetail スナップショット Sample 1`] = `
 <body>
   <div>
     <div
-      class="fade-in_fadeInStyle__mal1bb1"
+      class="fade-in_fadeInStyle__lraw9s1"
       style="animation-duration: 0.5s; animation-delay: 0s;"
     >
       <article
@@ -15,23 +15,23 @@ exports[`WritingDetail スナップショット Sample 1`] = `
         >
           <header>
             <h1
-              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_600__xbx8xuq text_textStyle_variants_size_600__xbx8xub text_textStyle_weight_bold__xbx8xut"
+              class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_600__1djq151q text_textStyle_variants_size_600__1djq151b text_textStyle_weight_bold__1djq151t"
             >
               Sample Article
             </h1>
             <div
               aria-hidden="true"
-              class="spacer__1k4u8xae spacer_spacerStyle_y_100__1k4u8xao spacer_spacerStyle_variants_y_100__1k4u8xa9"
+              class="spacer__jsmiqpe spacer_spacerStyle_y_100__jsmiqpo spacer_spacerStyle_variants_y_100__jsmiqp9"
             />
             <div
-              class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+              class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
             >
               <div
-                class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+                class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
               >
                 <svg
                   fill="none"
-                  stroke="var(--color-text-secondary__13jk9q1d)"
+                  stroke="var(--color-text-secondary__1874wf7d)"
                   stroke-width="1.5"
                   viewBox="0 0 24 24"
                   width="1em"
@@ -44,19 +44,19 @@ exports[`WritingDetail スナップショット Sample 1`] = `
                   />
                 </svg>
                 <p
-                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_normal__xbx8xuu"
+                  class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
                 >
                   Article
                 </p>
               </div>
               <p
-                class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_normal__xbx8xuu"
+                class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
               >
                 #
                 雑記
               </p>
               <p
-                class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_normal__xbx8xuu"
+                class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
               >
                 #
                 Sample
@@ -64,17 +64,17 @@ exports[`WritingDetail スナップショット Sample 1`] = `
             </div>
             <div>
               <a
-                class="link_linkStyle__jc9bkl0"
+                class="link_linkStyle__1vz8ftz0"
                 href="/"
               >
                 <span
-                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_normal__xbx8xuu"
+                  class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
                 >
                   syakoo
                 </span>
               </a>
               <span
-                class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_normal__xbx8xuu"
+                class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
               >
                 ・
                 <time
@@ -123,19 +123,19 @@ exports[`WritingDetail スナップショット Sample 1`] = `
           </h2>
           <div
             aria-hidden="true"
-            class="spacer__1k4u8xae spacer_spacerStyle_y_400__1k4u8xar spacer_spacerStyle_variants_y_400__1k4u8xac"
+            class="spacer__jsmiqpe spacer_spacerStyle_y_400__jsmiqpr spacer_spacerStyle_variants_y_400__jsmiqpc"
           />
           <hr />
           <div
             aria-hidden="true"
-            class="spacer__1k4u8xae spacer_spacerStyle_y_100__1k4u8xao spacer_spacerStyle_variants_y_100__1k4u8xa9"
+            class="spacer__jsmiqpe spacer_spacerStyle_y_100__jsmiqpo spacer_spacerStyle_variants_y_100__jsmiqp9"
           />
           <aside>
             <section
-              class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+              class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
             >
               <div
-                class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+                class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
               >
                 <svg
                   fill="none"
@@ -152,14 +152,14 @@ exports[`WritingDetail スナップショット Sample 1`] = `
                   />
                 </svg>
                 <p
-                  class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_bold__xbx8xut"
+                  class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_bold__1djq151t"
                 >
                   Article
                 </p>
               </div>
               <div>
                 <p
-                  class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_normal__xbx8xuu"
+                  class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
                 >
                   Article は気合いの入った文書を残しています。
                 </p>
@@ -175,7 +175,7 @@ exports[`WritingDetail スナップショット Sample 1`] = `
           >
             <nav>
               <p
-                class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_bold__xbx8xut"
+                class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_bold__1djq151t"
               >
                 目次
               </p>
@@ -186,7 +186,7 @@ exports[`WritingDetail スナップショット Sample 1`] = `
                   class="toc_tocStyles_item__1yz9ns41"
                 >
                   <a
-                    class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+                    class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_display_block__1vz8ftz4"
                     href="#"
                   >
                     Sample Title

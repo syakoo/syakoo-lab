@@ -1,6 +1,6 @@
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 
-import { Icon } from "@/design-system/icons";
+import { Icon } from "@/shared/design-system/icons";
 
 import { noteStyles } from "./note.css";
 

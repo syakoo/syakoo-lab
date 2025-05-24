@@ -1,5 +1,5 @@
-import { Row } from "@/design-system/layout";
-import { Link, Text } from "@/design-system/ui";
+import { Row } from "@/shared/design-system/layout";
+import { Link, Text } from "@/shared/design-system/ui";
 
 import { bookViewStyles } from "./book-view.css";
 

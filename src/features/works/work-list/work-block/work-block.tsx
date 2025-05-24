@@ -2,8 +2,8 @@ import { format } from "date-fns";
 import Image from "next/image";
 
 import type { Work } from "@/contents/works/types";
-import { FlexItem, Row } from "@/design-system/layout";
-import { H3, Link, Span } from "@/design-system/ui";
+import { FlexItem, Row } from "@/shared/design-system/layout";
+import { H3, Link, Span } from "@/shared/design-system/ui";
 
 import { workBlockStyle } from "./work-block.css";
 

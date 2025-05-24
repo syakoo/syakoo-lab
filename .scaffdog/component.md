@@ -60,7 +60,7 @@ export const Sample: Story = {
 # `{{ inputs.name | kebab }}/{{ inputs.name | kebab }}.test.tsx`
 
 ```tsx
-import { testStories } from "@/test/test-stories";
+import { testStories } from "@/shared/test-utils/test-stories";
 
 import * as stories from "./{{ inputs.name | kebab }}.stories";
 

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
-import { HeaderFooterTemplate } from "@/components/header-footer-template";
-import { formatPageTitle } from "@/config/page-title";
 import { readArtContents } from "@/contents/arts/reader";
+import { formatPageTitle } from "@/entities/page-title/formatter";
 import { ArtDetail } from "@/features/arts/art-detail";
 import { findArt } from "@/features/arts/art-detail/find-art";
 import { artPaths } from "@/features/arts/config/paths";
+import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 
 export const generateStaticParams = async () => {
   const artContents = await readArtContents();

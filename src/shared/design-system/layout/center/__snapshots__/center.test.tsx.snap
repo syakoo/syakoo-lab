@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Center スナップショット Sample 1`] = `
+<body>
+  <div>
+    <div
+      class="center_centerStyle__cloggr0"
+    >
+      <div
+        style="border-radius: var(--radius-100__1874wf71g); padding: 50px; width: 500px;"
+      >
+        <div
+          class="center_centerStyle__cloggr0"
+        >
+          children
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;

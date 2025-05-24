@@ -7,11 +7,11 @@ exports[`ArtGalleryItem スナップショット LongText 1`] = `
       style="max-width: 500px;"
     >
       <article
-        class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
         <div>
           <a
-            class="link_linkStyle__jc9bkl0 link_linkStyle_display_block__jc9bkl4"
+            class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
             href="/arts/sample-id-2"
           >
             <img
@@ -29,19 +29,19 @@ exports[`ArtGalleryItem スナップショット LongText 1`] = `
           </a>
         </div>
         <div
-          class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_spaceBetween__12xne02o flex_flexStyle_variants_justify_spaceBetween__12xne023"
+          class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_spaceBetween__zqca9to flex_flexStyle_variants_justify_spaceBetween__zqca9t3"
         >
           <div
             class="art-gallery-item_artGalleryItemStyles_titleWrapper__1jhogya1"
           >
             <h3
-              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_bold__xbx8xut"
+              class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
             >
               Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title Sample Art Title
             </h3>
           </div>
           <div
-            class="flex_flexItemStyle__12xne0219 flex_flexItemStyle_shrink_0__12xne021a"
+            class="flex_flexItemStyle__zqca9t19 flex_flexItemStyle_shrink_0__zqca9t1a"
           >
             <div
               class="art-gallery-item_artGalleryItemStyles_heartButtonWrapper__1jhogya2"
@@ -85,11 +85,11 @@ exports[`ArtGalleryItem スナップショット Sample 1`] = `
       style="max-width: 500px;"
     >
       <article
-        class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
         <div>
           <a
-            class="link_linkStyle__jc9bkl0 link_linkStyle_display_block__jc9bkl4"
+            class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
             href="/arts/sample-id-1"
           >
             <img
@@ -107,19 +107,19 @@ exports[`ArtGalleryItem スナップショット Sample 1`] = `
           </a>
         </div>
         <div
-          class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_spaceBetween__12xne02o flex_flexStyle_variants_justify_spaceBetween__12xne023"
+          class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_spaceBetween__zqca9to flex_flexStyle_variants_justify_spaceBetween__zqca9t3"
         >
           <div
             class="art-gallery-item_artGalleryItemStyles_titleWrapper__1jhogya1"
           >
             <h3
-              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_75__xbx8xuk text_textStyle_variants_size_75__xbx8xu5 text_textStyle_weight_bold__xbx8xut"
+              class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
             >
               Sample Art Title
             </h3>
           </div>
           <div
-            class="flex_flexItemStyle__12xne0219 flex_flexItemStyle_shrink_0__12xne021a"
+            class="flex_flexItemStyle__zqca9t19 flex_flexItemStyle_shrink_0__zqca9t1a"
           >
             <div
               class="art-gallery-item_artGalleryItemStyles_heartButtonWrapper__1jhogya2"

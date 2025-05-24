@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { Icon } from "@/design-system/icons";
-import { range } from "@/utils/array/range";
+import { Icon } from "@/shared/design-system/icons";
+import { range } from "@/shared/utils/array/range";
 
 import { heartButtonStyles } from "./heart-button.css";
 

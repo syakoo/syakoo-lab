@@ -1,9 +1,9 @@
-import { Icon } from "@/design-system/icons";
-import { Row } from "@/design-system/layout";
-import { H3, Link, Text } from "@/design-system/ui";
 import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writing-type";
 import { writingPaths } from "@/features/writings/config/paths";
+import { Icon } from "@/shared/design-system/icons";
+import { Row } from "@/shared/design-system/layout";
+import { H3, Link, Text } from "@/shared/design-system/ui";
 
 import { writingBlockStyles } from "./writing-block.css";
 

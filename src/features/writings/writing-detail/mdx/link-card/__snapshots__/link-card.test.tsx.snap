@@ -4,7 +4,7 @@ exports[`LinkCard スナップショット LongText 1`] = `
 <body>
   <div>
     <a
-      class="link_linkStyle__jc9bkl0 link_linkStyle_display_block__jc9bkl4"
+      class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
       href="https://syakoo-lab.com/"
     >
       <div
@@ -17,7 +17,7 @@ exports[`LinkCard スナップショット LongText 1`] = `
             class="link-card_linkCardStyles_textContainer__1is99uj2 link-card_linkCardStyles_textContainer_lines_2__1is99uj4"
           >
             <span
-              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_bold__xbx8xut"
+              class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_bold__1djq151t"
             >
               Sample Title Sample Title Sample Title Sample Title Sample Title
             </span>
@@ -26,13 +26,13 @@ exports[`LinkCard スナップショット LongText 1`] = `
             class="link-card_linkCardStyles_textContainer__1is99uj2 link-card_linkCardStyles_textContainer_lines_1__1is99uj3"
           >
             <span
-              class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_50__1djq151j text_textStyle_variants_size_50__1djq1514 text_textStyle_weight_normal__1djq151u"
             >
               sample description sample description sample description sample description
             </span>
           </div>
           <div
-            class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+            class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
           >
             <img
               alt=""
@@ -41,7 +41,7 @@ exports[`LinkCard スナップショット LongText 1`] = `
               width="14"
             />
             <span
-              class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_50__1djq151j text_textStyle_variants_size_50__1djq1514 text_textStyle_weight_normal__1djq151u"
             >
               syakoo-lab.com
             </span>
@@ -66,7 +66,7 @@ exports[`LinkCard スナップショット Sample 1`] = `
 <body>
   <div>
     <a
-      class="link_linkStyle__jc9bkl0 link_linkStyle_display_block__jc9bkl4"
+      class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
       href="https://syakoo-lab.com/"
     >
       <div
@@ -79,7 +79,7 @@ exports[`LinkCard スナップショット Sample 1`] = `
             class="link-card_linkCardStyles_textContainer__1is99uj2 link-card_linkCardStyles_textContainer_lines_2__1is99uj4"
           >
             <span
-              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_bold__xbx8xut"
+              class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_bold__1djq151t"
             >
               Sample Title
             </span>
@@ -88,13 +88,13 @@ exports[`LinkCard スナップショット Sample 1`] = `
             class="link-card_linkCardStyles_textContainer__1is99uj2 link-card_linkCardStyles_textContainer_lines_1__1is99uj3"
           >
             <span
-              class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_50__1djq151j text_textStyle_variants_size_50__1djq1514 text_textStyle_weight_normal__1djq151u"
             >
               sample description
             </span>
           </div>
           <div
-            class="flex_flexStyle__12xne02i flex_flexStyle_align_center__12xne02s flex_flexStyle_variants_align_center__12xne027 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_50__12xne02x flex_flexStyle_variants_gap_50__12xne02c flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+            class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
           >
             <img
               alt=""
@@ -103,7 +103,7 @@ exports[`LinkCard スナップショット Sample 1`] = `
               width="14"
             />
             <span
-              class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+              class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_50__1djq151j text_textStyle_variants_size_50__1djq1514 text_textStyle_weight_normal__1djq151u"
             >
               syakoo-lab.com
             </span>

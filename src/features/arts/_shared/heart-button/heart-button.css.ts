@@ -2,8 +2,8 @@ import type { ComplexStyleRule } from "@vanilla-extract/css";
 import { keyframes, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { theme } from "@/design-system/theme.css";
-import { range } from "@/utils/array/range";
+import { theme } from "@/shared/design-system/theme.css";
+import { range } from "@/shared/utils/array/range";
 
 const circleOption = {
   /**

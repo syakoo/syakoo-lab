@@ -4,11 +4,11 @@ exports[`Links スナップショット Sample 1`] = `
 <body>
   <div>
     <ul
-      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
     >
       <li>
         <a
-          class="link_linkStyle__jc9bkl0"
+          class="link_linkStyle__1vz8ftz0"
           href="#"
         >
           <div
@@ -32,7 +32,7 @@ exports[`Links スナップショット Sample 1`] = `
       </li>
       <li>
         <a
-          class="link_linkStyle__jc9bkl0"
+          class="link_linkStyle__1vz8ftz0"
           href="#"
         >
           <div
@@ -56,7 +56,7 @@ exports[`Links スナップショット Sample 1`] = `
       </li>
       <li>
         <a
-          class="link_linkStyle__jc9bkl0"
+          class="link_linkStyle__1vz8ftz0"
           href="#"
         >
           <div

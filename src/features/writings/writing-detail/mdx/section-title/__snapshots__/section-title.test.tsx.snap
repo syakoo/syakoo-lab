@@ -7,7 +7,7 @@ exports[`SectionTitle スナップショット ContainElements 1`] = `
       class="section-title_sectionTitleStyle__17zkrzm0"
     >
       <a
-        class="link_linkStyle__jc9bkl0"
+        class="link_linkStyle__1vz8ftz0"
         href="#undefined"
       >
         Sample 
@@ -27,7 +27,7 @@ exports[`SectionTitle スナップショット Sample 1`] = `
       class="section-title_sectionTitleStyle__17zkrzm0"
     >
       <a
-        class="link_linkStyle__jc9bkl0"
+        class="link_linkStyle__1vz8ftz0"
         href="#undefined"
       >
         Sample Title
@@ -44,7 +44,7 @@ exports[`SectionTitle スナップショット SubSection 1`] = `
       class="section-title_subsectionTitleStyle__17zkrzm1"
     >
       <a
-        class="link_linkStyle__jc9bkl0"
+        class="link_linkStyle__1vz8ftz0"
         href="#undefined"
       >
         Sample SubTitle

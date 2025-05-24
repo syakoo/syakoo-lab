@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { HeaderFooterTemplate } from "@/components/header-footer-template";
-import { formatPageTitle } from "@/config/page-title";
-import { Col, Container, Spacer } from "@/design-system/layout";
-import { H2, H3, P } from "@/design-system/ui";
-import { List } from "@/design-system/ui/list";
+import { formatPageTitle } from "@/entities/page-title/formatter";
+import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
+import { Col, Container, Spacer } from "@/shared/design-system/layout";
+import { H2, H3, P } from "@/shared/design-system/ui";
+import { List } from "@/shared/design-system/ui/list";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Privacy Policy"),

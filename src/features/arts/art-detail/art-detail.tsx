@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 
-import { Col, Row } from "@/design-system/layout";
-import { H2, Text } from "@/design-system/ui";
 import type { SerializedArt } from "@/features/arts/_models/types";
 import { HeartButton } from "@/features/arts/_shared/heart-button/heart-button";
 import { resolveMDXContent } from "@/features/mdx/resolver";
+import { Col, Row } from "@/shared/design-system/layout";
+import { H2, Text } from "@/shared/design-system/ui";
 
 import { artDetailStyles } from "./art-detail.css";
 import { useFav } from "./use-fav";

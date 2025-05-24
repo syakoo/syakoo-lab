@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 
-import { HeaderFooterTemplate } from "@/components/header-footer-template";
-import { formatPageTitle } from "@/config/page-title";
-import { Container } from "@/design-system/layout";
+import { formatPageTitle } from "@/entities/page-title/formatter";
+import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 import { workPaths } from "@/features/works/config/paths";
 import { WorkList } from "@/features/works/work-list";
+import { Container } from "@/shared/design-system/layout";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Works"),

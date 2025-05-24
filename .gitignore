@@ -27,3 +27,6 @@ storybook-static
 
 # jest coverage
 coverage
+
+# cursor MCP
+.cursor/mcp.json

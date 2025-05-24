@@ -1,4 +1,4 @@
-import { Link } from "@/design-system/ui";
+import { Link } from "@/shared/design-system/ui";
 
 import haskellFunctionPuzzleImageSrc from "./images/haskell-function-puzzle.png";
 import magicSquareImageSrc from "./images/magic-square.png";

@@ -4,7 +4,7 @@ exports[`WorkBlock スナップショット Sample 1`] = `
 <body>
   <div>
     <article
-      class="flex_flexStyle__12xne02i flex_flexStyle_align_flexStart__12xne02r flex_flexStyle_variants_align_flexStart__12xne026 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      class="flex_flexStyle__zqca9ti flex_flexStyle_align_flexStart__zqca9tr flex_flexStyle_variants_align_flexStart__zqca9t6 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
     >
       <div
         class="work-block_workBlockStyle_imageWrapper__hj1vbu1"
@@ -23,16 +23,16 @@ exports[`WorkBlock スナップショット Sample 1`] = `
         />
       </div>
       <div
-        class="flex_flexItemStyle__12xne0219 flex_flexItemStyle_grow_1__12xne021d"
+        class="flex_flexItemStyle__zqca9t19 flex_flexItemStyle_grow_1__zqca9t1d"
       >
         <div
           class="work-block_workBlockStyle_body__hj1vbu0"
         >
           <h3
-            class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_300__xbx8xun text_textStyle_variants_size_300__xbx8xu8 text_textStyle_weight_bold__xbx8xut"
+            class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_300__1djq151n text_textStyle_variants_size_300__1djq1518 text_textStyle_weight_bold__1djq151t"
           >
             <a
-              class="link_linkStyle__jc9bkl0"
+              class="link_linkStyle__1vz8ftz0"
               href="#"
             >
               Work Name
@@ -43,17 +43,17 @@ exports[`WorkBlock スナップショット Sample 1`] = `
               ここに作品の説明文が入ります。
             </div>
             <div
-              class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_25__12xne02w flex_flexStyle_variants_gap_25__12xne02b flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+              class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_25__zqca9tw flex_flexStyle_variants_gap_25__zqca9tb flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
             >
               <span
-                class="text_textStyle__xbx8xue text_textStyle_color_secondary__xbx8xug text_textStyle_variants_color_secondary__xbx8xu1 text_textStyle_size_50__xbx8xuj text_textStyle_variants_size_50__xbx8xu4 text_textStyle_weight_normal__xbx8xuu"
+                class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_50__1djq151j text_textStyle_variants_size_50__1djq1514 text_textStyle_weight_normal__1djq151u"
               >
                 released: 
                 2023-10-03
                 , repo:
                  
                 <a
-                  class="link_linkStyle__jc9bkl0 link_linkStyle_underlined_true__jc9bkl2"
+                  class="link_linkStyle__1vz8ftz0 link_linkStyle_underlined_true__1vz8ftz2"
                   href="https://github.com/syakoo"
                 >
                   syakoo

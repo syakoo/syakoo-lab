@@ -5,7 +5,7 @@ exports[`TOC スナップショット Sample 1`] = `
   <div>
     <nav>
       <p
-        class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_bold__xbx8xut"
+        class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_bold__1djq151t"
       >
         目次
       </p>
@@ -16,7 +16,7 @@ exports[`TOC スナップショット Sample 1`] = `
           class="toc_tocStyles_item__1yz9ns41"
         >
           <a
-            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_display_block__1vz8ftz4"
             href="#"
           >
             導入
@@ -26,7 +26,7 @@ exports[`TOC スナップショット Sample 1`] = `
           class="toc_tocStyles_item__1yz9ns41 toc_tocStyles_item_active_true__1yz9ns42"
         >
           <a
-            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_display_block__1vz8ftz4"
             href="#"
           >
             基本的な概念
@@ -36,7 +36,7 @@ exports[`TOC スナップショット Sample 1`] = `
           class="toc_tocStyles_item__1yz9ns41"
         >
           <a
-            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_display_block__1vz8ftz4"
             href="#"
           >
             開発環境のセットアップ
@@ -46,7 +46,7 @@ exports[`TOC スナップショット Sample 1`] = `
           class="toc_tocStyles_item__1yz9ns41"
         >
           <a
-            class="link_linkStyle__jc9bkl0 link_linkStyle_noHovered_true__jc9bkl3 link_linkStyle_display_block__jc9bkl4"
+            class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_display_block__1vz8ftz4"
             href="#"
           >
             プログラミングの基礎

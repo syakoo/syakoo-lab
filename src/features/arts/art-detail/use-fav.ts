@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { api } from "@/api/reaction-system";
 import { convertArtIdToReactionId } from "@/features/arts/_shared/art-id-to-reaction-id";
-import { useMount } from "@/utils/mount/use-mount";
+import { useMount } from "@/shared/utils/use-mount";
 
 type UseFavReturn = {
   fav: number | null;

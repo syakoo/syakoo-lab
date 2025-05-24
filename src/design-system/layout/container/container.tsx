@@ -1,7 +1,7 @@
 import type { RecipeVariants } from "@vanilla-extract/recipes";
 import type React from "react";
 
-import { PolymorphicComponent } from "@/utils/polymorphic-component";
+import { PolymorphicComponent } from "@/shared/utils/polymorphic-component";
 
 import { containerStyle } from "./container.css";
 

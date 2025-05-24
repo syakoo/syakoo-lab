@@ -1,6 +1,6 @@
 import type React from "react";
 
-import { PolymorphicComponent } from "@/utils/polymorphic-component";
+import { PolymorphicComponent } from "@/shared/utils/polymorphic-component";
 
 import { centerStyle } from "./center.css";
 

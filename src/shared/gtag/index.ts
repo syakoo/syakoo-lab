@@ -1,4 +1,4 @@
-import { env } from "../../env";
+import { env } from "env";
 
 export const gtagId = env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 

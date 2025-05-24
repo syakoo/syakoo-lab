@@ -1,13 +1,13 @@
 import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
 
-import { HeaderFooterTemplate } from "@/components/header-footer-template";
 import { formatPageTitle } from "@/config/page-title";
 import { readArtContents } from "@/contents/arts/reader";
 import { resolveArtHead } from "@/features/arts/_models/head-resolver";
 import type { ArtHead } from "@/features/arts/_models/types";
 import { ArtList } from "@/features/arts/art-list";
 import { artPaths } from "@/features/arts/config/paths";
+import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Arts"),

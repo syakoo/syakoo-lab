@@ -4,12 +4,11 @@ import { Suspense } from "react";
 
 import { formatPageTitle } from "@/config/page-title";
 import { readWritingContents } from "@/contents/writings/reader";
+import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 import { resolveWritingHead } from "@/features/writings/_models/head-resolver";
 import { writingPaths } from "@/features/writings/config/paths";
 import { WritingList } from "@/features/writings/writing-list";
 import { Container } from "@/shared/design-system/layout";
-
-import { HeaderFooterTemplate } from "@/components/header-footer-template";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),

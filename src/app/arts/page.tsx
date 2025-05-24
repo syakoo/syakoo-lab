@@ -1,8 +1,8 @@
 import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
 
-import { formatPageTitle } from "@/config/page-title";
 import { readArtContents } from "@/contents/arts/reader";
+import { formatPageTitle } from "@/entities/page-title-formatter/formatter";
 import { resolveArtHead } from "@/features/arts/_models/head-resolver";
 import type { ArtHead } from "@/features/arts/_models/types";
 import { ArtList } from "@/features/arts/art-list";

@@ -2,8 +2,8 @@ import { compareDesc } from "date-fns";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import { formatPageTitle } from "@/config/page-title";
 import { readWritingContents } from "@/contents/writings/reader";
+import { formatPageTitle } from "@/entities/page-title-formatter/formatter";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 import { resolveWritingHead } from "@/features/writings/_models/head-resolver";
 import { writingPaths } from "@/features/writings/config/paths";

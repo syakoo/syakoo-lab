@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { formatPageTitle } from "@/config/page-title";
+import { formatPageTitle } from "@/entities/page-title-formatter/formatter";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 import { Col, Container, Spacer } from "@/shared/design-system/layout";
 import { H2, H3, P } from "@/shared/design-system/ui";

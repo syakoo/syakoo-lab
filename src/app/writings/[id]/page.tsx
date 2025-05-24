@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { formatPageTitle } from "@/config/page-title";
 import { readWritingContents } from "@/contents/writings/reader";
+import { formatPageTitle } from "@/entities/page-title-formatter/formatter";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 import { writingPaths } from "@/features/writings/config/paths";
 import {

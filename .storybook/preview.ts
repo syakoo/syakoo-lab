@@ -5,7 +5,7 @@ import { initialize, mswLoader } from "msw-storybook-addon";
 import { defaultHandlers } from "@/api/mocks/msw";
 import { theme } from "@/shared/design-system/theme.css";
 
-import "@/config/global-settings";
+import "@/shared/global-settings/global-settings";
 import { storyTheme } from "./manager";
 
 initialize({ onUnhandledRequest: "bypass" });

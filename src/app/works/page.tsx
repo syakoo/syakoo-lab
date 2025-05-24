@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { formatPageTitle } from "@/entities/page-title-formatter/formatter";
+import { formatPageTitle } from "@/entities/page-title/formatter";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 import { workPaths } from "@/features/works/config/paths";
 import { WorkList } from "@/features/works/work-list";

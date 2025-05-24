@@ -3,5 +3,5 @@ description: コーディングルール
 globs: docs/**
 alwaysApply: false
 ---
-- 新規実装や実装の更新を行う場合は、 /docs/architecture ディレクトリを必ず参照する
+- 新規実装や実装の更新を行う場合は、 /docs ディレクトリを必ず参照する
 - 共通モジュールは積極的に利用し、利用しない場合は確認を取る

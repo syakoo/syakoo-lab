@@ -1,4 +1,4 @@
-import { testStories } from "@/test/test-stories";
+import { testStories } from "@/shared/test-utils/test-stories";
 
 import * as stories from "./header-footer-template.stories";
 

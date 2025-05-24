@@ -12,7 +12,7 @@ const createJestConfig = nextJest({
 /** @type{import('jest').Config} */
 const customJestConfig = {
   testEnvironment: "jest-fixed-jsdom",
-  setupFiles: ["<rootDir>/src/test/setup.ts"],
+  setupFiles: ["<rootDir>/src/shared/test-utils/setup.ts"],
   testEnvironmentOptions: {
     customExportConditions: [""],
   },

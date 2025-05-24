@@ -6,7 +6,7 @@ import { composeStories } from "@storybook/react";
 import { render } from "@testing-library/react";
 
 import { mockNextNavigation } from "./nextjs/navigation";
-import preview from "../../.storybook/preview";
+import preview from "../../../.storybook/preview";
 
 type ComposedStories = Record<string, ReturnType<typeof composeStory>>;
 

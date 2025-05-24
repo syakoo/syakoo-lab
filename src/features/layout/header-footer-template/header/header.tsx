@@ -3,9 +3,9 @@
 import { usePathname } from "next/navigation";
 import type React from "react";
 
-import { SyakooLabText } from "@/components/syakoo-lab-text";
 import { Center, Container, Row } from "@/design-system/layout";
 import { Link, Span } from "@/design-system/ui";
+import { SyakooLabText } from "@/entities/syakoo-lab-text";
 import { artPaths } from "@/features/arts/config/paths";
 import { workPaths } from "@/features/works/config/paths";
 import { writingPaths } from "@/features/writings/config/paths";

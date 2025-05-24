@@ -4,10 +4,10 @@ exports[`HeaderFooterTemplate スナップショット Sample 1`] = `
 <body>
   <div>
     <div
-      class="header-footer-template_containerStyle__1iz56w90"
+      class="header-footer-template_containerStyle__1j6d6tb0"
     >
       <div
-        class="header-footer-template_containerHeaderStyle__1iz56w91"
+        class="header-footer-template_containerHeaderStyle__1j6d6tb1"
       >
         <div
           class="center_centerStyle__1yvz6qj0"
@@ -16,7 +16,7 @@ exports[`HeaderFooterTemplate スナップショット Sample 1`] = `
             class="container_containerStyle__s76bfe3 container_containerStyle_size_200__s76bfe6 container_containerStyle_variants_size_200__s76bfe2"
           >
             <div
-              class="header_headerStyle__ik9xif0"
+              class="header_headerStyle__1jewc1c0"
             >
               <a
                 aria-label="Go to the homepage"
@@ -77,14 +77,14 @@ exports[`HeaderFooterTemplate スナップショット Sample 1`] = `
         </div>
       </div>
       <div
-        class="header-footer-template_containerMainStyle__1iz56w92"
+        class="header-footer-template_containerMainStyle__1j6d6tb2"
       >
         <div>
           children
         </div>
       </div>
       <div
-        class="header-footer-template_containerFooterStyle__1iz56w93"
+        class="header-footer-template_containerFooterStyle__1j6d6tb3"
       >
         <div
           class="center_centerStyle__1yvz6qj0"

@@ -8,7 +8,7 @@ exports[`PageNotFound スナップショット Sample 1`] = `
         class="flex_flexStyle__12xne02i flex_flexStyle_align_flexEnd__12xne02t flex_flexStyle_variants_align_flexEnd__12xne028 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_300__12xne0210 flex_flexStyle_variants_gap_300__12xne02f flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
       >
         <div
-          class="page-not-found_errorCodeStyles__17rn8be0"
+          class="page-not-found_errorCodeStyles__1vyb5tk0"
         >
           404
         </div>

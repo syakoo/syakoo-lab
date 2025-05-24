@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
-import { headerHeightPx } from "@/components/header-footer-template/header/header.css";
 import { theme } from "@/design-system/theme.css";
+import { headerHeightPx } from "@/features/layout/header-footer-template/header/header.css";
 
 export const sectionTitleStyle = style({
   marginTop: theme.space[500],

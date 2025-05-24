@@ -1,10 +1,10 @@
-import { Icon } from "@/design-system/icons";
-import { Col, Row } from "@/design-system/layout";
-import { Link } from "@/design-system/ui";
-import { H4, Span } from "@/design-system/ui/text/text";
 import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writing-type";
 import { writingPaths } from "@/features/writings/config/paths";
+import { Icon } from "@/shared/design-system/icons";
+import { Col, Row } from "@/shared/design-system/layout";
+import { Link } from "@/shared/design-system/ui";
+import { H4, Span } from "@/shared/design-system/ui/text/text";
 
 import { writingLinkStyles } from "./writing-link.css";
 

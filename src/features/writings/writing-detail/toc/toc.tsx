@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { Link, Text } from "@/design-system/ui";
+import { Link, Text } from "@/shared/design-system/ui";
 import { useMount } from "@/shared/utils/use-mount";
 
 import { tocStyles } from "./toc.css";

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 import { formatPageTitle } from "@/config/page-title";
-import { Container } from "@/design-system/layout";
 import { workPaths } from "@/features/works/config/paths";
 import { WorkList } from "@/features/works/work-list";
+import { Container } from "@/shared/design-system/layout";
 
 import { HeaderFooterTemplate } from "@/components/header-footer-template";
 

@@ -1,5 +1,5 @@
-import { Center, Col } from "@/design-system/layout";
-import { Text } from "@/design-system/ui";
+import { Center, Col } from "@/shared/design-system/layout";
+import { Text } from "@/shared/design-system/ui";
 
 import { SyakooLabLogoWithAnimation } from "./syakoo-lab-logo-with-animation";
 

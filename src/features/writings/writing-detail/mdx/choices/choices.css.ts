@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { theme } from "@/design-system/theme.css";
+import { theme } from "@/shared/design-system/theme.css";
 
 export const choicesStyle = style({
   display: "flex",

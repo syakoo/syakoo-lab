@@ -1,9 +1,9 @@
-import { Icon } from "@/design-system/icons";
-import { Row, Spacer } from "@/design-system/layout";
-import { theme } from "@/design-system/theme.css";
-import { H1, Link, Span, Text } from "@/design-system/ui";
 import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writing-type";
+import { Icon } from "@/shared/design-system/icons";
+import { Row, Spacer } from "@/shared/design-system/layout";
+import { theme } from "@/shared/design-system/theme.css";
+import { H1, Link, Span, Text } from "@/shared/design-system/ui";
 
 type WritingHeaderProps = {
   head: WritingHead;

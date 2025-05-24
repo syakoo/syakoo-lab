@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useCallback } from "react";
 
-import { theme } from "@/design-system/theme.css";
+import { theme } from "@/shared/design-system/theme.css";
 
 // __________
 // Utility Types

@@ -1,6 +1,6 @@
 import { works } from "@/contents/works/works";
-import { Col } from "@/design-system/layout";
-import { H2, FadeIn } from "@/design-system/ui";
+import { Col } from "@/shared/design-system/layout";
+import { H2, FadeIn } from "@/shared/design-system/ui";
 
 import { WorkBlock } from "./work-block";
 

@@ -2,12 +2,12 @@
 
 import { differenceInYears } from "date-fns";
 
-import { Spacer } from "@/design-system/layout";
-import { Link, FadeIn } from "@/design-system/ui";
 import { useMermaid } from "@/features/mdx/plugins/mermaid/use-mermaid";
 import { useTwitter } from "@/features/mdx/plugins/twitter/use-twitter";
 import { resolveMDXContent } from "@/features/mdx/resolver";
 import type { SerializedWriting } from "@/features/writings/_models/types";
+import { Spacer } from "@/shared/design-system/layout";
+import { Link, FadeIn } from "@/shared/design-system/ui";
 
 import { mdxComponents } from "./mdx";
 import { Note } from "./mdx/note";

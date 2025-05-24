@@ -1,4 +1,4 @@
-import type { IconName } from "@/design-system/icons";
+import type { IconName } from "@/shared/design-system/icons";
 
 import type { WritingType } from "./types";
 

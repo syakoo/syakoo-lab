@@ -1,6 +1,6 @@
 import mermaid from "mermaid";
 
-import { tokens } from "@/design-system/tokens";
+import { tokens } from "@/shared/design-system/tokens";
 import { useMount } from "@/shared/utils/use-mount";
 
 mermaid.initialize({

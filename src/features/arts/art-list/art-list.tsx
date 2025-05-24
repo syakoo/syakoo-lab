@@ -1,6 +1,6 @@
-import { Col, Container } from "@/design-system/layout";
-import { H2, FadeIn } from "@/design-system/ui";
 import type { ArtHead } from "@/features/arts/_models/types";
+import { Col, Container } from "@/shared/design-system/layout";
+import { H2, FadeIn } from "@/shared/design-system/ui";
 
 import { ArtGalleryItem } from "./art-gallery-item";
 import { artListStyles } from "./art-list.css";

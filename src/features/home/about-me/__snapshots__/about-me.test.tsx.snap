@@ -4,18 +4,18 @@ exports[`AboutMe スナップショット Sample 1`] = `
 <body>
   <div>
     <section
-      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
     >
       <h2
-        class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_500__xbx8xup text_textStyle_variants_size_500__xbx8xua text_textStyle_weight_bold__xbx8xut"
+        class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
       >
         About Me
       </h2>
       <div
-        class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_200__12xne02z flex_flexStyle_variants_gap_200__12xne02e flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
         <div
-          class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_200__12xne02z flex_flexStyle_variants_gap_200__12xne02e flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+          class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
           <img
             alt="me"
@@ -30,19 +30,19 @@ exports[`AboutMe スナップショット Sample 1`] = `
             width="40"
           />
           <div
-            class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+            class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
           >
             <h3
-              class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_400__xbx8xuo text_textStyle_variants_size_400__xbx8xu9 text_textStyle_weight_bold__xbx8xut"
+              class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_400__1djq151o text_textStyle_variants_size_400__1djq1519 text_textStyle_weight_bold__1djq151t"
             >
               syakoo
             </h3>
             <ul
-              class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_row__12xne02j flex_flexStyle_gap_100__12xne02y flex_flexStyle_variants_gap_100__12xne02d flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+              class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
             >
               <li>
                 <a
-                  class="link_linkStyle__jc9bkl0"
+                  class="link_linkStyle__1vz8ftz0"
                   href="https://github.com/syakoo"
                 >
                   <div
@@ -66,7 +66,7 @@ exports[`AboutMe スナップショット Sample 1`] = `
               </li>
               <li>
                 <a
-                  class="link_linkStyle__jc9bkl0"
+                  class="link_linkStyle__1vz8ftz0"
                   href="https://twitter.com/sako_data"
                 >
                   <div
@@ -90,7 +90,7 @@ exports[`AboutMe スナップショット Sample 1`] = `
               </li>
               <li>
                 <a
-                  class="link_linkStyle__jc9bkl0"
+                  class="link_linkStyle__1vz8ftz0"
                   href="https://leetcode.com/syakoo/"
                 >
                   <div
@@ -114,7 +114,7 @@ exports[`AboutMe スナップショット Sample 1`] = `
               </li>
               <li>
                 <a
-                  class="link_linkStyle__jc9bkl0"
+                  class="link_linkStyle__1vz8ftz0"
                   href="https://steamcommunity.com/profiles/76561198944381322/"
                 >
                   <div
@@ -138,7 +138,7 @@ exports[`AboutMe スナップショット Sample 1`] = `
               </li>
               <li>
                 <a
-                  class="link_linkStyle__jc9bkl0"
+                  class="link_linkStyle__1vz8ftz0"
                   href="https://atcoder.jp/users/syakoo"
                 >
                   <div
@@ -164,7 +164,7 @@ exports[`AboutMe スナップショット Sample 1`] = `
           </div>
         </div>
         <p
-          class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_normal__1djq151u"
         >
           気分駆動フロントエンドエンジニア。言語・フレームワーク仕様よりは設計やアルゴリズムなどの抽象的な部分に興味があります。
         </p>

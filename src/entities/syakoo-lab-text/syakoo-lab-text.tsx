@@ -1,6 +1,6 @@
 import type React from "react";
 
-import { theme } from "@/design-system/theme.css";
+import { theme } from "@/shared/design-system/theme.css";
 
 type SyakooLabTextProps = {
   /**

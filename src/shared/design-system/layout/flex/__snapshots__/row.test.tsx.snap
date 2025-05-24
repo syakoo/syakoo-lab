@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row スナップショット Row_ 1`] = `
+<body>
+  <div>
+    <div
+      class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+    >
+      <div
+        style="border-radius: var(--radius-100__1874wf71g); width: 260px; height: 260px; display: flex; align-items: center; justify-content: center;"
+      >
+        260px
+         x 
+        260px
+      </div>
+      <div
+        style="border-radius: var(--radius-100__1874wf71g); width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;"
+      >
+        140px
+         x 
+        140px
+      </div>
+      <div
+        style="border-radius: var(--radius-100__1874wf71g); width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;"
+      >
+        200px
+         x 
+        200px
+      </div>
+      <div
+        style="border-radius: var(--radius-100__1874wf71g); width: 400px; height: auto; display: flex; align-items: center; justify-content: center;"
+      >
+        400px
+         x 
+        auto
+      </div>
+    </div>
+  </div>
+</body>
+`;
+
+exports[`Row スナップショット RowWithItem 1`] = `
+<body>
+  <div>
+    <div
+      class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+    >
+      <div
+        class="flex_flexItemStyle__zqca9t19 flex_flexItemStyle_shrink_0__zqca9t1a"
+      >
+        <div
+          style="border-radius: var(--radius-100__1874wf71g); width: 260px; height: 260px; display: flex; align-items: center; justify-content: center;"
+        >
+          260px
+           x 
+          260px
+        </div>
+      </div>
+      <div
+        class="flex_flexItemStyle__zqca9t19 flex_flexItemStyle_align_stretch__zqca9t1h flex_flexItemStyle_variants_align_stretch__zqca9t17"
+      >
+        <div
+          style="border-radius: var(--radius-100__1874wf71g); width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"
+        >
+          100%
+           x 
+          100%
+        </div>
+      </div>
+      <div
+        class="flex_flexItemStyle__zqca9t19"
+      >
+        <div
+          style="border-radius: var(--radius-100__1874wf71g); width: 200px; height: 200px; display: flex; align-items: center; justify-content: center;"
+        >
+          200px
+           x 
+          200px
+        </div>
+      </div>
+      <div
+        style="border-radius: var(--radius-100__1874wf71g); width: 400px; height: auto; display: flex; align-items: center; justify-content: center;"
+      >
+        400px
+         x 
+        auto
+      </div>
+    </div>
+  </div>
+</body>
+`;

@@ -4,10 +4,10 @@ exports[`AboutSite スナップショット Sample 1`] = `
 <body>
   <div>
     <div
-      class="flex_flexStyle__12xne02i flex_flexStyle_align_stretch__12xne02u flex_flexStyle_variants_align_stretch__12xne029 flex_flexStyle_direction_column__12xne02k flex_flexStyle_gap_200__12xne02z flex_flexStyle_variants_gap_200__12xne02e flex_flexStyle_justify_flexStart__12xne02l flex_flexStyle_variants_justify_flexStart__12xne020"
+      class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
     >
       <div
-        class="center_centerStyle__1yvz6qj0"
+        class="center_centerStyle__cloggr0"
       >
         <svg
           fill="none"
@@ -65,18 +65,18 @@ exports[`AboutSite スナップショット Sample 1`] = `
         </svg>
       </div>
       <div
-        class="center_centerStyle__1yvz6qj0"
+        class="center_centerStyle__cloggr0"
       >
         <p
-          class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_normal__1djq151u"
         >
           このサイトは syakoo が運営している個人のウェブサイトです。
         </p>
         <p
-          class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_normal__xbx8xuu"
+          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_normal__1djq151u"
         >
           <span
-            class="text_textStyle__xbx8xue text_textStyle_color_currentColor__xbx8xui text_textStyle_variants_color_currentColor__xbx8xu3 text_textStyle_size_100__xbx8xul text_textStyle_variants_size_100__xbx8xu6 text_textStyle_weight_bold__xbx8xut"
+            class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_bold__1djq151t"
           >
             「興味の広がり、深まり、発見」
           </span>

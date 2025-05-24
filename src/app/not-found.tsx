@@ -1,6 +1,7 @@
+import { Container } from "@/shared/design-system/layout";
+
 import { HeaderFooterTemplate } from "@/components/header-footer-template";
 import { PageNotFound } from "@/components/page-not-found";
-import { Container } from "@/design-system/layout";
 
 const NotFoundPage = () => {
   return (

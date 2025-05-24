@@ -1,2 +1,2 @@
 import "ress";
-import "@/design-system/global-style.css";
+import "@/shared/design-system/global-style.css";

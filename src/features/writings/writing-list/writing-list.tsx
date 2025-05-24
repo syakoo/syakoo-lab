@@ -1,9 +1,9 @@
 "use client";
 
-import { Col } from "@/design-system/layout";
-import { H2, FadeIn, Text } from "@/design-system/ui";
 import type { WritingHead } from "@/features/writings/_models/types";
 import { writingTypeConfig } from "@/features/writings/_models/writing-type";
+import { Col } from "@/shared/design-system/layout";
+import { H2, FadeIn, Text } from "@/shared/design-system/ui";
 
 import { useGetWritingListType } from "./_shared/writing-list-type";
 import { WritingBlock } from "./writing-block";

@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { theme } from "@/design-system/theme.css";
+import { theme } from "@/shared/design-system/theme.css";
 
 export const bookViewStyles = {
   root: style({

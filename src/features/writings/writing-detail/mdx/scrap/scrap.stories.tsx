@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { theme } from "@/design-system/theme.css";
+import { theme } from "@/shared/design-system/theme.css";
 
 import { Scrap } from ".";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/design-system/ui";
+import { Link } from "@/shared/design-system/ui";
 
 import { subsectionTitleStyle } from "./section-title.css";
 

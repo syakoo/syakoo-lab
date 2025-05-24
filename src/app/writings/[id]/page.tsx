@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 
-import { HeaderFooterTemplate } from "@/components/header-footer-template";
 import { formatPageTitle } from "@/config/page-title";
 import { readWritingContents } from "@/contents/writings/reader";
-import { Container, Spacer } from "@/design-system/layout";
 import { writingPaths } from "@/features/writings/config/paths";
 import {
   RelatedWritingsNav,
@@ -11,6 +9,9 @@ import {
 } from "@/features/writings/related-writings-nav";
 import { WritingDetail } from "@/features/writings/writing-detail";
 import { findWriting } from "@/features/writings/writing-detail/find-writing";
+import { Container, Spacer } from "@/shared/design-system/layout";
+
+import { HeaderFooterTemplate } from "@/components/header-footer-template";
 
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();

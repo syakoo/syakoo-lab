@@ -1,4 +1,4 @@
-import { Link } from "@/design-system/ui";
+import { Link } from "@/shared/design-system/ui";
 
 import { sectionTitleStyle } from "./section-title.css";
 

@@ -23,3 +23,7 @@ post-list/
 ## scaffold について
 
 - [SHOULD] とくに理由がない限りは scaffold を用いてコンポーネントの雛形を作成する
+
+```bash
+pnpm run generate
+```

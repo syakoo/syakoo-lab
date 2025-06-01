@@ -6,6 +6,7 @@ import { DocumentIcon } from "./document-icon";
 import { GameIcon } from "./game-icon";
 import { GlobeIcon } from "./globe-icon";
 import { HeartIcon } from "./heart-icon";
+import { LinkIcon } from "./link-icon";
 import { NoteIcon } from "./note-icon";
 import type { IconComponentProps } from "./types";
 import { WarnIcon } from "./warn-icon";
@@ -19,6 +20,7 @@ export const iconDictionary = {
   brush: BrushIcon,
   globe: GlobeIcon,
   game: GameIcon,
+  link: LinkIcon,
 };
 
 export type IconName = keyof typeof iconDictionary;

@@ -1,32 +1,31 @@
-import Image from "next/image";
-
+import { Icon } from "@/shared/design-system/icons";
 import { Row } from "@/shared/design-system/layout";
+import { theme } from "@/shared/design-system/theme.css";
 import { Link, Span } from "@/shared/design-system/ui";
 
 import { styles } from "./badge-link.css";
 
 export type BadgeLinkProps = {
   href: string;
-  imageUrl: string;
+  color: string;
   children: string;
 };
 
 export const BadgeLink: React.FC<BadgeLinkProps> = ({
   href,
-  imageUrl,
+  color,
   children,
 }) => {
   return (
-    <Link href={href} noTransparent>
+    <Link href={href} noHovered noTransparent>
       <div className={styles.container}>
         <Row align="center" gap="50">
-          <Image
-            alt=""
-            className={styles.image}
-            height={24}
-            src={imageUrl}
-            width={24}
-          />
+          <div
+            className={styles.iconWrapper}
+            style={{ backgroundColor: color }}
+          >
+            <Icon color={theme.color.text.primary} name="link" />
+          </div>
           <Span color="primary" size="100">
             {children}
           </Span>

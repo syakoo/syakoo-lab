@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { BadgeLink } from ".";
+import { BadgeLink } from "./badge-link";
 
 const meta = {
   component: BadgeLink,
@@ -21,12 +21,10 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const getDummyImage = () => "https://picsum.photos/24/24";
-
 export const Sample: Story = {
   args: {
-    href: "https://example.com",
-    imageUrl: getDummyImage(),
-    children: "Example Link",
+    href: "https://syakoo-lab.com",
+    color: "rgb(48, 99, 212)",
+    children: "Syakoo Lab",
   },
 };

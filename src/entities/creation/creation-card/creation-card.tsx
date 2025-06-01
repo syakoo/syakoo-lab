@@ -1,24 +1,31 @@
 import Image from "next/image";
 import type { FC } from "react";
+import { match } from "ts-pattern";
 
 import { creationTypes } from "@/entities/creation/creation-type";
-import type { Creation } from "@/entities/creation/models/creation";
+import type {
+  CreationIllust,
+  CreationGame,
+  CreationWebapp,
+} from "@/entities/creation/models/creation";
 import { Icon } from "@/shared/design-system/icons";
 import { Col } from "@/shared/design-system/layout";
 import { Text } from "@/shared/design-system/ui";
 
 import * as styles from "./creation-card.css";
 
-export type CreationCardProps = Pick<
-  Creation,
-  "type" | "title" | "thumbnailImage"
->;
+export type CreationCardProps =
+  | Pick<CreationIllust, "type" | "title" | "illust">
+  | Pick<CreationGame, "type" | "title" | "logo">
+  | Pick<CreationWebapp, "type" | "title" | "logo">;
 
-export const CreationCard: FC<CreationCardProps> = ({
-  type,
-  title,
-  thumbnailImage,
-}) => {
+export const CreationCard: FC<CreationCardProps> = ({ ...creation }) => {
+  const thumbnailImage = match(creation)
+    .with({ type: "illust" }, (creation) => creation.illust)
+    .with({ type: "game" }, (creation) => creation.logo)
+    .with({ type: "webapp" }, (creation) => creation.logo)
+    .exhaustive();
+
   return (
     <div className={styles.root}>
       <Col gap="50">
@@ -29,12 +36,12 @@ export const CreationCard: FC<CreationCardProps> = ({
             fill
             src={thumbnailImage.src}
           />
-          <div aria-label={type} className={styles.typeContainer}>
-            <Icon name={creationTypes[type].icon} />
+          <div aria-label={creation.type} className={styles.typeContainer}>
+            <Icon name={creationTypes[creation.type].icon} />
           </div>
         </div>
         <Text as="h3" color="primary" size="75" weight="bold">
-          {title}
+          {creation.title}
         </Text>
       </Col>
     </div>

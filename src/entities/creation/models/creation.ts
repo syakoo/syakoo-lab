@@ -5,27 +5,42 @@ export type Creation = CreationIllust | CreationGame | CreationWebapp;
 
 export type CreationIllust = CreationBase & {
   type: "illust";
+  illust: {
+    src: string;
+    width: number;
+    height: number;
+  };
   tags: string[];
   content: SerializedMDXContent;
 };
 export type CreationGame = CreationBase & {
   type: "game";
+  gameplayScreen: {
+    src: string;
+    width: number;
+    height: number;
+  };
+  logo: {
+    src: string;
+    width: number;
+    height: number;
+  };
   tags: string[];
   content: SerializedMDXContent;
 };
 export type CreationWebapp = CreationBase & {
   type: "webapp";
+  logo: {
+    src: string;
+    width: number;
+    height: number;
+  };
   tags: string[];
   content: SerializedMDXContent;
 };
 export type CreationBase = {
   id: string;
   title: string;
-  thumbnailImage: {
-    src: string;
-    width: number;
-    height: number;
-  };
   published: string;
   updated?: string;
   noindex?: boolean;

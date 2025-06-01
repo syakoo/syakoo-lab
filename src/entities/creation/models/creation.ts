@@ -21,7 +21,11 @@ export type CreationWebapp = CreationBase & {
 export type CreationBase = {
   id: string;
   title: string;
-  thumbnailSrc: string;
+  thumbnailImage: {
+    src: string;
+    width: number;
+    height: number;
+  };
   published: string;
   updated?: string;
   noindex?: boolean;

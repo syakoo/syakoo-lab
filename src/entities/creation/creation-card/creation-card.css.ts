@@ -34,9 +34,3 @@ export const typeContainer = style({
   width: 26,
   height: 26,
 });
-
-export const typeIcon = style({
-  color: theme.color.text.primary,
-  width: "14px",
-  height: "14px",
-});

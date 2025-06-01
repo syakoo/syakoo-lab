@@ -1,17 +1,7 @@
-import { render } from "@testing-library/react";
+import { testStories } from "@/shared/test-utils/test-stories";
 
-import { CreationCard } from "./creation-card";
+import * as stories from "./creation-card.stories";
 
 describe("CreationCard", () => {
-  it("should render correctly", () => {
-    const { container } = render(
-      <CreationCard
-        thumbnailSrc="/test.png"
-        title="Test Creation"
-        type="illust"
-      />,
-    );
-
-    expect(container).toMatchSnapshot();
-  });
+  testStories(stories);
 });

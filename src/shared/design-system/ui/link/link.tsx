@@ -16,12 +16,19 @@ export const Link: React.FC<LinkProps> = ({
   colored = false,
   underlined = false,
   noHovered = false,
+  noTransparent = false,
   display,
   ...otherProps
 }) => {
   return (
     <NextLink
-      className={`${linkStyle({ colored, underlined, noHovered, display })}`}
+      className={`${linkStyle({
+        colored,
+        underlined,
+        noHovered,
+        noTransparent,
+        display,
+      })}`}
       href={href}
       {...otherProps}
     >

@@ -40,5 +40,12 @@ export const linkStyle = recipe({
         display: "block",
       },
     },
+    noTransparent: {
+      true: {
+        ":hover": {
+          opacity: 1,
+        },
+      },
+    },
   },
 });

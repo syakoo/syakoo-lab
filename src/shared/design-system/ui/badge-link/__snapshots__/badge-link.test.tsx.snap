@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeLink スナップショット Sample 1`] = `
+<body>
+  <div>
+    <a
+      class="link_linkStyle__1vz8ftz0 link_linkStyle_noTransparent_true__1vz8ftz5"
+      href="https://example.com"
+    >
+      <div
+        class="badge-link_styles_container__jnr83m0"
+      >
+        <div
+          class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+        >
+          <img
+            alt=""
+            class="badge-link_styles_image__jnr83m1"
+            data-nimg="1"
+            decoding="async"
+            height="24"
+            loading="lazy"
+            src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F24%2F24&w=48&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F24%2F24&w=32&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F24%2F24&w=48&q=75 2x"
+            style="color: transparent;"
+            width="24"
+          />
+          <span
+            class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_normal__1djq151u"
+          >
+            Example Link
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>
+</body>
+`;

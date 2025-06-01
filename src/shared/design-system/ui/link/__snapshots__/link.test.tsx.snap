@@ -42,6 +42,14 @@ exports[`Link スナップショット Variants 1`] = `
     </div>
     <div>
       <a
+        class="link_linkStyle__1vz8ftz0 link_linkStyle_noTransparent_true__1vz8ftz5"
+        href="#"
+      >
+        no transparent Link
+      </a>
+    </div>
+    <div>
+      <a
         class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
         href="#"
       >

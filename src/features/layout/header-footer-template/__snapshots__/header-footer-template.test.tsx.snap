@@ -53,22 +53,12 @@ exports[`HeaderFooterTemplate スナップショット Sample 1`] = `
                 </a>
                 <a
                   class="link_linkStyle__1vz8ftz0"
-                  href="/works"
+                  href="/creations"
                 >
                   <span
                     class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_normal__1djq151u"
                   >
-                    Works
-                  </span>
-                </a>
-                <a
-                  class="link_linkStyle__1vz8ftz0"
-                  href="/arts"
-                >
-                  <span
-                    class="text_textStyle__1djq151e text_textStyle_color_secondary__1djq151g text_textStyle_variants_color_secondary__1djq1511 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_normal__1djq151u"
-                  >
-                    Arts
+                    Creations
                   </span>
                 </a>
               </nav>

@@ -33,7 +33,7 @@ exports[`BadgeLink スナップショット Sample 1`] = `
             </svg>
           </div>
           <span
-            class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_100__1djq151l text_textStyle_variants_size_100__1djq1516 text_textStyle_weight_normal__1djq151u"
+            class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
           >
             Syakoo Lab
           </span>

@@ -26,7 +26,7 @@ export const BadgeLink: React.FC<BadgeLinkProps> = ({
           >
             <Icon color={theme.color.text.primary} name="link" />
           </div>
-          <Span color="primary" size="100">
+          <Span color="primary" size="75">
             {children}
           </Span>
         </Row>

@@ -14,6 +14,26 @@ export const generateDummyCreationBase = (): CreationBase => {
     published: "2021-01-01",
     updated: "2021-01-01",
     noindex: random.pickOne([true, false]),
+    publicLinks: random.pick(
+      [
+        {
+          title: "Syakoo Lab",
+          href: "https://syakoo-lab.com",
+          color: "rgb(48, 99, 212)",
+        },
+        {
+          title: "GitHub",
+          href: "https://github.com/syakoo",
+          color: "rgb(24, 24, 24)",
+        },
+        {
+          title: "X",
+          href: "https://x.com/syakoo",
+          color: "rgb(0, 0, 0)",
+        },
+      ],
+      random.integer(0, 3),
+    ),
   };
 };
 export const generateDummyCreationIllust = (): CreationIllust => {
@@ -66,7 +86,7 @@ export const generateDummyCreationGame = (): CreationGame => {
     tags: random.pick(["tag1", "tag2", "tag3", "tag4"], 2),
     type: "game",
     gameplayScreen: {
-      src: `https://picsum.photos/${gameplayScreenWidth}/${gameplayScreenHeight}`,
+      src: `/`,
       width: gameplayScreenWidth,
       height: gameplayScreenHeight,
     },

@@ -42,6 +42,11 @@ export type CreationBase = {
   id: string;
   title: string;
   published: string;
+  publicLinks: {
+    title: string;
+    href: string;
+    color: string;
+  }[];
   updated?: string;
   noindex?: boolean;
 };

@@ -1,12 +1,22 @@
 import { CreationCard } from "@/entities/creation/creation-card";
-import type { Creation } from "@/entities/creation/models/creation";
+import type {
+  CreationGame,
+  CreationIllust,
+  CreationWebapp,
+} from "@/entities/creation/models/creation";
+import { creationPaths } from "@/entities/creation/paths";
 import { Col } from "@/shared/design-system/layout";
-import { FadeIn, H2 } from "@/shared/design-system/ui";
+import { FadeIn, H2, Link } from "@/shared/design-system/ui";
 
 import { creationListStyles } from "./creation-list.css";
 
+export type CreationListPropsCreation =
+  | Pick<CreationIllust, "id" | "type" | "title" | "illust">
+  | Pick<CreationGame, "id" | "type" | "title" | "logo">
+  | Pick<CreationWebapp, "id" | "type" | "title" | "logo">;
+
 type CreationListProps = {
-  creations: Pick<Creation, "id" | "type" | "title" | "thumbnailSrc">[];
+  creations: CreationListPropsCreation[];
 };
 
 export const CreationList: React.FC<CreationListProps> = ({ creations }) => {
@@ -17,11 +27,9 @@ export const CreationList: React.FC<CreationListProps> = ({ creations }) => {
         <ul className={creationListStyles.listContainer}>
           {creations.map((creation, i) => (
             <FadeIn key={creation.id} as="li" delaySec={0.05 * i}>
-              <CreationCard
-                thumbnailSrc={creation.thumbnailSrc}
-                title={creation.title}
-                type={creation.type}
-              />
+              <Link display="block" href={creationPaths.detail(creation.id)}>
+                <CreationCard {...creation} />
+              </Link>
             </FadeIn>
           ))}
         </ul>

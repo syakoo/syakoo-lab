@@ -16,6 +16,9 @@ export const GameplayScreen: FC<GameplayScreenProps> = ({
         className={styles.screen}
         height={gameplayScreen.height}
         src={gameplayScreen.src}
+        style={{
+          aspectRatio: `${gameplayScreen.width} / ${gameplayScreen.height}`,
+        }}
         title={`${title}のゲームプレイ画面`}
         width={gameplayScreen.width}
       />

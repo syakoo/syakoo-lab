@@ -4,6 +4,7 @@ import path from "path";
 import probe from "probe-image-size";
 
 import type { ArtContent } from "@/contents/arts/types";
+import type { GameContent } from "@/contents/games/types";
 import type { WebappContent } from "@/contents/webapps/types";
 import { theme } from "@/shared/design-system/theme.css";
 
@@ -13,10 +14,11 @@ import type {
   CreationWebappSummary,
 } from "./creation-summary";
 
+const publicDir = path.join(process.cwd(), "public");
+
 export const toCreationIllustSummary = (
   artContent: ArtContent,
 ): CreationIllustSummary => {
-  const publicDir = path.join(process.cwd(), "public");
   const imgData = fs.readFileSync(
     path.join(publicDir, artContent.frontMatter.imgUrl),
   );
@@ -74,24 +76,33 @@ export const toCreationWebappSummary = (
 };
 
 export const toCreationGameSummary = (
-  work: WebappContent,
+  game: GameContent,
 ): CreationGameSummary => {
+  const imgData = fs.readFileSync(
+    path.join(publicDir, game.frontMatter.logoSrc),
+  );
+  const imageMeta = probe.sync(imgData);
+
+  if (imageMeta === null) {
+    throw new Error("画像サイズを適切に取得することができませんでした");
+  }
+
   return {
     type: "game",
-    id: work.id,
-    title: work.name,
-    published: work.releasedAt,
-    publicLinks: [],
-    tags: [],
+    id: game.frontMatter.id,
+    title: game.frontMatter.title,
+    published: game.frontMatter.published,
+    publicLinks: game.frontMatter.publicLinks,
+    tags: game.frontMatter.tags,
     gameplayScreen: {
-      src: work.imageSrc.src,
-      width: work.imageSrc.width,
-      height: work.imageSrc.height,
+      src: game.frontMatter.gameplayScreen.src,
+      width: game.frontMatter.gameplayScreen.width,
+      height: game.frontMatter.gameplayScreen.height,
     },
     logo: {
-      src: work.imageSrc.src,
-      width: work.imageSrc.width,
-      height: work.imageSrc.height,
+      src: game.frontMatter.logoSrc,
+      width: imageMeta.width,
+      height: imageMeta.height,
     },
   };
 };

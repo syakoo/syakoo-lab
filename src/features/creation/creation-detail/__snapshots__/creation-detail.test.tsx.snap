@@ -20,6 +20,11 @@ exports[`CreationDetail スナップショット Game 1`] = `
       <div
         class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
+        <h2
+          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
+        >
+          My Game
+        </h2>
         <div
           class="public-links_styles_root__1ekue890"
         >
@@ -108,11 +113,6 @@ exports[`CreationDetail スナップショット Game 1`] = `
             </ul>
           </div>
         </div>
-        <h2
-          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
-        >
-          My Game
-        </h2>
         <div
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
@@ -219,6 +219,11 @@ exports[`CreationDetail スナップショット Illust 1`] = `
       <div
         class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
+        <h2
+          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
+        >
+          My Illust
+        </h2>
         <div
           class="public-links_styles_root__1ekue890"
         >
@@ -307,11 +312,6 @@ exports[`CreationDetail スナップショット Illust 1`] = `
             </ul>
           </div>
         </div>
-        <h2
-          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
-        >
-          My Illust
-        </h2>
         <div
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
@@ -405,6 +405,11 @@ exports[`CreationDetail スナップショット Webapp 1`] = `
       <div
         class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
+        <h2
+          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
+        >
+          My Webapp
+        </h2>
         <div
           class="public-links_styles_root__1ekue890"
         >
@@ -493,11 +498,6 @@ exports[`CreationDetail スナップショット Webapp 1`] = `
             </ul>
           </div>
         </div>
-        <h2
-          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
-        >
-          My Webapp
-        </h2>
         <div
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >

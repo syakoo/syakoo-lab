@@ -41,10 +41,10 @@ export const CreationDetail: FC<CreationDetailProps> = ({ creation }) => {
         ))
         .exhaustive()}
       <Col gap="100">
-        <PublicLinks publicLinks={creation.publicLinks} />
         <H2 size="500" weight="bold">
           {creation.title}
         </H2>
+        <PublicLinks publicLinks={creation.publicLinks} />
         <Col gap="100">
           {MDXContent ? (
             <div>

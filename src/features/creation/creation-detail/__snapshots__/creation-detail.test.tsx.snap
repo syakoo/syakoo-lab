@@ -11,8 +11,8 @@ exports[`CreationDetail スナップショット Game 1`] = `
       >
         <iframe
           class="gameplay-screen_styles_screen__1vu3uyj1"
-          height="600"
-          src="/"
+          height="300"
+          src="https://example.com/"
           title="My Gameのゲームプレイ画面"
           width="600"
         />

@@ -78,7 +78,7 @@ export const generateDummyCreationIllust = (): CreationIllust => {
 export const generateDummyCreationGame = (): CreationGame => {
   const logoSize = random.integer(1, 9) * 100;
   const gameplayScreenWidth = random.integer(1, 9) * 100;
-  const gameplayScreenHeight = random.integer(1, 9) * 100;
+  const gameplayScreenHeight = random.integer(1, 4) * 100;
 
   return {
     ...generateDummyCreationBase(),
@@ -86,7 +86,7 @@ export const generateDummyCreationGame = (): CreationGame => {
     tags: random.pick(["tag1", "tag2", "tag3", "tag4"], 2),
     type: "game",
     gameplayScreen: {
-      src: `/`,
+      src: `https://example.com/`,
       width: gameplayScreenWidth,
       height: gameplayScreenHeight,
     },

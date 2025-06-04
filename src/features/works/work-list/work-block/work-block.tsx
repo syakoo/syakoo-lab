@@ -1,14 +1,14 @@
 import { format } from "date-fns";
 import Image from "next/image";
 
-import type { Work } from "@/contents/works/types";
+import type { WebappContent } from "@/contents/webapps/types";
 import { FlexItem, Row } from "@/shared/design-system/layout";
 import { H3, Link, Span } from "@/shared/design-system/ui";
 
 import { workBlockStyle } from "./work-block.css";
 
 type WorkBlockProps = {
-  work: Work;
+  work: WebappContent;
 };
 
 const formatDate = (dateString: string) =>

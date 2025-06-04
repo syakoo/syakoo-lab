@@ -1,7 +1,7 @@
 import { compareDesc } from "date-fns/esm";
 
 import { readArtContents } from "@/contents/arts/reader";
-import { works } from "@/contents/works/works";
+import { readWebappContents } from "@/contents/webapps/reader";
 import type { Creation } from "@/entities/creation/models/creation";
 import { serializeMDXContent } from "@/features/mdx/serializer";
 
@@ -17,7 +17,9 @@ export const readCreationById = async (
   const targetArtContent = (await readArtContents()).find(
     ({ frontMatter }) => frontMatter.id === id,
   );
-  const targetWebappContent = works.find((work) => id === work.id);
+  const targetWebappContent = readWebappContents().find(
+    (work) => id === work.id,
+  );
 
   if (targetArtContent) {
     return {
@@ -27,7 +29,7 @@ export const readCreationById = async (
   } else if (targetWebappContent) {
     return {
       ...toCreationWebappSummary(targetWebappContent),
-      content: await serializeMDXContent(""),
+      content: await serializeMDXContent(targetWebappContent.description),
     };
   }
 
@@ -36,7 +38,7 @@ export const readCreationById = async (
 
 export const readCreationSummaries = async (): Promise<CreationSummary[]> => {
   const arts = await readArtContents();
-  const webapps = works;
+  const webapps = readWebappContents();
 
   const summaries = [
     ...arts.map(toCreationIllustSummary),

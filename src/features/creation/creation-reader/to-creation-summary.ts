@@ -4,7 +4,8 @@ import path from "path";
 import probe from "probe-image-size";
 
 import type { ArtContent } from "@/contents/arts/types";
-import type { Work } from "@/contents/works/types";
+import type { WebappContent } from "@/contents/webapps/types";
+import { theme } from "@/shared/design-system/theme.css";
 
 import type {
   CreationGameSummary,
@@ -43,13 +44,26 @@ export const toCreationIllustSummary = (
   };
 };
 
-export const toCreationWebappSummary = (work: Work): CreationWebappSummary => {
+export const toCreationWebappSummary = (
+  work: WebappContent,
+): CreationWebappSummary => {
   return {
     type: "webapp",
     id: work.id,
     title: work.name,
     published: work.releasedAt,
-    publicLinks: [],
+    publicLinks: [
+      {
+        title: work.name,
+        color: theme.color.brand.primary,
+        href: work.siteUrl,
+      },
+      {
+        title: "GitHub",
+        color: "#0d1117",
+        href: work.repositoryUrl,
+      },
+    ],
     tags: [],
     logo: {
       src: work.imageSrc.src,
@@ -59,7 +73,9 @@ export const toCreationWebappSummary = (work: Work): CreationWebappSummary => {
   };
 };
 
-export const toCreationGameSummary = (work: Work): CreationGameSummary => {
+export const toCreationGameSummary = (
+  work: WebappContent,
+): CreationGameSummary => {
   return {
     type: "game",
     id: work.id,

@@ -56,15 +56,11 @@ exports[`WorkList スナップショット Sample 1`] = `
                   </h3>
                   <div>
                     <div>
-                      <div>
-                        Haskell の関数合成パズルサイト。React + TypeScript で作成しています。
-                        <a
-                          class="link_linkStyle__1vz8ftz0 link_linkStyle_colored_true__1vz8ftz1"
-                          href="/writings/20210316"
-                        >
-                          紹介サイト
-                        </a>
-                      </div>
+                      
+Haskell の関数合成パズルサイト。React + TypeScript で作成しています。
+
+[紹介サイト](/writings/20210316)
+
                     </div>
                     <div
                       class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_25__zqca9tw flex_flexStyle_variants_gap_25__zqca9tb flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"

@@ -1,4 +1,4 @@
-import { works } from "@/contents/works/works";
+import { webapps } from "@/contents/webapps/webapps";
 import { Col } from "@/shared/design-system/layout";
 import { H2, FadeIn } from "@/shared/design-system/ui";
 
@@ -10,7 +10,7 @@ export const WorkList: React.FC = () => {
       <Col gap="200">
         <H2>Works</H2>
         <Col as="ul" gap="300">
-          {works.map((work, i) => (
+          {webapps.map((work, i) => (
             <FadeIn key={work.name} as="li" delaySec={0.1 * i}>
               <WorkBlock work={work} />
             </FadeIn>

@@ -1,11 +1,9 @@
-import { Link } from "@/shared/design-system/ui";
-
 import haskellFunctionPuzzleImageSrc from "./images/haskell-function-puzzle.png";
 import magicSquareImageSrc from "./images/magic-square.png";
 import realSharingImageSrc from "./images/real-sharing.png";
-import type { Work } from "./types";
+import type { WebappContent } from "./types";
 
-export const works: Work[] = [
+export const webapps: WebappContent[] = [
   {
     id: "haskell-function-puzzle",
     name: "Haskell Function Puzzle",
@@ -13,14 +11,11 @@ export const works: Work[] = [
     releasedAt: "2021-03-16",
     siteUrl: "https://haskell-function-puzzle.vercel.app",
     repositoryUrl: "https://github.com/syakoo/haskell-function-puzzle",
-    description: (
-      <div>
-        Haskell の関数合成パズルサイト。React + TypeScript で作成しています。
-        <Link colored href="/writings/20210316">
-          紹介サイト
-        </Link>
-      </div>
-    ),
+    description: `
+Haskell の関数合成パズルサイト。React + TypeScript で作成しています。
+
+[紹介サイト](/writings/20210316)
+`,
   },
   {
     id: "real-sharing",

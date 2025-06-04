@@ -7,7 +7,7 @@ import { resolveMDXContent } from "@/features/mdx/resolver";
 import { Icon } from "@/shared/design-system/icons";
 import { Col, Row } from "@/shared/design-system/layout";
 import { theme } from "@/shared/design-system/theme.css";
-import { H2, Text } from "@/shared/design-system/ui";
+import { H2, Link, Text } from "@/shared/design-system/ui";
 import { formatDate } from "@/shared/utils/date";
 
 import { PublicLinks } from "./public-links/public-links";
@@ -48,7 +48,13 @@ export const CreationDetail: FC<CreationDetailProps> = ({ creation }) => {
         <Col gap="100">
           {MDXContent ? (
             <div>
-              <MDXContent />
+              <MDXContent
+                components={{
+                  a: (props: Parameters<typeof Link>[0]) => (
+                    <Link colored {...props} />
+                  ),
+                }}
+              />
             </div>
           ) : null}
           <Col gap="50">

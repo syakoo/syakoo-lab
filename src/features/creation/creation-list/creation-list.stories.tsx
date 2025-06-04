@@ -12,6 +12,9 @@ import { CreationList } from ".";
 
 const meta = {
   component: CreationList,
+  parameters: {
+    testLevel: "snapshot",
+  },
 } satisfies Meta<typeof CreationList>;
 
 export default meta;

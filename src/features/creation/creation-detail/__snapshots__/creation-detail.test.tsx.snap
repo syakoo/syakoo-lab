@@ -6,117 +6,149 @@ exports[`CreationDetail スナップショット Game 1`] = `
     <article
       class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
     >
-      <div
-        class="gameplay-screen_styles_container__1vu3uyj0"
-      >
-        <iframe
-          class="gameplay-screen_styles_screen__1vu3uyj1"
-          height="300"
-          src="https://example.com/"
-          title="My Gameのゲームプレイ画面"
-          width="600"
-        />
+      <div>
+        <div
+          class="gameplay-screen_styles_screenContainer__1vu3uyj0"
+        >
+          <iframe
+            class="gameplay-screen_styles_screen__1vu3uyj1"
+            height="300"
+            src="https://example.com/"
+            title="My Gameのゲームプレイ画面"
+            width="600"
+          />
+        </div>
+        <div
+          class="gameplay-screen_styles_fullscreenButtonContainer__1vu3uyj2"
+        >
+          <button
+            class="gameplay-screen_styles_fullscreenButton__1vu3uyj3"
+            type="button"
+          >
+            <svg
+              fill="none"
+              height="15"
+              stroke="currentColor"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+              width="15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9M20.25 20.25v-4.5m0 4.5h-4.5m4.5 0L15 15"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
       <div
-        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
-        <h2
-          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
-        >
-          My Game
-        </h2>
-        <div
-          class="public-links_styles_root__1ekue890"
-        >
-          <div>
-            <ul
-              class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-            >
-              <li>
-                <a
-                  class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
-                  href="https://x.com/syakoo"
-                >
-                  <div
-                    class="badge-link_styles_container__jnr83m0"
-                  >
-                    <div
-                      class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-                    >
-                      <div
-                        class="badge-link_styles_iconWrapper__jnr83m1"
-                        style="background-color: rgb(0, 0, 0);"
-                      >
-                        <svg
-                          color="var(--color-text-primary__1874wf7c)"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <span
-                        class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
-                      >
-                        X
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
-                  href="https://github.com/syakoo"
-                >
-                  <div
-                    class="badge-link_styles_container__jnr83m0"
-                  >
-                    <div
-                      class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-                    >
-                      <div
-                        class="badge-link_styles_iconWrapper__jnr83m1"
-                        style="background-color: rgb(24, 24, 24);"
-                      >
-                        <svg
-                          color="var(--color-text-primary__1874wf7c)"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <span
-                        class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
-                      >
-                        GitHub
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
         <div
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
-          <div>
+          <h2
+            class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
+          >
+            My Game
+          </h2>
+          <div
+            class="public-links_styles_root__1ekue890"
+          >
+            <div>
+              <ul
+                class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+              >
+                <li>
+                  <a
+                    class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
+                    href="https://x.com/syakoo"
+                  >
+                    <div
+                      class="badge-link_styles_container__jnr83m0"
+                    >
+                      <div
+                        class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                      >
+                        <div
+                          class="badge-link_styles_iconWrapper__jnr83m1"
+                          style="background-color: rgb(0, 0, 0);"
+                        >
+                          <svg
+                            color="var(--color-text-primary__1874wf7c)"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <span
+                          class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
+                        >
+                          X
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
+                    href="https://github.com/syakoo"
+                  >
+                    <div
+                      class="badge-link_styles_container__jnr83m0"
+                    >
+                      <div
+                        class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                      >
+                        <div
+                          class="badge-link_styles_iconWrapper__jnr83m1"
+                          style="background-color: rgb(24, 24, 24);"
+                        >
+                          <svg
+                            color="var(--color-text-primary__1874wf7c)"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <span
+                          class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
+                        >
+                          GitHub
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+        >
+          <div
+            class="creation-detail_styles_contentWrapper__od1r8l0"
+          >
             <p>
               Sample MDX Component
             </p>
@@ -217,105 +249,111 @@ exports[`CreationDetail スナップショット Illust 1`] = `
         />
       </div>
       <div
-        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
-        <h2
-          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
-        >
-          My Illust
-        </h2>
-        <div
-          class="public-links_styles_root__1ekue890"
-        >
-          <div>
-            <ul
-              class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-            >
-              <li>
-                <a
-                  class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
-                  href="https://x.com/syakoo"
-                >
-                  <div
-                    class="badge-link_styles_container__jnr83m0"
-                  >
-                    <div
-                      class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-                    >
-                      <div
-                        class="badge-link_styles_iconWrapper__jnr83m1"
-                        style="background-color: rgb(0, 0, 0);"
-                      >
-                        <svg
-                          color="var(--color-text-primary__1874wf7c)"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <span
-                        class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
-                      >
-                        X
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
-                  href="https://github.com/syakoo"
-                >
-                  <div
-                    class="badge-link_styles_container__jnr83m0"
-                  >
-                    <div
-                      class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-                    >
-                      <div
-                        class="badge-link_styles_iconWrapper__jnr83m1"
-                        style="background-color: rgb(24, 24, 24);"
-                      >
-                        <svg
-                          color="var(--color-text-primary__1874wf7c)"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <span
-                        class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
-                      >
-                        GitHub
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
         <div
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
-          <div>
+          <h2
+            class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
+          >
+            My Illust
+          </h2>
+          <div
+            class="public-links_styles_root__1ekue890"
+          >
+            <div>
+              <ul
+                class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+              >
+                <li>
+                  <a
+                    class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
+                    href="https://x.com/syakoo"
+                  >
+                    <div
+                      class="badge-link_styles_container__jnr83m0"
+                    >
+                      <div
+                        class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                      >
+                        <div
+                          class="badge-link_styles_iconWrapper__jnr83m1"
+                          style="background-color: rgb(0, 0, 0);"
+                        >
+                          <svg
+                            color="var(--color-text-primary__1874wf7c)"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <span
+                          class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
+                        >
+                          X
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
+                    href="https://github.com/syakoo"
+                  >
+                    <div
+                      class="badge-link_styles_container__jnr83m0"
+                    >
+                      <div
+                        class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                      >
+                        <div
+                          class="badge-link_styles_iconWrapper__jnr83m1"
+                          style="background-color: rgb(24, 24, 24);"
+                        >
+                          <svg
+                            color="var(--color-text-primary__1874wf7c)"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <span
+                          class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
+                        >
+                          GitHub
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+        >
+          <div
+            class="creation-detail_styles_contentWrapper__od1r8l0"
+          >
             <p>
               Sample MDX Component
             </p>
@@ -403,105 +441,111 @@ exports[`CreationDetail スナップショット Webapp 1`] = `
         width="600"
       />
       <div
-        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
       >
-        <h2
-          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
-        >
-          My Webapp
-        </h2>
-        <div
-          class="public-links_styles_root__1ekue890"
-        >
-          <div>
-            <ul
-              class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-            >
-              <li>
-                <a
-                  class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
-                  href="https://x.com/syakoo"
-                >
-                  <div
-                    class="badge-link_styles_container__jnr83m0"
-                  >
-                    <div
-                      class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-                    >
-                      <div
-                        class="badge-link_styles_iconWrapper__jnr83m1"
-                        style="background-color: rgb(0, 0, 0);"
-                      >
-                        <svg
-                          color="var(--color-text-primary__1874wf7c)"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <span
-                        class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
-                      >
-                        X
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-              <li>
-                <a
-                  class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
-                  href="https://github.com/syakoo"
-                >
-                  <div
-                    class="badge-link_styles_container__jnr83m0"
-                  >
-                    <div
-                      class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
-                    >
-                      <div
-                        class="badge-link_styles_iconWrapper__jnr83m1"
-                        style="background-color: rgb(24, 24, 24);"
-                      >
-                        <svg
-                          color="var(--color-text-primary__1874wf7c)"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="1.5"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
-                      </div>
-                      <span
-                        class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
-                      >
-                        GitHub
-                      </span>
-                    </div>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
         <div
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
-          <div>
+          <h2
+            class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
+          >
+            My Webapp
+          </h2>
+          <div
+            class="public-links_styles_root__1ekue890"
+          >
+            <div>
+              <ul
+                class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+              >
+                <li>
+                  <a
+                    class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
+                    href="https://x.com/syakoo"
+                  >
+                    <div
+                      class="badge-link_styles_container__jnr83m0"
+                    >
+                      <div
+                        class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                      >
+                        <div
+                          class="badge-link_styles_iconWrapper__jnr83m1"
+                          style="background-color: rgb(0, 0, 0);"
+                        >
+                          <svg
+                            color="var(--color-text-primary__1874wf7c)"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <span
+                          class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
+                        >
+                          X
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    class="link_linkStyle__1vz8ftz0 link_linkStyle_noHovered_true__1vz8ftz3 link_linkStyle_noTransparent_true__1vz8ftz5"
+                    href="https://github.com/syakoo"
+                  >
+                    <div
+                      class="badge-link_styles_container__jnr83m0"
+                    >
+                      <div
+                        class="flex_flexStyle__zqca9ti flex_flexStyle_align_center__zqca9ts flex_flexStyle_variants_align_center__zqca9t7 flex_flexStyle_direction_row__zqca9tj flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                      >
+                        <div
+                          class="badge-link_styles_iconWrapper__jnr83m1"
+                          style="background-color: rgb(24, 24, 24);"
+                        >
+                          <svg
+                            color="var(--color-text-primary__1874wf7c)"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <span
+                          class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_normal__1djq151u"
+                        >
+                          GitHub
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+        >
+          <div
+            class="creation-detail_styles_contentWrapper__od1r8l0"
+          >
             <p>
               Sample MDX Component
             </p>

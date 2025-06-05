@@ -3,6 +3,7 @@ import { memo } from "react";
 import { BookIcon } from "./book-icon";
 import { BrushIcon } from "./brush-icon";
 import { DocumentIcon } from "./document-icon";
+import { FullscreenIcon } from "./fullscreen-icon";
 import { GameIcon } from "./game-icon";
 import { GlobeIcon } from "./globe-icon";
 import { HeartIcon } from "./heart-icon";
@@ -21,6 +22,7 @@ export const iconDictionary = {
   globe: GlobeIcon,
   game: GameIcon,
   link: LinkIcon,
+  fullscreen: FullscreenIcon,
 };
 
 export type IconName = keyof typeof iconDictionary;

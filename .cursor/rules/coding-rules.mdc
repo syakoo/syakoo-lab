@@ -1,7 +1,7 @@
 ---
-description: コーディングルール
-globs: docs/**
-alwaysApply: false
+description: 
+globs: 
+alwaysApply: true
 ---
 - 必ず最初に /docs ディレクトリを参照する
 - /docs の内容と質問の関連性を検討する

@@ -2,12 +2,17 @@
 
 ## 共通モジュールの活用 [SHOULD]
 
-共通モジュールは十分に把握し、使用が可能であれば積極的に利用する。これにより、以下のメリットが得られる：
+デザインシステム内で定義されている、デザイントークン、UI コンポーネント、レイアウトコンポーネント、アイコンコンポーネントを積極的に使用する
 
-- コードの重複を防ぐ
-- 一貫性のある実装を維持する
-- メンテナンス性の向上
-- バグ修正の影響範囲を最小限に抑える
+- [MUST] コンポーネントの実装を行う前に、以下ディレクトリを参照する
+
+```
+design-system/
+├── tokens        # デザイントークン
+├── ui            # UI コンポーネント
+├── layout        # レイアウトコンポーネント
+└── icons         # アイコンコンポーネント
+```
 
 ### 具体例
 
@@ -47,7 +52,9 @@ const styles = {
   container: style({
     backgroundColor: theme.color.background.primary,
     padding: theme.space[100],
+    gap: theme.space[100],
     borderRadius: theme.radius[200],
+    fontSize: theme.fontSize[75],
   }),
 };
 
@@ -56,7 +63,9 @@ const styles = {
   container: style({
     backgroundColor: "#ffffff",
     padding: "16px",
+    gap: "16px",
     borderRadius: "8px",
+    fontSize: "14px",
   }),
 };
 ```

@@ -25,8 +25,9 @@ post-list/
 
 ## scaffold について
 
-- [SHOULD] とくに理由がない限りは scaffold を用いてコンポーネントの雛形を作成する
+- [SHOULD] scaffold を用いてコンポーネントの雛形を作成する
 
 ```bash
-pnpm run generate
+# 例: src/shared/design-system/ui に button コンポーネントを作成
+pnpm run generate component --output src/shared/design-system/ui --answer "name:button"
 ```

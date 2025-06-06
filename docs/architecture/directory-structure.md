@@ -9,7 +9,6 @@
 
 ```
 src/
-├── api/           # API関連の処理
 ├── app/           # Next.js App Router のページコンポーネント
 ├── contents/      # コンテンツデータ
 ├── entities/      # ドメインに関連する共通モジュール
@@ -20,12 +19,6 @@ src/
 - [MUST] components, hooks などの提供する種類で分類するディレクトリは持たない
 
 ## 各ディレクトリの役割
-
-### api/
-
-Web API に関連するモジュールのディレクトリ
-
-- [MUST] 使用する Web API の型定義や取得処理、レスポンスのモックのみを持つ
 
 ### app/
 

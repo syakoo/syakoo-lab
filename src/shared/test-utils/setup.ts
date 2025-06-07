@@ -24,3 +24,5 @@ jest.mock("mermaid", () => ({
 }));
 
 loadEnv();
+
+jest.spyOn(Math, "random").mockImplementation(() => 0.5866245602626035);

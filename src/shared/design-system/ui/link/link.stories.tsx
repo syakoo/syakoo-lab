@@ -35,6 +35,11 @@ export const Variants = () => {
         </Link>
       </div>
       <div>
+        <Link href="#" noTransparent>
+          no transparent Link
+        </Link>
+      </div>
+      <div>
         <Link display="block" href="#">
           <div
             style={{

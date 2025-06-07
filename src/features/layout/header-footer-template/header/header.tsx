@@ -3,9 +3,8 @@
 import { usePathname } from "next/navigation";
 import type React from "react";
 
+import { creationPaths } from "@/entities/creation/paths";
 import { SyakooLabText } from "@/entities/syakoo-lab-text";
-import { artPaths } from "@/features/arts/config/paths";
-import { workPaths } from "@/features/works/config/paths";
 import { writingPaths } from "@/features/writings/config/paths";
 import { Center, Container, Row } from "@/shared/design-system/layout";
 import { Link, Span } from "@/shared/design-system/ui";
@@ -36,8 +35,7 @@ export const Header: React.FC = () => {
           </Link>
           <Row align="center" as="nav">
             <NavLink href={writingPaths.list()}>Writings</NavLink>
-            <NavLink href={workPaths.list()}>Works</NavLink>
-            <NavLink href={artPaths.list()}>Arts</NavLink>
+            <NavLink href={creationPaths.list()}>Creations</NavLink>
           </Row>
         </div>
       </Container>

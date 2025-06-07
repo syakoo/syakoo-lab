@@ -1,0 +1,413 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreationList スナップショット Sample 1`] = `
+<body>
+  <div>
+    <section>
+      <div
+        class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+      >
+        <h2
+          class="text_textStyle__1djq151e text_textStyle_color_currentColor__1djq151i text_textStyle_variants_color_currentColor__1djq1513 text_textStyle_size_500__1djq151p text_textStyle_variants_size_500__1djq151a text_textStyle_weight_bold__1djq151t"
+        >
+          Creations
+        </h2>
+        <ul
+          class="creation-list_creationListStyles_listContainer__n7bewp0"
+        >
+          <li
+            class="fade-in_fadeInStyle__lraw9s1"
+            style="animation-duration: 0.5s; animation-delay: 0s;"
+          >
+            <a
+              class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
+              href="/creations/586625"
+            >
+              <div
+                class="creation-card_root__9id8e30"
+              >
+                <div
+                  class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                >
+                  <div
+                    class="creation-card_imageContainer__9id8e31"
+                  >
+                    <img
+                      alt=""
+                      class="creation-card_image__9id8e32"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                    <div
+                      aria-label="game"
+                      class="creation-card_typeContainer__9id8e33"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4 3H12C14.2091 3 16 4.79086 16 7V10C16 12.2091 14.2091 14 12 14H4C1.79086 14 0 12.2091 0 10V7C0 4.79086 1.79086 3 4 3ZM4 4C2.34315 4 1 5.34315 1 7V10C1 11.6569 2.34315 13 4 13H12C13.6569 13 15 11.6569 15 10V7C15 5.34315 13.6569 4 12 4H4Z"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M5.5 6C5.22386 6 5 6.22386 5 6.5V8H3.5C3.22386 8 3 8.22386 3 8.5C3 8.77614 3.22386 9 3.5 9H5V10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5V9H7.5C7.77614 9 8 8.77614 8 8.5C8 8.22386 7.77614 8 7.5 8H6V6.5C6 6.22386 5.77614 6 5.5 6Z"
+                        />
+                        <path
+                          d="M13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z"
+                        />
+                        <path
+                          d="M12 10C12 10.5523 11.5523 11 11 11C10.4477 11 10 10.5523 10 10C10 9.44772 10.4477 9 11 9C11.5523 9 12 9.44772 12 10Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3
+                    class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
+                  >
+                    My Game
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li
+            class="fade-in_fadeInStyle__lraw9s1"
+            style="animation-duration: 0.5s; animation-delay: 0.05s;"
+          >
+            <a
+              class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
+              href="/creations/586625"
+            >
+              <div
+                class="creation-card_root__9id8e30"
+              >
+                <div
+                  class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                >
+                  <div
+                    class="creation-card_imageContainer__9id8e31"
+                  >
+                    <img
+                      alt=""
+                      class="creation-card_image__9id8e32"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                    <div
+                      aria-label="game"
+                      class="creation-card_typeContainer__9id8e33"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4 3H12C14.2091 3 16 4.79086 16 7V10C16 12.2091 14.2091 14 12 14H4C1.79086 14 0 12.2091 0 10V7C0 4.79086 1.79086 3 4 3ZM4 4C2.34315 4 1 5.34315 1 7V10C1 11.6569 2.34315 13 4 13H12C13.6569 13 15 11.6569 15 10V7C15 5.34315 13.6569 4 12 4H4Z"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M5.5 6C5.22386 6 5 6.22386 5 6.5V8H3.5C3.22386 8 3 8.22386 3 8.5C3 8.77614 3.22386 9 3.5 9H5V10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5V9H7.5C7.77614 9 8 8.77614 8 8.5C8 8.22386 7.77614 8 7.5 8H6V6.5C6 6.22386 5.77614 6 5.5 6Z"
+                        />
+                        <path
+                          d="M13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z"
+                        />
+                        <path
+                          d="M12 10C12 10.5523 11.5523 11 11 11C10.4477 11 10 10.5523 10 10C10 9.44772 10.4477 9 11 9C11.5523 9 12 9.44772 12 10Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3
+                    class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
+                  >
+                    My Game
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li
+            class="fade-in_fadeInStyle__lraw9s1"
+            style="animation-duration: 0.5s; animation-delay: 0.1s;"
+          >
+            <a
+              class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
+              href="/creations/586625"
+            >
+              <div
+                class="creation-card_root__9id8e30"
+              >
+                <div
+                  class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                >
+                  <div
+                    class="creation-card_imageContainer__9id8e31"
+                  >
+                    <img
+                      alt=""
+                      class="creation-card_image__9id8e32"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                    <div
+                      aria-label="game"
+                      class="creation-card_typeContainer__9id8e33"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4 3H12C14.2091 3 16 4.79086 16 7V10C16 12.2091 14.2091 14 12 14H4C1.79086 14 0 12.2091 0 10V7C0 4.79086 1.79086 3 4 3ZM4 4C2.34315 4 1 5.34315 1 7V10C1 11.6569 2.34315 13 4 13H12C13.6569 13 15 11.6569 15 10V7C15 5.34315 13.6569 4 12 4H4Z"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M5.5 6C5.22386 6 5 6.22386 5 6.5V8H3.5C3.22386 8 3 8.22386 3 8.5C3 8.77614 3.22386 9 3.5 9H5V10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5V9H7.5C7.77614 9 8 8.77614 8 8.5C8 8.22386 7.77614 8 7.5 8H6V6.5C6 6.22386 5.77614 6 5.5 6Z"
+                        />
+                        <path
+                          d="M13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z"
+                        />
+                        <path
+                          d="M12 10C12 10.5523 11.5523 11 11 11C10.4477 11 10 10.5523 10 10C10 9.44772 10.4477 9 11 9C11.5523 9 12 9.44772 12 10Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3
+                    class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
+                  >
+                    My Game
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li
+            class="fade-in_fadeInStyle__lraw9s1"
+            style="animation-duration: 0.5s; animation-delay: 0.15000000000000002s;"
+          >
+            <a
+              class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
+              href="/creations/586625"
+            >
+              <div
+                class="creation-card_root__9id8e30"
+              >
+                <div
+                  class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                >
+                  <div
+                    class="creation-card_imageContainer__9id8e31"
+                  >
+                    <img
+                      alt=""
+                      class="creation-card_image__9id8e32"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                    <div
+                      aria-label="game"
+                      class="creation-card_typeContainer__9id8e33"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4 3H12C14.2091 3 16 4.79086 16 7V10C16 12.2091 14.2091 14 12 14H4C1.79086 14 0 12.2091 0 10V7C0 4.79086 1.79086 3 4 3ZM4 4C2.34315 4 1 5.34315 1 7V10C1 11.6569 2.34315 13 4 13H12C13.6569 13 15 11.6569 15 10V7C15 5.34315 13.6569 4 12 4H4Z"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M5.5 6C5.22386 6 5 6.22386 5 6.5V8H3.5C3.22386 8 3 8.22386 3 8.5C3 8.77614 3.22386 9 3.5 9H5V10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5V9H7.5C7.77614 9 8 8.77614 8 8.5C8 8.22386 7.77614 8 7.5 8H6V6.5C6 6.22386 5.77614 6 5.5 6Z"
+                        />
+                        <path
+                          d="M13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z"
+                        />
+                        <path
+                          d="M12 10C12 10.5523 11.5523 11 11 11C10.4477 11 10 10.5523 10 10C10 9.44772 10.4477 9 11 9C11.5523 9 12 9.44772 12 10Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3
+                    class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
+                  >
+                    My Game
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li
+            class="fade-in_fadeInStyle__lraw9s1"
+            style="animation-duration: 0.5s; animation-delay: 0.2s;"
+          >
+            <a
+              class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
+              href="/creations/586625"
+            >
+              <div
+                class="creation-card_root__9id8e30"
+              >
+                <div
+                  class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                >
+                  <div
+                    class="creation-card_imageContainer__9id8e31"
+                  >
+                    <img
+                      alt=""
+                      class="creation-card_image__9id8e32"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                    <div
+                      aria-label="game"
+                      class="creation-card_typeContainer__9id8e33"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4 3H12C14.2091 3 16 4.79086 16 7V10C16 12.2091 14.2091 14 12 14H4C1.79086 14 0 12.2091 0 10V7C0 4.79086 1.79086 3 4 3ZM4 4C2.34315 4 1 5.34315 1 7V10C1 11.6569 2.34315 13 4 13H12C13.6569 13 15 11.6569 15 10V7C15 5.34315 13.6569 4 12 4H4Z"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M5.5 6C5.22386 6 5 6.22386 5 6.5V8H3.5C3.22386 8 3 8.22386 3 8.5C3 8.77614 3.22386 9 3.5 9H5V10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5V9H7.5C7.77614 9 8 8.77614 8 8.5C8 8.22386 7.77614 8 7.5 8H6V6.5C6 6.22386 5.77614 6 5.5 6Z"
+                        />
+                        <path
+                          d="M13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z"
+                        />
+                        <path
+                          d="M12 10C12 10.5523 11.5523 11 11 11C10.4477 11 10 10.5523 10 10C10 9.44772 10.4477 9 11 9C11.5523 9 12 9.44772 12 10Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3
+                    class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
+                  >
+                    My Game
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li
+            class="fade-in_fadeInStyle__lraw9s1"
+            style="animation-duration: 0.5s; animation-delay: 0.25s;"
+          >
+            <a
+              class="link_linkStyle__1vz8ftz0 link_linkStyle_display_block__1vz8ftz4"
+              href="/creations/586625"
+            >
+              <div
+                class="creation-card_root__9id8e30"
+              >
+                <div
+                  class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_50__zqca9tx flex_flexStyle_variants_gap_50__zqca9tc flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
+                >
+                  <div
+                    class="creation-card_imageContainer__9id8e31"
+                  >
+                    <img
+                      alt=""
+                      class="creation-card_image__9id8e32"
+                      data-nimg="fill"
+                      decoding="async"
+                      loading="lazy"
+                      sizes="100vw"
+                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
+                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
+                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                    />
+                    <div
+                      aria-label="game"
+                      class="creation-card_typeContainer__9id8e33"
+                    >
+                      <svg
+                        fill="currentColor"
+                        stroke="currentColor"
+                        stroke-width="0"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="M4 3H12C14.2091 3 16 4.79086 16 7V10C16 12.2091 14.2091 14 12 14H4C1.79086 14 0 12.2091 0 10V7C0 4.79086 1.79086 3 4 3ZM4 4C2.34315 4 1 5.34315 1 7V10C1 11.6569 2.34315 13 4 13H12C13.6569 13 15 11.6569 15 10V7C15 5.34315 13.6569 4 12 4H4Z"
+                          fill-rule="evenodd"
+                        />
+                        <path
+                          d="M5.5 6C5.22386 6 5 6.22386 5 6.5V8H3.5C3.22386 8 3 8.22386 3 8.5C3 8.77614 3.22386 9 3.5 9H5V10.5C5 10.7761 5.22386 11 5.5 11C5.77614 11 6 10.7761 6 10.5V9H7.5C7.77614 9 8 8.77614 8 8.5C8 8.22386 7.77614 8 7.5 8H6V6.5C6 6.22386 5.77614 6 5.5 6Z"
+                        />
+                        <path
+                          d="M13 7C13 7.55228 12.5523 8 12 8C11.4477 8 11 7.55228 11 7C11 6.44772 11.4477 6 12 6C12.5523 6 13 6.44772 13 7Z"
+                        />
+                        <path
+                          d="M12 10C12 10.5523 11.5523 11 11 11C10.4477 11 10 10.5523 10 10C10 9.44772 10.4477 9 11 9C11.5523 9 12 9.44772 12 10Z"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3
+                    class="text_textStyle__1djq151e text_textStyle_color_primary__1djq151f text_textStyle_variants_color_primary__1djq1510 text_textStyle_size_75__1djq151k text_textStyle_variants_size_75__1djq1515 text_textStyle_weight_bold__1djq151t"
+                  >
+                    My Game
+                  </h3>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</body>
+`;

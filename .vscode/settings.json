@@ -17,6 +17,8 @@
     "shiki",
     "nextjs",
     "gtag",
-    "undici"
+    "undici",
+    "webapp",
+    "webapps"
   ]
 }

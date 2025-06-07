@@ -265,10 +265,12 @@ class v {
     this._renderer.gpu = e;
   }
   async _createDeviceAndAdaptor(e) {
-    const t = await T.get().getNavigator().gpu.requestAdapter({
-        powerPreference: e.powerPreference,
-        forceFallbackAdapter: e.forceFallbackAdapter,
-      }),
+    const t = await T.get()
+        .getNavigator()
+        .gpu.requestAdapter({
+          powerPreference: e.powerPreference,
+          forceFallbackAdapter: e.forceFallbackAdapter,
+        }),
       r = [
         "texture-compression-bc",
         "texture-compression-astc",

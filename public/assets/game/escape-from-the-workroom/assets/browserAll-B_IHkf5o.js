@@ -8,8 +8,8 @@ import {
   w as y,
   e as w,
   C as Z,
-} from "./index-mK6Jz-Go.js";
-import "./webworkerAll-BXqYn-jI.js";
+} from "./index-C7aYdiKy.js";
+import "./webworkerAll-BJUsG42S.js";
 import "./colorToUniform-C2GHuDhf.js";
 class M {
   constructor(e) {

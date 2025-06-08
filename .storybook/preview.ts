@@ -1,14 +1,10 @@
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 import type { Preview } from "@storybook/react";
-import { initialize, mswLoader } from "msw-storybook-addon";
 
-import { defaultHandlers } from "@/api/mocks/msw";
 import { theme } from "@/shared/design-system/theme.css";
 
 import "@/shared/global-settings/global-settings";
 import { storyTheme } from "./manager";
-
-initialize({ onUnhandledRequest: "bypass" });
 
 const preview: Preview = {
   parameters: {
@@ -40,11 +36,7 @@ const preview: Preview = {
     nextjs: {
       appDirectory: true,
     },
-    msw: {
-      handlers: [...defaultHandlers],
-    },
   },
-  loaders: [mswLoader],
 };
 
 export default preview;

@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+## Figma を用いた UI の実装の追加・更新を行う方針
+
+Figma を用いてコンポーネントの実装を追加・更新する際、以下の手順で行う：
+
+### 1. 指定された Figma の UI に対する実装コンポーネントを確認
+
+指定された Figma の UI に対する実装コンポーネントを確認する。
+以下に示す Figma のページと実装におけるディレクトリを参考に、コンポーネントがすでに存在するかを確認する。
+存在しない場合、 [component.md](mdc:.scaffdog/component.md) を読み scaffold を利用して新たにコンポーネントを定義する。
+Features ページ内で別のコンポーネントとして定義されている場合は、実装もディレクトリを分ける。
+
+|   Figma ページ    |        実装ディレクトリ         |
+| :---------------: | :-----------------------------: |
+|       Pages       |             src/app             |
+|     Features      |          src/features           |
+|     Entities      |          src/entities           |
+| Utility Component |   src/shared/design-system/ui   |
+|   Design System   | src/shared/design-system/tokens |
+
+### 2. Figma を忠実に再現する
+
+Figma の UI と実装コンポーネントが定ったら、Figma を忠実に再現して UI を実装する。Figma に存在しない枠線や背景色を追加しない。
+
+実装する際には [design-system.md](mdc:docs/coding-rules/design-system.md) を読み、その規則に従う。

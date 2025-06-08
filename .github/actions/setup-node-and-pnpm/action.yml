@@ -16,8 +16,11 @@ runs:
     - uses: pnpm/action-setup@v3
       name: Install pnpm
       with:
-        version: 8
         run_install: false
+
+    - name: Check pnpm version
+      shell: bash
+      run: pnpm --version
 
     - name: Get pnpm store directory
       shell: bash

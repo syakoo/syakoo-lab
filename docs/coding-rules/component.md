@@ -23,9 +23,37 @@ post-list/
 - [SHOULD] アイコンやレイアウト、テキストやリンクなどの一般的な UI は design-system を利用する
 - [SHOULD] ストーリーは存在するパターンを網羅する
 
+## テストについて
+
+- [MUST] テストファイルは testStories を使用する
+
+```tsx
+import { testStories } from "@/shared/test-utils/test-stories";
+import * as stories from "./component-name.stories";
+
+describe("ComponentName", () => {
+  testStories(stories);
+});
+```
+
+- [MUST] Story の parameters に testLevel: "snapshot" を指定する
+
+```tsx
+const meta = {
+  component: ComponentName,
+  parameters: {
+    layout: "fullscreen",
+    testLevel: "snapshot",
+  },
+} satisfies Meta<typeof ComponentName>;
+```
+
+- [MUST NOT] Story を参照せずに独自のテストを記述しない
+- [MUST NOT] testLevel プロパティを変更・削除しない
+
 ## scaffold について
 
-- [SHOULD] scaffold を用いてコンポーネントの雛形を作成する
+- [MUST] 以下のコマンドを用いてコンポーネントの雛形を作成する
 
 ```bash
 # 例: src/shared/design-system/ui に button コンポーネントを作成

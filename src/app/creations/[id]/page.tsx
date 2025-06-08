@@ -8,8 +8,12 @@ import {
   readCreationById,
   readCreationSummaries,
 } from "@/features/creation/creation-reader/read-creation";
+import {
+  getRelatedCreations,
+  RelatedCreations,
+} from "@/features/creation/related-creations";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
-import { Container } from "@/shared/design-system/layout";
+import { Col, Container } from "@/shared/design-system/layout";
 import { FadeIn } from "@/shared/design-system/ui";
 
 export const generateStaticParams = async () => {
@@ -45,17 +49,28 @@ export const generateMetadata = async ({
 
 const CreationDetailPage = async ({ params }: Props) => {
   const creation = await readCreationById(params.id);
+  if (creation === null) notFound();
 
-  if (creation === null) {
-    notFound();
-  }
+  const relatedCreations = getRelatedCreations(
+    creation,
+    await readCreationSummaries(),
+  );
 
   return (
     <HeaderFooterTemplate>
-      <Container as="main" center paddingX="200" paddingY="400" size="100">
-        <FadeIn>
-          <CreationDetail creation={creation} />
-        </FadeIn>
+      <Container center paddingX="200" paddingY="400" size="100">
+        <Col gap="500">
+          <main>
+            <FadeIn>
+              <CreationDetail creation={creation} />
+            </FadeIn>
+          </main>
+          <nav>
+            <FadeIn delaySec={0.2}>
+              <RelatedCreations relatedCreations={relatedCreations} />
+            </FadeIn>
+          </nav>
+        </Col>
       </Container>
     </HeaderFooterTemplate>
   );

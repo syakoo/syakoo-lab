@@ -6,13 +6,12 @@ import probe from "probe-image-size";
 import type { ArtContent } from "@/contents/arts/types";
 import type { GameContent } from "@/contents/games/types";
 import type { WebappContent } from "@/contents/webapps/types";
-import { theme } from "@/shared/design-system/theme.css";
-
 import type {
-  CreationGameSummary,
   CreationIllustSummary,
   CreationWebappSummary,
-} from "./creation-summary";
+  CreationGameSummary,
+} from "@/entities/creation/models/creation";
+import { theme } from "@/shared/design-system/theme.css";
 
 const publicDir = path.join(process.cwd(), "public");
 

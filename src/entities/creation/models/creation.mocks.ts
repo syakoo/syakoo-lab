@@ -5,6 +5,10 @@ import type {
   CreationGame,
   CreationIllust,
   CreationWebapp,
+  CreationIllustSummary,
+  CreationWebappSummary,
+  CreationGameSummary,
+  CreationSummary,
 } from "./creation";
 
 export const generateDummyCreationBase = (): CreationBase => {
@@ -157,4 +161,39 @@ export const generateDummyCreationWebapp = (): CreationWebapp => {
         "};\n",
     },
   };
+};
+
+export const generateDummyCreationIllustSummary = (): CreationIllustSummary => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { content, ...summary } = generateDummyCreationIllust();
+  return summary;
+};
+
+export const generateDummyCreationWebappSummary = (): CreationWebappSummary => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { content, ...summary } = generateDummyCreationWebapp();
+  return summary;
+};
+
+export const generateDummyCreationGameSummary = (): CreationGameSummary => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { content, ...summary } = generateDummyCreationGame();
+  return summary;
+};
+
+/**
+ * CreationSummary のモックデータを生成する
+ *
+ * @example
+ * ```ts
+ * const summary = generateDummyCreationSummary();
+ * const summaries = range(0, 5).map(() => generateDummyCreationSummary());
+ * ```
+ */
+export const generateDummyCreationSummary = (): CreationSummary => {
+  return random.pickOne([
+    generateDummyCreationIllustSummary(),
+    generateDummyCreationWebappSummary(),
+    generateDummyCreationGameSummary(),
+  ]);
 };

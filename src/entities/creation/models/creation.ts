@@ -50,3 +50,23 @@ export type CreationBase = {
   updated?: string;
   noindex?: boolean;
 };
+
+export type CreationIllustSummary = Omit<CreationIllust, "content">;
+export type CreationWebappSummary = Omit<CreationWebapp, "content">;
+export type CreationGameSummary = Omit<CreationGame, "content">;
+
+/**
+ * content を除いた Creation の型。一覧表示などで使用する。
+ *
+ * @example
+ * ```ts
+ * const summaries = await readCreationSummaries();
+ * summaries.map((summary) => (
+ *   <CreationCard key={summary.id} {...summary} />
+ * ));
+ * ```
+ */
+export type CreationSummary =
+  | CreationIllustSummary
+  | CreationWebappSummary
+  | CreationGameSummary;

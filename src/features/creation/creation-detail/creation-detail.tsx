@@ -11,6 +11,7 @@ import { H2, Link, Text } from "@/shared/design-system/ui";
 import { formatDate } from "@/shared/utils/date";
 
 import { styles } from "./creation-detail.css";
+import { FileView } from "./file-view";
 import { PublicLinks } from "./public-links/public-links";
 import { GameplayScreen } from "./variant-content/gameplay-screen";
 import { IllustrationImage } from "./variant-content/illustration-image";
@@ -58,6 +59,7 @@ export const CreationDetail: FC<CreationDetailProps> = ({ creation }) => {
                   a: (props: Parameters<typeof Link>[0]) => (
                     <Link colored {...props} />
                   ),
+                  FileView,
                 }}
               />
             </div>

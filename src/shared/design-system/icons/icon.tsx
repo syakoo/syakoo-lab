@@ -2,6 +2,7 @@ import { memo } from "react";
 
 import { BookIcon } from "./book-icon";
 import { BrushIcon } from "./brush-icon";
+import { ChevronRightIcon } from "./chevron-right-icon";
 import { DocumentIcon } from "./document-icon";
 import { FullscreenIcon } from "./fullscreen-icon";
 import { GameIcon } from "./game-icon";
@@ -23,6 +24,7 @@ export const iconDictionary = {
   game: GameIcon,
   link: LinkIcon,
   fullscreen: FullscreenIcon,
+  "chevron-right": ChevronRightIcon,
 };
 
 export type IconName = keyof typeof iconDictionary;

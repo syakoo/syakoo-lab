@@ -147,7 +147,7 @@ exports[`CreationDetail スナップショット Game 1`] = `
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
           <div
-            class="creation-detail_styles_contentWrapper__od1r8l0"
+            class="creation-detail__od1r8l0 creation-detail_styles_contentWrapper_preWrap_true__od1r8l1"
           >
             <p>
               Sample MDX Component
@@ -352,7 +352,7 @@ exports[`CreationDetail スナップショット Illust 1`] = `
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
           <div
-            class="creation-detail_styles_contentWrapper__od1r8l0"
+            class="creation-detail__od1r8l0"
           >
             <p>
               Sample MDX Component
@@ -544,7 +544,7 @@ exports[`CreationDetail スナップショット Webapp 1`] = `
           class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_200__zqca9tz flex_flexStyle_variants_gap_200__zqca9te flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
         >
           <div
-            class="creation-detail_styles_contentWrapper__od1r8l0"
+            class="creation-detail__od1r8l0"
           >
             <p>
               Sample MDX Component

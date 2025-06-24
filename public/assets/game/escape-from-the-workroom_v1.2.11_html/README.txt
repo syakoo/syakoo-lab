@@ -1,18 +1,4 @@
----
-id: "escape-from-the-workroom"
-title: "作業部屋からの脱出"
-published: "2024-08-18"
-updated: "2024-11-10"
-gameplayScreen:
-  src: "/assets/game/escape-from-the-workroom_v1.2.11_html/index.html"
-  width: 500
-  height: 400
-logoSrc: "/assets/game/escape-from-the-workroom_v1.2.11_html/logo.png"
-publicLinks: []
-tags:
-  - 陽だまり製作所
-  - 脱出
----
+# 作業部屋からの脱出 (v1.2.11)
 
 ある日、フユがいつものようにハルの部屋で家事をしていたら、突然閉じ込められてしまった。
 部屋に散らばる手がかりを探し、謎を解いて脱出することができるのか？
@@ -50,5 +36,3 @@ https://syakoo-lab.com/creations/escape-from-the-workroom
 このゲームは無料でプレイでき、個人的にお楽しみいただけます。
 商用利用、改変、再配布はご遠慮ください。
 詳細な利用規約、および使用している素材のクレジットについては、ダウンロードフォルダ内の「LICENSE」ファイルをご確認ください。
-
-<FileView src="/assets/game/escape-from-the-workroom_v1.2.11_html/LICENSE" />

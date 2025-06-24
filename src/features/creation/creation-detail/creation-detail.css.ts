@@ -1,13 +1,25 @@
-import { globalStyle, style } from "@vanilla-extract/css";
+import { globalStyle } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 import { theme } from "@/shared/design-system/theme.css";
 
 export const styles = {
-  contentWrapper: style({}),
+  contentWrapper: recipe({
+    variants: {
+      preWrap: {
+        true: {
+          whiteSpace: "pre-wrap",
+        },
+      },
+    },
+    defaultVariants: {
+      preWrap: false,
+    },
+  }),
 };
 
 // 以下 MDX のスタイル
-const cn = styles.contentWrapper;
+const cn = styles.contentWrapper();
 
 globalStyle(`${cn} p`, {
   lineHeight: 2.1,

@@ -19,39 +19,39 @@ export const styles = {
 };
 
 // 以下 MDX のスタイル
-const cn = styles.contentWrapper();
+const contentWrapperClassName = styles.contentWrapper();
 
-globalStyle(`${cn} p`, {
+globalStyle(`${contentWrapperClassName} p`, {
   lineHeight: 2.1,
 });
-globalStyle(`${cn} p + p`, {
+globalStyle(`${contentWrapperClassName} p + p`, {
   marginTop: theme.space[100],
 });
 
 // ul
-globalStyle(`${cn} ul`, {
+globalStyle(`${contentWrapperClassName} ul`, {
   listStyleType: "disc",
   marginLeft: "1em",
   marginBlock: theme.space[100],
 });
-globalStyle(`${cn} ul li::marker`, {
+globalStyle(`${contentWrapperClassName} ul li::marker`, {
   color: theme.color.text.tertiary,
 });
 // ol
-globalStyle(`${cn} ol`, {
+globalStyle(`${contentWrapperClassName} ol`, {
   marginLeft: theme.space[300],
   marginBlock: theme.space[100],
 });
-globalStyle(`${cn} ol li::marker`, {
+globalStyle(`${contentWrapperClassName} ol li::marker`, {
   color: theme.color.text.secondary,
 });
 
 // h2
-globalStyle(`${cn} h2`, {
+globalStyle(`${contentWrapperClassName} h2`, {
   marginTop: theme.space[300],
 });
 
 // h3
-globalStyle(`${cn} h3`, {
+globalStyle(`${contentWrapperClassName} h3`, {
   marginTop: theme.space[200],
 });

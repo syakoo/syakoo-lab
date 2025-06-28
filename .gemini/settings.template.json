@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "figma-developer-mcp": {
+    "figma": {
       "command": "npx",
       "args": [
         "-y",

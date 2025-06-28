@@ -28,5 +28,5 @@ storybook-static
 # jest coverage
 coverage
 
-# cursor MCP
-.cursor/mcp.json
+# Gemini settings
+/.gemini/settings.json

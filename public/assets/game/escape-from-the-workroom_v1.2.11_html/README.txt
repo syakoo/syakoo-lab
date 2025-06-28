@@ -1,28 +1,14 @@
----
-id: "running-pudding"
-title: "走るプリン"
-published: "2025-03-01"
-updated: "2025-03-08"
-gameplayScreen:
-  src: "/assets/game/running-pudding_v1.4.6_html/index.html"
-  width: 500
-  height: 400
-logoSrc: "/assets/game/running-pudding_v1.4.6_html/logo.png"
-publicLinks: []
-tags:
-  - 陽だまり製作所
-  - 推理
----
+# 作業部屋からの脱出 (v1.2.11)
 
-ある日、フユお手製のプリンを食べようとしたハルがトイレから戻ると、プリンは何者かに食べられていた。
-一体、プリンを食べた犯人は誰なのか。
+ある日、フユがいつものようにハルの部屋で家事をしていたら、突然閉じ込められてしまった。
+部屋に散らばる手がかりを探し、謎を解いて脱出することができるのか？
 
-想定プレイ時間 20 分の短編推理ゲームです
+想定プレイ時間 20 分の短編脱出ゲームです
 
 ## はじめ方
 
 ▼ オンラインで遊ぶ場合
-https://syakoo-lab.com/creations/running-pudding
+https://syakoo-lab.com/creations/escape-from-the-workroom
 こちらの URL にアクセスすると、すぐにゲームが始まります。
 
 ▼ ダウンロードして遊ぶ場合
@@ -45,14 +31,8 @@ https://syakoo-lab.com/creations/running-pudding
 ・A ... 決定
 ・Z ... メニュー表示切替
 
-## ヒント
-
-メニューを開き、ムギに何度か話しかけてみてください
-
 ## ライセンス
 
 このゲームは無料でプレイでき、個人的にお楽しみいただけます。
 商用利用、改変、再配布はご遠慮ください。
 詳細な利用規約、および使用している素材のクレジットについては、ダウンロードフォルダ内の「LICENSE」ファイルをご確認ください。
-
-<FileView src="/assets/game/running-pudding_v1.4.6_html/LICENSE" />

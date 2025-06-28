@@ -53,7 +53,11 @@ export const CreationDetail: FC<CreationDetailProps> = ({ creation }) => {
         </Col>
         <Col gap="200">
           {MDXContent ? (
-            <div className={styles.contentWrapper}>
+            <div
+              className={styles.contentWrapper({
+                preWrap: creation.type === "game",
+              })}
+            >
               <MDXContent
                 components={{
                   a: (props: Parameters<typeof Link>[0]) => (

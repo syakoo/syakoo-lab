@@ -27,6 +27,3 @@ storybook-static
 
 # jest coverage
 coverage
-
-# Gemini settings
-/.gemini/settings.json

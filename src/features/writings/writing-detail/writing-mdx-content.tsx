@@ -1,0 +1,28 @@
+"use client";
+
+import { useMermaid } from "@/features/mdx/plugins/mermaid/use-mermaid";
+import { useTwitter } from "@/features/mdx/plugins/twitter/use-twitter";
+import { resolveMDXContent } from "@/features/mdx/resolver";
+import type { SerializedWriting } from "@/features/writings/_models/types";
+import { Link } from "@/shared/design-system/ui";
+
+import { mdxComponents } from "./mdx";
+
+type WritingMdxContentProps = {
+  body: SerializedWriting["body"];
+};
+
+const components = {
+  ...mdxComponents,
+  a: (props: Parameters<typeof Link>[0]) => <Link colored {...props} />,
+};
+
+export const WritingMdxContent: React.FC<WritingMdxContentProps> = ({
+  body,
+}) => {
+  useMermaid();
+  useTwitter();
+  const MDXComponent = resolveMDXContent(body).data;
+
+  return <MDXComponent components={components} />;
+};

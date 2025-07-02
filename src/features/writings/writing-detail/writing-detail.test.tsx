@@ -2,6 +2,6 @@ import { testStories } from "@/shared/test-utils/test-stories";
 
 import * as stories from "./writing-detail.stories";
 
-describe("WritingDetail", () => {
+describe("WritingDetailView", () => {
   testStories(stories);
 });

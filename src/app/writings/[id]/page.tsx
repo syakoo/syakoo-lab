@@ -4,12 +4,8 @@ import { readWritingContents } from "@/contents/writings/reader";
 import { formatPageTitle } from "@/entities/page-title/formatter";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
 import { writingPaths } from "@/features/writings/config/paths";
-import {
-  RelatedWritingsNav,
-  findRelatedWritingHeads,
-} from "@/features/writings/related-writings-nav";
+import { RelatedWritingsNav } from "@/features/writings/related-writings-nav";
 import { WritingDetail } from "@/features/writings/writing-detail";
-import { findWriting } from "@/features/writings/writing-detail/find-writing";
 import { Container, Spacer } from "@/shared/design-system/layout";
 
 export const generateStaticParams = async () => {
@@ -46,22 +42,21 @@ export const generateMetadata = async ({
 };
 
 const WritingsContentPage = async ({ params }: Props) => {
-  const writing = await findWriting(params.id);
-  const relatedWritingHeads = await findRelatedWritingHeads(writing.head);
+  const relatedWritingNav = await RelatedWritingsNav({ id: params.id });
 
   return (
     <HeaderFooterTemplate>
       <main>
-        <WritingDetail writing={writing} />
+        <WritingDetail id={params.id} />
       </main>
-      {relatedWritingHeads.length > 0 && (
+      {relatedWritingNav ? (
         <>
           <Spacer y="500" />
           <Container center paddingX="200">
-            <RelatedWritingsNav heads={relatedWritingHeads} />
+            {relatedWritingNav}
           </Container>
         </>
-      )}
+      ) : null}
       <Spacer y="400" />
     </HeaderFooterTemplate>
   );

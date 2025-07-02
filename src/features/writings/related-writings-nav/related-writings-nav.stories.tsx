@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { RelatedWritingsNav } from "./related-writings-nav";
+import { RelatedWritingsNavView } from "./related-writings-nav.view";
 
 const meta = {
-  component: RelatedWritingsNav,
+  component: RelatedWritingsNavView,
   parameters: {
     layout: "fullscreen",
     testLevel: "snapshot",
   },
-} satisfies Meta<typeof RelatedWritingsNav>;
+} satisfies Meta<typeof RelatedWritingsNavView>;
 
 export default meta;
 

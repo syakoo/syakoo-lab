@@ -17,11 +17,21 @@ const writingRelatedScore =
 /**
  * そのタグに関連する文章の一覧を取得する関数
  */
-export const findRelatedWritingHeads = async (head: WritingHead) => {
+export const findRelatedWritingHeads = async (writingId: string) => {
+  const allWritings = await readWritingContents();
+  const targetWriting = allWritings.find(
+    ({ frontMatter }) => frontMatter.id === writingId,
+  );
+
+  if (!targetWriting) {
+    return [];
+  }
+
+  const head = resolveWritingHead(targetWriting.frontMatter);
   const score = writingRelatedScore(head.tags);
 
   return (
-    (await readWritingContents())
+    allWritings
       .map(({ frontMatter }) => resolveWritingHead(frontMatter))
       // NOTE: そいつ自身は抜かす
       .filter(({ id }) => id !== head.id)

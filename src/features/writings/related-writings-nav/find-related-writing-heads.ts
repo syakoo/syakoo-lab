@@ -18,29 +18,23 @@ const writingRelatedScore =
  * そのタグに関連する文章の一覧を取得する関数
  */
 export const findRelatedWritingHeads = async (writingId: string) => {
-  const allWritings = await readWritingContents();
-  const targetWriting = allWritings.find(
-    ({ frontMatter }) => frontMatter.id === writingId,
+  const allWritingHeads = (await readWritingContents()).map(({ frontMatter }) =>
+    resolveWritingHead(frontMatter),
   );
 
-  if (!targetWriting) {
+  const targetHead = allWritingHeads.find(({ id }) => id === writingId);
+
+  if (!targetHead) {
     return [];
   }
 
-  const head = resolveWritingHead(targetWriting.frontMatter);
-  const score = writingRelatedScore(head.tags);
+  const score = writingRelatedScore(targetHead.tags);
 
-  return (
-    allWritings
-      .map(({ frontMatter }) => resolveWritingHead(frontMatter))
-      // NOTE: そいつ自身は抜かす
-      .filter(({ id }) => id !== head.id)
-      // NOTE: 同じスコアの時は日付順
-      .sort((head1, head2) =>
-        compareDesc(new Date(head1.published), new Date(head2.published)),
-      )
-      // NOTE: 降順にしてほしいため b - a
-      .sort((head1, head2) => score(head2.tags) - score(head1.tags))
-      .slice(0, 5)
-  );
+  return allWritingHeads
+    .filter(({ id }) => id !== targetHead.id)
+    .sort((head1, head2) =>
+      compareDesc(new Date(head1.published), new Date(head2.published)),
+    )
+    .sort((head1, head2) => score(head2.tags) - score(head1.tags))
+    .slice(0, 5);
 };

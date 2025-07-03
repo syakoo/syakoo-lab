@@ -6,10 +6,10 @@ import {
   generateDummyCreationWebapp,
 } from "@/entities/creation/models/creation.mocks";
 
-import { CreationDetail } from ".";
+import { CreationDetailView } from "./creation-detail.view";
 
 const meta = {
-  component: CreationDetail,
+  component: CreationDetailView,
   parameters: {
     docs: {
       description: {
@@ -20,7 +20,7 @@ const meta = {
     testLevel: "snapshot",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof CreationDetail>;
+} satisfies Meta<typeof CreationDetailView>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

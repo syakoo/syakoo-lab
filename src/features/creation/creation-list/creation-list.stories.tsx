@@ -8,14 +8,14 @@ import {
 import { random } from "@/shared/test-utils/random/random";
 import { range } from "@/shared/utils/array/range";
 
-import { CreationList } from ".";
+import { CreationListView } from "./creation-list.view";
 
 const meta = {
-  component: CreationList,
+  component: CreationListView,
   parameters: {
     testLevel: "snapshot",
   },
-} satisfies Meta<typeof CreationList>;
+} satisfies Meta<typeof CreationListView>;
 
 export default meta;
 

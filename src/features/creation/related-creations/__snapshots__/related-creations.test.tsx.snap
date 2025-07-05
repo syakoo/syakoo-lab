@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`RelatedCreations スナップショット MaxItems 1`] = `
+exports[`RelatedCreationsView スナップショット MaxItems 1`] = `
 <body>
   <div>
     <div
@@ -554,7 +554,7 @@ exports[`RelatedCreations スナップショット MaxItems 1`] = `
 </body>
 `;
 
-exports[`RelatedCreations スナップショット Sample 1`] = `
+exports[`RelatedCreationsView スナップショット Sample 1`] = `
 <body>
   <div>
     <div

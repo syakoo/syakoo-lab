@@ -4,10 +4,10 @@ import { generateDummyCreationSummary } from "@/entities/creation/models/creatio
 import { random } from "@/shared/test-utils/random/random";
 import { range } from "@/shared/utils/array/range";
 
-import { RelatedCreations } from "./related-creations";
+import { RelatedCreationsView } from "./related-creations.view";
 
 const meta = {
-  component: RelatedCreations,
+  component: RelatedCreationsView,
   parameters: {
     testLevel: "snapshot",
     docs: {
@@ -17,7 +17,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof RelatedCreations>;
+} satisfies Meta<typeof RelatedCreationsView>;
 
 export default meta;
 

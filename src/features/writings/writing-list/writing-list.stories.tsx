@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { WritingList } from ".";
+import { WritingListView } from "./writing-list.view";
 
 const meta = {
-  component: WritingList,
+  component: WritingListView,
   parameters: {
     layout: "fullscreen",
     testLevel: "snapshot",
   },
-} satisfies Meta<typeof WritingList>;
+} satisfies Meta<typeof WritingListView>;
 
 export default meta;
 

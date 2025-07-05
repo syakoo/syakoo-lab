@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CreationDetail スナップショット Game 1`] = `
+exports[`CreationDetailView スナップショット Game 1`] = `
 <body>
   <div>
     <article
@@ -226,7 +226,7 @@ exports[`CreationDetail スナップショット Game 1`] = `
 </body>
 `;
 
-exports[`CreationDetail スナップショット Illust 1`] = `
+exports[`CreationDetailView スナップショット Illust 1`] = `
 <body>
   <div>
     <article
@@ -422,7 +422,7 @@ exports[`CreationDetail スナップショット Illust 1`] = `
 </body>
 `;
 
-exports[`CreationDetail スナップショット Webapp 1`] = `
+exports[`CreationDetailView スナップショット Webapp 1`] = `
 <body>
   <div>
     <article

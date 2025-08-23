@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Link スナップショット Default 1`] = `
+exports[`Link > スナップショット Default 1`] = `
 <body>
   <div>
     <a
@@ -13,7 +13,7 @@ exports[`Link スナップショット Default 1`] = `
 </body>
 `;
 
-exports[`Link スナップショット Variants 1`] = `
+exports[`Link > スナップショット Variants 1`] = `
 <body>
   <div>
     <div>

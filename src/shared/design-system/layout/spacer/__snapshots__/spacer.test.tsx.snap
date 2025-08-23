@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Spacer スナップショット X 1`] = `
+exports[`Spacer > スナップショット X 1`] = `
 <body>
   <div>
     <div
@@ -21,7 +21,7 @@ exports[`Spacer スナップショット X 1`] = `
 </body>
 `;
 
-exports[`Spacer スナップショット Y 1`] = `
+exports[`Spacer > スナップショット Y 1`] = `
 <body>
   <div>
     <div>

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CreationDetailView スナップショット Game 1`] = `
+exports[`CreationDetailView > スナップショット Game 1`] = `
 <body>
   <div>
     <article
@@ -14,6 +14,7 @@ exports[`CreationDetailView スナップショット Game 1`] = `
             class="gameplay-screen_styles_screen__1vu3uyj1"
             height="300"
             src="https://example.com/"
+            style="aspect-ratio: 600 / 300;"
             title="My Gameのゲームプレイ画面"
             width="600"
           />
@@ -226,7 +227,7 @@ exports[`CreationDetailView スナップショット Game 1`] = `
 </body>
 `;
 
-exports[`CreationDetailView スナップショット Illust 1`] = `
+exports[`CreationDetailView > スナップショット Illust 1`] = `
 <body>
   <div>
     <article
@@ -238,13 +239,8 @@ exports[`CreationDetailView スナップショット Illust 1`] = `
         <img
           alt="イラスト作品「My Illust」"
           class="illustration-image_styles_image__1n1fkp61"
-          data-nimg="1"
-          decoding="async"
           height="600"
-          loading="lazy"
-          src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75"
-          srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 2x"
-          style="color: transparent;"
+          src="https://picsum.photos/600/600"
           width="600"
         />
       </div>
@@ -422,7 +418,7 @@ exports[`CreationDetailView スナップショット Illust 1`] = `
 </body>
 `;
 
-exports[`CreationDetailView スナップショット Webapp 1`] = `
+exports[`CreationDetailView > スナップショット Webapp 1`] = `
 <body>
   <div>
     <article
@@ -431,13 +427,8 @@ exports[`CreationDetailView スナップショット Webapp 1`] = `
       <img
         alt="My Webappのロゴ"
         class="webapp-logo_styles_logo__10o5idg0"
-        data-nimg="1"
-        decoding="async"
         height="600"
-        loading="lazy"
-        src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75"
-        srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 1x, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 2x"
-        style="color: transparent;"
+        src="https://picsum.photos/600/600"
         width="600"
       />
       <div

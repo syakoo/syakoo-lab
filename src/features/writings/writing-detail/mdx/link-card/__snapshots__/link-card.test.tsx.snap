@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`LinkCard スナップショット LongText 1`] = `
+exports[`LinkCard > スナップショット LongText 1`] = `
 <body>
   <div>
     <a
@@ -62,7 +62,7 @@ exports[`LinkCard スナップショット LongText 1`] = `
 </body>
 `;
 
-exports[`LinkCard スナップショット Sample 1`] = `
+exports[`LinkCard > スナップショット Sample 1`] = `
 <body>
   <div>
     <a

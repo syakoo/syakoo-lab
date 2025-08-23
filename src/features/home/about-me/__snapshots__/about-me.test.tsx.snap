@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AboutMe スナップショット Sample 1`] = `
+exports[`AboutMe > スナップショット Sample 1`] = `
 <body>
   <div>
     <section
@@ -20,14 +20,6 @@ exports[`AboutMe スナップショット Sample 1`] = `
           <img
             alt="me"
             class="about-me_aboutMeImageStyle__gjpojs0"
-            data-nimg="1"
-            decoding="async"
-            height="40"
-            loading="lazy"
-            src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-            srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-            style="color: transparent;"
-            width="40"
           />
           <div
             class="flex_flexStyle__zqca9ti flex_flexStyle_align_stretch__zqca9tu flex_flexStyle_variants_align_stretch__zqca9t9 flex_flexStyle_direction_column__zqca9tk flex_flexStyle_gap_100__zqca9ty flex_flexStyle_variants_gap_100__zqca9td flex_flexStyle_justify_flexStart__zqca9tl flex_flexStyle_variants_justify_flexStart__zqca9t0"
@@ -52,14 +44,6 @@ exports[`AboutMe スナップショット Sample 1`] = `
                     <img
                       alt="Github"
                       class="links_linkImageStyle__1grgam81"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
                     />
                   </div>
                 </a>
@@ -76,14 +60,6 @@ exports[`AboutMe スナップショット Sample 1`] = `
                     <img
                       alt="X (Twitter)"
                       class="links_linkImageStyle__1grgam81"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
                     />
                   </div>
                 </a>
@@ -100,14 +76,6 @@ exports[`AboutMe スナップショット Sample 1`] = `
                     <img
                       alt="LeetCode"
                       class="links_linkImageStyle__1grgam81"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
                     />
                   </div>
                 </a>
@@ -124,14 +92,6 @@ exports[`AboutMe スナップショット Sample 1`] = `
                     <img
                       alt="Steam"
                       class="links_linkImageStyle__1grgam81"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
                     />
                   </div>
                 </a>
@@ -148,14 +108,6 @@ exports[`AboutMe スナップショット Sample 1`] = `
                     <img
                       alt="AtCoder"
                       class="links_linkImageStyle__1grgam81"
-                      data-nimg="1"
-                      decoding="async"
-                      height="40"
-                      loading="lazy"
-                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
-                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
-                      style="color: transparent;"
-                      width="40"
                     />
                   </div>
                 </a>

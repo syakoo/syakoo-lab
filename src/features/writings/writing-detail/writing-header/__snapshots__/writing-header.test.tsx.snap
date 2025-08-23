@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`WritingHeader スナップショット Article 1`] = `
+exports[`WritingHeader > スナップショット Article 1`] = `
 <body>
   <div>
     <header>
@@ -79,7 +79,7 @@ exports[`WritingHeader スナップショット Article 1`] = `
 </body>
 `;
 
-exports[`WritingHeader スナップショット Diary 1`] = `
+exports[`WritingHeader > スナップショット Diary 1`] = `
 <body>
   <div>
     <header>
@@ -152,7 +152,7 @@ exports[`WritingHeader スナップショット Diary 1`] = `
 </body>
 `;
 
-exports[`WritingHeader スナップショット Note 1`] = `
+exports[`WritingHeader > スナップショット Note 1`] = `
 <body>
   <div>
     <header>
@@ -237,7 +237,7 @@ exports[`WritingHeader スナップショット Note 1`] = `
 </body>
 `;
 
-exports[`WritingHeader スナップショット Updated 1`] = `
+exports[`WritingHeader > スナップショット Updated 1`] = `
 <body>
   <div>
     <header>

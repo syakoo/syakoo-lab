@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`WritingBlock スナップショット Sample 1`] = `
+exports[`WritingBlock > スナップショット Sample 1`] = `
 <body>
   <div>
     <article
@@ -61,7 +61,7 @@ exports[`WritingBlock スナップショット Sample 1`] = `
 </body>
 `;
 
-exports[`WritingBlock スナップショット Types 1`] = `
+exports[`WritingBlock > スナップショット Types 1`] = `
 <body>
   <div>
     <div>

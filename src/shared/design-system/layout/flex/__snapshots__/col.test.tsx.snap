@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Col スナップショット Col_ 1`] = `
+exports[`Col > スナップショット Col_ 1`] = `
 <body>
   <div>
     <div
@@ -39,7 +39,7 @@ exports[`Col スナップショット Col_ 1`] = `
 </body>
 `;
 
-exports[`Col スナップショット ColWithItem 1`] = `
+exports[`Col > スナップショット ColWithItem 1`] = `
 <body>
   <div>
     <div

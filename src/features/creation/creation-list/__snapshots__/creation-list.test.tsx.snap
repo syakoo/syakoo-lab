@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`CreationList スナップショット Sample 1`] = `
+exports[`CreationList > スナップショット Sample 1`] = `
 <body>
   <div>
     <section>
@@ -35,13 +35,7 @@ exports[`CreationList スナップショット Sample 1`] = `
                     <img
                       alt=""
                       class="creation-card_image__9id8e32"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="100vw"
-                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
-                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                      src="https://picsum.photos/600/600"
                     />
                     <div
                       aria-label="game"
@@ -100,13 +94,7 @@ exports[`CreationList スナップショット Sample 1`] = `
                     <img
                       alt=""
                       class="creation-card_image__9id8e32"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="100vw"
-                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
-                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                      src="https://picsum.photos/600/600"
                     />
                     <div
                       aria-label="game"
@@ -165,13 +153,7 @@ exports[`CreationList スナップショット Sample 1`] = `
                     <img
                       alt=""
                       class="creation-card_image__9id8e32"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="100vw"
-                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
-                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                      src="https://picsum.photos/600/600"
                     />
                     <div
                       aria-label="game"
@@ -230,13 +212,7 @@ exports[`CreationList スナップショット Sample 1`] = `
                     <img
                       alt=""
                       class="creation-card_image__9id8e32"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="100vw"
-                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
-                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                      src="https://picsum.photos/600/600"
                     />
                     <div
                       aria-label="game"
@@ -295,13 +271,7 @@ exports[`CreationList スナップショット Sample 1`] = `
                     <img
                       alt=""
                       class="creation-card_image__9id8e32"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="100vw"
-                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
-                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                      src="https://picsum.photos/600/600"
                     />
                     <div
                       aria-label="game"
@@ -360,13 +330,7 @@ exports[`CreationList スナップショット Sample 1`] = `
                     <img
                       alt=""
                       class="creation-card_image__9id8e32"
-                      data-nimg="fill"
-                      decoding="async"
-                      loading="lazy"
-                      sizes="100vw"
-                      src="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75"
-                      srcset="/_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Fpicsum.photos%2F600%2F600&w=3840&q=75 3840w"
-                      style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
+                      src="https://picsum.photos/600/600"
                     />
                     <div
                       aria-label="game"

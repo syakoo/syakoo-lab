@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Figure スナップショット NoCaption 1`] = `
+exports[`Figure > スナップショット NoCaption 1`] = `
 <body>
   <div>
     <figure
@@ -15,7 +15,7 @@ exports[`Figure スナップショット NoCaption 1`] = `
 </body>
 `;
 
-exports[`Figure スナップショット Sample 1`] = `
+exports[`Figure > スナップショット Sample 1`] = `
 <body>
   <div>
     <figure

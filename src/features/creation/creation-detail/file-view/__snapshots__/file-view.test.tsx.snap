@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FileView スナップショット Default 1`] = `
+exports[`FileView > スナップショット Default 1`] = `
 <body>
   <div>
     <div
@@ -40,7 +40,7 @@ exports[`FileView スナップショット Default 1`] = `
 </body>
 `;
 
-exports[`FileView スナップショット LongFileName 1`] = `
+exports[`FileView > スナップショット LongFileName 1`] = `
 <body>
   <div>
     <div

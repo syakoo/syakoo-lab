@@ -1,12 +1,19 @@
+import { vi } from "vitest";
+
 import { exampleMDXComponent } from "@/features/mdx/mocks/fixture-mdxcomponent";
 
 import { loadEnv } from "./nextjs/env";
 
+// NOTE: Next.jsのImageコンポーネントをテスト用にモック
+vi.mock("next/image", () => ({
+  default: "img",
+}));
+
 // NOTE: `@mdx-js/mdx` の esm がうまく解決できなかったためまとめてモック化
 // これが原因でおかしくなっていたらごめんなさい
-jest.mock("@mdx-js/mdx", () => {
+vi.mock("@mdx-js/mdx", () => {
   return {
-    runSync: jest
+    runSync: vi
       .fn()
       .mockImplementation(() => ({ default: exampleMDXComponent })),
   };
@@ -14,7 +21,15 @@ jest.mock("@mdx-js/mdx", () => {
 
 // NOTE: `mermaid` の esm がうまく解決できなかったためまとめてモック化
 // これが原因でおかしくなっていたらごめんなさい
-jest.mock("mermaid", () => ({
+vi.mock("mermaid", () => ({
+  default: {
+    initialize: () => {
+      return;
+    },
+    run: () => {
+      return;
+    },
+  },
   initialize: () => {
     return;
   },
@@ -25,4 +40,4 @@ jest.mock("mermaid", () => ({
 
 loadEnv();
 
-jest.spyOn(Math, "random").mockImplementation(() => 0.5866245602626035);
+vi.spyOn(Math, "random").mockImplementation(() => 0.5866245602626035);

@@ -8,6 +8,9 @@ pre-commit:
       glob: "*.{js,ts,jsx,tsx}"
       # TODO: ステージのファイルのみにかけたい
       run: pnpm run lint:fix && git add {staged_files}
+
+pre-push:
+  commands:
     test:
       run: pnpm run test --run
 

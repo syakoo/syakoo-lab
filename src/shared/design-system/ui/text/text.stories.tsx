@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 
 import { H1, H2, H3, H4, P, Span, Text } from ".";
 

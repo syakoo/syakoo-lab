@@ -1,4 +1,4 @@
-import type { StoryFn, Meta, StoryObj } from "@storybook/react";
+import type { StoryFn, Meta, StoryObj } from "@storybook/nextjs";
 
 import { Figure } from "@/features/writings/writing-detail/mdx/figure";
 

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { generateDummyCreationSummary } from "@/entities/creation/models/creation.mocks";
 import { random } from "@/shared/test-utils/random/random";

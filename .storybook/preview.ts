@@ -1,10 +1,18 @@
-import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
-import type { Preview } from "@storybook/react";
+import type { Preview } from "@storybook/nextjs";
+import { sb } from "storybook/test";
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 
 import { theme } from "@/shared/design-system/theme.css";
 
 import "@/shared/global-settings/global-settings";
 import { storyTheme } from "./manager";
+
+sb.mock(import("@/contents/writings/reader"));
+sb.mock(import("sharp"));
+sb.mock(import("jsdom"));
+sb.mock(import("@/features/writings/writing-detail/find-writing"), {
+  spy: true,
+});
 
 const preview: Preview = {
   parameters: {

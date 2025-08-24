@@ -1,5 +1,5 @@
-import type { WritingType } from "@/features/writings/_models/types";
-import { writingTypeConfig } from "@/features/writings/_models/writing-type";
+import type { WritingType } from "@/entities/writing/models/writing";
+import { writingTypeConfig } from "@/entities/writing/writing-type";
 import { Icon } from "@/shared/design-system/icons";
 import { Col, Row } from "@/shared/design-system/layout";
 import { P, Text } from "@/shared/design-system/ui";

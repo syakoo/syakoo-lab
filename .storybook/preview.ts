@@ -7,13 +7,15 @@ import { theme } from "@/shared/design-system/theme.css";
 import "@/shared/global-settings/global-settings";
 import { storyTheme } from "./manager";
 
+// NOTE: Node 利用のモジュールは Storybook で動かないので雑にモックする
+// read-writing などの直接機能で利用しているモジュールで返却値を指定できるようにする
 sb.mock(import("@/contents/writings/reader"));
 sb.mock(import("@/contents/arts/reader"));
 sb.mock(import("@/contents/games/reader"));
 sb.mock(import("@/contents/webapps/reader"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
-sb.mock(import("@/features/writings/writing-detail/find-writing"), {
+sb.mock(import("@/features/writings/writing-reader/read-writing"), {
   spy: true,
 });
 sb.mock(import("@/features/creation/creation-reader/read-creation"), {

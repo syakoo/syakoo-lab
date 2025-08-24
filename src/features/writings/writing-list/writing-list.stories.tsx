@@ -1,42 +1,33 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { clearAllMocks, mocked } from "storybook/test";
 
-import { WritingListView } from "./writing-list.view";
+import { generateDummyWritingHead } from "@/entities/writing/models/writing.mocks";
+import { readWritingHeads } from "@/features/writings/writing-reader";
+import { random } from "@/shared/test-utils/random/random";
+import { range } from "@/shared/utils/array/range";
+
+import { WritingList } from ".";
 
 const meta = {
-  component: WritingListView,
+  component: WritingList,
   parameters: {
     layout: "fullscreen",
     testLevel: "snapshot",
   },
-} satisfies Meta<typeof WritingListView>;
+  afterEach: () => {
+    clearAllMocks();
+  },
+} satisfies Meta<typeof WritingList>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
+
 export const Sample: Story = {
-  args: {
-    heads: [
-      {
-        id: "sample-writing-meta-id1",
-        title: "Sample Article",
-        type: "article",
-        tags: ["雑記", "Sample"],
-        published: "2023-10-09",
-      },
-      {
-        id: "sample-writing-meta-id2",
-        title: "Sample Note",
-        type: "note",
-        tags: ["雑記", "Sample"],
-        published: "2023-10-10",
-      },
-      {
-        id: "sample-writing-meta-id3",
-        title: "Sample Diary",
-        type: "diary",
-        tags: ["雑記"],
-        published: "2023-10-11",
-      },
-    ],
+  beforeEach: () => {
+    const mockHeads = range(0, random.integer(5, 10)).map(() =>
+      generateDummyWritingHead(),
+    );
+    mocked(readWritingHeads).mockResolvedValue(mockHeads);
   },
 };

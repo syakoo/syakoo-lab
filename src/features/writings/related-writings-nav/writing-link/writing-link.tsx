@@ -1,6 +1,6 @@
-import type { WritingHead } from "@/features/writings/_models/types";
-import { writingTypeConfig } from "@/features/writings/_models/writing-type";
-import { writingPaths } from "@/features/writings/config/paths";
+import type { WritingHead } from "@/entities/writing/models/writing";
+import { writingPaths } from "@/entities/writing/paths/writing-paths";
+import { writingTypeConfig } from "@/entities/writing/writing-type";
 import { Icon } from "@/shared/design-system/icons";
 import { Col, Row } from "@/shared/design-system/layout";
 import { Link } from "@/shared/design-system/ui";

@@ -1,9 +1,10 @@
 import { differenceInYears } from "date-fns";
+import { notFound } from "next/navigation";
 
+import { readWritingById } from "@/features/writings/writing-reader";
 import { Spacer } from "@/shared/design-system/layout";
 import { FadeIn } from "@/shared/design-system/ui";
 
-import { findWriting } from "./find-writing";
 import { Note } from "./mdx/note";
 import { TOC } from "./toc";
 import { writingDetailStyles } from "./writing-detail.css";
@@ -16,7 +17,8 @@ type WritingDetailProps = {
 };
 
 export const WritingDetail = async ({ id }: WritingDetailProps) => {
-  const writing = await findWriting(id);
+  const writing = await readWritingById(id);
+  if (!writing) return notFound();
 
   const yearsSinceLastUpdate = (() => {
     const writingUpdated = writing.head.updated ?? writing.head.published;

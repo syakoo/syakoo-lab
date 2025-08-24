@@ -1,6 +1,5 @@
+import type { WritingType } from "@/entities/writing/models/writing";
 import type { IconName } from "@/shared/design-system/icons";
-
-import type { WritingType } from "./types";
 
 type WritingTypeConfigItem = {
   type: WritingType;
@@ -8,6 +7,7 @@ type WritingTypeConfigItem = {
   iconName: IconName;
   description: string;
 };
+
 export const writingTypeConfig = [
   {
     type: "article",

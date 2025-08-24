@@ -17,6 +17,45 @@ export const generateDummyWritingHead = (
   };
 };
 
+const sampleMdxContent = `/*@jsxRuntime automatic @jsxImportSource react*/
+  const {Fragment: _Fragment, jsx: _jsx, jsxs: _jsxs} = arguments[0];
+  function _createMdxContent(props) {
+    const _components = Object.assign({
+      h2: "h2",
+      p: "p",
+      ul: "ul",
+      li: "li",
+      strong: "strong",
+      em: "em"
+    }, props.components);
+    return _jsxs(_Fragment, {
+      children: [
+        _jsx(_components.h2, { children: "サンプル記事" }),
+        _jsx(_components.p, { children: "これはテスト用のサンプルコンテンツです。" }),
+        _jsx(_components.p, {
+          children: [
+            "このコンテンツには",
+            _jsx(_components.strong, { children: "太字" }),
+            "や",
+            _jsx(_components.em, { children: "斜体" }),
+            "などの基本的な装飾が含まれています。"
+          ]
+        }),
+        _jsx(_components.ul, {
+          children: [
+            _jsx(_components.li, { children: "React" }),
+            _jsx(_components.li, { children: "TypeScript" }),
+            _jsx(_components.li, { children: "Vitest" })
+          ]
+        })
+      ]
+    });
+  }
+  function MDXContent(props = {}) {
+    return _createMdxContent(props);
+  }
+  return { default: MDXContent };`;
+
 export const generateDummySerializedWriting = (
   overrides?: Partial<SerializedWriting>,
 ): SerializedWriting => {
@@ -24,19 +63,7 @@ export const generateDummySerializedWriting = (
     head: generateDummyWritingHead(),
     body: {
       type: "serialized" as const,
-      data: `/*@jsxRuntime automatic @jsxImportSource react*/
-      const {Fragment: _Fragment, jsx: _jsx} = arguments[0];
-      function _createMdxContent(props) {
-        return _jsx(_Fragment, {
-          children: _jsx("p", {
-            children: "Sample writing content"
-          })
-        });
-      }
-      function MDXContent(props = {}) {
-        return _createMdxContent(props);
-      }
-      return { default: MDXContent };`,
+      data: sampleMdxContent,
     },
     ...overrides,
   };

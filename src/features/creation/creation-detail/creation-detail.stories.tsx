@@ -1,15 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { clearAllMocks, mocked } from "storybook/test";
 
 import {
   generateDummyCreationGame,
   generateDummyCreationIllust,
   generateDummyCreationWebapp,
 } from "@/entities/creation/models/creation.mocks";
+import { readCreationById } from "@/features/creation/creation-reader";
 
-import { CreationDetailView } from "./creation-detail.view";
+import { CreationDetail } from "./creation-detail";
 
 const meta = {
-  component: CreationDetailView,
+  component: CreationDetail,
   parameters: {
     docs: {
       description: {
@@ -20,25 +22,37 @@ const meta = {
     testLevel: "snapshot",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof CreationDetailView>;
+  afterEach: () => {
+    clearAllMocks();
+  },
+} satisfies Meta<typeof CreationDetail>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Illust: Story = {
   args: {
-    creation: generateDummyCreationIllust(),
+    id: "illust-sample",
+  },
+  beforeEach: () => {
+    mocked(readCreationById).mockResolvedValue(generateDummyCreationIllust());
   },
 };
 
 export const Game: Story = {
   args: {
-    creation: generateDummyCreationGame(),
+    id: "game-sample",
+  },
+  beforeEach: () => {
+    mocked(readCreationById).mockResolvedValue(generateDummyCreationGame());
   },
 };
 
 export const Webapp: Story = {
   args: {
-    creation: generateDummyCreationWebapp(),
+    id: "webapp-sample",
+  },
+  beforeEach: () => {
+    mocked(readCreationById).mockResolvedValue(generateDummyCreationWebapp());
   },
 };

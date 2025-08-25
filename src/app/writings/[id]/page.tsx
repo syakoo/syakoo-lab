@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 import { readWritingContents } from "@/contents/writings/reader";
 import { formatPageTitle } from "@/entities/page-title/formatter";
+import { writingPaths } from "@/entities/writing/paths/writing-paths";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
-import { writingPaths } from "@/features/writings/config/paths";
 import { RelatedWritingsNav } from "@/features/writings/related-writings-nav";
 import { WritingDetail } from "@/features/writings/writing-detail";
 import { Container, Spacer } from "@/shared/design-system/layout";

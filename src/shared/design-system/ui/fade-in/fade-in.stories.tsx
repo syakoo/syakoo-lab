@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
@@ -7,7 +7,7 @@ import { FadeIn } from ".";
 const meta = {
   component: FadeIn,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof FadeIn>;
 
 export default meta;

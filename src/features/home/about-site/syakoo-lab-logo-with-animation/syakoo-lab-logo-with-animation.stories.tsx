@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { SyakooLabLogoWithAnimation } from ".";
 
@@ -6,7 +6,6 @@ const meta = {
   component: SyakooLabLogoWithAnimation,
   parameters: {
     layout: "centered",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof SyakooLabLogoWithAnimation>;
 

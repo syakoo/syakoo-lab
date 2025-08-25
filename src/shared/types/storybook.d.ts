@@ -12,16 +12,5 @@ declare module "@storybook/react" {
         query?: Record<string, string>;
       };
     };
-
-    /**
-     * テストレベル
-     * - `none`: スキップ
-     * - `check`: Story の描画確認、 play があればインタラクションをします
-     * - `snapshot`: check に加えてスナップショットを保存し確認します
-     *
-     * NOTE: Story からテストを行うための型定義。不要になったら削除すること。
-     * @default "check"
-     */
-    testLevel?: "none" | "check" | "snapshot";
   }
 }

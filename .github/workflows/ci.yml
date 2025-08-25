@@ -48,3 +48,22 @@ jobs:
 
       - name: Run Build
         run: pnpm build
+
+  storybook-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install Playwright
+        run: pnpm exec playwright install chromium --with-deps
+
+      - name: Build Storybook
+        run: pnpm storybook:build
+
+      - name: Run Storybook tests
+        run: pnpm storybook:ci

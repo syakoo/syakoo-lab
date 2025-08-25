@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { AboutSite } from ".";
 
 const meta = {
   component: AboutSite,
-  parameters: { testLevel: "snapshot", layout: "fullscreen" },
+  parameters: { layout: "fullscreen" },
 } satisfies Meta<typeof AboutSite>;
 
 export default meta;

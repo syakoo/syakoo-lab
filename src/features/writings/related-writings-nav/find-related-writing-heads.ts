@@ -1,8 +1,7 @@
 import { compareDesc } from "date-fns";
 
-import { readWritingContents } from "@/contents/writings/reader";
-import { resolveWritingHead } from "@/features/writings/_models/head-resolver";
-import { type WritingHead } from "@/features/writings/_models/types";
+import type { WritingHead } from "@/entities/writing/models/writing";
+import { readWritingHeads } from "@/features/writings/writing-reader";
 
 const writingRelatedScore =
   (originalTags: WritingHead["tags"]) => (targetTags: WritingHead["tags"]) => {
@@ -18,9 +17,7 @@ const writingRelatedScore =
  * そのタグに関連する文章の一覧を取得する関数
  */
 export const findRelatedWritingHeads = async (writingId: string) => {
-  const allWritingHeads = (await readWritingContents()).map(({ frontMatter }) =>
-    resolveWritingHead(frontMatter),
-  );
+  const allWritingHeads = await readWritingHeads();
 
   const targetHead = allWritingHeads.find(({ id }) => id === writingId);
 

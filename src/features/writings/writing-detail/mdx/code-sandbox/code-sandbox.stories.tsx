@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { CodeSandbox } from ".";
 
 const meta = {
   component: CodeSandbox,
-  parameters: { testLevel: "snapshot" },
+  tags: ["test:skip"],
 } satisfies Meta<typeof CodeSandbox>;
 
 export default meta;

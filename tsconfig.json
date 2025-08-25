@@ -11,6 +11,7 @@
       "@/*": ["src/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
+    "types": ["vitest/globals"],
     "incremental": true,
     "plugins": [
       {

@@ -1,12 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { FileViewUI } from "./file-view-ui";
 
 const meta = {
   component: FileViewUI,
-  parameters: {
-    testLevel: "snapshot",
-  },
+  parameters: {},
 } satisfies Meta<typeof FileViewUI>;
 
 export default meta;

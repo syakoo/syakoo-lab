@@ -1,6 +1,8 @@
 import * as nextNavigation from "next/navigation";
+import { vi } from "vitest";
+import type { Mock } from "vitest";
 
-jest.mock("next/navigation");
+vi.mock("next/navigation");
 /**
  * `next/navigation` のモック化関数
  *
@@ -14,19 +16,19 @@ jest.mock("next/navigation");
  */
 export const mockNextNavigation = () => {
   // 必要になり次第更新する
-  (nextNavigation.useRouter as jest.Mock).mockImplementation(() => ({
-    push: jest.fn(),
+  (nextNavigation.useRouter as Mock).mockImplementation(() => ({
+    push: vi.fn(),
   }));
-  (nextNavigation.useSearchParams as jest.Mock).mockImplementation(
+  (nextNavigation.useSearchParams as Mock).mockImplementation(
     () => new URLSearchParams(),
   );
-  (nextNavigation.usePathname as jest.Mock).mockImplementation(
+  (nextNavigation.usePathname as Mock).mockImplementation(
     () => "localhost:3000",
   );
 
   return {
-    useRouter: nextNavigation.useRouter as jest.Mock,
-    useSearchParams: nextNavigation.useSearchParams as jest.Mock,
-    usePathname: nextNavigation.usePathname as jest.Mock,
+    useRouter: nextNavigation.useRouter as Mock,
+    useSearchParams: nextNavigation.useSearchParams as Mock,
+    usePathname: nextNavigation.usePathname as Mock,
   };
 };

@@ -43,7 +43,6 @@ const meta = {
   component: {{ inputs.name | pascal }},
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof {{ inputs.name | pascal }}>;
 
@@ -56,16 +55,4 @@ export const Sample: Story = {
   },
 };
 
-```
-
-# `{{ inputs.name | kebab }}/{{ inputs.name | kebab }}.test.tsx`
-
-```tsx
-import { testStories } from "@/shared/test-utils/test-stories";
-
-import * as stories from "./{{ inputs.name | kebab }}.stories";
-
-describe("{{ inputs.name | pascal }}", () => {
-  testStories(stories);
-});
 ```

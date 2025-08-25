@@ -1,11 +1,12 @@
 import { renderHook } from "@testing-library/react";
+import { vi } from "vitest";
 
 import { useMount } from ".";
 
-const mockCallback = jest.fn();
+const mockCallback = vi.fn();
 
 afterEach(() => {
-  jest.resetAllMocks();
+  vi.resetAllMocks();
 });
 
 describe("useMount", () => {

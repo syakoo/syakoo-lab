@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
@@ -7,7 +7,7 @@ import { Link } from ".";
 const meta = {
   component: Link,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Link>;
 
 export default meta;

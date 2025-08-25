@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { LinkCard } from ".";
 
 const meta = {
   component: LinkCard,
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof LinkCard>;
 
 export default meta;

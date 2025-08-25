@@ -13,7 +13,7 @@
 
 ## 開発支援
 
-- Jest / Testing Library
+- Vitest / Testing Library
 - Storybook
 - ESLint / Prettier
 - scaffdog

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { List } from ".";
 
@@ -6,7 +6,6 @@ const meta = {
   component: List,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof List>;

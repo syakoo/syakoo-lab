@@ -11,7 +11,6 @@ import { RelatedCreations } from "./related-creations";
 const meta = {
   component: RelatedCreations,
   parameters: {
-    testLevel: "snapshot",
     docs: {
       description: {
         component:

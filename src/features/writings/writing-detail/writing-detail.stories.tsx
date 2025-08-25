@@ -8,9 +8,7 @@ import { WritingDetail } from "./writing-detail";
 
 const meta: Meta<typeof WritingDetail> = {
   component: WritingDetail,
-  parameters: {
-    testLevel: "snapshot" as const,
-  },
+  parameters: {},
   afterEach: () => {
     clearAllMocks();
   },

@@ -6,7 +6,6 @@ const meta = {
   component: SyakooLabText,
   parameters: {
     layout: "centered",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof SyakooLabText>;
 

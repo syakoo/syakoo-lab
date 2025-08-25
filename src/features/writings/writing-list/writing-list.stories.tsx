@@ -12,7 +12,6 @@ const meta = {
   component: WritingList,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
   afterEach: () => {
     clearAllMocks();

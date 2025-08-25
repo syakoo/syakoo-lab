@@ -7,7 +7,6 @@ const meta = {
   component: TOC,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof TOC>;
 

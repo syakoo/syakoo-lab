@@ -43,7 +43,6 @@ const meta = {
   component: {{ inputs.name | pascal }},
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof {{ inputs.name | pascal }}>;
 

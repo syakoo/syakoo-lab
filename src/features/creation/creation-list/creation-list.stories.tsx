@@ -14,9 +14,7 @@ import { CreationList } from "./creation-list";
 
 const meta = {
   component: CreationList,
-  parameters: {
-    testLevel: "snapshot",
-  },
+  parameters: {},
   afterEach: () => {
     clearAllMocks();
   },

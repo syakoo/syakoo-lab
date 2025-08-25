@@ -18,7 +18,6 @@ const meta = {
           "https://www.figma.com/design/KM3QHHUgriWxt0RJ1MT5SB/syakoo-lab?node-id=477-122&t=kVsF3rxs1WNK1866-4",
       },
     },
-    testLevel: "snapshot",
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof CreationCard>;

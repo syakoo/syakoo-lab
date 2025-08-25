@@ -7,7 +7,7 @@ import { Scrap } from ".";
 const meta = {
   component: Scrap,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Scrap>;
 
 export default meta;

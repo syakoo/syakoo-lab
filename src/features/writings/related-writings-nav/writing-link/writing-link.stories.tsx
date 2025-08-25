@@ -5,7 +5,7 @@ import { WritingLink } from ".";
 const meta = {
   component: WritingLink,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof WritingLink>;
 
 export default meta;

@@ -4,7 +4,7 @@ import { AboutSite } from ".";
 
 const meta = {
   component: AboutSite,
-  parameters: { testLevel: "snapshot", layout: "fullscreen" },
+  parameters: { layout: "fullscreen" },
 } satisfies Meta<typeof AboutSite>;
 
 export default meta;

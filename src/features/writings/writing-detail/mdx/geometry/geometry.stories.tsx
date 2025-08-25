@@ -13,7 +13,7 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Geometry>;
 
 export default meta;

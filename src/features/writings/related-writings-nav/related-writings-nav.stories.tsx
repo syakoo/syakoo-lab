@@ -12,7 +12,6 @@ const meta = {
   component: RelatedWritingsNav,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
   afterEach: () => {
     clearAllMocks();

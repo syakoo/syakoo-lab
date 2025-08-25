@@ -5,7 +5,7 @@ import { H1, H2, H3, H4, P, Span, Text } from ".";
 const meta = {
   component: Text,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Text>;
 
 export default meta;

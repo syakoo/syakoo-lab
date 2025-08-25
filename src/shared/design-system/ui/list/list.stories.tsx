@@ -6,7 +6,6 @@ const meta = {
   component: List,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof List>;

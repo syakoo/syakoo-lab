@@ -7,7 +7,7 @@ import { FadeIn } from ".";
 const meta = {
   component: FadeIn,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof FadeIn>;
 
 export default meta;

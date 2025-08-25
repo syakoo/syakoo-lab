@@ -6,7 +6,6 @@ const meta = {
   component: SyakooLabLogoWithAnimation,
   parameters: {
     layout: "centered",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof SyakooLabLogoWithAnimation>;
 

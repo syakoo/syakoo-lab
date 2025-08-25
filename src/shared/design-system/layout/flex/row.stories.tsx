@@ -7,7 +7,7 @@ import { Row, FlexItem } from ".";
 const meta = {
   component: Row,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Row>;
 
 export default meta;

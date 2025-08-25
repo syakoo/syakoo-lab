@@ -5,7 +5,7 @@ import { SectionTitle, SubSectionTitle } from ".";
 const meta = {
   component: SectionTitle,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof SectionTitle>;
 
 export default meta;

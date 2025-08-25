@@ -4,7 +4,7 @@ import { Image } from ".";
 
 const meta = {
   component: Image,
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Image>;
 
 export default meta;

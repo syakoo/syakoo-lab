@@ -14,7 +14,6 @@
     "test:watch": "vitest",
     "test:clear": "vitest run --reporter=verbose --clearCache",
     "test:update": "vitest run -u",
-    "test:storybook": "test-storybook --url http://localhost:6006",
     "format": "prettier --write .",
     "lint": "next lint",
     "lint:fix": "pnpm run lint --fix",
@@ -22,8 +21,8 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "storybook:serve": "pnpm exec http-server storybook-static -a localhost -p 6006 -s",
-    "storybook:test": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm test:storybook\"",
-    "storybook:ci": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm test:storybook\"",
+    "storybook:test": "test-storybook --url http://localhost:6006",
+    "storybook:test:ci": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm storybook:test\"",
     "generate": "scaffdog generate"
   },
   "dependencies": {

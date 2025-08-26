@@ -1,4 +1,4 @@
-import type { StoryFn, Meta, StoryObj } from "@storybook/react";
+import type { StoryFn, Meta, StoryObj } from "@storybook/nextjs";
 
 import { Figure } from "@/features/writings/writing-detail/mdx/figure";
 
@@ -13,7 +13,7 @@ const meta = {
     },
   },
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Geometry>;
 
 export default meta;

@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { Image } from ".";
 
 const meta = {
   component: Image,
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Image>;
 
 export default meta;

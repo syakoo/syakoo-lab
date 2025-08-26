@@ -1,16 +1,9 @@
-import { compareDesc } from "date-fns";
+import { readWritingHeads } from "@/features/writings/writing-reader";
 
-import { readWritingContents } from "@/contents/writings/reader";
-import { resolveWritingHead } from "@/features/writings/_models/head-resolver";
-
-import { WritingListView } from "./writing-list.view";
+import { WritingListView } from "./writing-list-view";
 
 export const WritingList = async () => {
-  const metas = (await readWritingContents())
-    .map(({ frontMatter }) => resolveWritingHead(frontMatter))
-    .sort((left, right) =>
-      compareDesc(new Date(left.published), new Date(right.published)),
-    );
+  const heads = await readWritingHeads();
 
-  return <WritingListView heads={metas} />;
+  return <WritingListView heads={heads} />;
 };

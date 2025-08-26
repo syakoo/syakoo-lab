@@ -1,5 +1,5 @@
-import type { WritingHead } from "@/features/writings/_models/types";
-import { writingTypeConfig } from "@/features/writings/_models/writing-type";
+import type { WritingHead } from "@/entities/writing/models/writing";
+import { writingTypeConfig } from "@/entities/writing/writing-type";
 import { Icon } from "@/shared/design-system/icons";
 import { Row, Spacer } from "@/shared/design-system/layout";
 import { theme } from "@/shared/design-system/theme.css";

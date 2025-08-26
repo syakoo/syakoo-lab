@@ -50,7 +50,7 @@ export const generateDummyCreationIllust = (): CreationIllust => {
     tags: random.pick(["tag1", "tag2", "tag3", "tag4"], 2),
     type: "illust",
     illust: {
-      src: `https://picsum.photos/${width}/${height}`,
+      src: `https://placehold.jp/3063D4/ffffff/${width}x${height}.png`,
       width,
       height,
     },
@@ -95,7 +95,7 @@ export const generateDummyCreationGame = (): CreationGame => {
       height: gameplayScreenHeight,
     },
     logo: {
-      src: `https://picsum.photos/${logoSize}/${logoSize}`,
+      src: `https://placehold.jp/3063D4/ffffff/${logoSize}x${logoSize}.png`,
       width: logoSize,
       height: logoSize,
     },
@@ -133,7 +133,7 @@ export const generateDummyCreationWebapp = (): CreationWebapp => {
     tags: random.pick(["tag1", "tag2", "tag3", "tag4"], 2),
     type: "webapp",
     logo: {
-      src: `https://picsum.photos/${logoSize}/${logoSize}`,
+      src: `https://placehold.jp/3063D4/ffffff/${logoSize}x${logoSize}.png`,
       width: logoSize,
       height: logoSize,
     },

@@ -1,10 +1,10 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 
 import { Choices, Choice } from ".";
 
 const meta = {
   component: Choices,
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Choices>;
 
 export default meta;

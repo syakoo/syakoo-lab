@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 import { Fragment } from "react";
 
 import { radii } from "./radii";

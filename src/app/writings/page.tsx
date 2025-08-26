@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 
 import { formatPageTitle } from "@/entities/page-title/formatter";
+import { writingPaths } from "@/entities/writing/paths/writing-paths";
 import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
-import { writingPaths } from "@/features/writings/config/paths";
 import { WritingList } from "@/features/writings/writing-list";
 import { Container } from "@/shared/design-system/layout";
 

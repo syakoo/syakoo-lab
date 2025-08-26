@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 import type React from "react";
 
 import { theme } from "@/shared/design-system/theme.css";
@@ -8,7 +8,7 @@ import { Container } from ".";
 const meta = {
   component: Container,
   tags: ["autodocs"],
-  parameters: { testLevel: "snapshot" },
+  parameters: {},
 } satisfies Meta<typeof Container>;
 
 export default meta;

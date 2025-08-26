@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/nextjs";
 
 import { TOC } from ".";
 import { TOCView } from "./toc";
@@ -7,7 +7,6 @@ const meta = {
   component: TOC,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof TOC>;
 

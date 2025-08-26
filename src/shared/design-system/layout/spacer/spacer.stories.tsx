@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
@@ -8,7 +8,6 @@ const meta = {
   component: Spacer,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Spacer>;

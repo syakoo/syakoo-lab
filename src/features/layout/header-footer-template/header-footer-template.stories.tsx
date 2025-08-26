@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { HeaderFooterTemplate } from ".";
 
@@ -6,7 +6,6 @@ const meta = {
   component: HeaderFooterTemplate,
   parameters: {
     layout: "fullscreen",
-    testLevel: "snapshot",
   },
 } satisfies Meta<typeof HeaderFooterTemplate>;
 

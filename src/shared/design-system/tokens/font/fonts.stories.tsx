@@ -18,9 +18,9 @@ export const FontFamilies = () => {
   return (
     <div>
       <div>
-        <label htmlFor="input">プレビュー用テキスト</label>
+        <label htmlFor="font-families-input">プレビュー用テキスト</label>
         <input
-          id="input"
+          id="font-families-input"
           // eslint-disable-next-line react/jsx-handler-names
           onChange={(e) => setInputValue(e.target.value)}
           style={{
@@ -67,9 +67,9 @@ export const FontSizes = () => {
   return (
     <div>
       <div>
-        <label htmlFor="input">プレビュー用テキスト</label>
+        <label htmlFor="font-sizes-input">プレビュー用テキスト</label>
         <input
-          id="input"
+          id="font-sizes-input"
           // eslint-disable-next-line react/jsx-handler-names
           onChange={(e) => setInputValue(e.target.value)}
           style={{

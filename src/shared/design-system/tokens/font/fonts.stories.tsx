@@ -1,6 +1,8 @@
 import type { Meta } from "@storybook/nextjs";
 import { useState } from "react";
 
+import { colors } from "@/shared/design-system/tokens/color/colors";
+
 import { fontFamilies } from "./font-families";
 import { fontSizes } from "./font-sizes";
 
@@ -16,13 +18,17 @@ export const FontFamilies = () => {
   return (
     <div>
       <div>
+        <label htmlFor="font-families-input">プレビュー用テキスト</label>
         <input
+          id="font-families-input"
           // eslint-disable-next-line react/jsx-handler-names
           onChange={(e) => setInputValue(e.target.value)}
           style={{
             padding: "4px",
-            border: "gray 1px solid",
-            color: "gray",
+            border: `1px solid ${colors.palette.gray[400]}`,
+            backgroundColor: colors.background.secondary,
+            color: colors.text.primary,
+            borderRadius: "4px",
           }}
           type="text"
           value={inputValue}
@@ -61,13 +67,17 @@ export const FontSizes = () => {
   return (
     <div>
       <div>
+        <label htmlFor="font-sizes-input">プレビュー用テキスト</label>
         <input
+          id="font-sizes-input"
           // eslint-disable-next-line react/jsx-handler-names
           onChange={(e) => setInputValue(e.target.value)}
           style={{
             padding: "4px",
-            border: "gray 1px solid",
-            color: "gray",
+            border: `1px solid ${colors.palette.gray[400]}`,
+            backgroundColor: colors.background.secondary,
+            color: colors.text.primary,
+            borderRadius: "4px",
           }}
           type="text"
           value={inputValue}

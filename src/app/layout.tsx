@@ -3,6 +3,7 @@ import { Roboto, Fira_Code, Noto_Sans_JP } from "next/font/google";
 import { Suspense } from "react";
 
 import "@/shared/global-settings/global-settings";
+import { siteConfig } from "@/shared/config/site";
 import { GoogleAnalytics } from "@/shared/google-analytics";
 
 const notoSansJP = Noto_Sans_JP({ weight: ["100", "700"], subsets: ["latin"] });
@@ -15,37 +16,37 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  title: "Syakoo Lab",
-  metadataBase: new URL("https://syakoo-lab.com"),
+  title: siteConfig.name,
+  metadataBase: new URL(siteConfig.url),
   authors: {
-    name: "syakoo",
+    name: siteConfig.author.name,
   },
-  description: "syakoo の個人ブログ",
+  description: siteConfig.description,
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: siteConfig.logo.url,
+    apple: siteConfig.logo.url,
   },
   openGraph: {
     type: "website",
-    title: "Syakoo Lab",
-    description: "syakoo の個人ブログ",
-    url: "https://syakoo-lab.com",
-    siteName: "Syakoo Lab",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     images: [
       {
-        url: "/logo.png",
-        width: 1200,
-        height: 1200,
-        alt: "Syakoo Lab Logo",
+        url: siteConfig.logo.url,
+        width: siteConfig.logo.width,
+        height: siteConfig.logo.height,
+        alt: siteConfig.logo.alt,
       },
     ],
     locale: "ja_JP",
   },
   twitter: {
     card: "summary",
-    title: "Syakoo Lab",
-    description: "syakoo の個人ブログ",
-    images: "/logo.png",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: siteConfig.logo.url,
   },
 };
 
@@ -76,31 +77,31 @@ export default function RootLayout({
               "@graph": [
                 {
                   "@type": "Person",
-                  "@id": "https://syakoo-lab.com/#person",
-                  name: "syakoo",
-                  url: "https://syakoo-lab.com",
+                  "@id": `${siteConfig.url}/#person`,
+                  name: siteConfig.author.name,
+                  url: siteConfig.author.url,
                   image: {
                     "@type": "ImageObject",
-                    url: "https://github.com/syakoo.png",
+                    url: siteConfig.author.image,
                     width: 460,
                     height: 460,
                   },
-                  sameAs: ["https://github.com/syakoo"],
+                  sameAs: [siteConfig.social.github],
                 },
                 {
                   "@type": "WebSite",
-                  "@id": "https://syakoo-lab.com/#website",
-                  url: "https://syakoo-lab.com",
-                  name: "Syakoo Lab",
-                  description: "syakoo の個人ブログ",
+                  "@id": `${siteConfig.url}/#website`,
+                  url: siteConfig.url,
+                  name: siteConfig.name,
+                  description: siteConfig.description,
                   logo: {
                     "@type": "ImageObject",
-                    url: "https://syakoo-lab.com/logo.png",
-                    width: 1200,
-                    height: 1200,
+                    url: `${siteConfig.url}${siteConfig.logo.url}`,
+                    width: siteConfig.logo.width,
+                    height: siteConfig.logo.height,
                   },
                   publisher: {
-                    "@id": "https://syakoo-lab.com/#person",
+                    "@id": `${siteConfig.url}/#person`,
                   },
                   inLanguage: "ja",
                 },

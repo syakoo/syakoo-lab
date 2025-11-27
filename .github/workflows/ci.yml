@@ -7,7 +7,21 @@ env:
   NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: "dummy-ga-id"
 
 jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Safe Chain
+        uses: ./.github/actions/setup-safe-chain
+
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
+
   lint:
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -21,6 +35,7 @@ jobs:
         run: pnpm lint
 
   unit-test:
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -37,6 +52,7 @@ jobs:
         run: pnpm test
 
   build-check:
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -50,6 +66,7 @@ jobs:
         run: pnpm build
 
   storybook-test:
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

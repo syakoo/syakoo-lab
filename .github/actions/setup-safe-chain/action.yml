@@ -1,0 +1,13 @@
+name: Setup Safe Chain
+description: Setup Aikido Safe Chain for security scanning
+
+runs:
+  using: composite
+  steps:
+    - name: Install safe-chain
+      shell: bash
+      run: npm install -g @aikido-security/safe-chain
+
+    - name: Setup safe-chain
+      shell: bash
+      run: safe-chain install

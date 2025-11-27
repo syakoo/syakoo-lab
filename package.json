@@ -2,6 +2,10 @@
   "name": "syakoo-lab",
   "type": "module",
   "version": "6.0.0",
+  "engines": {
+    "node": ">=22.21.0",
+    "pnpm": ">=10.22.0"
+  },
   "scripts": {
     "prepare": "lefthook install",
     "dev": "run-p dev:*",
@@ -48,6 +52,16 @@
     "shiki": "^3.9.2",
     "ts-pattern": "^5.7.1",
     "zod": "^3.24.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@swc/core",
+      "core-js-pure",
+      "esbuild",
+      "lefthook",
+      "sharp",
+      "unrs-resolver"
+    ]
   },
   "devDependencies": {
     "@commitlint/cli": "^17.8.1",
@@ -99,5 +113,5 @@
     "vitest": "^3.2.4",
     "wait-on": "^8.0.4"
   },
-  "packageManager": "pnpm@9.15.9"
+  "packageManager": "pnpm@10.22.0"
 }

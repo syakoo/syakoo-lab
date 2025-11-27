@@ -7,57 +7,86 @@ env:
   NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: "dummy-ga-id"
 
 jobs:
-  lint:
+  security-scan:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Setup Safe Chain
+        uses: ./.github/actions/setup-safe-chain
+
+      - name: Install dependencies with safe-chain
+        run: aikido-pnpm install
+
+  lint:
+    needs: security-scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run Lint
         run: pnpm lint
 
   unit-test:
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
 
-      - name: Collect Workflow Telemetry
-        uses: catchpoint/workflow-telemetry-action@v2
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run unit test
         run: pnpm test
 
   build-check:
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run Build
         run: pnpm build
 
   storybook-test:
+    needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Install Playwright
         run: pnpm exec playwright install chromium --with-deps

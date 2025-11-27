@@ -1,16 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base", ":timezone(Asia/Tokyo)"],
-  "schedule": ["every weekend"],
-  "labels": ["dependencies"],
+  "extends": [
+    "config:base",
+    ":timezone(Asia/Tokyo)"
+  ],
+  "schedule": [
+    "every weekend"
+  ],
+  "labels": [
+    "dependencies"
+  ],
+  "minimumReleaseAge": "1 days",
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "groupName": "minor and patch updates",
       "automerge": true
     },
     {
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "groupName": "major updates"
     }
   ]

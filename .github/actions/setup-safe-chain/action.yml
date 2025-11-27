@@ -6,4 +6,4 @@ runs:
   steps:
     - name: Install safe-chain
       shell: bash
-      run: npm install -g @aikido-security/safe-chain
+      run: npm install -g @aikidosec/safe-chain

@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
@@ -29,7 +29,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
@@ -46,16 +46,13 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Collect Workflow Telemetry
-        uses: catchpoint/workflow-telemetry-action@v2
 
       - name: Run unit test
         run: pnpm test
@@ -66,7 +63,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
@@ -83,7 +80,7 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm

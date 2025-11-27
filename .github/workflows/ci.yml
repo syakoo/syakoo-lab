@@ -14,11 +14,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
+
       - name: Setup Safe Chain
         uses: ./.github/actions/setup-safe-chain
 
-      - name: Setup Node.js and Pnpm
-        uses: ./.github/actions/setup-node-and-pnpm
+      - name: Install dependencies with safe-chain
+        run: aikido-pnpm install
 
   lint:
     needs: security-scan
@@ -30,6 +33,9 @@ jobs:
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Run Lint
         run: pnpm lint
@@ -44,6 +50,9 @@ jobs:
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Collect Workflow Telemetry
         uses: catchpoint/workflow-telemetry-action@v2
@@ -62,6 +71,9 @@ jobs:
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
 
+      - name: Install dependencies
+        run: pnpm install
+
       - name: Run Build
         run: pnpm build
 
@@ -75,6 +87,9 @@ jobs:
 
       - name: Setup Node.js and Pnpm
         uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Install Playwright
         run: pnpm exec playwright install chromium --with-deps

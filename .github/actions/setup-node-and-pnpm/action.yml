@@ -34,7 +34,3 @@ runs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
         restore-keys: |
           ${{ runner.os }}-node-${{ hashFiles('**/.node-version') }}-pnpm-store-
-
-    - name: Install dependencies
-      shell: bash
-      run: pnpm install

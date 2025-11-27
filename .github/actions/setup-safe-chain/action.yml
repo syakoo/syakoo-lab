@@ -7,7 +7,3 @@ runs:
     - name: Install safe-chain
       shell: bash
       run: npm install -g @aikido-security/safe-chain
-
-    - name: Setup safe-chain
-      shell: bash
-      run: safe-chain install

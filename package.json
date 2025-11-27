@@ -2,6 +2,10 @@
   "name": "syakoo-lab",
   "type": "module",
   "version": "6.0.0",
+  "engines": {
+    "node": ">=22.21.0",
+    "pnpm": ">=10.22.0"
+  },
   "scripts": {
     "prepare": "lefthook install",
     "dev": "run-p dev:*",

@@ -40,7 +40,7 @@
     "glob": "^10.4.5",
     "gray-matter": "^4.0.3",
     "mermaid": "^11.0.0",
-    "next": "^14.2.21",
+    "next": "^14.2.35",
     "probe-image-size": "^7.2.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { SyakooLabText } from ".";
+import { SyakooLabText } from "./syakoo-lab-text";
 
 const meta = {
   component: SyakooLabText,

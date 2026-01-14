@@ -6,7 +6,7 @@ import {
   generateDummyCreationIllust,
   generateDummyCreationWebapp,
 } from "@/entities/creation/models/creation.mocks";
-import { readCreationById } from "@/features/creation/creation-reader";
+import { readCreationById } from "@/features/creation/creation-reader/read-creation";
 
 import { CreationDetail } from "./creation-detail";
 

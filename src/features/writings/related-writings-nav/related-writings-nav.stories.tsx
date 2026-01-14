@@ -2,11 +2,11 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { clearAllMocks, mocked } from "storybook/test";
 
 import { generateDummyWritingHead } from "@/entities/writing/models/writing.mocks";
-import { readWritingHeads } from "@/features/writings/writing-reader";
+import { readWritingHeads } from "@/features/writings/writing-reader/read-writing";
 import { random } from "@/shared/test-utils/random/random";
 import { range } from "@/shared/utils/array/range";
 
-import { RelatedWritingsNav } from ".";
+import { RelatedWritingsNav } from "./related-writings-nav";
 
 const meta = {
   component: RelatedWritingsNav,

@@ -1,8 +1,8 @@
 import type { FC } from "react";
 
 import type { CreationBase } from "@/entities/creation/models/creation";
-import { Row } from "@/shared/design-system/layout";
-import { BadgeLink } from "@/shared/design-system/ui";
+import { Row } from "@/shared/design-system/layout/flex/flex";
+import { BadgeLink } from "@/shared/design-system/ui/badge-link/badge-link";
 
 import { styles } from "./public-links.css";
 

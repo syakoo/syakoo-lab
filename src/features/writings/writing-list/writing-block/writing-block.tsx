@@ -1,9 +1,10 @@
 import type { WritingHead } from "@/entities/writing/models/writing";
 import { writingPaths } from "@/entities/writing/paths/writing-paths";
-import { writingTypeConfig } from "@/entities/writing/writing-type";
-import { Icon } from "@/shared/design-system/icons";
-import { Row } from "@/shared/design-system/layout";
-import { H3, Link, Text } from "@/shared/design-system/ui";
+import { writingTypeConfig } from "@/entities/writing/writing-type/writing-type";
+import { Icon } from "@/shared/design-system/icons/icon";
+import { Row } from "@/shared/design-system/layout/flex/flex";
+import { Link } from "@/shared/design-system/ui/link/link";
+import { H3, Text } from "@/shared/design-system/ui/text/text";
 
 import { writingBlockStyles } from "./writing-block.css";
 

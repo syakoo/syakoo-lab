@@ -18,7 +18,8 @@ design-system/
 
 ```tsx
 // 良い例：共通のデザインシステムコンポーネントを使用
-import { Text, Row } from "@/shared/design-system/ui";
+import { Row } from "@/shared/design-system/layout/flex/flex";
+import { Text } from "@/shared/design-system/ui/text/text";
 
 const Component = () => (
   <Row gap="100">
@@ -76,7 +77,7 @@ const styles = {
 
 ```tsx
 // 良い例：アイコンを使用
-import { Icon } from "@/shared/design-system/icons";
+import { Icon } from "@/shared/design-system/icons/icon";
 
 const Component = () => (
   <Icon name="warn" />;

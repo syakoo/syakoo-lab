@@ -1,7 +1,8 @@
 import { useMemo } from "react";
 
-import { Row } from "@/shared/design-system/layout";
-import { Link, Text } from "@/shared/design-system/ui";
+import { Row } from "@/shared/design-system/layout/flex/flex";
+import { Link } from "@/shared/design-system/ui/link/link";
+import { Text } from "@/shared/design-system/ui/text/text";
 
 import { linkCardStyles } from "./link-card.css";
 

@@ -2,7 +2,7 @@ import type { Meta } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
-import { Link } from ".";
+import { Link } from "./link";
 
 const meta = {
   component: Link,

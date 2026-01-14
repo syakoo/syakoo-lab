@@ -3,7 +3,7 @@ import type React from "react";
 
 import { theme } from "@/shared/design-system/theme.css";
 
-import { Container } from ".";
+import { Container } from "./container";
 
 const meta = {
   component: Container,

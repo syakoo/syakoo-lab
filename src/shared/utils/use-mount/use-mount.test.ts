@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import { vi } from "vitest";
 
-import { useMount } from ".";
+import { useMount } from "./use-mount";
 
 const mockCallback = vi.fn();
 

@@ -4,7 +4,7 @@ import { useRef } from "react";
 import type { FC } from "react";
 
 import type { CreationGame } from "@/entities/creation/models/creation";
-import { Icon } from "@/shared/design-system/icons";
+import { Icon } from "@/shared/design-system/icons/icon";
 
 import { styles } from "./gameplay-screen.css";
 

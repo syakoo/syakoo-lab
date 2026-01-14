@@ -7,12 +7,6 @@ questions:
   name: "コンポーネント名を入力してください"
 ---
 
-# `{{ inputs.name | kebab }}/index.ts`
-
-```typescript
-export { {{ inputs.name | pascal }} } from "./{{ inputs.name | kebab }}";
-```
-
 # `{{ inputs.name | kebab }}/{{ inputs.name | kebab }}.tsx`
 
 ```tsx

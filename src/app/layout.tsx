@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 import "@/shared/global-settings/global-settings";
 import { siteConfig } from "@/shared/config/site";
-import { GoogleAnalytics } from "@/shared/google-analytics";
+import { GoogleAnalytics } from "@/shared/google-analytics/google-analytics";
 
 const notoSansJP = Noto_Sans_JP({ weight: ["100", "700"], subsets: ["latin"] });
 const roboto = Roboto({

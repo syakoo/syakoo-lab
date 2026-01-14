@@ -1,4 +1,4 @@
-import { PolymorphicComponent } from "@/shared/utils/polymorphic-component";
+import { PolymorphicComponent } from "@/shared/utils/polymorphic-component/polymorphic-component";
 
 import { fadeInStyle } from "./fade-in.css";
 

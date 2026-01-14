@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
-import { Col, FlexItem } from ".";
+import { Col, FlexItem } from "./flex";
 
 const meta = {
   component: Col,

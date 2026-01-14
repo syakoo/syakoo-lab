@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { Image } from ".";
+import { Image } from "./image";
 
 const meta = {
   component: Image,

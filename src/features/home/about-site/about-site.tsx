@@ -1,7 +1,8 @@
-import { Center, Col } from "@/shared/design-system/layout";
-import { Text } from "@/shared/design-system/ui";
+import { Center } from "@/shared/design-system/layout/center/center";
+import { Col } from "@/shared/design-system/layout/flex/flex";
+import { Text } from "@/shared/design-system/ui/text/text";
 
-import { SyakooLabLogoWithAnimation } from "./syakoo-lab-logo-with-animation";
+import { SyakooLabLogoWithAnimation } from "./syakoo-lab-logo-with-animation/syakoo-lab-logo-with-animation";
 
 export const AboutSite: React.FC = () => {
   return (

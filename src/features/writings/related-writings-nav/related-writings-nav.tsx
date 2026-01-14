@@ -1,8 +1,8 @@
-import { Col } from "@/shared/design-system/layout";
-import { H3 } from "@/shared/design-system/ui";
+import { Col } from "@/shared/design-system/layout/flex/flex";
+import { H3 } from "@/shared/design-system/ui/text/text";
 
 import { findRelatedWritingHeads } from "./find-related-writing-heads";
-import { WritingLink } from "./writing-link";
+import { WritingLink } from "./writing-link/writing-link";
 
 type RelatedWritingsNavProps = {
   id: string;

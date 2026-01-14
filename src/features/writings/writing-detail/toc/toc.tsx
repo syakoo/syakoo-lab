@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-import { Link, Text } from "@/shared/design-system/ui";
-import { useMount } from "@/shared/utils/use-mount";
+import { Link } from "@/shared/design-system/ui/link/link";
+import { Text } from "@/shared/design-system/ui/text/text";
+import { useMount } from "@/shared/utils/use-mount/use-mount";
 
 import { tocStyles } from "./toc.css";
 

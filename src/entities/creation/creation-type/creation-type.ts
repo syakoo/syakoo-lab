@@ -1,5 +1,5 @@
 import type { CreationType } from "@/entities/creation/models/creation";
-import type { IconName } from "@/shared/design-system/icons";
+import type { IconName } from "@/shared/design-system/icons/icon";
 
 export type CreationTypeInfo = {
   label: string;

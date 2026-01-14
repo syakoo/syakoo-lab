@@ -1,13 +1,14 @@
 "use client";
 
 import type { WritingHead } from "@/entities/writing/models/writing";
-import { writingTypeConfig } from "@/entities/writing/writing-type";
-import { Col } from "@/shared/design-system/layout";
-import { H2, FadeIn, Text } from "@/shared/design-system/ui";
+import { writingTypeConfig } from "@/entities/writing/writing-type/writing-type";
+import { Col } from "@/shared/design-system/layout/flex/flex";
+import { FadeIn } from "@/shared/design-system/ui/fade-in/fade-in";
+import { H2, Text } from "@/shared/design-system/ui/text/text";
 
 import { useGetWritingListType } from "./_shared/writing-list-type";
-import { WritingBlock } from "./writing-block";
-import { WritingTab } from "./writing-tab";
+import { WritingBlock } from "./writing-block/writing-block";
+import { WritingTab } from "./writing-tab/writing-tab";
 
 export const WritingListView: React.FC<{ heads: WritingHead[] }> = ({
   heads,

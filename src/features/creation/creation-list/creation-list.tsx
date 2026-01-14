@@ -1,8 +1,10 @@
-import { CreationCard } from "@/entities/creation/creation-card";
-import { creationPaths } from "@/entities/creation/paths";
+import { CreationCard } from "@/entities/creation/creation-card/creation-card";
+import { creationPaths } from "@/entities/creation/paths/creation-paths";
 import { readCreationSummaries } from "@/features/creation/creation-reader/read-creation";
-import { Col } from "@/shared/design-system/layout";
-import { FadeIn, H2, Link } from "@/shared/design-system/ui";
+import { Col } from "@/shared/design-system/layout/flex/flex";
+import { FadeIn } from "@/shared/design-system/ui/fade-in/fade-in";
+import { Link } from "@/shared/design-system/ui/link/link";
+import { H2 } from "@/shared/design-system/ui/text/text";
 
 import { creationListStyles } from "./creation-list.css";
 

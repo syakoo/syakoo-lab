@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { tokens } from "@/shared/design-system/tokens";
+import { tokens } from "@/shared/design-system/tokens/tokens";
 
 export const creationListStyles = {
   listContainer: style({

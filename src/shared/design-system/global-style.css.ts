@@ -1,7 +1,7 @@
 import { assignVars, globalStyle } from "@vanilla-extract/css";
 
 import { theme } from "./theme.css";
-import { tokens } from "./tokens";
+import { tokens } from "./tokens/tokens";
 
 globalStyle(":root", {
   vars: assignVars(theme, {

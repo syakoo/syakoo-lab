@@ -1,7 +1,7 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { tokens } from "@/shared/design-system/tokens";
+import { tokens } from "@/shared/design-system/tokens/tokens";
 
 export const chatStyles = {
   container: recipe({

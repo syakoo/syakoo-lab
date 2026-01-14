@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/nextjs";
 
-import { Choices, Choice } from ".";
+import { Choices, Choice } from "./choices";
 
 const meta = {
   component: Choices,

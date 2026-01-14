@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { Big } from ".";
+import { Big } from "./big";
 
 const meta = {
   component: Big,

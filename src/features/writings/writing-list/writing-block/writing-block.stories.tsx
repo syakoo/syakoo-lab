@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import type { WritingHead } from "@/entities/writing/models/writing";
 
-import { WritingBlock } from ".";
+import { WritingBlock } from "./writing-block";
 
 const meta = {
   component: WritingBlock,

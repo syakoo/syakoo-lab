@@ -1,16 +1,16 @@
 import { differenceInYears } from "date-fns";
 import { notFound } from "next/navigation";
 
-import { readWritingById } from "@/features/writings/writing-reader";
-import { Spacer } from "@/shared/design-system/layout";
-import { FadeIn } from "@/shared/design-system/ui";
+import { readWritingById } from "@/features/writings/writing-reader/read-writing";
+import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
+import { FadeIn } from "@/shared/design-system/ui/fade-in/fade-in";
 
-import { Note } from "./mdx/note";
-import { TOC } from "./toc";
+import { Note } from "./mdx/note/note";
+import { TOC } from "./toc/toc";
 import { writingDetailStyles } from "./writing-detail.css";
-import { WritingHeader } from "./writing-header";
+import { WritingHeader } from "./writing-header/writing-header";
 import { WritingMdxContent } from "./writing-mdx-content";
-import { WritingTypeDescription } from "./writing-type-description";
+import { WritingTypeDescription } from "./writing-type-description/writing-type-description";
 
 type WritingDetailProps = {
   id: string;

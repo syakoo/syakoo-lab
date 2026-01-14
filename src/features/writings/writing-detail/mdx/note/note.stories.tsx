@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { Note } from ".";
+import { Note } from "./note";
 
 const meta = {
   component: Note,

@@ -1,17 +1,18 @@
 import { notFound } from "next/navigation";
 import { match } from "ts-pattern";
 
-import { creationTypes } from "@/entities/creation/creation-type";
-import { readCreationById } from "@/features/creation/creation-reader";
+import { creationTypes } from "@/entities/creation/creation-type/creation-type";
+import { readCreationById } from "@/features/creation/creation-reader/read-creation";
 import { resolveMDXContent } from "@/features/mdx/resolver";
-import { Icon } from "@/shared/design-system/icons";
-import { Col, Row } from "@/shared/design-system/layout";
+import { Icon } from "@/shared/design-system/icons/icon";
+import { Col, Row } from "@/shared/design-system/layout/flex/flex";
 import { theme } from "@/shared/design-system/theme.css";
-import { H2, Link, Text } from "@/shared/design-system/ui";
+import { Link } from "@/shared/design-system/ui/link/link";
+import { H2, Text } from "@/shared/design-system/ui/text/text";
 import { formatDate } from "@/shared/utils/date";
 
 import { styles } from "./creation-detail.css";
-import { FileView } from "./file-view";
+import { FileView } from "./file-view/file-view";
 import { PublicLinks } from "./public-links/public-links";
 import { GameplayScreen } from "./variant-content/gameplay-screen";
 import { IllustrationImage } from "./variant-content/illustration-image";

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { HeaderFooterTemplate } from ".";
+import { HeaderFooterTemplate } from "./header-footer-template";
 
 const meta = {
   component: HeaderFooterTemplate,

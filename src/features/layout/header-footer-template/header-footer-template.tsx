@@ -1,7 +1,7 @@
 import type React from "react";
 
-import { Footer } from "@/features/layout/header-footer-template/footer";
-import { Header } from "@/features/layout/header-footer-template/header";
+import { Footer } from "@/features/layout/header-footer-template/footer/footer";
+import { Header } from "@/features/layout/header-footer-template/header/header";
 
 import {
   containerFooterStyle,

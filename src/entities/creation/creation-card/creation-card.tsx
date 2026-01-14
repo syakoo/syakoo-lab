@@ -2,15 +2,15 @@ import Image from "next/image";
 import type { FC } from "react";
 import { match } from "ts-pattern";
 
-import { creationTypes } from "@/entities/creation/creation-type";
+import { creationTypes } from "@/entities/creation/creation-type/creation-type";
 import type {
   CreationIllust,
   CreationGame,
   CreationWebapp,
 } from "@/entities/creation/models/creation";
-import { Icon } from "@/shared/design-system/icons";
-import { Col } from "@/shared/design-system/layout";
-import { Text } from "@/shared/design-system/ui";
+import { Icon } from "@/shared/design-system/icons/icon";
+import { Col } from "@/shared/design-system/layout/flex/flex";
+import { Text } from "@/shared/design-system/ui/text/text";
 
 import * as styles from "./creation-card.css";
 

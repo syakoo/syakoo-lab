@@ -1,5 +1,7 @@
-import { Row, Spacer } from "@/shared/design-system/layout";
-import { H1, Link, Text } from "@/shared/design-system/ui";
+import { Row } from "@/shared/design-system/layout/flex/flex";
+import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
+import { Link } from "@/shared/design-system/ui/link/link";
+import { H1, Text } from "@/shared/design-system/ui/text/text";
 
 import { errorCodeStyles } from "./page-not-found.css";
 

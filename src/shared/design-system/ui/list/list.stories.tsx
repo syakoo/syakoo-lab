@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { List } from ".";
+import { List } from "./list-with-item";
 
 const meta = {
   component: List,

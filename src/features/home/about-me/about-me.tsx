@@ -1,11 +1,11 @@
 import Image from "next/image";
 
 import { aboutMeConfig } from "@/contents/about-me/config";
-import { Col, Row } from "@/shared/design-system/layout";
-import { H2, Text } from "@/shared/design-system/ui";
+import { Col, Row } from "@/shared/design-system/layout/flex/flex";
+import { H2, Text } from "@/shared/design-system/ui/text/text";
 
 import { aboutMeImageStyle } from "./about-me.css";
-import { Links } from "./links";
+import { Links } from "./links/links";
 
 export const AboutMe: React.FC = () => {
   const { imageSrc, name, bio, links } = aboutMeConfig;

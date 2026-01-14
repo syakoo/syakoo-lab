@@ -1,8 +1,8 @@
 import Image from "next/image";
 
 import type { UserLink } from "@/features/home/about-me/types";
-import { Row } from "@/shared/design-system/layout";
-import { Link } from "@/shared/design-system/ui";
+import { Row } from "@/shared/design-system/layout/flex/flex";
+import { Link } from "@/shared/design-system/ui/link/link";
 
 import { linkImageStyle, linkStyle } from "./links.css";
 

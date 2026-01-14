@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
-import { Spacer } from ".";
+import { Spacer } from "./spacer";
 
 const meta = {
   component: Spacer,

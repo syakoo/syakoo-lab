@@ -1,8 +1,15 @@
 import type { StoryFn, Meta, StoryObj } from "@storybook/nextjs";
 
-import { Figure } from "@/features/writings/writing-detail/mdx/figure";
+import { Figure } from "@/features/writings/writing-detail/mdx/figure/figure-with-caption";
 
-import { Geometry, GCircle, GLine, GPlane, GPoint, GText } from ".";
+import {
+  Geometry,
+  GCircle,
+  GLine,
+  GPlane,
+  GPoint,
+  GText,
+} from "./geometry-exports";
 
 const meta = {
   component: Geometry,

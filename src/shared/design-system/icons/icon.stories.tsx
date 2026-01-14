@@ -2,8 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
-import { Icon } from ".";
-import { iconDictionary } from "./icon";
+import { Icon, iconDictionary } from "./icon";
 
 const meta = {
   component: Icon,

@@ -1,7 +1,7 @@
 import mermaid from "mermaid";
 
-import { tokens } from "@/shared/design-system/tokens";
-import { useMount } from "@/shared/utils/use-mount";
+import { tokens } from "@/shared/design-system/tokens/tokens";
+import { useMount } from "@/shared/utils/use-mount/use-mount";
 
 mermaid.initialize({
   // NOTE: このタイミングでは描画できないためフックで行うようにする

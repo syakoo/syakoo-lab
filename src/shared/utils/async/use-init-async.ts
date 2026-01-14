@@ -1,4 +1,4 @@
-import { useMount } from "@/shared/utils/use-mount";
+import { useMount } from "@/shared/utils/use-mount/use-mount";
 
 import type {
   AsyncStateError,

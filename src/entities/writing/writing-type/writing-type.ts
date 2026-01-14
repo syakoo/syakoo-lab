@@ -1,5 +1,5 @@
 import type { WritingType } from "@/entities/writing/models/writing";
-import type { IconName } from "@/shared/design-system/icons";
+import type { IconName } from "@/shared/design-system/icons/icon";
 
 type WritingTypeConfigItem = {
   type: WritingType;

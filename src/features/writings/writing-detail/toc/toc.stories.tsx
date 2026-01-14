@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/nextjs";
 
-import { TOC } from ".";
+import { TOC } from "./toc";
 import { TOCView } from "./toc";
 
 const meta = {

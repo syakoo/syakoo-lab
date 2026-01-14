@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/nextjs";
 
-import { Figure } from ".";
+import { Figure } from "./figure-with-caption";
 
 const meta = {
   component: Figure,

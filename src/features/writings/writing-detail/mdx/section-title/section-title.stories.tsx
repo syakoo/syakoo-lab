@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/nextjs";
 
-import { SectionTitle, SubSectionTitle } from ".";
+import { SectionTitle } from "./section-title";
+import { SubSectionTitle } from "./sub-section-title";
 
 const meta = {
   component: SectionTitle,

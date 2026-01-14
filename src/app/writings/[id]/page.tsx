@@ -3,10 +3,11 @@ import type { Metadata } from "next";
 import { readWritingContents } from "@/contents/writings/reader";
 import { formatPageTitle } from "@/entities/page-title/formatter";
 import { writingPaths } from "@/entities/writing/paths/writing-paths";
-import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
-import { RelatedWritingsNav } from "@/features/writings/related-writings-nav";
-import { WritingDetail } from "@/features/writings/writing-detail";
-import { Container, Spacer } from "@/shared/design-system/layout";
+import { HeaderFooterTemplate } from "@/features/layout/header-footer-template/header-footer-template";
+import { RelatedWritingsNav } from "@/features/writings/related-writings-nav/related-writings-nav";
+import { WritingDetail } from "@/features/writings/writing-detail/writing-detail";
+import { Container } from "@/shared/design-system/layout/container/container";
+import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
 
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
-import { FadeIn } from ".";
+import { FadeIn } from "./fade-in";
 
 const meta = {
   component: FadeIn,

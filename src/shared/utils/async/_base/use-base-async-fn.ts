@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { useMountedState } from "@/shared/utils/use-mounted-state";
+import { useMountedState } from "@/shared/utils/use-mounted-state/use-mounted-state";
 
 import type {
   AsyncStateError,

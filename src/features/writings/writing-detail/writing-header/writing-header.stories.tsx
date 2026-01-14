@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { WritingHeader } from ".";
+import { WritingHeader } from "./writing-header";
 
 const meta = {
   component: WritingHeader,

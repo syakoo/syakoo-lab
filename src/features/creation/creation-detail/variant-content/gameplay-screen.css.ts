@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 
 import { theme } from "@/shared/design-system/theme.css";
-import { tokens } from "@/shared/design-system/tokens";
+import { tokens } from "@/shared/design-system/tokens/tokens";
 
 export const styles = {
   screenContainer: style({

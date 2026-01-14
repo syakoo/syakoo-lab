@@ -1,6 +1,6 @@
 import { createThemeContract } from "@vanilla-extract/css";
 
-import { tokens } from "./tokens";
+import { tokens } from "./tokens/tokens";
 export const theme = createThemeContract({
   fontSize: tokens.fontSizes,
   color: tokens.colors,

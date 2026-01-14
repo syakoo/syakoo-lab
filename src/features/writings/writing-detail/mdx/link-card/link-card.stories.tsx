@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { LinkCard } from ".";
+import { LinkCard } from "./link-card";
 
 const meta = {
   component: LinkCard,

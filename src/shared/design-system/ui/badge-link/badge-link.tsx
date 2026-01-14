@@ -1,7 +1,8 @@
-import { Icon } from "@/shared/design-system/icons";
-import { Row } from "@/shared/design-system/layout";
+import { Icon } from "@/shared/design-system/icons/icon";
+import { Row } from "@/shared/design-system/layout/flex/flex";
 import { theme } from "@/shared/design-system/theme.css";
-import { Link, Span } from "@/shared/design-system/ui";
+import { Link } from "@/shared/design-system/ui/link/link";
+import { Span } from "@/shared/design-system/ui/text/text";
 
 import { styles } from "./badge-link.css";
 

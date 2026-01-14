@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { creationPaths } from "@/entities/creation/paths";
+import { creationPaths } from "@/entities/creation/paths/creation-paths";
 import { formatPageTitle } from "@/entities/page-title/formatter";
-import { CreationDetail } from "@/features/creation/creation-detail";
+import { CreationDetail } from "@/features/creation/creation-detail/creation-detail";
 import {
   readCreationById,
   readCreationSummaries,
 } from "@/features/creation/creation-reader/read-creation";
-import { RelatedCreations } from "@/features/creation/related-creations";
-import { HeaderFooterTemplate } from "@/features/layout/header-footer-template";
-import { Col, Container } from "@/shared/design-system/layout";
-import { FadeIn } from "@/shared/design-system/ui";
+import { RelatedCreations } from "@/features/creation/related-creations/related-creations";
+import { HeaderFooterTemplate } from "@/features/layout/header-footer-template/header-footer-template";
+import { Container } from "@/shared/design-system/layout/container/container";
+import { Col } from "@/shared/design-system/layout/flex/flex";
+import { FadeIn } from "@/shared/design-system/ui/fade-in/fade-in";
 
 export const generateStaticParams = async () => {
   const summaries = await readCreationSummaries();

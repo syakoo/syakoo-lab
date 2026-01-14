@@ -2,8 +2,8 @@ import {
   type WritingListType,
   writingListTypePath,
 } from "@/features/writings/writing-list/_shared/writing-list-type";
-import { Row } from "@/shared/design-system/layout";
-import { Link } from "@/shared/design-system/ui";
+import { Row } from "@/shared/design-system/layout/flex/flex";
+import { Link } from "@/shared/design-system/ui/link/link";
 
 import { writingTabStyle } from "./writing-tab.css";
 

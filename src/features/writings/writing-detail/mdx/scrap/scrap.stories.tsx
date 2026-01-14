@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { theme } from "@/shared/design-system/theme.css";
 
-import { Scrap } from ".";
+import { Scrap } from "./scrap";
 
 const meta = {
   component: Scrap,

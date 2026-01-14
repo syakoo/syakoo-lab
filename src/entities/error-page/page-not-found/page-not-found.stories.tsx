@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { PageNotFound } from ".";
+import { PageNotFound } from "./page-not-found";
 
 const meta = {
   component: PageNotFound,

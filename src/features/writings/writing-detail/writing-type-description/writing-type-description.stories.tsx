@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { WritingTypeDescription } from ".";
+import { WritingTypeDescription } from "./writing-type-description";
 
 const meta = {
   component: WritingTypeDescription,

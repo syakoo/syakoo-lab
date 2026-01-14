@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { BookView } from ".";
+import { BookView } from "./book-view";
 
 const meta = {
   component: BookView,

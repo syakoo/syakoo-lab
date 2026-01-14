@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { CodeSandbox } from ".";
+import { CodeSandbox } from "./code-sandbox";
 
 const meta = {
   component: CodeSandbox,

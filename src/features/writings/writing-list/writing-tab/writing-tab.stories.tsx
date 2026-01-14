@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { WritingTab } from ".";
+import { WritingTab } from "./writing-tab";
 
 const meta = {
   component: WritingTab,

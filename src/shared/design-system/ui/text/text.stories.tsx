@@ -1,6 +1,6 @@
 import type { Meta } from "@storybook/nextjs";
 
-import { H1, H2, H3, H4, P, Span, Text } from ".";
+import { H1, H2, H3, H4, P, Span, Text } from "./text";
 
 const meta = {
   component: Text,

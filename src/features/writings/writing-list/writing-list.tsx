@@ -1,4 +1,4 @@
-import { readWritingHeads } from "@/features/writings/writing-reader";
+import { readWritingHeads } from "@/features/writings/writing-reader/read-writing";
 
 import { WritingListView } from "./writing-list-view";
 

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { Chat } from ".";
+import { Chat } from "./chat-with-message";
 
 const meta = {
   component: Chat,

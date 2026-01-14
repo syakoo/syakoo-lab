@@ -6,4 +6,4 @@ runs:
   steps:
     - name: Install safe-chain
       shell: bash
-      run: npm install -g @aikidosec/safe-chain
+      run: curl -fsSL https://github.com/AikidoSec/safe-chain/releases/latest/download/install-safe-chain.sh | sh -s -- --ci

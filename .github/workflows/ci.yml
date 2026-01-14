@@ -20,8 +20,13 @@ jobs:
       - name: Setup Safe Chain
         uses: ./.github/actions/setup-safe-chain
 
+      - name: Verify safe-chain protection
+        run: pnpm safe-chain-verify
+
       - name: Install dependencies with safe-chain
-        run: aikido-pnpm install
+        run: pnpm install --frozen-lockfile
+        env:
+          SAFE_CHAIN_LOGGING: verbose
 
   lint:
     needs: security-scan

@@ -1,7 +1,5 @@
 import type { Meta } from "@storybook/nextjs";
-
-import { TOC } from "./toc";
-import { TOCView } from "./toc";
+import { TOC, TOCView } from "./toc";
 
 const meta = {
   component: TOC,

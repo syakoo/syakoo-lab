@@ -2,8 +2,8 @@ import { compareDesc } from "date-fns";
 
 import { readWritingContents } from "@/contents/writings/reader";
 import type {
-  WritingHead,
   SerializedWriting,
+  WritingHead,
 } from "@/entities/writing/models/writing";
 import { markupMermaid } from "@/features/mdx/plugins/mermaid/mermaid-plugin";
 import { serializeMDXContent } from "@/features/mdx/serializer";

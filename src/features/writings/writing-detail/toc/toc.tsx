@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { Link } from "@/shared/design-system/ui/link/link";
 import { Text } from "@/shared/design-system/ui/text/text";

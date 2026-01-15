@@ -1,6 +1,6 @@
 "use server";
 
-import { readFileSync } from "fs";
+import { readFileSync } from "node:fs";
 
 import { glob } from "glob";
 import type { Sharp } from "sharp";

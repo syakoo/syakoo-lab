@@ -47,7 +47,7 @@ export const markupSectionTitlePlugin: MDXCustomTextPlugin = async (mdText) => {
         return textContent ?? "";
       };
 
-      const h3Regex = new RegExp("^### .*");
+      const h3Regex = /^### .*/;
       if (h3Regex.test(text.trim())) {
         const headingContent = text.replace("###", "");
         const textContent = await getInnerTextContent(headingContent);
@@ -60,7 +60,7 @@ export const markupSectionTitlePlugin: MDXCustomTextPlugin = async (mdText) => {
         return `<SubSectionTitle id="${id}">${headingContent}</SubSectionTitle>`;
       }
 
-      const h2Regex = new RegExp("^## .*");
+      const h2Regex = /^## .*/;
       if (h2Regex.test(text.trim())) {
         const headingContent = text.replace("##", "");
         const textContent = await getInnerTextContent(headingContent);

@@ -1,7 +1,7 @@
 import { Big } from "./big/big";
 import { BookView } from "./book-view/book-view";
 import { Chat } from "./chat/chat-with-message";
-import { Choices, Choice } from "./choices/choices";
+import { Choice, Choices } from "./choices/choices";
 import { CodeSandbox } from "./code-sandbox/code-sandbox";
 import { Figure } from "./figure/figure-with-caption";
 import * as GeometryComponents from "./geometry/geometry-exports";

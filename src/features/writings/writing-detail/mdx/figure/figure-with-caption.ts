@@ -1,4 +1,4 @@
-import { Figure as FigureComponent, FigureCaption } from "./figure";
+import { FigureCaption, Figure as FigureComponent } from "./figure";
 
 type Figure = typeof FigureComponent & {
   Caption: typeof FigureCaption;

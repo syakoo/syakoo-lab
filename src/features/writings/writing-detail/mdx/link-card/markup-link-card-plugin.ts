@@ -77,7 +77,7 @@ export const markupLinkCardPlugin: MDXCustomTextPlugin = async (mdText) => {
 
   const resultSplittedTexts = await Promise.all(
     splittedMdTexts.map(async (text) => {
-      const regex = new RegExp("^https?://[\\w/:%#\\$&\\?\\(\\)~\\.=\\+\\-]+");
+      const regex = /^https?:\/\/[\w/:%#$&?()~.=+-]+/;
 
       if (regex.test(text.trim())) {
         const linkCardProps = await getLinkCardProps(text.trim());

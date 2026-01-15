@@ -1,7 +1,10 @@
 import { useMount } from "@/shared/utils/use-mount/use-mount";
-
-import { type PointId, useGeometry } from "./core";
-import { type ColorKey, resolveGeometryColor } from "./core";
+import {
+  type ColorKey,
+  type PointId,
+  resolveGeometryColor,
+  useGeometry,
+} from "./core";
 
 type PointProps = {
   id?: PointId;

@@ -6,7 +6,7 @@ import { readWritingHeads } from "@/features/writings/writing-reader/read-writin
 const writingRelatedScore =
   (originalTags: WritingHead["tags"]) => (targetTags: WritingHead["tags"]) => {
     return targetTags.reduce((prev, tag, i) => {
-      const j = originalTags.findIndex((t) => t === tag);
+      const j = originalTags.indexOf(tag);
       if (j === -1) return prev;
       // NOTE: 雑。10 もこれ以上タグは増えないだろうという決め打ちによるもの。
       return prev + (10 - i) * (10 - j);

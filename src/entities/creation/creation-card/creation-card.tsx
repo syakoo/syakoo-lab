@@ -4,8 +4,8 @@ import { match } from "ts-pattern";
 
 import { creationTypes } from "@/entities/creation/creation-type/creation-type";
 import type {
-  CreationIllust,
   CreationGame,
+  CreationIllust,
   CreationWebapp,
 } from "@/entities/creation/models/creation";
 import { Icon } from "@/shared/design-system/icons/icon";

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Fira_Code, Noto_Sans_JP } from "next/font/google";
+import { Fira_Code, Noto_Sans_JP, Roboto } from "next/font/google";
 import { Suspense } from "react";
 
 import "@/shared/global-settings/global-settings";

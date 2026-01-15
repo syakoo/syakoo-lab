@@ -1,4 +1,4 @@
-import { keyframes, style, type CSSProperties } from "@vanilla-extract/css";
+import { type CSSProperties, keyframes, style } from "@vanilla-extract/css";
 
 const scaleUp = keyframes({
   "0%": {

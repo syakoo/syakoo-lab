@@ -1,6 +1,6 @@
 import * as nextNavigation from "next/navigation";
-import { vi } from "vitest";
 import type { Mock } from "vitest";
+import { vi } from "vitest";
 
 vi.mock("next/navigation");
 /**

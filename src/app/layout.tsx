@@ -71,6 +71,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",

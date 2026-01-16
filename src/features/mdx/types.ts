@@ -4,7 +4,7 @@
 export type MDXCustomTextPlugin = (mdxText: string) => Promise<string>;
 
 export type MDXComponent = React.FC<{
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // biome-ignore lint/suspicious/noExplicitAny: 任意のコンポーネントを受け取るため
   components?: Record<string, React.FC<any>>;
 }>;
 

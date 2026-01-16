@@ -1,5 +1,5 @@
 import type { WritingHead } from "@/entities/writing/models/writing";
-import { writingTypeConfig } from "@/entities/writing/writing-type/writing-type";
+import { getWritingTypeConfig } from "@/entities/writing/writing-type/writing-type";
 import { Icon } from "@/shared/design-system/icons/icon";
 import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
@@ -12,9 +12,7 @@ type WritingHeaderProps = {
 };
 
 export const WritingHeader: React.FC<WritingHeaderProps> = ({ head }) => {
-  const { iconName, label } = writingTypeConfig.find(
-    ({ type }) => type === head.type,
-  )!;
+  const { iconName, label } = getWritingTypeConfig(head.type);
 
   return (
     <header>

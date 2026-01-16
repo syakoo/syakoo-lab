@@ -36,7 +36,11 @@ export const CreationCard: FC<CreationCardProps> = ({ ...creation }) => {
             fill
             src={thumbnailImage.src}
           />
-          <div aria-label={creation.type} className={styles.typeContainer}>
+          <div
+            aria-label={creation.type}
+            className={styles.typeContainer}
+            role="img"
+          >
             <Icon name={creationTypes[creation.type].icon} />
           </div>
         </div>

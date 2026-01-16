@@ -29,6 +29,7 @@ export const Choices: React.FC<ChoicesProps> = ({ children, correct }) => {
         if (selected === null) {
           return (
             <Choice
+              // biome-ignore lint/suspicious/noArrayIndexKey: 抽象であり、頻繁に描画するものでもないため
               key={i}
               {...Child.props}
               onClick={() => handleClickButton(i)}
@@ -38,14 +39,17 @@ export const Choices: React.FC<ChoicesProps> = ({ children, correct }) => {
         switch (i) {
           case correct:
             return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: 抽象であり、頻繁に描画するものでもないため
               <Choice key={i} {...Child.props} disabled variant="CORRECT" />
             );
           case selected:
             return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: 抽象であり、頻繁に描画するものでもないため
               <Choice key={i} {...Child.props} disabled variant="INCORRECT" />
             );
           default:
             return (
+              // biome-ignore lint/suspicious/noArrayIndexKey: 抽象であり、頻繁に描画するものでもないため
               <Choice key={i} {...Child.props} disabled variant="UNSELECTED" />
             );
         }

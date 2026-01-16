@@ -3,6 +3,7 @@ import type { IconComponentProps } from "./types";
 export const GameIcon: React.FC<IconComponentProps> = ({ ...props }) => {
   return (
     <svg
+      aria-hidden="true"
       fill="currentColor"
       stroke="currentColor"
       strokeWidth="0"

@@ -27,7 +27,11 @@ export const generateMetadata = async ({
 }: Props): Promise<Metadata> => {
   const writingContent = (await readWritingContents()).find(
     ({ frontMatter }) => frontMatter.id === params.id,
-  )!;
+  );
+
+  if (!writingContent) {
+    throw new Error(`Writing not found: ${params.id}`);
+  }
 
   return {
     title: formatPageTitle(writingContent.frontMatter.title),

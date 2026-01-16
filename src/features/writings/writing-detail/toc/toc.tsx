@@ -50,7 +50,7 @@ export const TOC: React.FC = () => {
     const h2Els = document.querySelectorAll("article h2");
     const tocItems: TOCData = [];
 
-    h2Els.forEach((el) => {
+    for (const el of h2Els) {
       const label = el.textContent || "";
 
       tocItems.push({
@@ -61,7 +61,7 @@ export const TOC: React.FC = () => {
           window.scrollY -
           window.innerHeight / 2,
       });
-    });
+    }
 
     setToc(tocItems);
   });

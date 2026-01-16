@@ -5,6 +5,7 @@ export const ChevronRightIcon: React.FC<IconComponentProps> = ({
 }) => {
   return (
     <svg
+      aria-hidden="true"
       fill="none"
       stroke="currentColor"
       strokeWidth={1.5}

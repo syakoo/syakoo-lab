@@ -7,7 +7,13 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!**/dist", "!**/.next", "!**/storybook-static"]
+    "includes": [
+      "**",
+      "!**/dist",
+      "!**/.next",
+      "!**/storybook-static",
+      "!**/public/assets/game"
+    ]
   },
   "formatter": {
     "enabled": true,
@@ -29,6 +35,7 @@
       "recommended": true,
       "correctness": {
         "noUnusedImports": "error",
+        "noUnusedVariables": "error",
         "useExhaustiveDependencies": "warn",
         "useHookAtTopLevel": "error"
       },
@@ -40,25 +47,54 @@
           }
         },
         "useImportType": "error",
-        "noNonNullAssertion": "off"
+        "noNonNullAssertion": "warn",
+        "useNodejsImportProtocol": "error",
+        "noDefaultExport": "error"
       },
       "suspicious": {
         "noArrayIndexKey": "warn",
-        "noExplicitAny": "warn"
+        "noExplicitAny": "warn",
+        "noConsole": "warn"
+      },
+      "complexity": {
+        "noForEach": "warn",
+        "useIndexOf": "error"
       },
       "a11y": {
         "noSvgWithoutTitle": "warn",
         "useValidAriaValues": "warn",
         "useAriaPropsSupportedByRole": "warn"
       },
+      "performance": {
+        // NOTE: Next.js は将来的に剥がしていくため
+        "noImgElement": "off"
+      },
       "security": {
         "noDangerouslySetInnerHtml": "off"
+      },
+      "nursery": {
+        "noLeakedRender": "error"
       }
     }
   },
   "overrides": [
     {
-      "includes": ["*.stories.tsx", "*.stories.ts"],
+      "includes": [
+        "**/*.stories.tsx",
+        "**/*.stories.ts",
+        "**/*.config.mjs",
+        "**/*.config.cjs",
+        "**/*.config.js",
+        "**/*.config.ts",
+        "**/src/app/**/page.tsx",
+        "**/src/app/**/layout.tsx",
+        "**/src/app/**/not-found.tsx",
+        "**/src/app/**/sitemap.ts",
+        "**/src/features/writings/writing-detail/mdx/geometry/geometry.tsx",
+        "**/.storybook/*.ts",
+        "**/.scaffdog/*.mjs",
+        "**/__mocks__/*.ts"
+      ],
       "linter": {
         "rules": {
           "style": {
@@ -68,11 +104,11 @@
       }
     },
     {
-      "includes": ["*.config.mjs", "*.config.cjs", "*.config.js"],
+      "includes": ["**/scripts/**"],
       "linter": {
         "rules": {
-          "style": {
-            "noDefaultExport": "off"
+          "suspicious": {
+            "noConsole": "off"
           }
         }
       }

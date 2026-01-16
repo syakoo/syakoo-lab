@@ -1,6 +1,6 @@
 import type { WritingHead } from "@/entities/writing/models/writing";
 import { writingPaths } from "@/entities/writing/paths/writing-paths";
-import { writingTypeConfig } from "@/entities/writing/writing-type/writing-type";
+import { getWritingTypeConfig } from "@/entities/writing/writing-type/writing-type";
 import { Icon } from "@/shared/design-system/icons/icon";
 import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Link } from "@/shared/design-system/ui/link/link";
@@ -13,9 +13,7 @@ type WritingBlockProps = {
 };
 
 export const WritingBlock: React.FC<WritingBlockProps> = ({ head }) => {
-  const { iconName } = writingTypeConfig.find(
-    ({ type }) => type === head.type,
-  )!;
+  const { iconName } = getWritingTypeConfig(head.type);
 
   return (
     <Row align="center" as="article" gap="200">

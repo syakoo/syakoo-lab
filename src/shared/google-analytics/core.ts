@@ -1,7 +1,7 @@
 import { env } from "env";
 
 declare global {
-  // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+  // biome-ignore lint/style/useConsistentTypeDefinitions: グローバル型拡張には interface が必要
   interface Window {
     gtag: (
       command: string,

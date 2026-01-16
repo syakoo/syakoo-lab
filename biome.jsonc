@@ -1,0 +1,118 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!**/dist",
+      "!**/.next",
+      "!**/storybook-static",
+      "!**/public/assets/game"
+    ]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "semicolons": "always",
+      "trailingCommas": "all",
+      "arrowParentheses": "always"
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error",
+        "useExhaustiveDependencies": "warn",
+        "useHookAtTopLevel": "error"
+      },
+      "style": {
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "options": {
+            "style": "type"
+          }
+        },
+        "useImportType": "error",
+        "noNonNullAssertion": "warn",
+        // NOTE: Storybook の Webpack が node: スキームを処理できないため
+        "useNodejsImportProtocol": "off",
+        "noDefaultExport": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "warn",
+        "noExplicitAny": "warn",
+        "noConsole": "warn"
+      },
+      "complexity": {
+        "noForEach": "warn",
+        "useIndexOf": "error"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "warn",
+        "useValidAriaValues": "warn",
+        "useAriaPropsSupportedByRole": "warn"
+      },
+      "performance": {
+        // NOTE: Next.js は将来的に剥がしていくため
+        "noImgElement": "off"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "warn"
+      },
+      "nursery": {
+        "noLeakedRender": "error"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "**/*.stories.tsx",
+        "**/*.stories.ts",
+        "**/*.config.mjs",
+        "**/*.config.cjs",
+        "**/*.config.js",
+        "**/*.config.ts",
+        "**/src/app/**/page.tsx",
+        "**/src/app/**/layout.tsx",
+        "**/src/app/**/not-found.tsx",
+        "**/src/app/**/sitemap.ts",
+        "**/src/features/writings/writing-detail/mdx/geometry/geometry.tsx",
+        "**/.storybook/*.ts",
+        "**/.scaffdog/*.mjs",
+        "**/__mocks__/*.ts"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": ["**/scripts/**"],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            "noConsole": "off"
+          }
+        }
+      }
+    }
+  ]
+}

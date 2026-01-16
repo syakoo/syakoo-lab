@@ -1,6 +1,6 @@
 import { random } from "@/shared/test-utils/random/random";
 
-import type { WritingHead, WritingType, SerializedWriting } from "./writing";
+import type { SerializedWriting, WritingHead, WritingType } from "./writing";
 
 export const generateDummyWritingHead = (
   overrides?: Partial<WritingHead>,

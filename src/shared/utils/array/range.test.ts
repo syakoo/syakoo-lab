@@ -26,15 +26,15 @@ describe("range", () => {
         inputs: [0, 0, -1],
         expected: [],
       },
-    ])(
-      "$inputs を入力すると $expected が返却される",
-      ({ inputs, expected }) => {
-        const [arg1, arg2, ...otherArgs] = inputs;
-        const result = range(arg1, arg2, ...otherArgs);
+    ])("$inputs を入力すると $expected が返却される", ({
+      inputs,
+      expected,
+    }) => {
+      const [arg1, arg2, ...otherArgs] = inputs;
+      const result = range(arg1, arg2, ...otherArgs);
 
-        expect(result).toEqual(expected);
-      },
-    );
+      expect(result).toEqual(expected);
+    });
   });
   describe("準正常系", () => {
     test.each<{

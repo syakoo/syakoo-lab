@@ -17,6 +17,7 @@ export const SyakooLabLogoWithAnimation: React.FC<
 > = ({ height = 300 }) => {
   return (
     <svg
+      aria-hidden="true"
       fill="none"
       height={height}
       viewBox="0 0 120 120"

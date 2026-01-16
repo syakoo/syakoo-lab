@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto, Fira_Code, Noto_Sans_JP } from "next/font/google";
+import { Fira_Code, Noto_Sans_JP, Roboto } from "next/font/google";
 import { Suspense } from "react";
 
 import "@/shared/global-settings/global-settings";
@@ -71,6 +71,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <script
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",

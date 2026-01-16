@@ -1,7 +1,11 @@
 import { useMemo } from "react";
-
-import { useGeometry, type PointData, points2Coordinates } from "./core";
-import { type ColorKey, resolveGeometryColor } from "./core";
+import {
+  type ColorKey,
+  type PointData,
+  points2Coordinates,
+  resolveGeometryColor,
+  useGeometry,
+} from "./core";
 
 type PlaneProps = {
   points: PointData[];

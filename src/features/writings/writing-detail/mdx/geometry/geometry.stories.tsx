@@ -1,10 +1,10 @@
-import type { StoryFn, Meta, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryFn, StoryObj } from "@storybook/nextjs";
 
 import { Figure } from "@/features/writings/writing-detail/mdx/figure/figure-with-caption";
 
 import {
-  Geometry,
   GCircle,
+  Geometry,
   GLine,
   GPlane,
   GPoint,

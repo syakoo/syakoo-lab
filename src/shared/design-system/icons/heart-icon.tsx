@@ -3,6 +3,7 @@ import type { IconComponentProps } from "./types";
 export const HeartIcon: React.FC<IconComponentProps> = (props) => {
   return (
     <svg
+      aria-hidden="true"
       fill="none"
       stroke="currentColor"
       strokeWidth={1.5}

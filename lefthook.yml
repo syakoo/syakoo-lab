@@ -1,16 +1,8 @@
-pre-commit:
+pre-push:
   parallel: true
   commands:
-    format:
-      glob: "*.{js,cjs,mjs,ts,jsx,tsx,md,mdx,json}"
-      run: pnpm exec prettier --write "{staged_files}" && git add {staged_files}
     lint:
-      glob: "*.{js,ts,jsx,tsx}"
-      # TODO: ステージのファイルのみにかけたい
-      run: pnpm run lint:fix && git add {staged_files}
-
-pre-push:
-  commands:
+      run: pnpm lint
     test:
       run: pnpm run test --run
 

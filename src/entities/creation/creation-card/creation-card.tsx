@@ -4,8 +4,8 @@ import { match } from "ts-pattern";
 
 import { creationTypes } from "@/entities/creation/creation-type/creation-type";
 import type {
-  CreationIllust,
   CreationGame,
+  CreationIllust,
   CreationWebapp,
 } from "@/entities/creation/models/creation";
 import { Icon } from "@/shared/design-system/icons/icon";
@@ -36,7 +36,11 @@ export const CreationCard: FC<CreationCardProps> = ({ ...creation }) => {
             fill
             src={thumbnailImage.src}
           />
-          <div aria-label={creation.type} className={styles.typeContainer}>
+          <div
+            aria-label={creation.type}
+            className={styles.typeContainer}
+            role="img"
+          >
             <Icon name={creationTypes[creation.type].icon} />
           </div>
         </div>

@@ -32,3 +32,17 @@ export const writingTypeConfig = [
 ] as const satisfies readonly WritingTypeConfigItem[];
 
 export const writingTypes = writingTypeConfig.map(({ type }) => type);
+
+/**
+ * WritingType に対応する設定を取得する
+ * @throws 不正な type が渡された場合
+ */
+export const getWritingTypeConfig = (
+  type: WritingType,
+): WritingTypeConfigItem => {
+  const config = writingTypeConfig.find((c) => c.type === type);
+  if (!config) {
+    throw new Error(`Unknown writing type: ${type}`);
+  }
+  return config;
+};

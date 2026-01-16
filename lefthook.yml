@@ -1,12 +1,8 @@
-pre-commit:
+pre-push:
   parallel: true
   commands:
-    biome:
-      glob: "*.{js,cjs,mjs,ts,jsx,tsx,json}"
-      run: pnpm exec biome check --write {staged_files} && git add {staged_files}
-
-pre-push:
-  commands:
+    lint:
+      run: pnpm lint
     test:
       run: pnpm run test --run
 

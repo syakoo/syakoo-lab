@@ -48,7 +48,8 @@
         },
         "useImportType": "error",
         "noNonNullAssertion": "warn",
-        "useNodejsImportProtocol": "error",
+        // NOTE: Storybook の Webpack が node: スキームを処理できないため
+        "useNodejsImportProtocol": "off",
         "noDefaultExport": "error"
       },
       "suspicious": {

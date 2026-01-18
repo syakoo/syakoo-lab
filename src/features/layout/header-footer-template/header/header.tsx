@@ -12,7 +12,7 @@ import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { Span } from "@/shared/design-system/ui/text/text";
 
-import { headerStyle } from "./header.css";
+export const headerHeightPx = 74;
 
 const NavLink: React.FC<{ children: React.ReactNode; href: string }> = ({
   children,
@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
   return (
     <Center>
       <Container as="header" size="200">
-        <div className={headerStyle}>
+        <div className="flex h-[74px] flex-wrap items-center justify-between gap-100 bg-background-primary/80 px-200 backdrop-blur-sm">
           <Link aria-label="Go to the homepage" href="/">
             <SyakooLabText />
           </Link>

@@ -7,7 +7,6 @@ import { Link } from "@/shared/design-system/ui/link/link";
 import { H3 } from "@/shared/design-system/ui/text/text";
 
 import { getRelatedCreations } from "./get-related-creations";
-import { styles } from "./related-creations.css";
 
 type RelatedCreationsProps = {
   id: string;
@@ -32,7 +31,7 @@ export const RelatedCreations = async ({ id }: RelatedCreationsProps) => {
       <H3 size="400" weight="bold">
         Related Creations
       </H3>
-      <div className={styles.carousel}>
+      <div className="overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         <Row as="ul" gap="100">
           {relatedCreations.map((creation) => (
             <li key={creation.id}>

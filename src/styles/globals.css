@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+@theme {
+  /* ===== Colors ===== */
+  /* Brand */
+  --color-brand-primary: #3063d4;
+  --color-brand-secondary: #294e80;
+
+  /* Text */
+  --color-text-primary: #babec3ee;
+  --color-text-secondary: #899096ee;
+  --color-text-tertiary: #59616aee;
+
+  /* Background */
+  --color-background-primary: #15212c;
+  --color-background-secondary: #28394e;
+
+  /* Accent */
+  --color-accent-info-foreground: #00abee;
+  --color-accent-info-background: #00abee30;
+  --color-accent-success-foreground: #2ab435;
+  --color-accent-success-background: #2ab43530;
+  --color-accent-warn-foreground: #eca218;
+  --color-accent-warn-background: #eca21830;
+  --color-accent-error-foreground: #f33e62;
+  --color-accent-error-background: #f33e6230;
+
+  /* Code */
+  --color-code-text: #babec3ee;
+  --color-code-background: #020d1f;
+
+  /* Palette */
+  --color-palette-black: #000000;
+  --color-palette-white: #ffffff;
+  --color-palette-gray-100: #404a54;
+  --color-palette-gray-200: #59616a;
+  --color-palette-gray-300: #717980;
+  --color-palette-gray-400: #899096;
+  --color-palette-gray-500: #a2a7ad;
+  --color-palette-gray-600: #babec3;
+  --color-palette-gray-700: #d2d5d9;
+  --color-palette-gray-800: #ebecef;
+  --color-palette-gray-900: #f0f1f4;
+
+  /* ===== Spacing ===== */
+  --spacing-25: 2px;
+  --spacing-50: 4px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 48px;
+  --spacing-500: 64px;
+
+  /* ===== Font Sizes ===== */
+  /* Tailwind v4: --text-* → text-* クラス */
+  --text-50: 12px;
+  --text-75: 14px;
+  --text-100: 16px;
+  --text-200: 18px;
+  --text-300: 20px;
+  --text-400: 22px;
+  --text-500: 28px;
+  --text-600: 32px;
+  --text-700: 38px;
+  --text-800: 46px;
+
+  /* ===== Font Families ===== */
+  /* Tailwind namespace: --font-* → font-* クラス */
+  --font-primary: "Roboto", "Noto Sans JP Variable", sans-serif;
+  --font-code: "Fira Code", Consolas, monospace;
+
+  /* ===== Border Radius ===== */
+  --radius-50: 4px;
+  --radius-75: 6px;
+  --radius-100: 8px;
+  --radius-200: 12px;
+  --radius-300: 20px;
+  --radius-1000: 50%;
+  --radius-swaying: 45% 60% 45% 60% / 60% 45% 60% 45%;
+
+  /* ===== Container Sizes ===== */
+  /* NOTE: space と競合しないように container- を付けている */
+  --container-container-50: 300px;
+  --container-container-100: 680px;
+  --container-container-200: 1200px;
+
+  /* ===== Component Sizes ===== */
+  --size-header: 74px;
+
+  /* ===== Animations ===== */
+  --animate-fade-in: fade-in forwards cubic-bezier(0.25, 0.1, 0.05, 1.01);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Global Styles ===== */
+html,
+body {
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-primary);
+  font-size: var(--text-100);
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+ul {
+  list-style-type: none;
+}

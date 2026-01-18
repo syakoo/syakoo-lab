@@ -1,0 +1,5 @@
+/* ===== Chat Styles ===== */
+.message > :global(p) {
+  /* biome-ignore lint/complexity/noImportantStyles: 最優先にしたいのでしゃーなし */
+  line-height: 1.5 !important;
+}

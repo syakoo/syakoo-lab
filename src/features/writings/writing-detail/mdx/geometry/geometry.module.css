@@ -1,0 +1,5 @@
+/* ===== Geometry SVG Styles ===== */
+.svg :global(p) {
+  margin: 0;
+  line-height: 1;
+}

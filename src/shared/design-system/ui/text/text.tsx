@@ -1,14 +1,13 @@
-import type { RecipeVariants } from "@vanilla-extract/recipes";
 import type React from "react";
 
 import { PolymorphicComponent } from "@/shared/utils/polymorphic-component/polymorphic-component";
 
-import { textStyle } from "./text.css";
+import { type TextStyleVariants, textStyle } from "./text.styles";
 
 type TextProps = {
   children: React.ReactNode;
   as?: "p" | "span" | "h1" | "h2" | "h3" | "h4";
-} & Partial<RecipeVariants<typeof textStyle>>;
+} & Partial<TextStyleVariants>;
 
 export const Text: React.FC<TextProps> = ({
   children,

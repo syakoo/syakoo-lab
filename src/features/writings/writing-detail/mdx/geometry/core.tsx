@@ -1,7 +1,5 @@
 import { createContext, useCallback, useContext, useState } from "react";
 
-import { theme } from "@/shared/design-system/theme.css";
-
 // __________
 // Utility Types
 export type Coordinates = [number, number];
@@ -80,14 +78,14 @@ export function points2Coordinates(
 }
 
 const colorMap = {
-  primary: theme.color.brand.primary,
-  secondary: theme.color.brand.secondary,
-  info: theme.color.accent.info.foreground,
-  success: theme.color.accent.success.foreground,
-  error: theme.color.accent.error.foreground,
-  text: theme.color.text.primary,
-  textSecondary: theme.color.text.secondary,
-  textTertiary: theme.color.text.tertiary,
+  primary: "var(--color-brand-primary)",
+  secondary: "var(--color-brand-secondary)",
+  info: "var(--color-accent-info-foreground)",
+  success: "var(--color-accent-success-foreground)",
+  error: "var(--color-accent-error-foreground)",
+  text: "var(--color-text-primary)",
+  textSecondary: "var(--color-text-secondary)",
+  textTertiary: "var(--color-text-tertiary)",
 };
 export type ColorKey = keyof typeof colorMap | `#${string}`;
 export const resolveGeometryColor = (colorKey: ColorKey): string => {

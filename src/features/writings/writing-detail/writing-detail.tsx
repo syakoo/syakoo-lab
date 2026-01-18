@@ -7,7 +7,7 @@ import { FadeIn } from "@/shared/design-system/ui/fade-in/fade-in";
 
 import { Note } from "./mdx/note/note";
 import { TOC } from "./toc/toc";
-import { writingDetailStyles } from "./writing-detail.css";
+import styles from "./writing-detail.module.css";
 import { WritingHeader } from "./writing-header/writing-header";
 import { WritingMdxContent } from "./writing-mdx-content";
 import { WritingTypeDescription } from "./writing-type-description/writing-type-description";
@@ -27,11 +27,11 @@ export const WritingDetail = async ({ id }: WritingDetailProps) => {
 
   return (
     <FadeIn>
-      <article className={writingDetailStyles.root}>
-        <div className={writingDetailStyles.headerWrapper}>
+      <article className={`${styles.root} mx-auto max-w-[1500px]`}>
+        <div className={`${styles.header} px-200 py-400`}>
           <WritingHeader head={writing.head} />
         </div>
-        <div className={writingDetailStyles.contentWrapper}>
+        <div className={`${styles.contentArea} p-200`}>
           {/* NOTE: Diary の記事は古くても良い */}
           {writing.head.type !== "diary" && yearsSinceLastUpdate >= 1 ? (
             <Note variant="warn">
@@ -39,7 +39,10 @@ export const WritingDetail = async ({ id }: WritingDetailProps) => {
               内容が古い可能性があります。
             </Note>
           ) : null}
-          <WritingMdxContent body={writing.body} />
+          <WritingMdxContent
+            body={writing.body}
+            className={styles.mdxContent}
+          />
           <Spacer y="400" />
           <hr />
           <Spacer y="100" />
@@ -47,8 +50,8 @@ export const WritingDetail = async ({ id }: WritingDetailProps) => {
             <WritingTypeDescription type={writing.head.type} />
           </aside>
         </div>
-        <aside className={writingDetailStyles.asideWrapper}>
-          <div className={writingDetailStyles.stickyContainer}>
+        <aside className={`${styles.aside} flex h-full flex-col gap-200 p-200`}>
+          <div className="sticky top-[calc(var(--spacing-200)+var(--size-header))]">
             <TOC />
           </div>
         </aside>

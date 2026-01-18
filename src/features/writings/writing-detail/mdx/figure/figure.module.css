@@ -1,0 +1,6 @@
+/* ===== MDX Figure Styles ===== */
+.figure > :global(*) {
+  /* biome-ignore lint/complexity/noImportantStyles: 最優先にしたいのでしゃーなし */
+  margin-block: 0 !important;
+  margin-inline: auto;
+}

@@ -1,7 +1,7 @@
 import React from "react";
 
 import { type Domain, GeometryProvider } from "./core";
-import { geometrySVGstyle } from "./geometry.css";
+import styles from "./geometry.module.css";
 
 type GeometryProps = {
   domain: Domain;
@@ -12,7 +12,7 @@ const Geometry: React.FC<GeometryProps> = ({ domain, ...svgProps }) => {
   return (
     <GeometryProvider domain={domain}>
       <svg
-        className={geometrySVGstyle}
+        className={`${styles.svg} text-start`}
         height={`min(100%, ${domain.y[1] - domain.y[0]}px)`}
         viewBox={`${domain.x[0]} ${domain.y[0]} ${domain.x[1]} ${domain.y[1]}`}
         width={`min(100%, ${domain.x[1] - domain.x[0]}px)`}

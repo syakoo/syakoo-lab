@@ -1,14 +1,16 @@
-import type { RecipeVariants } from "@vanilla-extract/recipes";
 import type React from "react";
 
 import { PolymorphicComponent } from "@/shared/utils/polymorphic-component/polymorphic-component";
 
-import { containerStyle } from "./container.css";
+import {
+  type ContainerStyleVariants,
+  containerStyle,
+} from "./container.styles";
 
 type ContainerProps = {
   as?: React.ElementType;
   children: React.ReactNode;
-} & RecipeVariants<typeof containerStyle>;
+} & ContainerStyleVariants;
 
 /**
  * 子要素を格納するサイズを決定するレイアウトコンテナコンポーネント

@@ -10,6 +10,7 @@ import { mdxComponents } from "./mdx/mdx-components";
 
 type WritingMdxContentProps = {
   body: SerializedWriting["body"];
+  className?: string;
 };
 
 const components = {
@@ -19,10 +20,15 @@ const components = {
 
 export const WritingMdxContent: React.FC<WritingMdxContentProps> = ({
   body,
+  className,
 }) => {
   useMermaid();
   useTwitter();
   const MDXComponent = resolveMDXContent(body).data;
 
-  return <MDXComponent components={components} />;
+  return (
+    <div className={className}>
+      <MDXComponent components={components} />
+    </div>
+  );
 };

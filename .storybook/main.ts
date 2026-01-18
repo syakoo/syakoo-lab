@@ -1,5 +1,4 @@
 import type { StorybookConfig } from "@storybook/nextjs";
-import { VanillaExtractPlugin } from "@vanilla-extract/webpack-plugin";
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -19,12 +18,6 @@ const config: StorybookConfig = {
 
   features: {
     experimentalRSC: true,
-  },
-
-  webpackFinal: (config) => {
-    config.plugins = [...(config.plugins ?? []), new VanillaExtractPlugin()];
-
-    return config;
   },
 };
 

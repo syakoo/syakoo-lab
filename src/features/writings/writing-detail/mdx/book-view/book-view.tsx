@@ -2,8 +2,6 @@ import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { Text } from "@/shared/design-system/ui/text/text";
 
-import { bookViewStyles } from "./book-view.css";
-
 type BookViewProps = {
   title: string;
   imgSrc: string;
@@ -20,13 +18,12 @@ export const BookView: React.FC<BookViewProps> = ({
   author,
 }) => {
   return (
-    <div className={bookViewStyles.root}>
+    <div className="my-100">
       <Row gap="200" wrap={false}>
-        <div className={bookViewStyles.imageWrapper}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+        <div className="shrink-0 shadow-[0_0_5px_0px_var(--color-text-secondary)]">
           <img alt={title} src={imgSrc} width={100} />
         </div>
-        <div className={bookViewStyles.description}>
+        <div className="break-words">
           <div>
             <Text size="300" weight="bold">
               {title}

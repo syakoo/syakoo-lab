@@ -1,13 +1,12 @@
-import type { RecipeVariants } from "@vanilla-extract/recipes";
 import NextLink from "next/link";
 import type React from "react";
 
-import { linkStyle } from "./link.css";
+import { type LinkStyleVariants, linkStyle } from "./link.styles";
 
 type LinkProps = {
   href: string;
   children: React.ReactNode;
-} & Partial<RecipeVariants<typeof linkStyle>> &
+} & Partial<LinkStyleVariants> &
   Omit<React.ComponentPropsWithoutRef<"a">, "href" | "children">;
 
 export const Link: React.FC<LinkProps> = ({
@@ -22,13 +21,13 @@ export const Link: React.FC<LinkProps> = ({
 }) => {
   return (
     <NextLink
-      className={`${linkStyle({
+      className={linkStyle({
         colored,
         underlined,
         noHovered,
         noTransparent,
         display,
-      })}`}
+      })}
       href={href}
       {...otherProps}
     >

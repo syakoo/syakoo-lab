@@ -1,7 +1,5 @@
 import type { Meta } from "@storybook/nextjs";
 
-import { theme } from "@/shared/design-system/theme.css";
-
 import { Link } from "./link";
 
 const meta = {
@@ -43,8 +41,8 @@ export const Variants = () => {
         <Link display="block" href="#">
           <div
             style={{
-              border: `1px solid ${theme.color.brand.primary}`,
-              borderRadius: theme.radius[100],
+              border: "1px solid var(--color-brand-primary)",
+              borderRadius: "var(--radius-100)",
             }}
           >
             Block Link

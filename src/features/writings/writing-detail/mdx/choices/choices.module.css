@@ -1,0 +1,5 @@
+/* ===== Choice Button Styles ===== */
+.button :global(p) {
+  /* biome-ignore lint/complexity/noImportantStyles: 最優先にしたいのでしゃーなし */
+  margin: 0 !important;
+}

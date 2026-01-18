@@ -6,12 +6,12 @@ import { readCreationById } from "@/features/creation/creation-reader/read-creat
 import { resolveMDXContent } from "@/features/mdx/resolver";
 import { Icon } from "@/shared/design-system/icons/icon";
 import { Col, Row } from "@/shared/design-system/layout/flex/flex";
-import { theme } from "@/shared/design-system/theme.css";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { H2, Text } from "@/shared/design-system/ui/text/text";
+import { cn } from "@/shared/utils/cn/cn";
 import { formatDate } from "@/shared/utils/date";
+import styles from "./creation-detail.module.css";
 
-import { styles } from "./creation-detail.css";
 import { FileView } from "./file-view/file-view";
 import { PublicLinks } from "./public-links/public-links";
 import { GameplayScreen } from "./variant-content/gameplay-screen";
@@ -58,9 +58,10 @@ export const CreationDetail = async ({ id }: CreationDetailProps) => {
         <Col gap="200">
           {MDXContent ? (
             <div
-              className={styles.contentWrapper({
-                preWrap: creation.type === "game",
-              })}
+              className={cn(
+                styles.contentWrapper,
+                creation.type === "game" && "whitespace-pre-wrap",
+              )}
             >
               <MDXContent
                 components={{
@@ -76,7 +77,7 @@ export const CreationDetail = async ({ id }: CreationDetailProps) => {
             <Row gap="100">
               <Row align="center" gap="25">
                 <Icon
-                  color={theme.color.text.secondary}
+                  className="text-text-secondary"
                   height={16}
                   name={creationTypes[creation.type].icon}
                   width={16}

@@ -3,7 +3,6 @@ import { getWritingTypeConfig } from "@/entities/writing/writing-type/writing-ty
 import { Icon } from "@/shared/design-system/icons/icon";
 import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
-import { theme } from "@/shared/design-system/theme.css";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { H1, Span, Text } from "@/shared/design-system/ui/text/text";
 
@@ -20,11 +19,7 @@ export const WritingHeader: React.FC<WritingHeaderProps> = ({ head }) => {
       <Spacer y="100" />
       <Row gap="100">
         <Row align="center" gap="50">
-          <Icon
-            name={iconName}
-            stroke={theme.color.text.secondary}
-            width="1em"
-          />
+          <Icon className="text-text-secondary" name={iconName} width="1em" />
           <Text color="secondary" size="75">
             {label}
           </Text>

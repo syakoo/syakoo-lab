@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { theme } from "@/shared/design-system/theme.css";
-
 import { Scrap } from "./scrap";
 
 const meta = {
@@ -19,9 +17,9 @@ export const Sample: Story = {
     children: (
       <div
         style={{
-          border: `1px solid ${theme.color.brand.primary}`,
-          borderRadius: theme.radius[100],
-          padding: theme.space[300],
+          border: "1px solid var(--color-brand-primary)",
+          borderRadius: "var(--radius-100)",
+          padding: "var(--spacing-300)",
         }}
       >
         Children

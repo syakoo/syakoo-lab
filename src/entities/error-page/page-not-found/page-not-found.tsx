@@ -3,13 +3,13 @@ import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { H1, Text } from "@/shared/design-system/ui/text/text";
 
-import { errorCodeStyles } from "./page-not-found.css";
-
 export const PageNotFound: React.FC = () => {
   return (
     <section>
       <Row align="flexEnd" as="header" gap="300">
-        <div className={errorCodeStyles}>404</div>
+        <div className="font-['arial_black'] font-bold text-800 text-brand-primary">
+          404
+        </div>
         <div>
           <H1 size="500">Not Found</H1>
           <Spacer y="50" />

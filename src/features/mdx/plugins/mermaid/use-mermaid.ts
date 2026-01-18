@@ -1,24 +1,41 @@
 import mermaid from "mermaid";
 
-import { tokens } from "@/shared/design-system/tokens/tokens";
 import { useMount } from "@/shared/utils/use-mount/use-mount";
+
+// Mermaid は CSS 変数を受け付けないため、直接色の値を指定
+const colors = {
+  brand: {
+    primary: "#3063d4",
+    secondary: "#294e80",
+  },
+  text: {
+    primary: "#babec3ee",
+  },
+  background: {
+    secondary: "#28394e",
+  },
+  palette: {
+    gray100: "#404a54",
+    gray200: "#59616a",
+    gray500: "#a2a7ad",
+  },
+} as const;
 
 mermaid.initialize({
   // NOTE: このタイミングでは描画できないためフックで行うようにする
   startOnLoad: false,
   theme: "base",
   themeVariables: {
-    // NOTE: CSS Variables を入れれないため直接指定
-    primaryColor: tokens.colors.background.secondary,
-    primaryTextColor: tokens.colors.text.primary,
-    primaryBorderColor: tokens.colors.palette.gray[100],
-    lineColor: tokens.colors.palette.gray[500],
-    secondaryColor: tokens.colors.palette.gray[100],
-    tertiaryColor: tokens.colors.palette.gray[100],
-    git0: tokens.colors.palette.gray[100],
-    git1: tokens.colors.brand.primary,
-    git2: tokens.colors.brand.secondary,
-    git3: tokens.colors.palette.gray[200],
+    primaryColor: colors.background.secondary,
+    primaryTextColor: colors.text.primary,
+    primaryBorderColor: colors.palette.gray100,
+    lineColor: colors.palette.gray500,
+    secondaryColor: colors.palette.gray100,
+    tertiaryColor: colors.palette.gray100,
+    git0: colors.palette.gray100,
+    git1: colors.brand.primary,
+    git2: colors.brand.secondary,
+    git3: colors.palette.gray200,
   },
 });
 

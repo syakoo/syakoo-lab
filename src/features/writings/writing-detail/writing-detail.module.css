@@ -1,0 +1,134 @@
+/* ===== Writing Detail Layout (CSS Grid Areas) ===== */
+.root {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr minmax(300px, 680px) minmax(300px, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "l header r"
+    "l content aside";
+}
+
+@media screen and (max-width: 800px) {
+  .root {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "header"
+      "content";
+  }
+
+  .aside {
+    display: none;
+  }
+}
+
+.header {
+  grid-area: header;
+}
+
+.contentArea {
+  grid-area: content;
+}
+
+.aside {
+  grid-area: aside;
+}
+
+/* ===== Writing Detail MDX Styles ===== */
+.mdxContent > :global(*:first-child) {
+  /* biome-ignore lint/complexity/noImportantStyles: 最優先にしたいのでしゃーなし */
+  margin-top: 0 !important;
+}
+
+.mdxContent :global(p) {
+  line-height: 2.1;
+}
+
+.mdxContent :global(p + p) {
+  margin-top: var(--spacing-300);
+}
+
+.mdxContent :global(ul) {
+  list-style-type: disc;
+  margin-left: var(--spacing-300);
+  margin-block: var(--spacing-200);
+}
+
+.mdxContent :global(ul li::marker) {
+  color: var(--color-text-tertiary);
+}
+
+.mdxContent :global(ol) {
+  list-style-type: decimal;
+  margin-left: var(--spacing-300);
+  margin-block: var(--spacing-200);
+}
+
+.mdxContent :global(ol li::marker) {
+  color: var(--color-text-secondary);
+}
+
+.mdxContent :global(pre) {
+  display: flex;
+  margin-block: var(--spacing-200);
+  margin-inline: calc(-1 * var(--spacing-200));
+  overflow-x: auto;
+  color: var(--color-code-text);
+  background-color: var(--color-code-background);
+  border-radius: var(--radius-100);
+}
+
+@media screen and (max-width: 800px) {
+  .mdxContent :global(pre) {
+    border-radius: 0;
+  }
+}
+
+.mdxContent :global(pre code) {
+  display: block;
+  padding: var(--spacing-200);
+  font-size: var(--text-75);
+  line-height: 1.5;
+}
+
+.mdxContent :global(code) {
+  color: var(--color-code-text);
+  background-color: var(--color-code-background);
+  font-size: var(--text-75);
+  padding: 0.3em;
+  margin-inline: var(--spacing-25);
+  border-radius: var(--radius-50);
+  font-family: var(--font-code);
+}
+
+.mdxContent :global(blockquote) {
+  padding: 0 var(--spacing-100);
+  margin: var(--spacing-300) 0;
+  color: var(--color-text-secondary);
+  border-left: 5px solid var(--color-text-tertiary);
+}
+
+.mdxContent :global(hr) {
+  margin-block: var(--spacing-100);
+  border-color: var(--color-palette-gray-200);
+}
+
+.mdxContent :global(strong) {
+  font-weight: 700;
+}
+
+.mdxContent :global(.katex-display) {
+  margin-block: var(--spacing-200);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.mdxContent :global(.mermaid) {
+  display: flex;
+  justify-content: center;
+}
+
+.mdxContent :global(.twitter-tweet) {
+  margin-inline: auto;
+}

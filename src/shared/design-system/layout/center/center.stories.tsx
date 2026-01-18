@@ -1,8 +1,6 @@
 import type { Meta } from "@storybook/nextjs";
 import type React from "react";
 
-import { theme } from "@/shared/design-system/theme.css";
-
 import { Center } from "./center";
 
 const meta = {
@@ -16,8 +14,8 @@ export default meta;
 const SampleInnerContent = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
-      borderRadius: theme.radius[100],
-      background: theme.color.palette.gray[100],
+      borderRadius: "var(--radius-100)",
+      background: "var(--color-palette-gray-100)",
       padding: "50px",
       width: "500px",
     }}

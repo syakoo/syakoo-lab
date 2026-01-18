@@ -1,7 +1,5 @@
 import { PolymorphicComponent } from "@/shared/utils/polymorphic-component/polymorphic-component";
 
-import { fadeInStyle } from "./fade-in.css";
-
 type FadeInProps = {
   children: React.ReactNode;
   as?: React.ElementType;
@@ -21,7 +19,7 @@ export const FadeIn: React.FC<FadeInProps> = ({
   return (
     <PolymorphicComponent
       as={as}
-      className={fadeInStyle}
+      className="animate-fade-in opacity-0"
       style={{
         animationDuration: `${durationSec}s`,
         animationDelay: `${delaySec}s`,

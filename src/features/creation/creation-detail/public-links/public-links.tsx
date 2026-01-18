@@ -4,13 +4,11 @@ import type { CreationBase } from "@/entities/creation/models/creation";
 import { Row } from "@/shared/design-system/layout/flex/flex";
 import { BadgeLink } from "@/shared/design-system/ui/badge-link/badge-link";
 
-import { styles } from "./public-links.css";
-
 type PublicLinksProps = Pick<CreationBase, "publicLinks">;
 
 export const PublicLinks: FC<PublicLinksProps> = ({ publicLinks }) => {
   return (
-    <div className={styles.root}>
+    <div className="overflow-x-auto">
       <div style={{ width: "max-content" }}>
         <Row as="ul" gap="50" wrap={false}>
           {publicLinks.map((link) => (

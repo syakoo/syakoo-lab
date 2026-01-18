@@ -4,8 +4,7 @@ import {
 } from "@/features/writings/writing-list/_shared/writing-list-type";
 import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Link } from "@/shared/design-system/ui/link/link";
-
-import { writingTabStyle } from "./writing-tab.css";
+import { cn } from "@/shared/utils/cn/cn";
 
 type WritingTabProps = {
   selectedType: WritingListType;
@@ -47,9 +46,12 @@ export const WritingTab: React.FC<WritingTabProps> = ({ selectedType }) => {
           >
             <div
               aria-current={isActive}
-              className={writingTabStyle.item({
-                active: isActive,
-              })}
+              className={cn(
+                "p-100 no-underline",
+                isActive
+                  ? "border-current border-b-4 text-text-primary"
+                  : "text-text-secondary",
+              )}
             >
               {label}
             </div>

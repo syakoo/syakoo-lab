@@ -8,12 +8,12 @@
 - Next.js
   - App Router
   - Static Rendering
-- vanilla-extract
+- Tailwind CSS
 - ts-pattern
 
 ## 開発支援
 
 - Vitest / Testing Library
 - Storybook
-- ESLint / Prettier
+- Biome
 - scaffdog

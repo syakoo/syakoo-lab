@@ -1,0 +1,13 @@
+/* ===== Scrap Styles ===== */
+.root + .root {
+  margin-top: var(--spacing-300);
+}
+
+.body > :global(*:first-child) {
+  padding-top: 0;
+  margin-top: var(--spacing-50);
+}
+
+.body > :global(*:last-child) {
+  margin-bottom: 0;
+}

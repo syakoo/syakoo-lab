@@ -1,0 +1,35 @@
+/* ===== Creation Content MDX Styles ===== */
+.contentWrapper :global(p) {
+  line-height: 2.1;
+}
+
+.contentWrapper :global(p + p) {
+  margin-top: var(--spacing-100);
+}
+
+.contentWrapper :global(ul) {
+  list-style-type: disc;
+  margin-left: 1em;
+  margin-block: var(--spacing-100);
+}
+
+.contentWrapper :global(ul li::marker) {
+  color: var(--color-text-tertiary);
+}
+
+.contentWrapper :global(ol) {
+  margin-left: var(--spacing-300);
+  margin-block: var(--spacing-100);
+}
+
+.contentWrapper :global(ol li::marker) {
+  color: var(--color-text-secondary);
+}
+
+.contentWrapper :global(h2) {
+  margin-top: var(--spacing-300);
+}
+
+.contentWrapper :global(h3) {
+  margin-top: var(--spacing-200);
+}

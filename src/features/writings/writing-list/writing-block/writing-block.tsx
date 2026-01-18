@@ -6,8 +6,6 @@ import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { H3, Text } from "@/shared/design-system/ui/text/text";
 
-import { writingBlockStyles } from "./writing-block.css";
-
 type WritingBlockProps = {
   head: WritingHead;
 };
@@ -17,7 +15,7 @@ export const WritingBlock: React.FC<WritingBlockProps> = ({ head }) => {
 
   return (
     <Row align="center" as="article" gap="200">
-      <div className={writingBlockStyles.iconWrapper}>
+      <div className="flex size-[36px] rounded-swaying bg-background-secondary p-100 text-text-primary">
         <Icon name={iconName} />
       </div>
       <div>

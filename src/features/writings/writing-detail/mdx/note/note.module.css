@@ -1,0 +1,10 @@
+/* ===== Note Component MDX Styles ===== */
+.wrapper :global(p),
+.wrapper :global(ul),
+.wrapper :global(pre) {
+  line-height: 1.6;
+}
+
+.wrapper :global(p + p) {
+  margin-top: var(--spacing-50);
+}

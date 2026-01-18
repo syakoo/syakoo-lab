@@ -2,8 +2,6 @@ import type { Preview } from "@storybook/nextjs";
 import { sb } from "storybook/test";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 
-import { theme } from "@/shared/design-system/theme.css";
-
 import "@/shared/global-settings/global-settings";
 import { storyTheme } from "./manager";
 
@@ -35,11 +33,11 @@ const preview: Preview = {
       values: [
         {
           name: "primary",
-          value: theme.color.background.primary,
+          value: "#15212c", // background.primary
         },
         {
           name: "secondary",
-          value: theme.color.background.secondary,
+          value: "#28394e", // background.secondary
         },
       ],
     },

@@ -12,8 +12,6 @@ import { Icon } from "@/shared/design-system/icons/icon";
 import { Col } from "@/shared/design-system/layout/flex/flex";
 import { Text } from "@/shared/design-system/ui/text/text";
 
-import * as styles from "./creation-card.css";
-
 export type CreationCardProps =
   | Pick<CreationIllust, "type" | "title" | "illust">
   | Pick<CreationGame, "type" | "title" | "logo">
@@ -27,18 +25,18 @@ export const CreationCard: FC<CreationCardProps> = ({ ...creation }) => {
     .exhaustive();
 
   return (
-    <div className={styles.root}>
+    <div className="relative w-full min-w-[150px]">
       <Col gap="50">
-        <div className={styles.imageContainer}>
+        <div className="relative aspect-square w-full overflow-hidden rounded-200">
           <Image
             alt=""
-            className={styles.image}
+            className="object-cover transition-transform duration-300"
             fill
             src={thumbnailImage.src}
           />
           <div
             aria-label={creation.type}
-            className={styles.typeContainer}
+            className="absolute right-50 bottom-50 flex size-[26px] items-center justify-center rounded-100 bg-background-primary p-50"
             role="img"
           >
             <Icon name={creationTypes[creation.type].icon} />

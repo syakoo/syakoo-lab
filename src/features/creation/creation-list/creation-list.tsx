@@ -6,8 +6,6 @@ import { FadeIn } from "@/shared/design-system/ui/fade-in/fade-in";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { H2 } from "@/shared/design-system/ui/text/text";
 
-import { creationListStyles } from "./creation-list.css";
-
 export const CreationList = async () => {
   const creationSummaries = await readCreationSummaries();
 
@@ -15,7 +13,7 @@ export const CreationList = async () => {
     <section>
       <Col gap="200">
         <H2>Creations</H2>
-        <ul className={creationListStyles.listContainer}>
+        <ul className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-100">
           {creationSummaries.map((creation, i) => (
             <FadeIn key={creation.id} as="li" delaySec={0.05 * i}>
               <Link display="block" href={creationPaths.detail(creation.id)}>

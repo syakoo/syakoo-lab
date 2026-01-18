@@ -1,8 +1,10 @@
 "use client";
-/* eslint-disable react/no-array-index-key */
+
 import { useState } from "react";
 
-import { choiceStyle, choicesStyle } from "./choices.css";
+import { cn } from "@/shared/utils/cn/cn";
+
+import styles from "./choices.module.css";
 
 type ChoiceProps = {
   variant?: "CORRECT" | "INCORRECT" | "UNSELECTED";
@@ -13,7 +15,21 @@ type ChoicesProps = {
 };
 
 export const Choice: React.FC<ChoiceProps> = ({ variant, ...otherProps }) => {
-  return <button className={choiceStyle({ variant })} {...otherProps} />;
+  return (
+    <button
+      className={cn(
+        styles.button,
+        "block min-h-icon-sm w-full rounded-300 border border-background-secondary bg-background-primary px-100 py-50 text-current",
+        "hover:not-disabled:cursor-pointer hover:not-disabled:border-brand-primary hover:not-disabled:bg-background-secondary",
+        variant === "CORRECT" &&
+          "border-accent-success-foreground bg-accent-success-background",
+        variant === "INCORRECT" &&
+          "border-accent-error-foreground bg-accent-error-background",
+        variant === "UNSELECTED" && "border-background-secondary",
+      )}
+      {...otherProps}
+    />
+  );
 };
 
 export const Choices: React.FC<ChoicesProps> = ({ children, correct }) => {
@@ -24,7 +40,7 @@ export const Choices: React.FC<ChoicesProps> = ({ children, correct }) => {
   };
 
   return (
-    <div className={choicesStyle}>
+    <div className="my-200 flex flex-col gap-200">
       {children.map((Child, i) => {
         if (selected === null) {
           return (

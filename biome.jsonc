@@ -5,6 +5,12 @@
     "clientKind": "git",
     "useIgnoreFile": true
   },
+  "css": {
+    "parser": {
+      "cssModules": true,
+      "tailwindDirectives": true
+    }
+  },
   "files": {
     "ignoreUnknown": true,
     "includes": [
@@ -74,7 +80,13 @@
         "noDangerouslySetInnerHtml": "warn"
       },
       "nursery": {
-        "noLeakedRender": "error"
+        "noLeakedRender": "error",
+        "useSortedClasses": {
+          "level": "error",
+          "options": {
+            "functions": ["cva", "cn"]
+          }
+        }
       }
     }
   },

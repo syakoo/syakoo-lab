@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { theme } from "@/shared/design-system/theme.css";
-
 import { Spacer } from "./spacer";
 
 const meta = {
@@ -17,8 +15,8 @@ export default meta;
 const DummyBlock = ({ width, height }: { width: string; height: string }) => (
   <div
     style={{
-      borderRadius: theme.radius[100],
-      background: theme.color.palette.gray[100],
+      borderRadius: "var(--radius-100)",
+      background: "var(--color-palette-gray-100)",
       width,
       height,
       display: "flex",

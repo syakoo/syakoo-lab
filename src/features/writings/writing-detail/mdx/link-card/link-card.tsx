@@ -4,8 +4,6 @@ import { Row } from "@/shared/design-system/layout/flex/flex";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { Text } from "@/shared/design-system/ui/text/text";
 
-import { linkCardStyles } from "./link-card.css";
-
 export type LinkCardProps = {
   imgSrc: string;
   title: string;
@@ -27,14 +25,14 @@ export const LinkCard: React.FC<LinkCardProps> = ({
 
   return (
     <Link display="block" href={url}>
-      <div className={linkCardStyles.root}>
-        <div className={linkCardStyles.body}>
-          <div className={linkCardStyles.textContainer({ lines: 2 })}>
+      <div className="my-200 flex justify-between gap-50 overflow-hidden rounded-100 border border-background-secondary bg-background-primary">
+        <div className="flex flex-col gap-50 px-100 py-200">
+          <div className="line-clamp-2">
             <Text as="span" weight="bold">
               {title}
             </Text>
           </div>
-          <div className={linkCardStyles.textContainer({ lines: 1 })}>
+          <div className="line-clamp-1">
             <Text as="span" color="secondary" size="50">
               {description}
             </Text>
@@ -48,10 +46,10 @@ export const LinkCard: React.FC<LinkCardProps> = ({
         </div>
 
         {imgSrc ? (
-          <div className={linkCardStyles.thumbnailWrapper}>
+          <div className="min-w-[100px] max-w-[300px]">
             <img
               alt={title}
-              className={linkCardStyles.thumbnail}
+              className="m-0 h-full max-h-[128px] w-full shrink-0 object-cover"
               src={imgSrc}
             />
           </div>

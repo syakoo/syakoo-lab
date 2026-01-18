@@ -11,7 +11,6 @@ import type {
   CreationIllustSummary,
   CreationWebappSummary,
 } from "@/entities/creation/models/creation";
-import { theme } from "@/shared/design-system/theme.css";
 
 const publicDir = path.join(process.cwd(), "public");
 
@@ -56,7 +55,7 @@ export const toCreationWebappSummary = (
     publicLinks: [
       {
         title: work.name,
-        color: theme.color.brand.primary,
+        color: "#3063d4", // brand.primary
         href: work.siteUrl,
       },
       {

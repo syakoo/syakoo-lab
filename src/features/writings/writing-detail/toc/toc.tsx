@@ -3,10 +3,8 @@
 import { useEffect, useState } from "react";
 
 import { Link } from "@/shared/design-system/ui/link/link";
-import { Text } from "@/shared/design-system/ui/text/text";
+import { Span, Text } from "@/shared/design-system/ui/text/text";
 import { useMount } from "@/shared/utils/use-mount/use-mount";
-
-import { tocStyles } from "./toc.css";
 
 type TOCItem = {
   label: string;
@@ -21,14 +19,16 @@ export const TOCView: React.FC<TOCViewProps> = ({ items, activeLabel }) => {
   return (
     <nav>
       <Text weight="bold">目次</Text>
-      <ul className={tocStyles.list}>
+      <ul className="mt-50 flex max-w-container-50 flex-col gap-25">
         {items.map(({ label, href }) => (
-          <li
-            key={label}
-            className={tocStyles.item({ active: activeLabel === label })}
-          >
+          <li key={label} className="p-25">
             <Link display="block" href={href} noHovered>
-              {label}
+              <Span
+                color={activeLabel === label ? "primary" : "secondary"}
+                size="75"
+              >
+                {label}
+              </Span>
             </Link>
           </li>
         ))}
@@ -82,7 +82,6 @@ export const TOC: React.FC = () => {
 
     window.addEventListener("scroll", scrollEvent);
 
-    // eslint-disable-next-line consistent-return
     return () => {
       window.removeEventListener("scroll", scrollEvent);
     };

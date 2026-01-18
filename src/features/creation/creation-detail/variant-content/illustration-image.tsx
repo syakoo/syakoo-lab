@@ -3,8 +3,6 @@ import type { FC } from "react";
 
 import type { CreationIllust } from "@/entities/creation/models/creation";
 
-import { styles } from "./illustration-image.css";
-
 type IllustrationImageProps = Pick<CreationIllust, "illust" | "title">;
 
 export const IllustrationImage: FC<IllustrationImageProps> = ({
@@ -12,10 +10,10 @@ export const IllustrationImage: FC<IllustrationImageProps> = ({
   title,
 }) => {
   return (
-    <div className={styles.container}>
+    <div className="flex max-md:-mx-200">
       <Image
         alt={`イラスト作品「${title}」`}
-        className={styles.image}
+        className="mx-auto h-auto max-w-full"
         height={illust.height}
         src={illust.src}
         width={illust.width}

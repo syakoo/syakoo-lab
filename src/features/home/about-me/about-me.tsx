@@ -4,7 +4,6 @@ import { aboutMeConfig } from "@/contents/about-me/config";
 import { Col, Row } from "@/shared/design-system/layout/flex/flex";
 import { H2, Text } from "@/shared/design-system/ui/text/text";
 
-import { aboutMeImageStyle } from "./about-me.css";
 import { Links } from "./links/links";
 
 export const AboutMe: React.FC = () => {
@@ -17,7 +16,7 @@ export const AboutMe: React.FC = () => {
         <Row gap="200">
           <Image
             alt="me"
-            className={aboutMeImageStyle}
+            className="size-[64px] rounded-swaying"
             height={imageSrc.height}
             src={imageSrc.src}
             width={imageSrc.width}

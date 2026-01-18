@@ -3,13 +3,6 @@ import type React from "react";
 import { Footer } from "@/features/layout/header-footer-template/footer/footer";
 import { Header } from "@/features/layout/header-footer-template/header/header";
 
-import {
-  containerFooterStyle,
-  containerHeaderStyle,
-  containerMainStyle,
-  containerStyle,
-} from "./header-footer-template.css";
-
 type HeaderFooterTemplateProps = {
   children: React.ReactNode;
 };
@@ -17,12 +10,12 @@ type HeaderFooterTemplateProps = {
 export const HeaderFooterTemplate: React.FC<HeaderFooterTemplateProps> = ({
   children,
 }) => (
-  <div className={containerStyle}>
-    <div className={containerHeaderStyle}>
+  <div className="grid min-h-screen grid-cols-[100%] grid-rows-[auto_1fr_auto]">
+    <div className="sticky top-0 z-100">
       <Header />
     </div>
-    <div className={containerMainStyle}>{children}</div>
-    <div className={containerFooterStyle}>
+    <div>{children}</div>
+    <div>
       <Footer />
     </div>
   </div>

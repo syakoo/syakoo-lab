@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import { theme } from "@/shared/design-system/theme.css";
-
 import { Icon, iconDictionary } from "./icon";
 
 const meta = {
@@ -25,7 +23,7 @@ export const Gallery = () => {
         display: "flex",
         flexWrap: "wrap",
         gap: "32px",
-        color: theme.color.text.primary,
+        color: "var(--color-text-primary)",
       }}
     >
       {Object.entries(iconDictionary).map(([name, Component]) => (
@@ -42,7 +40,7 @@ export const Gallery = () => {
             style={{
               width: "48px",
               padding: "8px",
-              backgroundColor: theme.color.background.secondary,
+              backgroundColor: "var(--color-background-secondary)",
               borderRadius: "8px",
             }}
           >

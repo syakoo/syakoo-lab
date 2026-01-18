@@ -6,8 +6,6 @@ import { useRef } from "react";
 import type { CreationGame } from "@/entities/creation/models/creation";
 import { Icon } from "@/shared/design-system/icons/icon";
 
-import { styles } from "./gameplay-screen.css";
-
 type GameplayScreenProps = Pick<CreationGame, "gameplayScreen" | "title">;
 
 export const GameplayScreen: FC<GameplayScreenProps> = ({
@@ -23,10 +21,10 @@ export const GameplayScreen: FC<GameplayScreenProps> = ({
 
   return (
     <div>
-      <div className={styles.screenContainer}>
+      <div className="flex max-md:-mx-200">
         <iframe
           ref={iframeRef}
-          className={styles.screen}
+          className="mx-auto h-auto w-full"
           height={gameplayScreen.height}
           src={gameplayScreen.src}
           style={{
@@ -36,9 +34,9 @@ export const GameplayScreen: FC<GameplayScreenProps> = ({
           width={gameplayScreen.width}
         />
       </div>
-      <div className={styles.fullscreenButtonContainer}>
+      <div className="flex justify-end pt-50">
         <button
-          className={styles.fullscreenButton}
+          className="flex size-[19px] cursor-pointer rounded-50 p-25 text-text-primary transition-opacity duration-200 hover:opacity-80"
           onClick={handleFullscreen}
           type="button"
         >

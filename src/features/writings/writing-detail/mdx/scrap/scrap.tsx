@@ -1,4 +1,4 @@
-import { scrapStyles } from "./scrap.css";
+import styles from "./scrap.module.css";
 
 type ScrapProps = {
   createdAt: string;
@@ -12,12 +12,14 @@ export const Scrap: React.FC<ScrapProps> = ({
   updatedAt,
 }) => {
   return (
-    <article className={scrapStyles.root}>
-      <div className={scrapStyles.dateWrapper}>
+    <article
+      className={`${styles.root} overflow-hidden rounded-100 bg-background-secondary p-100`}
+    >
+      <div className="flex items-center gap-50 text-50 text-text-secondary">
         <time>{updatedAt || createdAt}</time>
         {updatedAt ? <span>(Edited)</span> : null}
       </div>
-      <div className={scrapStyles.body}>{children}</div>
+      <div className={styles.body}>{children}</div>
     </article>
   );
 };

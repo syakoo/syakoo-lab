@@ -6,9 +6,9 @@ import "@/shared/global-settings/global-settings";
 import { siteConfig } from "@/shared/config/site";
 import { GoogleAnalytics } from "@/shared/google-analytics/google-analytics";
 
-const notoSansJP = Noto_Sans_JP({ weight: ["100", "700"], subsets: ["latin"] });
+const notoSansJP = Noto_Sans_JP({ weight: ["400", "700"], subsets: ["latin"] });
 const roboto = Roboto({
-  weight: "100",
+  weight: ["400", "700"],
   subsets: ["latin"],
 });
 const firaCode = Fira_Code({

@@ -1,0 +1,16 @@
+/* ===== Section Title Styles ===== */
+.title::before {
+  position: absolute;
+  top: 0;
+  left: calc(-1 * var(--spacing-200));
+  display: inline-block;
+  width: 1em;
+  height: 4px;
+  content: "";
+  background: linear-gradient(
+    to right bottom,
+    var(--color-brand-primary),
+    var(--color-brand-secondary)
+  );
+  border-top-right-radius: var(--radius-100);
+}

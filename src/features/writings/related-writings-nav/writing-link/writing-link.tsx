@@ -6,8 +6,6 @@ import { Col, Row } from "@/shared/design-system/layout/flex/flex";
 import { Link } from "@/shared/design-system/ui/link/link";
 import { H4, Span } from "@/shared/design-system/ui/text/text";
 
-import { writingLinkStyles } from "./writing-link.css";
-
 type WritingLinkProps = {
   head: WritingHead;
 };
@@ -17,7 +15,7 @@ export const WritingLink: React.FC<WritingLinkProps> = ({ head }) => {
 
   return (
     <Row align="flexStart" as="article" gap="100">
-      <div className={writingLinkStyles.iconWrapper}>
+      <div className="w-200 pt-50">
         <Icon name={iconName} />
       </div>
       <Col gap="50">

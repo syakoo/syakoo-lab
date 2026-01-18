@@ -1,14 +1,18 @@
-import type { RecipeVariants } from "@vanilla-extract/recipes";
 import type React from "react";
 
 import { PolymorphicComponent } from "@/shared/utils/polymorphic-component/polymorphic-component";
 
-import { flexItemStyle, flexStyle } from "./flex.css";
+import {
+  type FlexItemStyleVariants,
+  type FlexStyleVariants,
+  flexItemStyle,
+  flexStyle,
+} from "./flex.styles";
 
 type FlexProps = {
   as?: keyof JSX.IntrinsicElements;
   children: React.ReactNode;
-} & RecipeVariants<typeof flexStyle>;
+} & FlexStyleVariants;
 /**
  * Flex 系のレイアウトコンポーネント
  *
@@ -21,15 +25,13 @@ export const Flex: React.FC<FlexProps> = ({
 }) => {
   const Tag = as;
 
-  // NOTE: Tag はプリミティブな要素
-  // eslint-disable-next-line react/forbid-component-props
   return <Tag className={flexStyle(variantProps)}>{children}</Tag>;
 };
 
 type FlexItemProps = {
   as?: keyof JSX.IntrinsicElements;
   children: React.ReactNode;
-} & RecipeVariants<typeof flexItemStyle>;
+} & FlexItemStyleVariants;
 /**
  * Flex 用のアイテムレイアウトコンポーネント
  *

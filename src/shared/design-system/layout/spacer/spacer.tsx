@@ -1,8 +1,6 @@
-import type { RecipeVariants } from "@vanilla-extract/recipes";
+import { type SpacerStyleVariants, spacerStyle } from "./spacer.styles";
 
-import { spacerStyle } from "./spacer.css";
-
-type SpacerProps = RecipeVariants<typeof spacerStyle>;
+type SpacerProps = SpacerStyleVariants;
 
 export const Spacer: React.FC<SpacerProps> = (props) => {
   return <div aria-hidden className={spacerStyle(props)} />;

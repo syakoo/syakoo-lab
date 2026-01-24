@@ -8,7 +8,7 @@ body:
     attributes:
       label: 背景・目的
       description: この要望を出すに至った背景や目的を記載してください
-      placeholder: 例: ユーザーが〇〇をしたい時に、現在は△△という手順が必要で不便に感じているため...
+      placeholder: "例: ユーザーが〇〇をしたい時に、現在は△△という手順が必要で不便に感じているため..."
     validations:
       required: true
 

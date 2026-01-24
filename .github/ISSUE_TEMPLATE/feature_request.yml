@@ -26,13 +26,6 @@ body:
       required: true
 
   - type: textarea
-    id: figma
-    attributes:
-      label: Figmaデザイン
-      description: Figmaで作成したデザインのリンクを記載してください
-      placeholder: https://www.figma.com/file/...
-
-  - type: textarea
     id: acceptance_criteria
     attributes:
       label: 受け入れ基準

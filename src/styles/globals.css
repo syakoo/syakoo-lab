@@ -103,12 +103,19 @@
 }
 
 /* ===== Global Styles ===== */
-html,
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   background-color: var(--color-background-primary);
   color: var(--color-text-primary);
   font-family: var(--font-primary);
   font-size: var(--text-100);
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
 }
 
 img,

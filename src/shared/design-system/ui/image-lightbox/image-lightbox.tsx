@@ -7,6 +7,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -121,10 +122,13 @@ export const ImageLightboxRoot: FC<RootProps> = ({ src, alt, children }) => {
     };
   }, [triggerRect]);
 
+  const contextValue = useMemo(
+    () => ({ triggerRef, dialogRef, open, src, alt }),
+    [open, src, alt],
+  );
+
   return (
-    <ImageLightboxContext.Provider
-      value={{ triggerRef, dialogRef, open, src, alt }}
-    >
+    <ImageLightboxContext.Provider value={contextValue}>
       {children}
       {/* biome-ignore lint/a11y/useKeyWithClickEvents: ESCキーは onCancel で処理 */}
       <dialog

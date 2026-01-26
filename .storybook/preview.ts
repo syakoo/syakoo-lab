@@ -45,7 +45,7 @@ const preview: Preview = {
       theme: storyTheme,
     },
     viewport: {
-      viewports: INITIAL_VIEWPORTS,
+      options: INITIAL_VIEWPORTS,
     },
     nextjs: {
       appDirectory: true,

@@ -161,18 +161,27 @@ export const ImageLightboxTrigger: FC<TriggerProps> = ({
   className,
 }) => {
   const { triggerRef, open } = useImageLightboxContext();
-  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // タッチデバイス判定（pointer: coarse はタッチスクリーン）
+    // モバイル判定（768px 以下）
     // NOTE: useState の初期値で判定するとハイドレーションミスマッチが起きるため、
     // useEffect でマウント後に判定する
-    const mediaQuery = window.matchMedia("(pointer: coarse)");
-    setIsTouchDevice(mediaQuery.matches);
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
   }, []);
 
-  // モバイル（タッチデバイス）ではライトボックス無効
-  if (isTouchDevice) {
+  // モバイルではライトボックス無効
+  if (isMobile) {
     return <div className={className}>{children}</div>;
   }
 

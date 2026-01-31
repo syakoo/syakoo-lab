@@ -3,8 +3,8 @@
 import type { FC, PropsWithChildren } from "react";
 import { useState } from "react";
 
-import { Icon } from "@/shared/design-system/icons/icon";
-import { Text } from "@/shared/design-system/ui/text/text";
+import { Icon } from "../../../../shared/design-system/icons/icon";
+import { Text } from "../../../../shared/design-system/ui/text/text";
 
 type Props = PropsWithChildren<{
   fileName: string;

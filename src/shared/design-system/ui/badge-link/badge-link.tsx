@@ -1,7 +1,7 @@
-import { Icon } from "@/shared/design-system/icons/icon";
-import { Row } from "@/shared/design-system/layout/flex/flex";
-import { Link } from "@/shared/design-system/ui/link/link";
-import { Span } from "@/shared/design-system/ui/text/text";
+import { Icon } from "../../icons/icon";
+import { Row } from "../../layout/flex/flex";
+import { Link } from "../link/link";
+import { Span } from "../text/text";
 
 export type BadgeLinkProps = {
   href: string;

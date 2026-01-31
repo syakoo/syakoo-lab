@@ -5,10 +5,10 @@ import {
   generateDummyCreationGame,
   generateDummyCreationIllust,
   generateDummyCreationWebapp,
-} from "@/entities/creation/models/creation.mocks";
-import { readCreationSummaries } from "@/features/creation/creation-reader/read-creation";
-import { random } from "@/shared/test-utils/random/random";
-import { range } from "@/shared/utils/array/range";
+} from "../../../entities/creation/models/creation.mocks";
+import { random } from "../../../shared/test-utils/random/random";
+import { range } from "../../../shared/utils/array/range";
+import { readCreationSummaries } from "../creation-reader/read-creation";
 
 import { CreationList } from "./creation-list";
 

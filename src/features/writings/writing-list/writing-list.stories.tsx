@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { clearAllMocks, mocked } from "storybook/test";
 
-import { generateDummyWritingHead } from "@/entities/writing/models/writing.mocks";
-import { readWritingHeads } from "@/features/writings/writing-reader/read-writing";
-import { random } from "@/shared/test-utils/random/random";
-import { range } from "@/shared/utils/array/range";
+import { generateDummyWritingHead } from "../../../entities/writing/models/writing.mocks";
+import { random } from "../../../shared/test-utils/random/random";
+import { range } from "../../../shared/utils/array/range";
+import { readWritingHeads } from "../writing-reader/read-writing";
 
 import { WritingList } from "./writing-list";
 

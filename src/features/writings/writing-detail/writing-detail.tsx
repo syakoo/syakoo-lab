@@ -1,9 +1,8 @@
 import { differenceInYears } from "date-fns";
 import { notFound } from "next/navigation";
-
-import { readWritingById } from "@/features/writings/writing-reader/read-writing";
-import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
-import { FadeIn } from "@/shared/design-system/ui/fade-in/fade-in";
+import { Spacer } from "../../../shared/design-system/layout/spacer/spacer";
+import { FadeIn } from "../../../shared/design-system/ui/fade-in/fade-in";
+import { readWritingById } from "../writing-reader/read-writing";
 
 import { Note } from "./mdx/note/note";
 import { TOC } from "./toc/toc";

@@ -1,4 +1,4 @@
-import type { MDXCustomTextPlugin } from "@/features/mdx/types";
+import type { MDXCustomTextPlugin } from "../../types";
 
 /**
  * mermaid のよくある記法を評価できるように変更する関数

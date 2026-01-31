@@ -1,8 +1,8 @@
-import type { WritingType } from "@/entities/writing/models/writing";
-import { getWritingTypeConfig } from "@/entities/writing/writing-type/writing-type";
-import { Icon } from "@/shared/design-system/icons/icon";
-import { Col, Row } from "@/shared/design-system/layout/flex/flex";
-import { P, Text } from "@/shared/design-system/ui/text/text";
+import type { WritingType } from "../../../../entities/writing/models/writing";
+import { getWritingTypeConfig } from "../../../../entities/writing/writing-type/writing-type";
+import { Icon } from "../../../../shared/design-system/icons/icon";
+import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
+import { P, Text } from "../../../../shared/design-system/ui/text/text";
 
 type WritingTypeDescriptionProps = {
   type: WritingType;

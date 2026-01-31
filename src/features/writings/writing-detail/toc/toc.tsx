@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from "react";
 
-import { Link } from "@/shared/design-system/ui/link/link";
-import { Span, Text } from "@/shared/design-system/ui/text/text";
-import { useMount } from "@/shared/utils/use-mount/use-mount";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { Span, Text } from "../../../../shared/design-system/ui/text/text";
+import { useMount } from "../../../../shared/utils/use-mount/use-mount";
 
 type TOCItem = {
   label: string;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { cn } from "@/shared/utils/cn/cn";
+import { cn } from "../../../../../shared/utils/cn/cn";
 import fuyu1 from "./assets/fuyu1.png";
 import fuyu2 from "./assets/fuyu2.png";
 import fuyu3 from "./assets/fuyu3.png";

@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@/shared/design-system/ui/link/link";
+import { Link } from "../../../../../shared/design-system/ui/link/link";
 
 type SubSectionTitleProps = {
   children: React.ReactNode;

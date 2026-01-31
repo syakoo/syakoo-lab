@@ -1,6 +1,6 @@
 import type { Meta, StoryFn, StoryObj } from "@storybook/nextjs";
 
-import { Figure } from "@/features/writings/writing-detail/mdx/figure/figure-with-caption";
+import { Figure } from "../figure/figure-with-caption";
 
 import {
   GCircle,

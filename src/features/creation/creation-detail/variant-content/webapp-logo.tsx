@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { FC } from "react";
 
-import type { CreationWebapp } from "@/entities/creation/models/creation";
+import type { CreationWebapp } from "../../../../entities/creation/models/creation";
 
 type WebappLogoProps = Pick<CreationWebapp, "logo" | "title">;
 

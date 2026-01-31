@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { cn } from "@/shared/utils/cn/cn";
+import { cn } from "../../../../../shared/utils/cn/cn";
 
 import styles from "./choices.module.css";
 

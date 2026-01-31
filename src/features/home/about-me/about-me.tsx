@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import { aboutMeConfig } from "@/contents/about-me/config";
-import { Col, Row } from "@/shared/design-system/layout/flex/flex";
-import { H2, Text } from "@/shared/design-system/ui/text/text";
+import { aboutMeConfig } from "../../../contents/about-me/config";
+import { Col, Row } from "../../../shared/design-system/layout/flex/flex";
+import { H2, Text } from "../../../shared/design-system/ui/text/text";
 
 import { Links } from "./links/links";
 

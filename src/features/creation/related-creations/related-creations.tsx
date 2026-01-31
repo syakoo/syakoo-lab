@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
 
-import { CreationCard } from "@/entities/creation/creation-card/creation-card";
-import { readCreationSummaries } from "@/features/creation/creation-reader/read-creation";
-import { Col, Row } from "@/shared/design-system/layout/flex/flex";
-import { Link } from "@/shared/design-system/ui/link/link";
-import { H3 } from "@/shared/design-system/ui/text/text";
+import { CreationCard } from "../../../entities/creation/creation-card/creation-card";
+import { Col, Row } from "../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../shared/design-system/ui/link/link";
+import { H3 } from "../../../shared/design-system/ui/text/text";
+import { readCreationSummaries } from "../creation-reader/read-creation";
 
 import { getRelatedCreations } from "./get-related-creations";
 

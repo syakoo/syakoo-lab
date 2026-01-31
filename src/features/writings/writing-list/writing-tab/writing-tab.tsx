@@ -1,10 +1,10 @@
+import { Row } from "../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { cn } from "../../../../shared/utils/cn/cn";
 import {
   type WritingListType,
   writingListTypePath,
-} from "@/features/writings/writing-list/_shared/writing-list-type";
-import { Row } from "@/shared/design-system/layout/flex/flex";
-import { Link } from "@/shared/design-system/ui/link/link";
-import { cn } from "@/shared/utils/cn/cn";
+} from "../_shared/writing-list-type";
 
 type WritingTabProps = {
   selectedType: WritingListType;

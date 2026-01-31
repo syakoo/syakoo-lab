@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 
-import { formatPageTitle } from "@/entities/page-title/formatter";
-import { HeaderFooterTemplate } from "@/features/layout/header-footer-template/header-footer-template";
-import { Container } from "@/shared/design-system/layout/container/container";
-import { Col } from "@/shared/design-system/layout/flex/flex";
-import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
-import { List } from "@/shared/design-system/ui/list/list-with-item";
-import { H2, H3, P } from "@/shared/design-system/ui/text/text";
+import { formatPageTitle } from "../../entities/page-title/formatter";
+import { HeaderFooterTemplate } from "../../features/layout/header-footer-template/header-footer-template";
+import { Container } from "../../shared/design-system/layout/container/container";
+import { Col } from "../../shared/design-system/layout/flex/flex";
+import { Spacer } from "../../shared/design-system/layout/spacer/spacer";
+import { List } from "../../shared/design-system/ui/list/list-with-item";
+import { H2, H3, P } from "../../shared/design-system/ui/text/text";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Privacy Policy"),

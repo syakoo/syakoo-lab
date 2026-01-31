@@ -5,8 +5,8 @@ import {
   generateDummyCreationGame,
   generateDummyCreationIllust,
   generateDummyCreationWebapp,
-} from "@/entities/creation/models/creation.mocks";
-import { readCreationById } from "@/features/creation/creation-reader/read-creation";
+} from "../../../entities/creation/models/creation.mocks";
+import { readCreationById } from "../creation-reader/read-creation";
 
 import { CreationDetail } from "./creation-detail";
 

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Fira_Code, Noto_Sans_JP, Roboto } from "next/font/google";
 import { Suspense } from "react";
 
-import "@/shared/global-settings/global-settings";
-import { siteConfig } from "@/shared/config/site";
-import { GoogleAnalytics } from "@/shared/google-analytics/google-analytics";
+import "../shared/global-settings/global-settings";
+import { siteConfig } from "../shared/config/site";
+import { GoogleAnalytics } from "../shared/google-analytics/google-analytics";
 
 const notoSansJP = Noto_Sans_JP({ weight: ["400", "700"], subsets: ["latin"] });
 const roboto = Roboto({

@@ -1,4 +1,4 @@
-import type { MDXComponent } from "@/features/mdx/types";
+import type { MDXComponent } from "../types";
 
 export const exampleMDXComponent: MDXComponent = ({ components }) => {
   const H2 = components?.h2 ?? "h2";

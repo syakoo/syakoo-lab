@@ -1,4 +1,4 @@
-import type { AboutMeConfig } from "@/features/home/about-me/types";
+import type { AboutMeConfig } from "../../features/home/about-me/types";
 
 import atcoderImageSrc from "./atcoder.png";
 import githubImageSrc from "./github.png";

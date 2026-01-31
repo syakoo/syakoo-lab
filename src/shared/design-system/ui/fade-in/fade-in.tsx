@@ -1,4 +1,4 @@
-import { PolymorphicComponent } from "@/shared/utils/polymorphic-component/polymorphic-component";
+import { PolymorphicComponent } from "../../../utils/polymorphic-component/polymorphic-component";
 
 type FadeInProps = {
   children: React.ReactNode;

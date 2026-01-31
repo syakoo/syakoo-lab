@@ -1,11 +1,11 @@
 import Image from "next/image";
 import type { FC } from "react";
 
-import type { CreationIllust } from "@/entities/creation/models/creation";
+import type { CreationIllust } from "../../../../entities/creation/models/creation";
 import {
   ImageLightboxRoot,
   ImageLightboxTrigger,
-} from "@/shared/design-system/ui/image-lightbox/image-lightbox";
+} from "../../../../shared/design-system/ui/image-lightbox/image-lightbox";
 
 type IllustrationImageProps = Pick<CreationIllust, "illust" | "title">;
 

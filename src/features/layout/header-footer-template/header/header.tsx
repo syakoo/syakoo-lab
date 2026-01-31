@@ -3,14 +3,14 @@
 import { usePathname } from "next/navigation";
 import type React from "react";
 
-import { creationPaths } from "@/entities/creation/paths/creation-paths";
-import { SyakooLabText } from "@/entities/syakoo-lab-text/syakoo-lab-text";
-import { writingPaths } from "@/entities/writing/paths/writing-paths";
-import { Center } from "@/shared/design-system/layout/center/center";
-import { Container } from "@/shared/design-system/layout/container/container";
-import { Row } from "@/shared/design-system/layout/flex/flex";
-import { Link } from "@/shared/design-system/ui/link/link";
-import { Span } from "@/shared/design-system/ui/text/text";
+import { creationPaths } from "../../../../entities/creation/paths/creation-paths";
+import { SyakooLabText } from "../../../../entities/syakoo-lab-text/syakoo-lab-text";
+import { writingPaths } from "../../../../entities/writing/paths/writing-paths";
+import { Center } from "../../../../shared/design-system/layout/center/center";
+import { Container } from "../../../../shared/design-system/layout/container/container";
+import { Row } from "../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { Span } from "../../../../shared/design-system/ui/text/text";
 
 export const headerHeightPx = 74;
 

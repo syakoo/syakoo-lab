@@ -1,4 +1,4 @@
-import { env } from "env";
+import { env } from "../../../env";
 
 declare global {
   // biome-ignore lint/style/useConsistentTypeDefinitions: グローバル型拡張には interface が必要

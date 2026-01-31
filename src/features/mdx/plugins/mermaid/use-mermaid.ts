@@ -1,6 +1,6 @@
 import mermaid from "mermaid";
 
-import { useMount } from "@/shared/utils/use-mount/use-mount";
+import { useMount } from "../../../../shared/utils/use-mount/use-mount";
 
 // Mermaid は CSS 変数を受け付けないため、直接色の値を指定
 const colors = {

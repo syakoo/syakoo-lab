@@ -2,21 +2,21 @@ import type { Preview } from "@storybook/nextjs";
 import { sb } from "storybook/test";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 
-import "@/shared/global-settings/global-settings";
+import "../src/shared/global-settings/global-settings";
 import { storyTheme } from "./manager";
 
 // NOTE: Node 利用のモジュールは Storybook で動かないので雑にモックする
 // read-writing などの直接機能で利用しているモジュールで返却値を指定できるようにする
-sb.mock(import("@/contents/writings/reader"));
-sb.mock(import("@/contents/arts/reader"));
-sb.mock(import("@/contents/games/reader"));
-sb.mock(import("@/contents/webapps/reader"));
+sb.mock(import("../src/contents/writings/reader"));
+sb.mock(import("../src/contents/arts/reader"));
+sb.mock(import("../src/contents/games/reader"));
+sb.mock(import("../src/contents/webapps/reader"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
-sb.mock(import("@/features/writings/writing-reader/read-writing"), {
+sb.mock(import("../src/features/writings/writing-reader/read-writing"), {
   spy: true,
 });
-sb.mock(import("@/features/creation/creation-reader/read-creation"), {
+sb.mock(import("../src/features/creation/creation-reader/read-creation"), {
   spy: true,
 });
 

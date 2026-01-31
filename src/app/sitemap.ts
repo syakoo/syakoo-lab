@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 
-import { readGameContents } from "@/contents/games/reader";
-import { readWebappContents } from "@/contents/webapps/reader";
-import { readWritingContents } from "@/contents/writings/reader";
+import { readGameContents } from "../contents/games/reader";
+import { readWebappContents } from "../contents/webapps/reader";
+import { readWritingContents } from "../contents/writings/reader";
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const basePath = "https://syakoo-lab.com";

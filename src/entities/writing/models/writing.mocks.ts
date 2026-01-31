@@ -1,4 +1,4 @@
-import { random } from "@/shared/test-utils/random/random";
+import { random } from "../../../shared/test-utils/random/random";
 
 import type { SerializedWriting, WritingHead, WritingType } from "./writing";
 

@@ -1,10 +1,10 @@
-import type { WritingHead } from "@/entities/writing/models/writing";
-import { writingPaths } from "@/entities/writing/paths/writing-paths";
-import { getWritingTypeConfig } from "@/entities/writing/writing-type/writing-type";
-import { Icon } from "@/shared/design-system/icons/icon";
-import { Col, Row } from "@/shared/design-system/layout/flex/flex";
-import { Link } from "@/shared/design-system/ui/link/link";
-import { H4, Span } from "@/shared/design-system/ui/text/text";
+import type { WritingHead } from "../../../../entities/writing/models/writing";
+import { writingPaths } from "../../../../entities/writing/paths/writing-paths";
+import { getWritingTypeConfig } from "../../../../entities/writing/writing-type/writing-type";
+import { Icon } from "../../../../shared/design-system/icons/icon";
+import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { H4, Span } from "../../../../shared/design-system/ui/text/text";
 
 type WritingLinkProps = {
   head: WritingHead;

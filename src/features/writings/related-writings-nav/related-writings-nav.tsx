@@ -1,5 +1,5 @@
-import { Col } from "@/shared/design-system/layout/flex/flex";
-import { H3 } from "@/shared/design-system/ui/text/text";
+import { Col } from "../../../shared/design-system/layout/flex/flex";
+import { H3 } from "../../../shared/design-system/ui/text/text";
 
 import { findRelatedWritingHeads } from "./find-related-writing-heads";
 import { WritingLink } from "./writing-link/writing-link";

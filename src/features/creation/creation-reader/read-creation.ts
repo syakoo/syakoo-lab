@@ -1,13 +1,13 @@
 import { compareDesc } from "date-fns/esm";
 
-import { readArtContents } from "@/contents/arts/reader";
-import { readGameContents } from "@/contents/games/reader";
-import { readWebappContents } from "@/contents/webapps/reader";
+import { readArtContents } from "../../../contents/arts/reader";
+import { readGameContents } from "../../../contents/games/reader";
+import { readWebappContents } from "../../../contents/webapps/reader";
 import type {
   Creation,
   CreationSummary,
-} from "@/entities/creation/models/creation";
-import { serializeMDXContent } from "@/features/mdx/serializer";
+} from "../../../entities/creation/models/creation";
+import { serializeMDXContent } from "../../mdx/serializer";
 
 import {
   toCreationGameSummary,

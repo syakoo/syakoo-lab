@@ -11,7 +11,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { cn } from "@/shared/utils/cn/cn";
+import { cn } from "../../../utils/cn/cn";
 
 import styles from "./image-lightbox.module.css";
 

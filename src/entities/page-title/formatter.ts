@@ -1,4 +1,4 @@
-import { siteConfig } from "@/shared/config/site";
+import { siteConfig } from "../../shared/config/site";
 
 /**
  * タイトル用に「`title` - Syakoo Lab」に変換する関数

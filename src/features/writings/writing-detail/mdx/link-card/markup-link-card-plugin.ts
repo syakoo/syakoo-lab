@@ -1,6 +1,6 @@
 import { JSDOM } from "jsdom";
 
-import type { MDXCustomTextPlugin } from "@/features/mdx/types";
+import type { MDXCustomTextPlugin } from "../../../../mdx/types";
 
 import type { LinkCardProps } from "./link-card";
 

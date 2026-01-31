@@ -1,6 +1,6 @@
-import { Row } from "@/shared/design-system/layout/flex/flex";
-import { Link } from "@/shared/design-system/ui/link/link";
-import { Text } from "@/shared/design-system/ui/text/text";
+import { Row } from "../../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../../shared/design-system/ui/link/link";
+import { Text } from "../../../../../shared/design-system/ui/text/text";
 
 type BookViewProps = {
   title: string;

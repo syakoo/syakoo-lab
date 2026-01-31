@@ -1,10 +1,10 @@
-import type { WritingHead } from "@/entities/writing/models/writing";
-import { getWritingTypeConfig } from "@/entities/writing/writing-type/writing-type";
-import { Icon } from "@/shared/design-system/icons/icon";
-import { Row } from "@/shared/design-system/layout/flex/flex";
-import { Spacer } from "@/shared/design-system/layout/spacer/spacer";
-import { Link } from "@/shared/design-system/ui/link/link";
-import { H1, Span, Text } from "@/shared/design-system/ui/text/text";
+import type { WritingHead } from "../../../../entities/writing/models/writing";
+import { getWritingTypeConfig } from "../../../../entities/writing/writing-type/writing-type";
+import { Icon } from "../../../../shared/design-system/icons/icon";
+import { Row } from "../../../../shared/design-system/layout/flex/flex";
+import { Spacer } from "../../../../shared/design-system/layout/spacer/spacer";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { H1, Span, Text } from "../../../../shared/design-system/ui/text/text";
 
 type WritingHeaderProps = {
   head: WritingHead;

@@ -1,7 +1,7 @@
 import {
   ImageLightboxRoot,
   ImageLightboxTrigger,
-} from "@/shared/design-system/ui/image-lightbox/image-lightbox";
+} from "../../../../../shared/design-system/ui/image-lightbox/image-lightbox";
 
 type ImageProps = {
   caption?: string;

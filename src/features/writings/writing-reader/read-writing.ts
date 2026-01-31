@@ -1,13 +1,13 @@
 import { compareDesc } from "date-fns";
 
-import { readWritingContents } from "@/contents/writings/reader";
+import { readWritingContents } from "../../../contents/writings/reader";
 import type {
   SerializedWriting,
   WritingHead,
-} from "@/entities/writing/models/writing";
-import { markupMermaid } from "@/features/mdx/plugins/mermaid/mermaid-plugin";
-import { serializeMDXContent } from "@/features/mdx/serializer";
-import { mdxPlugins } from "@/features/writings/writing-detail/mdx/plugins";
+} from "../../../entities/writing/models/writing";
+import { markupMermaid } from "../../mdx/plugins/mermaid/mermaid-plugin";
+import { serializeMDXContent } from "../../mdx/serializer";
+import { mdxPlugins } from "../writing-detail/mdx/plugins";
 
 import { resolveWritingHead } from "./head-resolver";
 

@@ -1,7 +1,7 @@
 import { compareDesc } from "date-fns";
 
-import type { WritingHead } from "@/entities/writing/models/writing";
-import { readWritingHeads } from "@/features/writings/writing-reader/read-writing";
+import type { WritingHead } from "../../../entities/writing/models/writing";
+import { readWritingHeads } from "../writing-reader/read-writing";
 
 const writingRelatedScore =
   (originalTags: WritingHead["tags"]) => (targetTags: WritingHead["tags"]) => {

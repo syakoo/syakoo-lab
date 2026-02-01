@@ -23,15 +23,19 @@ export const Sample = () => {
   );
 };
 
-export const Colors = () => {
-  return (
-    <>
-      <Text color="currentColor">currentColor (default)</Text>
-      <Text color="primary">primary</Text>
-      <Text color="secondary">secondary</Text>
-      <Text color="tertiary">tertiary</Text>
-    </>
-  );
+export const Colors = {
+  // tertiary は暗い背景を前提としているためコントラストチェックを除外
+  parameters: { a11y: { disable: true } },
+  render: () => {
+    return (
+      <>
+        <Text color="currentColor">currentColor (default)</Text>
+        <Text color="primary">primary</Text>
+        <Text color="secondary">secondary</Text>
+        <Text color="tertiary">tertiary</Text>
+      </>
+    );
+  },
 };
 
 export const Sizes = () => {

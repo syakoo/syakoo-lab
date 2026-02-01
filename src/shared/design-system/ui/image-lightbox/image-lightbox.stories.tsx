@@ -6,6 +6,9 @@ import { ImageLightboxRoot, ImageLightboxTrigger } from "./image-lightbox";
 const meta = {
   tags: ["autodocs"],
   parameters: {},
+  globals: {
+    viewport: { value: undefined, isRotated: false },
+  },
   render: () => (
     <ImageLightboxRoot alt="サンプル画像" src="/img/arts/20210912.png">
       <ImageLightboxTrigger>
@@ -40,14 +43,25 @@ export const Sample: Story = {
 
 /**
  * Mobile 表示の確認用ストーリー
- * TODO: test-runner では viewport 変更が matchMedia に反映されるタイミングの問題で
- *       テストが不安定なため、Storybook バージョンアップ後に再対応する
- *       @see https://github.com/syakoo/syakoo-lab/issues/204
  */
 export const Mobile: Story = {
-  tags: ["test:skip"],
   globals: {
     viewport: { value: "iphone6", isRotated: false },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // useEffect での isMobile 更新を待つ
+    await waitFor(() => {
+      const images = canvas.getAllByAltText("サンプル画像");
+      const triggerImage = images[0];
+
+      // Mobile では button でラップされていない
+      expect(
+        triggerImage.closest("button"),
+        "button でラップされていない",
+      ).toBeNull();
+    });
   },
 };
 

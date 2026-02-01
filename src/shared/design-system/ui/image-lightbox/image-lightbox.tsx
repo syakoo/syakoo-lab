@@ -168,12 +168,11 @@ export const ImageLightboxTrigger: FC<TriggerProps> = ({
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // モバイル判定（768px 以下）
-    // NOTE: useState の初期値で判定するとハイドレーションミスマッチが起きるため、
-    // useEffect でマウント後に判定する
     const mediaQuery = window.matchMedia("(max-width: 768px)");
+    // 初期値を設定
     setIsMobile(mediaQuery.matches);
 
+    // viewport 変更を検知して isMobile を更新
     const handleChange = (e: MediaQueryListEvent) => {
       setIsMobile(e.matches);
     };

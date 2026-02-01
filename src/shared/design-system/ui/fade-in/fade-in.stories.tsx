@@ -11,14 +11,7 @@ const meta = {
 export default meta;
 
 const SampleInnerContent = () => (
-  <div
-    style={{
-      borderRadius: "var(--radius-100)",
-      background: "var(--color-palette-gray-100)",
-      padding: "50px",
-      textAlign: "center",
-    }}
-  >
+  <div className="rounded-100 bg-background-secondary p-200 text-center">
     Children
   </div>
 );

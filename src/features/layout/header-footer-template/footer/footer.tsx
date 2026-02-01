@@ -18,7 +18,7 @@ export const Footer: React.FC = () => {
           <Text as="span" color="secondary">
             © 2021 syakoo
           </Text>
-          <nav>
+          <nav aria-label="フッターナビゲーション">
             <Row gap="200">
               <Link href="/">
                 <Text as="span" color="secondary">

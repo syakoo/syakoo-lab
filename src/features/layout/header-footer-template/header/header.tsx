@@ -36,7 +36,7 @@ export const Header: React.FC = () => {
           <Link aria-label="Go to the homepage" href="/">
             <SyakooLabText />
           </Link>
-          <Row align="center" as="nav">
+          <Row align="center" aria-label="メインナビゲーション" as="nav">
             <NavLink href={writingPaths.list()}>Writings</NavLink>
             <NavLink href={creationPaths.list()}>Creations</NavLink>
           </Row>

@@ -7,16 +7,16 @@ import { storyTheme } from "./manager";
 
 // NOTE: Node 利用のモジュールは Storybook で動かないので雑にモックする
 // read-writing などの直接機能で利用しているモジュールで返却値を指定できるようにする
-sb.mock(import("../src/contents/writings/reader"));
-sb.mock(import("../src/contents/arts/reader"));
-sb.mock(import("../src/contents/games/reader"));
-sb.mock(import("../src/contents/webapps/reader"));
+sb.mock(import("../src/contents/writings/reader.ts"));
+sb.mock(import("../src/contents/arts/reader.ts"));
+sb.mock(import("../src/contents/games/reader.ts"));
+sb.mock(import("../src/contents/webapps/reader.ts"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
-sb.mock(import("../src/features/writings/writing-reader/read-writing"), {
+sb.mock(import("../src/features/writings/writing-reader/read-writing.ts"), {
   spy: true,
 });
-sb.mock(import("../src/features/creation/creation-reader/read-creation"), {
+sb.mock(import("../src/features/creation/creation-reader/read-creation.ts"), {
   spy: true,
 });
 

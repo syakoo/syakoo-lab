@@ -165,16 +165,14 @@ export const ImageLightboxTrigger: FC<TriggerProps> = ({
   className,
 }) => {
   const { triggerRef, open } = useImageLightboxContext();
-  const [isMobile, setIsMobile] = useState(() =>
-    typeof window !== "undefined"
-      ? window.matchMedia("(max-width: 768px)").matches
-      : false,
-  );
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // viewport 変更を検知して isMobile を更新
     const mediaQuery = window.matchMedia("(max-width: 768px)");
+    // 初期値を設定
+    setIsMobile(mediaQuery.matches);
 
+    // viewport 変更を検知して isMobile を更新
     const handleChange = (e: MediaQueryListEvent) => {
       setIsMobile(e.matches);
     };

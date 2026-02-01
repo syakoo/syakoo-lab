@@ -50,14 +50,18 @@ export const Mobile: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const images = canvas.getAllByAltText("サンプル画像");
-    const triggerImage = images[0];
 
-    // Mobile では button でラップされていない
-    expect(
-      triggerImage.closest("button"),
-      "button でラップされていない",
-    ).toBeNull();
+    // useEffect での isMobile 更新を待つ
+    await waitFor(() => {
+      const images = canvas.getAllByAltText("サンプル画像");
+      const triggerImage = images[0];
+
+      // Mobile では button でラップされていない
+      expect(
+        triggerImage.closest("button"),
+        "button でラップされていない",
+      ).toBeNull();
+    });
   },
 };
 

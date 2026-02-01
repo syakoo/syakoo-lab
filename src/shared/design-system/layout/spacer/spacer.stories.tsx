@@ -16,7 +16,7 @@ const DummyBlock = ({ width, height }: { width: string; height: string }) => (
   <div
     style={{
       borderRadius: "var(--radius-100)",
-      background: "var(--color-palette-gray-100)",
+      background: "var(--color-background-secondary)",
       width,
       height,
       display: "flex",

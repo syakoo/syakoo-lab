@@ -15,14 +15,19 @@ type Story = StoryObj<typeof Note>;
 export const Sample: Story = {
   args: {
     children: "サンプルテキスト",
+    "aria-label": "補足情報",
   },
 };
 
 export const Variants = () => {
   return (
     <div>
-      <Note variant="note">Variant: Default</Note>
-      <Note variant="warn">Variant: Warn</Note>
+      <Note aria-label="補足情報" variant="note">
+        Variant: Default
+      </Note>
+      <Note aria-label="警告情報" variant="warn">
+        Variant: Warn
+      </Note>
     </div>
   );
 };

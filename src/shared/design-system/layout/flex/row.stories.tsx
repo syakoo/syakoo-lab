@@ -20,7 +20,7 @@ const SampleInnerContent = ({
   <div
     style={{
       borderRadius: "var(--radius-100)",
-      background: "var(--color-palette-gray-100)",
+      background: "var(--color-background-secondary)",
       width,
       height,
       display: "flex",

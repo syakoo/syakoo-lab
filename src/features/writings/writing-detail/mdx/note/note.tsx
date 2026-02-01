@@ -6,11 +6,17 @@ import styles from "./note.module.css";
 type NoteProps = {
   children: React.ReactNode;
   variant?: "note" | "warn";
+  "aria-label"?: string;
 };
 
-export const Note: React.FC<NoteProps> = ({ children, variant = "note" }) => {
+export const Note: React.FC<NoteProps> = ({
+  children,
+  variant = "note",
+  "aria-label": ariaLabel,
+}) => {
   return (
     <aside
+      aria-label={ariaLabel}
       className={cn(
         styles.wrapper,
         "mx-0 my-200 flex items-start gap-100 rounded-50 p-100",

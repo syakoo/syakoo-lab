@@ -15,7 +15,7 @@ const SampleInnerContent = ({ children }: { children: React.ReactNode }) => (
   <div
     style={{
       borderRadius: "var(--radius-100)",
-      background: "var(--color-palette-gray-100)",
+      background: "var(--color-background-secondary)",
       padding: "50px",
       width: "500px",
     }}

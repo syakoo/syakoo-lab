@@ -9,9 +9,6 @@ import { Container } from "../../shared/design-system/layout/container/container
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),
-  robots: {
-    index: false,
-  },
   openGraph: {
     type: "website",
     images: "/logo.png",

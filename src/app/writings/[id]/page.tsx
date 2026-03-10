@@ -20,17 +20,18 @@ export const generateStaticParams = async () => {
 };
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
+  const { id } = await params;
   const writingContent = (await readWritingContents()).find(
-    ({ frontMatter }) => frontMatter.id === params.id,
+    ({ frontMatter }) => frontMatter.id === id,
   );
 
   if (!writingContent) {
-    throw new Error(`Writing not found: ${params.id}`);
+    throw new Error(`Writing not found: ${id}`);
   }
 
   return {
@@ -47,12 +48,13 @@ export const generateMetadata = async ({
 };
 
 const WritingsContentPage = async ({ params }: Props) => {
-  const relatedWritingNav = await RelatedWritingsNav({ id: params.id });
+  const { id } = await params;
+  const relatedWritingNav = await RelatedWritingsNav({ id });
 
   return (
     <HeaderFooterTemplate>
       <main>
-        <WritingDetail id={params.id} />
+        <WritingDetail id={id} />
       </main>
       {relatedWritingNav ? (
         <>

@@ -9,7 +9,7 @@ type ImageProps = {
 
 export const Image: React.FC<ImageProps> = ({ caption, ...imageProps }) => {
   const altText = caption || "";
-  const src = imageProps.src || "";
+  const src = typeof imageProps.src === "string" ? imageProps.src : "";
 
   return (
     <figure className="mx-auto my-200 flex flex-col items-center gap-100">

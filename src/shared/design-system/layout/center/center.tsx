@@ -3,7 +3,7 @@ import type React from "react";
 import { PolymorphicComponent } from "../../../utils/polymorphic-component/polymorphic-component";
 
 type CenterProps = {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   children: React.ReactNode;
 };
 

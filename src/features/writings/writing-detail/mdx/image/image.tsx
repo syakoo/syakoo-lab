@@ -5,11 +5,12 @@ import {
 
 type ImageProps = {
   caption?: string;
-} & React.ImgHTMLAttributes<HTMLImageElement>;
+  src?: string;
+} & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">;
 
 export const Image: React.FC<ImageProps> = ({ caption, ...imageProps }) => {
   const altText = caption || "";
-  const src = typeof imageProps.src === "string" ? imageProps.src : "";
+  const src = imageProps.src || "";
 
   return (
     <figure className="mx-auto my-200 flex flex-col items-center gap-100">

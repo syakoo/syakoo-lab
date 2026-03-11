@@ -10,7 +10,7 @@ import {
 } from "./flex.styles";
 
 type FlexProps = {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   children: React.ReactNode;
 } & FlexStyleVariants;
 /**
@@ -22,14 +22,14 @@ export const Flex: React.FC<FlexProps> = ({
   as = "div",
   children,
   ...variantProps
-}) => {
-  const Tag = as;
-
-  return <Tag className={flexStyle(variantProps)}>{children}</Tag>;
-};
+}) => (
+  <PolymorphicComponent as={as} className={flexStyle(variantProps)}>
+    {children}
+  </PolymorphicComponent>
+);
 
 type FlexItemProps = {
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
   children: React.ReactNode;
 } & FlexItemStyleVariants;
 /**

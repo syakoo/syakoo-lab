@@ -20,8 +20,8 @@ import styles from "./image-lightbox.module.css";
 // =============================================================================
 
 type ImageLightboxContextValue = {
-  triggerRef: React.RefObject<HTMLButtonElement>;
-  dialogRef: React.RefObject<HTMLDialogElement>;
+  triggerRef: React.RefObject<HTMLButtonElement | null>;
+  dialogRef: React.RefObject<HTMLDialogElement | null>;
   open: () => void;
   src: string;
   alt: string;

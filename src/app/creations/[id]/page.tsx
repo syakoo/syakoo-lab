@@ -23,13 +23,14 @@ export const generateStaticParams = async () => {
 };
 
 type Props = {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 };
 
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const creation = await readCreationById(params.id);
+  const { id } = await params;
+  const creation = await readCreationById(id);
 
   if (creation === null) {
     notFound();
@@ -45,19 +46,21 @@ export const generateMetadata = async ({
   };
 };
 
-const CreationDetailPage = ({ params }: Props) => {
+const CreationDetailPage = async ({ params }: Props) => {
+  const { id } = await params;
+
   return (
     <HeaderFooterTemplate>
       <Container center paddingX="200" paddingY="400" size="100">
         <Col gap="500">
           <main>
             <FadeIn>
-              <CreationDetail id={params.id} />
+              <CreationDetail id={id} />
             </FadeIn>
           </main>
           <nav>
             <FadeIn delaySec={0.2}>
-              <RelatedCreations id={params.id} />
+              <RelatedCreations id={id} />
             </FadeIn>
           </nav>
         </Col>

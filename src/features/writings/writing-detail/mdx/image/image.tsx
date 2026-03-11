@@ -5,7 +5,8 @@ import {
 
 type ImageProps = {
   caption?: string;
-} & React.ImgHTMLAttributes<HTMLImageElement>;
+  src?: string;
+} & Omit<React.ImgHTMLAttributes<HTMLImageElement>, "src">;
 
 export const Image: React.FC<ImageProps> = ({ caption, ...imageProps }) => {
   const altText = caption || "";

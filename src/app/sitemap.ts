@@ -4,6 +4,8 @@ import { readGameContents } from "../contents/games/reader";
 import { readWebappContents } from "../contents/webapps/reader";
 import { readWritingContents } from "../contents/writings/reader";
 
+export const dynamic = "force-static";
+
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {
   const basePath = "https://syakoo-lab.com";
 

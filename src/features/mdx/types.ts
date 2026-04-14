@@ -8,10 +8,6 @@ export type MDXComponent = React.FC<{
   components?: Record<string, React.FC<any>>;
 }>;
 
-export type SerializedMDXContent = {
-  type: "serialized";
-  data: string;
-};
 export type ResolvedMDXContent = {
   type: "resolved";
   data: MDXComponent;

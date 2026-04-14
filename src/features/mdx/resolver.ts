@@ -1,11 +1,8 @@
 import { runSync } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 
-import type {
-  MDXComponent,
-  ResolvedMDXContent,
-  SerializedMDXContent,
-} from "./types";
+import type { SerializedMDXContent } from "../../entities/mdx-content/models/mdx-content";
+import type { MDXComponent, ResolvedMDXContent } from "./types";
 
 /**
  * シリアライズされた MDX をコンポーネントに解決する関数

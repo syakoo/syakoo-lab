@@ -3,7 +3,8 @@ import rehypeKatex from "rehype-katex";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkMath from "remark-math";
 
-import type { MDXCustomTextPlugin, SerializedMDXContent } from "./types";
+import type { SerializedMDXContent } from "../../entities/mdx-content/models/mdx-content";
+import type { MDXCustomTextPlugin } from "./types";
 
 /**
  * MDX 本文をシリアライズする関数

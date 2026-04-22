@@ -43,7 +43,7 @@ type TocProps = {
 };
 
 export const Toc: React.FC<TocProps> = ({ items }) => {
-  const [toc, setToc] = useState<TocData>([]);
+  const [positionedTocItems, setPositionedTocItems] = useState<TocData>([]);
   const [activeSectionId, setActiveSectionId] = useState<string>();
 
   useEffect(() => {
@@ -52,29 +52,33 @@ export const Toc: React.FC<TocProps> = ({ items }) => {
       return {
         ...item,
         positionY: el
-          ? el.getBoundingClientRect().top + window.scrollY - window.innerHeight / 2
+          ? el.getBoundingClientRect().top +
+            window.scrollY -
+            window.innerHeight / 2
           : Number.POSITIVE_INFINITY,
       };
     });
-    setToc(resolvedTocItems);
+    setPositionedTocItems(resolvedTocItems);
   }, [items]);
 
   useEffect(() => {
-    if (toc.length === 0) {
+    if (positionedTocItems.length === 0) {
       setActiveSectionId(undefined);
       return;
     }
 
     const scrollEvent = () => {
       const y = window.scrollY;
-      const idx = toc.findIndex((d) => d.positionY > y);
+      const idx = positionedTocItems.findIndex((d) => d.positionY > y);
 
       if (idx === 0) {
         setActiveSectionId(undefined);
       } else if (idx === -1) {
-        setActiveSectionId(toc[toc.length - 1]?.id);
+        setActiveSectionId(
+          positionedTocItems[positionedTocItems.length - 1]?.id,
+        );
       } else {
-        setActiveSectionId(toc[idx - 1]?.id);
+        setActiveSectionId(positionedTocItems[idx - 1]?.id);
       }
     };
 
@@ -84,9 +88,9 @@ export const Toc: React.FC<TocProps> = ({ items }) => {
     return () => {
       window.removeEventListener("scroll", scrollEvent);
     };
-  }, [toc]);
+  }, [positionedTocItems]);
 
-  if (toc.length === 0) {
+  if (items.length === 0) {
     return null;
   }
   return <TocView activeId={activeSectionId} items={items} />;

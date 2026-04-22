@@ -1,9 +1,3 @@
-import { JSDOM } from "jsdom";
-import React from "react";
-
-import { resolveMDXContent } from "../../../../mdx/resolver";
-import { serializeMDXContent } from "../../../../mdx/serializer";
-
 export type ParsedMarkdownHeadingLine = {
   depth: 2 | 3;
   headingContent: string;
@@ -32,14 +26,16 @@ export const parseMarkdownHeadingLine = (
   return null;
 };
 
-const resolveHeadingTextContent = async (content: string): Promise<string> => {
-  const { renderToString } = await import("react-dom/server");
-  const serializedMDX = await serializeMDXContent(content);
-  const MDXComponent = resolveMDXContent(serializedMDX).data;
-  const jsdom = new JSDOM(renderToString(React.createElement(MDXComponent)));
-  const { textContent } = jsdom.window.document.body;
-
-  return textContent ?? "";
+const resolveHeadingTextContent = (content: string): string => {
+  return content
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/<\/?[^>]+>/g, "")
+    .replace(/[*_~]/g, "")
+    .replace(/\\([\\`*_{[\]()#+\-.!>])/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
 };
 
 const createHeadingId = (textContent: string, count: number): string => {
@@ -62,7 +58,7 @@ export const createHeadingAnchorResolver = () => {
 
   return {
     resolveHeadingAnchor: async (headingContent: string) => {
-      const label = await resolveHeadingTextContent(headingContent);
+      const label = resolveHeadingTextContent(headingContent);
       const count = counter.count(label);
 
       return {

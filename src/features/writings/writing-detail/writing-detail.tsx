@@ -5,7 +5,7 @@ import { FadeIn } from "../../../shared/design-system/ui/fade-in/fade-in";
 import { readWritingById } from "../writing-reader/read-writing";
 
 import { Note } from "./mdx/note/note";
-import { TOC } from "./toc/toc";
+import { Toc } from "./toc/toc";
 import styles from "./writing-detail.module.css";
 import { WritingHeader } from "./writing-header/writing-header";
 import { WritingMdxContent } from "./writing-mdx-content";
@@ -51,7 +51,7 @@ export const WritingDetail = async ({ id }: WritingDetailProps) => {
         </div>
         <aside className={`${styles.aside} flex h-full flex-col gap-200 p-200`}>
           <div className="sticky top-[calc(var(--spacing-200)+var(--size-header))]">
-            <TOC />
+            <Toc items={writing.toc} />
           </div>
         </aside>
       </article>

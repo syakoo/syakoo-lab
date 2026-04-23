@@ -13,29 +13,26 @@ export const markupSectionTitlePlugin: MDXCustomTextPlugin = async (mdText) => {
   const headingAnchorResolver = createHeadingAnchorResolver();
   const markdownCodeFenceTracker = createMarkdownCodeFenceTracker();
 
-  const resultSplittedTexts = await Promise.all(
-    splittedMdTexts.map(async (text) => {
-      if (markdownCodeFenceTracker.shouldSkipLine(text)) {
-        return text;
-      }
-
-      const parsedHeading = parseMarkdownHeadingLine(text);
-      if (parsedHeading) {
-        const { id } = headingAnchorResolver.resolveHeadingAnchor(
-          parsedHeading.headingContent,
-        );
-
-        if (parsedHeading.depth === 3) {
-          return `<SubSectionTitle id="${id}">${parsedHeading.headingContent}</SubSectionTitle>`;
-        }
-        if (parsedHeading.depth === 2) {
-          return `<SectionTitle id="${id}">${parsedHeading.headingContent}</SectionTitle>`;
-        }
-      }
-
+  const resultSplittedTexts = splittedMdTexts.map((text) => {
+    if (markdownCodeFenceTracker.shouldSkipLine(text)) {
       return text;
-    }),
-  );
+    }
+
+    const parsedHeading = parseMarkdownHeadingLine(text);
+    if (parsedHeading) {
+      const { id } = headingAnchorResolver.resolveHeadingAnchor(
+        parsedHeading.headingContent,
+      );
+
+      if (parsedHeading.depth === 3) {
+        return `<SubSectionTitle id="${id}">${parsedHeading.headingContent}</SubSectionTitle>`;
+      }
+      if (parsedHeading.depth === 2) {
+        return `<SectionTitle id="${id}">${parsedHeading.headingContent}</SectionTitle>`;
+      }
+    }
+    return text;
+  });
 
   return resultSplittedTexts.join("\n");
 };

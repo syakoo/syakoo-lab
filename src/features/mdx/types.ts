@@ -1,9 +1,7 @@
 /**
  * MDX の本文を評価前に変換する自作プラグインのインターフェース
  */
-export type MDXCustomTextPlugin = (
-  mdxText: string,
-) => Promise<string>;
+export type MDXCustomTextPlugin = (mdxText: string) => Promise<string>;
 
 export type MDXComponent = React.FC<{
   // biome-ignore lint/suspicious/noExplicitAny: 任意のコンポーネントを受け取るため

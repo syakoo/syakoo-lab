@@ -3,27 +3,44 @@ export type ParsedMarkdownHeadingLine = {
   headingContent: string;
 };
 
+const markdownCodeFenceRegex = /^(```|~~~)/;
+
 export const parseMarkdownHeadingLine = (
   line: string,
 ): ParsedMarkdownHeadingLine | null => {
   const trimmedLine = line.trim();
-  const h3Regex = /^### .*/;
-  if (h3Regex.test(trimmedLine)) {
+  const h3Match = trimmedLine.match(/^###\s+(.*)$/);
+  if (h3Match) {
     return {
       depth: 3,
-      headingContent: line.replace("###", ""),
+      headingContent: h3Match[1],
     };
   }
 
-  const h2Regex = /^## .*/;
-  if (h2Regex.test(trimmedLine)) {
+  const h2Match = trimmedLine.match(/^##\s+(.*)$/);
+  if (h2Match) {
     return {
       depth: 2,
-      headingContent: line.replace("##", ""),
+      headingContent: h2Match[1],
     };
   }
 
   return null;
+};
+
+export const createMarkdownCodeFenceTracker = () => {
+  let inCodeFence = false;
+
+  return {
+    shouldSkipLine: (line: string) => {
+      if (markdownCodeFenceRegex.test(line.trim())) {
+        inCodeFence = !inCodeFence;
+        return true;
+      }
+
+      return inCodeFence;
+    },
+  };
 };
 
 const resolveHeadingTextContent = (content: string): string => {
@@ -38,8 +55,8 @@ const resolveHeadingTextContent = (content: string): string => {
     .trim();
 };
 
-const createHeadingId = (textContent: string, count: number): string => {
-  return [textContent.replaceAll(" ", ""), count].filter(Boolean).join("-");
+const createHeadingId = (idBase: string, count: number): string => {
+  return [idBase, count].filter(Boolean).join("-");
 };
 
 export const createHeadingAnchorResolver = () => {
@@ -57,12 +74,14 @@ export const createHeadingAnchorResolver = () => {
   };
 
   return {
-    resolveHeadingAnchor: async (headingContent: string) => {
-      const label = resolveHeadingTextContent(headingContent);
-      const count = counter.count(label);
+    resolveHeadingAnchor: (headingContent: string) => {
+      const normalizedLabel = resolveHeadingTextContent(headingContent);
+      const label = normalizedLabel || headingContent.trim();
+      const idBase = normalizedLabel.replaceAll(" ", "") || "section";
+      const count = counter.count(idBase);
 
       return {
-        id: createHeadingId(label, count),
+        id: createHeadingId(idBase, count),
         label,
       };
     },

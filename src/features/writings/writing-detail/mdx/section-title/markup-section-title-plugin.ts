@@ -1,6 +1,7 @@
 import type { MDXCustomTextPlugin } from "../../../../mdx/types";
 import {
   createHeadingAnchorResolver,
+  createMarkdownCodeFenceTracker,
   parseMarkdownHeadingLine,
 } from "./heading-anchor-resolver";
 
@@ -10,12 +11,17 @@ import {
 export const markupSectionTitlePlugin: MDXCustomTextPlugin = async (mdText) => {
   const splittedMdTexts = mdText.split("\n");
   const headingAnchorResolver = createHeadingAnchorResolver();
+  const markdownCodeFenceTracker = createMarkdownCodeFenceTracker();
 
   const resultSplittedTexts = await Promise.all(
     splittedMdTexts.map(async (text) => {
+      if (markdownCodeFenceTracker.shouldSkipLine(text)) {
+        return text;
+      }
+
       const parsedHeading = parseMarkdownHeadingLine(text);
       if (parsedHeading) {
-        const { id } = await headingAnchorResolver.resolveHeadingAnchor(
+        const { id } = headingAnchorResolver.resolveHeadingAnchor(
           parsedHeading.headingContent,
         );
 

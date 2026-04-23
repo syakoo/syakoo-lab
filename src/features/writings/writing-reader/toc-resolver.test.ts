@@ -50,4 +50,51 @@ describe("resolveWritingToc", () => {
       },
     ]);
   });
+
+  test("コードブロック内の見出し記法は TOC 生成から除外する", async () => {
+    const markdown = `
+## 見える見出し
+\`\`\`md
+## コードブロック内の見出し
+\`\`\`
+## 後続の見出し
+`;
+
+    const toc = await resolveWritingToc(markdown);
+
+    expect(toc).toEqual([
+      {
+        id: "見える見出し",
+        label: "見える見出し",
+        depth: 2,
+      },
+      {
+        id: "後続の見出し",
+        label: "後続の見出し",
+        depth: 2,
+      },
+    ]);
+  });
+
+  test("記号のみの見出しでも id のフォールバックが使われる", async () => {
+    const markdown = `
+## ***
+## ~~~
+`;
+
+    const toc = await resolveWritingToc(markdown);
+
+    expect(toc).toEqual([
+      {
+        id: "section",
+        label: "***",
+        depth: 2,
+      },
+      {
+        id: "section-1",
+        label: "~~~",
+        depth: 2,
+      },
+    ]);
+  });
 });

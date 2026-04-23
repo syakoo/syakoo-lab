@@ -12,7 +12,14 @@ export type WritingHead = {
   noindex?: boolean;
 };
 
+export type WritingTocItem = {
+  id: string;
+  label: string;
+  depth: 2 | 3;
+};
+
 export type SerializedWriting = {
   head: WritingHead;
+  toc: WritingTocItem[];
   body: SerializedMDXContent;
 };

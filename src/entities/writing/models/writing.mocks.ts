@@ -61,6 +61,13 @@ export const generateDummySerializedWriting = (
 ): SerializedWriting => {
   return {
     head: generateDummyWritingHead(),
+    toc: [
+      {
+        id: "サンプル記事",
+        label: "サンプル記事",
+        depth: 2,
+      },
+    ],
     body: {
       type: "serialized" as const,
       data: sampleMdxContent,

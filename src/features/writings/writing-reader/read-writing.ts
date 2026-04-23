@@ -10,6 +10,7 @@ import { serializeMDXContent } from "../../mdx/serializer";
 import { mdxPlugins } from "../writing-detail/mdx/plugins";
 
 import { resolveWritingHead } from "./head-resolver";
+import { resolveWritingToc } from "./toc-resolver";
 
 export const readWritingById = async (
   id: string,
@@ -24,6 +25,7 @@ export const readWritingById = async (
 
   return {
     head: resolveWritingHead(targetContent.frontMatter),
+    toc: await resolveWritingToc(targetContent.body),
     body: await serializeMDXContent(targetContent.body, {
       plugins: [markupMermaid, ...mdxPlugins],
     }),

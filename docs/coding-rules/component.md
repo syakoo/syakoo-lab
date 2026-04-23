@@ -17,7 +17,6 @@ post-list/
 - [MUST] ディレクトリ名およびファイル名は kebab-case とする
 - [MUST] index.ts は使用せず、直接ファイルパスでインポートする（例: `import { PostList } from "./post-list/post-list"`）
 - [MUST] テストはスナップショットテストを特に理由がない限りは導入する
-- [MUST] story の parameters.docs.description.component に Figma リンクがある場合、リンク先のデータをマスターデータとして同期を行う
 - [MUST] アイコンを利用する際には design-system/icons に定義してそれを用いる
 - [SHOULD] アイコンやレイアウト、テキストやリンクなどの一般的な UI は design-system を利用する
 - [SHOULD] ストーリーは存在するパターンを網羅する

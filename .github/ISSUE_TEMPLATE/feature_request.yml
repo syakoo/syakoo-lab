@@ -1,6 +1,5 @@
 name: 機能要望
 description: 新機能や改善の要望を記載するテンプレート
-title: "[要望] "
 labels: []
 body:
   - type: textarea

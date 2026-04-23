@@ -12,14 +12,7 @@ import { CreationDetail } from "./creation-detail";
 
 const meta = {
   component: CreationDetail,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "https://www.figma.com/design/KM3QHHUgriWxt0RJ1MT5SB/syakoo-lab?node-id=541-986&t=kVsF3rxs1WNK1866-4",
-      },
-    },
-  },
+  parameters: {},
   tags: ["autodocs"],
   afterEach: () => {
     clearAllMocks();

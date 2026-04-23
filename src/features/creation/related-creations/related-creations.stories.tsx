@@ -13,8 +13,7 @@ const meta = {
   parameters: {
     docs: {
       description: {
-        component:
-          "関連創作物一覧コンポーネント。Figma: https://www.figma.com/design/KM3QHHUgriWxt0RJ1MT5SB/syakoo-lab?node-id=616-891",
+        component: "関連創作物一覧コンポーネント。",
       },
     },
   },

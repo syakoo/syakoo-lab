@@ -3,6 +3,8 @@ name: create-pull-request
 description: >-
   AI主体開発フローに準拠した PR を作成する。
   変更内容の要約、設計図（該当時）、影響・懸念を含む PR 本文を生成し gh で起票する。
+  Use when creating a pull request, opening a PR, pushing changes for review,
+  or completing implementation of an issue.
 ---
 
 # Pull Request 作成

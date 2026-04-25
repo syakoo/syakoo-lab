@@ -23,7 +23,7 @@ Issue の背景・要件・受け入れ基準を把握する。
 ### 2. ブランチ作成
 
 ```bash
-git checkout -b cursor/<簡潔な説明>-<Issue番号> origin/main
+git fetch origin && git checkout -b cursor/<簡潔な説明>-<Issue番号> origin/main
 ```
 
 main への直接コミットはしない。
@@ -42,10 +42,10 @@ main への直接コミットはしない。
 
 ```bash
 git add <変更ファイル>
-git commit -m "<type>: <emoji> <summary>"
+git commit -m "<メッセージ>"
 ```
 
-- コミットメッセージはリポジトリの既存スタイルに合わせる
+- `git log --oneline -10` で既存のコミットメッセージスタイルを確認し、それに合わせる
 - `closes #<Issue番号>` をメッセージ末尾に含める
 
 ### 6. Push & PR 作成
@@ -59,4 +59,4 @@ push 後、`create-pull-request` スキルに従って PR を作成する。
 ## 重要
 
 - ステップ 4〜6 は承認後に **止まらず一気に完遂** する。途中でユーザーに確認を挟まない。
-- フックがタイムアウトする場合はタイムアウトを延長して再試行する。`--no-verify` は使わない。
+- フックがタイムアウトする場合は Shell ツールの `timeout` パラメータを伸ばして再試行する。`--no-verify` は使わない。

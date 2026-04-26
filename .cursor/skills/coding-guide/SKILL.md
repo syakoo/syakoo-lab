@@ -8,22 +8,9 @@ description: >-
 
 # コーディングガイド
 
-## ディレクトリ依存関係
+## ディレクトリ構造・依存関係
 
-各ディレクトリの依存関係は以下のとおり（自己依存を除く）。これに違反するインポートは禁止。また、`components` や `hooks` などの種類でディレクトリを分類しない。
-
-```mermaid
-graph TD
-app --> features & entities & shared & contents
-features --> entities & shared & contents
-entities --> shared & contents
-```
-
-- `shared/` はドメイン知識を持たない
-- `entities/` はドメイン知識を持つ共通モジュール
-- `features/` の各機能は互いに独立している
-- `app/` にはメタデータ定義・レイアウト定義・SSG データ取得処理のみ置く
-- `contents/` はサイトのコンテンツデータ（自己紹介や記事情報など）のみを持つ
+`project-structure` スキルに従う。
 
 ## コンポーネント規則
 
@@ -37,8 +24,8 @@ post-list/
 ```
 
 - ディレクトリ名・ファイル名は **kebab-case**
-- **index.ts は使用しない**。直接ファイルパスでインポートする
-  - 例: `import { PostList } from "./post-list/post-list"`
+- スライスの外部からは **`index.ts`（Public API）経由** でのみアクセスする
+- `index.ts` には re-export のみ書き、コンポーネント本体は置かない
 - ストーリーは存在するパターンを網羅する
 
 ### デザインシステムの活用

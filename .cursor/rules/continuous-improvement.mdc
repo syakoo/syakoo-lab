@@ -8,4 +8,4 @@ alwaysApply: true
 AI は作業中に反復パターンや暗黙知を発見したら、ルールやスキルとして形式知化してよい。
 本実装とは別 PR で提出し、人間のレビューを経てマージする。
 
-具体的な手順・制約は `propose-rule-or-skill` スキルに従う。
+具体的な手順・制約は `suggest-improvement` スキルに従う。

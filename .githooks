@@ -1,0 +1,11 @@
+[hook "lint"]
+	event = pre-push
+	command = pnpm lint
+
+[hook "test"]
+	event = pre-push
+	command = pnpm run test --run
+
+[hook "commitlint"]
+	event = commit-msg
+	command = pnpm exec commitlint -e

@@ -7,7 +7,7 @@
     "pnpm": ">=10.22.0"
   },
   "scripts": {
-    "prepare": "lefthook install",
+    "prepare": "git config --local include.path ../.githooks",
     "dev": "run-p dev:*",
     "dev:local": "next dev",
     "build": "pnpm run build:next",
@@ -60,7 +60,6 @@
       "@swc/core",
       "core-js-pure",
       "esbuild",
-      "lefthook",
       "sharp",
       "unrs-resolver"
     ],
@@ -92,10 +91,8 @@
     "@vitest/ui": "^3.2.4",
     "axe-playwright": "^2.1.0",
     "concurrently": "^9.2.1",
-    "devmoji": "^2.3.0",
     "http-server": "^14.1.1",
     "jsdom": "^22.1.0",
-    "lefthook": "^1.10.0",
     "npm-run-all2": "^5.0.0",
     "playwright": "^1.55.0",
     "scaffdog": "^3.0.0",

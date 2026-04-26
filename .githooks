@@ -8,4 +8,4 @@
 
 [hook "commitlint"]
 	event = commit-msg
-	command = pnpm exec commitlint -e
+	command = sh -c 'pnpm exec commitlint --edit "$1"' --

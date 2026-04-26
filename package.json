@@ -7,7 +7,7 @@
     "pnpm": ">=10.22.0"
   },
   "scripts": {
-    "prepare": "git config --local include.path ../.githooks",
+    "prepare": "git rev-parse --is-inside-work-tree > /dev/null 2>&1 && git config --local include.path ../.githooks || true",
     "dev": "run-p dev:*",
     "dev:local": "next dev",
     "build": "pnpm run build:next",

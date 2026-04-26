@@ -60,7 +60,7 @@ export const useAsyncFn = <AsyncFn extends AsyncFnBase>(
   const [state, callback] = useBaseAsyncFn(asyncFn, initialState);
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: asyncFn のラッパー関数であるため呼び出し側の deps で制御する
-  const memorizedCallback = useCallback(callback, [...deps]);
+  const memorizedCallback = useCallback(callback, deps);
 
   return [state, memorizedCallback] as const;
 };

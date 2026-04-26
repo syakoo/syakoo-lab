@@ -2,7 +2,6 @@ import type { EffectCallback } from "react";
 import { useEffect } from "react";
 
 export const useMount = (callback: EffectCallback) => {
-  // NOTE: 一度のみ
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // biome-ignore lint/correctness/useExhaustiveDependencies: マウント時に一度だけ実行する
   useEffect(callback, []);
 };

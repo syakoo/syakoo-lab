@@ -59,8 +59,7 @@ export const useAsyncFn = <AsyncFn extends AsyncFnBase>(
 ) => {
   const [state, callback] = useBaseAsyncFn(asyncFn, initialState);
 
-  // NOTE: asyncFn のラッパー関数であるため asyncFn の deps を入れる
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // biome-ignore lint/correctness/useExhaustiveDependencies: asyncFn のラッパー関数であるため呼び出し側の deps で制御する
   const memorizedCallback = useCallback(callback, [...deps]);
 
   return [state, memorizedCallback] as const;

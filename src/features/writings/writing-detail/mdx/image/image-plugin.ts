@@ -32,7 +32,7 @@ export const imagePlugin: MDXCustomTextPlugin = async (mdxText) => {
   return await asyncReplace(mdxText, pattern, async ([match, attributes]) => {
     const srcMatch = attributes.match(/src={?["'](.*?)["']/);
     // NOTE: src がマッチしない或いはこのサイトのものではない場合はそのまま返却する
-    if (!srcMatch || !srcMatch[1].startsWith("/")) {
+    if (!srcMatch?.[1].startsWith("/")) {
       return match;
     }
     const imageUrl = `${process.cwd()}/public${srcMatch[1]}`;

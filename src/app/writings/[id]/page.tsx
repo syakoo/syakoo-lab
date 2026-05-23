@@ -5,8 +5,9 @@ import { formatPageTitle } from "../../../entities/page-title";
 import { writingPaths } from "../../../entities/writing";
 import { Container } from "../../../shared/design-system/layout/container/container";
 import { Spacer } from "../../../shared/design-system/layout/spacer/spacer";
-import { HeaderFooterTemplate } from "../../../widgets/layout";
-import { RelatedWritingsNav, WritingDetail } from "../../../widgets/writings";
+import { HeaderFooterTemplate } from "../../../widgets/header-footer-template";
+import { RelatedWritingsNav } from "../../../widgets/related-writings-nav";
+import { WritingDetail } from "../../../widgets/writing-detail";
 
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();

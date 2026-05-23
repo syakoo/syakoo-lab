@@ -29,22 +29,37 @@ graph TD
 | レイヤー | 役割 |
 |----------|------|
 | `app/` | エントリポイント（Next.js App Router）、グローバル設定、プロバイダー |
-| `widgets/` | まとまりのある UI ブロック（記事一覧、詳細画面、ヘッダーなど） |
-| `features/` | 複数の widgets で横断的に再利用される小さな機能パーツ（共通ボタン、共有フォームなど） |
-| `entities/` | ビジネスエンティティ、複数機能で共有する型・ルール |
+| `widgets/` | 画面上にブロックとして表示する UI 単位（スライス名は具象名: `creation-list` など） |
+| `features/` | 複数 widgets で横断的に再利用される共通機能・UI 部品 |
+| `entities/` | 複数機能で共有するモデル（型・ルール・パス・reader）。**UI なし** |
 | `shared/` | ドメインに依存しないユーティリティ、UI キット |
 | `contents/` | 外部データとの吸収層、DTO、変換（※ 公式 FSD の `shared/api` に相当するが独立レイヤーとして分離） |
 
 ### widgets と features の違い
 
-- `widgets` — まとまりのある UI ブロック。ページの一区画を構成する単位（記事一覧、詳細画面、ヘッダー、サイドバーなど）
-- `features` — 横断的に再利用される小さな機能パーツ。複数の widgets から共通で使われるもの（共通ボタン、共有フォームなど）
+- `widgets` — 画面に見えるブロック。スライス名は `creation-list` のように具象名で、ドメイン名の親フォルダは置かない
+- `features` — widgets 横断の共通機能。`features/<domain>/<feature-name>/` に配置する（後述）
 
-例: 記事一覧（widget）や詳細画面（widget）の中で、共通の「いいねボタン」（feature）を使う。
+例: 記事一覧（`widgets/writing-list`）で `features/creation/creation-card` のカード UI を使う。
 
-## スライス内の構造
+## features のスライス構造
 
-各スライス（例: `features/login/`）は以下のセグメントを持てる。
+`features/<domain>/` は **整理用ディレクトリのみ**（`index.ts` なし）。Public API は `<feature-name>/index.ts` に置く。
+
+```
+features/creation/              # 束ねるだけ（index.ts なし）
+  creation-card/                # 機能パッケージ
+    ui/creation-card/
+      creation-card.tsx
+    index.ts
+```
+
+- **import** — `from ".../features/creation/creation-card"` のように機能パッケージを直指定する
+- 横断基盤（MDX など）は `features/mdx/` 配下にサブ feature を切り、ルート `index.ts` / `index.client.ts` で barrel してよい
+
+## スライス内の構造（widgets / feature パッケージ）
+
+各スライス（例: `widgets/creation-list/` や `features/creation/creation-card/`）は以下のセグメントを持てる。
 
 | セグメント | 内容 |
 |-----------|------|
@@ -55,17 +70,17 @@ graph TD
 `ui/` 内は機能単位でディレクトリを切り、関連するコンポーネントとフックを一緒に置く（コロケーション）。
 
 ```
-features/login/
+widgets/creation-list/
   ui/
-    login-button/
-      login-button.tsx
-      use-login.ts
-    confirm-dialog/
-      confirm-dialog.tsx
-      use-confirm-dialog.ts
-  models/
-  helpers/
+    creation-list/
+      creation-list.tsx
   index.ts          ← Public API
+
+features/creation/creation-card/
+  ui/
+    creation-card/
+      creation-card.tsx
+  index.ts          ← Public API（creation/ 直下には index.ts なし）
 ```
 
 ## ルール
@@ -99,24 +114,27 @@ Public API を維持すれば内部リファクタリングが呼び出し側に
 - ビルド時・リクエスト時にだけ動く serializer など → `index.server.ts`
 - 上記を `index.ts` にまとめると、Server 側の `import` だけで Client 境界が伝播しうるので分離する
 
-**例（`widgets/mdx/`）**
+**例（MDX）**
 
 ```
-widgets/mdx/
-  index.ts           # resolveMDXContent, 型
+entities/mdx-content/
   index.server.ts    # serializeMDXContent, markupMermaid
-  index.client.ts    # useMermaid, useTwitter
-  models/
-  helpers/
+
+features/mdx/
+  content-resolver/  # resolveMDXContent
+  mermaid/           # useMermaid（index.client.ts）
+  twitter/           # useTwitter（index.client.ts）
+  index.ts           # resolve 等の barrel
+  index.client.ts
 ```
 
 ```ts
 // Server（reader）
-import { serializeMDXContent } from "../../../mdx/index.server";
+import { serializeMDXContent } from "../../../entities/mdx-content/index.server";
 
 // Client（UI）
-import { useMermaid } from "../../../mdx/index.client";
-import { resolveMDXContent } from "../../../mdx";
+import { useMermaid } from "../../../features/mdx/index.client";
+import { resolveMDXContent } from "../../../features/mdx";
 ```
 
 `index.client.ts` / `index.server.ts` は **必要なスライスにだけ** 追加する。全スライスに必須ではない。
@@ -133,9 +151,8 @@ import { resolveMDXContent } from "../../../mdx";
 - `shared/` — ドメインに依存しないユーティリティのみ（日付操作、汎用 HTTP クライアントなど）
 - `contents/` — 外部との吸収層、DTO、変換（ビジネス知識を含む）
 
-### [Should] `entities` は最初から分けすぎない
+### [Should] reader は entities、横断 UI は features
 
-- 最初は widgets にまとめる
-- 複数の widgets で横断して使うパーツが出てきたら entities に切り出す
-
-entities に置くのは、複数箇所から参照される型・ルール・シンプルな表示コンポーネントに留める。
+- **entities** — 型・ルール・パス・`readXxx` などのデータ取得（`index.server.ts`）
+- **features** — 複数 widgets で使う UI 部品や MDX プラグインなど（entity の UI は置かない）
+- **widgets** — 画面ブロック本体。ドメイン名の抽象スライス（`widgets/creation/`）は避け、具象スライス名を使う

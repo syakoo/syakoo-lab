@@ -6,7 +6,7 @@ import { Col } from "../../shared/design-system/layout/flex/flex";
 import { Spacer } from "../../shared/design-system/layout/spacer/spacer";
 import { Link } from "../../shared/design-system/ui/link/link";
 import { H2, H3, P } from "../../shared/design-system/ui/text/text";
-import { HeaderFooterTemplate } from "../../widgets/layout";
+import { HeaderFooterTemplate } from "../../widgets/header-footer-template";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Privacy Policy"),

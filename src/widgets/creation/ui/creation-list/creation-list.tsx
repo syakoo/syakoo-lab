@@ -1,5 +1,4 @@
-import { CreationCard } from "../../../../entities/creation";
-import { creationPaths } from "../../../../entities/creation";
+import { CreationCard, creationPaths } from "../../../../entities/creation";
 import { Col } from "../../../../shared/design-system/layout/flex/flex";
 import { FadeIn } from "../../../../shared/design-system/ui/fade-in/fade-in";
 import { Link } from "../../../../shared/design-system/ui/link/link";

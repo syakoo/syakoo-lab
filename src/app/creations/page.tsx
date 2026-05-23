@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 
 import { creationPaths } from "../../entities/creation";
 import { formatPageTitle } from "../../entities/page-title";
+import { Container } from "../../shared/design-system/layout/container/container";
 import { CreationList } from "../../widgets/creation";
 import { HeaderFooterTemplate } from "../../widgets/layout";
-import { Container } from "../../shared/design-system/layout/container/container";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Creations"),

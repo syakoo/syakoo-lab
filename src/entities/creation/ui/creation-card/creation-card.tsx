@@ -4,12 +4,12 @@ import { match } from "ts-pattern";
 import { Icon } from "../../../../shared/design-system/icons/icon";
 import { Col } from "../../../../shared/design-system/layout/flex/flex";
 import { Text } from "../../../../shared/design-system/ui/text/text";
-import { creationTypes } from "../../models/creation-type/creation-type";
 import type {
   CreationGame,
   CreationIllust,
   CreationWebapp,
 } from "../../models/creation";
+import { creationTypes } from "../../models/creation-type/creation-type";
 
 export type CreationCardProps =
   | Pick<CreationIllust, "type" | "title" | "illust">

@@ -1,9 +1,8 @@
-import { AboutMe } from "../widgets/home";
-import { AboutSite } from "../widgets/home";
-import { HeaderFooterTemplate } from "../widgets/layout";
 import { Container } from "../shared/design-system/layout/container/container";
 import { Col } from "../shared/design-system/layout/flex/flex";
 import { FadeIn } from "../shared/design-system/ui/fade-in/fade-in";
+import { AboutMe, AboutSite } from "../widgets/home";
+import { HeaderFooterTemplate } from "../widgets/layout";
 
 const HomePage = () => {
   return (

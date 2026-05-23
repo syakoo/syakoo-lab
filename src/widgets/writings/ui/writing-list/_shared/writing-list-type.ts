@@ -1,8 +1,7 @@
 import { useSearchParams } from "next/navigation";
 
 import type { WritingType } from "../../../../../entities/writing";
-import { writingPaths } from "../../../../../entities/writing";
-import { writingTypes } from "../../../../../entities/writing";
+import { writingPaths, writingTypes } from "../../../../../entities/writing";
 
 export type WritingListType = WritingType | "all";
 

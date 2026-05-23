@@ -5,8 +5,7 @@ import type {
   SerializedWriting,
   WritingHead,
 } from "../../../../entities/writing";
-import { markupMermaid } from "../../../mdx";
-import { serializeMDXContent } from "../../../mdx";
+import { markupMermaid, serializeMDXContent } from "../../../mdx";
 import { mdxPlugins } from "../../ui/writing-detail/mdx/plugins";
 
 import { resolveWritingHead } from "./head-resolver";

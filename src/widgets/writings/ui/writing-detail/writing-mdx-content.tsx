@@ -2,7 +2,8 @@
 
 import type { SerializedWriting } from "../../../../entities/writing";
 import { Link } from "../../../../shared/design-system/ui/link/link";
-import { resolveMDXContent, useMermaid, useTwitter } from "../../../mdx";
+import { resolveMDXContent } from "../../../mdx";
+import { useMermaid, useTwitter } from "../../../mdx/index.client";
 
 import { mdxComponents } from "./mdx/mdx-components";
 

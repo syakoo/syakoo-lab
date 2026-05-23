@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 
-import { exampleMDXComponent } from "../../widgets/mdx";
+import { exampleMDXComponent } from "../../widgets/mdx/index.server";
 
 import { loadEnv } from "./nextjs/env";
 

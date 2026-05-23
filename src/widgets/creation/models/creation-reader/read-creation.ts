@@ -4,7 +4,7 @@ import { readArtContents } from "../../../../contents/arts/reader";
 import { readGameContents } from "../../../../contents/games/reader";
 import { readWebappContents } from "../../../../contents/webapps/reader";
 import type { Creation, CreationSummary } from "../../../../entities/creation";
-import { serializeMDXContent } from "../../../mdx";
+import { serializeMDXContent } from "../../../mdx/index.server";
 
 import {
   toCreationGameSummary,

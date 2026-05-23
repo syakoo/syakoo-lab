@@ -4,69 +4,74 @@ import type { MDXCustomTextPlugin } from "../../../../../mdx";
 
 import type { LinkCardProps } from "./link-card";
 
-const joinPathRoot = (path: string, url: string) => {
-  if (path.match("https://")) {
-    return path;
-  }
+const FETCH_TIMEOUT_MS = 8_000;
 
-  const base = url.split("/").slice(0, 3).join("/");
-  return `${base}/${path}`;
+const TITLE_META_KEYS = ["og:title", "twitter:title", "title"] as const;
+
+const DESCRIPTION_META_KEYS = [
+  "og:description",
+  "twitter:description",
+  "description",
+] as const;
+
+const getDomain = (url: string): string => {
+  try {
+    return new URL(url).hostname;
+  } catch {
+    return url;
+  }
 };
 
-const isExpectImgSrc = (content: string): boolean => {
-  return content.startsWith("http") || content.startsWith("/");
+const fallbackLinkCardProps = (url: string): LinkCardProps => ({
+  url,
+  title: getDomain(url),
+});
+
+const getMetaContent = (
+  document: Document,
+  keys: readonly string[],
+): string | undefined => {
+  for (const key of keys) {
+    for (const meta of document.getElementsByTagName("meta")) {
+      const propOrName =
+        meta.getAttribute("property") || meta.getAttribute("name");
+      const content = meta.getAttribute("content");
+
+      if (propOrName === key && content) {
+        return content;
+      }
+    }
+  }
+
+  return undefined;
 };
 
 const getLinkCardProps = async (url: string): Promise<LinkCardProps> => {
-  const result: LinkCardProps = {
-    url,
-    imgSrc: "",
-    title: "",
-    faviconSrc: "",
-  };
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
-  const dom = await fetch(url)
-    .then((res) => res.text())
-    .then((text: string) => {
-      return new JSDOM(text);
-    });
-  const metaData = dom.window.document.getElementsByTagName("meta");
+  try {
+    const response = await fetch(url, { signal: controller.signal });
 
-  for (const meta of metaData) {
-    const propOrName =
-      meta.getAttribute("property") || meta.getAttribute("name");
-    const content = meta.getAttribute("content");
-
-    if (propOrName && content) {
-      if (propOrName.match("title")) {
-        result.title = content;
-      }
-      if (propOrName.match("image") && isExpectImgSrc(content)) {
-        result.imgSrc = joinPathRoot(content, url);
-      }
-      if (propOrName.match("description")) {
-        result.description = content;
-      }
+    if (!response.ok) {
+      return fallbackLinkCardProps(url);
     }
+
+    const html = await response.text();
+    const document = new JSDOM(html).window.document;
+    const title = getMetaContent(document, TITLE_META_KEYS);
+    const description = getMetaContent(document, DESCRIPTION_META_KEYS);
+
+    return {
+      url,
+      title: title?.trim() || getDomain(url),
+      ...(description?.trim() ? { description: description.trim() } : {}),
+    };
+  } catch {
+    return fallbackLinkCardProps(url);
+  } finally {
+    clearTimeout(timeoutId);
   }
-
-  const linkData = dom.window.document.getElementsByTagName("link");
-  for (const link of linkData) {
-    const rel = link.getAttribute("rel");
-    const content = link.getAttribute("href");
-
-    if (rel && content) {
-      if (rel.match("icon")) {
-        result.faviconSrc = joinPathRoot(content, url);
-      }
-    }
-  }
-
-  if (!result.imgSrc) {
-    result.imgSrc = result.faviconSrc;
-  }
-
-  return result;
 };
 
 /**

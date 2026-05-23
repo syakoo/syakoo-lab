@@ -22,6 +22,12 @@ sb.mock(
     spy: true,
   },
 );
+sb.mock(
+  import("../src/entities/writing/models/writing-reader/read-writing-heads.ts"),
+  {
+    spy: true,
+  },
+);
 
 const preview: Preview = {
   parameters: {

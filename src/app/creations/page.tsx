@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-import { creationPaths } from "../../entities/creation/paths/creation-paths";
-import { formatPageTitle } from "../../entities/page-title/formatter";
-import { CreationList } from "../../features/creation/creation-list/creation-list";
-import { HeaderFooterTemplate } from "../../features/layout/header-footer-template/header-footer-template";
+import { creationPaths } from "../../entities/creation";
+import { formatPageTitle } from "../../entities/page-title";
+import { CreationList } from "../../widgets/creation";
+import { HeaderFooterTemplate } from "../../widgets/layout";
 import { Container } from "../../shared/design-system/layout/container/container";
 
 export const metadata: Metadata = {

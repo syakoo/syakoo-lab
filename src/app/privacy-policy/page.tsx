@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
-import { formatPageTitle } from "../../entities/page-title/formatter";
-import { HeaderFooterTemplate } from "../../features/layout/header-footer-template/header-footer-template";
+import { formatPageTitle } from "../../entities/page-title";
+import { HeaderFooterTemplate } from "../../widgets/layout";
 import { Container } from "../../shared/design-system/layout/container/container";
 import { Col } from "../../shared/design-system/layout/flex/flex";
 import { Spacer } from "../../shared/design-system/layout/spacer/spacer";

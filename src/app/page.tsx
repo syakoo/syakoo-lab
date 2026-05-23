@@ -1,6 +1,6 @@
-import { AboutMe } from "../features/home/about-me/about-me";
-import { AboutSite } from "../features/home/about-site/about-site";
-import { HeaderFooterTemplate } from "../features/layout/header-footer-template/header-footer-template";
+import { AboutMe } from "../widgets/home";
+import { AboutSite } from "../widgets/home";
+import { HeaderFooterTemplate } from "../widgets/layout";
 import { Container } from "../shared/design-system/layout/container/container";
 import { Col } from "../shared/design-system/layout/flex/flex";
 import { FadeIn } from "../shared/design-system/ui/fade-in/fade-in";

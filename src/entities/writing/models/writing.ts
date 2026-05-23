@@ -1,4 +1,4 @@
-import type { SerializedMDXContent } from "../../mdx-content/models/mdx-content";
+import type { SerializedMDXContent } from "../../mdx-content";
 
 export type WritingType = "article" | "note" | "diary";
 

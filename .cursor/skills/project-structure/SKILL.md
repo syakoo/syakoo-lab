@@ -74,10 +74,52 @@ features/login/
 
 依存の方向を統一し、変更の影響範囲を予測しやすくする。
 
-### [Must] 各スライスは Public API (`index.ts`) を通じて公開
+### [Must] 各スライスは Public API を通じて公開
 
-スライスの外部からは `index.ts` 経由でのみアクセスする。内部のファイル構造を直接参照しない。
-`index.ts` を維持すれば内部リファクタリングが呼び出し側に影響しない。
+スライスの外部からは Public API 経由でのみアクセスする。内部のファイル構造を直接参照しない。
+Public API を維持すれば内部リファクタリングが呼び出し側に影響しない。
+
+基本は `index.ts` 1 本。Next.js App Router（RSC）で **Server 専用** と **Client 専用** の export が混在するとビルドエラーになるため、必要なスライスだけエントリを分ける。
+
+| ファイル | 用途 | 先頭ディレクティブ |
+|----------|------|-------------------|
+| `index.ts` | Client / Server 両方から import できるもの（型、両環境で動く関数） | なし |
+| `index.server.ts` | Server Component・`models` の reader など Server 専用 | なし |
+| `index.client.ts` | Client Component 専用の hook など | `"use client"` 必須 |
+
+**import の使い分け（呼び出し側）**
+
+- Server から Server 専用 API → `from ".../slice/index.server"`
+- Client から Client 専用 API → `from ".../slice/index.client"`
+- どちらからも使う API → `from ".../slice"`（`index.ts`）
+
+**分け方の目安**
+
+- `useEffect` / ブラウザ API / React hook を export する → `index.client.ts`
+- ビルド時・リクエスト時にだけ動く serializer など → `index.server.ts`
+- 上記を `index.ts` にまとめると、Server 側の `import` だけで Client 境界が伝播しうるので分離する
+
+**例（`widgets/mdx/`）**
+
+```
+widgets/mdx/
+  index.ts           # resolveMDXContent, 型
+  index.server.ts    # serializeMDXContent, markupMermaid
+  index.client.ts    # useMermaid, useTwitter
+  models/
+  helpers/
+```
+
+```ts
+// Server（reader）
+import { serializeMDXContent } from "../../../mdx/index.server";
+
+// Client（UI）
+import { useMermaid } from "../../../mdx/index.client";
+import { resolveMDXContent } from "../../../mdx";
+```
+
+`index.client.ts` / `index.server.ts` は **必要なスライスにだけ** 追加する。全スライスに必須ではない。
 
 ### [Must] ディレクトリ名・ファイル名は kebab-case
 

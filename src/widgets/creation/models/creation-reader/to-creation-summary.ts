@@ -3,14 +3,14 @@ import path from "path";
 
 import probe from "probe-image-size";
 
-import type { ArtContent } from "../../../contents";
-import type { GameContent } from "../../../contents";
-import type { WebappContent } from "../../../contents";
+import type { ArtContent } from "../../../../contents/arts/types";
+import type { GameContent } from "../../../../contents/games/types";
+import type { WebappContent } from "../../../../contents/webapps/types";
 import type {
   CreationGameSummary,
   CreationIllustSummary,
   CreationWebappSummary,
-} from "../../../entities";
+} from "../../../../entities/creation";
 
 const publicDir = path.join(process.cwd(), "public");
 

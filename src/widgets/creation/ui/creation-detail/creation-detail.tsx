@@ -2,13 +2,13 @@ import { notFound } from "next/navigation";
 import { match } from "ts-pattern";
 
 import { creationTypes } from "../../../../entities/creation";
-import { Icon } from "../../../shared";
-import { Col, Row } from "../../../shared";
-import { Link } from "../../../shared";
-import { H2, Text } from "../../../shared";
-import { cn } from "../../../shared";
-import { formatDate } from "../../../shared";
-import { resolveMDXContent } from "../../mdx/resolver";
+import { Icon } from "../../../../shared/design-system/icons/icon";
+import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { H2, Text } from "../../../../shared/design-system/ui/text/text";
+import { cn } from "../../../../shared/utils/cn/cn";
+import { formatDate } from "../../../../shared/utils/date";
+import { resolveMDXContent } from "../../../mdx";
 import { readCreationById } from "../../models/creation-reader/read-creation";
 import styles from "./creation-detail.module.css";
 

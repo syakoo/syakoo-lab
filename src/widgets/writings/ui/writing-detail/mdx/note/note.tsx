@@ -1,5 +1,5 @@
-import { Icon } from "../../../../../shared";
-import { cn } from "../../../../../shared";
+import { Icon } from "../../../../../../shared/design-system/icons/icon";
+import { cn } from "../../../../../../shared/utils/cn/cn";
 
 import styles from "./note.module.css";
 

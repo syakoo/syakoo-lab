@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { Row } from "../../../../shared";
-import { Link } from "../../../../shared";
+import { Row } from "../../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../../shared/design-system/ui/link/link";
 import type { UserLink } from "../types";
 
 type LinksProps = {

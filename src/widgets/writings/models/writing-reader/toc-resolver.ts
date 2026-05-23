@@ -1,4 +1,4 @@
-import type { WritingTocItem } from "../../../entities";
+import type { WritingTocItem } from "../../../../entities/writing";
 import {
   createHeadingAnchorResolver,
   createMarkdownCodeFenceTracker,

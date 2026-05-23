@@ -5,7 +5,7 @@ import {
   generateDummyCreationGame,
   generateDummyCreationIllust,
   generateDummyCreationWebapp,
-} from "../../../entities";
+} from "../../../../entities/creation";
 import { readCreationById } from "../../models/creation-reader/read-creation";
 
 import { CreationDetail } from "./creation-detail";

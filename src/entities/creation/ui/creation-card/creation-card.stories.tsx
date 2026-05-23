@@ -4,7 +4,7 @@ import {
   generateDummyCreationGame,
   generateDummyCreationIllust,
   generateDummyCreationWebapp,
-} from "../models/creation.mocks";
+} from "../../models/creation.mocks";
 
 import { CreationCard } from "./creation-card";
 

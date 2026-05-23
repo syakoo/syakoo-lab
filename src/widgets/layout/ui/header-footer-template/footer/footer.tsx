@@ -1,8 +1,8 @@
-import { Center } from "../../../../shared";
-import { Container } from "../../../../shared";
-import { Row } from "../../../../shared";
-import { Link } from "../../../../shared";
-import { Text } from "../../../../shared";
+import { Center } from "../../../../../shared/design-system/layout/center/center";
+import { Container } from "../../../../../shared/design-system/layout/container/container";
+import { Row } from "../../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../../shared/design-system/ui/link/link";
+import { Text } from "../../../../../shared/design-system/ui/text/text";
 
 export const Footer: React.FC = () => {
   return (

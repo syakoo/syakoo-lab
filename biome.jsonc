@@ -103,7 +103,7 @@
         "**/src/app/**/layout.tsx",
         "**/src/app/**/not-found.tsx",
         "**/src/app/**/sitemap.ts",
-        "**/src/features/writings/writing-detail/mdx/geometry/geometry.tsx",
+        "**/src/widgets/writings/ui/writing-detail/mdx/geometry/geometry.tsx",
         "**/.storybook/*.ts",
         "**/.scaffdog/*.mjs",
         "**/__mocks__/*.ts"

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
-import type { WritingHead } from "../../../../entities";
+import type { WritingHead } from "../../../../../entities/writing";
 
 import { WritingBlock } from "./writing-block";
 

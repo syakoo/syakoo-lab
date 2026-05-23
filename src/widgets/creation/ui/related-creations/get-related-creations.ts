@@ -1,4 +1,4 @@
-import type { Creation } from "../../../entities";
+import type { Creation } from "../../../../entities/creation";
 
 /**
  * 関連度を計算するために必要な Creation の属性

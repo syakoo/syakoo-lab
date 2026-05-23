@@ -1,4 +1,4 @@
-import type { CreationType } from "../../../entities";
+import type { CreationType } from "../../../../entities/creation";
 
 import { getRelatedCreations } from "./get-related-creations";
 

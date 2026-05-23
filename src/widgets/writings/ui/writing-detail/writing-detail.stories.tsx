@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { clearAllMocks, mocked } from "storybook/test";
 
-import { generateDummySerializedWriting } from "../../../entities";
+import { generateDummySerializedWriting } from "../../../../entities/writing";
 import { readWritingById } from "../../models/writing-reader/read-writing";
 
 import { WritingDetail } from "./writing-detail";

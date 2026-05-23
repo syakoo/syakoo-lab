@@ -1,10 +1,10 @@
 "use client";
 
-import type { SerializedWriting } from "../../../entities";
-import { Link } from "../../../shared";
-import { useMermaid } from "../../../mdx";
-import { useTwitter } from "../../../mdx";
-import { resolveMDXContent } from "../../mdx/resolver";
+import type { SerializedWriting } from "../../../../entities/writing";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { useMermaid } from "../../../mdx/helpers";
+import { useTwitter } from "../../../mdx/helpers";
+import { resolveMDXContent } from "../../../mdx";
 
 import { mdxComponents } from "./mdx/mdx-components";
 

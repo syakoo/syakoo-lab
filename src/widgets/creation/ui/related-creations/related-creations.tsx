@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 
 import { CreationCard } from "../../../../entities/creation";
-import { Col, Row } from "../../../shared";
-import { Link } from "../../../shared";
-import { H3 } from "../../../shared";
+import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { H3 } from "../../../../shared/design-system/ui/text/text";
 import { readCreationSummaries } from "../../models/creation-reader/read-creation";
 
 import { getRelatedCreations } from "./get-related-creations";

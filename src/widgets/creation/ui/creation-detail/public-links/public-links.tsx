@@ -1,8 +1,8 @@
 import type { FC } from "react";
 
-import type { CreationBase } from "../../../../entities";
-import { Row } from "../../../../shared";
-import { BadgeLink } from "../../../../shared";
+import type { CreationBase } from "../../../../../entities/creation";
+import { Row } from "../../../../../shared/design-system/layout/flex/flex";
+import { BadgeLink } from "../../../../../shared/design-system/ui/badge-link/badge-link";
 
 type PublicLinksProps = Pick<CreationBase, "publicLinks">;
 

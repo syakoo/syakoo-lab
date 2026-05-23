@@ -13,10 +13,10 @@ sb.mock(import("../src/contents/games/reader.ts"));
 sb.mock(import("../src/contents/webapps/reader.ts"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
-sb.mock(import("../src/features/writings/writing-reader/read-writing.ts"), {
+sb.mock(import("../src/widgets/writings/models/writing-reader/read-writing.ts"), {
   spy: true,
 });
-sb.mock(import("../src/features/creation/creation-reader/read-creation.ts"), {
+sb.mock(import("../src/widgets/creation/models/creation-reader/read-creation.ts"), {
   spy: true,
 });
 

@@ -1,15 +1,15 @@
 import Image from "next/image";
 import type { FC } from "react";
 import { match } from "ts-pattern";
-import { Icon } from "../../../shared";
-import { Col } from "../../../shared";
-import { Text } from "../../../shared";
+import { Icon } from "../../../../shared/design-system/icons/icon";
+import { Col } from "../../../../shared/design-system/layout/flex/flex";
+import { Text } from "../../../../shared/design-system/ui/text/text";
 import { creationTypes } from "../../models/creation-type/creation-type";
 import type {
   CreationGame,
   CreationIllust,
   CreationWebapp,
-} from "../models/creation";
+} from "../../models/creation";
 
 export type CreationCardProps =
   | Pick<CreationIllust, "type" | "title" | "illust">

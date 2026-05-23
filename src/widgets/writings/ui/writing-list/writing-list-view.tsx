@@ -1,10 +1,10 @@
 "use client";
 
-import type { WritingHead } from "../../../entities";
+import type { WritingHead } from "../../../../entities/writing";
 import { writingTypeConfig } from "../../../../entities/writing";
-import { Col } from "../../../shared";
-import { FadeIn } from "../../../shared";
-import { H2, Text } from "../../../shared";
+import { Col } from "../../../../shared/design-system/layout/flex/flex";
+import { FadeIn } from "../../../../shared/design-system/ui/fade-in/fade-in";
+import { H2, Text } from "../../../../shared/design-system/ui/text/text";
 
 import { useGetWritingListType } from "./_shared/writing-list-type";
 import { WritingBlock } from "./writing-block/writing-block";

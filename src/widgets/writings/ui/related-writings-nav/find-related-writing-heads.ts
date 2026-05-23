@@ -1,6 +1,6 @@
 import { compareDesc } from "date-fns";
 
-import type { WritingHead } from "../../../entities";
+import type { WritingHead } from "../../../../entities/writing";
 import { readWritingHeads } from "../../models/writing-reader/read-writing";
 
 const writingRelatedScore =

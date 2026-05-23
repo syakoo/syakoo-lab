@@ -1,9 +1,9 @@
 import { CreationCard } from "../../../../entities/creation";
 import { creationPaths } from "../../../../entities/creation";
-import { Col } from "../../../shared";
-import { FadeIn } from "../../../shared";
-import { Link } from "../../../shared";
-import { H2 } from "../../../shared";
+import { Col } from "../../../../shared/design-system/layout/flex/flex";
+import { FadeIn } from "../../../../shared/design-system/ui/fade-in/fade-in";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { H2 } from "../../../../shared/design-system/ui/text/text";
 import { readCreationSummaries } from "../../models/creation-reader/read-creation";
 
 export const CreationList = async () => {

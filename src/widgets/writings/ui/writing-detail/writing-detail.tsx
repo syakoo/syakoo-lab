@@ -1,7 +1,7 @@
 import { differenceInYears } from "date-fns";
 import { notFound } from "next/navigation";
-import { Spacer } from "../../../shared";
-import { FadeIn } from "../../../shared";
+import { Spacer } from "../../../../shared/design-system/layout/spacer/spacer";
+import { FadeIn } from "../../../../shared/design-system/ui/fade-in/fade-in";
 import { readWritingById } from "../../models/writing-reader/read-writing";
 
 import { Note } from "./mdx/note/note";

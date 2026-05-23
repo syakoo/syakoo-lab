@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { clearAllMocks, mocked } from "storybook/test";
 
-import { generateDummyCreationSummary } from "../../../entities";
-import { random } from "../../../shared";
-import { range } from "../../../shared";
+import { generateDummyCreationSummary } from "../../../../entities/creation";
+import { random } from "../../../../shared/test-utils/random/random";
+import { range } from "../../../../shared/utils/array/range";
 import { readCreationSummaries } from "../../models/creation-reader/read-creation";
 
 import { RelatedCreations } from "./related-creations";

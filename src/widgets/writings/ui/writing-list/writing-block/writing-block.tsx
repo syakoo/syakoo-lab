@@ -1,10 +1,10 @@
-import type { WritingHead } from "../../../../entities";
+import type { WritingHead } from "../../../../../entities/writing";
 import { writingPaths } from "../../../../../entities/writing";
 import { getWritingTypeConfig } from "../../../../../entities/writing";
-import { Icon } from "../../../../shared";
-import { Row } from "../../../../shared";
-import { Link } from "../../../../shared";
-import { H3, Text } from "../../../../shared";
+import { Icon } from "../../../../../shared/design-system/icons/icon";
+import { Row } from "../../../../../shared/design-system/layout/flex/flex";
+import { Link } from "../../../../../shared/design-system/ui/link/link";
+import { H3, Text } from "../../../../../shared/design-system/ui/text/text";
 
 type WritingBlockProps = {
   head: WritingHead;

@@ -1,7 +1,7 @@
-import { Row } from "../../../shared";
-import { Spacer } from "../../../shared";
-import { Link } from "../../../shared";
-import { H1, Text } from "../../../shared";
+import { Row } from "../../../../shared/design-system/layout/flex/flex";
+import { Spacer } from "../../../../shared/design-system/layout/spacer/spacer";
+import { Link } from "../../../../shared/design-system/ui/link/link";
+import { H1, Text } from "../../../../shared/design-system/ui/text/text";
 
 export const PageNotFound: React.FC = () => {
   return (

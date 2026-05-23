@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import type { WritingTocItem } from "../../../../entities";
+import type { WritingTocItem } from "../../../../../entities/writing";
 
-import { Link } from "../../../../shared";
-import { Span, Text } from "../../../../shared";
+import { Link } from "../../../../../shared/design-system/ui/link/link";
+import { Span, Text } from "../../../../../shared/design-system/ui/text/text";
 
 type TocViewProps = {
   items: WritingTocItem[];

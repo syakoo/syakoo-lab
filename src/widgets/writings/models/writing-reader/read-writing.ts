@@ -1,12 +1,12 @@
 import { compareDesc } from "date-fns";
 
-import { readWritingContents } from "../../../contents";
+import { readWritingContents } from "../../../../contents/writings/reader";
 import type {
   SerializedWriting,
   WritingHead,
-} from "../../../entities";
+} from "../../../../entities/writing";
 import { markupMermaid } from "../../../mdx";
-import { serializeMDXContent } from "../../mdx/serializer";
+import { serializeMDXContent } from "../../../mdx";
 import { mdxPlugins } from "../../ui/writing-detail/mdx/plugins";
 
 import { resolveWritingHead } from "./head-resolver";

@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 
-import { exampleMDXComponent } from "../../features/mdx/mocks/fixture-mdxcomponent";
+import { exampleMDXComponent } from "../../features/mdx/index.server";
 
 import { loadEnv } from "./nextjs/env";
 

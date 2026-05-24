@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 
 import { readWritingContents } from "../../../contents/writings/reader";
-import { formatPageTitle } from "../../../entities/page-title/formatter";
-import { writingPaths } from "../../../entities/writing/paths/writing-paths";
-import { HeaderFooterTemplate } from "../../../features/layout/header-footer-template/header-footer-template";
-import { RelatedWritingsNav } from "../../../features/writings/related-writings-nav/related-writings-nav";
-import { WritingDetail } from "../../../features/writings/writing-detail/writing-detail";
+import { formatPageTitle } from "../../../entities/page-title";
+import { writingPaths } from "../../../entities/writing";
 import { Container } from "../../../shared/design-system/layout/container/container";
 import { Spacer } from "../../../shared/design-system/layout/spacer/spacer";
+import { HeaderFooterTemplate } from "../../../widgets/header-footer-template";
+import { RelatedWritingsNav } from "../../../widgets/related-writings-nav";
+import { WritingDetail } from "../../../widgets/writing-detail";
 
 export const generateStaticParams = async () => {
   const writingContents = await readWritingContents();

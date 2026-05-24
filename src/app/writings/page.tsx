@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 
-import { formatPageTitle } from "../../entities/page-title/formatter";
-import { writingPaths } from "../../entities/writing/paths/writing-paths";
-import { HeaderFooterTemplate } from "../../features/layout/header-footer-template/header-footer-template";
-import { WritingList } from "../../features/writings/writing-list/writing-list";
+import { formatPageTitle } from "../../entities/page-title";
+import { writingPaths } from "../../entities/writing";
 import { Container } from "../../shared/design-system/layout/container/container";
+import { HeaderFooterTemplate } from "../../widgets/header-footer-template";
+import { WritingList } from "../../widgets/writing-list";
 
 export const metadata: Metadata = {
   title: formatPageTitle("Writings"),

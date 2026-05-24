@@ -13,12 +13,21 @@ sb.mock(import("../src/contents/games/reader.ts"));
 sb.mock(import("../src/contents/webapps/reader.ts"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
-sb.mock(import("../src/features/writings/writing-reader/read-writing.ts"), {
+sb.mock(import("../src/features/writing/writing-mdx/models/read-writing.ts"), {
   spy: true,
 });
-sb.mock(import("../src/features/creation/creation-reader/read-creation.ts"), {
-  spy: true,
-});
+sb.mock(
+  import("../src/entities/creation/models/creation-reader/read-creation.ts"),
+  {
+    spy: true,
+  },
+);
+sb.mock(
+  import("../src/entities/writing/models/writing-reader/read-writing-heads.ts"),
+  {
+    spy: true,
+  },
+);
 
 const preview: Preview = {
   parameters: {

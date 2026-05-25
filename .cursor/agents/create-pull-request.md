@@ -72,25 +72,24 @@ description: >-
 ```bash
 git push -u origin HEAD
 
-gh pr create --title "タイトル" --body "$(cat <<'EOF'
+gh pr create --title "タイトル" --body-file - <<'EOF'
 （本文）
 EOF
-)"
 ```
 
 作成後、PR URL を親に返す。
 
 ## 親への返却
 
-最後に必ず次のいずれかを書く。
+最後に必ず次のいずれかを書く。成功時は見出しを付けず、次の 1 行（と必要な成果物）だけを返す。
 
-### 成功時
+**成功時** — `**done:**` の行のみ（メタフィールドや「成功時」見出しは含めない）:
 
 ```markdown
 **done:** PR URL（と必要ならタイトル・本文の要約）
 ```
 
-### partial / failed 時
+**partial / failed 時** — 次の 4 フィールドをすべて返す:
 
 ```markdown
 **status:** partial | failed

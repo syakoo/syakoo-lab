@@ -12,17 +12,17 @@ description: >-
 
 **Repository YAML templates are the source of truth.** Before drafting, read `*.yml` under `.github/ISSUE_TEMPLATE/` for field names, required fields, and placeholders. Same process when templates are added.
 
-## Template labels (intentional Japanese)
+## Section headings
 
-`feature_request.yml` is **human-facing Japanese**. Section headings in issue bodies must **match the template `label` values exactly** (not translated to English). Prose inside sections should still be clear; use English only if the user asks for an English issue.
+Section headings in issue bodies must **match the template `label` values exactly**. Write prose inside sections in English by default, unless the user explicitly requests another language.
 
 Current labels for feature requests:
 
 | Template field | Heading in body |
 |----------------|-----------------|
-| `background` | `## 背景・目的` |
-| `requirements` | `## 要件・要望の詳細` |
-| `acceptance_criteria` | `## 受け入れ基準` |
+| `background` | `## Background & purpose` |
+| `requirements` | `## Requirements & details` |
+| `acceptance_criteria` | `## Acceptance criteria` |
 
 ## Current template summary (`feature_request.yml`)
 
@@ -35,21 +35,21 @@ Current labels for feature requests:
 ## Body format (feature request)
 
 ```markdown
-## 背景・目的
+## Background & purpose
 
 (Required. Background and purpose per the template.)
 
-## 要件・要望の詳細
+## Requirements & details
 
 (Required. Bullet list is fine; be specific about desired behavior.)
 
-## 受け入れ基準
+## Acceptance criteria
 
 (Optional. Verifiable done criteria; checklist preferred.)
 ```
 
-- **背景・目的** and **要件・要望の詳細** must not be empty.
-- **受け入れ基準** is optional in the template; propose checklist items unless the user says they are not needed.
+- **Background & purpose** and **Requirements & details** must not be empty.
+- **Acceptance criteria** is optional in the template; propose checklist items unless the user says they are not needed.
 
 ## Workflow
 
@@ -60,7 +60,7 @@ Current labels for feature requests:
 
 ## Creating on GitHub
 
-- **Browser:** Issues → New issue → choose「機能要望」→ paste into fields (by section or paragraph).
+- **Browser:** Issues → New issue → choose **Feature request** → paste into fields (by section or paragraph).
 - **CLI:** `gh issue create --title "..." --body "..."` or `--body-file` for multiline bodies.
 
 ## Quality bar

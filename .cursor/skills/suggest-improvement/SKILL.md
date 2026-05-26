@@ -87,10 +87,15 @@ Show the proposal and wait for approval. **Do not edit agent config or skills wi
 
 After approval, create a **branch separate from main work** and write files only there.
 
+Stash **only if** the working tree has changes (tracked, staged, or untracked). If the tree is clean, do not run `git stash`—a no-op stash can make a later blind `git stash pop` restore the wrong entry.
+
 ```bash
 ORIGINAL_BRANCH=$(git branch --show-current)
 
-git stash --include-untracked
+if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+  git stash push -u -m "suggest-improvement: before improvement branch"
+fi
+
 git fetch origin && git checkout -b cursor/improve-<short-lesson-name> origin/main
 
 # Apply approved changes (lint / agent config / skill)
@@ -112,8 +117,9 @@ Then return:
 
 ```bash
 git checkout "$ORIGINAL_BRANCH"
-git stash pop
 ```
+
+Run `git stash pop` **only if** you stashed before creating the improvement branch.
 
 ## Presentation format
 

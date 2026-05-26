@@ -43,29 +43,4 @@ Directory layout and layer dependencies follow the `project-structure` skill.
 
 ## Communication language
 
-Agents working in this repository **communicate in English**, including:
-
-- Implementation plans and summaries
-- Issue/PR bodies and review summaries
-- Commit messages and PR descriptions
-- Additions to `.cursor/` configuration
-
-**Precedence:** For work in this repo, rules under `.cursor/rules/` take precedence over user-level Cursor rules (persona, “always reply in Japanese”, etc.) for the artifacts above.
-
-**Exceptions:**
-
-- The user explicitly requests another language for a turn
-- Issue template **label strings** in `.github/ISSUE_TEMPLATE/*.yml` (must match YAML exactly)
-- Japanese phrases in skill `description` Use-when examples (to match user utterances)
-
-Regardless of the language of an existing Issue or user message, **outputs for this repo should be in English** unless an exception applies.
-
-## Agent-facing docs (audit)
-
-| Path | This effort | Notes |
-|------|-------------|--------|
-| `.cursor/rules`, `.cursor/skills`, `.cursor/agents` | Translate to English | This PR |
-| `.github/ISSUE_TEMPLATE/feature_request.yml` | Remains Japanese | Human-facing UI; agents treat YAML `label` values as source of truth |
-| `AGENTS.md` | Not present | Cursor uses `.cursor/rules` |
-| `README.md` | Unchanged | Out of scope for #263 |
-| User `~/.cursor/rules/` (e.g. persona) | Unchanged | Repo rules govern repo work |
+Always work in English for this repository.

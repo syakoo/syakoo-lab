@@ -25,7 +25,7 @@ Follow `.cursor/skills/create-github-issue` for the same procedure.
 
 ## Feature request (`feature_request.yml`)
 
-Template UI is Japanese. **Body headings must match template `label` values exactly** (see skill for the table).
+**Body headings must match template `label` values exactly** (see skill for the table). Write section prose in English unless the user requests another language.
 
 | Item | Rule |
 |------|------|
@@ -36,21 +36,21 @@ Template UI is Japanese. **Body headings must match template `label` values exac
 ### Body format
 
 ```markdown
-## 背景・目的
+## Background & purpose
 
 (Required)
 
-## 要件・要望の詳細
+## Requirements & details
 
 (Required; bullets OK)
 
-## 受け入れ基準
+## Acceptance criteria
 
 (Optional; `- [ ]` checklist encouraged)
 ```
 
-- Do not leave **背景・目的** or **要件・要望の詳細** empty.
-- **受け入れ基準** is optional; propose items when helpful unless the user declines.
+- Do not leave **Background & purpose** or **Requirements & details** empty.
+- **Acceptance criteria** is optional; propose items when helpful unless the user declines.
 
 ## Workflow
 

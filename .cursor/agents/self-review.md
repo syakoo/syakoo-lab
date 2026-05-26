@@ -49,7 +49,7 @@ Read-only only:
 
 - Unnecessary optional chaining when null/undefined is impossible
 - Unused imports; type-only imports as `import type`
-- Exports nothing outside uses
+- Unused exports (not used outside the module)
 
 ### 4. General quality
 

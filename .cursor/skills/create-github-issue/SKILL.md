@@ -1,63 +1,70 @@
 ---
 name: create-github-issue
 description: >-
-  Drafts GitHub issue titles and bodies for this repository using
+  Draft GitHub issue titles and bodies for this repository using
   `.github/ISSUE_TEMPLATE` form definitions. Use when opening or preparing a
-  GitHub issue, feature request (機能要望), or issue text to paste into the
-  GitHub UI.
+  GitHub issue or feature request (e.g. "open an issue", "機能要望").
 ---
 
-# GitHub Issue 作成（テンプレート準拠）
+# Create GitHub issue (template-aligned)
 
-## 前提
+## Prerequisite
 
-Issue の形は **リポジトリの YAML テンプレートが正** とする。着手前に `.github/ISSUE_TEMPLATE/` 内の `*.yml` を読み、フィールド名・必須・プレースホルダを確認する。テンプレートが増えた場合も同じ手順でよい。
+**Repository YAML templates are the source of truth.** Before drafting, read `*.yml` under `.github/ISSUE_TEMPLATE/` for field names, required fields, and placeholders. Same process when templates are added.
 
-## 現在のテンプレート（要約）
+## Section headings
 
-`feature_request.yml`（**機能要望**）に対応する出力は次を満たすこと。
+Section headings in issue bodies must **match the template `label` values exactly**. Write prose inside sections in English by default, unless the user explicitly requests another language.
 
-| 項目 | ルール |
-|------|--------|
-| タイトル | 内容を端的に表す自由形式。プレフィックス不要 |
-| ラベル | テンプレでは `labels: []`。ユーザーが指定しない限りラベルは付けない |
-| 本文 | 下記「本文フォーマット」の見出しと順序を守る |
+Current labels for feature requests:
 
-## 本文フォーマット（機能要望）
+| Template field | Heading in body |
+|----------------|-----------------|
+| `background` | `## Background & purpose` |
+| `requirements` | `## Requirements & details` |
+| `acceptance_criteria` | `## Acceptance criteria` |
 
-GitHub のフォーム Issue 用に、ユーザーがそのまま貼れるよう **見出しラベルをテンプレの `label` と同一** にする。
+## Current template summary (`feature_request.yml`)
+
+| Item | Rule |
+|------|------|
+| Title | Short, descriptive; no prefix required |
+| Labels | Template has `labels: []`; do not add labels unless the user asks |
+| Body | Use the heading order below |
+
+## Body format (feature request)
 
 ```markdown
-## 背景・目的
+## Background & purpose
 
-（必須。テンプレの説明に沿って背景・目的を書く）
+(Required. Background and purpose per the template.)
 
-## 要件・要望の詳細
+## Requirements & details
 
-（必須。箇条書きでよいが、実現したいこと・改善内容を具体化する）
+(Required. Bullet list is fine; be specific about desired behavior.)
 
-## 受け入れ基準
+## Acceptance criteria
 
-（任意。完了の判断基準。チェックリスト形式が望ましい）
+(Optional. Verifiable done criteria; checklist preferred.)
 ```
 
-- **背景・目的**・**要件・要望の詳細**は空にしない（必須）。
-- **受け入れ基準**はテンプレ上任意。ユーザーが「不要」と言うまで、わかる範囲で提案してよい。
+- **Background & purpose** and **Requirements & details** must not be empty.
+- **Acceptance criteria** is optional in the template; propose checklist items unless the user says they are not needed.
 
-## ワークフロー
+## Workflow
 
-1. `.github/ISSUE_TEMPLATE/` の該当 `*.yml` を読む。
-2. ユーザー意図が「機能要望」かどうかを確認。別種の Issue が必要なら、該当テンプレが無い場合はユーザーにテンプレ追加または自由形式でよいかを確認する。
-3. 上記フォーマットでタイトルと本文を生成する。
-4. 曖昧な要求は推測で埋めず、確認質問を先にしてから草案を出す。
+1. Read the relevant `*.yml` under `.github/ISSUE_TEMPLATE/`.
+2. Confirm the intent is a feature request. If another issue type is needed and no template exists, ask whether to add a template or use a free-form issue.
+3. Draft title and body in the format above.
+4. For vague requests, ask clarifying questions before filling in guesses.
 
-## GitHub 上での作成
+## Creating on GitHub
 
-- **ブラウザ**: Issues → New issue →「機能要望」を選び、生成した本文を各フィールドに貼り分ける（見出しごとにコピーするか、フォーム欄に合わせて段落だけ貼る）。
-- **CLI**（`gh`）: `gh issue create` では `--title` と `--body`（または `-b`）に草案を渡せる。シェルで複数行を安全に渡す必要があるときだけ `--body-file` を使う。
+- **Browser:** Issues → New issue → choose **Feature request** → paste into fields (by section or paragraph).
+- **CLI:** `gh issue create --title "..." --body "..."` or `--body-file` for multiline bodies.
 
-## 品質の目安
+## Quality bar
 
-- 背景には **誰が・いつ・なぜ困るか** を書く。
-- 要件は **観測可能な動作や画面** まで落とす（「なんとなく改善」だけにしない）。
-- 受け入れ基準は **検証可能** にする（チェックボックス `- [ ]` が有効）。
+- Background: **who**, **when**, **why** it hurts
+- Requirements: observable behavior or UI—not vague "make it better"
+- Acceptance criteria: verifiable (`- [ ]` checkboxes work well)

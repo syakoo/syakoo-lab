@@ -1,38 +1,38 @@
 ---
 name: coding-guide
 description: >-
-  プロジェクトのコーディング規約とアーキテクチャ制約をまとめたガイド。
-  Use when implementing, creating, or modifying components and modules
-  (e.g. "コンポーネントを作って", "この機能を実装して").
+  Project coding conventions and architecture constraints. Use when implementing,
+  creating, or modifying components and modules (e.g. "create a component",
+  "implement this feature").
 ---
 
-# コーディングガイド
+# Coding guide
 
-## ディレクトリ構造・依存関係
+## Directory layout and dependencies
 
-`project-structure` スキルに従う。
+Follow the `project-structure` skill.
 
-## コンポーネント規則
+## Component rules
 
-### ファイル構造
+### File layout
 
 ```
 post-list/
-├── post-list.tsx           # コンポーネント実装本体
-├── post-list.css.ts        # スタイル実装（必要な場合）
-└── post-list.stories.tsx   # ストーリー
+├── post-list.tsx           # Component implementation
+├── post-list.css.ts        # Styles (when needed)
+└── post-list.stories.tsx   # Stories
 ```
 
-- ディレクトリ名・ファイル名は **kebab-case**
-- スライスの外部からは **`index.ts`（Public API）経由** でのみアクセスする
-- `index.ts` には re-export のみ書き、コンポーネント本体は置かない
-- ストーリーは存在するパターンを網羅する
+- Directory and file names: **kebab-case**
+- External access to a slice: **`index.ts` (Public API) only**
+- `index.ts`: re-exports only—no component bodies
+- Stories should cover existing UI patterns
 
-### デザインシステムの活用
+### Design system
 
-- アイコンは `design-system/icons` に定義してそれを使う
-- レイアウト・テキスト・リンクなどの汎用 UI は `design-system` を利用する
-- 色・幅などの値は **Tailwind のデザイントークン**（`globals.css` の `@theme` で定義）を使い、ハードコードしない
+- Icons: define under `design-system/icons` and import from there
+- Layout, text, links: use `design-system` primitives
+- Colors and sizes: **Tailwind design tokens** from `@theme` in `globals.css`—no hard-coded values
 
 ```tsx
 // Good

@@ -1,35 +1,35 @@
-name: 機能要望
-description: 新機能や改善の要望を記載するテンプレート
+name: Feature request
+description: Template for new features and improvements
 labels: []
 body:
   - type: textarea
     id: background
     attributes:
-      label: 背景・目的
-      description: この要望を出すに至った背景や目的を記載してください
-      placeholder: "例: ユーザーが〇〇をしたい時に、現在は△△という手順が必要で不便に感じているため..."
+      label: Background & purpose
+      description: Describe the background and purpose behind this request
+      placeholder: "e.g. When users want to do X, they currently need to Y, which is inconvenient..."
     validations:
       required: true
 
   - type: textarea
     id: requirements
     attributes:
-      label: 要件・要望の詳細
-      description: 実現したい機能や改善内容を具体的に記載してください
+      label: Requirements & details
+      description: Describe the feature or improvement you want in concrete terms
       placeholder: |
-        例:
-        - 〇〇ができるようにする
-        - △△の操作を簡略化する
-        - ××の情報を表示する
+        e.g.
+        - Enable users to do X
+        - Simplify the Y workflow
+        - Show Z information
     validations:
       required: true
 
   - type: textarea
     id: acceptance_criteria
     attributes:
-      label: 受け入れ基準
-      description: この要望が完了したと判断する基準を記載してください（任意）
+      label: Acceptance criteria
+      description: Criteria that define when this request is done (optional)
       placeholder: |
-        例:
-        - [ ] 〇〇が動作すること
-        - [ ] △△のテストが通ること
+        e.g.
+        - [ ] X works as expected
+        - [ ] Tests for Y pass

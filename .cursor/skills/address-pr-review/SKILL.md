@@ -1,122 +1,119 @@
 ---
 name: address-pr-review
 description: >-
-  GitHub PR のレビュー指摘（本体コメント・インライン・スレッド）を整理し、同意できるものはコードで反映し、
-  分岐するものは返信文案またはユーザー確認に回す。lint/test の確認、各指摘スレッドへの返信（コミットハッシュ付き）、チャット用サマリまで。
-  Use when fixing review feedback or iterating on an open PR after review. Not for greenfield implementation only.
+  Triage GitHub PR review feedback (top-level, inline, threads); implement agreed items;
+  escalate disagreements or questions. Includes lint/test checks, per-thread replies with
+  commit SHA, and a chat summary. Use when fixing review feedback on an open PR—not for
+  greenfield implementation only.
 ---
 
-# PR レビュー指摘への対応
+# Address PR review
 
-レビュー状態（Approve / Request changes / Comment）と **行コメント・スレッド** を起点に、**指摘単位**で処理する。同意できるものは実装し、曖昧なものは **推測実装しない**。**指摘の範囲外のリファクタ・好みの変更はしない**。
+Start from review state (Approve / Request changes / Comment) and **every thread**. Implement what you agree with; do not guess on ambiguous items. **No drive-by refactors** outside the feedback.
 
-`babysit` はマージ可能までの総合フォロー（CI・コンフリクト・長期監視）も含みうる。このスキルは **レビュー対応の 1 イテレーション**（指摘への返答と必要なコード変更）に絞る。
+`babysit` may cover merge readiness broadly (CI, conflicts, long polling). This skill is **one review iteration**: replies and necessary code changes.
 
-## いつ使うか
+## When to use
 
-- レビュアーから **Request changes** またはコメントが付き、対応コミットを積むとき
-- インライン指摘を **漏れなく** 潰したい／返信が必要なとき
+- Reviewer requested changes or left comments you must address
+- You need to clear inline threads without missing any
 
-使わない場面:
+Do **not** use when:
 
-- PR がまだ無い・レビューがまだ付いていない（普通は実装タスク）
-- **gh CLI が使えない** 環境で、ユーザーが URL と指摘内容を貼ってくれない → 対象取得をユーザーに依頼するか、スキル適用を断る
-- 別リポジトリの PR（カレントの `origin` と一致しない）→ ブランチ・リモートをユーザーに確認
+- No PR or no review yet (normal implementation)
+- `gh` is unavailable and the user will not paste URL + feedback
+- PR is in another repo—confirm branch and remote with the user
 
-## 前提の確認
+## Prerequisites
 
-- カレントディレクトリが **該当リポジトリのルート**（または `gh` が正しく認識する場所）
-- `gh auth status` が通る（通らなければユーザーに認証を促す）
+- Shell is at the **repo root** (or `gh` resolves the repo correctly)
+- `gh auth status` succeeds
 
-## 手順
+## Steps
 
-1. **対象 PR** を確定する。番号 or URL。例: `gh pr view <N> --json number,title,headRefName,url,state`。
-2. **ローカルブランチ** が PR の head と一致するか確認する。不一致なら `gh pr checkout <N>` などで揃える（ユーザー方針に従う）。
-3. **コメントを漏らさず集める。**
-   - PR 本文・レビュー本文: `gh pr view <N> --comments`
-   - インライン（コード上）: `gh api repos/{owner}/{repo}/pulls/<N>/comments`（`owner/repo` は `gh repo view` で確認）または Web の Files / Conversation を併用。
-   - **レビューコメント**（スレッド）: `gh api repos/{owner}/{repo}/pulls/<N>/reviews` と各 review のコメントが必要な場合あり。状況に応じて `gh pr checks` 付近のリンクや Web UI をユーザーに依頼してもよい。
-   - **Bot・自動レビュー** も人間と同列に読む（対応する / 無視理由を残す）。
-4. **各スレッドを分類** する（メモでよい）。
+1. **Identify the PR** by number or URL: `gh pr view <N> --json number,title,headRefName,url,state`.
+2. **Match local branch** to PR head; use `gh pr checkout <N>` if needed (per user policy).
+3. **Collect all comments:**
+   - Top-level / review bodies: `gh pr view <N> --comments`
+   - Inline: `gh api repos/{owner}/{repo}/pulls/<N>/comments`
+   - Review threads: `gh api repos/{owner}/{repo}/pulls/<N>/reviews` and related comment APIs; use the web UI if needed
+   - Treat **bot reviews** like human feedback (fix or document why not)
+4. **Classify each thread:**
 
-   | 分類 | 動き |
-   |---|---|
-   | 対応する | コードまたはドキュメントで反映 |
-   | 返信のみ | 仕様・判断理由を短く返信。コード変更が不要ならコミット不要 |
-   | 別 PR・Issue | スコープ外。リンクと一言で切り出し |
-   | 要確認 | 推測で直さない。ユーザーに質問を投げる |
+   | Class | Action |
+   |-------|--------|
+   | Fix | Change code or docs |
+   | Reply only | Explain; no commit if no change needed |
+   | Defer | Out of scope—link Issue/PR and one line why |
+   | Needs input | Do not guess—ask the user |
 
-5. **実装** する。1 指摘につき、**必要最小限の差分**。無関係ファイルの整形・リネームはしない。
-6. **修正後チェック**
-   - `git diff` / `git status` で **意図しないファイル混入・デバッグ残り** がないか見る（詳細は `self-review` と同様の目線でよい）。
-   - `package.json` 等を確認し、`pnpm lint`、`pnpm typecheck`、`pnpm test` など **このリポジトリのスクリプト** を実行（重い・環境依存はユーザーと相談）。
-7. **コミット・`git push`**。リモート名・force の要否はユーザー指示に従う（**force push はデフォルトしない**）。
-8. **コミットハッシュを取得**する。`git rev-parse HEAD` でフル SHA、先頭 7 桁程度の短縮もメモ。複数コミットに分けた場合は **指摘ごとにどの SHA で直したか** を対応表に残す。
-9. **GitHub の該当コメント・スレッドへ返信**する。これが完了報告の本体。各レビュー指摘・インラインコメントに、**その指摘への対応内容**と **コミットハッシュ** を含めて返す。1 コミットで複数指摘を直した場合は、各スレッドに同じ SHA を載せてよい。コード変更が不要で返信のみの場合は、ハッシュなしで理由だけ返す。
-   - API 例: インラインコメントへの返信は `POST /repos/{owner}/{repo}/pulls/comments/{comment_id}/replies`。`gh api` で送るか、Web の該当スレッドに貼る。
-   - PR 直下のコメントへの返信は `gh pr comment <N> --body "..."` や Issue コメント API。どの親コメントに紐づけるか分かるように書く。
-10. **`gh pr checks <N>`** または GitHub の Checks タブで CI を確認。失敗したらログ要約を **該当があればそのスレッド or PR コメント** にも一言足すか、返信文案に含める。
-11. ユーザー向けに下記 **チャット用サマリ** を出す。GitHub 返信をそのまま貼ってもよい。
+5. **Implement** with minimal diff per item. No unrelated formatting or renames.
+6. **Post-change checks**
+   - `git diff` / `git status` for stray files and debug leftovers (same spirit as `self-review`)
+   - Run repo scripts (`pnpm lint`, `pnpm typecheck`, `pnpm test`, etc.) unless the user defers heavy/env-dependent runs
+7. **Commit and `git push`**. No force-push by default.
+8. **Record SHAs:** `git rev-parse HEAD` (full and short). If multiple commits, map feedback → SHA.
+9. **Reply on GitHub** for each thread with what changed and the **commit SHA** (same SHA on multiple threads is fine). Reply-only threads need no SHA.
+   - Inline reply example: `POST .../pulls/comments/{comment_id}/replies` via `gh api`
+   - PR comment: `gh pr comment <N> --body "..."`
+10. **`gh pr checks <N>`** or Checks tab; summarize failures in replies if relevant.
+11. Post the **chat summary** below (may mirror GitHub replies).
 
-## GitHub への返信
+## GitHub reply template
 
-**指摘 1 件につき 1 返信**を基本に。本文に **コミット SHA** を必ず含める。フルでも短縮でもよい。リポジトリ内で一意に辿れること。
-
-テンプレ例:
+One reply per feedback item. Always include **commit SHA** when code changed.
 
 ```markdown
-対応しました。コミット `abc1234` で入れています。
+Addressed in commit `abc1234`.
 
-- 変更: <ファイルと要約 1 行>
+- Change: <file and one-line summary>
 ```
 
-複数コミットに分けた場合:
+Multiple commits:
 
 ```markdown
-`<sha1>` で <指摘Aの内容> を、`<sha2>` で <指摘B> を反映しました。
+`<sha1>` for <item A>; `<sha2>` for <item B>.
 ```
 
-返信のみ・要確認の場合は、ハッシュの代わりに判断理由や質問を書く。
+For reply-only or blocked items, explain without a SHA.
 
-## チャット用サマリ
-
-GitHub に返した内容と重複してよい。追跡用に一覧する。複数コミットなら `返信したコミット` に複数行または列挙。ローカルブランチが PR の head と一致したかは必要なら本文で触れる。
+## Chat summary
 
 ```markdown
-## PR レビュー対応サマリ
+## PR review response summary
 
-- **PR:** #<番号> <タイトル短縮可>
-- **ブランチ:** `<headRefName>`
-- **返信したコミット:** `<full-sha>`
+- **PR:** #<number> <short title>
+- **Branch:** `<headRefName>`
+- **Reply commit(s):** `<full-sha>`
 
-### 対応した指摘
+### Addressed
 
-- `<ファイル>` — <趣旨・何をしたか> — **SHA:** `<sha>`
+- `<file>` — <what you did> — **SHA:** `<sha>`
 
-### 返信のみ・未コード化
+### Reply only / no code
 
-- <スレッドの要約> — GitHub に返信済み / 文案のみ
+- <thread summary> — replied on GitHub / draft only
 
-### 別 PR・Issue に回したもの
+### Deferred
 
-- <あれば>
+- <item> — <Issue/PR link>
 
-### 実行したチェック
+### Checks run
 
-- 例: `pnpm lint`, `pnpm typecheck`, `pnpm test` / 未実行の理由
+- e.g. `pnpm lint`, `pnpm typecheck`, `pnpm test` / skipped and why
 
 ### CI
 
-- 緑 / 失敗 — ジョブ名と要約 / 未確認
+- Green / failed — job and summary / not checked
 
-### 次のステップ
+### Next steps
 
-- 再レビュー依頼、未解決スレッド、Resolve、マージ
+- Re-request review, open threads, resolve, merge
 ```
 
-## 注意
+## Notes
 
-- **コンフリクト**は、意図が読めてテスト可能なときだけ解消。怪しければ止めてユーザーに確認。
-- スレッドの **Resolve** は権限・運用次第。返信文案まで用意し、Resolve 自体はユーザーでもよい。
-- **機密・トークン**をコメントやコミットに含めない。指摘対応で `.env` 等を触る場合は特に確認。
-- `self-review` と同じく、**Lint が通ること**と**指摘スコープの厳守**を優先する。
+- Resolve **merge conflicts** only when intent is clear and tests are feasible; otherwise stop and ask.
+- **Resolve thread** may be user-only depending on permissions.
+- Do not leak secrets in comments or commits.
+- Prioritize **lint passing** and **staying within feedback scope** (same as `self-review`).

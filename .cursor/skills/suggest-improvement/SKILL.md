@@ -1,155 +1,158 @@
 ---
 name: suggest-improvement
 description: >-
-  タスク完了時に「最初の失敗」と「最終的な解法」を対にして教訓を抽出し、lint ルール・エージェント設定・skill のいずれかに落とす。
-  試行錯誤を経た解決の後に「次は最初からこう動けた」を形式知にする。
-  Use when codifying lessons after trial-and-error, or when the user says "make it a rule", "leave a lesson", "improve this process".
+  After a task, pair "first failure" with "final solution" and codify lessons into
+  lint rules, agent config, or skills. Use when codifying lessons after trial-and-error,
+  or when the user says "make it a rule", "leave a lesson", "improve this process".
 ---
 
-# Suggest Improvement
+# Suggest improvement
 
-タスクが終わったとき、**「もし最初からこれを知っていれば、回り道しなかった」** という知見を抽出して再利用可能な形に残す。試行錯誤を経て辿り着いた解法にこそ、形式知化する価値がある。
+When a task finishes, extract **"if we had known this upfront, we would not have taken the detour"** and make it reusable. Lessons learned through trial and error are especially worth codifying.
 
-## いつ使うか
+## When to use
 
-- タスク完了直前、または「教訓を残して」「ルールにして」と言われたとき
-- 最初の試みで失敗し、試行錯誤を経て解決に至ったとき
-- 将来同じ種類のタスクを再びやる可能性があるとき
+- Near task completion, or when asked to "leave a lesson" / "make it a rule"
+- After an initial attempt failed and you reached a solution through iteration
+- When similar work is likely to happen again
 
-使わない場面:
+Do **not** use when:
 
-- 初手で通ったシンプルなタスク（抽出すべき教訓がない）
-- プロジェクト固有の一回限りの対応（コミットメッセージで十分）
+- The task succeeded on the first try with nothing to extract
+- A one-off, project-specific fix (a commit message is enough)
 
-## 手順
+## Steps
 
-### 1. 失敗と成功を対にする
+### 1. Pair failure and success
 
-今回のタスクから次の 3 点を書き出す:
+Write:
 
-- **最初の試み**: 何をやって、どう失敗したか
-- **最終的な解法**: 何が正解だったか
-- **橋渡しの知見**: なぜ最初の試みでは辿り着けなかったか
+- **First attempt**: what you tried and how it failed
+- **Final solution**: what actually worked
+- **Bridge insight**: why the first attempt could not reach the solution
 
-### 2. 「最初から知っておくべきだったこと」を言語化する
+### 2. State what should have been known upfront
 
-知見を 1〜3 文に凝縮する。**振り返りではなく、未来の自分への指示** として書く。「〜しない」「先に〜を確認する」のような命令形。
+Condense to 1–3 sentences as **instructions to future you**. Prefer imperatives: "do not …", "check … first".
 
-### 3. 出力先を分類する
+### 3. Classify the output
 
-| 判定軸 | 出力先 | 例 |
-|---|---|---|
-| コードの構文レベルで機械的に検出可能 | lint ルール（ESLint / ast-grep 等） | 「`Array.from(set).length` ではなく `set.size` を使う」 |
-| 短い一文で、常に適用、判断不要 | エージェント設定ファイル（グローバルまたはプロジェクト） | 「pnpm は v10 以上を使う」 |
-| 手順・文脈判断・テンプレートを伴う | 新規 skill または既存 skill に追記 | 「MoonBit の C バインディングの書き方」 |
-| プロジェクト固有の一回限り | 採用しない（コミットメッセージ / PR で十分） | — |
+| Criterion | Destination | Example |
+|-----------|-------------|---------|
+| Detectable mechanically at syntax level | Lint (ESLint, ast-grep, etc.) | Use `set.size` instead of `Array.from(set).length` |
+| One short line, always on, no judgment | Agent config (global or project) | "Use pnpm v10+" |
+| Procedure, context, templates | New or existing skill | "How to write MoonBit C bindings" |
+| One-off project-specific | Skip (commit/PR is enough) | — |
 
-**原則: lint で拾えるものはプロンプトに書かない。** 静的に検出できることを自然言語で書いても、エージェントは従わない。
+**Principle: if lint can catch it, do not put it in prose.** Agents ignore natural-language duplicates of static checks.
 
-「エージェント設定ファイル」はツールによって異なる（Cursor: `.cursor/rules/`、Claude Code: `CLAUDE.md` 等）。プロジェクトの構成に合わせること。
+"Agent config" varies by tool (Cursor: `.cursor/rules/`, Claude Code: `CLAUDE.md`, etc.). Match this project.
 
-### 4. 重複チェック（必須）
+### 4. Duplicate check (required)
 
-提案する前に既存の知識と照合する。重複や類似があれば「新規追加」ではなく「既存に追記」を選ぶ。
+Before proposing, search existing knowledge. Prefer **append** over **new** when similar content exists.
 
-知見からキーワードを 2〜3 個抽出し、以下を検索する:
+Extract 2–3 keywords and search:
 
-- グローバルのスキル置き場（`~/.cursor/skills/`、`~/.claude/skills/` 等）
-- プロジェクトのエージェント設定（`.cursor/rules/`、`CLAUDE.md` 等）
-- プロジェクトの lint ルール設定
+- Global skill dirs (`~/.cursor/skills/`, `~/.claude/skills/`, etc.)
+- Project agent config (`.cursor/rules/`, `CLAUDE.md`, etc.)
+- Lint config
 
-結果を 4 段階に分類する:
+Classify:
 
-- **新規**: ヒットなし → 通常の提案
-- **追記**: 関連する skill / ルールが存在し、新情報が補完的 → 「既存に追記」で提案
-- **重複**: 既存が同じ知見を完全にカバー済み → 提案なし（重複検出の記録だけ残す）
-- **判断不能**: エージェントでは判別できない → ユーザーに判断を委ねる
+- **New**: no hit → normal proposal
+- **Append**: related rule/skill exists and new info complements it
+- **Duplicate**: already fully covered → no proposal (record the duplicate check only)
+- **Unclear**: cannot decide → ask the user
 
-### 5. 提案内容を準備する
+### 5. Prepare proposal text
 
-出力先のフォーマットに従って提案内容を **テキストとして用意する**。この段階ではファイルへの書き出しは行わない（ステップ 7 でまとめて行う）。
+Prepare content as **text only**—do not write files yet (step 7 writes after approval).
 
-**lint ルールの場合**: ルール定義とテストケース（valid / invalid）をセットで書く。
+**Lint:** include rule definition and valid/invalid test cases.
 
-**エージェント設定の場合**: 理由を括弧で添える。
+**Agent config:** add brief rationale in parentheses.
 
 ```markdown
-- pnpm は v10 以上を使う（理由: lockfile 形式が v9 以前と非互換で CI 差分が出る）
+- Use pnpm v10 or newer (lockfile format differs on v9 and below, causing CI drift)
 ```
 
-**skill の場合**: frontmatter + 「いつ使うか」+「手順」+「注意」の構成で書く（既存スキルのスタイルに合わせる）。
+**Skill:** frontmatter + when to use + steps + caveats, matching existing skill style.
 
-### 6. ユーザーの承認を得る
+### 6. Get user approval
 
-準備した提案内容を見せて承認を受ける。**承認なしにエージェント設定や skill を書き換えない**。却下されたらセッションメモとして残すに留める。
+Show the proposal and wait for approval. **Do not edit agent config or skills without approval.** If rejected, keep notes in the session only.
 
-### 7. 別ブランチで変更をコミットする
+### 7. Commit on a separate branch
 
-承認後、**メイン作業とは別ブランチ** を作成し、そのブランチ上でのみファイルへ書き出す。
+After approval, create a **branch separate from main work** and write files only there.
+
+Stash **only if** the working tree has changes (tracked, staged, or untracked). If the tree is clean, do not run `git stash`—a no-op stash can make a later blind `git stash pop` restore the wrong entry.
 
 ```bash
-# 現在のブランチ名を記録
 ORIGINAL_BRANCH=$(git branch --show-current)
 
-# main から改善用ブランチを作成
-git stash --include-untracked
-git fetch origin && git checkout -b cursor/improve-<知見を端的に表す名前> origin/main
+if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+  git stash push -u -m "suggest-improvement: before improvement branch"
+fi
 
-# 承認された改善をファイルに反映（lint ルール / エージェント設定 / skill）
-# ... ファイル編集 ...
+git fetch origin && git checkout -b cursor/improve-<short-lesson-name> origin/main
 
-# コミット
-git add <変更ファイル>
-git commit -m "<改善内容を端的に示すメッセージ>"
+# Apply approved changes (lint / agent config / skill)
+# ... edit files ...
+
+git add <files>
+git commit -m "<short improvement message>"
 ```
 
-### 8. PR を作成し、元のブランチに戻る
+### 8. Open a PR and return to the original branch
 
 ```bash
 git push -u origin HEAD
 ```
 
-push 後、`create-pull-request` スキルに従って PR を作成する。PR 本文の **課題** には「タスク中に発見した教訓の形式知化」と書き、**解決法** に振り返りの要約を含める。
+After push, create a PR per `create-pull-request`. In **Problem**, note codifying a lesson from the task; in **Solution**, include the retrospective summary.
 
-PR 作成後、元のブランチに復帰する:
+Then return:
 
 ```bash
 git checkout "$ORIGINAL_BRANCH"
-git stash pop
 ```
 
-## 提示フォーマット
+Run `git stash pop` **only if** you stashed before creating the improvement branch.
+
+## Presentation format
 
 ```markdown
-## 振り返り
+## Retrospective
 
-- 最初の失敗: <1 行>
-- 最終的な解法: <1 行>
-- 知見: <1 行>
+- First failure: <one line>
+- Final solution: <one line>
+- Insight: <one line>
 
-## 提案
+## Proposal
 
-採用候補:
-- [lint] <ルール名>: <1 行>
-- [skill 追記] <既存 skill 名>: <1 行>
-- [skill 新規] <skill 名>: <1 行>
-- [rule] エージェント設定 (global/project): <1 行>
+Candidates:
+- [lint] <rule name>: <one line>
+- [skill append] <existing skill>: <one line>
+- [skill new] <skill name>: <one line>
+- [rule] agent config (global/project): <one line>
 
-重複検出（提案なし）:
-- <既存の skill/ルール名> が同一の知見をカバー済み → 追加なし
+Duplicate (no proposal):
+- <existing skill/rule> already covers this → no addition
 
-不採用:
-- <1 行の理由>（例: プロジェクト固有 / lint で表現困難 / 他の教訓に吸収）
+Declined:
+- <one-line reason> (e.g. project-specific / hard to express in lint / absorbed elsewhere)
 
-採用する項目を番号または名前で指定してください。提案なしも正しい結論です。
+Reply with item numbers or names to adopt. "No proposal" is valid.
 ```
 
-教訓が複数ある場合は振り返りブロックを複数置き、提案の各行に「from 教訓 N」を添える。採用候補・重複検出・不採用のうち、該当がない区分は省略する。
+For multiple lessons, use multiple retrospective blocks and tag proposal lines with "from lesson N". Omit empty sections.
 
-## 注意
+## Notes
 
-- **失敗の記述を省略しない**。最終解法だけ書くと、未来の自分が同じ落とし穴にはまる。失敗と成功が対でなければ教訓にならない。
-- **粒度が細かすぎないか確認する**。特定の関数名やバージョン番号をそのまま残すのではなく、「何を確認すべきか」のレベルに抽象化する。
-- **承認なしに書き出さない**。エージェント設定や skill を勝手に変更すると、将来の挙動が予測できなくなる。
-- **提案ゼロも正しい答え**。教訓が薄いのに何か書こうとするのは虚栄。空の振り返りは害にならない。
-- **メイン作業のブランチを汚さない**。改善は必ず別ブランチ・別 PR で提出する。元ブランチに未コミットの変更がある場合は `git stash` で退避してから作業し、完了後に復帰する。
+- **Do not skip describing failure.** Solution-only notes invite the same trap.
+- **Avoid overly specific grains.** Abstract to "what to verify", not raw version numbers.
+- **Do not write without approval.**
+- **Zero proposals is valid.** Do not invent thin lessons.
+- **Do not dirty the main feature branch.** Stash if needed, branch, PR, then return.

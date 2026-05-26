@@ -1,88 +1,84 @@
 ---
 name: design-it-twice
 description: >-
-  モジュールや API のインターフェースを設計するとき、サブエージェントを並列に走らせて根本的に異なる複数案を生成・比較する。
-  最初の案が最善であることはまずない。A Philosophy of Software Design の「Design It Twice」を実践する。
-  Use when designing an API, exploring interface shapes, or the user mentions "design it twice" or "interface comparison".
+  When designing a module or API, run parallel subagents to produce fundamentally
+  different options and compare them. The first idea is rarely best—practice "Design It Twice"
+  from A Philosophy of Software Design. Use when designing an API, exploring interface shapes,
+  or the user mentions "design it twice" or "interface comparison".
 ---
 
-# Design It Twice
+# Design it twice
 
-最初に思いついた設計が最良であることは、まずない。**根本的に異なる複数のインターフェース案を並べ、比較の中から洞察を得る** のがこの skill の目的。
+The first design is rarely the best. **Place radically different interface options side by side** and learn from the contrast.
 
-A Philosophy of Software Design の「Design It Twice」は、代替案を出すこと自体に価値があるという立場。比較しなければ見えないトレードオフが必ずある。
+Comparison surfaces tradeoffs you will not see from a single sketch.
 
-## いつ使うか
+## When to use
 
-- 新しいモジュール・関数・コンポーネントの public interface を決めるとき
-- 既存 API のリデザインを検討するとき
-- 「どういう形にするか」で迷って手が止まったとき
+- Choosing a new module, function, or component public API
+- Redesigning an existing API
+- Stuck on shape ("how should this look?")
 
-使わない場面:
+Do **not** use for internal optimization without API changes, or when the framework dictates the shape.
 
-- 内部実装の最適化（インターフェースを変えない改善は対象外）
-- 設計が既に制約で一意に決まるケース（フレームワークの規約に従うだけ等）
+## Steps
 
-## 手順
+### 1. Clarify requirements
 
-### 1. 要件の整理
+At minimum:
 
-設計の入力を明らかにする。最低でも以下を把握する:
+- **Purpose** in one sentence (if not, scope is too wide)
+- **Callers** (other modules, users, tests)
+- **Main operations** (CRUD, transform, side effects)
+- **Complexity to hide** from callers
+- **Constraints** (performance, consistency, compatibility)
 
-- **何を解決するモジュールか**（1 文で言えるか？言えなければスコープが広すぎる）
-- **呼び出し側は誰か**（他モジュール、ユーザー、テスト）
-- **主要な操作**（CRUD なのか、変換なのか、副作用を伴うか）
-- **隠すべき複雑さ**（呼び出し側が知らなくて済むべきことは何か）
-- **制約**（パフォーマンス、既存パターンとの一貫性、後方互換）
+Ask: "What does this module do? Who uses it? What should callers not need to know?"
 
-ユーザーに聞く: 「このモジュールは何をする？誰が使う？呼び出し側が気にしなくて済むようにしたいのは何？」
+### 2. Generate options in parallel
 
-### 2. 並列で複数案を生成する
+Launch **3+ subagents at once** via Task with **different design constraints** so options do not converge.
 
-Task tool で **3 つ以上のサブエージェントを同時に起動** する。各サブエージェントには **異なる設計制約** を与え、案が似通うことを防ぐ。
+| Agent | Constraint example |
+|-------|-------------------|
+| A | Minimize method count (1–3) |
+| B | Optimize for the most common use case |
+| C | Maximize generality for future uses |
+| D | Borrow from a specific library or paradigm |
 
-制約の例:
+Each agent returns:
 
-| エージェント | 設計制約 |
-|---|---|
-| A | メソッド数を最小にせよ（1〜3 個） |
-| B | 最も頻出するユースケースに特化せよ |
-| C | 汎用性を最大化せよ（将来の用途も受け入れる） |
-| D | [特定のライブラリやパラダイム] から着想を得よ |
+1. **Type-level interface** (signatures, args, returns)
+2. **Caller example** (real usage)
+3. **Hidden complexity**
+4. **Tradeoffs** (gains and costs)
 
-各エージェントには次の出力を求める:
+### 3. Compare in prose
 
-1. **インターフェースの型定義**（シグネチャ、引数、戻り値）
-2. **呼び出し側のコード例**（実際にどう使うか）
-3. **内部に隠す複雑さ**（呼び出し側が知らないこと）
-4. **このアプローチのトレードオフ**（何を得て何を失うか）
+When all options are ready, compare in **prose, not a flat table**—tables hide the important tradeoffs.
 
-### 3. 案を並べて比較する
+**Angles:**
 
-全案が揃ったら、以下の観点で比較する。**表ではなく散文で書く**。表は差異を平坦にしてしまい、本当に重要なトレードオフが埋もれる。
+- **Interface size:** methods, args, things to remember; too small leaks complexity to callers
+- **Depth:** work hidden behind the API vs shallow pass-through
+- **Misuse resistance:** easy correct use; wrong use caught early?
+- **Generality vs focus:** fits today without burdening callers with speculative API
 
-**比較の観点:**
+### 4. Synthesize
 
-- **インターフェースの小ささ**: メソッド数、引数の数、呼び出し側が覚えるべきことの量。小さいほど良いが、小さくしすぎると呼び出し側に複雑さが漏れる
-- **深さ**: インターフェースの裏にどれだけの仕事が隠れているか。小さなインターフェースで大きな仕事をするモジュール（deep module）が理想。インターフェースと実装がほぼ同じ複雑さのモジュール（shallow module）は避ける
-- **誤用のしやすさ**: 正しく使うのは簡単か？間違った使い方はコンパイル時・実行時に弾けるか？
-- **汎用性と特化のバランス**: 今のユースケースにフィットしつつ、想定外の用途も自然に受け入れるか？過度な汎用化で呼び出し側の負担が増えていないか？
+Do not pick one option blindly—**combine insights** from several.
 
-### 4. 合成する
+Ask the user:
 
-最良案をそのまま採用するのではなく、**複数案の洞察を組み合わせる** ことを検討する。
+- Which option fits the main use case best?
+- What would you take from the others?
+- Did comparison change what we thought we were building?
 
-ユーザーに問いかける:
+The last question matters most.
 
-- 「どの案が主要なユースケースに最もフィットする？」
-- 「他の案から取り入れたい要素はある？」
-- 「この比較を通じて、要件の理解で変わったことはある？」
+## Notes
 
-最後の問いが特に重要。比較を経て「そもそも何を作りたかったか」の理解が変わることは珍しくない。
-
-## 注意
-
-- **実装に踏み込まない**。このスキルはインターフェースの形を決めるまで。実装の詳細は次のステップ。
-- **案の数で満足しない**。3 案出しても似通っていれば意味がない。制約の与え方で差異を強制する。
-- **実装コストで評価しない**。「作りやすい」は呼び出し側にとっての良さとは無関係。呼び出し側の体験で比較する。
-- **比較を省略しない**。案を出しただけでは Design It Twice にならない。価値はコントラストの中にある。
+- **Stop at interface design**—implementation comes later.
+- **Count alone is not enough**—three similar options fail the exercise; constraints must force difference.
+- **Do not rank by implementation cost**—rank by caller experience.
+- **Comparison is mandatory**—listing options without contrast is not Design It Twice.

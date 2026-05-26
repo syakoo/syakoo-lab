@@ -1,11 +1,11 @@
 ---
-description: ルール・スキルの自律的な改善方針
+description: Policy for autonomous improvement of rules and skills
 alwaysApply: true
 ---
 
-# 継続的改善
+# Continuous improvement
 
-AI は作業中に反復パターンや暗黙知を発見したら、ルールやスキルとして形式知化してよい。
-本実装とは別 PR で提出し、人間のレビューを経てマージする。
+When the AI discovers recurring patterns or tacit knowledge during work, it may codify them as rules or skills.
+Submit those changes in a **separate PR** from feature work and merge after human review.
 
-具体的な手順・制約は `suggest-improvement` スキルに従う。
+Follow the `suggest-improvement` skill for the detailed procedure and constraints.

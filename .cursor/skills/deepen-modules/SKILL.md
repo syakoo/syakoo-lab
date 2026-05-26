@@ -1,79 +1,72 @@
 ---
 name: deepen-modules
 description: >-
-  コードベースを探索し、shallow module を deep module に変える機会を見つけて提案する。
-  A Philosophy of Software Design の「深いモジュール」の観点でアーキテクチャ改善候補を洗い出す。
-  Use when improving architecture, finding refactoring opportunities, looking for shallow modules, or the user mentions "deepen".
+  Explore the codebase for chances to turn shallow modules into deep modules per
+  A Philosophy of Software Design. Use when improving architecture, finding refactoring
+  opportunities, looking for shallow modules, or the user mentions "deepen".
 ---
 
-# Deepen Modules
+# Deepen modules
 
-コードベースの中から **インターフェースの裏にもっと多くの仕事を隠せる場所** を見つけ出し、改善候補として提案する。
+Find places where **more work can hide behind a smaller interface** and propose improvements.
 
-A Philosophy of Software Design の中核にある考え方: モジュールの価値はインターフェースと実装の **落差** で決まる。小さなインターフェースで大きな仕事をするモジュール（deep module）は使いやすく変更にも強い。インターフェースと実装がほぼ同じ複雑さのモジュール（shallow module）は存在自体がコストになる。
+Core idea: module value is the gap between interface and implementation. **Deep modules** (small API, substantial internals) are easier to use and change. **Shallow modules** (API complexity ≈ implementation complexity) add cost.
 
-## 用語
+## Vocabulary (use consistently)
 
-このスキル内で一貫して使う語彙。ブレさせない。
+- **Module:** anything with interface + implementation—function, class, package, file; any granularity
+- **Interface:** everything callers must know—signatures, preconditions, errors, call order
+- **Implementation:** code behind the interface
+- **Depth:** ratio of hidden work to interface size—higher is better
+- **Deletion test:** imagine deleting the module. If complexity vanishes, it was a pass-through. If it scatters to N call sites, it was doing real work
 
-- **モジュール**: インターフェースと実装を持つもの。関数、クラス、パッケージ、ファイル。粒度は問わない
-- **インターフェース**: 呼び出し側が知らなければならない全て。型シグネチャだけでなく、暗黙の前提条件・エラーの振る舞い・呼び出し順序も含む
-- **実装**: インターフェースの裏側のコード
-- **深さ**: インターフェースの小ささに対する実装の大きさの比率。大きいほど良い
-- **削除テスト**: そのモジュールを消したと想像する。複雑さが消えるなら、そのモジュールはただのパススルーだった。複雑さが N 箇所の呼び出し側に散らばるなら、そのモジュールは仕事をしていた
+## When to use
 
-## いつ使うか
+- Hunting structural improvement opportunities
+- Turning vague "this feels redundant" into words
+- Tests are hard to write (often signals shallow modules)
 
-- コードベースの構造的な改善機会を探したいとき
-- 「このあたり、なんか冗長だな」という漠然とした違和感を言語化したいとき
-- テストが書きづらいモジュールがあるとき（テストしづらさは shallow module のシグナル）
+Do **not** use during feature work or bug fixes (make it work first), or for diff review (use `self-review`).
 
-使わない場面:
+## Steps
 
-- 機能追加やバグ修正の最中（まず動かしてからリファクタ）
-- 差分レビュー（`self-review` を使う）
+### 1. Explore
 
-## 手順
+Walk the codebase and note **friction** by reading code—not only heuristics:
 
-### 1. 探索する
+- Understanding one concept requires hopping many small modules → possibly over-split
+- Interface complexity ≈ implementation → wrappers, pure delegation, getter/setter piles
+- Tests only cover extracted pure functions while bugs live in composition → lost locality
+- Tightly coupled cluster with mutual internal dependencies → redraw boundaries
+- Untested or hard-to-test modules → bad interface shape
 
-コードベースを歩いて、以下のような **摩擦** を感じる場所をメモする。機械的なヒューリスティクスに頼らず、実際にコードを読んで引っかかる場所を探す。
+Apply the **deletion test** on each candidate.
 
-着目点:
+### 2. Present candidates
 
-- **1 つの概念を理解するために複数の小さなモジュールを行き来する必要がある**: 分割が浅すぎるサイン
-- **インターフェースと実装の複雑さがほぼ同じ**: 典型的な shallow module。ラッパー、委譲だけのクラス、setter/getter の集合
-- **テスタビリティのためだけに純関数を切り出しているが、本当のバグは呼び出し側の組み合わせに潜む**: 局所性（locality）の喪失
-- **密結合したモジュール群が互いの内部に依存している**: 境界の引き直しが必要
-- **テストされていない、またはテストが書きづらいモジュール**: インターフェースの形が悪いシグナル
+Numbered list; each entry includes:
 
-見つけたら **削除テスト** を適用する: そのモジュールを消したら複雑さは集約される？ 散らばる？ 集約されるなら、そのモジュールは仕事をしていない。
+- **Target file/module**
+- **Friction:** what hurts today
+- **Proposal:** what to change (plain language—no concrete API yet)
+- **Benefit:** testability, locality, simpler callers
 
-### 2. 候補を提示する
+**Do not propose concrete interfaces here.** Ask which candidate to deepen.
 
-番号付きリストで提示する。各候補には以下を含める:
+### 3. Deepen the chosen candidate
 
-- **対象ファイル / モジュール**: どこの話か
-- **摩擦**: 現状何が痛いか
-- **提案**: 何をどう変えるか（平文で。インターフェースの具体案はまだ出さない）
-- **得られるもの**: 深くなることで何が良くなるか（テストのしやすさ、変更の局所性、呼び出し側のシンプルさ）
+For the user’s pick, refine design in dialogue:
 
-**インターフェースの具体案はここでは出さない**。ユーザーに「どれを掘り下げる？」と聞く。
+- New interface shape
+- What moves inside the boundary
+- Test survival vs rewrite
+- Can it ship in tiny commits?
 
-### 3. 掘り下げる
+For multiple interface options, hand off to `design-it-twice`.
 
-ユーザーが選んだ候補について、対話で設計を詰める。
+## Notes
 
-- 深くしたモジュールのインターフェースはどうなるか
-- 何が境界の内側に移るか
-- 既存のテストは生き残るか、書き直しが必要か
-- 変更は段階的に（tiny commits で）進められるか
-
-インターフェースの案を複数比較したくなったら `design-it-twice` に渡す。
-
-## 注意
-
-- **探索の結果「改善候補なし」も正しい答え**。無理に見つけようとしない。
-- **「分割すれば良くなる」とは限らない**。分割は shallow module を増やすリスクがある。統合して深くすることの方が多い。
-- **実装に踏み込みすぎない**。候補の提示と設計の議論まで。コードを書くのは別ステップ。
-- **削除テストを省略しない**。「このモジュールは要らないのでは？」という問いを怖がらない。
+- **"No candidates" is valid.**
+- **Splitting is not always better**—merging into a deeper module is often the win.
+- **Stop at design**—implementation is a separate step.
+- **Do not skip the deletion test.**

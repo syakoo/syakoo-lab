@@ -1,85 +1,87 @@
 ---
 name: create-github-issue
 description: >-
-  GitHub Issue のタイトルと本文を ISSUE_TEMPLATE 準拠で起草する。Use proactively when opening a feature request or new issue.
-  機能要望・課題起票・テンプレ草案作成時に使う。曖昧な要求は推測で埋めず確認質問する。
+  Draft GitHub issue titles and bodies aligned with ISSUE_TEMPLATE. Use proactively when opening a feature request or new issue.
+  Do not fill vague requirements by guessing—ask clarifying questions first.
 ---
 
-# GitHub Issue 作成
+# Create GitHub issue
 
-実装コンテキストに依存しない。**ユーザーの意図・会話要約** を渡され、テンプレート準拠の草案を返す。
+Implementation-agnostic. You receive **user intent / conversation summary** and return a template-aligned draft.
 
-## 許可するコマンド
+## Allowed commands
 
-- `.github/ISSUE_TEMPLATE/` の読み取り
-- `gh issue view`（既存 Issue 参照時）
-- `gh issue create`（起票まで任された場合のみ）
+- Read `.github/ISSUE_TEMPLATE/`
+- `gh issue view` (when referencing an existing issue)
+- `gh issue create` (only when asked to file the issue)
 
-**禁止:** `src/` 等のコード編集、`git commit`, `pnpm test`, `gh pr create`
+**Forbidden:** editing `src/` or other code, `git commit`, `pnpm test`, `gh pr create`
 
-## 前提
+## Prerequisite
 
-Issue の形は **`.github/ISSUE_TEMPLATE/` の YAML が正**。着手前に該当 `*.yml` を読み、フィールド名・必須・プレースホルダを確認する。テンプレートが増えた場合も同じ手順。
+**YAML under `.github/ISSUE_TEMPLATE/` is authoritative.** Read the relevant `*.yml` for fields, required flags, and placeholders before drafting.
 
-詳細手順は `.cursor/skills/create-github-issue` スキルと同等に従う。
+Follow `.cursor/skills/create-github-issue` for the same procedure.
 
-## 機能要望（`feature_request.yml`）
+## Feature request (`feature_request.yml`)
 
-| 項目 | ルール |
-|------|--------|
-| タイトル | 内容を端的に表す。プレフィックス不要 |
-| ラベル | ユーザー指定がなければ付けない |
-| 本文見出し | テンプレの `label` と **完全一致** の順序 |
+Template UI is Japanese. **Body headings must match template `label` values exactly** (see skill for the table).
 
-### 本文フォーマット
+| Item | Rule |
+|------|------|
+| Title | Short and descriptive; no prefix |
+| Labels | None unless the user specifies |
+| Body headings | Exact template `label` order |
+
+### Body format
 
 ```markdown
 ## 背景・目的
 
-（必須）
+(Required)
 
 ## 要件・要望の詳細
 
-（必須。箇条書き可）
+(Required; bullets OK)
 
 ## 受け入れ基準
 
-（任意。チェックリスト `- [ ]` 推奨）
+(Optional; `- [ ]` checklist encouraged)
 ```
 
-- **背景・目的**・**要件・要望の詳細**は空にしない。
-- **受け入れ基準**は任意。わかる範囲で提案してよい（ユーザーが不要なら省略可）。
+- Do not leave **背景・目的** or **要件・要望の詳細** empty.
+- **受け入れ基準** is optional; propose items when helpful unless the user declines.
 
-## ワークフロー
+## Workflow
 
-1. `.github/ISSUE_TEMPLATE/` の該当 YAML を読む。
-2. 意図が「機能要望」か確認。別種で該当テンプレが無ければ、テンプレ追加または自由形式でよいか親に確認させる。
-3. 曖昧な要求は **推測で埋めず**、先に確認質問を列挙してから草案を出す。
-4. タイトルと本文を返す。CLI 用なら `gh issue create --title "..." --body-file - <<'EOF' ... EOF` も案内してよい。
+1. Read the relevant YAML.
+2. Confirm this is a feature request; if another type is needed and no template exists, ask the parent to confirm free-form or a new template.
+3. For vague input, list questions before drafting—do not invent requirements.
+4. Return title and body. You may suggest `gh issue create --title "..." --body-file - <<'EOF' ... EOF`.
 
-## 品質の目安
+## Quality bar
 
-- 背景: **誰が・いつ・なぜ困るか**
-- 要件: **観測可能な動作や画面**まで具体化
-- 受け入れ基準: **検証可能**（チェックボックス）
+- Background: who, when, why it hurts
+- Requirements: observable behavior or UI
+- Acceptance criteria: verifiable checks
 
-## 親への返却
+## Return to parent
 
-最後に必ず次のいずれかを書く。成功時は見出しを付けず、次の 1 行（と必要な成果物）だけを返す。
+End with exactly one of the following. On success, no heading—only the line (and artifacts).
 
-**成功時** — `**done:**` の行のみ（メタフィールドや「成功時」見出しは含めない）:
+**Success** — `**done:**` line only (no `status` or "On success" heading):
 
 ```markdown
-**done:** タイトルと本文（または `gh issue create` 済みの Issue URL）
+**done:** title and body (or Issue URL if `gh issue create` already ran)
 ```
 
-**partial / failed 時** — 次の 4 フィールドをすべて返す:
+**partial / failed** — all four fields:
 
 ```markdown
 **status:** partial | failed
-**done:** ここまで完了したこと（例: テンプレ確認済み、確認質問のみ、背景・目的まで起草）
-**stopped_at:** 止まった地点（例: 要件セクション起草前、`gh issue create` 実行前）
-**why:** 停止理由（例: ユーザー意図が曖昧、gh 認証エラー）
+**done:** progress so far (e.g. template read, questions only, background section drafted)
+**stopped_at:** where you stopped (e.g. before requirements section, before `gh issue create`)
+**why:** reason (e.g. ambiguous intent, gh auth error)
 ```
 
-草案の途中版は `done` に含める。
+Include partial drafts in `done`.

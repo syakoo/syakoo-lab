@@ -1,42 +1,71 @@
 ---
-description: AI主体開発フローの行動規範
+description: Behavioral rules for the AI-led development workflow
 alwaysApply: true
 ---
 
-# AI主体開発フロー
+# AI-led development workflow
 
-AI が主体で開発を進め、人間は品質保証と最終判断に集中する。
+AI drives implementation; humans focus on quality assurance and final decisions.
 
-## フロー
+## Flow
 
-1. **人間/AI**: 要望/課題を Issue として起票する
-2. **AI**: `gh issue view` で Issue を読み、実装方針を提示する
-3. **人間**: 方針をレビューし、着手を承認する
-4. **AI**: 承認された方針に従い実装し、テストを通し、PR を作成する
-5. **人間**: 実装内容・挙動・Storybook を確認し、マージ判断する
+1. **Human/AI**: Open a request or task as a GitHub Issue
+2. **AI**: Read the Issue with `gh issue view` and propose an implementation plan
+3. **Human**: Review the plan and approve starting work
+4. **AI**: Implement per the approved plan, pass tests, and open a PR
+5. **Human**: Review behavior, Storybook, etc., and decide whether to merge
 
-## サブエージェントの利用
+## Subagent delegation
 
-メインエージェントのコンテキストを汚さないため、次の定型作業は **メインが自分で完遂せず、該当サブエージェントへ Task で委譲** する（各 `description` の "use proactively" に従う）。委譲時は会話履歴ではなく、作業に必要な入力だけを渡す。
+To keep the main agent’s context clean, **do not complete these routine steps yourself**—delegate them to the matching subagent via Task (follow each agent’s `description` and “use proactively”). Pass only the inputs needed for the job, not full chat history.
 
-| タイミング | サブエージェント | 渡す情報の例 |
+| When | Subagent | Example inputs |
 |---|---|---|
-| Issue 起票 | `create-github-issue` | ユーザー意図の要約 |
-| コミット / push 前 | `self-review`（`readonly`） | `git diff`、変更ファイル一覧 |
-| push 後 | `create-pull-request` | Issue 番号、承認済み方針、`git diff` |
+| Issue creation | `create-github-issue` | Summary of user intent |
+| Before commit / push | `self-review` (`readonly`) | `git diff`, changed file list |
+| After push | `create-pull-request` | Issue number, approved plan, `git diff` |
 
-手順の詳細は各エージェント定義および同名スキル（`create-github-issue` / `create-pull-request`）を参照する。
+See each agent definition and the same-named skills (`create-github-issue` / `create-pull-request`) for details.
 
-サブエージェントの返却: 成功時は `**done:**` の行（および成果物）のみを返し、`status` 等のメタフィールドや「成功時」などの見出しは含めない。`partial` / `failed` のときは `done`・`stopped_at`・`why` を読み、`done` にある途中成果から続行する。最初から同じ委譲をやり直さない。
+Subagent returns: on success, return only the `**done:**` line (and artifacts). Do not include `status` or headings like “On success”. On `partial` / `failed`, read `done`, `stopped_at`, and `why`, then continue from partial work in `done`. Do not restart the same delegation from scratch.
 
-## AI の行動ルール
+## AI behavior rules
 
-- 人間の着手承認なしに実装を開始しない
-- 承認された方針の範囲を超える変更をしない
-- 差し戻し理由は次のタスク分解で改善材料として活用する
+- Do not start implementation without human approval of the plan
+- Do not change beyond the approved scope
+- Use rejection feedback as input for the next task breakdown
 
-具体的な実装手順（ブランチ作成・コミット・PR 作成など）は `implement-issue` スキルに従う。
+For concrete steps (branch, commit, PR), follow the `implement-issue` skill.
 
-## プロジェクト設計
+## Project design
 
-ディレクトリ構造・レイヤー依存関係は `project-structure` スキルに従う。
+Directory layout and layer dependencies follow the `project-structure` skill.
+
+## Communication language
+
+Agents working in this repository **communicate in English**, including:
+
+- Implementation plans and summaries
+- Issue/PR bodies and review summaries
+- Commit messages and PR descriptions
+- Additions to `.cursor/` configuration
+
+**Precedence:** For work in this repo, rules under `.cursor/rules/` take precedence over user-level Cursor rules (persona, “always reply in Japanese”, etc.) for the artifacts above.
+
+**Exceptions:**
+
+- The user explicitly requests another language for a turn
+- Issue template **label strings** in `.github/ISSUE_TEMPLATE/*.yml` (must match YAML exactly)
+- Japanese phrases in skill `description` Use-when examples (to match user utterances)
+
+Regardless of the language of an existing Issue or user message, **outputs for this repo should be in English** unless an exception applies.
+
+## Agent-facing docs (audit)
+
+| Path | This effort | Notes |
+|------|-------------|--------|
+| `.cursor/rules`, `.cursor/skills`, `.cursor/agents` | Translate to English | This PR |
+| `.github/ISSUE_TEMPLATE/feature_request.yml` | Remains Japanese | Human-facing UI; agents treat YAML `label` values as source of truth |
+| `AGENTS.md` | Not present | Cursor uses `.cursor/rules` |
+| `README.md` | Unchanged | Out of scope for #263 |
+| User `~/.cursor/rules/` (e.g. persona) | Unchanged | Repo rules govern repo work |

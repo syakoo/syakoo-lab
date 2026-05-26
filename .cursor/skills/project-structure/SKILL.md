@@ -1,22 +1,19 @@
 ---
 name: project-structure
 description: >-
-  FSD ベースのプロジェクト構造定義。レイヤー依存・スライス構造・命名規約を規定する。
-  Use when creating new directories, moving files between layers, or deciding
-  where to place new modules (e.g. "このコンポーネントはどこに置く？",
-  "ディレクトリ構造を教えて").
+  Feature-Sliced Design (FSD) project layout: layer dependencies, slice structure,
+  and naming conventions. Use when creating directories, moving files between layers,
+  or deciding where to place modules (e.g. "where does this component go?",
+  "explain the directory structure").
 ---
 
-# プロジェクト構造
+# Project structure
 
-Feature-Sliced Design（FSD）をベースにした構造。
-公式: https://feature-sliced.design/
+Feature-Sliced Design (FSD) with a few repo-specific choices. Official reference: https://feature-sliced.design/
 
-公式 FSD を土台にしつつ、一部独自の判断を加えている。該当箇所には注釈あり。
+## Layers
 
-## レイヤー
-
-上から下へのみ依存できる（逆は禁止）。
+Dependencies flow **downward only** (never upward).
 
 ```mermaid
 graph TD
@@ -26,48 +23,46 @@ graph TD
   entities --> shared & contents
 ```
 
-| レイヤー | 役割 |
-|----------|------|
-| `app/` | エントリポイント（Next.js App Router）、グローバル設定、プロバイダー |
-| `widgets/` | 画面上にブロックとして表示する UI 単位（スライス名は具象名: `creation-list` など） |
-| `features/` | 複数 widgets で横断的に再利用される共通機能・UI 部品 |
-| `entities/` | 複数機能で共有するモデル（型・ルール・パス・reader）。**UI なし** |
-| `shared/` | ドメインに依存しないユーティリティ、UI キット |
-| `contents/` | 外部データとの吸収層、DTO、変換（※ 公式 FSD の `shared/api` に相当するが独立レイヤーとして分離） |
+| Layer | Role |
+|-------|------|
+| `app/` | Entry (Next.js App Router), global config, providers |
+| `widgets/` | UI blocks on screen (concrete slice names, e.g. `creation-list`) |
+| `features/` | Cross-widget reusable capabilities and UI pieces |
+| `entities/` | Shared models (types, rules, paths, readers). **No UI** |
+| `shared/` | Domain-agnostic utilities and UI kit |
+| `contents/` | External data boundary, DTOs, transforms (like official `shared/api`, but a separate layer) |
 
-### widgets と features の違い
+### widgets vs features
 
-- `widgets` — 画面に見えるブロック。スライス名は `creation-list` のように具象名で、ドメイン名の親フォルダは置かない
-- `features` — widgets 横断の共通機能。`features/<domain>/<feature-name>/` に配置する（後述）
+- `widgets` — Visible blocks; slice names are concrete (`creation-list`), not domain parent folders
+- `features` — Cross-widget shared behavior under `features/<domain>/<feature-name>/` (below)
 
-例: 記事一覧（`widgets/writing-list`）で `features/creation/creation-card` のカード UI を使う。
+Example: `widgets/writing-list` uses `features/creation/creation-card`.
 
-## features のスライス構造
+## features slice layout
 
-`features/<domain>/` は **整理用ディレクトリのみ**（`index.ts` なし）。Public API は `<feature-name>/index.ts` に置く。
+`features/<domain>/` is **organizational only** (no `index.ts`). Public API lives in `<feature-name>/index.ts`.
 
 ```
-features/creation/              # 束ねるだけ（index.ts なし）
-  creation-card/                # 機能パッケージ
+features/creation/              # grouping only (no index.ts)
+  creation-card/
     ui/creation-card/
       creation-card.tsx
     index.ts
 ```
 
-- **import** — `from ".../features/creation/creation-card"` のように機能パッケージを直指定する
-- 横断基盤（MDX など）は `features/mdx/` 配下にサブ feature を切り、ルート `index.ts` / `index.client.ts` で barrel してよい
+- **import** — `from ".../features/creation/creation-card"` (feature package directly)
+- Cross-cutting infra (e.g. MDX) may live under `features/mdx/` with root `index.ts` / `index.client.ts` barrels
 
-## スライス内の構造（widgets / feature パッケージ）
+## Inside a slice (widgets / feature package)
 
-各スライス（例: `widgets/creation-list/` や `features/creation/creation-card/`）は以下のセグメントを持てる。
+| Segment | Purpose |
+|---------|---------|
+| `ui/` | Components and related hooks, packaged by feature |
+| `models/` | Shared types and helpers |
+| `helpers/` | Other shared utilities |
 
-| セグメント | 内容 |
-|-----------|------|
-| `ui/` | コンポーネントと関連フックを機能単位でパッケージング |
-| `models/` | 共通の型定義、ヘルパー |
-| `helpers/` | その他共通のユーティリティ |
-
-`ui/` 内は機能単位でディレクトリを切り、関連するコンポーネントとフックを一緒に置く（コロケーション）。
+Colocate related components and hooks under `ui/<feature-name>/`.
 
 ```
 widgets/creation-list/
@@ -80,79 +75,77 @@ features/creation/creation-card/
   ui/
     creation-card/
       creation-card.tsx
-  index.ts          ← Public API（creation/ 直下には index.ts なし）
+  index.ts          ← Public API (no index.ts directly under creation/)
 ```
 
-## ルール
+## Rules
 
-### [Must] 上位レイヤーは下位にのみ依存
+### [Must] Upper layers depend on lower layers only
 
-依存の方向を統一し、変更の影響範囲を予測しやすくする。
+Keeps change impact predictable.
 
-### [Must] 各スライスは Public API を通じて公開
+### [Must] Expose slices via Public API
 
-スライスの外部からは Public API 経由でのみアクセスする。内部のファイル構造を直接参照しない。
-Public API を維持すれば内部リファクタリングが呼び出し側に影響しない。
+External code imports only through the Public API, not internal paths.
 
-基本は `index.ts` 1 本。Next.js App Router（RSC）で **Server 専用** と **Client 専用** の export が混在するとビルドエラーになるため、必要なスライスだけエントリを分ける。
+Usually a single `index.ts`. For Next.js App Router (RSC), split entries when **server-only** and **client-only** exports must not mix.
 
-| ファイル | 用途 | 先頭ディレクティブ |
-|----------|------|-------------------|
-| `index.ts` | Client / Server 両方から import できるもの（型、両環境で動く関数） | なし |
-| `index.server.ts` | Server Component・`models` の reader など Server 専用 | なし |
-| `index.client.ts` | Client Component 専用の hook など | `"use client"` 必須 |
+| File | Purpose | Leading directive |
+|------|---------|-------------------|
+| `index.ts` | Usable from both client and server (types, isomorphic helpers) | none |
+| `index.server.ts` | Server Components, readers in `models`, etc. | none |
+| `index.client.ts` | Client-only hooks | `"use client"` required |
 
-**import の使い分け（呼び出し側）**
+**Import rules (callers)**
 
-- Server から Server 専用 API → `from ".../slice/index.server"`
-- Client から Client 専用 API → `from ".../slice/index.client"`
-- どちらからも使う API → `from ".../slice"`（`index.ts`）
+- Server → server-only API: `from ".../slice/index.server"`
+- Client → client-only API: `from ".../slice/index.client"`
+- Either → shared API: `from ".../slice"` (`index.ts`)
 
-**分け方の目安**
+**When to split**
 
-- `useEffect` / ブラウザ API / React hook を export する → `index.client.ts`
-- ビルド時・リクエスト時にだけ動く serializer など → `index.server.ts`
-- 上記を `index.ts` にまとめると、Server 側の `import` だけで Client 境界が伝播しうるので分離する
+- `useEffect`, browser APIs, React hooks → `index.client.ts`
+- Build/request-only serializers → `index.server.ts`
+- Mixing these in `index.ts` can pull client boundaries into server imports
 
-**例（MDX）**
+**Example (MDX)**
 
 ```
 entities/mdx-content/
   index.server.ts    # serializeMDXContent, markupMermaid
 
 features/mdx/
-  content-resolver/  # resolveMDXContent
-  mermaid/           # useMermaid（index.client.ts）
-  twitter/           # useTwitter（index.client.ts）
-  index.ts           # resolve 等の barrel
+  content-resolver/
+  mermaid/           # useMermaid (index.client.ts)
+  twitter/
+  index.ts
   index.client.ts
 ```
 
 ```ts
-// Server（reader）
+// Server (reader)
 import { serializeMDXContent } from "../../../entities/mdx-content/index.server";
 
-// Client（UI）
+// Client (UI)
 import { useMermaid } from "../../../features/mdx/index.client";
 import { resolveMDXContent } from "../../../features/mdx";
 ```
 
-`index.client.ts` / `index.server.ts` は **必要なスライスにだけ** 追加する。全スライスに必須ではない。
+Add `index.client.ts` / `index.server.ts` only where needed—not on every slice.
 
-### [Must] ディレクトリ名・ファイル名は kebab-case
+### [Must] kebab-case for directories and files
 
-### [Should] `index.ts` にコンポーネント本体を書かない
+### [Should] Do not put component bodies in `index.ts`
 
-`index.ts` は re-export 専用。コンポーネント本体は別ファイルに書く。
-エディタのタブや検索結果で `index.ts` だらけになるのを防ぐ。
+`index.ts` is re-export only.
 
-### [Must] `shared` にビジネスロジックを入れない
+### [Must] No business logic in `shared`
 
-- `shared/` — ドメインに依存しないユーティリティのみ（日付操作、汎用 HTTP クライアントなど）
-- `contents/` — 外部との吸収層、DTO、変換（ビジネス知識を含む）
+- `shared/` — domain-agnostic utilities only
+- `contents/` — external boundaries, DTOs, transforms (may include business knowledge)
 
-### [Should] reader は entities、横断 UI は features
+### [Should] readers in entities; cross-cutting UI in features
 
-- **entities** — 型・ルール・パス・`readXxx` などのデータ取得（`index.server.ts`）
-- **features** — 複数 widgets で使う UI 部品や MDX プラグインなど（entity の UI は置かない）
-- **widgets** — 画面ブロック本体。ドメイン名の抽象スライス（`widgets/creation/`）は避け、具象スライス名を使う
+- **entities** — types, rules, paths, `readXxx` (`index.server.ts`)
+- **features** — reusable UI and plugins (not entity UI)
+- **widgets** — screen blocks; avoid abstract domain slices like `widgets/creation/`

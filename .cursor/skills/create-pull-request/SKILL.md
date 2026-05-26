@@ -1,52 +1,51 @@
 ---
 name: create-pull-request
 description: >-
-  AI主体開発フローに準拠した PR を作成する。
-  変更内容の要約、設計図（該当時）、影響・懸念を含む PR 本文を生成し gh で起票する。
-  Use when creating a pull request, opening a PR, pushing changes for review,
+  Create a PR aligned with the AI-led workflow: summary, design (when relevant),
+  impact and risks. Use when creating a pull request, opening a PR, pushing for review,
   or completing implementation of an issue.
 ---
 
-# Pull Request 作成
+# Create pull request
 
-## ワークフロー
+## Workflow
 
-1. 対象 Issue と承認済みの実装方針を確認する。
-2. `git diff` と変更ファイルを読み、変更内容を把握する。
-3. 下記フォーマットで PR タイトルと本文を生成する。
-4. `gh pr create` で PR を作成する。
+1. Confirm the target issue and approved implementation plan.
+2. Read `git diff` and changed files.
+3. Draft title and body in the format below.
+4. Run `gh pr create`.
 
-## タイトル
+## Title
 
-変更の意図が伝わる端的な一文。プレフィックス不要。
+One short line that states intent. No prefix required.
 
-## 本文フォーマット
+## Body format
 
 ````markdown
-## 課題
+## Problem
 
-（どの Issue の何を解決するか。`Closes #XX` or `Refs #XX` を含める）
+(What this PR solves. Include `Closes #XX` or `Refs #XX`.)
 
-## 解決法
+## Solution
 
-（どういうアプローチで解決したか。変更の要点を箇条書きで）
+(Approach and main changes as bullets.)
 
-## 設計
+## Design
 
-<!-- 初実装または既存設計の変更がある場合のみ記載 -->
+<!-- Only for greenfield or design changes -->
 
 ```mermaid
-（構造図・フロー図など、変更の全体像が伝わる図）
+(structure or flow diagram)
 ```
 
-## 影響・懸念
+## Impact and risks
 
-（既存機能・パフォーマンス・互換性への影響。なければ「なし」と明記）
+(State "None" if there are none.)
 ````
 
-## ルール
+## Rules
 
-- **課題** と **解決法** は必須。空にしない。
-- **設計** は初実装または既存設計の変更がある場合のみ記載する。該当しなければセクションごと省略する。
-- **影響・懸念** は該当がなくても「なし」と明記する。
-- 曖昧な変更意図は推測で書かず、人間に確認する。
+- **Problem** and **Solution** are required.
+- **Design** only when introducing or changing architecture; omit the section if N/A.
+- **Impact and risks** is required even when the answer is "None".
+- Do not guess intent—ask a human when unclear.

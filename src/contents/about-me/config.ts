@@ -1,15 +1,14 @@
 import type { AboutMeConfig } from "../../widgets/home";
 
-import atcoderImageSrc from "./atcoder.png";
 import githubImageSrc from "./github.png";
-import leetCodeImageSrc from "./leetcode.png";
 import meImageSrc from "./me.jpg";
+import shogiWarsImageSrc from "./shogi-wars.png";
 import steamImageSrc from "./steam.png";
 import xImageSrc from "./x.png";
 
 export const aboutMeConfig = {
   name: "syakoo",
-  bio: "気分駆動フロントエンドエンジニア。言語・フレームワーク仕様よりは設計やアルゴリズムなどの抽象的な部分に興味があります。",
+  bio: "興味駆動フロントエンドエンジニア。言語・フレームワーク仕様より、設計やアルゴリズムなどの抽象的な部分に関心を向けています。",
   imageSrc: meImageSrc,
   links: [
     {
@@ -23,19 +22,14 @@ export const aboutMeConfig = {
       imageSrc: xImageSrc,
     },
     {
-      name: "LeetCode",
-      url: "https://leetcode.com/syakoo/",
-      imageSrc: leetCodeImageSrc,
-    },
-    {
       name: "Steam",
       url: "https://steamcommunity.com/profiles/76561198944381322/",
       imageSrc: steamImageSrc,
     },
     {
-      name: "AtCoder",
-      url: "https://atcoder.jp/users/syakoo",
-      imageSrc: atcoderImageSrc,
+      name: "Shogi Wars",
+      url: "https://shogiwars.heroz.jp/users/mypage/syakoo",
+      imageSrc: shogiWarsImageSrc,
     },
   ],
 } satisfies AboutMeConfig;

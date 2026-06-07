@@ -13,7 +13,8 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 2. **AI**: Read the Issue with `gh issue view` and propose an implementation plan
 3. **Human**: Review the plan and approve starting work
 4. **AI**: Implement per the approved plan, pass tests, and open a PR
-5. **Human**: Review behavior, Storybook, etc., and decide whether to merge
+5. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
+6. **Human**: Review behavior, Storybook, etc., and decide whether to merge
 
 ## Subagent delegation
 
@@ -24,8 +25,17 @@ To keep the main agent’s context clean, **do not complete these routine steps 
 | Issue creation | `create-github-issue` | Summary of user intent |
 | Before commit / push | `self-review` (`readonly`) | `git diff`, changed file list |
 | After push | `create-pull-request` | Issue number, approved plan, `git diff` |
+| PR opened | `review-pull-request` (`readonly`) | PR number (Cursor Automation) |
 
-See each agent definition and the same-named skills (`create-github-issue` / `create-pull-request`) for details.
+See each agent definition and the same-named skills for details.
+
+### PR review automation
+
+Configure at [cursor.com/automations](https://cursor.com/automations):
+
+- **Trigger:** Pull request opened — `syakoo/syakoo-lab`
+- **Tool:** Comment on pull request (comment only; no approve)
+- **Prompt:** Follow `.cursor/skills/review-pull-request`. Read the PR diff, linked issue, and project skills; post one structured review comment.
 
 Subagent returns: on success, return only the `**done:**` line (and artifacts). Do not include `status` or headings like “On success”. On `partial` / `failed`, read `done`, `stopped_at`, and `why`, then continue from partial work in `done`. Do not restart the same delegation from scratch.
 

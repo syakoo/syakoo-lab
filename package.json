@@ -99,7 +99,7 @@
     "storybook": "^10.2.1",
     "tsx": "^4.20.5",
     "typescript": "^5.7.2",
-    "vitest": "^3.2.4",
+    "vitest": "^4.0.0",
     "wait-on": "^8.0.4"
   },
   "packageManager": "pnpm@10.34.1"

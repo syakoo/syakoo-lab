@@ -10,6 +10,8 @@ description: >-
 
 Concrete steps for the flow in `ai-workflow.mdc` (plan → approval → implement → PR).
 
+Triggered by Cursor Automation when the reviewer posts `cursor:implement` on the issue (see `ai-workflow.mdc`), or on request.
+
 ## Workflow
 
 ### 1. Read the issue

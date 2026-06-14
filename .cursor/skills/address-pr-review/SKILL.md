@@ -13,6 +13,8 @@ Start from review state (Approve / Request changes / Comment) and **every thread
 
 `babysit` may cover merge readiness broadly (CI, conflicts, long polling). This skill is **one review iteration**: replies and necessary code changes.
 
+Triggered by Cursor Automation when the reviewer posts `cursor:address` on the PR conversation (see `ai-workflow.mdc`), or on request.
+
 ## When to use
 
 - Reviewer requested changes or left comments you must address
@@ -38,7 +40,20 @@ Do **not** use when:
    - Inline: `gh api repos/{owner}/{repo}/pulls/<N>/comments`
    - Review threads: `gh api repos/{owner}/{repo}/pulls/<N>/reviews` and related comment APIs; use the web UI if needed
    - Treat **bot reviews** like human feedback (fix or document why not)
-4. **Classify each thread:**
+   - Skip threads already addressed in a prior commit or reply unless new feedback was added
+4. **Decide whether this run should act** (run-level gate, before any edits):
+
+   | Situation | Action |
+   |-----------|--------|
+   | One or more open threads need **Fix** | Proceed to step 5 |
+   | Only **Reply only** threads remain | Reply on GitHub; no commit unless a reply is missing |
+   | All feedback already addressed / resolved | Post one PR comment that nothing further is needed; **stop** |
+   | Trigger comment only, no open feedback | Post one PR comment that no open feedback was found; **stop** |
+   | Mixed or unclear whether changes are required | **Needs input** — ask on the PR or stop; do not guess |
+
+   Do **not** push an empty or no-op commit.
+
+5. **Classify each open thread:**
 
    | Class | Action |
    |-------|--------|
@@ -47,17 +62,17 @@ Do **not** use when:
    | Defer | Out of scope—link Issue/PR and one line why |
    | Needs input | Do not guess—ask the user |
 
-5. **Implement** with minimal diff per item. No unrelated formatting or renames.
-6. **Post-change checks**
+6. **Implement** with minimal diff per item. No unrelated formatting or renames.
+7. **Post-change checks**
    - `git diff` / `git status` for stray files and debug leftovers (same spirit as `self-review`)
    - Run repo scripts (`pnpm lint`, `pnpm typecheck`, `pnpm test`, etc.) unless the user defers heavy/env-dependent runs
-7. **Commit and `git push`**. No force-push by default.
-8. **Record SHAs:** `git rev-parse HEAD` (full and short). If multiple commits, map feedback → SHA.
-9. **Reply on GitHub** for each thread with what changed and the **commit SHA** (same SHA on multiple threads is fine). Reply-only threads need no SHA.
+8. **Commit and `git push`**. No force-push by default. Skip this step when step 4 says stop with no code changes.
+9. **Record SHAs:** `git rev-parse HEAD` (full and short). If multiple commits, map feedback → SHA.
+10. **Reply on GitHub** for each thread with what changed and the **commit SHA** (same SHA on multiple threads is fine). Reply-only threads need no SHA.
    - Inline reply example: `POST .../pulls/comments/{comment_id}/replies` via `gh api`
    - PR comment: `gh pr comment <N> --body "..."`
-10. **`gh pr checks <N>`** or Checks tab; summarize failures in replies if relevant.
-11. Post the **chat summary** below (may mirror GitHub replies).
+11. **`gh pr checks <N>`** or Checks tab; summarize failures in replies if relevant.
+12. Post the **chat summary** below (may mirror GitHub replies).
 
 ## GitHub reply template
 
@@ -105,6 +120,10 @@ For reply-only or blocked items, explain without a SHA.
 ### CI
 
 - Green / failed — job and summary / not checked
+
+### No action needed
+
+- <why nothing to do — e.g. all threads resolved, no open feedback>
 
 ### Next steps
 

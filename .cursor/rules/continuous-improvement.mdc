@@ -5,7 +5,19 @@ alwaysApply: true
 
 # Continuous improvement
 
-When the AI discovers recurring patterns or tacit knowledge during work, it may codify them as rules or skills.
-Submit those changes in a **separate PR** from feature work and merge after human review.
+When work surfaces reusable lessons or shaky instructions, **run the matching meta skill automatically**. Submit codified changes in a **separate PR** from feature work and merge after human review.
 
-Follow the `suggest-improvement` skill for the detailed procedure and constraints.
+## When to run which skill
+
+| Situation | Skill |
+|-----------|-------|
+| Task needed 2+ attempts, or the first attempt failed before success | `suggest-improvement` — propose only; do not write files without approval |
+| User asks to codify a lesson ("make it a rule", "leave a lesson", etc.) | `suggest-improvement` |
+| Created or heavily revised a skill, rule, or agent prompt | `tune-prompt` — at minimum offer a tune cycle |
+| Agents misbehave on instructions you just wrote; ambiguous prompts suspected | `tune-prompt` |
+
+Do **not** run `suggest-improvement` when the task succeeded on the first try with nothing to extract.
+
+Do **not** run `tune-prompt` for one-off stylistic preferences or disposable prompts.
+
+Follow each skill for the full procedure and constraints.

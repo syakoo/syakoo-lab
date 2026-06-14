@@ -11,10 +11,11 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 
 ```mermaid
 flowchart TD
-  A["👤🤖 Issue & ## Implementation plan"] --> B["👤 🚀"]
-  B --> C["🤖 implement → PR"]
-  C --> D["🤖 review PR"]
-  D --> E["👤 merge"]
+  A["👤🤖 Issue (what)"] --> B["🤖 Implementation plan"]
+  B --> C["👤 🚀"]
+  C --> D["🤖 implement → PR"]
+  D --> E["🤖 review PR"]
+  E --> F["👤 merge"]
 ```
 
 - Do not implement before the plan is approved (🚀 on the issue).

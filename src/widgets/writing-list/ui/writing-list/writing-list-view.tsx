@@ -1,5 +1,7 @@
 "use client";
 
+import { getYear } from "date-fns";
+
 import type { WritingHead } from "../../../../entities/writing";
 import { writingTypeConfig } from "../../../../entities/writing";
 import { Col } from "../../../../shared/design-system/layout/flex/flex";
@@ -15,7 +17,7 @@ const groupByYear = (
 ): { year: string; heads: WritingHead[] }[] => {
   const map = new Map<string, WritingHead[]>();
   for (const head of heads) {
-    const year = head.published.slice(0, 4);
+    const year = String(getYear(new Date(head.published)));
     const group = map.get(year) ?? [];
     group.push(head);
     map.set(year, group);
@@ -44,8 +46,6 @@ export const WritingListView: React.FC<{ heads: WritingHead[] }> = ({
 
   const yearGroups = groupByYear(filteredHeads);
 
-  let globalIndex = 0;
-
   return (
     <section>
       <Col gap="300">
@@ -57,16 +57,13 @@ export const WritingListView: React.FC<{ heads: WritingHead[] }> = ({
         <Col key={type} gap="300">
           {yearGroups.map(({ year, heads: yearHeads }) => (
             <Col key={year} gap="200">
-              <H3>{year}</H3>
+              <H3 color="secondary">{year}</H3>
               <Col as="ul" gap="200">
-                {yearHeads.map((head) => {
-                  const i = globalIndex++;
-                  return (
-                    <FadeIn key={head.id} as="li" delaySec={0.05 * i}>
-                      <WritingBlock head={head} />
-                    </FadeIn>
-                  );
-                })}
+                {yearHeads.map((head, i) => (
+                  <FadeIn key={head.id} as="li" delaySec={0.05 * i}>
+                    <WritingBlock head={head} />
+                  </FadeIn>
+                ))}
               </Col>
             </Col>
           ))}

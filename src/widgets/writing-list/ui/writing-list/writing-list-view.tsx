@@ -56,8 +56,10 @@ export const WritingListView: React.FC<{ heads: WritingHead[] }> = ({
         </Col>
         <Col key={type} gap="300">
           {yearGroups.map(({ year, heads: yearHeads }) => (
-            <Col key={year} gap="200">
-              <H3 color="secondary">{year}</H3>
+            <Col key={year} gap="100">
+              <H3 color="secondary" weight="normal" size="200">
+                {year}
+              </H3>
               <Col as="ul" gap="200">
                 {yearHeads.map((head, i) => (
                   <FadeIn key={head.id} as="li" delaySec={0.05 * i}>

@@ -9,6 +9,13 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 
 ## Flow
 
+1. **Human/AI**: Open a request as a GitHub Issue (what — background, requirements, acceptance criteria)
+2. **AI**: Read the issue with `gh issue view` and propose an implementation plan
+3. **Human**: Review the plan and approve with 🚀 on the issue
+4. **AI**: Implement per the approved plan, pass tests, and open a PR
+5. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
+6. **Human**: Review behavior, Storybook, etc., and decide whether to merge
+
 ```mermaid
 flowchart TD
   A["👤🤖 Issue (what)"] --> B["🤖 Implementation plan"]

@@ -1,9 +1,12 @@
 ---
 name: tune-prompt
 description: >-
-  Run agent instructions (skills, rules, task prompts) on fresh agents, measure
-  quality, and fix what did not land. Use when tuning prompts or skills empirically
-  with fresh executors and measurable criteria, or right after creating/revising a skill.
+  Empirically test skills, rules, or prompts on fresh agents with scored checklists;
+  edit one theme per cycle until instructions land. Use after creating or heavily
+  revising agent instructions, when agents misbehave on those instructions, or when
+  validating that a skill is followed correctly. NOT for codifying runtime lessons
+  after task failures (suggest-improvement) or drafting a new skill without empirical
+  validation.
 ---
 
 # Tune prompt

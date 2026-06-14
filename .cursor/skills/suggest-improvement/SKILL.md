@@ -1,9 +1,11 @@
 ---
 name: suggest-improvement
 description: >-
-  After a task, pair "first failure" with "final solution" and codify lessons into
-  lint rules, agent config, or skills. Use when codifying lessons after trial-and-error,
-  or when the user says "make it a rule", "leave a lesson", "improve this process".
+  Propose codifying reusable lessons from trial-and-error or explicit user
+  requests into lint, rules, or skills. Use near task completion after failed
+  first attempts, or when the user asks to "make it a rule" or "leave a lesson".
+  NOT for empirically testing instructions on fresh agents (tune-prompt) or
+  drafting a new skill without a lesson to codify.
 ---
 
 # Suggest improvement
@@ -12,7 +14,7 @@ When a task finishes, extract **"if we had known this upfront, we would not have
 
 ## When to use
 
-- Near task completion, or when asked to "leave a lesson" / "make it a rule"
+- Near task completion after trial-and-error, or when asked to "leave a lesson" / "make it a rule"
 - After an initial attempt failed and you reached a solution through iteration
 - When similar work is likely to happen again
 

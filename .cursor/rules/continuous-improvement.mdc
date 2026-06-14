@@ -16,6 +16,8 @@ When work surfaces reusable lessons or shaky instructions, **run the matching me
 | Created or heavily revised a skill, rule, or agent prompt | `tune-prompt` — at minimum offer a tune cycle |
 | Agents misbehave on instructions you just wrote; ambiguous prompts suspected | `tune-prompt` |
 
+When trial-and-error produces a new or heavily revised skill, run `suggest-improvement` first (propose the lesson), then offer `tune-prompt` on the written prompt if needed.
+
 Do **not** run `suggest-improvement` when the task succeeded on the first try with nothing to extract.
 
 Do **not** run `tune-prompt` for one-off stylistic preferences or disposable prompts.

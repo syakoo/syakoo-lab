@@ -5,8 +5,8 @@ description: >-
   edit one theme per cycle until instructions land. Use after creating or heavily
   revising agent instructions, when agents misbehave on those instructions, or when
   validating that a skill is followed correctly. NOT for codifying runtime lessons
-  after task failures (suggest-improvement) or authoring new skills from scratch
-  (create-skill).
+  after task failures (suggest-improvement) or drafting a new skill without empirical
+  validation.
 ---
 
 # Tune prompt

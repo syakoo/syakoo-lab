@@ -1,11 +1,11 @@
 ---
 name: suggest-improvement
 description: >-
-  After a task where the first attempt failed, pair failure with final solution and
-  propose codifying the bridge insight into lint, rules, or skills. Use near task
-  completion after trial-and-error, or when the user asks to "make it a rule" or
-  "leave a lesson". NOT for empirically testing instructions on fresh agents
-  (tune-prompt) or writing new skills from scratch (create-skill).
+  Propose codifying reusable lessons from trial-and-error or explicit user
+  requests into lint, rules, or skills. Use near task completion after failed
+  first attempts, or when the user asks to "make it a rule" or "leave a lesson".
+  NOT for empirically testing instructions on fresh agents (tune-prompt) or
+  drafting a new skill without a lesson to codify.
 ---
 
 # Suggest improvement

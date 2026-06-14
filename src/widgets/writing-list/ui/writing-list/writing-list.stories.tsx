@@ -30,3 +30,17 @@ export const Sample: Story = {
     mocked(readWritingHeads).mockResolvedValue(mockHeads);
   },
 };
+
+export const MultipleYears: Story = {
+  beforeEach: () => {
+    const years = ["2026", "2025", "2024", "2023"];
+    const mockHeads = years.flatMap((year) =>
+      range(0, random.integer(2, 4)).map((_i) =>
+        generateDummyWritingHead({
+          published: `${year}-${String(random.integer(1, 12)).padStart(2, "0")}-${String(random.integer(1, 28)).padStart(2, "0")}`,
+        }),
+      ),
+    );
+    mocked(readWritingHeads).mockResolvedValue(mockHeads);
+  },
+};

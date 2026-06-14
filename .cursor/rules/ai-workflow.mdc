@@ -9,48 +9,42 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 
 ## Flow
 
-1. **Human/AI**: Open a request or task as a GitHub Issue
-2. **AI**: Read the Issue with `gh issue view` and propose an implementation plan
-3. **Human**: Review the plan and approve starting work
-4. **AI**: Implement per the approved plan, pass tests, and open a PR
-5. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
-6. **Human**: Review behavior, Storybook, etc., and decide whether to merge
+```mermaid
+flowchart TD
+  A["👤🤖 Issue & ## Implementation plan"] --> B["👤 🚀"]
+  B --> C["🤖 implement → PR"]
+  C --> D["🤖 review PR"]
+  D --> E["👤 merge"]
+```
 
-## Subagent delegation
+- Do not implement before the plan is approved (🚀 on the issue).
+- Do not change beyond the approved scope.
+- Implementation steps: `implement-issue` skill. Layout: `project-structure` skill. Language: English.
 
-To keep the main agent’s context clean, **do not complete these routine steps yourself**—delegate them to the matching subagent via Task (follow each agent’s `description` and “use proactively”). Pass only the inputs needed for the job, not full chat history.
+## Subagents
 
-| When | Subagent | Example inputs |
-|---|---|---|
-| Issue creation | `create-github-issue` | Summary of user intent |
-| Before commit / push | `self-review` (`readonly`) | `git diff`, changed file list |
-| After push | `create-pull-request` | Issue number, approved plan, `git diff` |
-| PR opened | `review-pull-request` (`readonly`) | PR number (Cursor Automation) |
+Delegate routine work via Task. Pass only what the subagent needs.
 
-See each agent definition and the same-named skills for details.
+| When | Subagent |
+|------|----------|
+| Create issue | `create-github-issue` |
+| Implement | `implement-issue` |
+| Before push | `self-review` |
+| Open PR | `create-pull-request` |
+| PR opened | `review-pull-request` |
 
-### PR review automation
+## Automations
 
-Configure at [cursor.com/automations](https://cursor.com/automations):
+[cursor.com/automations](https://cursor.com/automations)
 
-- **Trigger:** Pull request opened — `syakoo/syakoo-lab`
-- **Tool:** Comment on pull request (comment only; no approve)
-- **Prompt:** Follow `.cursor/skills/review-pull-request`. Read the PR diff, linked issue, and project skills; post one structured review comment.
+**Implement** — Issue commented, `:rocket:`, `syakoo-lab`, actor: Me. Tool: PR creation.
 
-Subagent returns: on success, return only the `**done:**` line (and artifacts). Do not include `status` or headings like “On success”. On `partial` / `failed`, read `done`, `stopped_at`, and `why`, then continue from partial work in `done`. Do not restart the same delegation from scratch.
+```text
+Follow implement-issue.
+```
 
-## AI behavior rules
+**Review PR** — Pull request opened, `syakoo/syakoo-lab`. Tool: comment only.
 
-- Do not start implementation without human approval of the plan
-- Do not change beyond the approved scope
-- Use rejection feedback as input for the next task breakdown
-
-For concrete steps (branch, commit, PR), follow the `implement-issue` skill.
-
-## Project design
-
-Directory layout and layer dependencies follow the `project-structure` skill.
-
-## Communication language
-
-Always work in English for this repository.
+```text
+Follow review-pull-request. Read diff, linked issue, project skills; post one review comment.
+```

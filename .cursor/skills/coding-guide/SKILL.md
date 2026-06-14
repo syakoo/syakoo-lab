@@ -12,6 +12,14 @@ description: >-
 
 Follow the `project-structure` skill.
 
+## Module design
+
+Prefer **deep modules**: a small public surface with substantial work hidden inside. Callers should not need to know implementation details.
+
+- Public access to a slice stays on **`index.ts` only** (see Component rules)
+- When choosing a new or redesigned API shape, follow `design-it-twice`
+- For a dedicated pass to hunt shallow structure across the codebase, follow `deepen-modules` (not during feature or bug-fix work)
+
 ## Component rules
 
 ### File layout

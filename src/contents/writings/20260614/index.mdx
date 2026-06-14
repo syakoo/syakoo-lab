@@ -1,0 +1,40 @@
+---
+id: "20260614"
+type: "article"
+title: "このサイトを AI に実装してもらうようにした"
+published: "2026-06-14"
+
+tags:
+  - "Syakoo Lab"
+  - "AI"
+---
+
+以前 Figma を仕様書として AI と一緒にサイトを作っているという話をしました。
+
+https://syakoo-lab.com/writings/20250608
+
+今回、ついにこのサイトのほぼ全てを AI に任せるようにしました。
+
+## どうやってるか
+
+できるだけ人間の介入を減らすことを目指し、以下のようなワークフローになっています：
+
+```mermaid
+flowchart TD
+  A[👤🤖 GitHub Issue を作成] --> B["👤 Issue の実装計画を確認"]
+  B -->|"cursor:implement" をコメント| C[🤖 実装 → PR を作成]
+  C --> D[🤖👤 PR を review]
+  D -->|"cursor:address" をコメント| F[🤖 修正]
+  D & F --> E[👤 PR を merge]
+```
+
+説明のためにシンプルなフローを示してます。
+要は人間がすることは、
+
+- Issue を AI と一緒に作成
+- Issue の実装計画を確認して問題なければ `cursor:implement` をコメント
+- PR を review して問題あればコメントして `cursor:address` をコメントして修正、問題なければ merge
+
+となりました。私が作った感がなくなって少し寂しいですね。
+
+## 試しにやってみた

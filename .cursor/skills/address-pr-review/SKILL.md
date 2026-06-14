@@ -13,8 +13,6 @@ Start from review state (Approve / Request changes / Comment) and **every thread
 
 `babysit` may cover merge readiness broadly (CI, conflicts, long polling). This skill is **one review iteration**: replies and necessary code changes.
 
-Triggered by Cursor Automation when the reviewer posts `cursor:address` on the PR conversation (see `ai-workflow.mdc`), or on request.
-
 ## When to use
 
 - Reviewer requested changes or left comments you must address

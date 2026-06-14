@@ -11,21 +11,25 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 
 1. **Human/AI**: Open a request as a GitHub Issue (what — background, requirements, acceptance criteria)
 2. **AI**: Read the issue with `gh issue view` and propose an implementation plan
-3. **Human**: Review the plan and approve with 🚀 on the issue
+3. **Human**: Review the plan and approve with `cursor:implement` on the issue
 4. **AI**: Implement per the approved plan, pass tests, and open a PR
 5. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
-6. **Human**: Review behavior, Storybook, etc., and decide whether to merge
+6. **Human**: Review behavior, Storybook, etc., and leave feedback
+7. **AI**: Address review feedback when triggered (`address-pr-review`; Cursor Automation)
+8. **Human**: Re-check and merge
 
 ```mermaid
 flowchart TD
   A["👤🤖 Issue (what)"] --> B["🤖 Implementation plan"]
-  B --> C["👤 🚀"]
+  B --> C["👤 cursor:implement"]
   C --> D["🤖 implement → PR"]
   D --> E["🤖 review PR"]
-  E --> F["👤 merge"]
+  E --> F["👤 review + feedback"]
+  F --> G["🤖 address review"]
+  G --> H["👤 merge"]
 ```
 
-- Do not implement before the plan is approved (🚀 on the issue).
+- Do not implement before the plan is approved (`cursor:implement` on the issue).
 - Do not change beyond the approved scope.
 - Implementation steps: `implement-issue` skill. Layout: `project-structure` skill. Language: English.
 
@@ -40,12 +44,13 @@ Delegate routine work via Task. Pass only what the subagent needs.
 | Before push | `self-review` |
 | Open PR | `create-pull-request` |
 | PR opened | `review-pull-request` |
+| Review feedback | `address-pr-review` |
 
 ## Automations
 
 [cursor.com/automations](https://cursor.com/automations)
 
-**Implement** — Issue commented, `:rocket:`, `syakoo-lab`, actor: Me. Tool: PR creation.
+**Implement** — Issue commented, `cursor:implement`, `syakoo-lab`, actor: Me. Tool: PR creation.
 
 ```text
 Follow implement-issue.
@@ -56,3 +61,11 @@ Follow implement-issue.
 ```text
 Follow review-pull-request. Read diff, linked issue, project skills; post one review comment.
 ```
+
+**Address review** — Pull request commented, `cursor:address`, `syakoo/syakoo-lab`, actor: Me. Tools: comment on pull request (repo: `syakoo-lab`).
+
+```text
+Follow address-pr-review.
+```
+
+**Trigger note:** Cursor Automation fires on **general PR conversation comments** only—not inline review comments. After leaving inline feedback, post `cursor:address` on the PR conversation to start a run. Bot comments (including the automated PR review) do not trigger automations.

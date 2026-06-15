@@ -31,8 +31,12 @@ Do **not** use when:
 
 ## Steps
 
-1. **Identify the PR** by number or URL: `gh pr view <N> --json number,title,headRefName,url,state`.
-2. **Match local branch** to PR head; use `gh pr checkout <N>` if needed (per user policy).
+1. **Identify the PR** by number or URL: `gh pr view <N> --json number,title,headRefName,headRepositoryOwner,headRepository,url,state`.
+2. **Get onto the PR head branch before any edits.**
+   - Compare `git branch --show-current` with the PR `headRefName`.
+   - If they differ, check out the PR head branch first: for same-repo PRs use `git fetch origin <headRefName>` then `git switch <headRefName>`; otherwise use `gh pr checkout <N>` when policy and permissions allow it.
+   - Confirm with `git status --short --branch` and `git branch --show-current` before editing. Do **not** implement review fixes on an automation branch, scratch branch, or unrelated local branch.
+   - If branch policy, fork permissions, or checkout failures prevent committing and pushing to the PR head branch, read-only feedback triage may continue, but stop before code edits and report the blocker. Do **not** create a separate follow-up PR unless the user explicitly asks for that workflow.
 3. **Collect all comments:**
    - Top-level / review bodies: `gh pr view <N> --comments`
    - Inline: `gh api repos/{owner}/{repo}/pulls/<N>/comments`
@@ -64,7 +68,7 @@ Do **not** use when:
 7. **Post-change checks**
    - `git diff` / `git status` for stray files and debug leftovers (same spirit as `self-review`)
    - Run repo scripts (`pnpm lint`, `pnpm typecheck`, `pnpm test`, etc.) unless the user defers heavy/env-dependent runs
-8. **Commit and `git push`**. No force-push by default. Skip this step when step 4 says stop with no code changes.
+8. **Commit and push to the existing PR head branch.** Re-check `git status --short --branch` before pushing, then push to the PR head branch (for same-repo PRs: `git push -u origin <headRefName>`). No force-push by default. Skip this step when step 4 says stop with no code changes. Do **not** open a new PR for review feedback unless explicitly requested.
 9. **Record SHAs:** `git rev-parse HEAD` (full and short). If multiple commits, map feedback → SHA.
 10. **Reply on GitHub** for each thread with what changed and the **commit SHA** (same SHA on multiple threads is fine). Reply-only threads need no SHA.
    - Inline reply example: `POST .../pulls/comments/{comment_id}/replies` via `gh api`

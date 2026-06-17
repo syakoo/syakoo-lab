@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.13/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -52,6 +52,14 @@
             "style": "type"
           }
         },
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "strictCase": true,
+            "requireAscii": true,
+            "filenameCases": ["kebab-case"]
+          }
+        },
         "useImportType": "error",
         "noNonNullAssertion": "warn",
         // NOTE: Storybook の Webpack が node: スキームを処理できないため
@@ -60,6 +68,7 @@
       },
       "suspicious": {
         "noArrayIndexKey": "warn",
+        "noDebugger": "error",
         "noExplicitAny": "warn",
         "noConsole": "warn"
       },
@@ -93,16 +102,31 @@
   "overrides": [
     {
       "includes": [
+        "**/src/app/**/\\[*\\]/**",
+        "**/src/app/**/page.tsx",
+        "**/src/app/**/layout.tsx",
+        "**/src/app/**/not-found.tsx",
+        "**/src/app/**/sitemap.ts",
+        "**/src/app/**/robots.ts",
+        "**/src/app/icon.svg"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off",
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
         "**/*.stories.tsx",
         "**/*.stories.ts",
         "**/*.config.mjs",
         "**/*.config.cjs",
         "**/*.config.js",
         "**/*.config.ts",
-        "**/src/app/**/page.tsx",
-        "**/src/app/**/layout.tsx",
-        "**/src/app/**/not-found.tsx",
-        "**/src/app/**/sitemap.ts",
         "**/src/widgets/writing-detail/ui/writing-detail/mdx/geometry/geometry.tsx",
         "**/.storybook/*.ts",
         "**/.scaffdog/*.mjs",

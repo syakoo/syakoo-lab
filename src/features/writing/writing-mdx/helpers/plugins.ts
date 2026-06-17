@@ -1,4 +1,4 @@
-import type { MDXCustomTextPlugin } from "../../../../entities/mdx-content/models/types";
+import type { MDXCustomTextPlugin } from "../../../../entities/mdx-content";
 
 import { imagePlugin } from "./image-plugin";
 import { markupLinkCardPlugin } from "./markup-link-card-plugin";

@@ -1,0 +1,34 @@
+---
+description: Mandatory coding constraints enforced by agents when lint cannot check them. See docs/enforcement-inventory.md for the full rule-to-mechanism map.
+alwaysApply: true
+---
+
+# Coding standards (agent-enforced)
+
+Machine checks run via `pnpm lint` (Biome + architecture script) and `pnpm type-check`. This rule covers constraints that are not lintable but are still mandatory.
+
+## Before implementing
+
+1. Read `docs/enforcement-inventory.md` for the enforcement owner of each rule.
+2. Follow `project-structure` and `coding-guide` skills.
+3. Do not contradict active Biome rules or `scripts/check-architecture.ts`.
+
+## FSD and public API
+
+- Dependencies flow **downward** only (`app` → `widgets` → `features` → `entities` → `contents` → `shared`).
+- External imports into `widgets`, `features`, and `entities` slices must use the slice barrel (`index.ts`, `index.server.ts`, or `index.client.ts`)—never `ui/`, `models/`, or `helpers/` paths from outside the slice.
+- `index.ts` files are **re-export only**; no component or business logic bodies.
+- `features/<domain>/` folders are organizational only—no `index.ts` at the domain level.
+- No business logic in `shared/`; external boundaries belong in `contents/`.
+- `entities/` has no UI.
+
+## Components and design system
+
+- Use `design-system` primitives for layout, text, and links; define icons under `design-system/icons`.
+- Prefer Tailwind tokens from `@theme` in `globals.css` over arbitrary color literals in `className`.
+
+## Advisory (still flag in review)
+
+- Deep modules, design-it-twice for new APIs, Storybook coverage, tests for behavior changes.
+
+When a rule is advisory-only, note any intentional deviation in the PR **Impact and risks** section.

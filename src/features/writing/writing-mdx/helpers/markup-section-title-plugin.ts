@@ -1,4 +1,4 @@
-import type { MDXCustomTextPlugin } from "../../../../entities/mdx-content/models/types";
+import type { MDXCustomTextPlugin } from "../../../../entities/mdx-content";
 import {
   createHeadingAnchorResolver,
   createMarkdownCodeFenceTracker,

@@ -8,6 +8,8 @@ description: >-
 
 # Coding guide
 
+Project standards are classified in `docs/enforcement-inventory.md` (lint, architecture script, Cursor rule/skill, or advisory). Follow that map when choosing how to enforce a convention.
+
 ## Directory layout and dependencies
 
 Follow the `project-structure` skill.

@@ -1,10 +1,3 @@
-/**
- * Architecture checks that Biome cannot express:
- * - FSD layer dependency direction
- * - Slice public API (no deep imports into ui/models/helpers from outside the slice)
- *
- * Run: pnpm check:architecture
- */
 import { readFileSync } from "node:fs";
 import { relative, resolve } from "node:path";
 import { globSync } from "glob";
@@ -118,7 +111,7 @@ const checkPublicApi = (
       violations.push({
         file: importerRel,
         importPath: displayPath,
-        message: `Import past the ${layer} slice public API. Use the slice barrel (index.ts / index.server.ts / index.client.ts) instead of "${targetRel}".`,
+        message: `Import past the ${layer} slice public API. Use the slice barrel instead of "${targetRel}". See project-structure skill.`,
       });
       return;
     }
@@ -138,7 +131,7 @@ const checkLayerDirection = (
   violations.push({
     file: importerRel,
     importPath: displayPath,
-    message: `FSD layer violation: "${importerLayer}" must not import from "${targetLayer}". See docs/enforcement-inventory.md.`,
+    message: `FSD layer violation: "${importerLayer}" must not import from "${targetLayer}". See project-structure skill.`,
   });
 };
 

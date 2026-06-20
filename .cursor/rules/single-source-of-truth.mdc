@@ -7,22 +7,7 @@ alwaysApply: true
 
 Each fact, rule, or convention lives in **one** canonical artifact. Everywhere else **points**—never copies.
 
-## Artifact roles
-
-| Role | Examples | May contain |
-|------|----------|-------------|
-| **Define** | Skills, rules | Full rule text |
-| **Enforce** | `biome.jsonc`, `scripts/check-architecture.ts` | Machine-checkable constraints |
-| **Index** | `enforcement-inventory` rule | Labels, owners, links only |
-| **Link** | README, PR bodies, diagnostics | Pointers to the canonical source |
-
-## When writing or editing
-
-- **New standard** → define it in the matching skill or config; add one row to the `enforcement-inventory` rule if it is a project standard.
-- **Existing standard** → edit the canonical artifact only; update pointers if the location changed.
-- **Comments and error messages** → name the canonical source (e.g. `project-structure` skill, `biome.jsonc`), not a summary of the rule.
-- **Do not** restate skills, lint config, or workflow rules in other rules, docs, README, or script headers.
-
-## Inventory
-
-The `enforcement-inventory` rule maps standards to enforcement owners. Keep it an index—definitions stay in the linked artifact.
+- **Define** once: in the matching skill or config.
+- **Index** in the `enforcement-inventory` rule (labels + links only) if it is a project standard.
+- **Link** from README, PR bodies, comments, and error messages—name the canonical source, never summarize it.
+- When editing a standard, change the canonical artifact only; update pointers if it moved.

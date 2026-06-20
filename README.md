@@ -13,4 +13,4 @@ pnpm dev
 
 `pnpm lint` · `pnpm type-check` · `pnpm test`
 
-See [docs/enforcement-inventory.md](docs/enforcement-inventory.md) for which tool or skill owns each standard.
+Which tool or skill owns each standard is indexed in the `enforcement-inventory` rule under `.cursor/rules/`.

@@ -1,16 +1,23 @@
+---
+description: Index of project standards and what enforces each (lint, architecture, agent, advisory)
+alwaysApply: true
+---
+
 # Enforcement inventory
 
-Maps each standard to its enforcement owner. **Rule definitions live only in the linked artifact**—this file is an index, not a second copy.
+Routes each standard to its enforcement owner. This is an **index**: rule text lives in the linked artifact, not here (see `single-source-of-truth` rule).
 
-## Machine checks
+## Owners
 
-| Owner | Command | Definition |
-|-------|---------|------------|
-| Biome | `pnpm lint` | `biome.jsonc` |
-| Architecture | `pnpm lint` (includes `pnpm check:architecture`) | `scripts/check-architecture.ts` |
-| TypeScript | `pnpm type-check` | `tsconfig.json` |
+| Owner | Enforced by | Fails CI? |
+|-------|-------------|-----------|
+| **Lint** | `pnpm lint` → `biome.jsonc` | Yes |
+| **Architecture** | `pnpm lint` → `scripts/check-architecture.ts` | Yes |
+| **Type** | `pnpm type-check` → `tsconfig.json` | Yes |
+| **Agent** | Cursor rules/skills, applied during implementation and review | No |
+| **Advisory** | Human review only | No |
 
-## Project standards
+## Standards
 
 | Key rule | Owner | Defined in |
 |----------|-------|------------|
@@ -31,7 +38,7 @@ Maps each standard to its enforcement owner. **Rule definitions live only in the
 | PR review checklist | Agent | `review-pull-request` skill |
 | Pre-push self-review | Agent | `self-review` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
-| Single source of truth (no duplicated definitions) | Agent | `single-source-of-truth` rule |
+| Single source of truth | Agent | `single-source-of-truth` rule |
 
 ## Config-only exceptions
 

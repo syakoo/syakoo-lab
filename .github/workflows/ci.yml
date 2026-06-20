@@ -45,6 +45,23 @@ jobs:
       - name: Run Lint
         run: pnpm lint
 
+  type-check:
+    needs: security-scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Setup Node.js and Pnpm
+        uses: ./.github/actions/setup-node-and-pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run type check
+        run: pnpm type-check
+
   unit-test:
     needs: security-scan
     runs-on: ubuntu-latest

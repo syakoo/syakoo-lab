@@ -27,14 +27,21 @@ Prefer **deep modules**: a small public surface with substantial work hidden ins
 ```
 post-list/
 ├── post-list.tsx           # Component implementation
-├── post-list.css.ts        # Styles (when needed)
-└── post-list.stories.tsx   # Stories
+├── post-list.module.css    # Styles (when needed)
+├── post-list.stories.tsx   # Stories
+└── post-list.test.ts       # Tests (when needed)
 ```
 
 - Directory and file names: **kebab-case**
 - External access to a slice: **`index.ts` (Public API) only**
 - `index.ts`: re-exports only—no component bodies
+- Styles: **CSS Modules** (`*.module.css`)
 - Stories should cover existing UI patterns
+
+### Tests
+
+- **Vitest**, colocated next to the unit under test
+- File name: `*.test.ts` / `*.test.tsx`
 
 ### Design system
 

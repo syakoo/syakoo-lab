@@ -1,0 +1,52 @@
+---
+description: Index of project standards and what enforces each (lint, architecture, agent, advisory)
+alwaysApply: true
+---
+
+# Enforcement inventory
+
+Routes each standard to its enforcement owner. This is an **index**: rule text lives in the linked artifact, not here (see `single-source-of-truth` rule).
+
+## Owners
+
+| Owner | Enforced by | Fails CI? |
+|-------|-------------|-----------|
+| **Lint** | `pnpm lint` → `biome.jsonc` | Yes |
+| **Architecture** | `pnpm lint` → `scripts/check-architecture.ts` | Yes |
+| **Type** | `pnpm type-check` → `tsconfig.json` | Yes |
+| **Hook** | local git hook (`.githooks`) | No (commit-time) |
+| **Agent** | Cursor rules/skills, applied during implementation and review | No |
+| **Advisory** | Human review only | No |
+
+## Standards
+
+| Key rule | Owner | Defined in |
+|----------|-------|------------|
+| kebab-case filenames | Lint | `biome.jsonc` → `useFilenamingConvention` |
+| `import type`, no default export, sorted Tailwind classes, etc. | Lint | `biome.jsonc` |
+| Conventional commit messages | Hook | `.commitlintrc.json` |
+| CSS Modules (`*.module.css`), colocated Vitest `*.test.ts` | Agent | `coding-guide` skill |
+| FSD layer direction | Architecture | `project-structure` skill |
+| Slice public API (`index.ts` / `index.server.ts` / `index.client.ts`) | Architecture | `project-structure` skill |
+| `index.ts` re-exports only | Agent | `project-structure` skill |
+| `features/<domain>/` organizational layout | Agent | `project-structure` skill |
+| No business logic in `shared/` | Agent | `project-structure` skill |
+| `entities/` has no UI | Agent | `project-structure` skill |
+| Component layout, design-system usage | Agent | `coding-guide` skill |
+| Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
+| Deep modules | Advisory | `deepen-modules` skill |
+| Design it twice for new APIs | Advisory | `design-it-twice` skill |
+| AI workflow (plan → implement → PR) | Agent | `ai-workflow` rule |
+| PR body format | Agent | `create-pull-request` skill |
+| PR review checklist | Agent | `review-pull-request` skill |
+| Pre-push self-review | Agent | `self-review` skill |
+| Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
+| Single source of truth | Agent | `single-source-of-truth` rule |
+| Periodic design checkup | Agent | `health-checkup` skill |
+
+## Config-only exceptions
+
+| Case | Handled in |
+|------|------------|
+| Next.js App Router default exports and dynamic routes | `biome.jsonc` overrides (`src/app/**`) |
+| Design-system deep import paths (no slice barrel) | `scripts/check-architecture.ts` (checks `widgets` / `features` / `entities` only) |

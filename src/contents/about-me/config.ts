@@ -1,9 +1,8 @@
-import type { AboutMeConfig } from "../../widgets/home";
-
 import githubImageSrc from "./github.png";
 import meImageSrc from "./me.jpg";
 import shogiWarsImageSrc from "./shogi-wars.png";
 import steamImageSrc from "./steam.png";
+import type { AboutMeConfig } from "./types";
 import xImageSrc from "./x.png";
 
 export const aboutMeConfig = {

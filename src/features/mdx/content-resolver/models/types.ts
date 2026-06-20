@@ -1,4 +1,4 @@
-export type { MDXCustomTextPlugin } from "../../../../entities/mdx-content/models/types";
+export type { MDXCustomTextPlugin } from "../../../../entities/mdx-content";
 
 export type MDXComponent = React.FC<{
   // biome-ignore lint/suspicious/noExplicitAny: 任意のコンポーネントを受け取るため

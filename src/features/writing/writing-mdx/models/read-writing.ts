@@ -4,7 +4,7 @@ import {
   serializeMDXContent,
 } from "../../../../entities/mdx-content/index.server";
 import type { SerializedWriting } from "../../../../entities/writing";
-import { resolveWritingHead } from "../../../../entities/writing/models/writing-reader/head-resolver";
+import { resolveWritingHead } from "../../../../entities/writing";
 import { mdxPlugins } from "../helpers/plugins";
 
 import { resolveWritingToc } from "./toc-resolver";

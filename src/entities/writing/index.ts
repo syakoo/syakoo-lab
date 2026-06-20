@@ -9,6 +9,7 @@ export {
   generateDummySerializedWriting,
   generateDummyWritingHead,
 } from "./models/writing.mocks";
+export { resolveWritingHead } from "./models/writing-reader/head-resolver";
 export {
   getWritingTypeConfig,
   writingTypeConfig,

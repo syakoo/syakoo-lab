@@ -28,5 +28,4 @@ const robots = (): MetadataRoute.Robots => {
   };
 };
 
-// biome-ignore lint/style/noDefaultExport: デフォルトエクスポートを使用する
 export default robots;

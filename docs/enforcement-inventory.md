@@ -31,6 +31,7 @@ Maps each standard to its enforcement owner. **Rule definitions live only in the
 | PR review checklist | Agent | `review-pull-request` skill |
 | Pre-push self-review | Agent | `self-review` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
+| Single source of truth (no duplicated definitions) | Agent | `single-source-of-truth` rule |
 
 ## Config-only exceptions
 

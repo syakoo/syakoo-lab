@@ -1,0 +1,28 @@
+---
+description: One canonical place per fact; indexes and comments link, they do not restate
+alwaysApply: true
+---
+
+# Single source of truth
+
+Each fact, rule, or convention lives in **one** canonical artifact. Everywhere else **points**—never copies.
+
+## Artifact roles
+
+| Role | Examples | May contain |
+|------|----------|-------------|
+| **Define** | Skills, rules | Full rule text |
+| **Enforce** | `biome.jsonc`, `scripts/check-architecture.ts` | Machine-checkable constraints |
+| **Index** | `docs/enforcement-inventory.md` | Labels, owners, links only |
+| **Link** | README, PR bodies, diagnostics | Pointers to the canonical source |
+
+## When writing or editing
+
+- **New standard** → define it in the matching skill or config; add one row to the inventory if it is a project standard.
+- **Existing standard** → edit the canonical artifact only; update pointers if the location changed.
+- **Comments and error messages** → name the canonical source (e.g. `project-structure` skill, `biome.jsonc`), not a summary of the rule.
+- **Do not** restate skills, lint config, or workflow rules in other rules, docs, README, or script headers.
+
+## Inventory
+
+`docs/enforcement-inventory.md` maps standards to enforcement owners. Keep it an index—definitions stay in the linked artifact.

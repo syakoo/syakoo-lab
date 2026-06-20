@@ -23,6 +23,11 @@ const LAYER_RANK: Record<Layer, number> = {
   shared: 5,
 };
 
+// Limitations: only static `import` / `export … from` with relative paths are
+// scanned. Dynamic `import()` and path aliases (none in `src/` today) would
+// bypass this check. Public-API enforcement keys off the first segment after a
+// slice root (`ui` / `models` / `helpers`); files placed directly under a slice
+// root are not caught.
 const IMPORT_RE =
   /(?:import|export)\s+(?:type\s+)?(?:[\w*{}\s,]+\s+from\s+)?["']([^"']+)["']/g;
 

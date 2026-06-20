@@ -48,4 +48,5 @@ One short line that states intent. No prefix required.
 - **Problem** and **Solution** are required.
 - **Design** only when introducing or changing architecture; omit the section if N/A.
 - **Impact and risks** is required even when the answer is "None".
+- List any intentional **advisory deviation** (deep modules, design-it-twice, Tailwind tokens, missing tests, Storybook) under **Impact and risks** so it surfaces at the next health checkup.
 - Do not guess intent—ask a human when unclear.

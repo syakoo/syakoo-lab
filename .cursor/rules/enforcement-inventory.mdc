@@ -42,6 +42,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Pre-push self-review | Agent | `self-review` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
 | Single source of truth | Agent | `single-source-of-truth` rule |
+| Periodic design checkup | Agent | `health-checkup` skill |
 
 ## Config-only exceptions
 

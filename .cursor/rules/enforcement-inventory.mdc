@@ -14,6 +14,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | **Lint** | `pnpm lint` → `biome.jsonc` | Yes |
 | **Architecture** | `pnpm lint` → `scripts/check-architecture.ts` | Yes |
 | **Type** | `pnpm type-check` → `tsconfig.json` | Yes |
+| **Hook** | local git hook (`.githooks`) | No (commit-time) |
 | **Agent** | Cursor rules/skills, applied during implementation and review | No |
 | **Advisory** | Human review only | No |
 
@@ -23,6 +24,8 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 |----------|-------|------------|
 | kebab-case filenames | Lint | `biome.jsonc` → `useFilenamingConvention` |
 | `import type`, no default export, sorted Tailwind classes, etc. | Lint | `biome.jsonc` |
+| Conventional commit messages | Hook | `.commitlintrc.json` |
+| CSS Modules (`*.module.css`), colocated Vitest `*.test.ts` | Agent | `coding-guide` skill |
 | FSD layer direction | Architecture | `project-structure` skill |
 | Slice public API (`index.ts` / `index.server.ts` / `index.client.ts`) | Architecture | `project-structure` skill |
 | `index.ts` re-exports only | Agent | `project-structure` skill |

@@ -29,5 +29,3 @@ Run at each release; keep the interval small (design debt compounds).
 2. Run the `deepen-modules` skill as a structured pass over the areas changed since then.
 3. Re-check advisory items in `coding-guide` (Tailwind tokens, Storybook coverage, tests for behavior changes).
 4. File issues for what is worth fixing; address small drift in a dedicated PR, separate from features.
-
-When triggered by a release, this checkup runs inside `version-up`: filed issues are linked from the release notes rather than a release-PR footnote.

@@ -27,7 +27,7 @@ flowchart TD
   E --> F["👤 review + feedback"]
   F --> G["🤖 address review"]
   G --> H["👤 merge"]
-  H --> I["🤖 version-up — syakoo-lab's own release (dedicated PR)"]
+  H -->|periodically, after merges accumulate| I["🤖 version-up — syakoo-lab's own release (dedicated PR)"]
   I --> J["🤖 health-checkup"]
   J --> A
   L["💡 continuous-improvement"] -.separate PR.-> A
@@ -49,6 +49,12 @@ PRs, which simply follow the same review path above.
 ## Subagents
 
 Delegate routine work via Task. Pass only what the subagent needs.
+
+Delegate a step when it is **part of this flow** (not a self-contained deliverable) **and** its
+intermediate journey doesn't need watching—delegation then just trims context. Keep steps whose
+journey or judgment you want to see in the main agent. That is why `version-up` / `health-checkup`
+(release decision and design-drift findings are the point) are **not** delegated here; see **Release
+cycle**.
 
 | When | Subagent |
 |------|----------|

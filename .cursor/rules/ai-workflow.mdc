@@ -27,8 +27,8 @@ flowchart TD
   E --> F["👤 review + feedback"]
   F --> G["🤖 address review"]
   G --> H["👤 merge"]
-  H -->|periodically, after merges accumulate| I["🤖 version-up — syakoo-lab's own release (dedicated PR)"]
-  I --> J["🤖 health-checkup"]
+  H -->|periodically, after merges accumulate| I["🤖 version-up — syakoo-lab release, end-to-end on main (no PR)"]
+  I --> J["🤖 health-checkup → issues + release notes"]
   J --> A
   L["💡 continuous-improvement"] -.separate PR.-> A
   R["🔄 Renovate — dependency PRs (separate)"] -.-> E
@@ -40,11 +40,12 @@ flowchart TD
 
 ## Release cycle
 
-Periodically, after merged work accumulates, cut a release of **syakoo-lab itself**: run the
-`version-up` skill (bump this repo's own `package.json` `version` + change summary), which hands off
-to the `health-checkup` skill (design-drift audit). Both run as a dedicated PR, separate from
-feature work. This is the project's own release ritual—distinct from Renovate's dependency-update
-PRs, which simply follow the same review path above.
+Periodically, after merged work accumulates, cut a release of **syakoo-lab itself** with the
+`version-up` skill. It runs **end-to-end in one session with no review PR**: run the `health-checkup`
+skill (design-drift audit) and file issues for actionable findings, then bump this repo's own
+`package.json` `version` directly on `main` via the signed Contents API and publish the GitHub
+Release (notes = PR list + health-checkup summary). This is the project's own release ritual—distinct
+from Renovate's dependency-update PRs, which simply follow the same review path above.
 
 ## Subagents
 

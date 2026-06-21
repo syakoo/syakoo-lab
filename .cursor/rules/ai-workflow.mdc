@@ -27,15 +27,32 @@ flowchart TD
   E --> F["👤 review + feedback"]
   F --> G["🤖 address review"]
   G --> H["👤 merge"]
+  H -->|periodically, after merges accumulate| I["🤖 version-up — syakoo-lab's own release (dedicated PR)"]
+  I --> J["🤖 health-checkup"]
+  J --> A
+  L["💡 continuous-improvement"] -.separate PR.-> A
+  R["🔄 Renovate — dependency PRs (separate)"] -.-> E
 ```
 
 - Do not implement before the plan is approved (`cursor:implement` on the issue).
 - Do not change beyond the approved scope.
 - Implementation steps: `implement-issue` skill. Layout: `project-structure` skill. Language: English.
 
+## Release cycle
+
+Periodically, after merged work accumulates, cut a release of **syakoo-lab itself**: run the
+`version-up` skill (bump this repo's own `package.json` `version` + change summary), which hands off
+to the `health-checkup` skill (design-drift audit). Both run as a dedicated PR, separate from
+feature work. This is the project's own release ritual—distinct from Renovate's dependency-update
+PRs, which simply follow the same review path above.
+
 ## Subagents
 
 Delegate routine work via Task. Pass only what the subagent needs.
+
+Delegate only when a step is part of this flow **and** its journey needn't be watched—delegation
+just trims context. Keep steps whose output needs human judgment (`version-up`, `health-checkup`)
+in the main agent.
 
 | When | Subagent |
 |------|----------|

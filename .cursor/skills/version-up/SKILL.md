@@ -3,7 +3,7 @@ name: version-up
 description: >-
   Perform a project release: bump the semver `version` in package.json, summarize
   changes since the last release, and hand off to the health-checkup. Use when
-  cutting a release, bumping the project version, or asked to "version up" / リリース.
+  cutting a release, bumping the project version, or asked to "version up".
 ---
 
 # Version up

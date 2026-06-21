@@ -23,7 +23,7 @@ The audit only works if drift left a trail: every PR logs intentional advisory d
 
 ## Procedure
 
-Triggered by the `version-up` skill at each release; keep the interval small (design debt compounds).
+Run at each release; keep the interval small (design debt compounds).
 
 1. Read advisory deviations logged in PR **Impact and risks** since the last checkup.
 2. Run the `deepen-modules` skill as a structured pass over the areas changed since then.

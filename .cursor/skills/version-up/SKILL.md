@@ -1,9 +1,11 @@
 ---
 name: version-up
 description: >-
-  Perform a project release: bump the semver `version` in package.json, summarize
-  changes since the last release, and hand off to the health-checkup. Use when
-  cutting a release, bumping the project version, or asked to "version up".
+  Cut a syakoo-lab release end-to-end in one session: decide the semver bump, run
+  the health-checkup (filing issues for actionable findings), commit the version
+  bump straight to `main` via the signed Contents API, and publish the GitHub
+  Release with notes. No review PR. Use when cutting a release, bumping the project
+  version, or asked to "version up".
 ---
 
 # Version up
@@ -42,14 +44,18 @@ human review; the design audit's output lives in issues + release notes instead 
    automatically) rather than a local `git push`:
    ```bash
    # 1. edit the version field in package.json locally (do NOT git-commit it)
-   # 2. commit the edited file straight to main via the API:
+   # 2. commit the edited file straight to main via the API.
+   #    The Contents API needs single-line base64 (avoid macOS's 76-col wrapping):
+   CONTENT=$(base64 -w0 package.json 2>/dev/null || base64 < package.json | tr -d '\n')
    SHA=$(gh api repos/<owner>/<repo>/contents/package.json --jq .sha)
    gh api -X PUT repos/<owner>/<repo>/contents/package.json \
      -f message="chore: bump version to X.Y.Z" \
      -f sha="$SHA" \
-     -f content="$(base64 < package.json)"
+     -f content="$CONTENT"
    ```
-   No PR is needed: branch protection requires neither review nor status checks.
+   Skipping the PR is only valid while `main` requires neither review nor status checks — verify
+   first with `gh api repos/<owner>/<repo>/branches/main/protection` and fall back to an auto-merge
+   PR if rules have tightened.
 5. **Compose release notes** = auto PR list + health-checkup summary. Generate the PR list first:
    ```bash
    gh api repos/<owner>/<repo>/releases/generate-notes \

@@ -4,8 +4,8 @@ description: >-
   Cut a syakoo-lab release end-to-end in one session: decide the semver bump, run
   the health-checkup (filing issues for actionable findings), commit the version
   bump straight to `main` via the signed Contents API, and publish the GitHub
-  Release with notes. No review PR. Use when cutting a release, bumping the project
-  version, or asked to "version up".
+  Release with notes. No review PR by default. Use when cutting a release, bumping
+  the project version, or asked to "version up".
 ---
 
 # Version up
@@ -25,9 +25,10 @@ Not for dependency bumps or feature work.
 
 ## Procedure
 
-Run **end-to-end in a single session**. There is no review PR: the version bump lands directly on
-`main` and the GitHub Release is published in the same run. The release is mechanical and needs no
-human review; the design audit's output lives in issues + release notes instead of a PR body.
+Run **end-to-end in a single session**. The release is mechanical and needs no human review, so by
+default there is no review PR: the version bump lands directly on `main` and the GitHub Release is
+published in the same run (step 4 has the fallback for when `main` protection requires a PR). The
+design audit's output lives in issues + release notes instead of a PR body.
 
 1. **Find the last release.** Read the current `version` in `package.json` and the latest release tag
    (`gh release list` / `git tag --sort=-creatordate`).
@@ -38,7 +39,8 @@ human review; the design audit's output lives in issues + release notes instead 
 3. **Run `health-checkup`** over everything changed since the last release (design-drift audit +
    `deepen-modules` pass). For each **actionable** finding, file a GitHub issue (`create-github-issue`)
    and record its number. Give declined / intentional findings a one-line rationale (a single tracking
-   issue is fine for grouping structural candidates).
+   issue is fine for grouping structural candidates). If nothing is actionable, file no issues — the
+   release notes' Health-checkup section then simply states "No actionable findings."
 4. **Bump the version on `main`.** Change only the `version` field in `package.json`. `main` requires
    **signed commits**, so commit through the GitHub Contents API (GitHub signs API commits
    automatically) rather than a local `git push`:

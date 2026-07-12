@@ -1,46 +1,47 @@
 ---
 name: version-up
 description: >-
-  Perform a project release: bump the semver `version` in package.json, summarize
-  changes since the last release, and hand off to the health-checkup. Use when
-  cutting a release, bumping the project version, or asked to "version up".
+  Explain or override the automated release path. Versions normally bump on each
+  merge to main from the PR's semver:* label. Use when asked to "version up", to
+  recover a failed auto-release, or for an exceptional manual bump.
 ---
 
 # Version up
 
-The release ritual for **syakoo-lab itself**: bump this project's own `version` in `package.json`
-and run the design checkup that must accompany it.
+**Normal path (no skill run):** every PR to `main` carries exactly one of
+`semver:major` / `semver:minor` / `semver:patch`. CI enforces the label.
+On merge, `.github/workflows/version-bump-on-merge.yml` bumps `package.json` via
+the signed Contents API and publishes GitHub Release `vX.Y.Z` with generated notes.
+`renovate[bot]` PRs may omit the label and default to **patch**.
 
-This is the project's own release, not a dependency update. (Dependency-update PRs are a separate,
-Renovate-automated concern and are out of scope here.)
+This skill is for **exceptions**, not the routine release.
 
 ## When to use
 
-- Cutting a new release of syakoo-lab (changing this repo's `package.json` `version`).
-- Whenever enough merged work has accumulated to warrant a release.
+- Auto-bump / release failed and needs a manual retry
+- An exceptional bump with no mergeable PR (rare)
+- Explaining the release model to a human or agent
 
-Not for dependency bumps or feature work.
+Not for ordinary feature/fix/chore PRs — put a `semver:*` label on those instead.
 
-## Procedure
+## Label guide (for PR authors)
 
-Run as a **dedicated PR, separate from feature work** (consistent with `continuous-improvement`).
+| Label | Use when |
+|-------|----------|
+| `semver:major` | Breaking change to public behavior or APIs |
+| `semver:minor` | Backward-compatible feature |
+| `semver:patch` | Fix, docs, chore, or internal-only |
 
-1. **Find the last release.** Read the current `version` in `package.json` and locate the previous
-   bump (`git log --oneline -- package.json` or the latest release tag).
-2. **Decide the semver bump.** Choose major / minor / patch from the change set:
-   - major: breaking change to public behavior or APIs
-   - minor: backward-compatible feature
-   - patch: backward-compatible fix or docs/internal only
-3. **Apply the bump.** Update `version` in `package.json` only.
-4. **Write a change summary** since the last release, derived from merged PRs / `git log`. Group by
-   the kind of change (features, fixes, internal) so it doubles as release notes.
-5. **Hand off to `health-checkup`.** Run that skill over everything changed since the last release
-   (design-drift audit + `deepen-modules` pass). The version bump is its trigger.
-6. **Open the release PR** per `create-pull-request`, including the change summary.
+## Manual recovery
+
+1. Confirm the intended next version from `package.json` and `gh release list`.
+2. Bump only `version` in `package.json` (or `scripts/bump-semver.sh <level>`).
+3. Land it with a signed commit on `main` (Contents API if local signing is unavailable).
+4. `gh release create vX.Y.Z --target main --generate-notes --notes-start-tag v<prev>`.
 
 ## Caveats
 
-- Keep release intervals small: the smaller the window, the cheaper the `health-checkup`
-  (design debt compounds).
-- Do not mix a release bump with feature changes in the same PR.
-- The canonical checkup procedure lives in `health-checkup`; this skill only triggers it.
+- Design health is **not** this skill's job. Pre-PR `health-checkup` (see `create-pull-request` /
+  `ai-workflow`) owns drift audits.
+- Do not open a dedicated "release PR" for routine bumps — the merge workflow is the release.
+- Multiple `semver:*` labels: the workflow prefers major > minor > patch; CI requires exactly one.

@@ -34,13 +34,17 @@ Run as a **dedicated PR, separate from feature work** (consistent with `continuo
 3. **Apply the bump.** Update `version` in `package.json` only.
 4. **Write a change summary** since the last release, derived from merged PRs / `git log`. Group by
    the kind of change (features, fixes, internal) so it doubles as release notes.
-5. **Hand off to `health-checkup`.** Run that skill over everything changed since the last release
-   (design-drift audit + `deepen-modules` pass). The version bump is its trigger.
-6. **Open the release PR** per `create-pull-request`, including the change summary.
+5. **Run `health-checkup`** over everything changed since the last release (prefer a fresh
+   subagent). File issues for actionable findings; keep declined items for the PR body. Feature
+   PRs already ran a pre-PR checkup; this pass is the **release-window** sweep.
+6. **Open the release PR** per `create-pull-request` (which also runs the normal pre-PR
+   checkup + self-review on this bump branch). Include the change summary and release-window
+   checkup outcome.
 
 ## Caveats
 
-- Keep release intervals small: the smaller the window, the cheaper the `health-checkup`
+- Keep release intervals small: the smaller the window, the cheaper the release-window checkup
   (design debt compounds).
 - Do not mix a release bump with feature changes in the same PR.
-- The canonical checkup procedure lives in `health-checkup`; this skill only triggers it.
+- The canonical checkup procedure lives in `health-checkup`; this skill only triggers the
+  release-scoped run. Per-PR checkups are owned by `create-pull-request`.

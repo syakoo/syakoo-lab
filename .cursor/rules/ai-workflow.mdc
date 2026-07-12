@@ -12,53 +12,56 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 1. **Human/AI**: Open a request as a GitHub Issue (what — background, requirements, acceptance criteria)
 2. **AI**: Read the issue with `gh issue view` and propose an implementation plan
 3. **Human**: Review the plan and approve with `cursor:implement` on the issue
-4. **AI**: Implement per the approved plan, pass tests, and open a PR
-5. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
-6. **Human**: Review behavior, Storybook, etc., and leave feedback
-7. **AI**: Address review feedback when triggered (`address-pr-review`; Cursor Automation)
-8. **Human**: Re-check and merge
+4. **AI**: Implement per the approved plan, pass tests
+5. **AI**: Before opening the PR — `health-checkup` (prefer fresh subagent) then `self-review` — then open the PR
+6. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
+7. **Human**: Review behavior, Storybook, etc., and leave feedback
+8. **AI**: Address review feedback when triggered (`address-pr-review`; Cursor Automation)
+9. **Human**: Re-check and merge
 
 ```mermaid
 flowchart TD
   A["👤🤖 Issue (what)"] --> B["🤖 Implementation plan"]
   B --> C["👤 cursor:implement"]
-  C --> D["🤖 implement → PR"]
-  D --> E["🤖 review PR"]
-  E --> F["👤 review + feedback"]
-  F --> G["🤖 address review"]
-  G --> H["👤 merge"]
-  H -->|periodically, after merges accumulate| I["🤖 version-up — syakoo-lab's own release (dedicated PR)"]
-  I --> J["🤖 health-checkup"]
+  C --> D["🤖 implement"]
+  D --> E["🤖 health-checkup + self-review → PR"]
+  E --> F["🤖 review PR"]
+  F --> G["👤 review + feedback"]
+  G --> H["🤖 address review"]
+  H --> I["👤 merge"]
+  I -->|periodically, after merges accumulate| J["🤖 version-up — dedicated release PR"]
   J --> A
   L["💡 continuous-improvement"] -.separate PR.-> A
-  R["🔄 Renovate — dependency PRs (separate)"] -.-> E
+  R["🔄 Renovate — dependency PRs (separate)"] -.-> F
 ```
 
 - Do not implement before the plan is approved (`cursor:implement` on the issue).
 - Do not change beyond the approved scope.
+- Do not open a PR without a pre-PR `health-checkup` (prefer separate context) and `self-review`.
 - Implementation steps: `implement-issue` skill. Layout: `project-structure` skill. Language: English.
 
 ## Release cycle
 
 Periodically, after merged work accumulates, cut a release of **syakoo-lab itself**: run the
-`version-up` skill (bump this repo's own `package.json` `version` + change summary), which hands off
-to the `health-checkup` skill (design-drift audit). Both run as a dedicated PR, separate from
-feature work. This is the project's own release ritual—distinct from Renovate's dependency-update
-PRs, which simply follow the same review path above.
+`version-up` skill as a **dedicated PR** (bump this repo's own `package.json` `version` + change
+summary + release-window `health-checkup`). That PR still goes through the same pre-PR gates and
+human review as feature work. Distinct from Renovate's dependency-update PRs.
 
 ## Subagents
 
 Delegate routine work via Task. Pass only what the subagent needs.
 
-Delegate only when a step is part of this flow **and** its journey needn't be watched—delegation
-just trims context. Keep steps whose output needs human judgment (`version-up`, `health-checkup`)
-in the main agent.
+Delegate when a step is part of this flow **and** its journey needn't be watched—delegation trims
+context and, for checkup/review, keeps a **clean context**. Prefer a fresh subagent for
+`health-checkup` and `self-review` before PR open. Keep `version-up` orchestration in the main agent
+(it may still spawn checkup/review subagents).
 
 | When | Subagent |
 |------|----------|
 | Create issue | `create-github-issue` |
 | Implement | `implement-issue` |
-| Before push | `self-review` |
+| Before PR — design health | `health-checkup` (prefer fresh subagent) |
+| Before push / PR — hygiene | `self-review` |
 | Open PR | `create-pull-request` |
 | PR opened | `review-pull-request` |
 | Review feedback | `address-pr-review` |

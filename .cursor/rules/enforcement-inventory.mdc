@@ -39,10 +39,10 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | AI workflow (plan → implement → PR) | Agent | `ai-workflow` rule |
 | PR body format | Agent | `create-pull-request` skill |
 | PR review checklist | Agent | `review-pull-request` skill |
-| Pre-push self-review | Agent | `self-review` skill |
+| Pre-push / pre-PR self-review | Agent | `self-review` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
 | Single source of truth | Agent | `single-source-of-truth` rule |
-| Periodic design checkup | Agent | `health-checkup` skill |
+| Pre-PR design checkup (also release-window via version-up) | Agent | `health-checkup` skill |
 | Project release / version bump | Agent | `version-up` skill |
 
 ## Config-only exceptions

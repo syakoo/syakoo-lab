@@ -54,7 +54,8 @@ git commit -m "<message>"
 git push -u origin HEAD
 ```
 
-After push, create the PR per `create-pull-request`.
+After push, create the PR per `create-pull-request` (that skill requires a pre-PR
+`health-checkup` — prefer a fresh subagent — and `self-review` before `gh pr create`).
 
 ## Important
 

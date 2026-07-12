@@ -9,6 +9,10 @@ on:
     types: [closed]
     branches: [main]
 
+concurrency:
+  group: release-${{ github.repository }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pull-requests: read
@@ -26,28 +30,35 @@ jobs:
           AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
           set -euo pipefail
-          if [[ "$LABELS" == *"semver:major"* ]]; then
+          IFS=',' read -r -a label_arr <<< "$LABELS"
+          has() {
+            local needle=$1
+            local label
+            for label in "${label_arr[@]}"; do
+              [[ "$label" == "$needle" ]] && return 0
+            done
+            return 1
+          }
+          if has semver:major; then
             level=major
-          elif [[ "$LABELS" == *"semver:minor"* ]]; then
+          elif has semver:minor; then
             level=minor
-          elif [[ "$LABELS" == *"semver:patch"* ]]; then
+          elif has semver:patch; then
             level=patch
           elif [[ "$AUTHOR" == "renovate[bot]" ]]; then
             level=patch
           else
-            echo "No semver:* label (and not renovate[bot]); skipping bump."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
+            echo "::error::Merged without semver:* label (and not renovate[bot]). No release was published — recover with version-up."
+            exit 1
           fi
           echo "level=$level" >> "$GITHUB_OUTPUT"
-          echo "skip=false" >> "$GITHUB_OUTPUT"
 
-      - name: Checkout
-        if: steps.level.outputs.skip != 'true'
+      - name: Checkout merge commit
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
 
       - name: Bump package.json and publish release
-        if: steps.level.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           LEVEL: ${{ steps.level.outputs.level }}

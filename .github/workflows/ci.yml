@@ -21,10 +21,13 @@ jobs:
             echo "renovate[bot]: semver label optional (defaults to patch on merge)."
             exit 0
           fi
+          IFS=',' read -r -a label_arr <<< "$LABELS"
           count=0
-          [[ "$LABELS" == *"semver:major"* ]] && count=$((count + 1))
-          [[ "$LABELS" == *"semver:minor"* ]] && count=$((count + 1))
-          [[ "$LABELS" == *"semver:patch"* ]] && count=$((count + 1))
+          for label in "${label_arr[@]}"; do
+            case "$label" in
+              semver:major|semver:minor|semver:patch) count=$((count + 1)) ;;
+            esac
+          done
           if [[ "$count" -eq 1 ]]; then
             echo "OK: semver label present."
             exit 0

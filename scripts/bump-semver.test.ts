@@ -20,8 +20,9 @@ describe("bumpSemver", () => {
   });
 
   it("rejects invalid level", () => {
-    expect(() => bumpSemver("1.2.3", /** @type {never} */ ("foo"))).toThrow(
-      /invalid level/,
-    );
+    expect(() =>
+      // @ts-expect-error intentional invalid level for runtime guard
+      bumpSemver("1.2.3", "foo"),
+    ).toThrow(/invalid level/);
   });
 });

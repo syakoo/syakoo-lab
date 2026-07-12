@@ -13,7 +13,9 @@ import { fileURLToPath } from "node:url";
  * @returns {string}
  */
 export function bumpSemver(version, level) {
-  const parts = String(version).split(".").map((n) => Number(n));
+  const parts = String(version)
+    .split(".")
+    .map((n) => Number(n));
   if (parts.length !== 3 || parts.some((n) => !Number.isInteger(n) || n < 0)) {
     throw new Error(`invalid version: ${version}`);
   }
@@ -41,7 +43,10 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     process.exit(1);
   }
   const pkg = JSON.parse(readFileSync(file, "utf8"));
-  pkg.version = bumpSemver(pkg.version, /** @type {"major"|"minor"|"patch"} */ (level));
+  pkg.version = bumpSemver(
+    pkg.version,
+    /** @type {"major"|"minor"|"patch"} */ (level),
+  );
   writeFileSync(file, `${JSON.stringify(pkg, null, 2)}\n`);
   console.log(pkg.version);
 }

@@ -7,6 +7,34 @@ env:
   NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: "dummy-ga-id"
 
 jobs:
+  semver-label:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require exactly one semver:* label
+        env:
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          set -euo pipefail
+          if [[ "$AUTHOR" == "renovate[bot]" ]]; then
+            echo "renovate[bot]: semver label optional (defaults to patch on merge)."
+            exit 0
+          fi
+          IFS=',' read -r -a label_arr <<< "$LABELS"
+          count=0
+          for label in "${label_arr[@]}"; do
+            case "$label" in
+              semver:major|semver:minor|semver:patch) count=$((count + 1)) ;;
+            esac
+          done
+          if [[ "$count" -eq 1 ]]; then
+            echo "OK: semver label present."
+            exit 0
+          fi
+          echo "::error::Add exactly one of: semver:major, semver:minor, semver:patch (got ${count})."
+          exit 1
+
   security-scan:
     runs-on: ubuntu-latest
     timeout-minutes: 15

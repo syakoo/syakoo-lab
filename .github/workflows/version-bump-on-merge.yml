@@ -1,0 +1,95 @@
+name: Version bump on merge
+
+# After a PR merges to main, bump package.json from its semver:* label and
+# publish a GitHub Release. Trigger is pull_request closed (not push), so the
+# Contents-API bump commit does not re-enter this workflow.
+
+on:
+  pull_request:
+    types: [closed]
+    branches: [main]
+
+concurrency:
+  group: release-${{ github.repository }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: read
+
+jobs:
+  release:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Resolve bump level
+        id: level
+        env:
+          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+        run: |
+          set -euo pipefail
+          IFS=',' read -r -a label_arr <<< "$LABELS"
+          has() {
+            local needle=$1
+            local label
+            for label in "${label_arr[@]}"; do
+              [[ "$label" == "$needle" ]] && return 0
+            done
+            return 1
+          }
+          if has semver:major; then
+            level=major
+          elif has semver:minor; then
+            level=minor
+          elif has semver:patch; then
+            level=patch
+          elif [[ "$AUTHOR" == "renovate[bot]" ]]; then
+            level=patch
+          else
+            echo "::error::Merged without semver:* label (and not renovate[bot]). No release was published — recover with version-up."
+            exit 1
+          fi
+          echo "level=$level" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout merge commit
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+
+      - name: Bump package.json and publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LEVEL: ${{ steps.level.outputs.level }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          chmod +x scripts/bump-semver.sh
+          old="$(node -p "require('./package.json').version")"
+          new="$(./scripts/bump-semver.sh "$LEVEL")"
+          echo "Bump $old → $new ($LEVEL)"
+
+          if gh release view "v${new}" >/dev/null 2>&1; then
+            echo "Release v${new} already exists; aborting to avoid overwrite."
+            exit 1
+          fi
+
+          # main requires signed commits — Contents API commits are signed by GitHub.
+          CONTENT="$(base64 -w0 package.json 2>/dev/null || base64 < package.json | tr -d '\n')"
+          SHA="$(gh api "repos/${REPO}/contents/package.json" --jq .sha)"
+          gh api -X PUT "repos/${REPO}/contents/package.json" \
+            -f message="chore: bump version to ${new}" \
+            -f sha="$SHA" \
+            -f content="$CONTENT"
+
+          notes="$(gh api "repos/${REPO}/releases/generate-notes" \
+            -f tag_name="v${new}" \
+            -f previous_tag_name="v${old}" \
+            -f target_commitish=main \
+            --jq .body)"
+
+          gh release create "v${new}" \
+            --target main \
+            --title "v${new}" \
+            --notes "$notes"

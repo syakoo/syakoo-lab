@@ -14,12 +14,13 @@ import { SyakooLabText } from "./syakoo-lab-text/syakoo-lab-text";
 
 export const headerHeightPx = 74;
 
-const NavLink: React.FC<{ children: React.ReactNode; href: string }> = ({
-  children,
-  href,
-}) => {
+const NavLink: React.FC<{
+  children: React.ReactNode;
+  exact?: boolean;
+  href: string;
+}> = ({ children, exact = false, href }) => {
   const pathname = usePathname();
-  const isActive = pathname.startsWith(href);
+  const isActive = exact ? pathname === href : pathname.startsWith(href);
 
   return (
     <Link href={href} noHovered={isActive}>
@@ -37,6 +38,9 @@ export const Header: React.FC = () => {
             <SyakooLabText />
           </Link>
           <Row align="center" aria-label="メインナビゲーション" as="nav">
+            <NavLink exact href="/">
+              Home
+            </NavLink>
             <NavLink href={writingPaths.list()}>Writings</NavLink>
             <NavLink href={creationPaths.list()}>Creations</NavLink>
           </Row>

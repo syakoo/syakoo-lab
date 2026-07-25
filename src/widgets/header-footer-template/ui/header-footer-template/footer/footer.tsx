@@ -16,7 +16,7 @@ export const Footer: React.FC = () => {
       >
         <Row align="center" justify="spaceBetween" wrap>
           <Text as="span" color="secondary">
-            © 2021 syakoo
+            © 2021–{new Date().getFullYear()} syakoo
           </Text>
           <nav aria-label="フッターナビゲーション">
             <Row gap="200">

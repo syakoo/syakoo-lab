@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 const meta = {
   title: "shared/design-system/tokens/sizes",
+  tags: ["vrt"],
 } satisfies Meta;
 
 export default meta;

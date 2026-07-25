@@ -4,7 +4,7 @@ import { FadeIn } from "./fade-in";
 
 const meta = {
   component: FadeIn,
-  tags: ["autodocs"],
+  tags: ["autodocs", "vrt"],
   parameters: {},
 } satisfies Meta<typeof FadeIn>;
 

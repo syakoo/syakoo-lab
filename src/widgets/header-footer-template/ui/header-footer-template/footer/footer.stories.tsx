@@ -7,6 +7,7 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
+  tags: ["vrt"],
 } satisfies Meta<typeof Footer>;
 
 export default meta;

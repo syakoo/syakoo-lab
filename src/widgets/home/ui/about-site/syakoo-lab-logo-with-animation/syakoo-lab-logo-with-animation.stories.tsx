@@ -7,6 +7,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
+  tags: ["vrt"],
 } satisfies Meta<typeof SyakooLabLogoWithAnimation>;
 
 export default meta;

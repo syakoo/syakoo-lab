@@ -7,7 +7,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
+  tags: ["autodocs", "vrt"],
 } satisfies Meta<typeof BadgeLink>;
 
 export default meta;

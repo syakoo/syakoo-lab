@@ -5,7 +5,7 @@ import { Container } from "./container";
 
 const meta = {
   component: Container,
-  tags: ["autodocs"],
+  tags: ["autodocs", "vrt"],
   parameters: {},
 } satisfies Meta<typeof Container>;
 

@@ -22,6 +22,9 @@ pnpm-debug.log*
 # storybook
 storybook-static
 
+# VRT snapshot diffs (baseline images are committed; diff output is not)
+__snapshots__/vrt/__diff_output__/
+
 # tsbuildinfo
 *.tsbuildinfo
 

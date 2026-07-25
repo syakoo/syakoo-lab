@@ -9,6 +9,7 @@ declare module "@storybook/react" {
     nextjs?: {
       appDirectory?: boolean;
       navigation?: {
+        pathname?: string;
         query?: Record<string, string>;
       };
     };

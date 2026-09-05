@@ -51,7 +51,7 @@ describe("range", () => {
     ])("$inputs を入力するとエラーが throw される", ({ inputs }) => {
       const [arg1, arg2, ...otherArgs] = inputs;
 
-      expect(() => range(arg1, arg2, ...otherArgs)).toThrowError();
+      expect(() => range(arg1, arg2, ...otherArgs)).toThrow();
     });
   });
 });

@@ -24,7 +24,7 @@ Story-based VRT catches spacing, typography, and layout regressions against comm
 - Stories tagged with `"vrt"` are captured as PNG baselines stored in `__snapshots__/vrt/`.
 - The `storybook-vrt` CI job compares every PR against those baselines using [`jest-image-snapshot`](https://github.com/americanexpress/jest-image-snapshot).
 - Animations are neutralised before capture via `page.emulateMedia({ reducedMotion: "reduce" })` and a CSS injection that snaps all animation durations to 0.001 ms, so animated stories (e.g. `FadeIn`, `SyakooLabLogoWithAnimation`) produce stable snapshots.
-- Up to 1 % pixel-level difference is allowed (`failureThreshold: 0.01`) to absorb sub-pixel rendering variation.
+- Up to 2 % pixel-level difference is allowed (`failureThreshold: 0.02`) to absorb sub-pixel rendering variation across Linux/Chromium environments.
 
 ### Updating baselines
 

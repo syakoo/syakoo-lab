@@ -7,7 +7,6 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  tags: ["vrt"],
 } satisfies Meta<typeof SyakooLabText>;
 
 export default meta;

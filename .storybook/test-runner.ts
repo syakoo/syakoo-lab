@@ -8,7 +8,7 @@ import { toMatchImageSnapshot } from "jest-image-snapshot";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 
 const DEFAULT_VIEWPORT_SIZE = { width: 1280, height: 720 };
-const VRT_TAG = "vrt";
+const SKIP_VRT_TAG = "skip-vrt";
 const VRT_SNAPSHOTS_DIR = `${process.cwd()}/__snapshots__/vrt`;
 
 /**
@@ -26,7 +26,7 @@ const DISABLE_ANIMATIONS_CSS = `
   }
 `;
 
-/** Story IDs that carry the "vrt" tag — populated in preVisit, consumed in postVisit. */
+/** Story IDs that take VRT screenshots — populated in preVisit, consumed in postVisit. */
 const vrtStoryIds = new Set<string>();
 
 const config: TestRunnerConfig = {
@@ -59,7 +59,8 @@ const config: TestRunnerConfig = {
       await page.setViewportSize(DEFAULT_VIEWPORT_SIZE);
     }
 
-    if (storyContext.tags?.includes(VRT_TAG)) {
+    // Default-on VRT for widgets/features; opt out with "skip-vrt".
+    if (!storyContext.tags?.includes(SKIP_VRT_TAG)) {
       vrtStoryIds.add(context.id);
       await page.emulateMedia({ reducedMotion: "reduce" });
       await page.addStyleTag({ content: DISABLE_ANIMATIONS_CSS });
@@ -82,7 +83,7 @@ const config: TestRunnerConfig = {
       (expect(image) as any).toMatchImageSnapshot({
         customSnapshotsDir: VRT_SNAPSHOTS_DIR,
         customSnapshotIdentifier: context.id,
-        // Cloud Agent vs GHA Chromium can differ ~1.5% on wide token galleries.
+        // Absorb sub-pixel / AA variance across Linux Chromium environments.
         failureThreshold: 0.02,
         failureThresholdType: "percent",
       });

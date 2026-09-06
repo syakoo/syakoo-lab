@@ -5,7 +5,7 @@ import { Center } from "./center";
 
 const meta = {
   component: Center,
-  tags: ["autodocs", "vrt"],
+  tags: ["autodocs", "skip-vrt"],
   parameters: {},
 } satisfies Meta<typeof Center>;
 

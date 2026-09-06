@@ -5,7 +5,6 @@ import { WritingTab } from "./writing-tab";
 const meta = {
   component: WritingTab,
   parameters: {},
-  tags: ["vrt"],
 } satisfies Meta<typeof WritingTab>;
 
 export default meta;

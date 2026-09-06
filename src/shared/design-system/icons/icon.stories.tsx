@@ -4,7 +4,7 @@ import { Icon, iconDictionary } from "./icon";
 
 const meta = {
   component: Icon,
-  tags: ["vrt"],
+  tags: ["skip-vrt"],
 } satisfies Meta;
 
 export default meta;

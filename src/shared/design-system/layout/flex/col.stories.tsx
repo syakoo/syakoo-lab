@@ -4,7 +4,7 @@ import { Col, FlexItem } from "./flex";
 
 const meta = {
   component: Col,
-  tags: ["autodocs", "vrt"],
+  tags: ["autodocs", "skip-vrt"],
   parameters: {},
 } satisfies Meta<typeof Col>;
 

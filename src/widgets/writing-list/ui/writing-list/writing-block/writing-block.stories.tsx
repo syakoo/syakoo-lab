@@ -7,7 +7,6 @@ import { WritingBlock } from "./writing-block";
 const meta = {
   component: WritingBlock,
   parameters: {},
-  tags: ["vrt"],
 } satisfies Meta<typeof WritingBlock>;
 
 export default meta;

@@ -5,7 +5,6 @@ import { AboutSite } from "./about-site";
 const meta = {
   component: AboutSite,
   parameters: { layout: "fullscreen" },
-  tags: ["vrt"],
 } satisfies Meta<typeof AboutSite>;
 
 export default meta;

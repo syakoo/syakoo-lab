@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Image } from "./image";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: Image,
   parameters: {},
 } satisfies Meta<typeof Image>;

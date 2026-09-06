@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { FileViewUI } from "./file-view-ui";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: FileViewUI,
   parameters: {},
 } satisfies Meta<typeof FileViewUI>;

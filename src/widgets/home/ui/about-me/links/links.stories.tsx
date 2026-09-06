@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Links } from "./links";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: Links,
   parameters: {},
 } satisfies Meta<typeof Links>;

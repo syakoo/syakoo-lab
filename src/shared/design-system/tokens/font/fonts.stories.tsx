@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const meta = {
   title: "shared/design-system/tokens/fonts",
-  tags: ["vrt"],
+  tags: ["skip-vrt"],
 } satisfies Meta;
 
 export default meta;

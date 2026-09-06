@@ -9,6 +9,7 @@ import { range } from "../../../../shared/utils/array/range";
 import { RelatedWritingsNav } from "./related-writings-nav";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: RelatedWritingsNav,
   parameters: {
     layout: "fullscreen",

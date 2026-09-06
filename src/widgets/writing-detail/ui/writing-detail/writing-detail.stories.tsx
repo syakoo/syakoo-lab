@@ -7,6 +7,7 @@ import { readWritingById } from "../../../../features/writing/writing-mdx/index.
 import { WritingDetail } from "./writing-detail";
 
 const meta: Meta<typeof WritingDetail> = {
+  tags: ["skip-vrt"],
   component: WritingDetail,
   parameters: {},
   afterEach: () => {

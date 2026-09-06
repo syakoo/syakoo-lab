@@ -28,6 +28,9 @@
     "storybook:serve": "pnpm exec http-server storybook-static -a localhost -p 6006 -s",
     "storybook:test": "test-storybook --url http://localhost:6006",
     "storybook:test:ci": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm storybook:test\"",
+    "storybook:test:vrt": "test-storybook --url http://localhost:6006 --excludeTags skip-vrt",
+    "storybook:test:vrt:update": "test-storybook --url http://localhost:6006 --excludeTags skip-vrt --updateSnapshot",
+    "storybook:test:vrt:ci": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm storybook:test:vrt\"",
     "generate": "scaffdog generate"
   },
   "dependencies": {
@@ -92,6 +95,7 @@
     "axe-playwright": "^2.1.0",
     "concurrently": "^9.2.1",
     "http-server": "^14.1.1",
+    "jest-image-snapshot": "^6.5.2",
     "jsdom": "^22.1.0",
     "npm-run-all2": "^5.0.0",
     "playwright": "^1.55.0",

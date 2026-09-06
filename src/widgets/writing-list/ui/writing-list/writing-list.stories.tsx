@@ -9,6 +9,7 @@ import { range } from "../../../../shared/utils/array/range";
 import { WritingList } from "./writing-list";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: WritingList,
   parameters: {
     layout: "fullscreen",

@@ -4,7 +4,7 @@ import { CodeSandbox } from "./code-sandbox";
 
 const meta = {
   component: CodeSandbox,
-  tags: ["test:skip"],
+  tags: ["test:skip", "skip-vrt"],
 } satisfies Meta<typeof CodeSandbox>;
 
 export default meta;

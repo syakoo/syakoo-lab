@@ -13,7 +13,7 @@ import { CreationDetail } from "./creation-detail";
 const meta = {
   component: CreationDetail,
   parameters: {},
-  tags: ["autodocs"],
+  tags: ["autodocs", "skip-vrt"],
   afterEach: () => {
     clearAllMocks();
   },

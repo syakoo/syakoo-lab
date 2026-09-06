@@ -6,7 +6,7 @@ import { Link } from "./link";
 
 const meta = {
   component: Link,
-  tags: ["autodocs"],
+  tags: ["autodocs", "skip-vrt"],
   parameters: {},
 } satisfies Meta<typeof Link>;
 

@@ -7,7 +7,7 @@ const meta = {
   parameters: {
     layout: "fullscreen",
   },
-  tags: ["autodocs"],
+  tags: ["autodocs", "skip-vrt"],
 } satisfies Meta<typeof List>;
 
 export default meta;

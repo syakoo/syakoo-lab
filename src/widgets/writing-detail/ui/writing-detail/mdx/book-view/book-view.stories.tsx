@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { BookView } from "./book-view";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: BookView,
   parameters: {},
 } satisfies Meta<typeof BookView>;

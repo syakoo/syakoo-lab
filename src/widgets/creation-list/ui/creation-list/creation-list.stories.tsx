@@ -13,6 +13,7 @@ import { range } from "../../../../shared/utils/array/range";
 import { CreationList } from "./creation-list";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: CreationList,
   parameters: {},
   afterEach: () => {

@@ -9,6 +9,7 @@ import { range } from "../../../../shared/utils/array/range";
 import { RelatedCreations } from "./related-creations";
 
 const meta = {
+  tags: ["skip-vrt"],
   component: RelatedCreations,
   parameters: {
     docs: {

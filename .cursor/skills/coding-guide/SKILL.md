@@ -47,6 +47,22 @@ post-list/
 - Styles: **CSS Modules** (`*.module.css`)
 - Stories should cover existing UI patterns
 
+### Storybook VRT
+
+Default-on for every story. Opt out with `tags: ["skip-vrt"]` for design-system token galleries, embeds (e.g. CodeSandbox), or other systematically flaky output.
+
+- **No network in a story.** Images, iframes, and fonts must resolve to committed files. Use `shared/test-utils/dummy-asset` for placeholders; never an external CDN
+- **No `generateDummy*()` in module-scope `args`.** Story `args` are evaluated at module load, before `preview.beforeEach` reseeds the PRNG, so random values depend on story execution order. Prefer a `StoryFn` (or call `generateDummy*` inside `beforeEach` / `loaders` / CSF3 `render`). CSF3 has no `args: () => ({...})` form
+- **Stories that return `null`** (intentional empty canvas): opt out with `tags: ["skip-vrt"]`. Accidental blanks still fail so they are not committed as baselines
+- **Never commit a blank baseline by accident.** A uniform-colour PNG for a story that should show UI means the story did not render — fix the story instead of updating the baseline
+
+Baselines target **Linux/Chromium**. macOS renders text differently, so `pnpm storybook:test:vrt:update` locally produces baselines that fail CI. Update them from CI instead:
+
+1. Push, let `storybook-test` fail, download the `vrt-diff-<run_id>` artefact
+2. Copy `__received_output__/<story-id>-received.png` to `__snapshots__/vrt/<story-id>.png`
+
+`__received_output__` holds the raw screenshot. Never crop `__diff_output__`, whose PNGs are a `baseline | diff | received` composite — taking the wrong third silently reinstates the old baseline.
+
 ### Tests
 
 - **Vitest**, colocated next to the unit under test

@@ -1,3 +1,8 @@
+import {
+  dummyEmbedSrc,
+  pickDummyImage,
+  pickSquareDummyImage,
+} from "../../../shared/test-utils/dummy-asset/dummy-asset";
 import { random } from "../../../shared/test-utils/random/random";
 
 import type {
@@ -41,19 +46,12 @@ export const generateDummyCreationBase = (): CreationBase => {
   };
 };
 export const generateDummyCreationIllust = (): CreationIllust => {
-  const width = random.integer(1, 9) * 100;
-  const height = random.integer(1, 9) * 100;
-
   return {
     ...generateDummyCreationBase(),
     title: "My Illust",
     tags: random.pick(["tag1", "tag2", "tag3", "tag4"], 2),
     type: "illust",
-    illust: {
-      src: `https://placehold.jp/3063D4/ffffff/${width}x${height}.png`,
-      width,
-      height,
-    },
+    illust: pickDummyImage(),
     content: {
       type: "serialized",
       data:
@@ -80,25 +78,14 @@ export const generateDummyCreationIllust = (): CreationIllust => {
   };
 };
 export const generateDummyCreationGame = (): CreationGame => {
-  const logoSize = random.integer(1, 9) * 100;
-  const gameplayScreenWidth = random.integer(1, 9) * 100;
-  const gameplayScreenHeight = random.integer(1, 4) * 100;
-
   return {
     ...generateDummyCreationBase(),
     title: "My Game",
     tags: random.pick(["tag1", "tag2", "tag3", "tag4"], 2),
     type: "game",
-    gameplayScreen: {
-      src: `https://example.com/`,
-      width: gameplayScreenWidth,
-      height: gameplayScreenHeight,
-    },
-    logo: {
-      src: `https://placehold.jp/3063D4/ffffff/${logoSize}x${logoSize}.png`,
-      width: logoSize,
-      height: logoSize,
-    },
+    // Fixed size: random aspect ratio pushes the rest of the page out of VRT.
+    gameplayScreen: { src: dummyEmbedSrc, width: 500, height: 400 },
+    logo: pickSquareDummyImage(),
     content: {
       type: "serialized",
       data:
@@ -125,18 +112,12 @@ export const generateDummyCreationGame = (): CreationGame => {
   };
 };
 export const generateDummyCreationWebapp = (): CreationWebapp => {
-  const logoSize = random.integer(1, 9) * 100;
-
   return {
     ...generateDummyCreationBase(),
     title: "My Webapp",
     tags: random.pick(["tag1", "tag2", "tag3", "tag4"], 2),
     type: "webapp",
-    logo: {
-      src: `https://placehold.jp/3063D4/ffffff/${logoSize}x${logoSize}.png`,
-      width: logoSize,
-      height: logoSize,
-    },
+    logo: pickSquareDummyImage(),
     content: {
       type: "serialized",
       data:

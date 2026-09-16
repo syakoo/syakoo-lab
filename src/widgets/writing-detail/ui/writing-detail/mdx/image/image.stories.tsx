@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 
+import { dummyImages } from "../../../../../../shared/test-utils/dummy-asset/dummy-asset";
+
 import { Image } from "./image";
 
 const meta = {
@@ -14,8 +16,6 @@ type Story = StoryObj<typeof Image>;
 export const Sample: Story = {
   args: {
     caption: "Sample Caption",
-    src: "https://placehold.jp/3063D4/ffffff/400x300.png",
-    width: 400,
-    height: 300,
+    ...dummyImages["400x300"],
   },
 };

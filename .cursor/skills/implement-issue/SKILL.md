@@ -40,12 +40,19 @@ After approval, break down tasks and execute. Follow `coding-guide`.
 
 ### 5. Commit
 
+Prefer **few, reviewable commits** — one logical change per commit
+(e.g. feature / fix / baselines / docs), not one commit per tool turn.
+On an **unpushed** feature branch, squash noisy WIP with soft reset +
+recommit when history is hard to reread. Do not rewrite commits already
+on a shared remote tip under active review unless the human asks.
+
 ```bash
 git add <files>
 git commit -m "<message>"
 ```
 
 - Match recent style: `git log --oneline -10`
+- Message focuses on **why**; surprising implementation choices belong here, not in code comments (see `coding-guide` → Comments)
 - End with `closes #<issue-number>` when appropriate
 
 ### 6. Push and open a PR

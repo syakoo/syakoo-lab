@@ -21,6 +21,14 @@ Prefer **deep modules**: a small public surface with substantial work hidden ins
 - When choosing a new or redesigned API shape, follow `design-it-twice`
 - For a dedicated pass to hunt shallow structure across the codebase, follow `deepen-modules` (not during feature or bug-fix work)
 
+## Comments
+
+Comments are knowledge in the codebase. Treat them carefully:
+
+- **Do not invert dependencies.** A module must not teach its callers how to use it (or restate conventions that live in a skill). Put that in the public API, docs, or the canonical skill — comments link, they do not become the source of truth (see `single-source-of-truth`)
+- **Comments rot.** They are not type-checked or linted. Prefer none over a stale explanation; when you write one, expect to maintain it
+- **Why only when surprising.** Skip ordinary design choices (those belong in the commit message). Comment when the code does something a reader would reasonably assume is wrong or unnecessary — "why not the obvious way?"
+
 ## Component rules
 
 ### File layout

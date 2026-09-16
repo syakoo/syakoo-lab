@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryFn } from "@storybook/nextjs";
 
 import {
   generateDummyCreationGame,
@@ -17,16 +17,19 @@ const meta = {
 } satisfies Meta<typeof CreationCard>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Illust: Story = {
-  args: { ...generateDummyCreationIllust() },
+// StoryFn (not module-scope args) so generateDummy* runs after PRNG reseed.
+export const Illust: StoryFn<typeof CreationCard> = () => {
+  const { type, title, illust } = generateDummyCreationIllust();
+  return <CreationCard type={type} title={title} illust={illust} />;
 };
 
-export const Game: Story = {
-  args: { ...generateDummyCreationGame() },
+export const Game: StoryFn<typeof CreationCard> = () => {
+  const { type, title, logo } = generateDummyCreationGame();
+  return <CreationCard type={type} title={title} logo={logo} />;
 };
 
-export const WebApp: Story = {
-  args: { ...generateDummyCreationWebapp() },
+export const WebApp: StoryFn<typeof CreationCard> = () => {
+  const { type, title, logo } = generateDummyCreationWebapp();
+  return <CreationCard type={type} title={title} logo={logo} />;
 };

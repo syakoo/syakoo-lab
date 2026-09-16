@@ -2,7 +2,13 @@ import type { Preview } from "@storybook/nextjs";
 import { sb } from "storybook/test";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 
+// Self-hosted for Storybook/VRT. Keep beforeEach sync — async broke RSC mocks.
+import "@fontsource/noto-sans-jp/400.css";
+import "@fontsource/noto-sans-jp/700.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/700.css";
 import "../src/shared/global-settings/global-settings";
+import { tryEnableDeterministicRandomFromGlobal } from "../src/shared/test-utils/random/random.fixture";
 import { storyTheme } from "./manager";
 
 // NOTE: Node 利用のモジュールは Storybook で動かないので雑にモックする
@@ -30,6 +36,9 @@ sb.mock(
 );
 
 const preview: Preview = {
+  beforeEach: () => {
+    tryEnableDeterministicRandomFromGlobal();
+  },
   parameters: {
     controls: {
       matchers: {

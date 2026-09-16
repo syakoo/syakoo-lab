@@ -1,3 +1,5 @@
+import { getNextFloat } from "./random-source";
+
 export const random = {
   /**
    * 配列からランダムに指定個数の要素を重複なしで取得します
@@ -7,8 +9,12 @@ export const random = {
       throw new Error("Cannot pick more items than array length");
     }
 
-    const shuffled = [...arr].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, num);
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i -= 1) {
+      const j = Math.floor(getNextFloat() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy.slice(0, num);
   },
 
   /**
@@ -19,7 +25,7 @@ export const random = {
       throw new Error("Cannot pick from empty array");
     }
 
-    return arr[Math.floor(Math.random() * arr.length)];
+    return arr[Math.floor(getNextFloat() * arr.length)];
   },
 
   /**
@@ -30,8 +36,8 @@ export const random = {
       throw new Error("Min cannot be greater than max");
     }
 
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    const lo = Math.ceil(min);
+    const hi = Math.floor(max);
+    return Math.floor(getNextFloat() * (hi - lo + 1)) + lo;
   },
 } as const;

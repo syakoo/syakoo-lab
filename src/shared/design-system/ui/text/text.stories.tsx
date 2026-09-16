@@ -4,7 +4,7 @@ import { H1, H2, H3, H4, P, Span, Text } from "./text";
 
 const meta = {
   component: Text,
-  tags: ["autodocs"],
+  tags: ["autodocs", "skip-vrt"],
   parameters: {},
 } satisfies Meta<typeof Text>;
 

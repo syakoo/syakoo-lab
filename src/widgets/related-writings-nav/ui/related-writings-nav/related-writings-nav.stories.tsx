@@ -37,7 +37,9 @@ export const Sample: Story = {
   },
 };
 
+/** Returns null when there is nothing related — skip VRT. */
 export const Empty: Story = {
+  tags: ["skip-vrt"],
   args: {
     id: "sample-writing-id",
   },

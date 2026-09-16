@@ -28,6 +28,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Prefer few logical commits on a feature branch (not one per tool turn) | Agent | `implement-issue` skill |
 | Code comments: no inverted deps; why only when surprising | Agent | `coding-guide` skill |
 | CSS Modules (`*.module.css`), colocated Vitest `*.test.ts` | Agent | `coding-guide` skill |
+| Storybook VRT default-on / `skip-vrt` opt-out | Agent | `coding-guide` skill |
 | FSD layer direction | Architecture | `project-structure` skill |
 | Slice public API (`index.ts` / `index.server.ts` / `index.client.ts`) | Architecture | `project-structure` skill |
 | `index.ts` re-exports only | Agent | `project-structure` skill |

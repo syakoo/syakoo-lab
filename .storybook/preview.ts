@@ -17,7 +17,7 @@ sb.mock(import("../src/contents/writings/reader.ts"));
 sb.mock(import("../src/contents/arts/reader.ts"));
 sb.mock(import("../src/contents/games/reader.ts"));
 sb.mock(import("../src/contents/webapps/reader.ts"));
-// sharp: webpack-aliased to .storybook/mocks/sharp.ts (sb.mock breaks on sharp ≥0.35 exports)
+// sharp: webpack-aliased to .storybook/sharp-mock.ts (sb.mock breaks on sharp ≥0.35 exports)
 sb.mock(import("jsdom"));
 sb.mock(import("../src/features/writing/writing-mdx/models/read-writing.ts"), {
   spy: true,

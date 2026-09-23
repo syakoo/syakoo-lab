@@ -29,7 +29,7 @@ const config: StorybookConfig = {
     webpackConfig.resolve.alias = {
       ...webpackConfig.resolve.alias,
       // sharp ≥0.35 omits `./package.json` from exports; sb.mock cannot resolve it.
-      sharp$: path.join(dirname, "mocks/sharp.ts"),
+      sharp$: path.join(dirname, "sharp-mock.ts"),
     };
     return webpackConfig;
   },

@@ -2,6 +2,7 @@ import type { Meta } from "@storybook/nextjs";
 import { useEffect, useState } from "react";
 
 const meta = {
+  tags: ["skip-vrt"],
   title: "shared/design-system/tokens/colors",
 } satisfies Meta;
 

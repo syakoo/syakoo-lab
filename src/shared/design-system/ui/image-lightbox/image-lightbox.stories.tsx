@@ -4,7 +4,7 @@ import { expect, userEvent, waitFor, within } from "storybook/test";
 import { ImageLightboxRoot, ImageLightboxTrigger } from "./image-lightbox";
 
 const meta = {
-  tags: ["autodocs"],
+  tags: ["autodocs", "skip-vrt"],
   parameters: {},
   globals: {
     viewport: { value: undefined, isRotated: false },

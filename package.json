@@ -1,7 +1,7 @@
 {
   "name": "syakoo-lab",
   "type": "module",
-  "version": "6.2.7",
+  "version": "6.3.0",
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=10.22.0"
@@ -28,6 +28,7 @@
     "storybook:serve": "pnpm exec http-server storybook-static -a localhost -p 6006 -s",
     "storybook:test": "test-storybook --url http://localhost:6006",
     "storybook:test:ci": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm storybook:test\"",
+    "storybook:test:vrt:update": "test-storybook --url http://localhost:6006 --excludeTags skip-vrt --updateSnapshot",
     "generate": "scaffdog generate"
   },
   "dependencies": {
@@ -72,6 +73,8 @@
     "@biomejs/biome": "^2.4.6",
     "@commitlint/cli": "^17.8.1",
     "@commitlint/config-conventional": "^17.8.1",
+    "@fontsource/noto-sans-jp": "^5.3.0",
+    "@fontsource/roboto": "^5.3.0",
     "@next/env": "^16.1.6",
     "@storybook/addon-a11y": "^10.2.1",
     "@storybook/addon-docs": "^10.2.1",
@@ -92,6 +95,7 @@
     "axe-playwright": "^2.1.0",
     "concurrently": "^9.2.1",
     "http-server": "^14.1.1",
+    "jest-image-snapshot": "^6.5.2",
     "jsdom": "^22.1.0",
     "npm-run-all2": "^5.0.0",
     "playwright": "^1.55.0",

@@ -1,5 +1,7 @@
 import type { Meta } from "@storybook/nextjs";
 
+import { dummyImages } from "../../../../../../shared/test-utils/dummy-asset/dummy-asset";
+
 import { Figure } from "./figure-with-caption";
 
 const meta = {
@@ -13,7 +15,7 @@ export const Sample = () => {
   return (
     <Figure>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img alt="" src="https://placehold.jp/3063D4/ffffff/400x300.png" />
+      <img alt="" src={dummyImages["400x300"].src} />
       <Figure.Caption>sample caption</Figure.Caption>
     </Figure>
   );
@@ -23,7 +25,7 @@ export const NoCaption = () => {
   return (
     <Figure>
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img alt="" src="https://placehold.jp/3063D4/ffffff/150x200.png" />
+      <img alt="" src={dummyImages["150x200"].src} />
     </Figure>
   );
 };

@@ -66,7 +66,8 @@
 
   /* ===== Font Families ===== */
   /* Tailwind namespace: --font-* → font-* クラス */
-  --font-primary: "Roboto", "Noto Sans JP Variable", sans-serif;
+  /* Keep in sync with tokens/font/web-fonts.ts (Storybook @fontsource). */
+  --font-primary: "Roboto", "Noto Sans JP Variable", "Noto Sans JP", sans-serif;
   --font-code: "Fira Code", Consolas, monospace;
 
   /* ===== Border Radius ===== */

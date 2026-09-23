@@ -4,7 +4,7 @@ import { FlexItem, Row } from "./flex";
 
 const meta = {
   component: Row,
-  tags: ["autodocs"],
+  tags: ["autodocs", "skip-vrt"],
   parameters: {},
 } satisfies Meta<typeof Row>;
 

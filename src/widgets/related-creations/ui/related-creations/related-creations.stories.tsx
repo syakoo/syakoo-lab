@@ -3,7 +3,6 @@ import { clearAllMocks, mocked } from "storybook/test";
 
 import { generateDummyCreationSummary } from "../../../../entities/creation";
 import { readCreationSummaries } from "../../../../entities/creation/index.server";
-import { random } from "../../../../shared/test-utils/random/random";
 import { range } from "../../../../shared/utils/array/range";
 
 import { RelatedCreations } from "./related-creations";
@@ -34,9 +33,7 @@ export const Sample: Story = {
     const targetCreation = generateDummyCreationSummary();
     const mockCreations = [
       { ...targetCreation, id: "sample-creation" },
-      ...range(0, random.integer(3, 5)).map(() =>
-        generateDummyCreationSummary(),
-      ),
+      ...range(0, 4).map(() => generateDummyCreationSummary()),
     ];
     mocked(readCreationSummaries).mockResolvedValue(mockCreations);
   },

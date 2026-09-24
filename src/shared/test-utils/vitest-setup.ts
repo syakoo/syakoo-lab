@@ -1,4 +1,3 @@
-import "@testing-library/jest-dom/vitest";
 import { vi } from "vitest";
 
 import { exampleMDXComponent } from "./mocks/fixture-mdxcomponent";

@@ -63,7 +63,9 @@ const config: TestRunnerConfig = {
 
     // Serve a local dummy for Google S2 so LinkCard stories stay network-free
     // in VRT without a test-only faviconSrc prop on the component.
-    if (!pagesWithFaviconMock.has(page)) {
+    // Scoped to LinkCard story ids so other stories are not silently intercepted.
+    const isLinkCardStory = context.id.includes("writing-detail-mdx-link-card");
+    if (isLinkCardStory && !pagesWithFaviconMock.has(page)) {
       await page.route("https://www.google.com/s2/favicons**", (route) =>
         route.fulfill({
           path: DUMMY_FAVICON_PATH,
@@ -71,6 +73,9 @@ const config: TestRunnerConfig = {
         }),
       );
       pagesWithFaviconMock.add(page);
+    } else if (!isLinkCardStory && pagesWithFaviconMock.has(page)) {
+      await page.unroute("https://www.google.com/s2/favicons**");
+      pagesWithFaviconMock.delete(page);
     }
 
     await injectAxe(page);

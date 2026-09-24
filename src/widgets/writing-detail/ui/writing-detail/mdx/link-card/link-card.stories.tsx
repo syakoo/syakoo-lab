@@ -3,9 +3,36 @@ import { expect, within } from "storybook/test";
 
 import { LinkCard } from "./link-card";
 
+const assertFaviconBesideDomain = (
+  canvasElement: HTMLElement,
+  domain: string,
+) => {
+  const canvas = within(canvasElement);
+  // Decorative (alt=""); include hidden so Testing Library still finds it.
+  const favicon = canvas.getByRole("img", { hidden: true });
+
+  expect(favicon).toHaveAttribute(
+    "src",
+    `https://www.google.com/s2/favicons?domain=${domain}&sz=32`,
+  );
+  expect(favicon, "favicon is decorative").toHaveAttribute("alt", "");
+  expect(favicon).toHaveAttribute("width", "16");
+  expect(favicon).toHaveAttribute("height", "16");
+
+  const domainEl = canvas.getByText(domain);
+  expect(
+    favicon.parentElement?.contains(domainEl) ?? false,
+    "favicon sits next to the domain",
+  ).toBe(true);
+};
+
 const meta = {
   component: LinkCard,
   parameters: {},
+  play: async ({ canvasElement, args }) => {
+    const domain = new URL(args.url).hostname;
+    assertFaviconBesideDomain(canvasElement, domain);
+  },
 } satisfies Meta<typeof LinkCard>;
 
 export default meta;
@@ -18,24 +45,9 @@ export const Sample: Story = {
     url: "https://syakoo-lab.com/",
     description: "sample description",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const favicon = canvasElement.querySelector("img");
-
-    expect(favicon).toHaveAttribute(
-      "src",
-      "https://www.google.com/s2/favicons?domain=syakoo-lab.com&sz=32",
-    );
-    expect(favicon, "favicon is decorative").toHaveAttribute("alt", "");
-    expect(favicon).toHaveAttribute("width", "16");
-    expect(favicon).toHaveAttribute("height", "16");
-
-    const domain = canvas.getByText("syakoo-lab.com");
-    expect(
-      favicon?.parentElement?.contains(domain) ?? false,
-      "favicon sits next to the domain",
-    ).toBe(true);
-
+  play: async (context) => {
+    await meta.play?.(context);
+    const canvas = within(context.canvasElement);
     expect(canvas.getByText("Sample Title")).toBeVisible();
     expect(canvas.getByText("sample description")).toBeVisible();
   },
@@ -55,19 +67,14 @@ export const WithoutDescription: Story = {
     title: "Example Title",
     url: "https://example.com/",
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    const favicon = canvasElement.querySelector("img");
-
-    expect(favicon).toHaveAttribute(
-      "src",
-      "https://www.google.com/s2/favicons?domain=example.com&sz=32",
-    );
+  play: async (context) => {
+    await meta.play?.(context);
+    const canvas = within(context.canvasElement);
     expect(canvas.getByText("Example Title")).toBeVisible();
     expect(canvas.getByText("example.com")).toBeVisible();
     expect(
-      canvasElement.textContent?.replace(/\s+/g, ""),
-      "description is omitted from the card",
-    ).toBe("ExampleTitleexample.com");
+      context.canvasElement.querySelector(".line-clamp-1"),
+      "description line is omitted when description is unset",
+    ).toBeNull();
   },
 };

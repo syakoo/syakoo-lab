@@ -12,18 +12,22 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 1. **Human/AI**: Open a request as a GitHub Issue (what — background, requirements, acceptance criteria)
 2. **AI**: Read the issue with `gh issue view` and propose an implementation plan
 3. **Human**: Review the plan and approve with `cursor:implement` on the issue
-4. **AI**: Implement per the approved plan, pass tests, and open a PR
-5. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
-6. **Human**: Review behavior, Storybook, etc., and leave feedback
-7. **AI**: Address review feedback when triggered (`address-pr-review`; Cursor Automation)
-8. **Human**: Re-check and merge
+4. **AI**: Implement per the approved plan, pass tests
+5. **AI**: Loop `self-review` → fix **Must fix** → re-review until Must fix is clear; optionally fix other notes; then open a PR
+6. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
+7. **Human**: Review behavior, Storybook, etc., and leave feedback
+8. **AI**: Address review feedback when triggered (`address-pr-review`; Cursor Automation)
+9. **Human**: Re-check and merge
 
 ```mermaid
 flowchart TD
   A["👤🤖 Issue (what)"] --> B["🤖 Implementation plan"]
   B --> C["👤 cursor:implement"]
-  C --> D["🤖 implement → PR"]
-  D --> E["🤖 review PR"]
+  C --> D["🤖 implement"]
+  D --> S["🤖 self-review"]
+  S -->|"Must fix"| D
+  S -->|"Must fix clear"| P["🤖 open PR"]
+  P --> E["🤖 review PR"]
   E --> F["👤 review + feedback"]
   F --> G["🤖 address review"]
   G --> H["👤 merge"]
@@ -36,28 +40,27 @@ flowchart TD
 - Do not implement before the plan is approved (`cursor:implement` on the issue).
 - Do not change beyond the approved scope.
 - Implementation steps: `implement-issue` skill. Layout: `project-structure` skill. Language: English.
+- Make it work during implementation; **module depth and design are audited in the `self-review` loop before the PR**, not mid-feature. Do not open a PR while **Must fix** remains. Other self-review notes are optional: fix if useful, or document “not necessary” under Impact and risks.
 - Every PR to `main` must carry exactly one `semver:major` / `semver:minor` / `semver:patch` label (CI). On merge, Actions bumps `package.json` and publishes the GitHub Release. `renovate[bot]` defaults to patch.
 
 ## Release cycle
 
 **Automated.** Feature/fix/chore PRs declare their semver impact with a label; merging to `main`
-is the release. The `version-up` skill is only for recovery or rare manual overrides — not a
-periodic dedicated release PR. Distinct from Renovate's dependency-update PRs (same review path;
-patch bump by default).
+is the release. Do not open a dedicated release PR for routine bumps. Distinct from Renovate's
+dependency-update PRs (same review path; patch bump by default).
 
 ## Subagents
 
 Delegate routine work via Task. Pass only what the subagent needs.
 
 Delegate only when a step is part of this flow **and** its journey needn't be watched—delegation
-just trims context. Keep steps whose output needs human judgment (`health-checkup`) in the main
-agent when not using a fresh subagent.
+just trims context.
 
 | When | Subagent |
 |------|----------|
 | Create issue | `create-github-issue` |
 | Implement | `implement-issue` |
-| Before push | `self-review` |
+| Before PR | `self-review` |
 | Open PR | `create-pull-request` |
 | PR opened | `review-pull-request` |
 | Review feedback | `address-pr-review` |

@@ -18,8 +18,8 @@ Prefer **deep modules**: a small public surface with substantial work hidden ins
 
 - Public access to a slice stays on **`index.ts` only** (see `project-structure`)
 - Keep re-exports in the slice public-API barrel (`index.ts` / `index.server.ts` / `index.client.ts`) only. Do not add intermediate re-export-only files inside a slice (e.g. a `types.ts` that merely re-exports another module)—import from the original source directly, including downward into `contents/`
-- When choosing a new or redesigned API shape, follow `design-it-twice`
-- For a dedicated pass to hunt shallow structure across the codebase, follow `deepen-modules` (not during feature or bug-fix work)
+
+During implementation, **make it work first**. Depth and API shape are audited in the **`self-review` loop before opening a PR** (clear Must fix; other notes optional)—not as a separate pass mid-feature.
 
 ## Comments
 

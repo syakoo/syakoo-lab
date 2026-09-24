@@ -48,7 +48,7 @@ jobs:
           elif [[ "$AUTHOR" == "renovate[bot]" ]]; then
             level=patch
           else
-            echo "::error::Merged without semver:* label (and not renovate[bot]). No release was published — recover with version-up."
+            echo "::error::Merged without semver:* label (and not renovate[bot]). No release was published — bump package.json and create the GitHub Release manually."
             exit 1
           fi
           echo "level=$level" >> "$GITHUB_OUTPUT"

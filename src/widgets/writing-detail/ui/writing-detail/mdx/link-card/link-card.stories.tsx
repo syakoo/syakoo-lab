@@ -68,6 +68,6 @@ export const WithoutDescription: Story = {
     expect(
       canvasElement.textContent?.replace(/\s+/g, ""),
       "description is omitted from the card",
-    ).toBe("Example Titleexample.com");
+    ).toBe("ExampleTitleexample.com");
   },
 };

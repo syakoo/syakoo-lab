@@ -8,7 +8,7 @@ description: >-
 
 # Implement issue
 
-Concrete steps for the flow in `ai-workflow.mdc` (plan → approval → implement → PR).
+Concrete steps for the flow in `ai-workflow.mdc` (plan → approval → implement ↔ self-review until clean → PR).
 
 ## Workflow
 
@@ -55,15 +55,22 @@ git commit -m "<message>"
 - Message focuses on **why**; surprising implementation choices belong here, not in code comments (see `coding-guide` → Comments)
 - End with `closes #<issue-number>` when appropriate
 
-### 6. Push and open a PR
+### 6. Self-review loop, then push and open a PR
+
+Loop until **`self-review` is clean** (Must fix and Needs confirmation both `None`):
+
+1. Run **`self-review`** on the current branch diff (hygiene + module depth / design).
+2. If there are suggestions: apply fixes (treat Needs confirmation as work when the fix is clear; ask the human only when blocked), commit as needed, then go back to step 1.
+3. When clean: push and create the PR per `create-pull-request`.
 
 ```bash
 git push -u origin HEAD
 ```
 
-After push, create the PR per `create-pull-request`.
+Do not open a PR while self-review still has suggestions. If the loop thrashes (same finding twice with no progress), stop and ask the human.
 
 ## Important
 
 - After approval, **complete steps 4–6 without pausing** for confirmation unless blocked.
+- Do not run redesign / deepen passes during step 4—save that for the step 6 self-review loop.
 - If hooks time out, increase Shell `timeout` and retry. Do not use `--no-verify`.

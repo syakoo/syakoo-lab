@@ -30,9 +30,10 @@ Follow `.cursor/skills/create-pull-request` for details.
 ## Steps
 
 1. Confirm issue and approved plan.
-2. Read `git diff` and changed files.
-3. Draft title and body in the format below.
-4. Run `gh pr create` (branch must be pushed).
+2. Confirm the parent has a **clean `self-review`** (Must fix and Needs confirmation both `None`); if not, ask them to finish the implement ↔ self-review loop before continuing.
+3. Read `git diff` and changed files.
+4. Draft title and body in the format below.
+5. Run `gh pr create` (branch must be pushed).
 
 ## Title
 

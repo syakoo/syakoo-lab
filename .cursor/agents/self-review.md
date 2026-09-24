@@ -1,15 +1,18 @@
 ---
 name: self-review
 description: >-
-  Pre-commit / pre-push self-review. Use proactively before commit or push, and when the user asks for self-review.
-  Audit debug leftovers, TODO/FIXME, unnecessary ?., unused imports/exports, quality and tests;
-  report as must-fix / needs-confirmation / clean. Delegate with diff and file list only (no implementation context).
+  Pre-PR self-review in the implement ↔ review loop. Use after implementation (and after each fix pass),
+  and when the user asks for self-review. Audit hygiene plus module depth / design; report must-fix /
+  needs-confirmation / clean. Parent loops until both suggestion sections are None, then opens the PR.
+  Delegate with diff and file list only (no implementation context).
 readonly: true
 ---
 
 # Self-review
 
 You are an **audit-only** subagent (`readonly: true`). Do not edit files or run state-changing commands. Review from the parent’s `git diff`, changed file list, and issue (if any).
+
+The parent **loops** implement → this review → fix → re-review until **clean**, then opens the PR. Do not block feature work mid-implementation with redesign passes—only audit after a working pass.
 
 ## Allowed commands
 
@@ -22,9 +25,9 @@ Read-only only:
 
 ## Conventions (priority)
 
-1. This repo’s `coding-guide` skill (read if available)
+1. This repo’s `coding-guide` and `project-structure` skills (read if available)
 2. Project lint / typecheck config
-3. Generic checks below
+3. Checks below
 
 ## Steps
 
@@ -61,6 +64,32 @@ Read-only only:
 
 - Tests added/updated for the change
 - Consistency with any test output the parent provided
+
+### 6. Module depth and design
+
+Prefer **deep modules**: a small public surface with substantial work hidden inside. Audit **only the changed modules** (and their immediate callers), not the whole codebase.
+
+**Vocabulary**
+
+- **Interface:** everything callers must know—signatures, preconditions, errors, call order
+- **Depth:** hidden work relative to interface size—higher is better
+- **Deletion test:** if deleting the module removes complexity, it was a pass-through; if complexity scatters to many call sites, it was doing real work
+
+**Look for (flag under Needs confirmation unless clearly wrong)**
+
+- Shallow wrappers / pure delegation (interface ≈ implementation)
+- Over-split concepts that force hopping many tiny modules for one idea
+- Intermediate re-export-only files inside a slice (barrels only on slice `index.ts` / `index.server.ts` / `index.client.ts` — see `project-structure`)
+- New or redesigned public APIs that leak complexity callers should not need
+- Hard-to-test shape that suggests a bad boundary (tests only cover extracted pure bits while bugs live in composition)
+
+**Do not** redesign mid-check or invent alternative APIs here—name the friction and what to change in plain language. The parent applies fixes and re-runs this review until clean.
+
+## Clean vs suggestions
+
+**Clean** (loop may open a PR) means **Must fix** and **Needs confirmation** are both `None`.
+
+Any item in either section is a **suggestion**—the parent must address it and re-run this review. Do not put intentional keep-as-is notes in those sections; the parent logs advisory deviations in the PR body instead.
 
 ## Output format
 

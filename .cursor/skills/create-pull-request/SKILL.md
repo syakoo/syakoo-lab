@@ -11,9 +11,10 @@ description: >-
 ## Workflow
 
 1. Confirm the target issue and approved implementation plan.
-2. Read `git diff` and changed files.
-3. Draft title and body in the format below.
-4. Run `gh pr create` with **exactly one** semver label: `semver:major`, `semver:minor`, or
+2. Ensure **`self-review` is clean** on this branch (Must fix and Needs confirmation both `None`). If not, return to the implement ↔ self-review loop; do not open the PR yet.
+3. Read `git diff` and changed files.
+4. Draft title and body in the format below.
+5. Run `gh pr create` with **exactly one** semver label: `semver:major`, `semver:minor`, or
    `semver:patch` (CI requires it; merge auto-bumps and releases from that label).
 
 ## Title
@@ -49,6 +50,6 @@ One short line that states intent. No prefix required.
 - **Problem** and **Solution** are required.
 - **Design** only when introducing or changing architecture; omit the section if N/A.
 - **Impact and risks** is required even when the answer is "None".
-- List any intentional **advisory deviation** (deep modules, design-it-twice, Tailwind tokens, missing tests, Storybook) under **Impact and risks** so it surfaces at the next health checkup.
+- List any intentional **advisory deviation** (shallow module kept on purpose, Tailwind tokens, missing tests, Storybook) under **Impact and risks**.
 - Attach exactly one **`semver:*` label** when opening the PR (`major` = breaking, `minor` = feature, `patch` = fix/docs/chore).
 - Do not guess intent—ask a human when unclear.

@@ -52,8 +52,8 @@ export const LongText: Story = {
 
 export const WithoutDescription: Story = {
   args: {
-    title: "霧島国際ホテル",
-    url: "https://www.kirishima-kokusai.com/",
+    title: "Example Title",
+    url: "https://example.com/",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
@@ -61,13 +61,13 @@ export const WithoutDescription: Story = {
 
     expect(favicon).toHaveAttribute(
       "src",
-      "https://www.google.com/s2/favicons?domain=www.kirishima-kokusai.com&sz=32",
+      "https://www.google.com/s2/favicons?domain=example.com&sz=32",
     );
-    expect(canvas.getByText("霧島国際ホテル")).toBeVisible();
-    expect(canvas.getByText("www.kirishima-kokusai.com")).toBeVisible();
+    expect(canvas.getByText("Example Title")).toBeVisible();
+    expect(canvas.getByText("example.com")).toBeVisible();
     expect(
       canvasElement.textContent?.replace(/\s+/g, ""),
       "description is omitted from the card",
-    ).toBe("霧島国際ホテルwww.kirishima-kokusai.com");
+    ).toBe("Example Titleexample.com");
   },
 };

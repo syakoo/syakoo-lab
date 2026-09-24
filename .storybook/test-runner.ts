@@ -26,6 +26,8 @@ const STORY_SETTLE_QUIET_MS = 300;
 const SUBRESOURCE_TIMEOUT_MS = 5_000;
 
 const pagesWithDeterministicRandomSeed = new WeakSet<object>();
+const pagesWithFaviconMock = new WeakSet<object>();
+const DUMMY_FAVICON_PATH = `${process.cwd()}/public/img/dummy/dummy-50x50.png`;
 
 /** Snap animations/transitions to done (with reducedMotion in preVisit). */
 const DISABLE_ANIMATIONS_CSS = `
@@ -57,6 +59,23 @@ const config: TestRunnerConfig = {
         Object.assign(globalThis, { [key]: seed });
       }, payload);
       pagesWithDeterministicRandomSeed.add(page);
+    }
+
+    // Serve a local dummy for Google S2 so LinkCard stories stay network-free
+    // in VRT without a test-only faviconSrc prop on the component.
+    // Scoped to LinkCard story ids so other stories are not silently intercepted.
+    const isLinkCardStory = context.id.includes("writing-detail-mdx-link-card");
+    if (isLinkCardStory && !pagesWithFaviconMock.has(page)) {
+      await page.route("https://www.google.com/s2/favicons**", (route) =>
+        route.fulfill({
+          path: DUMMY_FAVICON_PATH,
+          contentType: "image/png",
+        }),
+      );
+      pagesWithFaviconMock.add(page);
+    } else if (!isLinkCardStory && pagesWithFaviconMock.has(page)) {
+      await page.unroute("https://www.google.com/s2/favicons**");
+      pagesWithFaviconMock.delete(page);
     }
 
     await injectAxe(page);

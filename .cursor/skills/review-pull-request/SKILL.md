@@ -23,7 +23,7 @@ Triggered automatically when a PR is opened (Cursor Automation) or on request.
 ## Conventions (priority)
 
 1. `project-structure` skill — FSD layers, slice layout, Public API via `index.ts`
-2. `coding-guide` skill — kebab-case, design tokens, design-system usage
+2. `coding-guide` skill — **design-system first** (Row/Col/Text/Link), kebab-case, design tokens, VRT baselines on UI changes
 3. Checks below (same spirit as `self-review`)
 
 ## Checklist
@@ -38,6 +38,10 @@ Triggered automatically when a PR is opened (Cursor Automation) or on request.
 - Correct FSD layer; dependencies flow downward only
 - Slice Public API via `index.ts`; no deep imports past the barrel
 
+### Design system
+
+- New or changed UI uses `shared/design-system` layout/text/link primitives (`Row` / `Col` / `Text` / `Link`, …) instead of reinventing them with Tailwind `flex` / `gap-*` / ad-hoc text markup
+
 ### Code hygiene
 
 - Debug leftovers (`console.log`, `debugger`, dead commented code)
@@ -47,6 +51,7 @@ Triggered automatically when a PR is opened (Cursor Automation) or on request.
 ### Tests
 
 - Behavior changes have added or updated tests
+- Visual UI changes update `__snapshots__/vrt/` in the same PR (do not rely on the failure threshold swallowing the diff)
 
 ### PR body
 

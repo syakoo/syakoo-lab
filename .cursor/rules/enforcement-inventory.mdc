@@ -28,14 +28,14 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Prefer few logical commits on a feature branch (not one per tool turn) | Agent | `implement-issue` skill |
 | Code comments: no inverted deps; why only when surprising | Agent | `coding-guide` skill |
 | CSS Modules (`*.module.css`), colocated Vitest `*.test.ts` | Agent | `coding-guide` skill |
-| Storybook VRT default-on / `skip-vrt` opt-out | Agent | `coding-guide` skill |
+| Storybook VRT default-on / `skip-vrt` opt-out; UI changes update baselines | Agent | `coding-guide` skill |
 | FSD layer direction | Architecture | `project-structure` skill |
 | Slice public API (`index.ts` / `index.server.ts` / `index.client.ts`) | Architecture | `project-structure` skill |
 | `index.ts` re-exports only | Agent | `project-structure` skill |
 | `features/<domain>/` organizational layout | Agent | `project-structure` skill |
 | No business logic in `shared/` | Agent | `project-structure` skill |
 | `entities/` has no UI | Agent | `project-structure` skill |
-| Component layout, design-system usage | Agent | `coding-guide` skill |
+| Component layout, design-system first (`Row`/`Col`/`Text`/`Link` over raw flex) | Agent | `coding-guide` skill |
 | Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
 | Pre-PR self-review (Must fix gate; optional module-depth notes) | Agent | `self-review` agent |
 | AI workflow (plan → implement ↔ self-review → PR) | Agent | `ai-workflow` rule |

@@ -38,6 +38,9 @@ Do not commit directly to `main`.
 
 After approval, break down tasks and execute. Follow `coding-guide`.
 
+- **Design system first:** before writing layout chrome, use `Row` / `Col` / `Text` / `Link` (and other `shared/design-system` primitives) instead of raw Tailwind `flex` stacks
+- **UI → VRT:** if appearance changes, update `__snapshots__/vrt/` in the same PR (see `coding-guide` → Storybook VRT)
+
 ### 5. Commit
 
 Prefer **few, reviewable commits** — one logical change per commit

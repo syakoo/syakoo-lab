@@ -8,7 +8,7 @@ description: >-
 
 # Implement issue
 
-Concrete steps for the flow in `ai-workflow.mdc` (plan → approval → implement ↔ self-review until clean → PR).
+Concrete steps for the flow in `ai-workflow.mdc` (plan → approval → implement ↔ self-review until Must fix is clear → PR).
 
 ## Workflow
 
@@ -57,17 +57,18 @@ git commit -m "<message>"
 
 ### 6. Self-review loop, then push and open a PR
 
-Loop until **`self-review` is clean** (Must fix and Needs confirmation both `None`):
+Loop until **Must fix is `None`**:
 
 1. Run **`self-review`** on the current branch diff (hygiene + module depth / design).
-2. If there are suggestions: apply fixes (treat Needs confirmation as work when the fix is clear; ask the human only when blocked), commit as needed, then go back to step 1.
-3. When clean: push and create the PR per `create-pull-request`.
+2. **Must fix:** apply fixes, commit, go back to step 1.
+3. **Needs confirmation:** fix only when you judge it necessary. If not necessary, note a short reason for the PR **Impact and risks** section—do not keep looping on those alone.
+4. When Must fix is `None`: push and create the PR per `create-pull-request`.
 
 ```bash
 git push -u origin HEAD
 ```
 
-Do not open a PR while self-review still has suggestions. If the loop thrashes (same finding twice with no progress), stop and ask the human.
+Do not open a PR while Must fix still has items. If Must-fix thrashing (same finding twice with no progress), stop and ask the human.
 
 ## Important
 

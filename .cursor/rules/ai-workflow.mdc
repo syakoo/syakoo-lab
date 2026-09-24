@@ -13,7 +13,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 2. **AI**: Read the issue with `gh issue view` and propose an implementation plan
 3. **Human**: Review the plan and approve with `cursor:implement` on the issue
 4. **AI**: Implement per the approved plan, pass tests
-5. **AI**: Loop `self-review` → fix suggestions → re-review until clean, then open a PR
+5. **AI**: Loop `self-review` → fix **Must fix** → re-review until Must fix is clear; optionally fix other notes; then open a PR
 6. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
 7. **Human**: Review behavior, Storybook, etc., and leave feedback
 8. **AI**: Address review feedback when triggered (`address-pr-review`; Cursor Automation)
@@ -25,8 +25,8 @@ flowchart TD
   B --> C["👤 cursor:implement"]
   C --> D["🤖 implement"]
   D --> S["🤖 self-review"]
-  S -->|"suggestions"| D
-  S -->|"clean"| P["🤖 open PR"]
+  S -->|"Must fix"| D
+  S -->|"Must fix clear"| P["🤖 open PR"]
   P --> E["🤖 review PR"]
   E --> F["👤 review + feedback"]
   F --> G["🤖 address review"]
@@ -40,7 +40,7 @@ flowchart TD
 - Do not implement before the plan is approved (`cursor:implement` on the issue).
 - Do not change beyond the approved scope.
 - Implementation steps: `implement-issue` skill. Layout: `project-structure` skill. Language: English.
-- Make it work during implementation; **module depth and design are audited in the `self-review` loop before the PR**, not mid-feature. Do not open a PR until self-review reports no suggestions.
+- Make it work during implementation; **module depth and design are audited in the `self-review` loop before the PR**, not mid-feature. Do not open a PR while **Must fix** remains. Other self-review notes are optional: fix if useful, or document “not necessary” under Impact and risks.
 - Every PR to `main` must carry exactly one `semver:major` / `semver:minor` / `semver:patch` label (CI). On merge, Actions bumps `package.json` and publishes the GitHub Release. `renovate[bot]` defaults to patch.
 
 ## Release cycle

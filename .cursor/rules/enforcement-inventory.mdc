@@ -37,11 +37,10 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | `entities/` has no UI | Agent | `project-structure` skill |
 | Component layout, design-system usage | Agent | `coding-guide` skill |
 | Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
-| Deep modules / module design (pre-PR loop) | Agent | `self-review` agent |
+| Pre-PR self-review (Must fix gate; optional module-depth notes) | Agent | `self-review` agent |
 | AI workflow (plan → implement ↔ self-review → PR) | Agent | `ai-workflow` rule |
 | PR body format | Agent | `create-pull-request` skill |
 | PR review checklist | Agent | `review-pull-request` skill |
-| Pre-PR self-review loop (hygiene + module depth until clean) | Agent | `self-review` agent |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
 | Single source of truth | Agent | `single-source-of-truth` rule |
 | Project release / version bump | CI | `semver:*` PR label + `version-bump-on-merge` workflow |

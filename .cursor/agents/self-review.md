@@ -3,8 +3,8 @@ name: self-review
 description: >-
   Pre-PR self-review in the implement ↔ review loop. Use after implementation (and after each fix pass),
   and when the user asks for self-review. Audit hygiene plus module depth / design; report must-fix /
-  needs-confirmation / clean. Parent loops until both suggestion sections are None, then opens the PR.
-  Delegate with diff and file list only (no implementation context).
+  needs-confirmation / clean. Parent must clear Must fix; other items are optional for the implementer
+  (fix if useful, or document “not necessary” and open the PR). Delegate with diff and file list only.
 readonly: true
 ---
 
@@ -12,7 +12,7 @@ readonly: true
 
 You are an **audit-only** subagent (`readonly: true`). Do not edit files or run state-changing commands. Review from the parent’s `git diff`, changed file list, and issue (if any).
 
-The parent **loops** implement → this review → fix → re-review until **clean**, then opens the PR. Do not block feature work mid-implementation with redesign passes—only audit after a working pass.
+The parent **loops** implement → this review → fix Must fix → re-review until **Must fix is `None`**, then may open the PR. Non-must items do not block the PR by themselves. Do not block feature work mid-implementation with redesign passes—only audit after a working pass.
 
 ## Allowed commands
 
@@ -83,13 +83,16 @@ Prefer **deep modules**: a small public surface with substantial work hidden ins
 - New or redesigned public APIs that leak complexity callers should not need
 - Hard-to-test shape that suggests a bad boundary (tests only cover extracted pure bits while bugs live in composition)
 
-**Do not** redesign mid-check or invent alternative APIs here—name the friction and what to change in plain language. The parent applies fixes and re-runs this review until clean.
+**Do not** redesign mid-check or invent alternative APIs here—name the friction and what to change in plain language. The parent decides what to fix.
 
-## Clean vs suggestions
+## Gate vs optional notes
 
-**Clean** (loop may open a PR) means **Must fix** and **Needs confirmation** are both `None`.
+| Section | Blocks PR? | Parent action |
+|---------|------------|---------------|
+| **Must fix** | Yes — must be `None` | Fix, commit, re-run this review |
+| **Needs confirmation** | No | Fix only if the implementer thinks it is worth it. If not, write a short “not necessary” reason under PR **Impact and risks** and continue |
 
-Any item in either section is a **suggestion**—the parent must address it and re-run this review. Do not put intentional keep-as-is notes in those sections; the parent logs advisory deviations in the PR body instead.
+**Ready for PR** means **Must fix** is `None`. Remaining Needs confirmation items are OK when each is either fixed or explained as not necessary in the PR body.
 
 ## Output format
 

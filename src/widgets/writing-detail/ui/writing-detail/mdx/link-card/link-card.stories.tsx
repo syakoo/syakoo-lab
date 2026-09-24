@@ -8,8 +8,8 @@ const assertFaviconBesideDomain = (
   domain: string,
 ) => {
   const canvas = within(canvasElement);
-  // Decorative (alt=""); include hidden so Testing Library still finds it.
-  const favicon = canvas.getByRole("img", { hidden: true });
+  // Decorative (alt="") → role "presentation", not "img".
+  const favicon = canvas.getByRole("presentation");
 
   expect(favicon).toHaveAttribute(
     "src",

@@ -3,7 +3,8 @@ name: coding-guide
 description: >-
   Project coding conventions and architecture constraints. Use when implementing,
   creating, or modifying components and modules (e.g. "create a component",
-  "implement this feature").
+  "implement this feature"). Prefer design-system Row/Col/Text/Link over raw
+  Tailwind layout; update VRT baselines when UI appearance changes.
 ---
 
 # Coding guide
@@ -31,6 +32,39 @@ Comments are knowledge in the codebase. Treat them carefully:
 
 ## Component rules
 
+### Design system first
+
+Before writing layout or chrome, check `shared/design-system/` for an existing primitive. Prefer those over raw Tailwind layout utilities or ad-hoc markup.
+
+- **Layout:** `Row` / `Col` / `Flex` / `FlexItem` (`layout/flex`) — do **not** reach for `className="flex …"` / `flex-col` / `items-center` / `gap-*` when a Flex primitive fits
+- **Text:** `Text` / `Span` / heading helpers (`ui/text`)
+- **Links:** `Link` (`ui/link`)
+- **Icons:** define under `design-system/icons` and import from there
+- **Colors and sizes:** Tailwind design tokens from `@theme` in `globals.css` — no hard-coded values in `className`
+
+Decorative wrappers (border, radius, padding-only boxes) may stay as `div` + tokens when Flex does not accept `className` for those concerns.
+
+```tsx
+// Good — design-system layout
+<Col gap="50">
+  <Row align="center" gap="50">
+    <img … />
+    <Text as="span" size="50">{domain}</Text>
+  </Row>
+</Col>
+
+// Bad — reinventing Flex with utility classes
+<div className="flex flex-col gap-50">
+  <div className="flex items-center gap-50">…</div>
+</div>
+
+// Good
+<div className="bg-background-primary text-text-primary" />
+
+// Bad
+<div className="bg-[#15212c] text-[#babec3ee]" />
+```
+
 ### File layout
 
 ```
@@ -51,6 +85,7 @@ post-list/
 
 Default-on for every story. Opt out with `tags: ["skip-vrt"]` for design-system token galleries, embeds (e.g. CodeSandbox), or other systematically flaky output.
 
+- **UI appearance changes update baselines in the same PR.** Favicon, copy, spacing, layout primitives — if the screenshot would change, update `__snapshots__/vrt/` before merge. Do not leave stale baselines because the diff sits under the failure threshold.
 - **No network in a story.** Images, iframes, and fonts must resolve to committed files. Use `shared/test-utils/dummy-asset` for placeholders; never an external CDN
 - **No `generateDummy*()` in module-scope `args`.** Story `args` are evaluated at module load, before `preview.beforeEach` reseeds the PRNG, so random values depend on story execution order. Prefer a `StoryFn` (or call `generateDummy*` inside `beforeEach` / `loaders` / CSF3 `render`). CSF3 has no `args: () => ({...})` form
 - **Stories that return `null`** (intentional empty canvas): opt out with `tags: ["skip-vrt"]`. Accidental blanks still fail so they are not committed as baselines
@@ -72,17 +107,3 @@ Do **not** commit PNGs from `storybook:test:vrt:update:host` on macOS — that i
 
 - **Vitest**, colocated next to the unit under test
 - File name: `*.test.ts` / `*.test.tsx`
-
-### Design system
-
-- Icons: define under `design-system/icons` and import from there
-- Layout, text, links: use `design-system` primitives
-- Colors and sizes: **Tailwind design tokens** from `@theme` in `globals.css`—no hard-coded values
-
-```tsx
-// Good
-<div className="bg-background-primary text-text-primary" />
-
-// Bad
-<div className="bg-[#15212c] text-[#babec3ee]" />
-```

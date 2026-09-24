@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Update Storybook VRT baselines with Linux/Chromium (matches CI).
-# Builds/serves Storybook on the host; screenshots run inside the Playwright
-# Docker image so macOS text rendering never lands in __snapshots__/vrt/.
+# For macOS hosts: builds/serves Storybook locally; screenshots run inside the
+# Playwright Docker image so macOS text rendering never lands in __snapshots__/vrt/.
+# On Cursor Automation / Cloud Agents (already Linux), use
+# `pnpm storybook:test:vrt:update:host` instead — no Docker-in-Docker.
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

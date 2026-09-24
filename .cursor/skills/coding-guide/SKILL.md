@@ -56,19 +56,17 @@ Default-on for every story. Opt out with `tags: ["skip-vrt"]` for design-system 
 - **Stories that return `null`** (intentional empty canvas): opt out with `tags: ["skip-vrt"]`. Accidental blanks still fail so they are not committed as baselines
 - **Never commit a blank baseline by accident.** A uniform-colour PNG for a story that should show UI means the story did not render — fix the story instead of updating the baseline
 
-Baselines target **Linux/Chromium**. macOS renders text differently, so host-only snapshot updates fail CI.
+Baselines target **Linux/Chromium**. macOS renders text differently from CI, so choose the update path by where you run:
 
-**Update baselines on the host with Docker** (Playwright Linux image; Docker Desktop is free for personal use):
+| Where | Command | Why |
+| --- | --- | --- |
+| macOS (local) | `pnpm storybook:test:vrt:update` | Builds/serves Storybook on the host; screenshots run inside the Playwright Linux Docker image so baselines match CI. Requires Docker Desktop (free for personal use). |
+| Cursor Automation / Cloud Agent | `pnpm storybook:test:vrt:update:host` (after `pnpm storybook:build` + serve on `:6006`) | The agent already runs on Linux — no Docker-in-Docker. Nested Docker needs a custom `.cursor/environment.json` setup and is not worth it for VRT alone. |
+| Neither available | CI artefact fallback below | — |
 
-```bash
-pnpm storybook:test:vrt:update
-```
+Do **not** commit PNGs from `storybook:test:vrt:update:host` on macOS — that is host Chromium, not CI Linux.
 
-That builds/serves Storybook locally and runs `--updateSnapshot` inside `mcr.microsoft.com/playwright` so screenshots match CI. Review `__snapshots__/vrt/` and commit. Requires Docker Desktop running.
-
-`pnpm storybook:test:vrt:update:host` updates with the host browser — debug only; do not commit those PNGs.
-
-**Fallback** when Docker is unavailable: push, let `storybook-test` fail, download `vrt-diff-<run_id>`, copy `__received_output__/<story-id>-received.png` → `__snapshots__/vrt/<story-id>.png`. Never crop `__diff_output__` (it is a `baseline | diff | received` composite).
+**CI artefact fallback:** push, let `storybook-test` fail, download `vrt-diff-<run_id>`, copy `__received_output__/<story-id>-received.png` → `__snapshots__/vrt/<story-id>.png`. Never crop `__diff_output__` (it is a `baseline | diff | received` composite).
 
 ### Tests
 

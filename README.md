@@ -19,4 +19,10 @@ Which tool or skill owns each standard is indexed in the `enforcement-inventory`
 
 Story screenshots live in `__snapshots__/vrt/` and are checked by the `storybook-test` CI job.
 
-Baselines target Linux/Chromium, so they are updated from CI artefacts rather than locally. The `coding-guide` skill has the rules for writing VRT-safe stories and the baseline update procedure.
+Baselines target Linux/Chromium. Update them with Docker so local screenshots match CI:
+
+```bash
+pnpm storybook:test:vrt:update
+```
+
+Rules and the CI-artefact fallback live in the `coding-guide` skill.

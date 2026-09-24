@@ -56,12 +56,19 @@ Default-on for every story. Opt out with `tags: ["skip-vrt"]` for design-system 
 - **Stories that return `null`** (intentional empty canvas): opt out with `tags: ["skip-vrt"]`. Accidental blanks still fail so they are not committed as baselines
 - **Never commit a blank baseline by accident.** A uniform-colour PNG for a story that should show UI means the story did not render — fix the story instead of updating the baseline
 
-Baselines target **Linux/Chromium**. macOS renders text differently, so `pnpm storybook:test:vrt:update` locally produces baselines that fail CI. Update them from CI instead:
+Baselines target **Linux/Chromium**. macOS renders text differently, so host-only snapshot updates fail CI.
 
-1. Push, let `storybook-test` fail, download the `vrt-diff-<run_id>` artefact
-2. Copy `__received_output__/<story-id>-received.png` to `__snapshots__/vrt/<story-id>.png`
+**Update baselines on the host with Docker** (Playwright Linux image; Docker Desktop is free for personal use):
 
-`__received_output__` holds the raw screenshot. Never crop `__diff_output__`, whose PNGs are a `baseline | diff | received` composite — taking the wrong third silently reinstates the old baseline.
+```bash
+pnpm storybook:test:vrt:update
+```
+
+That builds/serves Storybook locally and runs `--updateSnapshot` inside `mcr.microsoft.com/playwright` so screenshots match CI. Review `__snapshots__/vrt/` and commit. Requires Docker Desktop running.
+
+`pnpm storybook:test:vrt:update:host` updates with the host browser — debug only; do not commit those PNGs.
+
+**Fallback** when Docker is unavailable: push, let `storybook-test` fail, download `vrt-diff-<run_id>`, copy `__received_output__/<story-id>-received.png` → `__snapshots__/vrt/<story-id>.png`. Never crop `__diff_output__` (it is a `baseline | diff | received` composite).
 
 ### Tests
 

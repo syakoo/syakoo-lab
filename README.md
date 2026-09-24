@@ -21,7 +21,7 @@ Story screenshots live in `__snapshots__/vrt/` and are checked by the `storybook
 
 Baselines target Linux/Chromium:
 
-- **macOS:** `pnpm storybook:test:vrt:update` (Playwright Docker image)
+- **macOS:** `pnpm storybook:test:vrt:update` (Playwright Docker image; first run is slow)
 - **Cursor Automation / Cloud Agent (already Linux):** `pnpm storybook:test:vrt:update:host` — do not nest Docker
 
 Full rules and the CI-artefact fallback live in the `coding-guide` skill.

@@ -95,11 +95,13 @@ Baselines target **Linux/Chromium**. macOS renders text differently from CI, so 
 
 | Where | Command | Why |
 | --- | --- | --- |
-| macOS (local) | `pnpm storybook:test:vrt:update` | Builds/serves Storybook on the host; screenshots run inside the Playwright Linux Docker image so baselines match CI. Requires Docker Desktop (free for personal use). |
+| macOS (local) | `pnpm storybook:test:vrt:update` | Builds/serves Storybook on the host; screenshots run inside the Playwright Linux Docker image so baselines match CI. Requires Docker Desktop or Engine (free for personal use). First run is slow (Storybook build + in-container `pnpm install`; deps are not cached across runs). |
 | Cursor Automation / Cloud Agent | `pnpm storybook:test:vrt:update:host` (after `pnpm storybook:build` + serve on `:6006`) | The agent already runs on Linux — no Docker-in-Docker. Nested Docker needs a custom `.cursor/environment.json` setup and is not worth it for VRT alone. |
 | Neither available | CI artefact fallback below | — |
 
 Do **not** commit PNGs from `storybook:test:vrt:update:host` on macOS — that is host Chromium, not CI Linux.
+
+The Docker path pins the same Playwright version as the repo, but the jammy image OS/font stack may still differ slightly from CI’s `ubuntu-latest`. After the first Docker-based baseline update, confirm `storybook-test` is green on CI before treating the path as trusted.
 
 **CI artefact fallback:** push, let `storybook-test` fail, download `vrt-diff-<run_id>`, copy `__received_output__/<story-id>-received.png` → `__snapshots__/vrt/<story-id>.png`. Never crop `__diff_output__` (it is a `baseline | diff | received` composite).
 

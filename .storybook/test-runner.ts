@@ -305,13 +305,26 @@ const config: TestRunnerConfig = {
         if (!VRT_ADVISORY) {
           throw error;
         }
+        // jest-image-snapshot increments snapshotState.unmatched before expect
+        // throws. Catching the throw alone still leaves Jest exiting 1 at the
+        // end ("N snapshot failed"). Undo the counter so advisory diffs stay
+        // non-blocking; a11y failures in this job remain hard-fail.
+        const snapshotState = (
+          expect as unknown as {
+            getState: () => { snapshotState?: { unmatched: number } };
+          }
+        ).getState().snapshotState;
+        if (snapshotState != null && snapshotState.unmatched > 0) {
+          snapshotState.unmatched -= 1;
+        }
         const report = parseVrtMismatch(context.id, error);
         await writeVrtMismatchReport(report);
         const detail =
           report.diffPercent == null
             ? report.message
             : `${report.diffPercent}% (${report.diffPixels ?? "?"} px)`;
-        // GitHub Actions picks up ::warning annotations from stdout.
+        // GitHub Actions picks up ::warning annotations from stdout/stderr.
+        // console.warn itself does not fail the job.
         // biome-ignore lint/suspicious/noConsole: emit CI warning annotation for VRT soft-fail
         console.warn(`::warning title=VRT mismatch::${context.id} — ${detail}`);
       }

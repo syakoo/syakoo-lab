@@ -145,8 +145,8 @@ jobs:
             __snapshots__/vrt/__report__/
           retention-days: 7
 
-      # Only after tests actually ran (success or a11y/VRT-related failure). Skip when
-      # build/install failed earlier so we do not clear a still-valid sticky comment.
+      # Only after tests actually ran (success or a11y failure). Skip when build/install
+      # failed earlier — nothing useful to report, and we avoid a no-op comment step.
       - name: Comment VRT summary on PR
         if: >-
           always() &&

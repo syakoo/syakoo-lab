@@ -4,8 +4,7 @@ import { readWritingById } from "../../../../features/writing/writing-mdx/index.
 import { Spacer } from "../../../../shared/design-system/layout/spacer/spacer";
 
 import { Note } from "./mdx/note/note";
-import { Toc } from "./toc/toc";
-import { TocDrawer } from "./toc/toc-drawer";
+import { WritingDetailToc } from "./toc/writing-detail-toc";
 import styles from "./writing-detail.module.css";
 import { WritingHeader } from "./writing-header/writing-header";
 import { WritingMdxContent } from "./writing-mdx-content";
@@ -45,12 +44,7 @@ export const WritingDetail = async ({ id }: WritingDetailProps) => {
           <WritingTypeDescription type={writing.head.type} />
         </aside>
       </div>
-      <aside className={`${styles.aside} flex h-full flex-col gap-200 p-200`}>
-        <div className="sticky top-[calc(var(--spacing-200)+var(--size-header))]">
-          <Toc items={writing.toc} />
-        </div>
-      </aside>
-      <TocDrawer items={writing.toc} />
+      <WritingDetailToc items={writing.toc} />
     </article>
   );
 };

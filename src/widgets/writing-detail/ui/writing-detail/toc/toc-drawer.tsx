@@ -9,10 +9,10 @@ import {
 } from "../../../../../shared/design-system/ui/drawer/drawer";
 import { TocView } from "./toc";
 import styles from "./toc-drawer.module.css";
-import { useTocActiveSection } from "./use-toc-active-section";
 
 type TocDrawerProps = {
   items: WritingTocItem[];
+  activeId?: string;
 };
 
 const TocDrawerBody: React.FC<{
@@ -39,9 +39,8 @@ const TocDrawerBody: React.FC<{
   );
 };
 
-export const TocDrawer: React.FC<TocDrawerProps> = ({ items }) => {
+export const TocDrawer: React.FC<TocDrawerProps> = ({ items, activeId }) => {
   const [open, setOpen] = useState(false);
-  const activeSectionId = useTocActiveSection(items);
 
   const close = useCallback(() => {
     setOpen(false);
@@ -63,7 +62,7 @@ export const TocDrawer: React.FC<TocDrawerProps> = ({ items }) => {
       </button>
 
       <Drawer open={open} onClose={close} title="目次">
-        <TocDrawerBody activeId={activeSectionId} items={items} />
+        <TocDrawerBody activeId={activeId} items={items} />
       </Drawer>
     </>
   );

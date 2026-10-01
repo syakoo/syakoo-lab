@@ -51,7 +51,7 @@ Triggered automatically when a PR is opened (Cursor Automation) or on request.
 ### Tests
 
 - Behavior changes have added or updated tests
-- Visual UI changes update `__snapshots__/vrt/` in the same PR (do not rely on the failure threshold swallowing the diff)
+- Visual UI changes update `__snapshots__/vrt/` in the same PR (do not rely on the failure threshold or advisory CI soft-fail swallowing the diff)
 
 ### PR body
 

@@ -29,6 +29,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Code comments: no inverted deps; why only when surprising | Agent | `coding-guide` skill |
 | CSS Modules (`*.module.css`), colocated Vitest `*.test.ts` | Agent | `coding-guide` skill |
 | Storybook VRT default-on / `skip-vrt` opt-out; UI changes update baselines | Agent | `coding-guide` skill |
+| Storybook VRT mismatch on CI (PR comment + artifact; non-blocking) | Advisory | `coding-guide` skill / `.github/workflows/ci.yml` |
 | FSD layer direction | Architecture | `project-structure` skill |
 | Slice public API (`index.ts` / `index.server.ts` / `index.client.ts`) | Architecture | `project-structure` skill |
 | `index.ts` re-exports only | Agent | `project-structure` skill |

@@ -17,7 +17,7 @@ Which tool or skill owns each standard is indexed in the `enforcement-inventory`
 
 ## Visual Regression Testing (VRT)
 
-Story screenshots live in `__snapshots__/vrt/` and are checked by the `storybook-test` CI job.
+Story screenshots live in `__snapshots__/vrt/`. The `storybook-test` CI job checks them **advisably**: mismatches post a PR comment and upload a diff artifact; they do not fail the job. Accessibility checks in that job still fail CI.
 
 Baselines target Linux/Chromium:
 

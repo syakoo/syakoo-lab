@@ -85,7 +85,9 @@ post-list/
 
 Default-on for every story. Opt out with `tags: ["skip-vrt"]` for design-system token galleries, embeds (e.g. CodeSandbox), or other systematically flaky output.
 
-- **UI appearance changes update baselines in the same PR.** Favicon, copy, spacing, layout primitives — if the screenshot would change, update `__snapshots__/vrt/` before merge. Do not leave stale baselines because the diff sits under the failure threshold.
+- **CI mismatches are advisory.** On CI (`CI=true`), snapshot diffs soft-fail: the job stays green for VRT, a PR comment lists mismatched stories, and diff PNGs upload as the `vrt-diff-<run_id>` artifact. Accessibility checks in the same job still fail the build.
+- **Local runs stay strict.** Outside CI, snapshot mismatches fail `storybook:test` as usual so baseline updates remain obvious.
+- **UI appearance changes update baselines in the same PR.** Favicon, copy, spacing, layout primitives — if the screenshot would change, update `__snapshots__/vrt/` before merge. Do not leave stale baselines because the diff sits under the failure threshold or because CI is advisory.
 - **No network in a story.** Images, iframes, and fonts must resolve to committed files. Use `shared/test-utils/dummy-asset` for placeholders; never an external CDN
 - **No `generateDummy*()` in module-scope `args`.** Story `args` are evaluated at module load, before `preview.beforeEach` reseeds the PRNG, so random values depend on story execution order. Prefer a `StoryFn` (or call `generateDummy*` inside `beforeEach` / `loaders` / CSF3 `render`). CSF3 has no `args: () => ({...})` form
 - **Stories that return `null`** (intentional empty canvas): opt out with `tags: ["skip-vrt"]`. Accidental blanks still fail so they are not committed as baselines
@@ -101,9 +103,9 @@ Baselines target **Linux/Chromium**. macOS renders text differently from CI, so 
 
 Do **not** commit PNGs from `storybook:test:vrt:update:host` on macOS — that is host Chromium, not CI Linux.
 
-The Docker path pins the same Playwright version as the repo, but the jammy image OS/font stack may still differ slightly from CI’s `ubuntu-latest`. After the first Docker-based baseline update, confirm `storybook-test` is green on CI before treating the path as trusted.
+The Docker path pins the same Playwright version as the repo, but the jammy image OS/font stack may still differ slightly from CI’s `ubuntu-latest`. After the first Docker-based baseline update, confirm CI has no unexpected VRT advisory comment (and that a11y is green) before treating the path as trusted.
 
-**CI artefact fallback:** push, let `storybook-test` fail, download `vrt-diff-<run_id>`, copy `__received_output__/<story-id>-received.png` → `__snapshots__/vrt/<story-id>.png`. Never crop `__diff_output__` (it is a `baseline | diff | received` composite).
+**CI artefact fallback:** open the PR’s VRT advisory comment (or the `storybook-test` run), download `vrt-diff-<run_id>`, copy `__received_output__/<story-id>-received.png` → `__snapshots__/vrt/<story-id>.png`. Never crop `__diff_output__` (it is a `baseline | diff | received` composite).
 
 ### Tests
 

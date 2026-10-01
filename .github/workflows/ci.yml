@@ -100,6 +100,9 @@ jobs:
     needs: security-scan
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
@@ -117,14 +120,42 @@ jobs:
         run: pnpm storybook:build
 
       - name: Run Storybook tests (a11y + VRT)
+        id: storybook_test
         run: pnpm storybook:test:ci
 
-      - name: Upload VRT diff artifacts on failure
-        if: failure()
+      - name: Detect VRT mismatches
+        id: vrt
+        if: always() && (steps.storybook_test.outcome == 'success' || steps.storybook_test.outcome == 'failure')
+        run: |
+          report_dir="__snapshots__/vrt/__report__"
+          if [ -d "$report_dir" ] && [ -n "$(find "$report_dir" -name '*.json' -print -quit)" ]; then
+            echo "has_diffs=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_diffs=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload VRT diff artifacts
+        if: always() && steps.vrt.outputs.has_diffs == 'true'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: vrt-diff-${{ github.run_id }}
           path: |
             __snapshots__/vrt/__diff_output__/
             __snapshots__/vrt/__received_output__/
+            __snapshots__/vrt/__report__/
           retention-days: 7
+
+      # Only after tests actually ran (success or a11y failure). Skip when build/install
+      # failed earlier — nothing useful to report, and we avoid a no-op comment step.
+      - name: Comment VRT summary on PR
+        if: >-
+          always() &&
+          github.event_name == 'pull_request' &&
+          (steps.storybook_test.outcome == 'success' || steps.storybook_test.outcome == 'failure')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          HAS_DIFFS: ${{ steps.vrt.outputs.has_diffs }}
+        run: bash ./scripts/comment-vrt-report.sh

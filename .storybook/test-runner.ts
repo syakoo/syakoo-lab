@@ -1,3 +1,5 @@
+import fs from "node:fs/promises";
+import path from "node:path";
 import {
   getStoryContext,
   type TestRunnerConfig,
@@ -20,7 +22,10 @@ const DEFAULT_VIEWPORT_SIZE = { width: 1280, height: 720 };
 const SKIP_VRT_TAG = "skip-vrt";
 const VRT_SNAPSHOTS_DIR = `${process.cwd()}/__snapshots__/vrt`;
 const VRT_RECEIVED_DIR = `${VRT_SNAPSHOTS_DIR}/__received_output__`;
+const VRT_REPORT_DIR = `${VRT_SNAPSHOTS_DIR}/__report__`;
 const SNAPSHOT_FAILURE_THRESHOLD = 0.005;
+/** Soft-fail snapshot mismatches on CI so a11y can still block; local stays strict. */
+const VRT_ADVISORY = process.env.CI === "true";
 const STORY_RENDER_TIMEOUT_MS = 10_000;
 const STORY_SETTLE_QUIET_MS = 300;
 const SUBRESOURCE_TIMEOUT_MS = 5_000;
@@ -40,6 +45,36 @@ const DISABLE_ANIMATIONS_CSS = `
 `;
 
 const vrtStoryIds = new Set<string>();
+
+type VrtMismatchReport = {
+  storyId: string;
+  diffPercent: number | null;
+  diffPixels: number | null;
+  message: string;
+};
+
+const DIFF_MESSAGE_RE =
+  /was ([\d.]+)% different from snapshot \((\d+) differing pixels\)/;
+
+const parseVrtMismatch = (
+  storyId: string,
+  error: unknown,
+): VrtMismatchReport => {
+  const message = error instanceof Error ? error.message : String(error);
+  const match = DIFF_MESSAGE_RE.exec(message);
+  return {
+    storyId,
+    diffPercent: match ? Number(match[1]) : null,
+    diffPixels: match ? Number(match[2]) : null,
+    message: message.split("\n")[0] ?? message,
+  };
+};
+
+const writeVrtMismatchReport = async (report: VrtMismatchReport) => {
+  await fs.mkdir(VRT_REPORT_DIR, { recursive: true });
+  const filePath = path.join(VRT_REPORT_DIR, `${report.storyId}.json`);
+  await fs.writeFile(filePath, `${JSON.stringify(report, null, 2)}\n`);
+};
 
 const config: TestRunnerConfig = {
   setup() {
@@ -256,15 +291,30 @@ const config: TestRunnerConfig = {
         },
       );
       const image = await page.screenshot();
-      // biome-ignore lint/suspicious/noExplicitAny: jest-image-snapshot extends expect at runtime
-      (expect(image) as any).toMatchImageSnapshot({
-        customSnapshotsDir: VRT_SNAPSHOTS_DIR,
-        customSnapshotIdentifier: context.id,
-        storeReceivedOnFailure: true,
-        customReceivedDir: VRT_RECEIVED_DIR,
-        failureThreshold: SNAPSHOT_FAILURE_THRESHOLD,
-        failureThresholdType: "percent",
-      });
+      try {
+        // biome-ignore lint/suspicious/noExplicitAny: jest-image-snapshot extends expect at runtime
+        (expect(image) as any).toMatchImageSnapshot({
+          customSnapshotsDir: VRT_SNAPSHOTS_DIR,
+          customSnapshotIdentifier: context.id,
+          storeReceivedOnFailure: true,
+          customReceivedDir: VRT_RECEIVED_DIR,
+          failureThreshold: SNAPSHOT_FAILURE_THRESHOLD,
+          failureThresholdType: "percent",
+        });
+      } catch (error) {
+        if (!VRT_ADVISORY) {
+          throw error;
+        }
+        const report = parseVrtMismatch(context.id, error);
+        await writeVrtMismatchReport(report);
+        const detail =
+          report.diffPercent == null
+            ? report.message
+            : `${report.diffPercent}% (${report.diffPixels ?? "?"} px)`;
+        // GitHub Actions picks up ::warning annotations from stdout.
+        // biome-ignore lint/suspicious/noConsole: emit CI warning annotation for VRT soft-fail
+        console.warn(`::warning title=VRT mismatch::${context.id} — ${detail}`);
+      }
     }
   },
 

@@ -1,0 +1,71 @@
+.sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  max-height: 70vh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background-color: var(--color-background-primary);
+  color: var(--color-text-primary);
+  border-top: 1px solid var(--color-palette-gray-100);
+  border-radius: var(--radius-200) var(--radius-200) 0 0;
+  padding: var(--spacing-200);
+  box-shadow: 0 -8px 32px
+    color-mix(in srgb, var(--color-palette-black) 25%, transparent);
+}
+
+.sheet[data-closing="false"] {
+  animation: drawer-sheet-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.sheet[data-closing="true"] {
+  animation: drawer-sheet-out 0.22s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.header {
+  margin-bottom: var(--spacing-200);
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-50);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-50);
+}
+
+.closeButton:hover {
+  color: var(--color-text-primary);
+  background-color: var(--color-background-secondary);
+}
+
+@keyframes drawer-sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawer-sheet-out {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+/* VRT emulates reduced motion; skip transform so the sheet is not stuck off-screen. */
+@media (prefers-reduced-motion: reduce) {
+  .sheet[data-closing="false"],
+  .sheet[data-closing="true"] {
+    animation: none;
+  }
+}

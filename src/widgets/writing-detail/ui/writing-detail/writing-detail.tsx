@@ -5,6 +5,7 @@ import { Spacer } from "../../../../shared/design-system/layout/spacer/spacer";
 
 import { Note } from "./mdx/note/note";
 import { Toc } from "./toc/toc";
+import { TocDrawer } from "./toc/toc-drawer";
 import styles from "./writing-detail.module.css";
 import { WritingHeader } from "./writing-header/writing-header";
 import { WritingMdxContent } from "./writing-mdx-content";
@@ -49,6 +50,7 @@ export const WritingDetail = async ({ id }: WritingDetailProps) => {
           <Toc items={writing.toc} />
         </div>
       </aside>
+      <TocDrawer items={writing.toc} />
     </article>
   );
 };

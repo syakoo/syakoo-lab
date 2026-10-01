@@ -9,9 +9,11 @@ import { GameIcon } from "./game-icon";
 import { GlobeIcon } from "./globe-icon";
 import { HeartIcon } from "./heart-icon";
 import { LinkIcon } from "./link-icon";
+import { ListIcon } from "./list-icon";
 import { NoteIcon } from "./note-icon";
 import type { IconComponentProps } from "./types";
 import { WarnIcon } from "./warn-icon";
+import { XMarkIcon } from "./x-mark-icon";
 
 export const iconDictionary = {
   document: DocumentIcon,
@@ -23,8 +25,10 @@ export const iconDictionary = {
   globe: GlobeIcon,
   game: GameIcon,
   link: LinkIcon,
+  list: ListIcon,
   fullscreen: FullscreenIcon,
   "chevron-right": ChevronRightIcon,
+  "x-mark": XMarkIcon,
 };
 
 export type IconName = keyof typeof iconDictionary;

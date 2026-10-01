@@ -1,20 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import type { WritingTocItem } from "../../../../../entities/writing";
 
 import { Link } from "../../../../../shared/design-system/ui/link/link";
 import { Span, Text } from "../../../../../shared/design-system/ui/text/text";
+import { useTocActiveSection } from "./use-toc-active-section";
 
 type TocViewProps = {
   items: WritingTocItem[];
   activeId?: string;
+  hideTitle?: boolean;
 };
 
-export const TocView: React.FC<TocViewProps> = ({ items, activeId }) => {
+export const TocView: React.FC<TocViewProps> = ({
+  items,
+  activeId,
+  hideTitle = false,
+}) => {
   return (
     <nav>
-      <Text weight="bold">目次</Text>
+      {!hideTitle && <Text weight="bold">目次</Text>}
       <ul className="mt-50 flex max-w-container-50 flex-col gap-25">
         {items.map(({ label, id, depth }) => (
           <li
@@ -34,61 +39,12 @@ export const TocView: React.FC<TocViewProps> = ({ items, activeId }) => {
   );
 };
 
-type TocData = (WritingTocItem & {
-  positionY: number;
-})[];
-
 type TocProps = {
   items: WritingTocItem[];
 };
 
 export const Toc: React.FC<TocProps> = ({ items }) => {
-  const [positionedTocItems, setPositionedTocItems] = useState<TocData>([]);
-  const [activeSectionId, setActiveSectionId] = useState<string>();
-
-  useEffect(() => {
-    const resolvedTocItems: TocData = items.map((item) => {
-      const el = document.getElementById(item.id);
-      return {
-        ...item,
-        positionY: el
-          ? el.getBoundingClientRect().top +
-            window.scrollY -
-            window.innerHeight / 2
-          : Number.POSITIVE_INFINITY,
-      };
-    });
-    setPositionedTocItems(resolvedTocItems);
-  }, [items]);
-
-  useEffect(() => {
-    if (positionedTocItems.length === 0) {
-      setActiveSectionId(undefined);
-      return;
-    }
-
-    const scrollEvent = () => {
-      const y = window.scrollY;
-      const idx = positionedTocItems.findIndex((d) => d.positionY > y);
-
-      if (idx === 0) {
-        setActiveSectionId(undefined);
-      } else if (idx === -1) {
-        setActiveSectionId(
-          positionedTocItems[positionedTocItems.length - 1]?.id,
-        );
-      } else {
-        setActiveSectionId(positionedTocItems[idx - 1]?.id);
-      }
-    };
-
-    scrollEvent();
-    window.addEventListener("scroll", scrollEvent);
-
-    return () => {
-      window.removeEventListener("scroll", scrollEvent);
-    };
-  }, [positionedTocItems]);
+  const activeSectionId = useTocActiveSection(items);
 
   if (items.length === 0) {
     return null;

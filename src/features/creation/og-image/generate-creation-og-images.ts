@@ -13,7 +13,7 @@ const logoPath = path.join(publicDir, "logo.png");
 const OG_SIZE = 1200;
 /** Logo composite size (scaled up from original 120×120) */
 const LOGO_SIZE = 400;
-const LOGO_CORNER_RADIUS = 48;
+const LOGO_CORNER_RADIUS = 12;
 /** Padding from the bottom-right edge */
 const LOGO_PADDING = 32;
 

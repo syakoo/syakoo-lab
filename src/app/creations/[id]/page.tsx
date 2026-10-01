@@ -10,7 +10,6 @@ import { formatPageTitle } from "../../../entities/page-title";
 import { creationOgImagePath } from "../../../features/creation/og-image";
 import { Container } from "../../../shared/design-system/layout/container/container";
 import { Col } from "../../../shared/design-system/layout/flex/flex";
-import { FadeIn } from "../../../shared/design-system/ui/fade-in/fade-in";
 import { CreationDetail } from "../../../widgets/creation-detail";
 import { HeaderFooterTemplate } from "../../../widgets/header-footer-template";
 import { RelatedCreations } from "../../../widgets/related-creations";
@@ -59,14 +58,10 @@ const CreationDetailPage = async ({ params }: Props) => {
       <Container center paddingX="200" paddingY="400" size="100">
         <Col gap="500">
           <main>
-            <FadeIn>
-              <CreationDetail id={id} />
-            </FadeIn>
+            <CreationDetail id={id} />
           </main>
           <nav>
-            <FadeIn delaySec={0.2}>
-              <RelatedCreations id={id} />
-            </FadeIn>
+            <RelatedCreations id={id} />
           </nav>
         </Col>
       </Container>

@@ -7,6 +7,7 @@ import {
   readCreationSummaries,
 } from "../../../entities/creation/index.server";
 import { formatPageTitle } from "../../../entities/page-title";
+import { creationOgImagePath } from "../../../features/creation/og-image";
 import { Container } from "../../../shared/design-system/layout/container/container";
 import { Col } from "../../../shared/design-system/layout/flex/flex";
 import { FadeIn } from "../../../shared/design-system/ui/fade-in/fade-in";
@@ -40,8 +41,12 @@ export const generateMetadata = async ({
     title: formatPageTitle(creation.title),
     openGraph: {
       type: "website",
-      images: "/logo.png",
+      images: creationOgImagePath(creation.id),
       url: creationPaths.detail(creation.id),
+    },
+    twitter: {
+      card: "summary",
+      images: creationOgImagePath(creation.id),
     },
   };
 };

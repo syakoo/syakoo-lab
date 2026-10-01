@@ -2,6 +2,9 @@
 .next
 out
 
+# generated OG images (produced by build:og-images before next build)
+public/og/
+
 # dependencies
 node_modules/
 

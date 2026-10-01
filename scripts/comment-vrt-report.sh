@@ -6,30 +6,55 @@ set -euo pipefail
 MARKER="<!-- vrt-advisory -->"
 REPORT_DIR="__snapshots__/vrt/__report__"
 
-existing_comment_id() {
+# All sticky comment ids (oldest first). Duplicates are cleaned during upsert/delete.
+existing_comment_ids() {
   gh api "repos/${GH_REPO}/issues/${PR_NUMBER}/comments" --paginate \
-    --jq ".[] | select(.body | contains(\"${MARKER}\")) | .id" \
-    | head -n 1
+    --jq ".[] | select(.body | contains(\"${MARKER}\")) | .id"
+}
+
+delete_comment_ids() {
+  local comment_id
+  for comment_id in "$@"; do
+    [ -n "${comment_id}" ] || continue
+    gh api --method DELETE "repos/${GH_REPO}/issues/comments/${comment_id}" >/dev/null
+  done
 }
 
 upsert_comment() {
   local body="$1"
-  local comment_id
-  comment_id="$(existing_comment_id || true)"
-  if [ -n "${comment_id}" ]; then
-    jq -n --arg body "${body}" '{body: $body}' \
-      | gh api --method PATCH "repos/${GH_REPO}/issues/comments/${comment_id}" --input - >/dev/null
-  else
+  local ids=()
+  local keep_id
+  local extras=()
+
+  while IFS= read -r comment_id; do
+    [ -n "${comment_id}" ] || continue
+    ids+=("${comment_id}")
+  done < <(existing_comment_ids || true)
+
+  if [ "${#ids[@]}" -eq 0 ]; then
     jq -n --arg body "${body}" '{body: $body}' \
       | gh api --method POST "repos/${GH_REPO}/issues/${PR_NUMBER}/comments" --input - >/dev/null
+    return
+  fi
+
+  keep_id="${ids[0]}"
+  extras=("${ids[@]:1}")
+  jq -n --arg body "${body}" '{body: $body}' \
+    | gh api --method PATCH "repos/${GH_REPO}/issues/comments/${keep_id}" --input - >/dev/null
+  if [ "${#extras[@]}" -gt 0 ]; then
+    echo "Removing ${#extras[@]} duplicate VRT advisory comment(s)."
+    delete_comment_ids "${extras[@]}"
   fi
 }
 
 delete_comment_if_present() {
-  local comment_id
-  comment_id="$(existing_comment_id || true)"
-  if [ -n "${comment_id}" ]; then
-    gh api --method DELETE "repos/${GH_REPO}/issues/comments/${comment_id}" >/dev/null
+  local ids=()
+  while IFS= read -r comment_id; do
+    [ -n "${comment_id}" ] || continue
+    ids+=("${comment_id}")
+  done < <(existing_comment_ids || true)
+  if [ "${#ids[@]}" -gt 0 ]; then
+    delete_comment_ids "${ids[@]}"
   fi
 }
 

@@ -120,11 +120,12 @@ jobs:
         run: pnpm storybook:build
 
       - name: Run Storybook tests (a11y + VRT)
+        id: storybook_test
         run: pnpm storybook:test:ci
 
       - name: Detect VRT mismatches
         id: vrt
-        if: always()
+        if: always() && (steps.storybook_test.outcome == 'success' || steps.storybook_test.outcome == 'failure')
         run: |
           report_dir="__snapshots__/vrt/__report__"
           if [ -d "$report_dir" ] && [ -n "$(find "$report_dir" -name '*.json' -print -quit)" ]; then
@@ -144,8 +145,13 @@ jobs:
             __snapshots__/vrt/__report__/
           retention-days: 7
 
+      # Only after tests actually ran (success or a11y/VRT-related failure). Skip when
+      # build/install failed earlier so we do not clear a still-valid sticky comment.
       - name: Comment VRT summary on PR
-        if: always() && github.event_name == 'pull_request'
+        if: >-
+          always() &&
+          github.event_name == 'pull_request' &&
+          (steps.storybook_test.outcome == 'success' || steps.storybook_test.outcome == 'failure')
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}

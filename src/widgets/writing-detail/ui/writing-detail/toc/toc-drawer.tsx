@@ -58,7 +58,7 @@ export const TocDrawer: React.FC<TocDrawerProps> = ({ items, activeId }) => {
         onClick={() => setOpen(true)}
         type="button"
       >
-        <Icon height={20} name="list" width={20} />
+        <Icon height={24} name="list" width={24} />
       </button>
 
       <Drawer open={open} onClose={close} title="目次">

@@ -1,9 +1,9 @@
 ---
 name: review-pull-request
 description: >-
-  Read-only PR review when a pull request is opened. Audit scope, FSD layout,
+  Read-only review of an open pull request. Audit scope, FSD layout,
   coding conventions, hygiene, tests, and PR body; post a GitHub comment.
-  Use proactively on PR open (automated trigger) or when asked to review a PR.
+  Use when asked to review a PR (`@claude review`).
 tools: Read, Grep, Glob, Bash
 ---
 

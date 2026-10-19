@@ -10,7 +10,7 @@ description: >-
 
 Audit only. Do not edit code, commit, or merge.
 
-Triggered automatically when a PR is opened (automated trigger) or on request.
+Triggered by `@claude review` on a PR or on request.
 
 ## Steps
 

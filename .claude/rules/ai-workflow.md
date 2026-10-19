@@ -9,7 +9,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 3. **Human**: Review the plan and approve on the issue (comment or label)
 4. **AI**: Implement per the approved plan, pass tests
 5. **AI**: Loop `self-review` → fix **Must fix** → re-review until Must fix is clear; optionally fix other notes; then open a PR
-6. **AI**: Review the PR when it is opened or on request (`review-pull-request`)
+6. **AI**: Review the PR on request (`review-pull-request`)
 7. **Human**: Review behavior, Storybook, etc., and leave feedback
 8. **AI**: Address review feedback on request (`address-pr-review`)
 9. **Human**: Re-check and merge
@@ -57,9 +57,18 @@ just trims context.
 | Implement | `implement-issue` |
 | Before PR | `self-review` |
 | Open PR | `create-pull-request` |
-| PR opened | `review-pull-request` |
+| Review requested | `review-pull-request` |
 | Review feedback | `address-pr-review` |
 
 ## Triggers
 
-Steps are started manually in Claude Code (e.g. "implement #123", "review PR #45", "address review on #45"). No automated triggers are configured yet.
+Mention `@claude` on an issue, PR, or PR review (`.github/workflows/claude.yml`). **Only the repository owner can trigger it**; others' mentions are ignored. The mention is the approval, so write the intent explicitly.
+
+| Comment | Step |
+|---------|------|
+| `@claude plan` on an issue | Propose a plan; do not implement |
+| `@claude implement` on an issue | Implement the approved plan through PR (`implement-issue`) |
+| `@claude review` on a PR | `review-pull-request` |
+| `@claude address` on a PR or review | `address-pr-review` |
+
+Manual runs in Claude Code (e.g. "implement #123") work the same way.

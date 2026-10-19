@@ -3,15 +3,15 @@ name: review-pull-request
 description: >-
   Read-only PR review when a pull request is opened. Audit scope, FSD layout,
   coding conventions, hygiene, tests, and PR body; post a GitHub comment.
-  Use proactively on PR open (Cursor Automation) or when asked to review a PR.
-readonly: true
+  Use proactively on PR open (automated trigger) or when asked to review a PR.
+tools: Read, Grep, Glob, Bash
 ---
 
 # Review pull request
 
-You are an **audit-only** subagent (`readonly: true`). Do not edit files, commit, push, or merge.
+You are an **audit-only** subagent (read-only tools). Do not edit files, commit, push, or merge.
 
-Follow `.cursor/skills/review-pull-request` for the full procedure.
+Follow `.claude/skills/review-pull-request` for the full procedure.
 
 ## Allowed commands
 

@@ -47,7 +47,7 @@ Condense to 1–3 sentences as **instructions to future you**. Prefer imperative
 
 **Principle: if lint can catch it, do not put it in prose.** Agents ignore natural-language duplicates of static checks.
 
-"Agent config" varies by tool (Cursor: `.cursor/rules/`, Claude Code: `CLAUDE.md`, etc.). Match this project.
+"Agent config" varies by tool (Claude Code: `CLAUDE.md` / `.claude/rules/`, etc.). Match this project.
 
 ### 4. Duplicate check (required)
 
@@ -55,8 +55,8 @@ Before proposing, search existing knowledge. Prefer **append** over **new** when
 
 Extract 2–3 keywords and search:
 
-- Global skill dirs (`~/.cursor/skills/`, `~/.claude/skills/`, etc.)
-- Project agent config (`.cursor/rules/`, `CLAUDE.md`, etc.)
+- Global skill dirs (`~/.claude/skills/`, etc.)
+- Project agent config (`.claude/rules/`, `CLAUDE.md`, etc.)
 - Lint config
 
 Classify:
@@ -97,7 +97,7 @@ if ! git diff --quiet || ! git diff --cached --quiet || [ -n "$(git ls-files --o
   git stash push -u -m "suggest-improvement: before improvement branch"
 fi
 
-git fetch origin && git checkout -b cursor/improve-<short-lesson-name> origin/main
+git fetch origin && git checkout -b claude/improve-<short-lesson-name> origin/main
 
 # Apply approved changes (lint / agent config / skill)
 # ... edit files ...

@@ -1,8 +1,3 @@
----
-description: Behavioral rules for the AI-led development workflow
-alwaysApply: true
----
-
 # AI-led development workflow
 
 AI drives implementation; humans focus on quality assurance and final decisions.
@@ -11,18 +6,18 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 
 1. **Human/AI**: Open a request as a GitHub Issue (what — background, requirements, acceptance criteria)
 2. **AI**: Read the issue with `gh issue view` and propose an implementation plan
-3. **Human**: Review the plan and approve with `cursor:implement` on the issue
+3. **Human**: Review the plan and approve on the issue (comment or label)
 4. **AI**: Implement per the approved plan, pass tests
 5. **AI**: Loop `self-review` → fix **Must fix** → re-review until Must fix is clear; optionally fix other notes; then open a PR
-6. **AI**: Review the PR when it is opened (`review-pull-request`; Cursor Automation)
+6. **AI**: Review the PR when it is opened or on request (`review-pull-request`)
 7. **Human**: Review behavior, Storybook, etc., and leave feedback
-8. **AI**: Address review feedback when triggered (`address-pr-review`; Cursor Automation)
+8. **AI**: Address review feedback on request (`address-pr-review`)
 9. **Human**: Re-check and merge
 
 ```mermaid
 flowchart TD
   A["👤🤖 Issue (what)"] --> B["🤖 Implementation plan"]
-  B --> C["👤 cursor:implement"]
+  B --> C["👤 approve plan"]
   C --> D["🤖 implement"]
   D --> S["🤖 self-review"]
   S -->|"Must fix"| D
@@ -37,7 +32,7 @@ flowchart TD
   R["🔄 Renovate — dependency PRs (separate)"] -.-> E
 ```
 
-- Do not implement before the plan is approved (`cursor:implement` on the issue).
+- Do not implement before the plan is approved (approval on the issue).
 - Do not change beyond the approved scope.
 - Implementation steps: `implement-issue` skill. Layout: `project-structure` skill. Language: English.
 - Make it work during implementation; **module depth and design are audited in the `self-review` loop before the PR**, not mid-feature. Do not open a PR while **Must fix** remains. Other self-review notes are optional: fix if useful, or document “not necessary” under Impact and risks.
@@ -51,7 +46,7 @@ dependency-update PRs (same review path; patch bump by default).
 
 ## Subagents
 
-Delegate routine work via Task. Pass only what the subagent needs.
+Delegate routine work via the Agent tool. Pass only what the subagent needs.
 
 Delegate only when a step is part of this flow **and** its journey needn't be watched—delegation
 just trims context.
@@ -65,26 +60,6 @@ just trims context.
 | PR opened | `review-pull-request` |
 | Review feedback | `address-pr-review` |
 
-## Automations
+## Triggers
 
-[cursor.com/automations](https://cursor.com/automations)
-
-**Implement** — Issue commented, `cursor:implement`, `syakoo-lab`, actor: Me. Tool: PR creation.
-
-```text
-Follow implement-issue.
-```
-
-**Review PR** — Pull request opened, `syakoo/syakoo-lab`. Tool: comment only.
-
-```text
-Follow review-pull-request. Read diff, linked issue, project skills; post one review comment.
-```
-
-**Address review** — Pull request commented, `cursor:address`, `syakoo/syakoo-lab`, actor: Me. Tools: comment on pull request (repo: `syakoo-lab`).
-
-```text
-Follow address-pr-review.
-```
-
-**Trigger note:** Cursor Automation fires on **general PR conversation comments** only—not inline review comments. After leaving inline feedback, post `cursor:address` on the PR conversation to start a run. Bot comments (including the automated PR review) do not trigger automations.
+Steps are started manually in Claude Code (e.g. "implement #123", "review PR #45", "address review on #45"). No automated triggers are configured yet.

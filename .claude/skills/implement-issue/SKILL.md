@@ -8,7 +8,7 @@ description: >-
 
 # Implement issue
 
-Concrete steps for the flow in `ai-workflow.mdc` (plan → approval → implement ↔ self-review until Must fix is clear → PR).
+Concrete steps for the flow in the `ai-workflow` rule (plan → approval → implement ↔ self-review until Must fix is clear → PR).
 
 ## Workflow
 
@@ -23,7 +23,7 @@ Understand background, requirements, and acceptance criteria.
 ### 2. Create a branch
 
 ```bash
-git fetch origin && git checkout -b cursor/<short-description>-<issue-number> origin/main
+git fetch origin && git checkout -b claude/<short-description>-<issue-number> origin/main
 ```
 
 Do not commit directly to `main`.

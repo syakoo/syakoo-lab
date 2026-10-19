@@ -1,8 +1,3 @@
----
-description: Index of project standards and what enforces each (lint, architecture, agent, advisory)
-alwaysApply: true
----
-
 # Enforcement inventory
 
 Routes each standard to its enforcement owner. This is an **index**: rule text lives in the linked artifact, not here (see `single-source-of-truth` rule).
@@ -15,7 +10,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | **Architecture** | `pnpm lint` → `scripts/check-architecture.ts` | Yes |
 | **Type** | `pnpm type-check` → `tsconfig.json` | Yes |
 | **Hook** | local git hook (`.githooks`) | No (commit-time) |
-| **Agent** | Cursor rules/skills, applied during implementation and review | No |
+| **Agent** | Claude rules/skills, applied during implementation and review | No |
 | **Advisory** | Human review only | No |
 
 ## Standards

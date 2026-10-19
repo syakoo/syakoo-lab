@@ -10,7 +10,7 @@ description: >-
 
 Audit only. Do not edit code, commit, or merge.
 
-Triggered automatically when a PR is opened (Cursor Automation) or on request.
+Triggered automatically when a PR is opened (automated trigger) or on request.
 
 ## Steps
 

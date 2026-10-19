@@ -1,8 +1,3 @@
----
-description: Policy for autonomous improvement of rules and skills
-alwaysApply: true
----
-
 # Continuous improvement
 
 When work surfaces reusable lessons or shaky instructions, **run `suggest-improvement` automatically**. Submit codified changes in a **separate PR** from feature work and merge after human review.

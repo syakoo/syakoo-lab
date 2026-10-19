@@ -1,8 +1,3 @@
----
-description: One canonical place per fact; indexes and comments link, they do not restate
-alwaysApply: true
----
-
 # Single source of truth
 
 Each fact, rule, or convention lives in **one** canonical artifact. Everywhere else **points**—never copies.

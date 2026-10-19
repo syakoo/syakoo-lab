@@ -4,6 +4,7 @@ description: >-
   Build PR title and body from an approved plan and git diff, then run gh pr create.
   Use proactively after implementation is done and the branch is pushed.
   Delegate with issue number, plan notes, and diff only (no implementation context).
+tools: Read, Grep, Glob, Bash
 ---
 
 # Create pull request
@@ -25,7 +26,7 @@ Ask the parent for missing inputs. Do not guess intent—return clarifying quest
 
 **Forbidden:** editing implementation code, running `pnpm test` (CI is parent’s job), `gh issue create`
 
-Follow `.cursor/skills/create-pull-request` for details.
+Follow `.claude/skills/create-pull-request` for details.
 
 ## Steps
 

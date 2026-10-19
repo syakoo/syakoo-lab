@@ -1,8 +1,8 @@
 ---
 name: review-pull-request
 description: >-
-  Read-only review of an open pull request. Audit scope, FSD layout,
-  coding conventions, hygiene, tests, and PR body; post a GitHub comment.
+  Read-only review of an open pull request. Cover every aspect (bug, design,
+  test, security, etc.) with a severity per finding and a summary first; post a GitHub comment.
   Use when asked to review a PR (`@claude review`).
 tools: Read, Grep, Glob, Bash
 ---
@@ -27,7 +27,7 @@ Read-only only:
 
 1. Identify the PR (number or URL from the parent / automation trigger).
 2. Read PR body, diff, and linked issue if any.
-3. Run the checklist in the skill.
+3. Walk every aspect in the skill and label each finding with a severity.
 4. Post one structured comment on the PR.
 
 ## Return to parent
@@ -37,7 +37,7 @@ End with exactly one of the following. On success, no heading—only the line (a
 **Success** — `**done:**` line only:
 
 ```markdown
-**done:** (full "PR review" block from the skill output format)
+**done:** (full "PR review" block from the skill output format, Summary first)
 ```
 
 **partial / failed** — all four fields:

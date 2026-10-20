@@ -14,7 +14,6 @@ export default meta;
 export const Sample = () => {
   return (
     <Figure>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img alt="" src={dummyImages["400x300"].src} />
       <Figure.Caption>sample caption</Figure.Caption>
     </Figure>
@@ -24,7 +23,6 @@ export const Sample = () => {
 export const NoCaption = () => {
   return (
     <Figure>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img alt="" src={dummyImages["150x200"].src} />
     </Figure>
   );

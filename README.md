@@ -13,7 +13,7 @@ pnpm dev
 
 `pnpm lint` · `pnpm type-check` · `pnpm test`
 
-Which tool or skill owns each standard is indexed in the `enforcement-inventory` rule under `.cursor/rules/`.
+Which tool or skill owns each standard is indexed in the `enforcement-inventory` rule under `.claude/rules/`.
 
 ## Visual Regression Testing (VRT)
 
@@ -22,6 +22,6 @@ Story screenshots live in `__snapshots__/vrt/`. The `storybook-test` CI job chec
 Baselines target Linux/Chromium:
 
 - **macOS:** `pnpm storybook:test:vrt:update` (Playwright Docker image; first run is slow)
-- **Cursor Automation / Cloud Agent (already Linux):** `pnpm storybook:test:vrt:update:host` — do not nest Docker
+- **Cloud / CI agent (already Linux):** `pnpm storybook:test:vrt:update:host` — do not nest Docker
 
 Full rules and the CI-artefact fallback live in the `coding-guide` skill.

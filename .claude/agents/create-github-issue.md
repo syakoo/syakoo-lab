@@ -3,6 +3,7 @@ name: create-github-issue
 description: >-
   Draft GitHub issue titles and bodies aligned with ISSUE_TEMPLATE. Use proactively when opening a feature request or new issue.
   Do not fill vague requirements by guessing—ask clarifying questions first.
+tools: Read, Grep, Glob, Bash
 ---
 
 # Create GitHub issue
@@ -14,6 +15,7 @@ Implementation-agnostic. You receive **user intent / conversation summary** and 
 - Read `.github/ISSUE_TEMPLATE/`
 - `gh issue view` (when referencing an existing issue)
 - `gh issue create` (only when asked to file the issue)
+- `gh issue edit`, `gh issue comment` (only when revising an issue from discussion; see the skill)
 
 **Forbidden:** editing `src/` or other code, `git commit`, `pnpm test`, `gh pr create`
 
@@ -21,7 +23,7 @@ Implementation-agnostic. You receive **user intent / conversation summary** and 
 
 **YAML under `.github/ISSUE_TEMPLATE/` is authoritative.** Read the relevant `*.yml` for fields, required flags, and placeholders before drafting.
 
-Follow `.cursor/skills/create-github-issue` for the same procedure.
+Follow `.claude/skills/create-github-issue` for the same procedure.
 
 ## Feature request (`feature_request.yml`)
 

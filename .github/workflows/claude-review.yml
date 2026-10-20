@@ -1,0 +1,41 @@
+name: Claude Review
+
+# Runs the `review-pull-request` skill once when a PR is opened or marked ready.
+# Re-reviews are requested with `@claude review` (see claude.yml). Steps: `ai-workflow` rule.
+
+on:
+  pull_request:
+    types: [opened, ready_for_review]
+
+concurrency:
+  group: claude-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # Same-repo, non-draft PRs only. Fork PRs get no secrets and are not reviewed.
+    if: >-
+      github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    # Read-only on code. No dependency install: the PR's code must not run in a job that holds the token.
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+
+      - name: Run Claude review
+        uses: anthropics/claude-code-action@5eb090f3c3afd701a0672cd32981197ca27688f6 # v1.0.253
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Review PR #${{ github.event.pull_request.number }} in ${{ github.repository }}
+            with the `review-pull-request` skill (.claude/skills/review-pull-request).
+            Post the result as one PR comment. Do not edit files.
+          claude_args: >-
+            --allowedTools "Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh issue view:*),Bash(git diff:*),Bash(git log:*),Bash(git show:*)"

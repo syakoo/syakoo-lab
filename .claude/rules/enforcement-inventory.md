@@ -1,8 +1,3 @@
----
-description: Index of project standards and what enforces each (lint, architecture, agent, advisory)
-alwaysApply: true
----
-
 # Enforcement inventory
 
 Routes each standard to its enforcement owner. This is an **index**: rule text lives in the linked artifact, not here (see `single-source-of-truth` rule).
@@ -15,7 +10,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | **Architecture** | `pnpm lint` → `scripts/check-architecture.ts` | Yes |
 | **Type** | `pnpm type-check` → `tsconfig.json` | Yes |
 | **Hook** | local git hook (`.githooks`) | No (commit-time) |
-| **Agent** | Cursor rules/skills, applied during implementation and review | No |
+| **Agent** | Claude rules/skills, applied during implementation and review | No |
 | **Advisory** | Human review only | No |
 
 ## Standards
@@ -39,7 +34,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Component layout, design-system first (`Row`/`Col`/`Text`/`Link` over raw flex) | Agent | `coding-guide` skill |
 | Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
 | Pre-PR self-review (Must fix gate; optional module-depth notes) | Agent | `self-review` agent |
-| AI workflow (plan → implement ↔ self-review → PR) | Agent | `ai-workflow` rule |
+| AI workflow (design → implement ↔ self-review → PR) | Agent | `ai-workflow` rule |
 | PR body format | Agent | `create-pull-request` skill |
 | PR review checklist | Agent | `review-pull-request` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |

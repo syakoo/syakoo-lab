@@ -55,7 +55,7 @@ Do **not** use when:
 
    | Class | Action |
    |-------|--------|
-   | Fix | Change code or docs |
+   | Fix | Change code or docs (always for `must`; judge `should`; `imo` / `nit` are the author's call; answer `question`) |
    | Reply only | Explain; no commit if no change needed |
    | Defer | Out of scope—link Issue/PR and one line why |
    | Needs input | Do not guess—ask the user |

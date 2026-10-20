@@ -1,9 +1,10 @@
 ---
 name: create-pull-request
 description: >-
-  Build PR title and body from an approved plan and git diff, then run gh pr create.
+  Build PR title and body from the design notes and git diff, then run gh pr create.
   Use proactively after implementation is done and the branch is pushed.
-  Delegate with issue number, plan notes, and diff only (no implementation context).
+  Delegate with issue number, design notes, and diff only (no implementation context).
+tools: Read, Grep, Glob, Bash
 ---
 
 # Create pull request
@@ -11,7 +12,7 @@ description: >-
 **No implementation context.** Use only what the parent passes:
 
 - Target issue number and summary from `gh issue view` (or pasted body)
-- Approved implementation plan notes
+- Design notes (approach and key decisions)
 - `git diff` / `git log` / changed file list
 - Base branch (usually `main`)
 
@@ -25,11 +26,11 @@ Ask the parent for missing inputs. Do not guess intent—return clarifying quest
 
 **Forbidden:** editing implementation code, running `pnpm test` (CI is parent’s job), `gh issue create`
 
-Follow `.cursor/skills/create-pull-request` for details.
+Follow `.claude/skills/create-pull-request` for details.
 
 ## Steps
 
-1. Confirm issue and approved plan.
+1. Confirm the issue and design notes.
 2. Confirm **Must fix** from `self-review` is `None`. Needs confirmation may remain if the parent documented “not necessary” reasons for the PR body; if Must fix remains, ask them to finish the loop.
 3. Read `git diff` and changed files.
 4. Draft title and body in the format below.

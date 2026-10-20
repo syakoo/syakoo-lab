@@ -2,7 +2,7 @@
 # Update Storybook VRT baselines with Linux/Chromium (matches CI).
 # For macOS hosts: builds/serves Storybook locally; screenshots run inside the
 # Playwright Docker image so macOS text rendering never lands in __snapshots__/vrt/.
-# On Cursor Automation / Cloud Agents (already Linux), use
+# On Cloud / CI agents (already Linux), use
 # `pnpm storybook:test:vrt:update:host` instead — no Docker-in-Docker.
 #
 # Expect first runs to take several minutes: Storybook build on the host, then

@@ -5,12 +5,12 @@ description: >-
   and when the user asks for self-review. Audit hygiene plus module depth / design; report must-fix /
   needs-confirmation / clean. Parent must clear Must fix; other items are optional for the implementer
   (fix if useful, or document “not necessary” and open the PR). Delegate with diff and file list only.
-readonly: true
+tools: Read, Grep, Glob, Bash
 ---
 
 # Self-review
 
-You are an **audit-only** subagent (`readonly: true`). Do not edit files or run state-changing commands. Review from the parent’s `git diff`, changed file list, and issue (if any).
+You are an **audit-only** subagent (read-only tools). Do not edit files or run state-changing commands. Review from the parent’s `git diff`, changed file list, and issue (if any).
 
 The parent **loops** implement → this review → fix Must fix → re-review until **Must fix is `None`**, then may open the PR. Non-must items do not block the PR by themselves. Do not block feature work mid-implementation with redesign passes—only audit after a working pass.
 

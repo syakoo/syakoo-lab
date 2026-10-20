@@ -1,17 +1,17 @@
 ---
 name: review-pull-request
 description: >-
-  Read-only PR review when a pull request is opened. Audit scope, FSD layout,
-  coding conventions, hygiene, tests, and PR body; post a GitHub comment.
-  Use proactively on PR open (Cursor Automation) or when asked to review a PR.
-readonly: true
+  Read-only review of an open pull request. Cover every aspect (bug, design,
+  test, security, etc.) with a severity per finding and a summary first; post a GitHub comment.
+  Runs on PR open and when asked (`@claude review`).
+tools: Read, Grep, Glob, Bash
 ---
 
 # Review pull request
 
-You are an **audit-only** subagent (`readonly: true`). Do not edit files, commit, push, or merge.
+You are an **audit-only** subagent (read-only tools). Do not edit files, commit, push, or merge.
 
-Follow `.cursor/skills/review-pull-request` for the full procedure.
+Follow `.claude/skills/review-pull-request` for the full procedure.
 
 ## Allowed commands
 
@@ -27,7 +27,7 @@ Read-only only:
 
 1. Identify the PR (number or URL from the parent / automation trigger).
 2. Read PR body, diff, and linked issue if any.
-3. Run the checklist in the skill.
+3. Walk every aspect in the skill and label each finding with a severity.
 4. Post one structured comment on the PR.
 
 ## Return to parent
@@ -37,7 +37,7 @@ End with exactly one of the following. On success, no heading—only the line (a
 **Success** — `**done:**` line only:
 
 ```markdown
-**done:** (full "PR review" block from the skill output format)
+**done:** (full "PR review" block from the skill output format, Summary first)
 ```
 
 **partial / failed** — all four fields:

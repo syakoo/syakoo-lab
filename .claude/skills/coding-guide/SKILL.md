@@ -98,7 +98,7 @@ Baselines target **Linux/Chromium**. macOS renders text differently from CI, so 
 | Where | Command | Why |
 | --- | --- | --- |
 | macOS (local) | `pnpm storybook:test:vrt:update` | Builds/serves Storybook on the host; screenshots run inside the Playwright Linux Docker image so baselines match CI. Requires Docker Desktop or Engine (free for personal use). First run is slow (Storybook build + in-container `pnpm install`; deps are not cached across runs). |
-| Cloud / CI agent | `pnpm storybook:test:vrt:update:host` (after `pnpm storybook:build` + serve on `:6006`) | The agent already runs on Linux — no Docker-in-Docker. Nested Docker needs a custom environment setup and is not worth it for VRT alone. |
+| Cloud / CI agent | `pnpm storybook:test:vrt:update:ci` (after `pnpm storybook:build`; serves on `:6006` itself) | The agent already runs on Linux — no Docker-in-Docker. Nested Docker needs a custom environment setup and is not worth it for VRT alone. |
 | Neither available | CI artefact fallback below | — |
 
 Do **not** commit PNGs from `storybook:test:vrt:update:host` on macOS — that is host Chromium, not CI Linux.

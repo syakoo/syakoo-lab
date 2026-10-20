@@ -31,6 +31,7 @@
     "storybook:test:ci": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm storybook:test\"",
     "storybook:test:vrt:update": "bash ./scripts/update-vrt-baselines.sh",
     "storybook:test:vrt:update:host": "test-storybook --url http://localhost:6006 --excludeTags skip-vrt --updateSnapshot",
+    "storybook:test:vrt:update:ci": "concurrently -k -s first \"pnpm storybook:serve\" \"wait-on http://localhost:6006 && pnpm storybook:test:vrt:update:host\"",
     "generate": "scaffdog generate"
   },
   "dependencies": {

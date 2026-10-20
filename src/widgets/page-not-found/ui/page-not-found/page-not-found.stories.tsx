@@ -17,3 +17,10 @@ export const Sample: Story = {
     children: <div>children</div>,
   },
 };
+
+export const Mobile: Story = {
+  ...Sample,
+  globals: {
+    viewport: { value: "iphone6", isRotated: false },
+  },
+};

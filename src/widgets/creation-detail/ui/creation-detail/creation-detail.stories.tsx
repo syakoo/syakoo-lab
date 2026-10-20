@@ -31,6 +31,13 @@ export const Illust: Story = {
   },
 };
 
+export const Mobile: Story = {
+  ...Illust,
+  globals: {
+    viewport: { value: "iphone6", isRotated: false },
+  },
+};
+
 export const Game: Story = {
   args: {
     id: "game-sample",

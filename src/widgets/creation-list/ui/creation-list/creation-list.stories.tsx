@@ -36,3 +36,10 @@ export const Sample: Story = {
     mocked(readCreationSummaries).mockResolvedValue(mockCreations);
   },
 };
+
+export const Mobile: Story = {
+  ...Sample,
+  globals: {
+    viewport: { value: "iphone6", isRotated: false },
+  },
+};

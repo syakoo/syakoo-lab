@@ -31,6 +31,13 @@ export const Sample: Story = {
   },
 };
 
+export const Mobile: Story = {
+  ...Sample,
+  globals: {
+    viewport: { value: "iphone6", isRotated: false },
+  },
+};
+
 export const MultipleYears: Story = {
   beforeEach: () => {
     const years = ["2026", "2025", "2024", "2023"];

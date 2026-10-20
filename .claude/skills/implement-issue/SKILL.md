@@ -39,6 +39,7 @@ Do not commit directly to `main`.
 Execute the tasks. Follow `coding-guide`.
 
 - **Design system first:** before writing layout chrome, use `Row` / `Col` / `Text` / `Link` (and other `shared/design-system` primitives) instead of raw Tailwind `flex` stacks
+- **Dependencies:** add a package only when the issue asks for it; removing unused ones is fine. Use `pnpm add` / `pnpm remove` so the lockfile stays in sync. Never hand-edit `package.json` dependencies or `pnpm-lock.yaml`
 - **UI → VRT:** if appearance changes, update `__snapshots__/vrt/` in the same PR (see `coding-guide` → Storybook VRT)
 
 ### 5. Commit

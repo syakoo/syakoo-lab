@@ -53,7 +53,9 @@ jobs:
           use_commit_signing: true
           # Allowlist for the agent's shell (the action denies everything else).
           # Mirrors what implement-issue / self-review / create-pull-request need.
+          # pnpm add/remove go through safe-chain (installed above); implement-issue
+          # limits when a dependency may change.
           # The system prompt overrides the action's built-in "give a manual
           # Create PR link" default, which otherwise wins over the repo rules.
           claude_args: >-
-            --allowedTools "Task,Bash(gh pr create:*),Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh issue comment:*),Bash(pnpm lint),Bash(pnpm type-check),Bash(pnpm test),Bash(pnpm check:architecture),Bash(pnpm build),Bash(pnpm storybook:build),Bash(pnpm storybook:test:ci),Bash(pnpm storybook:test:vrt:update:ci),Bash(pnpm exec playwright install:*)" --append-system-prompt "When you are asked to implement an issue, open the pull request yourself with gh pr create, following the ai-workflow rule and the implement-issue and create-pull-request skills, instead of giving a manual Create PR link. In every other case, do not open a pull request."
+            --allowedTools "Task,Bash(gh pr create:*),Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh issue comment:*),Bash(pnpm lint),Bash(pnpm type-check),Bash(pnpm test),Bash(pnpm check:architecture),Bash(pnpm build),Bash(pnpm add:*),Bash(pnpm remove:*),Bash(pnpm storybook:build),Bash(pnpm storybook:test:ci),Bash(pnpm storybook:test:vrt:update:ci),Bash(pnpm exec playwright install:*)" --append-system-prompt "When you are asked to implement an issue, open the pull request yourself with gh pr create, following the ai-workflow rule and the implement-issue and create-pull-request skills, instead of giving a manual Create PR link. In every other case, do not open a pull request."

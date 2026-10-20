@@ -48,6 +48,9 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           additional_permissions: |
             actions: read
+          # main requires signed commits; the action signs through the GitHub API
+          # (git CLI commits by the bot would be unsigned).
+          use_commit_signing: true
           # Allowlist for the agent's shell (the action denies everything else).
           # Mirrors what implement-issue / self-review / create-pull-request need.
           # The system prompt overrides the action's built-in "give a manual

@@ -3,7 +3,7 @@ name: review-pull-request
 description: >-
   Read-only review of an open pull request. Cover every aspect (bug, design,
   test, security, etc.) with a severity per finding and a summary first; post a GitHub comment.
-  Use when asked to review a PR (`@claude review`).
+  Runs on PR open and when asked (`@claude review`).
 tools: Read, Grep, Glob, Bash
 ---
 

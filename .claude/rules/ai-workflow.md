@@ -9,7 +9,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 3. **AI**: Read the issue with `gh issue view` and work out the design and task breakdown (no separate approval step)
 4. **AI**: Implement, pass tests
 5. **AI**: Loop `self-review` → fix **Must fix** → re-review until Must fix is clear; optionally fix other notes; then open a PR
-6. **AI**: Review the PR on request (`review-pull-request`)
+6. **AI**: Review every PR when it is opened (`review-pull-request`, `.github/workflows/claude-review.yml`); re-review on request
 7. **Human**: Review behavior, Storybook, etc., and leave feedback
 8. **AI**: Address review feedback on request (`address-pr-review`)
 9. **Human**: Re-check and merge
@@ -64,18 +64,18 @@ just trims context.
 | Implement | `implement-issue` |
 | Before PR | `self-review` |
 | Open PR | `create-pull-request` |
-| Review requested | `review-pull-request` |
+| PR opened / review requested | `review-pull-request` |
 | Review feedback | `address-pr-review` |
 
 ## Triggers
 
-Mention `@claude` on an issue, PR, or PR review (`.github/workflows/claude.yml`). **Only the repository owner can trigger it**; others' mentions are ignored. The mention is the decision to proceed, so write the intent explicitly.
+Mention `@claude` on an issue, PR, or PR review (`.github/workflows/claude.yml`). **Only the repository owner can trigger it**; others' mentions are ignored. The one exception is the automatic review on PR open (`claude-review.yml`, same-repo non-draft PRs, read-only). The mention is the decision to proceed, so write the intent explicitly.
 
 | Comment | Step |
 |---------|------|
 | `@claude address` on an issue | Revise the issue from its comments (`create-github-issue`); do not implement |
 | `@claude implement` on an issue | Design and implement through PR (`implement-issue`) |
-| `@claude review` on a PR | `review-pull-request` |
+| `@claude review` on a PR | `review-pull-request` again (the first review runs automatically when the PR opens) |
 | `@claude address` on a PR or review | `address-pr-review` |
 
 Manual runs in Claude Code (e.g. "implement #123") work the same way.

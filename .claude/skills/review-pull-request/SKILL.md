@@ -11,7 +11,7 @@ description: >-
 
 Audit only. Do not edit code, commit, or merge.
 
-Triggered by `@claude review` on a PR or on request.
+Runs automatically when a PR is opened (`claude-review.yml`) and again on `@claude review`.
 
 ## Steps
 

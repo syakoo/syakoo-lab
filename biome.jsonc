@@ -141,6 +141,17 @@
       }
     },
     {
+      // NOTE: 単体アセット(ロゴ / favicon)として配信され DOM にインライン化されないため
+      "includes": ["**/public/logo.svg", "**/src/app/icon.svg"],
+      "linter": {
+        "rules": {
+          "a11y": {
+            "noSvgWithoutTitle": "off"
+          }
+        }
+      }
+    },
+    {
       "includes": ["**/scripts/**"],
       "linter": {
         "rules": {

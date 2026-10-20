@@ -5,7 +5,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 ## Flow
 
 1. **Human/AI**: Open a request as a GitHub Issue (what — background, requirements, acceptance criteria)
-2. **Human**: Read the issue, decide to implement, and ask Claude (`@claude implement`)
+2. **Human**: Read the issue. If it needs discussion, comment and ask Claude to revise it (`@claude address`, `create-github-issue`); repeat until settled. Then decide to implement and ask Claude (`@claude implement`)
 3. **AI**: Read the issue with `gh issue view` and work out the design and task breakdown (no separate approval step)
 4. **AI**: Implement, pass tests
 5. **AI**: Loop `self-review` → fix **Must fix** → re-review until Must fix is clear; optionally fix other notes; then open a PR
@@ -16,7 +16,11 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 
 ```mermaid
 flowchart TD
-  A["👤🤖 Issue (what)"] --> C["👤 decide to implement"]
+  A["👤🤖 Issue (what)"] --> M["👤 read issue"]
+  M -->|"needs discussion"| N["👤 comment + @claude address"]
+  N --> O["🤖 revise issue"]
+  O --> M
+  M -->|"settled"| C["👤 decide to implement"]
   C --> B["🤖 design"]
   B --> D["🤖 implement"]
   D --> S["🤖 self-review"]
@@ -25,7 +29,8 @@ flowchart TD
   P --> E["🤖 review PR"]
   E --> F["👤 review + feedback"]
   F --> G["🤖 address review"]
-  G --> H["👤 merge"]
+  G -->|"re-check"| F
+  G -->|"OK"| H["👤 merge"]
   H --> J["⚙️ semver:* label → auto bump + GH Release"]
   J --> A
   L["💡 continuous-improvement"] -.separate PR.-> A

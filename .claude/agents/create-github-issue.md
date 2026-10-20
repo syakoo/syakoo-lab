@@ -15,6 +15,7 @@ Implementation-agnostic. You receive **user intent / conversation summary** and 
 - Read `.github/ISSUE_TEMPLATE/`
 - `gh issue view` (when referencing an existing issue)
 - `gh issue create` (only when asked to file the issue)
+- `gh issue edit`, `gh issue comment` (only when revising an issue from discussion; see the skill)
 
 **Forbidden:** editing `src/` or other code, `git commit`, `pnpm test`, `gh pr create`
 

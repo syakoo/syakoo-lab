@@ -55,6 +55,7 @@ just trims context.
 | When | Subagent |
 |------|----------|
 | Create issue | `create-github-issue` |
+| Issue discussion | `create-github-issue` (revise) |
 | Implement | `implement-issue` |
 | Before PR | `self-review` |
 | Open PR | `create-pull-request` |
@@ -67,6 +68,7 @@ Mention `@claude` on an issue, PR, or PR review (`.github/workflows/claude.yml`)
 
 | Comment | Step |
 |---------|------|
+| `@claude address` on an issue | Revise the issue from its comments (`create-github-issue`); do not implement |
 | `@claude implement` on an issue | Design and implement through PR (`implement-issue`) |
 | `@claude review` on a PR | `review-pull-request` |
 | `@claude address` on a PR or review | `address-pr-review` |

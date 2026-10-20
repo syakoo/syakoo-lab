@@ -34,7 +34,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Component layout, design-system first (`Row`/`Col`/`Text`/`Link` over raw flex) | Agent | `coding-guide` skill |
 | Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
 | Pre-PR self-review (Must fix gate; optional module-depth notes) | Agent | `self-review` agent |
-| AI workflow (plan → implement ↔ self-review → PR) | Agent | `ai-workflow` rule |
+| AI workflow (design → implement ↔ self-review → PR) | Agent | `ai-workflow` rule |
 | PR body format | Agent | `create-pull-request` skill |
 | PR review checklist | Agent | `review-pull-request` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |

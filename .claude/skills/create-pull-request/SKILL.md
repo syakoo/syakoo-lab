@@ -10,7 +10,7 @@ description: >-
 
 ## Workflow
 
-1. Confirm the target issue and approved implementation plan.
+1. Confirm the target issue and design notes.
 2. Ensure **Must fix** from **`self-review`** is `None`. Needs confirmation need not be empty: fix what you judge necessary, or list “not necessary” reasons under **Impact and risks**. If Must fix remains, return to the implement ↔ self-review loop.
 3. Read `git diff` and changed files.
 4. Draft title and body in the format below.

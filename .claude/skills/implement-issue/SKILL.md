@@ -8,7 +8,7 @@ description: >-
 
 # Implement issue
 
-Concrete steps for the flow in the `ai-workflow` rule (plan → approval → implement ↔ self-review until Must fix is clear → PR).
+Concrete steps for the flow in the `ai-workflow` rule (design → implement ↔ self-review until Must fix is clear → PR).
 
 ## Workflow
 
@@ -28,15 +28,15 @@ git fetch origin && git checkout -b claude/<short-description>-<issue-number> or
 
 Do not commit directly to `main`.
 
-### 3. Analyze and propose a plan
+### 3. Analyze and design
 
 - Read affected code and scope impact
-- Present an implementation plan and wait for approval
-- Ask instead of guessing when unclear
+- Decide the approach and break down tasks yourself; the human decides *what* on the issue, not *how*
+- If the issue is ambiguous, ask on the issue and stop instead of guessing
 
 ### 4. Implement
 
-After approval, break down tasks and execute. Follow `coding-guide`.
+Execute the tasks. Follow `coding-guide`.
 
 - **Design system first:** before writing layout chrome, use `Row` / `Col` / `Text` / `Link` (and other `shared/design-system` primitives) instead of raw Tailwind `flex` stacks
 - **UI → VRT:** if appearance changes, update `__snapshots__/vrt/` in the same PR (see `coding-guide` → Storybook VRT)
@@ -75,6 +75,6 @@ Do not open a PR while Must fix still has items. If Must-fix thrashing (same fin
 
 ## Important
 
-- After approval, **complete steps 4–6 without pausing** for confirmation unless blocked.
+- After step 3, **complete steps 4–6 without pausing** for confirmation unless blocked.
 - Do not run redesign / deepen passes during step 4—save that for the step 6 self-review loop.
 - If hooks time out, increase Shell `timeout` and retry. Do not use `--no-verify`.

@@ -26,3 +26,10 @@ export const Sample: Story = {
     mocked(readWritingById).mockResolvedValue(generateDummySerializedWriting());
   },
 };
+
+export const Mobile: Story = {
+  ...Sample,
+  globals: {
+    viewport: { value: "iphone6", isRotated: false },
+  },
+};

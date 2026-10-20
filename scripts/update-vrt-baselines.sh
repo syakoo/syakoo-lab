@@ -3,7 +3,7 @@
 # For macOS hosts: builds/serves Storybook locally; screenshots run inside the
 # Playwright Docker image so macOS text rendering never lands in __snapshots__/vrt/.
 # On Cloud / CI agents (already Linux), use
-# `pnpm storybook:test:vrt:update:host` instead — no Docker-in-Docker.
+# `pnpm storybook:test:vrt:update:ci` instead — no Docker-in-Docker.
 #
 # Expect first runs to take several minutes: Storybook build on the host, then
 # a full `pnpm install --frozen-lockfile` inside the container (anonymous

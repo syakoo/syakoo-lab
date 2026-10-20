@@ -40,5 +40,8 @@ jobs:
             Review PR #${{ github.event.pull_request.number }} in ${{ github.repository }}
             with the `review-pull-request` skill (.claude/skills/review-pull-request).
             Post the result as one PR comment. Do not edit files.
+          # Temporary diagnostic: a run can end green with permission denials and no
+          # comment, and the denied commands are hidden. Remove once the cause is known.
+          show_full_output: true
           claude_args: >-
             --allowedTools "Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh issue view:*),Bash(git diff:*),Bash(git log:*),Bash(git show:*)"

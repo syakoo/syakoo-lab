@@ -20,6 +20,7 @@ Runs automatically when a PR is opened (`claude-review.yml`) and again on `@clau
 3. If the body links an issue (`Closes #XX` / `Refs #XX`), read it: `gh issue view <N>`
 4. Walk **every aspect** below, one by one. Do not stop at the first finding.
 5. Post one PR comment with the output format (`gh pr comment <N>`).
+6. Confirm it posted: `gh pr view <N> --comments`. If a tool call was denied and the comment is missing, say so in your final output and stop. A green CI job does not mean the review was posted.
 
 ## Conventions (priority)
 

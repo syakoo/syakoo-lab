@@ -19,7 +19,9 @@ Runs automatically when a PR is opened (`claude-review.yml`) and again on `@clau
 2. Read the diff: `gh pr diff <N>`
 3. If the body links an issue (`Closes #XX` / `Refs #XX`), read it: `gh issue view <N>`
 4. Walk **every aspect** below, one by one. Do not stop at the first finding.
-5. Post one PR comment with the output format (`gh pr comment <N>`).
+5. Post one PR comment with the output format. Pass the body inline, with no temp file:
+   `gh pr comment <N> --body "$(cat <<'EOF' ... EOF)"`. Writing files is not allowed in CI, so a
+   `cat > file` or `--body-file` attempt is denied and the review is lost.
 6. Confirm it posted: `gh pr view <N> --comments`. If a tool call was denied and the comment is missing, say so in your final output and stop. A green CI job does not mean the review was posted.
 
 ## Conventions (priority)

@@ -145,19 +145,16 @@ export const generateDummyCreationWebapp = (): CreationWebapp => {
 };
 
 export const generateDummyCreationIllustSummary = (): CreationIllustSummary => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { content, ...summary } = generateDummyCreationIllust();
   return summary;
 };
 
 export const generateDummyCreationWebappSummary = (): CreationWebappSummary => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { content, ...summary } = generateDummyCreationWebapp();
   return summary;
 };
 
 export const generateDummyCreationGameSummary = (): CreationGameSummary => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { content, ...summary } = generateDummyCreationGame();
   return summary;
 };

@@ -83,7 +83,7 @@
         "useAriaPropsSupportedByRole": "warn"
       },
       "performance": {
-        // NOTE: Next.js は将来的に剥がしていくため
+        // NOTE: このルールは next/image 向けで、Waku では素の <img> を使うため
         "noImgElement": "off"
       },
       "security": {

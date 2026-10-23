@@ -40,16 +40,26 @@ export const Link: React.FC<LinkProps> = ({
   ...otherProps
 }) => {
   const external = isExternalHref(href);
+  const className = linkStyle({
+    colored,
+    underlined,
+    noHovered,
+    noTransparent,
+    display,
+  });
+
+  // NOTE: Waku のルーターはハッシュを decode せずに id を探すため、日本語 id の見出しへ移動できない
+  if (href.startsWith("#")) {
+    return (
+      <a className={className} href={href} {...otherProps}>
+        {children}
+      </a>
+    );
+  }
 
   return (
     <WakuLink
-      className={linkStyle({
-        colored,
-        underlined,
-        noHovered,
-        noTransparent,
-        display,
-      })}
+      className={className}
       rel={rel ?? (external ? "noopener noreferrer" : undefined)}
       target={target ?? (external ? "_blank" : undefined)}
       // NOTE: `pages.gen.ts` があるとルートの文字列リテラル型になるため

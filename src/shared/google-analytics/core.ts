@@ -18,8 +18,11 @@ export const isGAValid = () => {
   return gtagId.startsWith("G-");
 };
 
+export const buildPageUrl = (pathname: string, search: string) =>
+  search ? `${pathname}?${search}` : pathname;
+
 const pageViewEvent = (path: string) => {
-  if (!isGAValid) return;
+  if (!isGAValid()) return;
 
   if (typeof window !== "undefined" && window.gtag) {
     window.gtag("config", gtagId, {

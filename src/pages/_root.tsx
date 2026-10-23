@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 
-import "../shared/global-settings/global-settings";
 import { siteConfig } from "../shared/config/site";
 import { GoogleAnalytics } from "../shared/google-analytics/google-analytics";
 

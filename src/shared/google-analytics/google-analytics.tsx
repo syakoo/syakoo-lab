@@ -1,20 +1,28 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { usePathname, useSearchParams } from "../router/router";
-import { ga, gtagId, isGAValid } from "./core";
+import { buildPageUrl, ga, gtagId, isGAValid } from "./core";
 
 export const GoogleAnalytics = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  useEffect(() => {
-    if (!isGAValid) return;
+  const isFirstRender = useRef(true);
 
-    const url = pathname + searchParams.toString();
-    ga.pageViewEvent(url);
+  useEffect(() => {
+    // The init script's config call already sends the first page_view.
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (!isGAValid()) return;
+
+    ga.pageViewEvent(buildPageUrl(pathname, searchParams.toString()));
   }, [pathname, searchParams]);
+
+  if (!isGAValid()) return null;
 
   return (
     <>
@@ -30,7 +38,7 @@ export const GoogleAnalytics = () => {
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${gtagId}', {
-            page_path: window.location.pathname,
+            page_path: window.location.pathname + window.location.search,
           });
         `,
         }}

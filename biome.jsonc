@@ -16,7 +16,7 @@
     "includes": [
       "**",
       "!**/dist",
-      "!**/.next",
+      "!**/pages.gen.ts",
       "!**/storybook-static",
       "!**/public/assets/game"
     ]
@@ -101,15 +101,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "**/src/app/**/\\[*\\]/**",
-        "**/src/app/**/page.tsx",
-        "**/src/app/**/layout.tsx",
-        "**/src/app/**/not-found.tsx",
-        "**/src/app/**/sitemap.ts",
-        "**/src/app/**/robots.ts",
-        "**/src/app/icon.svg"
-      ],
+      "includes": ["**/src/pages/**", "**/*.d.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -130,7 +122,7 @@
         "**/src/widgets/writing-detail/ui/writing-detail/mdx/geometry/geometry.tsx",
         "**/.storybook/*.ts",
         "**/.scaffdog/*.mjs",
-        "**/__mocks__/*.ts"
+        "**/__mocks__/*.{ts,js}"
       ],
       "linter": {
         "rules": {
@@ -142,7 +134,7 @@
     },
     {
       // NOTE: 単体アセット(ロゴ / favicon)として配信され DOM にインライン化されないため
-      "includes": ["**/public/logo.svg", "**/src/app/icon.svg"],
+      "includes": ["**/public/logo.svg", "**/public/icon.svg"],
       "linter": {
         "rules": {
           "a11y": {

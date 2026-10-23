@@ -17,7 +17,7 @@ Dependencies flow **downward only** (never upward).
 
 ```mermaid
 graph TD
-  app --> widgets & features & entities & shared & contents
+  pages --> widgets & features & entities & shared & contents
   widgets --> features & entities & shared & contents
   features --> entities & shared & contents
   entities --> shared & contents
@@ -25,7 +25,7 @@ graph TD
 
 | Layer | Role |
 |-------|------|
-| `app/` | Entry (Next.js App Router), global config, providers |
+| `pages/` | Entry (Waku file-based routing), root layout, page metadata |
 | `widgets/` | UI blocks on screen (concrete slice names, e.g. `creation-list`) |
 | `features/` | Cross-widget reusable capabilities and UI pieces |
 | `entities/` | Shared models (types, rules, paths, readers). **No UI** |
@@ -88,7 +88,7 @@ Keeps change impact predictable.
 
 External code imports only through the Public API, not internal paths.
 
-Usually a single `index.ts`. For Next.js App Router (RSC), split entries when **server-only** and **client-only** exports must not mix.
+Usually a single `index.ts`. For RSC (Waku), split entries when **server-only** and **client-only** exports must not mix.
 
 | File | Purpose | Leading directive |
 |------|---------|-------------------|

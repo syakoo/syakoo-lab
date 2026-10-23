@@ -45,5 +45,5 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 
 | Case | Handled in |
 |------|------------|
-| Next.js App Router default exports and dynamic routes | `biome.jsonc` overrides (`src/app/**`) |
+| Waku file-based routing (default exports, `[id]` / `_root` filenames) and ambient `.d.ts` | `biome.jsonc` overrides (`src/pages/**`, `*.d.ts`) |
 | Design-system deep import paths (no slice barrel) | `scripts/check-architecture.ts` (checks `widgets` / `features` / `entities` only) |

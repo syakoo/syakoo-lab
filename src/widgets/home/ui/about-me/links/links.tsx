@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { UserLink } from "../../../../../contents/about-me/types";
 import { Row } from "../../../../../shared/design-system/layout/flex/flex";
 import { Link } from "../../../../../shared/design-system/ui/link/link";
@@ -17,7 +16,7 @@ export const Links: React.FC<LinksProps> = ({ links }) => {
               className="flex rounded-50 bg-palette-gray-700 p-25"
               title={link.name}
             >
-              <Image
+              <img
                 alt={link.name}
                 className="size-[16px] object-contain"
                 height={link.imageSrc.height}

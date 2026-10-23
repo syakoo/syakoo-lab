@@ -1,9 +1,9 @@
-import type { StaticImageData } from "next/image";
+import type { StaticImage } from "../../shared/types/static-image";
 
 export type WebappContent = {
   id: string;
   name: string;
-  imageSrc: StaticImageData;
+  imageSrc: StaticImage;
   releasedAt: string;
   siteUrl: string;
   repositoryUrl: string;

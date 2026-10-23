@@ -1,7 +1,7 @@
 import { differenceInYears } from "date-fns";
-import { notFound } from "next/navigation";
 import { readWritingById } from "../../../../features/writing/writing-mdx/index.server";
 import { Spacer } from "../../../../shared/design-system/layout/spacer/spacer";
+import { notFound } from "../../../../shared/router/not-found";
 
 import { Note } from "./mdx/note/note";
 import { WritingDetailToc } from "./toc/writing-detail-toc";

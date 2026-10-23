@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/nextjs";
+import type { Meta } from "@storybook/react-vite";
 
 import { dummyImages } from "../../../../../../shared/test-utils/dummy-asset/dummy-asset";
 

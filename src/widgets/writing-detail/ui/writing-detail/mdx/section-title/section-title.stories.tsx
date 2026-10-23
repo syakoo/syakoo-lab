@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/nextjs";
+import type { Meta } from "@storybook/react-vite";
 
 import { SectionTitle } from "./section-title";
 import { SubSectionTitle } from "./sub-section-title";

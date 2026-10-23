@@ -1,6 +1,4 @@
-import { notFound } from "next/navigation";
 import { match } from "ts-pattern";
-
 import { creationTypes } from "../../../../entities/creation";
 import { readCreationById } from "../../../../entities/creation/index.server";
 import { resolveMDXContent } from "../../../../features/mdx";
@@ -8,6 +6,7 @@ import { Icon } from "../../../../shared/design-system/icons/icon";
 import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
 import { Link } from "../../../../shared/design-system/ui/link/link";
 import { H2, Text } from "../../../../shared/design-system/ui/text/text";
+import { notFound } from "../../../../shared/router/not-found";
 import { cn } from "../../../../shared/utils/cn/cn";
 import { formatDate } from "../../../../shared/utils/date";
 import styles from "./creation-detail.module.css";

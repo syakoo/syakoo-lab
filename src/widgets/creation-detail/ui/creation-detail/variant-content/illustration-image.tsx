@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { FC } from "react";
 
 import type { CreationIllust } from "../../../../../entities/creation";
@@ -19,7 +18,7 @@ export const IllustrationImage: FC<IllustrationImageProps> = ({
     <div className="flex max-md:-mx-200">
       <ImageLightboxRoot alt={altText} src={illust.src}>
         <ImageLightboxTrigger className="mx-auto">
-          <Image
+          <img
             alt={altText}
             className="h-auto max-w-full"
             height={illust.height}

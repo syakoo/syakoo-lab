@@ -1,5 +1,6 @@
-import NextLink from "next/link";
 import type React from "react";
+import { Link as WakuLink } from "waku";
+import type { LinkProps as WakuLinkProps } from "waku/router/client";
 
 import { siteConfig } from "../../../config/site";
 import { type LinkStyleVariants, linkStyle } from "./link.styles";
@@ -41,7 +42,7 @@ export const Link: React.FC<LinkProps> = ({
   const external = isExternalHref(href);
 
   return (
-    <NextLink
+    <WakuLink
       className={linkStyle({
         colored,
         underlined,
@@ -49,12 +50,13 @@ export const Link: React.FC<LinkProps> = ({
         noTransparent,
         display,
       })}
-      href={href}
       rel={rel ?? (external ? "noopener noreferrer" : undefined)}
       target={target ?? (external ? "_blank" : undefined)}
+      // NOTE: `pages.gen.ts` があるとルートの文字列リテラル型になるため
+      to={href as WakuLinkProps["to"]}
       {...otherProps}
     >
       {children}
-    </NextLink>
+    </WakuLink>
   );
 };

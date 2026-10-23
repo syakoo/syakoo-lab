@@ -1,8 +1,6 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import type React from "react";
-
 import { creationPaths } from "../../../../../entities/creation";
 import { writingPaths } from "../../../../../entities/writing";
 import { Center } from "../../../../../shared/design-system/layout/center/center";
@@ -10,6 +8,7 @@ import { Container } from "../../../../../shared/design-system/layout/container/
 import { Row } from "../../../../../shared/design-system/layout/flex/flex";
 import { Link } from "../../../../../shared/design-system/ui/link/link";
 import { Span } from "../../../../../shared/design-system/ui/text/text";
+import { usePathname } from "../../../../../shared/router/router";
 import { SyakooLabText } from "./syakoo-lab-text/syakoo-lab-text";
 
 export const headerHeightPx = 74;

@@ -1,4 +1,4 @@
-import type { StaticImageData } from "next/image";
+import type { StaticImage } from "../../shared/types/static-image";
 
 export type UserLink = {
   name: string;
@@ -8,12 +8,12 @@ export type UserLink = {
    *
    * できるだけ正方形である必要がある。
    */
-  imageSrc: StaticImageData;
+  imageSrc: StaticImage;
 };
 
 export type AboutMeConfig = {
   name: string;
   bio: string;
-  imageSrc: StaticImageData;
+  imageSrc: StaticImage;
   links: UserLink[];
 };

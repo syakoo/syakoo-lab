@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryFn, StoryObj } from "@storybook/react-vite";
 
 import { Figure } from "../figure/figure-with-caption";
 

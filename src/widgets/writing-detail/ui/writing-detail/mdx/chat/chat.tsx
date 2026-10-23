@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { cn } from "../../../../../../shared/utils/cn/cn";
 import fuyu1 from "./assets/fuyu1.png";
 import fuyu2 from "./assets/fuyu2.png";
@@ -42,7 +40,11 @@ export const Chat: React.FC<ChatProps> = ({ children, image, right }) => {
         right && "ml-auto flex-row-reverse",
       )}
     >
-      <Image alt="" className="size-[42px] rounded-1000" src={images[image]} />
+      <img
+        alt=""
+        className="size-[42px] rounded-1000"
+        src={images[image].src}
+      />
       <div
         className={cn(
           "flex flex-col items-start gap-100",

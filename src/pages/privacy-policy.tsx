@@ -1,28 +1,20 @@
-import type { Metadata } from "next";
-
-import { formatPageTitle } from "../../entities/page-title";
-import { Container } from "../../shared/design-system/layout/container/container";
-import { Col } from "../../shared/design-system/layout/flex/flex";
-import { Spacer } from "../../shared/design-system/layout/spacer/spacer";
-import { Link } from "../../shared/design-system/ui/link/link";
-import { H2, H3, P } from "../../shared/design-system/ui/text/text";
-import { HeaderFooterTemplate } from "../../widgets/header-footer-template";
-
-export const metadata: Metadata = {
-  title: formatPageTitle("Privacy Policy"),
-  robots: {
-    index: false,
-  },
-  openGraph: {
-    type: "website",
-    images: "/logo.png",
-    url: `/privacy-policy`,
-  },
-};
+import { formatPageTitle } from "../entities/page-title";
+import { Container } from "../shared/design-system/layout/container/container";
+import { Col } from "../shared/design-system/layout/flex/flex";
+import { Spacer } from "../shared/design-system/layout/spacer/spacer";
+import { Link } from "../shared/design-system/ui/link/link";
+import { H2, H3, P } from "../shared/design-system/ui/text/text";
+import { PageMeta } from "../shared/page-meta/page-meta";
+import { HeaderFooterTemplate } from "../widgets/header-footer-template";
 
 const PrivacyPolicyPage = () => {
   return (
     <HeaderFooterTemplate>
+      <PageMeta
+        noindex
+        path="/privacy-policy"
+        title={formatPageTitle("Privacy Policy")}
+      />
       <Container as="main" center paddingX="200" paddingY="400" size="100">
         <H2>Privacy Policy</H2>
         <P color="secondary" size="50">

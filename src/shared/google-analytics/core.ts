@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-export const gtagId = env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+export const gtagId = env.WAKU_PUBLIC_GOOGLE_ANALYTICS_ID;
 
 export const isGAValid = () => {
   if (!gtagId) return false;

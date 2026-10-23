@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import { aboutMeConfig } from "../../../../contents/about-me/config";
 import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
 import { H2, Text } from "../../../../shared/design-system/ui/text/text";
@@ -14,7 +12,7 @@ export const AboutMe: React.FC = () => {
       <H2>About Me</H2>
       <Col gap="200">
         <Row gap="200">
-          <Image
+          <img
             alt="me"
             className="size-[64px] rounded-swaying"
             height={imageSrc.height}

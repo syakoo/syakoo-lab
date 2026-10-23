@@ -1,12 +1,10 @@
-import { createEnv } from "@t3-oss/env-nextjs";
+import { createEnv } from "@t3-oss/env-core";
 import z from "zod";
 
 export const env = createEnv({
+  clientPrefix: "WAKU_PUBLIC_",
   client: {
-    NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: z.string(),
+    WAKU_PUBLIC_GOOGLE_ANALYTICS_ID: z.string(),
   },
-  runtimeEnv: {
-    NEXT_PUBLIC_GOOGLE_ANALYTICS_ID:
-      process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID,
-  },
+  runtimeEnv: import.meta.env,
 });

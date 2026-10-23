@@ -1,71 +1,14 @@
-import type { Metadata } from "next";
-import { Fira_Code, Noto_Sans_JP, Roboto } from "next/font/google";
 import { Suspense } from "react";
 
-import "../shared/global-settings/global-settings";
 import { siteConfig } from "../shared/config/site";
 import { GoogleAnalytics } from "../shared/google-analytics/google-analytics";
 
-const notoSansJP = Noto_Sans_JP({ weight: ["400", "700"], subsets: ["latin"] });
-const roboto = Roboto({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-});
-
-export const metadata: Metadata = {
-  title: siteConfig.name,
-  metadataBase: new URL(siteConfig.url),
-  authors: {
-    name: siteConfig.author.name,
-  },
-  description: siteConfig.description,
-  icons: {
-    icon: siteConfig.logo.url,
-    apple: siteConfig.logo.url,
-  },
-  openGraph: {
-    type: "website",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.logo.url,
-        width: siteConfig.logo.width,
-        height: siteConfig.logo.height,
-        alt: siteConfig.logo.alt,
-      },
-    ],
-    locale: "ja_JP",
-  },
-  twitter: {
-    card: "summary",
-    title: siteConfig.name,
-    description: siteConfig.description,
-    images: siteConfig.logo.url,
-  },
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Root({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      // NOTE: あんま意味はないが良い方法も思いつかないので
-      className={[
-        notoSansJP.className,
-        roboto.className,
-        firaCode.className,
-      ].join(" ")}
-      lang="ja"
-    >
+    <html lang="ja">
       <head>
+        <link href="/icon.svg" rel="icon" type="image/svg+xml" />
+        <link href={siteConfig.logo.url} rel="apple-touch-icon" />
         <link
           href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css"
           rel="stylesheet"

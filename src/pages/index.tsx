@@ -1,12 +1,14 @@
 import { Container } from "../shared/design-system/layout/container/container";
 import { Col } from "../shared/design-system/layout/flex/flex";
 import { FadeIn } from "../shared/design-system/ui/fade-in/fade-in";
+import { PageMeta } from "../shared/page-meta/page-meta";
 import { HeaderFooterTemplate } from "../widgets/header-footer-template";
 import { AboutMe, AboutSite } from "../widgets/home";
 
 const HomePage = () => {
   return (
     <HeaderFooterTemplate>
+      <PageMeta />
       <Col align="stretch" gap="500">
         <Container as="main" center paddingTop="400" paddingX="200" size="100">
           <FadeIn>

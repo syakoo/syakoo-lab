@@ -4,13 +4,10 @@ declare module "@storybook/react" {
   type Parameters = {
     // NOTE: msw-storybook-addon に依存する型定義
     msw?: { handlers: HttpHandler[] };
-    // NOTE: storybook/nextjs に依存する型定義
-    nextjs?: {
-      appDirectory?: boolean;
-      navigation?: {
-        pathname?: string;
-        query?: Record<string, string>;
-      };
+    // NOTE: .storybook/waku-stub.tsx に依存する型定義
+    router?: {
+      path?: string;
+      query?: string;
     };
   };
 }

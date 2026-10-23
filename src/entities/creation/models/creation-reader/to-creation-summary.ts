@@ -12,13 +12,13 @@ import type {
   CreationWebappSummary,
 } from "../creation";
 
-const publicDir = path.join(process.cwd(), "public");
+const publicDir = () => path.join(process.cwd(), "public");
 
 export const toCreationIllustSummary = (
   artContent: ArtContent,
 ): CreationIllustSummary => {
   const imgData = fs.readFileSync(
-    path.join(publicDir, artContent.frontMatter.imgUrl),
+    path.join(publicDir(), artContent.frontMatter.imgUrl),
   );
   const imageMeta = probe.sync(imgData);
 
@@ -77,7 +77,7 @@ export const toCreationGameSummary = (
   game: GameContent,
 ): CreationGameSummary => {
   const imgData = fs.readFileSync(
-    path.join(publicDir, game.frontMatter.logoSrc),
+    path.join(publicDir(), game.frontMatter.logoSrc),
   );
   const imageMeta = probe.sync(imgData);
 

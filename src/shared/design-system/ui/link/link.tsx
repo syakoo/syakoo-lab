@@ -1,5 +1,6 @@
-import NextLink from "next/link";
 import type React from "react";
+import { Link as WakuLink } from "waku";
+import type { LinkProps as WakuLinkProps } from "waku/router/client";
 
 import { siteConfig } from "../../../config/site";
 import { type LinkStyleVariants, linkStyle } from "./link.styles";
@@ -39,22 +40,33 @@ export const Link: React.FC<LinkProps> = ({
   ...otherProps
 }) => {
   const external = isExternalHref(href);
+  const className = linkStyle({
+    colored,
+    underlined,
+    noHovered,
+    noTransparent,
+    display,
+  });
+
+  // NOTE: Waku のルーターはハッシュを decode せずに id を探すため、日本語 id の見出しへ移動できない
+  if (href.startsWith("#")) {
+    return (
+      <a className={className} href={href} {...otherProps}>
+        {children}
+      </a>
+    );
+  }
 
   return (
-    <NextLink
-      className={linkStyle({
-        colored,
-        underlined,
-        noHovered,
-        noTransparent,
-        display,
-      })}
-      href={href}
+    <WakuLink
+      className={className}
       rel={rel ?? (external ? "noopener noreferrer" : undefined)}
       target={target ?? (external ? "_blank" : undefined)}
+      // NOTE: `pages.gen.ts` があるとルートの文字列リテラル型になるため
+      to={href as WakuLinkProps["to"]}
       {...otherProps}
     >
       {children}
-    </NextLink>
+    </WakuLink>
   );
 };

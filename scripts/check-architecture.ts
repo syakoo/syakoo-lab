@@ -6,7 +6,7 @@ const ROOT = resolve(import.meta.dirname, "..");
 const SRC = resolve(ROOT, "src");
 
 type Layer =
-  | "app"
+  | "pages"
   | "widgets"
   | "features"
   | "entities"
@@ -15,7 +15,7 @@ type Layer =
 
 /** Lower rank = higher FSD layer (may depend on layers with higher rank). */
 const LAYER_RANK: Record<Layer, number> = {
-  app: 0,
+  pages: 0,
   widgets: 1,
   features: 2,
   entities: 3,

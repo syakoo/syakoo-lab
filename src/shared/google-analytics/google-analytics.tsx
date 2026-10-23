@@ -1,9 +1,8 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
-import Script from "next/script";
 import { useEffect } from "react";
 
+import { usePathname, useSearchParams } from "../router/router";
 import { ga, gtagId, isGAValid } from "./core";
 
 export const GoogleAnalytics = () => {
@@ -19,20 +18,24 @@ export const GoogleAnalytics = () => {
 
   return (
     <>
-      <Script
+      <script
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=${gtagId}`}
-        strategy="lazyOnload"
       />
-      <Script id="gtag-init" strategy="afterInteractive">
-        {`
+      <script
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: gtag の初期化スクリプト
+        dangerouslySetInnerHTML={{
+          __html: `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', '${gtagId}', {
             page_path: window.location.pathname,
           });
-        `}
-      </Script>
+        `,
+        }}
+        id="gtag-init"
+      />
     </>
   );
 };

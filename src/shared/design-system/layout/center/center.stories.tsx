@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/nextjs";
+import type { Meta } from "@storybook/react-vite";
 import type React from "react";
 
 import { Center } from "./center";

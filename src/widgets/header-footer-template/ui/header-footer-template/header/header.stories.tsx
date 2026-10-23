@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/nextjs";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Header } from "./header";
 
@@ -16,10 +16,8 @@ export const Sample: Story = {};
 
 export const HomeActive: Story = {
   parameters: {
-    nextjs: {
-      navigation: {
-        pathname: "/",
-      },
+    router: {
+      path: "/",
     },
   },
 };

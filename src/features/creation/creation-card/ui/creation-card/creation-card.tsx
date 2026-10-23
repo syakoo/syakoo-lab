@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { FC } from "react";
 import { match } from "ts-pattern";
 import type {
@@ -27,10 +26,9 @@ export const CreationCard: FC<CreationCardProps> = ({ ...creation }) => {
     <div className="relative w-full min-w-[150px]">
       <Col gap="50">
         <div className="relative aspect-square w-full overflow-hidden rounded-200">
-          <Image
+          <img
             alt=""
-            className="object-cover transition-transform duration-300"
-            fill
+            className="absolute inset-0 size-full object-cover transition-transform duration-300"
             src={thumbnailImage.src}
           />
           <div

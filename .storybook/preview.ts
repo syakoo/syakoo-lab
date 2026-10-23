@@ -1,15 +1,12 @@
-import type { Preview } from "@storybook/nextjs";
+import type { Preview } from "@storybook/react-vite";
 import { sb } from "storybook/test";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 
-// Self-hosted for Storybook/VRT. Keep beforeEach sync — async broke RSC mocks.
-import "@fontsource/noto-sans-jp/400.css";
-import "@fontsource/noto-sans-jp/700.css";
-import "@fontsource/roboto/400.css";
-import "@fontsource/roboto/700.css";
+// NOTE: Keep beforeEach sync — async broke RSC mocks.
 import "../src/shared/global-settings/global-settings";
 import { tryEnableDeterministicRandomFromGlobal } from "../src/shared/test-utils/random/random.fixture";
 import { storyTheme } from "./manager";
+import { setRouterState } from "./waku-stub";
 
 // NOTE: Node 利用のモジュールは Storybook で動かないので雑にモックする
 // read-writing などの直接機能で利用しているモジュールで返却値を指定できるようにする
@@ -17,6 +14,7 @@ sb.mock(import("../src/contents/writings/reader.ts"));
 sb.mock(import("../src/contents/arts/reader.ts"));
 sb.mock(import("../src/contents/games/reader.ts"));
 sb.mock(import("../src/contents/webapps/reader.ts"));
+sb.mock(import("probe-image-size"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
 sb.mock(import("../src/features/writing/writing-mdx/models/read-writing.ts"), {
@@ -36,6 +34,12 @@ sb.mock(
 );
 
 const preview: Preview = {
+  decorators: [
+    (Story, { parameters }) => {
+      setRouterState(parameters.router);
+      return Story();
+    },
+  ],
   beforeEach: () => {
     tryEnableDeterministicRandomFromGlobal();
   },
@@ -64,9 +68,6 @@ const preview: Preview = {
     },
     viewport: {
       options: INITIAL_VIEWPORTS,
-    },
-    nextjs: {
-      appDirectory: true,
     },
   },
 };

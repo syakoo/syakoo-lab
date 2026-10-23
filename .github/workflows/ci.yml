@@ -4,7 +4,7 @@ on:
   - pull_request
 
 env:
-  NEXT_PUBLIC_GOOGLE_ANALYTICS_ID: "dummy-ga-id"
+  WAKU_PUBLIC_GOOGLE_ANALYTICS_ID: "dummy-ga-id"
 
 jobs:
   security-scan:

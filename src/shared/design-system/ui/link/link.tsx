@@ -49,9 +49,16 @@ export const Link: React.FC<LinkProps> = ({
   });
 
   // NOTE: Waku のルーターはハッシュを decode せずに id を探すため、日本語 id の見出しへ移動できない
-  if (href.startsWith("#")) {
+  // NOTE: Waku の Link は外部 URL でも preventDefault してルーター遷移するため、404 になる
+  if (href.startsWith("#") || external) {
     return (
-      <a className={className} href={href} {...otherProps}>
+      <a
+        className={className}
+        href={href}
+        rel={rel ?? (external ? "noopener noreferrer" : undefined)}
+        target={target ?? (external ? "_blank" : undefined)}
+        {...otherProps}
+      >
         {children}
       </a>
     );
@@ -60,8 +67,6 @@ export const Link: React.FC<LinkProps> = ({
   return (
     <WakuLink
       className={className}
-      rel={rel ?? (external ? "noopener noreferrer" : undefined)}
-      target={target ?? (external ? "_blank" : undefined)}
       // NOTE: `pages.gen.ts` があるとルートの文字列リテラル型になるため
       to={href as WakuLinkProps["to"]}
       {...otherProps}

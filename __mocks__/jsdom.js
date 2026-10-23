@@ -1,19 +1,10 @@
 export class JSDOM {
-  public window: {
-    document: {
-      body: {
-        textContent: string;
-      };
-      getElementsByTagName: (tagName: string) => {
-        getAttribute: (name: string) => string | null;
-      }[];
-    };
-  };
+  window;
 
   constructor() {
     // Mock DOM elements
     const mockElement = {
-      getAttribute: (name: string) => {
+      getAttribute: (name) => {
         if (name === "property" || name === "name") return "og:title";
         if (name === "content") return "Mock Title";
         if (name === "rel") return "icon";
@@ -29,7 +20,7 @@ export class JSDOM {
       body: {
         textContent: "Mock Text Content",
       },
-      getElementsByTagName: (tagName: string) => {
+      getElementsByTagName: (tagName) => {
         if (tagName === "meta") return mockMetaElements;
         if (tagName === "link") return mockLinkElements;
         return [];

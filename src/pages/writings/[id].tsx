@@ -4,6 +4,7 @@ import { writingPaths } from "../../entities/writing";
 import { Container } from "../../shared/design-system/layout/container/container";
 import { Spacer } from "../../shared/design-system/layout/spacer/spacer";
 import { PageMeta } from "../../shared/page-meta/page-meta";
+import { notFound } from "../../shared/router/not-found";
 import { HeaderFooterTemplate } from "../../widgets/header-footer-template";
 import { RelatedWritingsNav } from "../../widgets/related-writings-nav";
 import { WritingDetail } from "../../widgets/writing-detail";
@@ -27,7 +28,7 @@ const WritingsContentPage = async ({ id }: Props) => {
   );
 
   if (!writingContent) {
-    throw new Error(`Writing not found: ${id}`);
+    notFound();
   }
 
   const relatedWritingNav = await RelatedWritingsNav({ id });

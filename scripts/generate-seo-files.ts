@@ -64,7 +64,8 @@ const buildSitemap = async () => {
 
   const entries = [
     { url: basePath, lastModified: new Date(newestLastModified) },
-    ...contentEntries,
+    // NOTE: reader の読み込み順は実行ごとに変わり得るため、url でソートして出力を安定させる
+    ...contentEntries.sort((a, b) => a.url.localeCompare(b.url)),
   ];
 
   const urls = entries

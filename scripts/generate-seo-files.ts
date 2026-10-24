@@ -38,8 +38,7 @@ const buildSitemap = async () => {
   const gameContents = await readGameContents();
   const webappContents = readWebappContents();
 
-  const entries = [
-    { url: basePath, lastModified: new Date() },
+  const contentEntries = [
     ...writingContents
       .filter(({ frontMatter }) => !frontMatter.noindex)
       .map(({ frontMatter }) => ({
@@ -56,6 +55,19 @@ const buildSitemap = async () => {
       url: `${basePath}/creations/${webapp.id}`,
       lastModified: webapp.releasedAt,
     })),
+  ];
+
+  // NOTE: ビルド時刻だと毎回変わるため、最新のコンテンツ日付をトップページの lastmod とする
+  const newestLastModified = contentEntries
+    .map(({ lastModified }) => new Date(lastModified).getTime())
+    .reduce((max, time) => Math.max(max, time), 0);
+
+  const entries = [
+    { url: basePath, lastModified: new Date(newestLastModified) },
+    // NOTE: reader の読み込み順は実行ごとに変わり得るため、url でソートして出力を安定させる
+    ...contentEntries.sort((a, b) =>
+      a.url < b.url ? -1 : a.url > b.url ? 1 : 0,
+    ),
   ];
 
   const urls = entries

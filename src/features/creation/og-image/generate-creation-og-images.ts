@@ -11,7 +11,7 @@ const logoPath = path.join(publicDir, "logo.png");
 
 /** OG image size (square for twitter:card=summary) */
 const OG_SIZE = 1200;
-/** Logo composite size (scaled up from original 120×120) */
+/** Logo composite size */
 const LOGO_SIZE = 400;
 const LOGO_CORNER_RADIUS = 12;
 /** Padding from the bottom-right edge */

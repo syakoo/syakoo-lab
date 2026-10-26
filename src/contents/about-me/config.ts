@@ -7,7 +7,7 @@ import xImageSrc from "./x.png";
 
 export const aboutMeConfig = {
   name: "syakoo",
-  bio: "興味駆動フロントエンドエンジニア。言語・フレームワーク仕様より、設計やアルゴリズムなどの抽象的な部分に関心を向けています。",
+  bio: "興味駆動フロントエンドエンジニア。ものづくりと将棋が好きで、気になったことは調べて、作って、ここに置いています。",
   imageSrc: meImageSrc,
   links: [
     {

@@ -18,7 +18,7 @@ export const AboutSite: React.FC = () => {
           <Text as="span" weight="bold">
             「興味の広がり、深まり、発見」
           </Text>
-          をモットーに、作成した文書やイラストを公開しています。
+          をモットーに、作品を公開しています。
         </Text>
       </Center>
     </Col>

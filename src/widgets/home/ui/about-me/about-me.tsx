@@ -13,7 +13,7 @@ export const AboutMe: React.FC = () => {
       <Col gap="200">
         <Row gap="200">
           <img
-            alt="me"
+            alt={name}
             className="size-[64px] rounded-swaying"
             height={imageSrc.height}
             src={imageSrc.src}

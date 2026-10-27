@@ -10,6 +10,7 @@ import {
 } from "react";
 import { createPortal } from "react-dom";
 
+import { cn } from "../../../utils/cn/cn";
 import { Icon } from "../../icons/icon";
 import { Row } from "../../layout/flex/flex";
 import { Text } from "../text/text";
@@ -126,7 +127,7 @@ export const Drawer: React.FC<DrawerProps> = ({
       <aside
         aria-labelledby={titleId}
         aria-modal="false"
-        className={`${styles.sheet} paper`}
+        className={cn(styles.sheet, "paper")}
         data-closing={isClosing}
         onAnimationEnd={handleAnimationEnd}
         role="dialog"

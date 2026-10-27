@@ -3,6 +3,7 @@ import mermaid from "mermaid";
 import { useMount } from "../../../../shared/utils/use-mount/use-mount";
 
 // Mermaid は CSS 変数を受け付けないため、直接色の値を指定
+// NOTE: 値は shared/design-system/globals.css のトークンと同期すること
 const colors = {
   brand: {
     primary: "#3063d4",

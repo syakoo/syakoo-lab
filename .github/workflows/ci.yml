@@ -99,6 +99,8 @@ jobs:
   storybook-test:
     needs: security-scan
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.62.1-jammy
     timeout-minutes: 20
     permissions:
       contents: read
@@ -113,8 +115,13 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Install Playwright
-        run: pnpm exec playwright install chromium --with-deps
+      - name: Check container image matches installed Playwright
+        run: |
+          image="$(bash scripts/vrt-image.sh)"
+          if ! grep -qF "image: ${image}" .github/workflows/ci.yml; then
+            echo "::error::Update the storybook-test container image in ci.yml to ${image}, then re-capture baselines (pnpm storybook:test:vrt:update)."
+            exit 1
+          fi
 
       - name: Build Storybook
         run: pnpm storybook:build

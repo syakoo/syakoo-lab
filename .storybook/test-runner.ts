@@ -23,7 +23,6 @@ const SKIP_VRT_TAG = "skip-vrt";
 const VRT_SNAPSHOTS_DIR = `${process.cwd()}/__snapshots__/vrt`;
 const VRT_RECEIVED_DIR = `${VRT_SNAPSHOTS_DIR}/__received_output__`;
 const VRT_REPORT_DIR = `${VRT_SNAPSHOTS_DIR}/__report__`;
-const SNAPSHOT_FAILURE_THRESHOLD = 0.005;
 /** Soft-fail snapshot mismatches on CI so a11y can still block; local stays strict. */
 const VRT_ADVISORY = process.env.CI === "true";
 const STORY_RENDER_TIMEOUT_MS = 10_000;
@@ -298,8 +297,8 @@ const config: TestRunnerConfig = {
           customSnapshotIdentifier: context.id,
           storeReceivedOnFailure: true,
           customReceivedDir: VRT_RECEIVED_DIR,
-          failureThreshold: SNAPSHOT_FAILURE_THRESHOLD,
-          failureThresholdType: "percent",
+          failureThreshold: 0,
+          failureThresholdType: "pixel",
         });
       } catch (error) {
         if (!VRT_ADVISORY) {

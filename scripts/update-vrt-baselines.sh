@@ -11,7 +11,7 @@
 # node_modules volume is discarded when the container exits).
 #
 # The container is pinned to linux/amd64 like CI, so Apple Silicon runs it under
-# emulation (slower, hence the longer --testTimeout, but pixel-identical to CI).
+# emulation (slower, hence the longer --testTimeout, but meant to match CI).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"

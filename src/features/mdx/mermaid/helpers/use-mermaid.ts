@@ -9,15 +9,16 @@ const colors = {
     secondary: "#294e80",
   },
   text: {
-    primary: "#babec3ee",
+    primary: "#1c2733",
   },
   background: {
-    secondary: "#28394e",
+    secondary: "#eef2f7",
   },
   palette: {
-    gray100: "#404a54",
-    gray200: "#59616a",
+    gray300: "#717980",
+    gray400: "#899096",
     gray500: "#a2a7ad",
+    gray800: "#ebecef",
   },
 } as const;
 
@@ -28,14 +29,14 @@ mermaid.initialize({
   themeVariables: {
     primaryColor: colors.background.secondary,
     primaryTextColor: colors.text.primary,
-    primaryBorderColor: colors.palette.gray100,
-    lineColor: colors.palette.gray500,
-    secondaryColor: colors.palette.gray100,
-    tertiaryColor: colors.palette.gray100,
-    git0: colors.palette.gray100,
+    primaryBorderColor: colors.palette.gray400,
+    lineColor: colors.palette.gray300,
+    secondaryColor: colors.palette.gray800,
+    tertiaryColor: colors.palette.gray800,
+    git0: colors.palette.gray400,
     git1: colors.brand.primary,
     git2: colors.brand.secondary,
-    git3: colors.palette.gray200,
+    git3: colors.palette.gray500,
   },
 });
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Update Storybook VRT baselines with Linux/Chromium (matches CI).
+# Update Storybook VRT baselines with Linux/Chromium in the same Playwright
+# image the CI storybook-test job runs in (see scripts/vrt-image.sh).
 # For macOS hosts: builds/serves Storybook locally; screenshots run inside the
 # Playwright Docker image so macOS text rendering never lands in __snapshots__/vrt/.
 # On Cloud / CI agents (already Linux), use
@@ -9,9 +10,8 @@
 # a full `pnpm install --frozen-lockfile` inside the container (anonymous
 # node_modules volume is discarded when the container exits).
 #
-# Same Playwright version as CI; OS/font stack may still differ slightly from
-# ubuntu-latest. Validate once (local Docker update → green storybook-test on
-# CI) before relying on this path for baseline churn.
+# The container is pinned to linux/amd64 like CI, so Apple Silicon runs it under
+# emulation (slower, hence the longer --testTimeout, but meant to match CI).
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -33,14 +33,14 @@ if lsof -nP -iTCP:"${PORT}" -sTCP:LISTEN >/dev/null 2>&1; then
   exit 1
 fi
 
-PW_VERSION="$(pnpm exec node -p "require('playwright/package.json').version")"
 PNPM_VERSION="$(pnpm exec node -p "require('./package.json').packageManager.replace(/^pnpm@/, '')")"
-IMAGE="mcr.microsoft.com/playwright:v${PW_VERSION}-jammy"
+IMAGE="$(bash scripts/vrt-image.sh)"
+PLATFORM=linux/amd64
 
 echo "==> Playwright image: ${IMAGE}"
-if ! docker image inspect "${IMAGE}" >/dev/null 2>&1; then
+if ! docker image inspect --platform "${PLATFORM}" "${IMAGE}" >/dev/null 2>&1; then
   echo "==> Image not found locally; pulling"
-  docker pull "${IMAGE}"
+  docker pull --platform "${PLATFORM}" "${IMAGE}"
 else
   echo "==> Using local image (skip pull). Re-pull manually after upgrading Playwright."
 fi
@@ -64,6 +64,7 @@ echo "==> Updating baselines in Linux/Chromium"
 # engine-strict override: mounted .npmrc sets engine-strict=true; Playwright
 # images may lag package.json engines Node — do not rely on NPM_CONFIG alone.
 docker run --rm \
+  --platform "${PLATFORM}" \
   --add-host=host.docker.internal:host-gateway \
   -v "${ROOT}:/work" \
   -v /work/node_modules \
@@ -80,6 +81,7 @@ docker run --rm \
     pnpm exec test-storybook \
       --url http://host.docker.internal:${PORT} \
       --excludeTags skip-vrt \
+      --testTimeout 60000 \
       --updateSnapshot
   "
 

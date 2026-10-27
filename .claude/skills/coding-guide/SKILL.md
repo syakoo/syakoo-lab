@@ -93,17 +93,19 @@ Default-on for every story. Opt out with `tags: ["skip-vrt"]` for design-system 
 - **Stories that return `null`** (intentional empty canvas): opt out with `tags: ["skip-vrt"]`. Accidental blanks still fail so they are not committed as baselines
 - **Never commit a blank baseline by accident.** A uniform-colour PNG for a story that should show UI means the story did not render — fix the story instead of updating the baseline
 
-Baselines target **Linux/Chromium**. macOS renders text differently from CI, so choose the update path by where you run:
+Baselines target **Linux/Chromium in the Playwright Docker image** (`scripts/vrt-image.sh`, `linux/amd64`). The CI `storybook-test` job runs in that same image (`container.image` in `ci.yml`), so a baseline and a CI run are meant to render identically. macOS renders text differently, so choose the update path by where you run:
 
 | Where | Command | Why |
 | --- | --- | --- |
-| macOS (local) | `pnpm storybook:test:vrt:update` | Builds/serves Storybook on the host; screenshots run inside the Playwright Linux Docker image so baselines match CI. Requires Docker Desktop or Engine (free for personal use). First run is slow (Storybook build + in-container `pnpm install`; deps are not cached across runs). |
-| Cloud / CI agent | `pnpm storybook:test:vrt:update:ci` (after `pnpm storybook:build`; serves on `:6006` itself) | The agent already runs on Linux — no Docker-in-Docker. Nested Docker needs a custom environment setup and is not worth it for VRT alone. |
+| macOS (local) | `pnpm storybook:test:vrt:update` | Builds/serves Storybook on the host; screenshots run inside the Playwright Linux Docker image so baselines match CI. Requires Docker Desktop or Engine (free for personal use). First run is slow (Storybook build + in-container `pnpm install`; deps are not cached across runs), and slower still on Apple Silicon, where the `amd64` image is emulated. |
+| Cloud / CI agent | `pnpm storybook:test:vrt:update:ci` (after `pnpm storybook:build`; serves on `:6006` itself) | The agent already runs on Linux — no Docker-in-Docker. Nested Docker needs a custom environment setup and is not worth it for VRT alone. It renders on the agent's own host, not in the pinned image, so with the 0-pixel threshold check the PR's VRT advisory comment and use the artefact fallback for any mismatch. |
 | Neither available | CI artefact fallback below | — |
 
 Do **not** commit PNGs from `storybook:test:vrt:update:host` on macOS — that is host Chromium, not CI Linux.
 
-The Docker path pins the same Playwright version as the repo, but the jammy image OS/font stack may still differ slightly from CI’s `ubuntu-latest`. After the first Docker-based baseline update, confirm CI has no unexpected VRT advisory comment (and that a11y is green) before treating the path as trusted.
+The image tag must match the installed Playwright version. After a Playwright bump (e.g. Renovate), CI fails at "Check container image matches installed Playwright" until `container.image` in `ci.yml` is updated and baselines are re-captured.
+
+The failure threshold is **0 pixels**, so any rendering difference is a mismatch. A copy change always fails VRT until baselines are updated.
 
 **CI artefact fallback:** open the PR’s VRT advisory comment (or the `storybook-test` run), download `vrt-diff-<run_id>`, copy `__received_output__/<story-id>-received.png` → `__snapshots__/vrt/<story-id>.png`. Never crop `__diff_output__` (it is a `baseline | diff | received` composite).
 

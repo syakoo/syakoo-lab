@@ -36,7 +36,12 @@ export const WritingDetail = async ({ id }: WritingDetailProps) => {
             内容が古い可能性があります。
           </Note>
         ) : null}
-        <WritingMdxContent body={writing.body} className={styles.mdxContent} />
+        {/* NOTE: 記事間の遷移でも再マウントさせ、mermaid などマウント時の初期化をやり直す */}
+        <WritingMdxContent
+          key={id}
+          body={writing.body}
+          className={styles.mdxContent}
+        />
         <Spacer y="400" />
         <hr />
         <Spacer y="100" />

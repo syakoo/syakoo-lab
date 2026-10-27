@@ -7,23 +7,23 @@
   --color-brand-secondary: #294e80;
 
   /* Text */
-  --color-text-primary: #babec3ee;
-  --color-text-secondary: #899096ee;
-  --color-text-tertiary: #59616aee;
+  --color-text-primary: #1c2733;
+  --color-text-secondary: #4a5561;
+  --color-text-tertiary: #5f6b78;
 
   /* Background */
-  --color-background-primary: #15212c;
-  --color-background-secondary: #28394e;
+  --color-background-primary: #fbfcfe;
+  --color-background-secondary: #eef2f7;
 
   /* Accent */
-  --color-accent-info-foreground: #00abee;
-  --color-accent-info-background: #00abee30;
-  --color-accent-success-foreground: #2ab435;
-  --color-accent-success-background: #2ab43530;
-  --color-accent-warn-foreground: #eca218;
-  --color-accent-warn-background: #eca21830;
-  --color-accent-error-foreground: #f33e62;
-  --color-accent-error-background: #f33e6230;
+  --color-accent-info-foreground: #0077b3;
+  --color-accent-info-background: #0077b320;
+  --color-accent-success-foreground: #1f7a28;
+  --color-accent-success-background: #1f7a2820;
+  --color-accent-warn-foreground: #d4a000;
+  --color-accent-warn-background: #d4a00026;
+  --color-accent-error-foreground: #c4203f;
+  --color-accent-error-background: #c4203f20;
 
   /* Code */
   --color-code-text: #babec3ee;
@@ -105,7 +105,14 @@
 
 /* ===== Global Styles ===== */
 html {
+  color-scheme: light;
   scrollbar-gutter: stable;
+}
+
+/* Paper noise. Also applied via `.paper` to translucent surfaces (sticky header, drawer) that would otherwise hide it. */
+body,
+.paper {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.11 0 0 0 0 0.15 0 0 0 0 0.2 0.06 0 0 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 body {

@@ -88,13 +88,16 @@
 .mdxContent :global(pre code) {
   display: block;
   padding: var(--spacing-200);
+  margin-inline: 0;
+  color: var(--color-code-text);
+  background-color: transparent;
   font-size: var(--text-75);
   line-height: 1.5;
 }
 
 .mdxContent :global(code) {
-  color: var(--color-code-text);
-  background-color: var(--color-code-background);
+  color: var(--color-text-primary);
+  background-color: var(--color-background-secondary);
   font-size: var(--text-75);
   padding: 0.3em;
   margin-inline: var(--spacing-25);
@@ -111,7 +114,7 @@
 
 .mdxContent :global(hr) {
   margin-block: var(--spacing-100);
-  border-color: var(--color-palette-gray-200);
+  border-color: var(--color-palette-gray-700);
 }
 
 .mdxContent :global(strong) {
@@ -127,6 +130,9 @@
 .mdxContent :global(.mermaid) {
   display: flex;
   justify-content: center;
+  padding: var(--spacing-200);
+  background-color: var(--color-palette-white);
+  border-radius: var(--radius-100);
 }
 
 .mdxContent :global(.twitter-tweet) {

@@ -18,7 +18,7 @@ export const Image: React.FC<ImageProps> = ({ caption, ...imageProps }) => {
         <ImageLightboxTrigger>
           <img
             alt={altText}
-            className="h-auto w-auto max-w-full rounded-50 bg-palette-gray-100"
+            className="h-auto w-auto max-w-full rounded-50 bg-palette-gray-800"
             {...imageProps}
           />
         </ImageLightboxTrigger>

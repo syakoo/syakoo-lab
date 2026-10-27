@@ -9,7 +9,7 @@
   overscroll-behavior: contain;
   background-color: var(--color-background-primary);
   color: var(--color-text-primary);
-  border-top: 1px solid var(--color-palette-gray-100);
+  border-top: 1px solid var(--color-palette-gray-800);
   border-radius: var(--radius-200) var(--radius-200) 0 0;
   padding: var(--spacing-200);
   box-shadow: 0 -8px 32px

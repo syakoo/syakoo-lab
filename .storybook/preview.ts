@@ -55,11 +55,11 @@ const preview: Preview = {
       values: [
         {
           name: "primary",
-          value: "#15212c", // background.primary
+          value: "#fbfcfe", // background.primary
         },
         {
           name: "secondary",
-          value: "#28394e", // background.secondary
+          value: "#eef2f7", // background.secondary
         },
       ],
     },

@@ -118,7 +118,8 @@ jobs:
       - name: Check container image matches installed Playwright
         run: |
           image="$(bash scripts/vrt-image.sh)"
-          if ! grep -qF "image: ${image}" .github/workflows/ci.yml; then
+          job_block="$(awk '/^  storybook-test:/{f=1;next} f&&/^  [a-z]/{exit} f' .github/workflows/ci.yml)"
+          if ! printf '%s\n' "${job_block}" | grep -qxF "      image: ${image}"; then
             echo "::error::Update the storybook-test container image in ci.yml to ${image}, then re-capture baselines (pnpm storybook:test:vrt:update)."
             exit 1
           fi

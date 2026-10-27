@@ -126,7 +126,7 @@ export const Drawer: React.FC<DrawerProps> = ({
       <aside
         aria-labelledby={titleId}
         aria-modal="false"
-        className={styles.sheet}
+        className={`${styles.sheet} paper`}
         data-closing={isClosing}
         onAnimationEnd={handleAnimationEnd}
         role="dialog"

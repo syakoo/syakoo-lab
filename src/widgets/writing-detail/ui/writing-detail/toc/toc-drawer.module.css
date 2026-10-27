@@ -14,14 +14,14 @@
   );
   backdrop-filter: blur(4px);
   color: var(--color-text-secondary);
-  border: 1px solid var(--color-palette-gray-100);
+  border: 1px solid var(--color-palette-gray-800);
   border-radius: var(--radius-1000);
   cursor: pointer;
 }
 
 .trigger:hover {
   color: var(--color-text-primary);
-  border-color: var(--color-palette-gray-200);
+  border-color: var(--color-palette-gray-700);
 }
 
 /* 800px mirrors writing-detail.module.css: sidebar hidden ↔ drawer visible */

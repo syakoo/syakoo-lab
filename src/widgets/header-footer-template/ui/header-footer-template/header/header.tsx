@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
   return (
     <Center>
       <Container as="header" size="200">
-        <div className="flex h-[74px] flex-wrap items-center justify-between gap-100 bg-background-primary/80 px-200 backdrop-blur-sm">
+        <div className="paper flex h-[74px] flex-wrap items-center justify-between gap-100 bg-background-primary/80 px-200 backdrop-blur-sm">
           <Link aria-label="Go to the homepage" href="/">
             <SyakooLabText />
           </Link>

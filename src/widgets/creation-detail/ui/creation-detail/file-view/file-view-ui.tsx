@@ -32,7 +32,7 @@ export const FileViewUI: FC<Props> = ({ children, fileName }) => {
         <Text size="75">{fileName}</Text>
       </button>
       {isOpen ? (
-        <div className="whitespace-pre-wrap break-all rounded-50 border border-palette-gray-200 p-100">
+        <div className="whitespace-pre-wrap break-all rounded-50 border border-palette-gray-700 p-100">
           {children}
         </div>
       ) : null}

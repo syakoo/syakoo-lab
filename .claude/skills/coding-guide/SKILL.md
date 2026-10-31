@@ -17,10 +17,18 @@ Follow the `project-structure` skill.
 
 Prefer **deep modules**: a small public surface with substantial work hidden inside. Callers should not need to know implementation details.
 
+- **Interface:** everything callers must know—signatures, preconditions, errors, call order
+- **Depth:** hidden work relative to interface size—higher is better
+- **Deletion test:** if deleting a module removes complexity, it was a pass-through; if complexity scatters to many call sites, it was doing real work
+- Avoid shallow wrappers (interface ≈ implementation), concepts over-split into tiny modules, and public APIs that leak complexity callers should not need
 - Public access to a slice stays on **`index.ts` only** (see `project-structure`)
 - Keep re-exports in the slice public-API barrel (`index.ts` / `index.server.ts` / `index.client.ts`) only. Do not add intermediate re-export-only files inside a slice (e.g. a `types.ts` that merely re-exports another module)—import from the original source directly, including downward into `contents/`
 
-During implementation, **make it work first**. Depth and API shape are audited in the **`self-review` loop before opening a PR** (clear Must fix; other notes optional)—not as a separate pass mid-feature.
+Module boundaries are agreed in `sdf-design` before implementation; the fresh-context review in `sdf-implement` checks the diff against this guide.
+
+## Dependencies
+
+Add a package only when the design asks for it; removing unused ones is fine. Use `pnpm add` / `pnpm remove` so the lockfile stays in sync. Never hand-edit `package.json` dependencies or `pnpm-lock.yaml`.
 
 ## Comments
 

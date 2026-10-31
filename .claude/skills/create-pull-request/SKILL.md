@@ -1,21 +1,26 @@
 ---
 name: create-pull-request
 description: >-
-  Create a PR aligned with the AI-led workflow: summary, design (when relevant),
-  impact and risks. Use when creating a pull request, opening a PR, pushing for review,
-  or completing implementation of an issue.
+  Open the Draft PR when an sdf piece of work starts, and finalize its body and
+  mark it ready when implementation is reviewed. Use when creating a pull request,
+  opening a draft PR, pushing for review, or completing an sdf implementation.
 ---
 
 # Create pull request
 
-## Workflow
+The PR is opened as a **Draft** when `sdf-requirements` starts (see the `sdf` rule) and finalized when `sdf-implement` has a clean review. Never open a second PR for the same work.
 
-1. Confirm the target issue and design notes.
-2. Ensure **Must fix** from **`self-review`** is `None`. Needs confirmation need not be empty: fix what you judge necessary, or list “not necessary” reasons under **Impact and risks**. If Must fix remains, return to the implement ↔ self-review loop.
-3. Read `git diff` and changed files.
-4. Draft title and body in the format below.
-5. Run `gh pr create` with **exactly one** semver label: `semver:major`, `semver:minor`, or
-   `semver:patch` (CI requires it; merge auto-bumps and releases from that label).
+## Open the Draft PR
+
+1. Push the branch: `git push -u origin HEAD`.
+2. `gh pr create --draft` with the title and a short body (the Problem section below; the rest is added at finalize).
+3. Attach exactly one `semver:*` label (CI requires it): `semver:major` = breaking, `semver:minor` = feature, `semver:patch` = fix/docs/chore. Adjust it at finalize if the impact changed.
+
+## Finalize
+
+1. Confirm the fresh-context review has no **Must fix** left.
+2. Rewrite the body in the format below with `gh pr edit --body-file -`.
+3. `gh pr ready`.
 
 ## Title
 
@@ -26,19 +31,19 @@ One short line that states intent. No prefix required.
 ````markdown
 ## Problem
 
-(What this PR solves. Include `Closes #XX` or `Refs #XX`.)
+(What this PR solves. Link `docs/specs/<YYYYMMDD>-<slug>/requirements.md`. Include `Closes #XX` when an issue exists.)
 
 ## Solution
 
-(Approach and main changes as bullets.)
+(Approach and main changes as bullets. Link `design.md`.)
 
-## Design
+## Deviations from the design
 
-<!-- Only for greenfield or design changes -->
+(Every deviation, including the small ones. "None" if there are none.)
 
-```mermaid
-(structure or flow diagram)
-```
+## Acceptance examples
+
+(The result for each acceptance example from the requirements.)
 
 ## Impact and risks
 
@@ -47,9 +52,6 @@ One short line that states intent. No prefix required.
 
 ## Rules
 
-- **Problem** and **Solution** are required.
-- **Design** only when introducing or changing architecture; omit the section if N/A.
-- **Impact and risks** is required even when the answer is "None".
-- List under **Impact and risks** any self-review **Needs confirmation** items left unfixed, with a short “not necessary because …” reason (also Tailwind tokens, missing tests, Storybook when intentional).
-- Attach exactly one **`semver:*` label** when opening the PR (`major` = breaking, `minor` = feature, `patch` = fix/docs/chore).
+- **Problem**, **Solution**, **Acceptance examples**, and **Impact and risks** are required, even when the answer is "None".
+- Under **Impact and risks**, list review **Needs clarification** items left unresolved, each with a short reason (also Tailwind tokens, missing tests, Storybook when intentional).
 - Do not guess intent—ask a human when unclear.

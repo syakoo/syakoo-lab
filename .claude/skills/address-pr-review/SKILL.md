@@ -62,7 +62,7 @@ Do **not** use when:
 
 6. **Implement** with minimal diff per item. No unrelated formatting or renames.
 7. **Post-change checks**
-   - `git diff` / `git status` for stray files and debug leftovers (same spirit as `self-review`)
+   - `git diff` / `git status` for stray files and debug leftovers
    - Run repo scripts (`pnpm lint`, `pnpm typecheck`, `pnpm test`, etc.) unless the user defers heavy/env-dependent runs
 8. **Commit and `git push`**. No force-push by default. Skip this step when step 4 says stop with no code changes.
 9. **Record SHAs:** `git rev-parse HEAD` (full and short). If multiple commits, map feedback → SHA.
@@ -133,4 +133,4 @@ For reply-only or blocked items, explain without a SHA.
 - Resolve **merge conflicts** only when intent is clear and tests are feasible; otherwise stop and ask.
 - **Resolve thread** may be user-only depending on permissions.
 - Do not leak secrets in comments or commits.
-- Prioritize **lint passing** and **staying within feedback scope** (same as `self-review`).
+- Prioritize **lint passing** and **staying within feedback scope**.

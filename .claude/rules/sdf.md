@@ -29,7 +29,7 @@ Optional. Use one as an inbox for an idea; there is no template. The PR number i
 | Requirements, design | Owner and Claude in a session | Owner approval before the next phase |
 | Implement | Claude, unattended | Only a design deviation, per `sdf-implement` |
 
-`@claude implement` on the Draft PR (`.github/workflows/claude.yml`) runs `sdf-implement` from `design.md`. Unattended runs cannot ask: list unresolved **Needs clarification** items under **Impact and risks** in the PR.
+`@claude implement` on the Draft PR (`.github/workflows/claude.yml`) runs `sdf-implement` from `design.md`. Unattended runs cannot ask: list unresolved **Needs clarification** items under **Impact and risks** in the PR. On a design deviation, stop instead: comment on the PR with what differed and the options, leave it a Draft, and push no further slices.
 
 ## Implement
 

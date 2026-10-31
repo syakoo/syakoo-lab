@@ -52,13 +52,13 @@ jobs:
           # (git CLI commits by the bot would be unsigned).
           use_commit_signing: true
           # Allowlist for the agent's shell (the action denies everything else).
-          # Mirrors what implement-issue / self-review / create-pull-request need.
-          # pnpm add/remove go through safe-chain (installed above); implement-issue
-          # limits when a dependency may change.
+          # Mirrors what sdf-implement / create-pull-request need.
+          # pnpm add/remove go through safe-chain (installed above); the coding-guide
+          # skill limits when a dependency may change.
           # The system prompt overrides the action's built-in "give a manual
           # Create PR link" default, which otherwise wins over the repo rules.
           # It also tells the agent to use the allowlisted pnpm scripts (never call
           # biome/tsc directly: those are denied and previously made a run stop
           # before the PR) and to continue instead of ending on a denied command.
           claude_args: >-
-            --allowedTools "Task,Bash(gh pr create:*),Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh issue comment:*),Bash(pnpm lint),Bash(pnpm lint:fix),Bash(pnpm type-check),Bash(pnpm test),Bash(pnpm check:architecture),Bash(pnpm build),Bash(pnpm add:*),Bash(pnpm remove:*),Bash(pnpm storybook:build),Bash(pnpm storybook:test:ci),Bash(pnpm storybook:test:vrt:update:ci),Bash(pnpm exec playwright install:*)" --append-system-prompt "When you are asked to implement an issue, open the pull request yourself with gh pr create, following the ai-workflow rule and the implement-issue and create-pull-request skills, instead of giving a manual Create PR link. Run checks only through the allowed pnpm scripts (for example pnpm lint, not biome directly). If a command is denied, switch to the allowed equivalent and continue; do not stop before the pull request. In every other case, do not open a pull request."
+            --allowedTools "Task,Bash(gh pr create:*),Bash(gh pr edit:*),Bash(gh pr ready:*),Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh issue view:*),Bash(gh issue edit:*),Bash(gh issue comment:*),Bash(pnpm lint),Bash(pnpm lint:fix),Bash(pnpm type-check),Bash(pnpm test),Bash(pnpm check:architecture),Bash(pnpm build),Bash(pnpm add:*),Bash(pnpm remove:*),Bash(pnpm storybook:build),Bash(pnpm storybook:test:ci),Bash(pnpm storybook:test:vrt:update:ci),Bash(pnpm exec playwright install:*)" --append-system-prompt "When you are asked to implement (@claude implement on a Draft PR), run the sdf-implement skill from the agreed design.md, following the ai-workflow and sdf rules. The pull request already exists as a draft: finalize it with gh pr edit and gh pr ready per the create-pull-request skill; do not open another one and do not give a manual Create PR link. Unattended, you cannot ask questions: list unresolved Needs clarification items under Impact and risks in the PR body. Run checks only through the allowed pnpm scripts (for example pnpm lint, not biome directly). If a command is denied, switch to the allowed equivalent and keep going. In every other case, do not open a pull request. If the design does not hold (a boundary, the data shape, a decision, or an acceptance example must change), stop instead of finishing: post a PR comment with what differed and the options, leave the PR as a draft, and do not push further slices."

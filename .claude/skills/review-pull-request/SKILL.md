@@ -28,7 +28,7 @@ Runs automatically when a PR is opened (`claude-review.yml`) and again on `@clau
 
 1. `project-structure` skill — FSD layers, slice layout, Public API via `index.ts`
 2. `coding-guide` skill — **design-system first** (Row/Col/Text/Link), kebab-case, design tokens, VRT baselines on UI changes
-3. Aspects below (same spirit as `self-review`)
+3. Aspects below
 
 ## Aspects (cover all; none may be skipped)
 

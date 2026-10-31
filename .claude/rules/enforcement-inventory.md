@@ -20,7 +20,8 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | kebab-case filenames | Lint | `biome.jsonc` → `useFilenamingConvention` |
 | `import type`, no default export, sorted Tailwind classes, etc. | Lint | `biome.jsonc` |
 | Conventional commit messages | Hook | `.commitlintrc.json` |
-| Prefer few logical commits on a feature branch (not one per tool turn) | Agent | `implement-issue` skill |
+| One commit per slice, subject ends with `(Slice N)`; state kept in git | Agent | `sdf` rule |
+| sdf documents location (`docs/specs/<YYYYMMDD>-<slug>/`), Draft PR first | Agent | `sdf` rule |
 | Code comments: no inverted deps; why only when surprising | Agent | `coding-guide` skill |
 | CSS Modules (`*.module.css`), colocated Vitest `*.test.ts` | Agent | `coding-guide` skill |
 | Storybook VRT default-on / `skip-vrt` opt-out; UI changes update baselines | Agent | `coding-guide` skill |
@@ -33,8 +34,9 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | `entities/` has no UI | Agent | `project-structure` skill |
 | Component layout, design-system first (`Row`/`Col`/`Text`/`Link` over raw flex) | Agent | `coding-guide` skill |
 | Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
-| Pre-PR self-review (Must fix gate; optional module-depth notes) | Agent | `self-review` agent |
-| AI workflow (design → implement ↔ self-review → PR) | Agent | `ai-workflow` rule |
+| Fresh-context review against requirements, design, and `coding-guide` (Must fix gate) | Agent | `sdf-implement` skill + `sdf` rule |
+| Module depth / design principles | Agent | `coding-guide` skill |
+| AI workflow (requirements → design → implement ↔ review → PR) | Agent | `ai-workflow` rule |
 | PR body format | Agent | `create-pull-request` skill |
 | PR review checklist | Agent | `review-pull-request` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |

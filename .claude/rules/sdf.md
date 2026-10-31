@@ -27,7 +27,7 @@ Optional. Use one as an inbox for an idea; there is no template. The PR number i
 | Phase | Who | Stops for |
 |-------|-----|-----------|
 | Requirements, design | Owner and Claude in a session | Owner approval before the next phase |
-| Implement | Claude, unattended | Only a design deviation, per `sdf-implement` |
+| Implement | Claude, unattended | Only a design or requirements deviation, per `sdf-implement` |
 
 `@claude implement` on the Draft PR (`.github/workflows/claude.yml`) runs `sdf-implement` from `design.md`. Unattended runs cannot ask: list unresolved **Needs clarification** items under **Impact and risks** in the PR. On a design deviation, stop instead: comment on the PR with what differed and the options, leave it a Draft, and push no further slices.
 
@@ -35,4 +35,4 @@ Optional. Use one as an inbox for an idea; there is no template. The PR number i
 
 - Checks before each slice commit: `pnpm lint`, `pnpm type-check`, `pnpm test`; UI changes also follow `coding-guide` → Storybook VRT.
 - The fresh-context review (Part 2) reads `coding-guide` and `project-structure` and checks the diff against them, on top of the default aspects.
-- When the review is clean, finalize the existing Draft PR with `create-pull-request` (body, then `gh pr ready`); do not open a second one.
+- When the review is clean, finalize the existing Draft PR with `create-pull-request` (body, then `gh pr ready`); do not open a second one. This overrides `sdf-implement` step 7 ("open the pull request").

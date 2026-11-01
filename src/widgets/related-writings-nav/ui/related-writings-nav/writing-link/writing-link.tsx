@@ -22,7 +22,9 @@ export const WritingLink: React.FC<WritingLinkProps> = ({ head }) => {
       </div>
       <Col gap="50">
         <Link href={writingPaths.detail(head.id)}>
-          <H4 size="100">{head.title}</H4>
+          <H4 size="100" weight="normal">
+            {head.title}
+          </H4>
         </Link>
         <Span color="secondary" size="50">
           {head.published}

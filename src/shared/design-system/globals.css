@@ -59,15 +59,15 @@
   --text-200: 18px;
   --text-300: 20px;
   --text-400: 22px;
-  --text-500: 28px;
-  --text-600: 32px;
+  --text-500: 25px;
+  --text-600: 28px;
   --text-700: 38px;
   --text-800: 46px;
 
   /* ===== Font Families ===== */
   /* Tailwind namespace: --font-* → font-* クラス */
   /* Keep in sync with tokens/font/web-fonts.ts (Storybook @fontsource). */
-  --font-primary: "Roboto", "Noto Sans JP Variable", "Noto Sans JP", sans-serif;
+  --font-primary: "Roboto", "Noto Sans JP", sans-serif;
   --font-code: "Fira Code", Consolas, monospace;
 
   /* ===== Border Radius ===== */
@@ -90,6 +90,17 @@
 
   /* ===== Animations ===== */
   --animate-fade-in: fade-in forwards cubic-bezier(0.25, 0.1, 0.05, 1.01);
+}
+
+/* Large headings are too big on narrow screens. Matches Tailwind's `md` breakpoint. */
+@media (max-width: 48rem) {
+  :root {
+    --text-400: 20px;
+    --text-500: 22px;
+    --text-600: 24px;
+    --text-700: 30px;
+    --text-800: 36px;
+  }
 }
 
 @keyframes fade-in {

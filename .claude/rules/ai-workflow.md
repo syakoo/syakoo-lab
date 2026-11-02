@@ -5,7 +5,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 ## Flow
 
 1. **Human**: Start from an idea (optionally a GitHub Issue as an inbox), then ask Claude to run `sdf-requirements`
-2. **Human/AI**: Co-write requirements, then design, in a session or async on GitHub; the human approves each (`sdf` rule)
+2. **Human/AI**: Co-write requirements, then design, in a session (Artifacts for sketches); the human reviews each on the Draft PR and approves (`sdf` rule)
 3. **AI**: Implement slice by slice, then review in a fresh context against the requirements, the design, and `coding-guide`
 4. **AI**: Finalize the Draft PR (`create-pull-request`); review it when ready (`review-pull-request`, `.github/workflows/claude-review.yml`)
 5. **Human**: Review behavior, Storybook, etc., and leave feedback
@@ -57,13 +57,10 @@ just trims context.
 
 ## Triggers
 
-Mention `@claude` on an issue, PR, or PR review (`.github/workflows/claude.yml`). **Only the repository owner can trigger it**; others' mentions are ignored. The one exception is the automatic review on PR open (`claude-review.yml`, same-repo non-draft PRs, read-only). The mention is the decision to proceed, so write the intent explicitly.
+Mention `@claude` on a PR or PR review (`.github/workflows/claude.yml`). **Only the repository owner can trigger it**; others' mentions are ignored. The one exception is the automatic review on PR open (`claude-review.yml`, same-repo non-draft PRs, read-only). The mention is the decision to proceed, so write the intent explicitly.
 
 | Comment | Step |
 |---------|------|
-| A plain `@claude` message (no keyword) in a new issue, or a reply, without a PR | Dig into the why (async mode, `sdf` rule) |
-| `@claude LGTM` on an issue without a PR | Write `requirements.md`, open the Draft PR |
-| `@claude LGTM` on a Draft PR with `requirements.md` in `draft` | Agree requirements, write `design.md` |
 | `@claude implement` on a Draft PR | Agree `design.md` (the mention is the approval), then run `sdf-implement` |
 | `@claude review` on a PR | `review-pull-request` again (the first review runs automatically when the PR opens) |
 | `@claude address` on a PR or review | `address-pr-review` |

@@ -18,7 +18,8 @@ A first-time visitor can learn from `README.md` alone what Syakoo Lab is, what i
 - Contribution guides, setup instructions, or a developer section in the README. Developer docs stay in `CLAUDE.md`, `.claude/rules/`, and the skills.
 - Screenshots (they add upkeep and would need VRT-like refreshing).
 - Translations: the README is English only.
-- Licensing and hosting information: the README mentions neither.
+- Licensing information: the README says nothing about it.
+- Hosting details beyond the architecture diagram (plans, settings, deploy steps).
 
 ## Experience
 
@@ -56,8 +57,8 @@ Decisions:
 - Architecture diagram: required (owner's choice).
 - Developer sections removed rather than shortened. Reason: nobody but the owner uses them, and the owner is served by `CLAUDE.md` and the rules. VRT steps already live in the `coding-guide` skill. (Default proposed; owner did not object.)
 - Branch: the session branch `ccr-d7cf56d1-wan009` is used instead of `claude/<slug>`, per the session setup.
-- Diagram scope: a high-level picture for visitors, not the FSD layer rules. Content (`src/contents`: writings, arts, games, webapps) and the build (static site generation, OG images, SEO files) flow into pages (Waku, React) published at syakoo-lab.com. (Owner's choice.)
+- Diagram scope: a high-level picture for visitors, not the FSD layer rules. Revised after review of the first implementation: GitHub holds the code and contents; Cloudflare picks them up, builds with Waku, hosts the result, and serves it to visitors. (Owner's choice.)
 - License: the README says nothing about license or reuse. (Owner's choice.)
-- Hosting: the README does not mention where the site is hosted. (Owner's choice.)
+- Hosting: first decided "not mentioned", then changed during implementation review: the architecture diagram shows GitHub and Cloudflare (see below). (Owner's choice.)
 
 Open questions: none.

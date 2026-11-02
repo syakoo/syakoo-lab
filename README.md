@@ -12,12 +12,20 @@ A personal website run by syakoo, built around the motto "interests that widen, 
 
 ## Architecture
 
-Contents are plain files in the repository. A build step turns them into a static site.
+Contents live in this GitHub repository. Cloudflare picks them up, builds the site with Waku, and serves the result to visitors.
 
 ```mermaid
 flowchart LR
-  C["Contents<br/>writings (MDX), arts, games, web apps"] --> B["Build<br/>OG images, SEO files, static pages (Waku)"]
-  B --> S["syakoo-lab.com<br/>Home, Writings, Creations"]
+  subgraph GH["GitHub"]
+    R["This repository<br/>code and contents (writings, arts, games, web apps)"]
+  end
+  subgraph CF["Cloudflare"]
+    B["Build<br/>Waku: OG images, SEO files, static pages"]
+    H["Hosting<br/>built site"]
+    B --> H
+  end
+  R -->|"picked up on build"| B
+  H -->|"serves syakoo-lab.com"| V["Visitors"]
 ```
 
 The site is built with [Waku](https://waku.gg), React, Tailwind CSS, and TypeScript. The code layout is described in the [`project-structure` skill](.claude/skills/project-structure/SKILL.md).

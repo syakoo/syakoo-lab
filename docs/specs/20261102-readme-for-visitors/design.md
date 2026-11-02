@@ -43,13 +43,7 @@ Nothing else references the README's removed sections (checked by search). The V
 | Architecture | Diagram below, plus one line on the stack (Waku, React, Tailwind CSS, TypeScript) and a link to the `project-structure` skill for the code layout rules |
 | Author | syakoo, link to https://github.com/syakoo |
 
-Architecture diagram (visitor-level, not the FSD rules):
-
-```mermaid
-flowchart LR
-  C["Contents<br/>writings (MDX), arts, games, web apps"] --> B["Build<br/>OG images, SEO files, static pages (Waku)"]
-  B --> S["syakoo-lab.com<br/>Home, Writings, Creations"]
-```
+Architecture diagram (visitor-level, not the FSD rules): the same diagram as in `README.md`, showing GitHub (repository with code and contents) feeding Cloudflare (Waku build, then hosting), which serves visitors at syakoo-lab.com.
 
 ## Acceptance trace
 
@@ -68,7 +62,7 @@ These are checked by reading, not by tests: the change has no code, so there are
 ## Decisions
 
 - **Mermaid, not an image.** GitHub renders it, it is diffable, and it needs no asset upkeep. Rejected: an exported PNG/SVG (stale-prone, binary diffs).
-- **Diagram at three boxes.** Visitors need the flow, not the layers. The layered layout is owned by `project-structure`; the README links to it (`single-source-of-truth`). Rejected: drawing FSD layers in the README (would copy the owner's rule).
+- **Diagram at the level of GitHub, Cloudflare, visitors.** Visitors need the flow, not the layers. The layered layout is owned by `project-structure`; the README links to it (`single-source-of-truth`). Rejected: drawing FSD layers in the README (would copy the owner's rule).
 - **"About me" is a profile section on the home page**, not a separate page, so the README lists it as "a short author profile on the home page" and adds no separate link. The requirements' wording "About me page" is read as this section. The owner chose to keep it in the list (the "Author" section also links to GitHub).
 - **No new tests or checks**, since only prose changes.
 
@@ -91,4 +85,6 @@ None.
 
 ## Changes during implementation
 
-None. The README section for the author profile is titled "Profile", as decided above.
+2026-11-02: the owner rejected the first diagram (Contents → Build → site) and asked for one showing GitHub and Cloudflare: GitHub holds the contents, Cloudflare builds with Waku and hosts the result for visitors. The README diagram and the "Diagram scope" and "Hosting" decisions in the requirements were changed accordingly. The repository holds no Cloudflare configuration, so the build/hosting flow comes from the owner.
+
+The README section for the author profile is titled "Profile", as decided above.

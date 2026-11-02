@@ -1,27 +1,35 @@
 # Syakoo Lab
 
-Personal site and lab for writings, creations, and experiments.
+A personal website run by syakoo, built around the motto "interests that widen, deepen, and lead to discovery."
 
-## Development
+**Visit the site: https://syakoo-lab.com**
 
-```bash
-pnpm install
-pnpm dev
+## What's on the site
+
+- **Writings**: articles.
+- **Creations**: arts, games, and web apps.
+- **Profile**: a short introduction to the author on the home page.
+
+## Architecture
+
+Contents live in this GitHub repository. Cloudflare picks them up, builds the site with Waku, and serves the result to visitors.
+
+```mermaid
+flowchart LR
+  subgraph GH["GitHub"]
+    R["This repository<br/>code and contents (writings, arts, games, web apps)"]
+  end
+  subgraph CF["Cloudflare"]
+    B["Build<br/>Waku: OG images, SEO files, static pages"]
+    H["Hosting<br/>built site"]
+    B --> H
+  end
+  R -->|"picked up on build"| B
+  H -->|"serves syakoo-lab.com"| V["Visitors"]
 ```
 
-## Quality checks
+The site is built with [Waku](https://waku.gg), React, Tailwind CSS, and TypeScript. The code layout is described in the [`project-structure` skill](.claude/skills/project-structure/SKILL.md).
 
-`pnpm lint` · `pnpm type-check` · `pnpm test`
+## Author
 
-Which tool or skill owns each standard is indexed in the `enforcement-inventory` rule under `.claude/rules/`.
-
-## Visual Regression Testing (VRT)
-
-Story screenshots live in `__snapshots__/vrt/`. The `storybook-test` CI job checks them as an **advisory (non-blocking)** check: mismatches post a PR comment and upload a diff artifact; they do not fail the job. Accessibility checks in that job still fail CI.
-
-Baselines target Linux/Chromium:
-
-- **macOS:** `pnpm storybook:test:vrt:update` (Playwright Docker image; first run is slow)
-- **Cloud / CI agent (already Linux):** `pnpm storybook:test:vrt:update:host` — do not nest Docker
-
-Full rules and the CI-artefact fallback live in the `coding-guide` skill.
+[syakoo](https://github.com/syakoo)

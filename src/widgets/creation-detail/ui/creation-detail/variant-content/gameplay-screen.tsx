@@ -36,7 +36,7 @@ export const GameplayScreen: FC<GameplayScreenProps> = ({
       </div>
       <div className="flex justify-end pt-50">
         <button
-          className="flex size-[19px] cursor-pointer rounded-50 p-25 text-text-primary transition-opacity duration-200 hover:opacity-80"
+          className="rounded-50 text-text-primary flex size-[19px] cursor-pointer p-25 transition-opacity duration-200 hover:opacity-80"
           onClick={handleFullscreen}
           type="button"
         >

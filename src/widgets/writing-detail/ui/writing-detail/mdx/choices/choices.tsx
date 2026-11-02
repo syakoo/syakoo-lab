@@ -19,8 +19,8 @@ export const Choice: React.FC<ChoiceProps> = ({ variant, ...otherProps }) => {
     <button
       className={cn(
         styles.button,
-        "block min-h-icon-sm w-full rounded-300 border border-background-secondary bg-background-primary px-100 py-50 text-current",
-        "hover:not-disabled:cursor-pointer hover:not-disabled:border-brand-primary hover:not-disabled:bg-background-secondary",
+        "min-h-icon-sm rounded-300 border-background-secondary bg-background-primary block w-full border px-100 py-50 text-current",
+        "hover:not-disabled:border-brand-primary hover:not-disabled:bg-background-secondary hover:not-disabled:cursor-pointer",
         variant === "CORRECT" &&
           "border-accent-success-foreground bg-accent-success-background",
         variant === "INCORRECT" &&

@@ -18,13 +18,13 @@ export const Image: React.FC<ImageProps> = ({ caption, ...imageProps }) => {
         <ImageLightboxTrigger>
           <img
             alt={altText}
-            className="h-auto w-auto max-w-full rounded-50 bg-palette-gray-800"
+            className="rounded-50 bg-palette-gray-800 h-auto w-auto max-w-full"
             {...imageProps}
           />
         </ImageLightboxTrigger>
       </ImageLightboxRoot>
       {caption ? (
-        <figcaption className="text-center text-text-secondary">
+        <figcaption className="text-text-secondary text-center">
           {caption}
         </figcaption>
       ) : null}

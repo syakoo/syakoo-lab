@@ -8,7 +8,7 @@ export const WebappLogo: FC<WebappLogoProps> = ({ logo, title }) => {
   return (
     <img
       alt={`${title}のロゴ`}
-      className="h-auto w-[64px] max-w-full rounded-100"
+      className="rounded-100 h-auto w-[64px] max-w-full"
       height={logo.height}
       src={logo.src}
       width={logo.width}

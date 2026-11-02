@@ -20,7 +20,7 @@ export const FileViewUI: FC<Props> = ({ children, fileName }) => {
   return (
     <div>
       <button
-        className="flex w-full cursor-pointer items-center gap-25 p-50 text-text-secondary hover:text-text-primary"
+        className="text-text-secondary hover:text-text-primary flex w-full cursor-pointer items-center gap-25 p-50"
         onClick={handleToggle}
         type="button"
       >
@@ -32,7 +32,7 @@ export const FileViewUI: FC<Props> = ({ children, fileName }) => {
         <Text size="75">{fileName}</Text>
       </button>
       {isOpen ? (
-        <div className="whitespace-pre-wrap break-all rounded-50 border border-palette-gray-700 p-100">
+        <div className="rounded-50 border-palette-gray-700 border p-100 break-all whitespace-pre-wrap">
           {children}
         </div>
       ) : null}

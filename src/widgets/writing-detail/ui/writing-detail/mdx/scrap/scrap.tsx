@@ -13,9 +13,9 @@ export const Scrap: React.FC<ScrapProps> = ({
 }) => {
   return (
     <article
-      className={`${styles.root} overflow-hidden rounded-100 bg-background-secondary p-100`}
+      className={`${styles.root} rounded-100 bg-background-secondary overflow-hidden p-100`}
     >
-      <div className="flex items-center gap-50 text-50 text-text-primary">
+      <div className="text-50 text-text-primary flex items-center gap-50">
         <time>{updatedAt || createdAt}</time>
         {updatedAt ? <span>(Edited)</span> : null}
       </div>

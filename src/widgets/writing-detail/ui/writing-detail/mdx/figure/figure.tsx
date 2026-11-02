@@ -11,7 +11,7 @@ type FigureProps = {
 
 export const FigureCaption: React.FC<FigureCaptionProps> = ({ children }) => {
   return (
-    <figcaption className="text-center text-text-secondary">
+    <figcaption className="text-text-secondary text-center">
       {children}
     </figcaption>
   );

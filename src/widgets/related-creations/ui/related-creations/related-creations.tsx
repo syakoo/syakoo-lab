@@ -30,7 +30,7 @@ export const RelatedCreations = async ({ id }: RelatedCreationsProps) => {
       <H3 size="400" weight="bold">
         Related Creations
       </H3>
-      <div className="overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <div className="[scrollbar-width:none] overflow-x-auto [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         <Row as="ul" gap="100">
           {relatedCreations.map((creation) => (
             <li key={creation.id}>

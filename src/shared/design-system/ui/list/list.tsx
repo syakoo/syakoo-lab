@@ -4,7 +4,7 @@ type ListProps = {
 
 export const List: React.FC<ListProps> = ({ children }) => {
   return (
-    <ul className="my-100 ml-300 list-disc leading-[1.8] marker:text-text-secondary">
+    <ul className="marker:text-text-secondary my-100 ml-300 list-disc leading-[1.8]">
       {children}
     </ul>
   );

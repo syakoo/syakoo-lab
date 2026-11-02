@@ -14,7 +14,7 @@ export const AboutMe: React.FC = () => {
         <Row gap="200">
           <img
             alt={name}
-            className="size-[64px] rounded-swaying"
+            className="rounded-swaying size-[64px]"
             height={imageSrc.height}
             src={imageSrc.src}
             width={imageSrc.width}

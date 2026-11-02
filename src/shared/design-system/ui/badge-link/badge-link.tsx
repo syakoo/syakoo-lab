@@ -16,10 +16,10 @@ export const BadgeLink: React.FC<BadgeLinkProps> = ({
 }) => {
   return (
     <Link href={href} noHovered noTransparent>
-      <div className="rounded-300 border border-palette-gray-700 py-25 pr-100 pl-50 hover:border-palette-gray-400 hover:bg-background-secondary">
+      <div className="rounded-300 border-palette-gray-700 hover:border-palette-gray-400 hover:bg-background-secondary border py-25 pr-100 pl-50">
         <Row align="center" gap="50">
           <div
-            className="flex size-[22px] rounded-1000 p-50"
+            className="rounded-1000 flex size-[22px] p-50"
             style={{ backgroundColor: color }}
           >
             <Icon className="text-text-primary" name="link" />

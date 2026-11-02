@@ -17,7 +17,7 @@ export const WritingBlock: React.FC<WritingBlockProps> = ({ head }) => {
 
   return (
     <Row align="center" as="article" gap="200">
-      <div className="flex size-[36px] rounded-swaying bg-background-secondary p-100 text-text-primary">
+      <div className="rounded-swaying bg-background-secondary text-text-primary flex size-[36px] p-100">
         <Icon name={iconName} />
       </div>
       <div>

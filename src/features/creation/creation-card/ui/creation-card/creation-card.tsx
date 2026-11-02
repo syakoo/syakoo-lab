@@ -25,7 +25,7 @@ export const CreationCard: FC<CreationCardProps> = ({ ...creation }) => {
   return (
     <div className="relative w-full min-w-[150px]">
       <Col gap="50">
-        <div className="relative aspect-square w-full overflow-hidden rounded-200">
+        <div className="rounded-200 relative aspect-square w-full overflow-hidden">
           <img
             alt=""
             className="absolute inset-0 size-full object-cover transition-transform duration-300"
@@ -33,7 +33,7 @@ export const CreationCard: FC<CreationCardProps> = ({ ...creation }) => {
           />
           <div
             aria-label={creation.type}
-            className="absolute right-50 bottom-50 flex size-[26px] items-center justify-center rounded-100 bg-background-primary p-50"
+            className="rounded-100 bg-background-primary absolute right-50 bottom-50 flex size-[26px] items-center justify-center p-50"
             role="img"
           >
             <Icon name={creationTypes[creation.type].icon} />

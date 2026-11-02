@@ -3,5 +3,5 @@ type BigProps = {
 };
 
 export const Big: React.FC<BigProps> = ({ children }) => {
-  return <p className="my-300 font-bold text-400">{children}</p>;
+  return <p className="text-400 my-300 font-bold">{children}</p>;
 };

@@ -35,9 +35,9 @@ Optional. Use one as an inbox for an idea; there is no template. The PR number i
 
 Requirements and design can run as `@claude` comments instead of a session; the triggers are in the `ai-workflow` rule. This overrides the interactive parts of `sdf-requirements` (one question cluster at a time, review with the user) and its Artifact sketch; the rest of the skill applies unchanged.
 
-- **Why, on the issue.** Ask the `sdf-requirements` why-questions in one comment, each with a proposed default. At most 3 rounds. Pictures on the issue are Mermaid or ASCII only; there is no branch yet, and Artifacts are unavailable unattended.
+- **Why, on the issue.** Ask the `sdf-requirements` why-questions in one comment, each with a proposed default. At most 3 rounds; if the why is still unclear, stop asking and list what is unclear under "Decisions and open questions" in `requirements.md`. Pictures on the issue are Mermaid or ASCII only; there is no branch yet, and Artifacts are unavailable unattended.
 - **Hand-off to git.** The Draft PR opens here, not when the first question is asked (this overrides "When `sdf-requirements` starts" under State lives in git). On `@claude LGTM` on the issue, cut `claude/<slug>`, commit `requirements.md` (`status: draft`), and open the Draft PR (`Closes #n`). Link it on the issue. HTML sketches go in `sketch/` on that branch.
-- **Approvals.** `@claude LGTM` on the PR marks `requirements.md` `agreed` and writes `design.md` (`status: draft`) on the same PR. Approving the design is `@claude implement` (above).
+- **Approvals.** What each mention does is in the `ai-workflow` Triggers table. A new `design.md` starts as `status: draft`.
 - **Right state only.** Act only when the document status matches the trigger. Otherwise comment why and stop.
 - **Say what is next.** End each comment with a `Next:` line naming the trigger that moves on.
 

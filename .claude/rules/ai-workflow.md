@@ -61,10 +61,10 @@ Mention `@claude` on an issue, PR, or PR review (`.github/workflows/claude.yml`)
 
 | Comment | Step |
 |---------|------|
-| `@claude` in a new issue, or a reply, without a PR | Dig into the why (async mode, `sdf` rule) |
+| A plain `@claude` message (no keyword) in a new issue, or a reply, without a PR | Dig into the why (async mode, `sdf` rule) |
 | `@claude LGTM` on an issue without a PR | Write `requirements.md`, open the Draft PR |
 | `@claude LGTM` on a Draft PR with `requirements.md` in `draft` | Agree requirements, write `design.md` |
-| `@claude implement` on a Draft PR | Agree `design.md`, then run `sdf-implement` |
+| `@claude implement` on a Draft PR | Agree `design.md` (the mention is the approval), then run `sdf-implement` |
 | `@claude review` on a PR | `review-pull-request` again (the first review runs automatically when the PR opens) |
 | `@claude address` on a PR or review | `address-pr-review` |
 

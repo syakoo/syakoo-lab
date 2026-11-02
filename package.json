@@ -72,11 +72,11 @@
     ],
     "overrides": {
       "axios": "^1.15.0",
-      "jest": "30.4.2",
-      "jest-circus": "30.4.2",
-      "jest-runner": "30.4.2",
-      "jest-environment-node": "30.4.1",
-      "@jest/types": "30.4.1"
+      "jest": "30.5.2",
+      "jest-circus": "30.5.2",
+      "jest-runner": "30.5.2",
+      "jest-environment-node": "30.5.2",
+      "@jest/types": "30.5.1"
     }
   },
   "devDependencies": {
@@ -87,7 +87,7 @@
     "@storybook/addon-docs": "^10.6.3",
     "@storybook/addon-links": "^10.6.3",
     "@storybook/react-vite": "^10.6.3",
-    "@storybook/test-runner": "^0.24.5",
+    "@storybook/test-runner": "^0.26.0",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.3.2",
     "@types/gtag.js": "^0.0.20",
@@ -112,5 +112,5 @@
     "vitest": "^4.0.0",
     "wait-on": "^8.0.4"
   },
-  "packageManager": "pnpm@10.34.5"
+  "packageManager": "pnpm@10.34.9"
 }

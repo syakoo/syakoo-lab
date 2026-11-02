@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.12/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.6.4/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -34,6 +34,11 @@
       "trailingCommas": "all",
       "arrowParentheses": "always"
     }
+  },
+  "markdown": {
+    // NOTE: Biome 2.6 以降 Markdown も対象になるが、従来どおり対象外にするため
+    "formatter": { "enabled": false },
+    "linter": { "enabled": false }
   },
   "linter": {
     "enabled": true,
@@ -90,14 +95,13 @@
         "noDangerouslySetInnerHtml": "warn"
       },
       "nursery": {
-        "useSortedClasses": {
-          "level": "error",
-          "options": {
-            "functions": ["cva", "cn"]
-          }
-        }
+        "useTailwindSortedClasses": "error"
       }
     }
+  },
+  "tailwind": {
+    "mergeFunctions": ["cn"],
+    "variantFunctions": ["cva"]
   },
   "overrides": [
     {

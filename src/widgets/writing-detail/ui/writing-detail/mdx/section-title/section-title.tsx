@@ -13,7 +13,7 @@ type SectionTitleProps = {
 export const SectionTitle: React.FC<SectionTitleProps> = ({ children, id }) => {
   return (
     <h2
-      className={`${styles.title} relative mt-500 mb-200 scroll-mt-[calc(var(--spacing-200)+var(--size-header))] py-200 font-bold text-500`}
+      className={`${styles.title} text-500 relative mt-500 mb-200 scroll-mt-[calc(var(--spacing-200)+var(--size-header))] py-200 font-bold`}
       id={id}
     >
       <Link href={`#${id}`}>{children}</Link>

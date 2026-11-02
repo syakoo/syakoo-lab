@@ -15,7 +15,7 @@ export const SubSectionTitle: React.FC<SubSectionTitleProps> = ({
   id,
 }) => {
   return (
-    <h3 className="mt-400 mb-200 scroll-mt-200 font-bold text-300" id={id}>
+    <h3 className="text-300 mt-400 mb-200 scroll-mt-200 font-bold" id={id}>
       <Link href={`#${id}`}>{children}</Link>
     </h3>
   );

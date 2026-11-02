@@ -28,7 +28,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({
 
   return (
     <Link display="block" href={url}>
-      <div className="my-200 overflow-hidden rounded-100 border border-background-secondary bg-background-primary">
+      <div className="rounded-100 border-background-secondary bg-background-primary my-200 overflow-hidden border">
         <div className="px-100 py-200">
           <Col gap="50">
             <div className="line-clamp-2">

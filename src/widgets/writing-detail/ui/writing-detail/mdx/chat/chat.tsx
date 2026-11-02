@@ -42,7 +42,7 @@ export const Chat: React.FC<ChatProps> = ({ children, image, right }) => {
     >
       <img
         alt=""
-        className="size-[42px] rounded-1000"
+        className="rounded-1000 size-[42px]"
         src={images[image].src}
       />
       <div

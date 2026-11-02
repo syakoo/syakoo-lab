@@ -19,7 +19,7 @@ export const Note: React.FC<NoteProps> = ({
       aria-label={ariaLabel}
       className={cn(
         styles.wrapper,
-        "mx-0 my-200 flex items-start gap-100 rounded-50 p-100",
+        "rounded-50 mx-0 my-200 flex items-start gap-100 p-100",
         variant === "note" && "bg-accent-success-background",
         variant === "warn" && "bg-accent-warn-background",
       )}

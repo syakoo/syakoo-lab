@@ -20,7 +20,7 @@ export const TocView: React.FC<TocViewProps> = ({
   return (
     <nav>
       {!hideTitle && <Text weight="bold">目次</Text>}
-      <ul className="mt-50 flex max-w-container-50 flex-col gap-25">
+      <ul className="max-w-container-50 mt-50 flex flex-col gap-25">
         {items.map(({ label, id, depth }) => (
           <li
             key={id}

@@ -13,7 +13,7 @@ export const Links: React.FC<LinksProps> = ({ links }) => {
         <li key={link.name}>
           <Link href={link.url}>
             <div
-              className="flex rounded-50 bg-palette-white p-25"
+              className="rounded-50 bg-palette-white flex p-25"
               title={link.name}
             >
               <img

@@ -7,7 +7,7 @@ export const PageNotFound: React.FC = () => {
   return (
     <section>
       <Row align="flexEnd" as="header" gap="300">
-        <div className="font-['arial_black'] font-bold text-800 text-brand-primary">
+        <div className="text-800 text-brand-primary font-['arial_black'] font-bold">
           404
         </div>
         <div>

@@ -49,7 +49,7 @@ export const WritingTab: React.FC<WritingTabProps> = ({ selectedType }) => {
               className={cn(
                 "p-100 no-underline",
                 isActive
-                  ? "border-current border-b-4 text-text-primary"
+                  ? "text-text-primary border-b-4 border-current"
                   : "text-text-secondary",
               )}
             >

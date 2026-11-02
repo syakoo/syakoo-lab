@@ -1,7 +1,7 @@
 # README for visitors
 
 - Date: 2026-11-02
-- Status: draft
+- Status: agreed
 - Issue: #380
 
 ## Why

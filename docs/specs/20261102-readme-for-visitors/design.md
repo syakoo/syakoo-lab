@@ -1,7 +1,7 @@
 # README for visitors: design
 
 - Date: 2026-11-02
-- Status: agreed
+- Status: implemented
 - Requirements: [requirements.md](./requirements.md)
 
 ## Approach
@@ -88,3 +88,7 @@ None.
 - `single-source-of-truth` rule: the README links to `project-structure` instead of copying it.
 - `enforcement-inventory` rule: confirms no lint or architecture check is affected by a README change.
 - No rule was found for README content or Mermaid use; existing code conventions do not apply to prose.
+
+## Changes during implementation
+
+None. The README section for the author profile is titled "Profile", as decided above.

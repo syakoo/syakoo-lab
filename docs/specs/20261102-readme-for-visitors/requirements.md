@@ -1,7 +1,7 @@
 # README for visitors
 
 - Date: 2026-11-02
-- Status: agreed
+- Status: implemented
 - Issue: #380
 
 ## Why
@@ -56,7 +56,6 @@ Decisions:
 - Architecture diagram: required (owner's choice).
 - Developer sections removed rather than shortened. Reason: nobody but the owner uses them, and the owner is served by `CLAUDE.md` and the rules. VRT steps already live in the `coding-guide` skill. (Default proposed; owner did not object.)
 - Branch: the session branch `ccr-d7cf56d1-wan009` is used instead of `claude/<slug>`, per the session setup.
-
 - Diagram scope: a high-level picture for visitors, not the FSD layer rules. Content (`src/contents`: writings, arts, games, webapps) and the build (static site generation, OG images, SEO files) flow into pages (Waku, React) published at syakoo-lab.com. (Owner's choice.)
 - License: the README says nothing about license or reuse. (Owner's choice.)
 - Hosting: the README does not mention where the site is hosted. (Owner's choice.)

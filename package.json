@@ -8,8 +8,7 @@
   },
   "scripts": {
     "prepare": "git rev-parse --is-inside-work-tree > /dev/null 2>&1 && git config --local include.path ../.githooks || true",
-    "dev": "run-p dev:*",
-    "dev:local": "pnpm run build:seo-files && waku dev",
+    "dev": "pnpm run build:seo-files && waku dev",
     "build": "pnpm run build:og-images && pnpm run build:seo-files && pnpm run build:waku",
     "build:waku": "waku build",
     "build:seo-files": "tsx --tsconfig ./tsconfig.json --import ./scripts/register-image-loader.mjs ./scripts/generate-seo-files.ts",
@@ -102,7 +101,6 @@
     "http-server": "^14.1.1",
     "jest-image-snapshot": "^6.5.2",
     "jsdom": "^22.1.0",
-    "npm-run-all2": "^5.0.0",
     "playwright": "^1.55.0",
     "scaffdog": "^3.0.0",
     "storybook": "^10.6.3",

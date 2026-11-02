@@ -1,7 +1,7 @@
 {
   "name": "syakoo-lab",
   "type": "module",
-  "version": "6.10.3",
+  "version": "6.10.4",
   "engines": {
     "node": ">=24.0.0",
     "pnpm": ">=10.22.0"
@@ -45,7 +45,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "date-fns": "^2.30.0",
-    "glob": "^11.1.0",
+    "glob": "^14.0.0",
     "gray-matter": "^4.0.3",
     "mermaid": "^11.0.0",
     "probe-image-size": "^7.2.3",

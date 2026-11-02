@@ -1,7 +1,7 @@
 # README for visitors: design
 
 - Date: 2026-11-02
-- Status: draft
+- Status: agreed
 - Requirements: [requirements.md](./requirements.md)
 
 ## Approach

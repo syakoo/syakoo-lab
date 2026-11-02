@@ -39,7 +39,7 @@ Nothing else references the README's removed sections (checked by search). The V
 | Section | Content |
 | --- | --- |
 | Title and summary | `# Syakoo Lab`, one-line description, motto, link to https://syakoo-lab.com |
-| What's on the site | Writings, Creations (arts, games, web apps), and the About me section on the home page |
+| What's on the site | Writings (articles), Creations (arts, games, web apps), and a short author profile on the home page. One link only: the site itself |
 | Architecture | Diagram below, plus one line on the stack (Waku, React, Tailwind CSS, TypeScript) and a link to the `project-structure` skill for the code layout rules |
 | Author | syakoo, link to https://github.com/syakoo |
 
@@ -69,7 +69,7 @@ These are checked by reading, not by tests: the change has no code, so there are
 
 - **Mermaid, not an image.** GitHub renders it, it is diffable, and it needs no asset upkeep. Rejected: an exported PNG/SVG (stale-prone, binary diffs).
 - **Diagram at three boxes.** Visitors need the flow, not the layers. The layered layout is owned by `project-structure`; the README links to it (`single-source-of-truth`). Rejected: drawing FSD layers in the README (would copy the owner's rule).
-- **"About me" is a section on the home page**, not a separate page, so the README says so. The requirements' wording "About me page" is read as this section.
+- **"About me" is a profile section on the home page**, not a separate page, so the README lists it as "a short author profile on the home page" and adds no separate link. The requirements' wording "About me page" is read as this section. The owner chose to keep it in the list (the "Author" section also links to GitHub).
 - **No new tests or checks**, since only prose changes.
 
 ## Slices

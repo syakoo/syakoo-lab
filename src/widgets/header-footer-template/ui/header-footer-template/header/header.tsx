@@ -18,8 +18,10 @@ const NavLink: React.FC<{
   exact?: boolean;
   href: string;
 }> = ({ children, exact = false, href }) => {
+  // NOTE: Waku のルーターは path の末尾スラッシュを落とすため、href 側もそろえて比較する
   const pathname = usePathname();
-  const isActive = exact ? pathname === href : pathname.startsWith(href);
+  const target = href.length > 1 ? href.replace(/\/$/, "") : href;
+  const isActive = exact ? pathname === target : pathname.startsWith(target);
 
   return (
     <Link href={href} noHovered={isActive}>

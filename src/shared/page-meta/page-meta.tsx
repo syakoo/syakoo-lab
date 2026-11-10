@@ -29,7 +29,11 @@ export const PageMeta: React.FC<PageMetaProps> = ({
     <>
       <title>{title}</title>
       <meta content={siteConfig.description} name="description" />
-      {noindex ? <meta content="noindex" name="robots" /> : null}
+      {noindex ? (
+        <meta content="noindex" name="robots" />
+      ) : (
+        <link href={url} rel="canonical" />
+      )}
       <meta content="website" property="og:type" />
       <meta content={title} property="og:title" />
       <meta content={siteConfig.description} property="og:description" />

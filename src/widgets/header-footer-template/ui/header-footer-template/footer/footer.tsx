@@ -25,12 +25,12 @@ export const Footer: React.FC = () => {
                   Home
                 </Text>
               </Link>
-              <Link href="/privacy-policy">
+              <Link href="/privacy-policy/">
                 <Text as="span" color="secondary">
                   Privacy Policy
                 </Text>
               </Link>
-              <Link href="/terms">
+              <Link href="/terms/">
                 <Text as="span" color="secondary">
                   Terms
                 </Text>

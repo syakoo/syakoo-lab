@@ -1,3 +1,4 @@
+import { creationPaths } from "../../../../entities/creation";
 import { readCreationSummaries } from "../../../../entities/creation/index.server";
 import { CreationCard } from "../../../../features/creation/creation-card";
 import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
@@ -34,7 +35,7 @@ export const RelatedCreations = async ({ id }: RelatedCreationsProps) => {
         <Row as="ul" gap="100">
           {relatedCreations.map((creation) => (
             <li key={creation.id}>
-              <Link href={`/creations/${creation.id}`}>
+              <Link href={creationPaths.detail(creation.id)}>
                 <CreationCard {...creation} />
               </Link>
             </li>

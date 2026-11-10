@@ -9,6 +9,7 @@ import { Row } from "../../../../../shared/design-system/layout/flex/flex";
 import { Link } from "../../../../../shared/design-system/ui/link/link";
 import { Span } from "../../../../../shared/design-system/ui/text/text";
 import { usePathname } from "../../../../../shared/router/router";
+import { isActivePath } from "./is-active-path";
 import { SyakooLabText } from "./syakoo-lab-text/syakoo-lab-text";
 
 export const headerHeightPx = 74;
@@ -18,10 +19,8 @@ const NavLink: React.FC<{
   exact?: boolean;
   href: string;
 }> = ({ children, exact = false, href }) => {
-  // NOTE: Waku のルーターは path の末尾スラッシュを落とすため、href 側もそろえて比較する
   const pathname = usePathname();
-  const target = href.length > 1 ? href.replace(/\/$/, "") : href;
-  const isActive = exact ? pathname === target : pathname.startsWith(target);
+  const isActive = isActivePath(pathname, href, exact);
 
   return (
     <Link href={href} noHovered={isActive}>

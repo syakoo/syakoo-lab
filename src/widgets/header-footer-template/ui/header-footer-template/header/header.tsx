@@ -9,6 +9,7 @@ import { Row } from "../../../../../shared/design-system/layout/flex/flex";
 import { Link } from "../../../../../shared/design-system/ui/link/link";
 import { Span } from "../../../../../shared/design-system/ui/text/text";
 import { usePathname } from "../../../../../shared/router/router";
+import { isActivePath } from "./is-active-path";
 import { SyakooLabText } from "./syakoo-lab-text/syakoo-lab-text";
 
 export const headerHeightPx = 74;
@@ -19,7 +20,7 @@ const NavLink: React.FC<{
   href: string;
 }> = ({ children, exact = false, href }) => {
   const pathname = usePathname();
-  const isActive = exact ? pathname === href : pathname.startsWith(href);
+  const isActive = isActivePath(pathname, href, exact);
 
   return (
     <Link href={href} noHovered={isActive}>

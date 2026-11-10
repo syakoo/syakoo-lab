@@ -7,13 +7,13 @@ import { H2, H3, P } from "../shared/design-system/ui/text/text";
 import { PageMeta } from "../shared/page-meta/page-meta";
 import { HeaderFooterTemplate } from "../widgets/header-footer-template";
 
-const PrivacyPolicyPage = () => {
+const TermsPage = () => {
   return (
     <HeaderFooterTemplate>
       <PageMeta
         noindex
-        path="/privacy-policy"
-        title={formatPageTitle("Privacy Policy")}
+        path="/terms/"
+        title={formatPageTitle("Terms of Use")}
       />
       <Container as="main" center paddingX="200" paddingY="400" size="100">
         <H2>Terms of Use</H2>
@@ -86,4 +86,4 @@ const PrivacyPolicyPage = () => {
   );
 };
 
-export default PrivacyPolicyPage;
+export default TermsPage;

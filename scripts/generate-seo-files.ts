@@ -4,6 +4,8 @@ import { resolve } from "node:path";
 import { readGameContents } from "../src/contents/games/reader";
 import { readWebappContents } from "../src/contents/webapps/reader";
 import { readWritingContents } from "../src/contents/writings/reader";
+import { creationPaths } from "../src/entities/creation/helpers/paths/creation-paths";
+import { writingPaths } from "../src/entities/writing/helpers/paths/writing-paths";
 
 const PUBLIC_DIR = resolve(import.meta.dirname, "../public");
 const basePath = "https://syakoo-lab.com";
@@ -42,17 +44,17 @@ const buildSitemap = async () => {
     ...writingContents
       .filter(({ frontMatter }) => !frontMatter.noindex)
       .map(({ frontMatter }) => ({
-        url: `${basePath}/writings/${frontMatter.id}`,
+        url: `${basePath}${writingPaths.detail(frontMatter.id)}`,
         lastModified: frontMatter.updated ?? frontMatter.published,
       })),
     ...gameContents
       .filter(({ frontMatter }) => !frontMatter.noindex)
       .map(({ frontMatter }) => ({
-        url: `${basePath}/creations/${frontMatter.id}`,
+        url: `${basePath}${creationPaths.detail(frontMatter.id)}`,
         lastModified: frontMatter.updated ?? frontMatter.published,
       })),
     ...webappContents.map((webapp) => ({
-      url: `${basePath}/creations/${webapp.id}`,
+      url: `${basePath}${creationPaths.detail(webapp.id)}`,
       lastModified: webapp.releasedAt,
     })),
   ];
@@ -63,7 +65,7 @@ const buildSitemap = async () => {
     .reduce((max, time) => Math.max(max, time), 0);
 
   const entries = [
-    { url: basePath, lastModified: new Date(newestLastModified) },
+    { url: `${basePath}/`, lastModified: new Date(newestLastModified) },
     // NOTE: reader の読み込み順は実行ごとに変わり得るため、url でソートして出力を安定させる
     ...contentEntries.sort((a, b) =>
       a.url < b.url ? -1 : a.url > b.url ? 1 : 0,

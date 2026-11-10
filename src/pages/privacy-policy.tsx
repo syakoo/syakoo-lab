@@ -12,7 +12,7 @@ const PrivacyPolicyPage = () => {
     <HeaderFooterTemplate>
       <PageMeta
         noindex
-        path="/privacy-policy"
+        path="/privacy-policy/"
         title={formatPageTitle("Privacy Policy")}
       />
       <Container as="main" center paddingX="200" paddingY="400" size="100">

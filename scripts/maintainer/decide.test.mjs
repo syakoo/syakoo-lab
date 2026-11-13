@@ -66,6 +66,21 @@ describe("decide", () => {
     expect(d.kind).toBe("wait");
   });
 
+  it("ignores external deploy-preview checks, pending or failed", () => {
+    for (const cf of [
+      { name: "Cloudflare Pages: x", status: "in_progress", conclusion: null },
+      {
+        name: "Cloudflare Pages: x",
+        status: "completed",
+        conclusion: "failure",
+      },
+    ]) {
+      expect(decide(snap({ checks: [green, reviewDone, cf] })).kind).toBe(
+        "merge",
+      );
+    }
+  });
+
   it("sends semver:minor to the owner (5)", () => {
     const d = decide(snap({ labels: ["semver:minor"] }));
     expect(d).toMatchObject({

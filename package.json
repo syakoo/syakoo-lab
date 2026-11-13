@@ -101,7 +101,7 @@
     "jest-image-snapshot": "^6.5.2",
     "jsdom": "^22.1.0",
     "playwright": "^1.55.0",
-    "scaffdog": "^3.0.0",
+    "scaffdog": "^4.0.0",
     "storybook": "^10.6.3",
     "tsx": "^4.20.5",
     "typescript": "^5.7.2",

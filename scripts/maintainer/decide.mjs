@@ -9,7 +9,6 @@
  */
 
 export const OWNER = "syakoo";
-export const RENOVATE_GROUP_BRANCH = "renovate/minor-and-patch-updates";
 export const MAX_FIX_ATTEMPTS = 2;
 export const MAX_REVIEW_RUNS_PER_DISPATCH = 2;
 export const MAX_REVIEWS_PER_ROUND = 3;
@@ -90,9 +89,11 @@ export function decide(s) {
   // 2. Hard conditions. Impact is not here: it only limits merging (rule 8).
   const author = normalizeLogin(s.author);
   const isOwner = author === OWNER;
-  const isRenovate = author === "renovate";
-  if (!isOwner && !isRenovate)
-    return human(`author ${s.author} is not the owner or Renovate`);
+  // Renovate PRs are batched by the owner (no review, no merge, no label from here):
+  // an automatic review on every rebase costs more than the PRs are worth.
+  if (author === "renovate")
+    return { kind: "ignore", reason: "Renovate PRs are handled by the owner" };
+  if (!isOwner) return human(`author ${s.author} is not the owner`);
   if (s.base !== "main") return human(`base is ${s.base}, not main`);
   const protectedFile = s.files.find(isProtectedPath);
   if (protectedFile)
@@ -188,14 +189,9 @@ export function decide(s) {
     return { kind: "wait", reason: `merge state is ${s.mergeState}` };
 
   // 8. Impact.
-  if (isRenovate) {
-    if (s.branch !== RENOVATE_GROUP_BRANCH)
-      return human("major update: summary only");
-  } else {
-    const semver = s.labels.filter((l) => l.startsWith("semver:"));
-    if (semver.length !== 1 || semver[0] !== "semver:patch")
-      return human("semver:minor needs the owner");
-  }
+  const semver = s.labels.filter((l) => l.startsWith("semver:"));
+  if (semver.length !== 1 || semver[0] !== "semver:patch")
+    return human("semver:minor needs the owner");
   if (!s.switchOn) return human("would merge, but the switch is off", false);
   return { kind: "merge", reason: "all conditions hold" };
 }

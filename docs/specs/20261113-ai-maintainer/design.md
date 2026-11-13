@@ -168,10 +168,7 @@ Qualities: **Safety** = rules 2/7/8 plus GitHub's protection. **Control** = the 
 
 | Case | Handled by |
 | --- | --- |
-| Review of Renovate PRs | `claude-review.yml` already has `allowed_bots: "claude,renovate"`; `synchronize` (Renovate rebases) and `workflow_dispatch` are added |
-| Minor and patch group (`renovate/minor-and-patch-updates`) | `decide` rules 2–8; CI red → `triage ci`; merges when clean |
-| Majors and any other Renovate branch | CI red → `triage ci` (requirements: Claude may fix CI on majors); when everything else holds, rule 8 → `human` with "major update: summary only" |
-| Actions updates (touch `.github/`) | rule 2 path check → `human` |
+| Review, triage, merge, label | None. Superseded: `decide` returns `ignore` for Renovate PRs and `claude-review.yml` skips them, because a review on every rebase costs more than the PRs are worth. The owner batches them with a separate skill |
 | `workflow_run.pull_requests` empty | snapshot falls back to open PRs whose head sha matches |
 | Author login | the API reports `renovate[bot]` (GraphQL: `renovate`); `snapshot.mjs` normalizes both |
 

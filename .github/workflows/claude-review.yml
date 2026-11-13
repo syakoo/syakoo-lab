@@ -28,10 +28,12 @@ jobs:
     # The check name is what `decide.mjs` looks for (REVIEW_CHECK_PREFIX).
     name: Claude Review
     # Same-repo, non-draft PRs only. Fork PRs get no secrets and are not reviewed.
+    # Renovate PRs are not reviewed (cost); the owner batches them.
     # For workflow_dispatch the guard step checks the same things through the API.
     if: >-
       github.event_name == 'workflow_dispatch' ||
       (github.event.pull_request.draft == false &&
+      github.event.pull_request.user.login != 'renovate[bot]' &&
       github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
     timeout-minutes: 30

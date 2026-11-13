@@ -1,0 +1,135 @@
+name: Maintainer
+
+# The AI maintainer gate. Each run re-reads one PR and decides again (`decide.mjs`);
+# it never trusts the event that woke it, so a missed event only delays a decision.
+# Wakes: CI / Claude Review finishing, a 30-minute sweeper, and manual dispatch.
+# Rules and cost ceilings: docs/specs/20261113-ai-maintainer/design.md.
+# Runs code from main only. The PR's code is never checked out here.
+# Kill switch: repository variable AI_MAINTAINER_MERGE=on (unset = status comments only).
+
+on:
+  workflow_run:
+    workflows: [CI, Claude Review, Claude]
+    types: [completed]
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: "Pull request number (empty: sweep every open PR)"
+        required: false
+        type: string
+
+# One run per PR; a later run waits for the earlier one instead of cancelling it.
+concurrency:
+  group: maintainer-${{ github.event.workflow_run.pull_requests[0].number || github.event.workflow_run.head_sha || inputs.pr || 'sweep' }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  sweep:
+    # Schedule, or dispatch without a PR number: fan out one dispatch per PR that needs a decision.
+    if: github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && inputs.pr == '')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: read
+      actions: write
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+
+      - name: Dispatch a decision for each PR that is not final
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AI_MAINTAINER_MERGE: ${{ vars.AI_MAINTAINER_MERGE }}
+        run: |
+          set -euo pipefail
+          for pr in $(node scripts/maintainer/sweep.mjs); do
+            echo "Dispatch #$pr"
+            gh workflow run maintainer.yml -f pr="$pr"
+          done
+
+  decide:
+    # Skip runs that did no real work (for example a `Claude` run that was skipped).
+    if: >-
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion != 'skipped') ||
+      (github.event_name == 'workflow_dispatch' && inputs.pr != '')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write # gh pr merge
+      pull-requests: write
+      issues: write # needs-human label, status comment
+      actions: write # dispatch claude-review.yml
+    outputs:
+      merged: ${{ steps.run.outputs.merged }}
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+
+      - name: Decide
+        id: run
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          AI_MAINTAINER_MERGE: ${{ vars.AI_MAINTAINER_MERGE }}
+          # Outsider-controlled or event-supplied values go through env, never into `run:`.
+          EVENT: ${{ github.event_name }}
+          INPUT_PR: ${{ inputs.pr }}
+          RUN_EVENT: ${{ github.event.workflow_run.event }}
+          RUN_NAME: ${{ github.event.workflow_run.name }}
+          RUN_TITLE: ${{ github.event.workflow_run.display_title }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_PRS: ${{ toJSON(github.event.workflow_run.pull_requests.*.number) }}
+        run: |
+          set -euo pipefail
+          prs=""
+          if [[ "$EVENT" == workflow_dispatch ]]; then
+            if ! [[ "$INPUT_PR" =~ ^[0-9]+$ ]]; then
+              echo "::error::pr must be an integer"
+              exit 1
+            fi
+            prs="$INPUT_PR"
+          elif [[ "$RUN_EVENT" == pull_request ]]; then
+            prs="$(jq -r '.[]' <<<"$RUN_PRS")"
+            if [[ -z "$prs" ]]; then
+              # workflow_run.pull_requests is empty for some PRs (Renovate): look up by head sha.
+              prs="$(gh api "repos/${GITHUB_REPOSITORY}/commits/${RUN_HEAD_SHA}/pulls" --jq '.[] | select(.state == "open") | .number' || true)"
+            fi
+          elif [[ "$RUN_EVENT" == workflow_dispatch && "$RUN_NAME" == "Claude Review" && "$RUN_TITLE" =~ ^Claude\ Review\ #([0-9]+)$ ]]; then
+            # A review dispatched by this gate: the PR number is in the run name.
+            prs="${BASH_REMATCH[1]}"
+          else
+            echo "Run was not for a pull request; the sweeper will pick the PR up."
+          fi
+
+          export MERGED_FILE="$RUNNER_TEMP/merged"
+          : > "$MERGED_FILE"
+          for pr in $prs; do
+            node scripts/maintainer/run.mjs "$pr"
+          done
+          echo "merged=$(jq -Rsc 'split("\n") | map(select(length > 0))' "$MERGED_FILE")" >> "$GITHUB_OUTPUT"
+
+  release:
+    # A merge made with GITHUB_TOKEN fires no `closed` event, so call the bump directly.
+    needs: decide
+    if: needs.decide.outputs.merged != '' && needs.decide.outputs.merged != '[]'
+    strategy:
+      max-parallel: 1
+      matrix:
+        pr: ${{ fromJSON(needs.decide.outputs.merged) }}
+    permissions:
+      contents: write
+      pull-requests: read
+    uses: ./.github/workflows/version-bump-on-merge.yml
+    with:
+      pr: ${{ matrix.pr }}

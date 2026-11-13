@@ -5,6 +5,9 @@ name: Claude Review
 # `@claude review` (see claude.yml) is the manual path. Steps: `ai-workflow` rule.
 # Cost cap: one review per head sha, at most 3 per round (see the guard step).
 
+# The run name carries the PR number of dispatched runs, so maintainer.yml can find the PR.
+run-name: ${{ github.event_name == 'workflow_dispatch' && format('Claude Review #{0}', inputs.pr) || github.workflow }}
+
 on:
   pull_request:
     types: [opened, ready_for_review, synchronize]
@@ -21,6 +24,8 @@ concurrency:
 
 jobs:
   review:
+    # The check name is what `decide.mjs` looks for (REVIEW_CHECK_PREFIX).
+    name: Claude Review
     # Same-repo, non-draft PRs only. Fork PRs get no secrets and are not reviewed.
     # For workflow_dispatch the guard step checks the same things through the API.
     if: >-

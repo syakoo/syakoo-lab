@@ -4,12 +4,14 @@
  * The only file that writes (labels, comments, merge). It has no push path.
  *
  * Usage: node scripts/maintainer/run.mjs <pr> [--dry-run]
- * Env: GH_TOKEN, GITHUB_REPOSITORY, AI_MAINTAINER_MERGE
+ * Env: GH_TOKEN, GITHUB_REPOSITORY, AI_MAINTAINER_MERGE,
+ *      MERGED_FILE (optional: the PR number is appended after a merge, for the release job)
  *
  * Triage is not wired yet: a `triage` decision is reported as "human" without a label.
  */
 
 import { execFileSync } from "node:child_process";
+import { appendFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 import { decide } from "./decide.mjs";
@@ -123,6 +125,7 @@ function main() {
     sha: raw.pr.headSha,
     decision: decision.kind,
     reason: decision.reason,
+    switchOn: snapshot.switchOn,
     roundAt: round.roundAt,
     attempts: round.attempts,
     reviewDispatchedAt: round.reviewDispatchedAt,
@@ -204,6 +207,8 @@ function main() {
       "--match-head-commit",
       raw.pr.headSha,
     );
+    if (process.env.MERGED_FILE)
+      appendFileSync(process.env.MERGED_FILE, `${n}\n`);
   }
 }
 

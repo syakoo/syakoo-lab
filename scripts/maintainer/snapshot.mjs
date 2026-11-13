@@ -173,6 +173,20 @@ export function normalizeAuthor(login) {
 }
 
 /**
+ * A rerun or a later run of the same check supersedes the earlier one on the same sha
+ * (e.g. `semver-label` fails before the label is added, then passes). Keep the newest.
+ * @param {{ id?: number, name: string, status: string, conclusion: string | null }[]} checks
+ */
+export function latestChecks(checks) {
+  const byName = new Map();
+  for (const c of checks) {
+    const prev = byName.get(c.name);
+    if (!prev || (c.id ?? 0) >= (prev.id ?? 0)) byName.set(c.name, c);
+  }
+  return [...byName.values()];
+}
+
+/**
  * @param {object} raw
  * @param {{ state: string, merged: boolean, draft: boolean, author: string, branch: string, headSha: string, isFork: boolean, base: string, labels: string[], mergeState: string }} raw.pr
  * @param {Comment[]} raw.comments
@@ -204,7 +218,7 @@ export function buildSnapshot({ pr, comments, checks, files, switchOn, now }) {
       labels: pr.labels,
       files,
       mergeState: pr.mergeState,
-      checks,
+      checks: latestChecks(checks),
       review: pickReview(comments, pr.headSha),
       triage: pickTriage(comments, pr.headSha),
       attempts: round.attempts,

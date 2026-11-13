@@ -3,6 +3,7 @@ import { describe, expect, it } from "vitest";
 import {
   buildSnapshot,
   countRoundReviews,
+  latestChecks,
   parseMarker,
   pickOwnerMentionAt,
   pickReview,
@@ -195,5 +196,30 @@ describe("buildSnapshot", () => {
     });
     expect(snapshot.minutesSinceReviewDispatch).toBe(10);
     expect(snapshot.attempts.reviewRun).toBe(1);
+  });
+});
+
+describe("latestChecks", () => {
+  it("lets a later run supersede an earlier failure of the same check", () => {
+    const failed = {
+      id: 1,
+      name: "semver-label",
+      status: "completed",
+      conclusion: "failure",
+    };
+    const passed = {
+      id: 2,
+      name: "semver-label",
+      status: "completed",
+      conclusion: "success",
+    };
+    const other = {
+      id: 3,
+      name: "lint",
+      status: "completed",
+      conclusion: "success",
+    };
+    expect(latestChecks([passed, failed, other])).toEqual([passed, other]);
+    expect(latestChecks([failed, passed, other])).toEqual([passed, other]);
   });
 });

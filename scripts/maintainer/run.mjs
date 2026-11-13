@@ -1,0 +1,210 @@
+#!/usr/bin/env node
+/**
+ * CLI for the maintainer workflow: snapshot -> decide -> act.
+ * The only file that writes (labels, comments, merge). It has no push path.
+ *
+ * Usage: node scripts/maintainer/run.mjs <pr> [--dry-run]
+ * Env: GH_TOKEN, GITHUB_REPOSITORY, AI_MAINTAINER_MERGE
+ *
+ * Triage is not wired yet: a `triage` decision is reported as "human" without a label.
+ */
+
+import { execFileSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+
+import { decide } from "./decide.mjs";
+import { buildSnapshot, pickState } from "./snapshot.mjs";
+
+const NEEDS_HUMAN = "needs-human";
+const TRIAGE_ENABLED = false;
+
+/** @returns {string} */
+function gh(...args) {
+  return execFileSync("gh", args, {
+    encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024,
+  });
+}
+
+/** @returns {any} */
+function api(path, ...extra) {
+  return JSON.parse(gh("api", "--paginate", "--slurp", path, ...extra)).flat();
+}
+
+const MERGE_STATE_QUERY = `query($owner:String!,$name:String!,$n:Int!){repository(owner:$owner,name:$name){pullRequest(number:$n){mergeStateStatus}}}`;
+
+function fetchRaw(repo, n) {
+  const [owner, name] = repo.split("/");
+  const pr = JSON.parse(gh("api", `repos/${repo}/pulls/${n}`));
+  const mergeState = JSON.parse(
+    gh(
+      "api",
+      "graphql",
+      "-f",
+      `query=${MERGE_STATE_QUERY}`,
+      "-F",
+      `owner=${owner}`,
+      "-F",
+      `name=${name}`,
+      "-F",
+      `n=${n}`,
+    ),
+  ).data.repository.pullRequest.mergeStateStatus;
+  const comments = api(`repos/${repo}/issues/${n}/comments`).map((c) => ({
+    id: c.id,
+    author: c.user.login,
+    body: c.body ?? "",
+    createdAt: c.created_at,
+  }));
+  const files = api(`repos/${repo}/pulls/${n}/files`).map((f) => f.filename);
+  const runs = JSON.parse(
+    gh("api", `repos/${repo}/commits/${pr.head.sha}/check-runs?per_page=100`),
+  ).check_runs;
+  return {
+    pr: {
+      state: pr.state,
+      merged: pr.merged,
+      draft: pr.draft,
+      author: pr.user.login,
+      branch: pr.head.ref,
+      headSha: pr.head.sha,
+      isFork: pr.head.repo?.full_name !== repo,
+      labels: pr.labels.map((l) => l.name),
+      mergeState,
+    },
+    comments,
+    files,
+    checks: runs.map((r) => ({
+      name: r.name,
+      status: r.status,
+      conclusion: r.conclusion,
+    })),
+  };
+}
+
+function statusBody(decision, state) {
+  return [
+    `<!-- ai-maintainer:state ${JSON.stringify(state)} -->`,
+    `**AI maintainer:** ${decision.kind}`,
+    "",
+    `Reason: ${decision.reason}`,
+    `Head: \`${state.sha.slice(0, 7)}\``,
+    `Attempts: ${JSON.stringify(state.attempts)}`,
+  ].join("\n");
+}
+
+function main() {
+  const [prArg, ...flags] = process.argv.slice(2);
+  const n = Number(prArg);
+  if (!Number.isInteger(n) || n <= 0)
+    throw new Error("usage: run.mjs <pr number> [--dry-run]");
+  const dryRun = flags.includes("--dry-run");
+  const repo = process.env.GITHUB_REPOSITORY;
+  if (!repo) throw new Error("GITHUB_REPOSITORY is required");
+  const now = new Date().toISOString();
+
+  const raw = fetchRaw(repo, n);
+  const { snapshot, round } = buildSnapshot({
+    ...raw,
+    switchOn: process.env.AI_MAINTAINER_MERGE === "on",
+    now,
+  });
+  let decision = decide(snapshot);
+  if (decision.kind === "triage" && !TRIAGE_ENABLED) {
+    decision = {
+      kind: "human",
+      reason: `${decision.reason} (triage is not enabled)`,
+      label: false,
+    };
+  }
+
+  const prior = pickState(raw.comments);
+  const state = {
+    sha: raw.pr.headSha,
+    decision: decision.kind,
+    reason: decision.reason,
+    roundAt: round.roundAt,
+    attempts: round.attempts,
+    reviewDispatchedAt: round.reviewDispatchedAt,
+  };
+  if (decision.kind === "review") {
+    state.attempts = {
+      ...state.attempts,
+      reviewRun: state.attempts.reviewRun + 1,
+    };
+    state.reviewDispatchedAt = now;
+  }
+
+  console.log(JSON.stringify({ pr: n, decision, state }, null, 2));
+  if (decision.kind === "ignore" || dryRun) return;
+
+  // A new head clears a previous "needs-human".
+  const hasLabel = raw.pr.labels.includes(NEEDS_HUMAN);
+  const newHead = prior?.state.sha !== raw.pr.headSha;
+  if (hasLabel && (newHead || decision.kind !== "human")) {
+    gh(
+      "api",
+      "-X",
+      "DELETE",
+      `repos/${repo}/issues/${n}/labels/${NEEDS_HUMAN}`,
+    );
+  }
+  if (
+    decision.kind === "human" &&
+    decision.label !== false &&
+    !(hasLabel && !newHead)
+  ) {
+    gh(
+      "api",
+      "-X",
+      "POST",
+      `repos/${repo}/issues/${n}/labels`,
+      "-f",
+      `labels[]=${NEEDS_HUMAN}`,
+    );
+  }
+
+  // Edit the status comment only when something changed, so it does not notify again.
+  const changed =
+    !prior ||
+    prior.state.decision !== state.decision ||
+    prior.state.reason !== state.reason ||
+    prior.state.sha !== state.sha ||
+    JSON.stringify(prior.state.attempts) !== JSON.stringify(state.attempts);
+  if (changed && decision.kind !== "wait") {
+    const body = statusBody(decision, state);
+    if (prior)
+      gh(
+        "api",
+        "-X",
+        "PATCH",
+        `repos/${repo}/issues/comments/${prior.comment.id}`,
+        "-f",
+        `body=${body}`,
+      );
+    else
+      gh(
+        "api",
+        "-X",
+        "POST",
+        `repos/${repo}/issues/${n}/comments`,
+        "-f",
+        `body=${body}`,
+      );
+  }
+
+  if (decision.kind === "review") {
+    gh("workflow", "run", "claude-review.yml", "-f", `pr=${n}`);
+  } else if (decision.kind === "merge") {
+    gh(
+      "pr",
+      "merge",
+      String(n),
+      "--merge",
+      "--match-head-commit",
+      raw.pr.headSha,
+    );
+  }
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) main();

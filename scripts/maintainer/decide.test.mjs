@@ -169,43 +169,14 @@ describe("decide", () => {
   });
 
   describe("Renovate", () => {
-    it("merges the minor-and-patch group when clean (11)", () => {
-      expect(decide(renovate()).kind).toBe("merge");
-    });
-
-    it("triages red CI on a Renovate PR (11)", () => {
-      const d = decide(
-        renovate({ checks: [{ ...green, conclusion: "failure" }, reviewDone] }),
-      );
-      expect(d).toMatchObject({ kind: "triage", triageKind: "ci" });
-    });
-
-    it("sends other Renovate branches to a human (12)", () => {
-      const d = decide(renovate({ branch: "renovate/major-react" }));
-      expect(d).toMatchObject({
-        kind: "human",
-        reason: "major update: summary only",
-      });
-    });
-
-    it("still fixes CI on a major update", () => {
-      const d = decide(
-        renovate({
-          branch: "renovate/major-react",
-          checks: [{ ...green, conclusion: "failure" }, reviewDone],
-        }),
-      );
-      expect(d.kind).toBe("triage");
-    });
-
-    it("accepts the GraphQL login without [bot]", () => {
-      expect(decide(renovate({ author: "renovate" })).kind).toBe("merge");
-    });
-
-    it("sends Actions updates to a human (protected path)", () => {
-      expect(
-        decide(renovate({ files: [".github/workflows/ci.yml"] })).kind,
-      ).toBe("human");
+    it.each([
+      ["clean group PR", {}],
+      ["major update", { branch: "renovate/major-react" }],
+      ["red CI", { checks: [{ ...green, conclusion: "failure" }, reviewDone] }],
+      ["GraphQL login without [bot]", { author: "renovate" }],
+      ["protected path", { files: [".github/workflows/ci.yml"] }],
+    ])("ignores a Renovate PR: %s (11, 12)", (_name, overrides) => {
+      expect(decide(renovate(overrides)).kind).toBe("ignore");
     });
   });
 

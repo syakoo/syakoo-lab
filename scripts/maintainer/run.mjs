@@ -81,6 +81,7 @@ function fetchRaw(repo, n) {
     comments,
     files,
     checks: runs.map((r) => ({
+      id: r.id,
       name: r.name,
       status: r.status,
       conclusion: r.conclusion,

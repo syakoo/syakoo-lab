@@ -1,7 +1,7 @@
 # AI maintainer: design
 
 - Date: 2026-11-13
-- Status: draft
+- Status: agreed
 - Requirements: `requirements.md` (agreed)
 
 ## Approach

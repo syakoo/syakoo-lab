@@ -193,7 +193,7 @@ Residual risk (not removed by this design): the `must` count comes from an LLM r
 | Claude run | Starts only when | Ceiling |
 | --- | --- | --- |
 | Review | `opened` / `ready_for_review` / `synchronize` of a non-draft same-repo PR, or `decide` returns `review` | one per head sha, at most 3 per round (a round restarts at each owner `@claude` comment); `concurrency` cancels a stale run |
-| Triage | `decide` returns `triage` with the switch on | at most 2 per kind (`review`, `ci`, `update`) per round; one triage at a time repo-wide (`concurrency` group `maintainer-triage`, no cancel); `timeout-minutes: 30` and `--max-turns` |
+| Triage | `decide` returns `triage` with the switch on | at most 2 per kind (`review`, `ci`, `update`) per round; one triage per `decide` run, and one run per PR at a time (a repo-wide `concurrency` group would drop pending triage jobs, whose attempt `run.mjs` has already counted); `timeout-minutes: 30` and `--max-turns` |
 | `@claude` | the owner's comment (unchanged) | not counted |
 
 Not Claude runs, and cheap: `decide` jobs (plain Node, no install, seconds). To keep them rare:
@@ -242,6 +242,7 @@ Slices 3–6 change `.github/`, so this PR is itself one that waits for the owne
 
 ## To confirm while implementing
 
+- `claude-code-action` runs in agent mode (`prompt`) under the `workflow_run` / `workflow_dispatch` / `schedule` events that wake `maintainer.yml`, and its signed commits land on the checked-out PR branch. Until this holds, the switch stays off (triage only runs with it on).
 - A `GITHUB_TOKEN` merge passes protection (required checks, signed commits); if blocked, stop and ask (do not add a token).
 - `claude-code-action` accepts `workflow_dispatch` with the actor `github-actions` for the review job; if not, the `review` decision falls back to `human`.
 - The `update-branch` call with the action's token fires CI.

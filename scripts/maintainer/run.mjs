@@ -6,19 +6,17 @@
  * Usage: node scripts/maintainer/run.mjs <pr> [--dry-run]
  * Env: GH_TOKEN, GITHUB_REPOSITORY, AI_MAINTAINER_MERGE,
  *      MERGED_FILE (optional: the PR number is appended after a merge, for the release job)
- *
- * Triage is not wired yet: a `triage` decision is reported as "human" without a label.
+ *      TRIAGE_FILE (optional: `{pr, kind, sha, branch}` JSON is written when decide returns `triage`)
  */
 
 import { execFileSync } from "node:child_process";
-import { appendFileSync } from "node:fs";
+import { appendFileSync, writeFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 import { decide } from "./decide.mjs";
 import { buildSnapshot, pickState } from "./snapshot.mjs";
 
 const NEEDS_HUMAN = "needs-human";
-const TRIAGE_ENABLED = false;
 
 /** @returns {string} */
 function gh(...args) {
@@ -111,15 +109,7 @@ function main() {
     switchOn: process.env.AI_MAINTAINER_MERGE === "on",
     now,
   });
-  let decision = decide(snapshot);
-  if (decision.kind === "triage" && !TRIAGE_ENABLED) {
-    decision = {
-      kind: "human",
-      reason: `${decision.reason} (triage is not enabled)`,
-      label: false,
-    };
-  }
-
+  const decision = decide(snapshot);
   const prior = pickState(raw.comments);
   const state = {
     sha: raw.pr.headSha,
@@ -136,6 +126,12 @@ function main() {
       reviewRun: state.attempts.reviewRun + 1,
     };
     state.reviewDispatchedAt = now;
+  }
+
+  if (decision.kind === "triage") {
+    // Count the attempt before the run starts, so a crashed triage still counts.
+    const kind = decision.triageKind;
+    state.attempts = { ...state.attempts, [kind]: state.attempts[kind] + 1 };
   }
 
   console.log(JSON.stringify({ pr: n, decision, state }, null, 2));
@@ -196,6 +192,17 @@ function main() {
       );
   }
 
+  if (decision.kind === "triage" && process.env.TRIAGE_FILE) {
+    writeFileSync(
+      process.env.TRIAGE_FILE,
+      JSON.stringify({
+        pr: n,
+        kind: decision.triageKind,
+        sha: raw.pr.headSha,
+        branch: raw.pr.branch,
+      }),
+    );
+  }
   if (decision.kind === "review") {
     gh("workflow", "run", "claude-review.yml", "-f", `pr=${n}`);
   } else if (decision.kind === "merge") {

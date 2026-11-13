@@ -1,7 +1,7 @@
 # AI maintainer
 
 - Date: 2026-11-13
-- Status: draft
+- Status: agreed
 
 ## Why
 

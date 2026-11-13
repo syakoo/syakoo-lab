@@ -105,8 +105,14 @@ export function decide(s) {
   // 3. Failed checks.
   // A superseded run leaves a `cancelled` check on the same sha; a review that
   // landed anyway wins over it.
+  // A review check still running (a second run on the same sha) may yet post one.
+  const reviewRunning = s.checks.some(
+    (c) => c.status !== "completed" && c.name.startsWith(REVIEW_CHECK_PREFIX),
+  );
   const reviewFailed =
-    !s.review && failed.some((c) => c.name.startsWith(REVIEW_CHECK_PREFIX));
+    !s.review &&
+    !reviewRunning &&
+    failed.some((c) => c.name.startsWith(REVIEW_CHECK_PREFIX));
   if (reviewFailed) return human("review run failed");
   const ciFailed = failed.filter(
     (c) => !c.name.startsWith(REVIEW_CHECK_PREFIX),

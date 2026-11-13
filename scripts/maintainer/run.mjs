@@ -144,30 +144,30 @@ function main() {
   console.log(JSON.stringify({ pr: n, decision, state }, null, 2));
   if (decision.kind === "ignore" || dryRun) return;
 
+  for (const action of plan({ n, repo, decision, raw, prior, state })) {
+    execute(action);
+  }
+}
+
+/**
+ * Turn a decision into the list of writes to perform. Pure: `execute` does the I/O.
+ * @returns {Action[]}
+ */
+export function plan({ n, repo, decision, raw, prior, state }) {
+  /** @type {Action[]} */
+  const actions = [];
   // A new head clears a previous "needs-human".
   const hasLabel = raw.pr.labels.includes(NEEDS_HUMAN);
   const newHead = prior?.state.sha !== raw.pr.headSha;
   if (hasLabel && (newHead || decision.kind !== "human")) {
-    gh(
-      "api",
-      "-X",
-      "DELETE",
-      `repos/${repo}/issues/${n}/labels/${NEEDS_HUMAN}`,
-    );
+    actions.push({ type: "removeLabel", n, repo });
   }
   if (
     decision.kind === "human" &&
     decision.label !== false &&
     !(hasLabel && !newHead)
   ) {
-    gh(
-      "api",
-      "-X",
-      "POST",
-      `repos/${repo}/issues/${n}/labels`,
-      "-f",
-      `labels[]=${NEEDS_HUMAN}`,
-    );
+    actions.push({ type: "addLabel", n, repo });
   }
 
   // Edit the status comment only when something changed, so it does not notify again.
@@ -180,52 +180,103 @@ function main() {
     JSON.stringify(prior.state.attempts) !== JSON.stringify(state.attempts);
   if (changed && decision.kind !== "wait") {
     const body = statusBody(decision, state);
-    if (prior)
-      gh(
-        "api",
-        "-X",
-        "PATCH",
-        `repos/${repo}/issues/comments/${prior.comment.id}`,
-        "-f",
-        `body=${body}`,
-      );
-    else
-      gh(
-        "api",
-        "-X",
-        "POST",
-        `repos/${repo}/issues/${n}/comments`,
-        "-f",
-        `body=${body}`,
-      );
+    actions.push(
+      prior
+        ? { type: "patchComment", repo, id: prior.comment.id, body }
+        : { type: "postComment", repo, n, body },
+    );
   }
 
-  if (decision.kind === "triage" && process.env.TRIAGE_FILE) {
-    writeFileSync(
-      process.env.TRIAGE_FILE,
-      JSON.stringify({
+  if (decision.kind === "triage") {
+    actions.push({
+      type: "writeTriage",
+      payload: {
         pr: n,
         kind: decision.triageKind,
         sha: raw.pr.headSha,
         branch: raw.pr.branch,
-      }),
-    );
+      },
+    });
   }
   if (decision.kind === "review") {
-    gh("workflow", "run", "claude-review.yml", "-f", `pr=${n}`);
+    actions.push({ type: "dispatchReview", n });
   } else if (decision.kind === "merge") {
-    gh(
-      "pr",
-      "merge",
-      String(n),
-      "-R",
-      repo,
-      "--merge",
-      "--match-head-commit",
-      raw.pr.headSha,
-    );
-    if (process.env.MERGED_FILE)
-      appendFileSync(process.env.MERGED_FILE, `${n}\n`);
+    actions.push({ type: "merge", n, repo, sha: raw.pr.headSha });
+  }
+  return actions;
+}
+
+/**
+ * @typedef {{ type: "removeLabel" | "addLabel", n: number, repo: string }
+ *   | { type: "patchComment", repo: string, id: number, body: string }
+ *   | { type: "postComment", repo: string, n: number, body: string }
+ *   | { type: "writeTriage", payload: object }
+ *   | { type: "dispatchReview", n: number }
+ *   | { type: "merge", n: number, repo: string, sha: string }} Action
+ */
+
+/** @param {Action} a */
+function execute(a) {
+  switch (a.type) {
+    case "removeLabel":
+      gh(
+        "api",
+        "-X",
+        "DELETE",
+        `repos/${a.repo}/issues/${a.n}/labels/${NEEDS_HUMAN}`,
+      );
+      break;
+    case "addLabel":
+      gh(
+        "api",
+        "-X",
+        "POST",
+        `repos/${a.repo}/issues/${a.n}/labels`,
+        "-f",
+        `labels[]=${NEEDS_HUMAN}`,
+      );
+      break;
+    case "patchComment":
+      gh(
+        "api",
+        "-X",
+        "PATCH",
+        `repos/${a.repo}/issues/comments/${a.id}`,
+        "-f",
+        `body=${a.body}`,
+      );
+      break;
+    case "postComment":
+      gh(
+        "api",
+        "-X",
+        "POST",
+        `repos/${a.repo}/issues/${a.n}/comments`,
+        "-f",
+        `body=${a.body}`,
+      );
+      break;
+    case "writeTriage":
+      if (process.env.TRIAGE_FILE)
+        writeFileSync(process.env.TRIAGE_FILE, JSON.stringify(a.payload));
+      break;
+    case "dispatchReview":
+      gh("workflow", "run", "claude-review.yml", "-f", `pr=${a.n}`);
+      break;
+    case "merge":
+      gh(
+        "pr",
+        "merge",
+        String(a.n),
+        "-R",
+        a.repo,
+        "--merge",
+        "--match-head-commit",
+        a.sha,
+      );
+      if (process.env.MERGED_FILE)
+        appendFileSync(process.env.MERGED_FILE, `${a.n}\n`);
+      break;
   }
 }
 

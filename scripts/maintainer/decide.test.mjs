@@ -309,4 +309,20 @@ describe("review reading and base branch", () => {
     };
     expect(decide(snap({ checks: [green, cancelled] })).kind).toBe("merge");
   });
+
+  it("waits, not human, when a cancelled review check has a sibling still running", () => {
+    const cancelled = {
+      name: "Claude Review",
+      status: "completed",
+      conclusion: "cancelled",
+    };
+    const running = {
+      name: "Claude Review",
+      status: "in_progress",
+      conclusion: null,
+    };
+    expect(
+      decide(snap({ review: null, checks: [green, cancelled, running] })).kind,
+    ).toBe("wait");
+  });
 });

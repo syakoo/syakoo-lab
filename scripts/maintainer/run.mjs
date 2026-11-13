@@ -58,8 +58,13 @@ function fetchRaw(repo, n) {
   }));
   const files = api(`repos/${repo}/pulls/${n}/files`).map((f) => f.filename);
   const runs = JSON.parse(
-    gh("api", `repos/${repo}/commits/${pr.head.sha}/check-runs?per_page=100`),
-  ).check_runs;
+    gh(
+      "api",
+      "--paginate",
+      "--slurp",
+      `repos/${repo}/commits/${pr.head.sha}/check-runs?per_page=100`,
+    ),
+  ).flatMap((page) => page.check_runs);
   return {
     pr: {
       state: pr.state,
@@ -69,6 +74,7 @@ function fetchRaw(repo, n) {
       branch: pr.head.ref,
       headSha: pr.head.sha,
       isFork: pr.head.repo?.full_name !== repo,
+      base: pr.base.ref,
       labels: pr.labels.map((l) => l.name),
       mergeState,
     },
@@ -84,10 +90,11 @@ function fetchRaw(repo, n) {
 
 function statusBody(decision, state) {
   return [
-    `<!-- ai-maintainer:state ${JSON.stringify(state)} -->`,
+    `<!-- ai-maintainer:state ${JSON.stringify(state).replaceAll("<", "\\u003c").replaceAll(">", "\\u003e")} -->`,
     `**AI maintainer:** ${decision.kind}`,
     "",
-    `Reason: ${decision.reason}`,
+    // Check names are chosen by the PR author: no mentions, no comment breaks.
+    `Reason: ${decision.reason.replaceAll("@", "@\u200b")}`,
     `Head: \`${state.sha.slice(0, 7)}\``,
     `Attempts: ${JSON.stringify(state.attempts)}`,
   ].join("\n");
@@ -169,6 +176,7 @@ function main() {
     prior.state.decision !== state.decision ||
     prior.state.reason !== state.reason ||
     prior.state.sha !== state.sha ||
+    prior.state.switchOn !== state.switchOn ||
     JSON.stringify(prior.state.attempts) !== JSON.stringify(state.attempts);
   if (changed && decision.kind !== "wait") {
     const body = statusBody(decision, state);
@@ -210,6 +218,8 @@ function main() {
       "pr",
       "merge",
       String(n),
+      "-R",
+      repo,
       "--merge",
       "--match-head-commit",
       raw.pr.headSha,

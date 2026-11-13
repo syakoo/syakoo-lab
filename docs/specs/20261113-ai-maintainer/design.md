@@ -186,23 +186,31 @@ Qualities: **Safety** = rules 2/7/8 plus GitHub's protection. **Control** = the 
 5. In the workflows, event fields that an outsider can choose (branch names, titles) are passed through `env:`, never interpolated into `run:`; the dispatch input `pr` is checked to be an integer.
 6. Dependency install uses safe-chain, as in `claude.yml`. The OAuth token is given only to the Claude step, and `persist-credentials: false`.
 
-Residual risk (not removed by this design): the `must` count comes from an LLM review that reads the same untrusted text, so a hostile dependency that passes CI could be merged. Mitigations already in place: `minimumReleaseAge: 1 days`, CI, protected paths, and the switch. The owner can choose to keep `semver:patch` only for the owner's PRs and send all Renovate PRs to `human`; this is a one-line change in `decide` rule 2.
+Residual risks found in the implementation review (not removed by this design):
+
+- Triage can post comments as `claude[bot]`, and the review parser trusts that author. Injected text could make triage forge a `must 0` review for the head sha. Mitigations: the parser also counts listed `must` findings and treats a review without the severity table as unreadable; triage has no `pnpm add` / `pnpm remove`; protected paths and CI still apply.
+- Triage runs `pnpm install` and tests of the PR's code in a job that holds `contents: write` and an OIDC token, as `claude.yml` does. Only PRs by the owner or Renovate reach it (rule 2), and the job refuses to run on a head that moved after `decide`.
+- A dispatched review's check run attaches to `main`, not to the PR head, so its failure is only seen through the 15-minute "review missing" rule.
+- Concurrency groups cannot be resolved for a Renovate run whose `workflow_run.pull_requests` is empty, so two decisions for one PR may overlap; the merge is still guarded by `--match-head-commit`.
+
+Earlier residual risk (not removed by this design): the `must` count comes from an LLM review that reads the same untrusted text, so a hostile dependency that passes CI could be merged. Mitigations already in place: `minimumReleaseAge: 1 days`, CI, protected paths, and the switch. The owner can choose to keep `semver:patch` only for the owner's PRs and send all Renovate PRs to `human`; this is a one-line change in `decide` rule 2.
 
 **Cost (what can start a Claude run).**
 
 | Claude run | Starts only when | Ceiling |
 | --- | --- | --- |
 | Review | `opened` / `ready_for_review` / `synchronize` of a non-draft same-repo PR, or `decide` returns `review` | one per head sha, at most 3 per round (a round restarts at each owner `@claude` comment); `concurrency` cancels a stale run |
-| Triage | `decide` returns `triage` with the switch on | at most 2 per kind (`review`, `ci`, `update`) per round; one triage per `decide` run, and one run per PR at a time (a repo-wide `concurrency` group would drop pending triage jobs, whose attempt `run.mjs` has already counted); `timeout-minutes: 30` and `--max-turns` |
+| Triage | `decide` returns `triage` with the switch on | at most 2 `review`, 2 `ci`, and 1 `update` per round (5 in all); one triage per `decide` run, and one run per PR at a time (a repo-wide `concurrency` group would drop pending triage jobs, whose attempt `run.mjs` has already counted); `timeout-minutes: 30` and `--max-turns` |
 | `@claude` | the owner's comment (unchanged) | not counted |
 
 Not Claude runs, and cheap: `decide` jobs (plain Node, no install, seconds). To keep them rare:
 
+- A `Claude` run (an `@claude` comment) has no PR attached, so the gate sweeps every PR that is not at a final decision right away.
 - `maintainer.yml` reacts to `workflow_run` only when the finished run's conclusion is not `skipped` (every PR comment makes `Claude` start and be skipped, which must not wake the gate).
 - The status comment is edited only when the decision changes, and the gate's own comment does not start a Claude run (`claude.yml` ignores bots).
 - The sweeper dispatches only for PRs whose status comment is not a final decision for the current head (final: `human` or "would merge, but the switch is off" on the same sha). A final PR changes again only by a push, the owner's `@claude`, or the switch.
 - A crashed triage counts as an attempt, so a loop ends after the cap. The owner can still run the manual path (`@claude address`), which is not counted.
-- Worst case per round: 3 reviews + at most 6 triage runs; a new round starts only when the owner writes `@claude`. At rollout with the switch on: 10 open PRs × (1 review + at most 6 triage runs); in practice most PRs stop at `human` or `merge` earlier. Switch off stops all of it.
+- Worst case per round: 3 reviews + at most 5 triage runs; a new round starts only when the owner writes `@claude`. At rollout with the switch on: 10 open PRs × (1 review + at most 5 triage runs); in practice most PRs stop at `human` or `merge` earlier. Switch off stops all of it.
 
 ## Decisions
 

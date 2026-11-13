@@ -5,8 +5,9 @@ name: Claude Review
 # `@claude review` (see claude.yml) is the manual path. Steps: `ai-workflow` rule.
 # Cost cap: one review per head sha, at most 3 per round (see the guard step).
 
-# The run name carries the PR number of dispatched runs, so maintainer.yml can find the PR.
-run-name: ${{ github.event_name == 'workflow_dispatch' && format('Claude Review #{0}', inputs.pr) || github.workflow }}
+# The run name of a dispatched run is the PR number alone, so maintainer.yml can find the PR
+# (and use it in its concurrency group).
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.pr || github.workflow }}
 
 on:
   pull_request:

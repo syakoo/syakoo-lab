@@ -27,13 +27,14 @@ const FAILED_CONCLUSIONS = new Set([
 
 /**
  * @typedef {{ name: string, status: string, conclusion: string | null }} Check
- * @typedef {{ must: number, should: number }} ReviewCounts
+ * @typedef {{ must: number, should: number, malformed?: boolean }} ReviewCounts
  * @typedef {{ review: number, ci: number, update: number, reviewRun: number }} Attempts
  *
  * @typedef {object} Snapshot
  * @property {"open" | "merged" | "closed"} prState
  * @property {string} author login, with or without the `[bot]` suffix
  * @property {boolean} isFork
+ * @property {string} base base branch of the PR
  * @property {boolean} draft
  * @property {string} branch
  * @property {string[]} labels
@@ -90,6 +91,7 @@ export function decide(s) {
   const isRenovate = author === "renovate";
   if (!isOwner && !isRenovate)
     return human(`author ${s.author} is not the owner or Renovate`);
+  if (s.base !== "main") return human(`base is ${s.base}, not main`);
   const protectedFile = s.files.find(isProtectedPath);
   if (protectedFile)
     return human(`changes a protected path (${protectedFile})`);
@@ -101,11 +103,15 @@ export function decide(s) {
   const pending = s.checks.some((c) => c.status !== "completed");
 
   // 3. Failed checks.
-  const reviewFailed = failed.some((c) =>
-    c.name.startsWith(REVIEW_CHECK_PREFIX),
-  );
+  // A superseded run leaves a `cancelled` check on the same sha; a review that
+  // landed anyway wins over it.
+  const reviewFailed =
+    !s.review && failed.some((c) => c.name.startsWith(REVIEW_CHECK_PREFIX));
   if (reviewFailed) return human("review run failed");
-  const ciRed = failed.length > 0;
+  const ciFailed = failed.filter(
+    (c) => !c.name.startsWith(REVIEW_CHECK_PREFIX),
+  );
+  const ciRed = ciFailed.length > 0;
 
   // 6 (checked early so a "human" verdict is not retried). Triage asked for a human.
   if (s.triage?.verdict === "human")
@@ -116,7 +122,7 @@ export function decide(s) {
     return triageOrHuman(
       s,
       "ci",
-      `CI failed (${failed.map((c) => c.name).join(", ")})`,
+      `CI failed (${ciFailed.map((c) => c.name).join(", ")})`,
     );
 
   // 4. Pending checks, then a missing review.
@@ -137,6 +143,8 @@ export function decide(s) {
     if (!s.switchOn) return human("no review, and the switch is off", false);
     return human("review missing");
   }
+
+  if (s.review.malformed) return human("review could not be read");
 
   // 5. Open review findings.
   const shouldOpen = s.review.should > 0 && s.triage?.verdict !== "ok";

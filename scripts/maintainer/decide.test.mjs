@@ -15,6 +15,7 @@ function snap(overrides = {}) {
     prState: "open",
     author: "syakoo",
     isFork: false,
+    base: "main",
     draft: false,
     branch: "claude/feature",
     labels: ["semver:patch"],
@@ -286,5 +287,26 @@ describe("decide", () => {
 
   it("does not merge unless the state is CLEAN (19)", () => {
     expect(decide(snap({ mergeState: "BLOCKED" })).kind).not.toBe("merge");
+  });
+});
+
+describe("review reading and base branch", () => {
+  it("sends an unreadable review to a human", () => {
+    expect(
+      decide(snap({ review: { must: 0, should: 0, malformed: true } })),
+    ).toMatchObject({ kind: "human", reason: "review could not be read" });
+  });
+
+  it("sends a PR whose base is not main to a human", () => {
+    expect(decide(snap({ base: "feature/stack" })).kind).toBe("human");
+  });
+
+  it("ignores a cancelled review check when a review of the head exists", () => {
+    const cancelled = {
+      name: "Claude Review",
+      status: "completed",
+      conclusion: "cancelled",
+    };
+    expect(decide(snap({ checks: [green, cancelled] })).kind).toBe("merge");
   });
 });

@@ -56,6 +56,23 @@ describe("pickReview", () => {
     expect(pickReview([c("mallory", reviewBody(SHA, 0, 0))], SHA)).toBeNull();
   });
 
+  it("marks a review without the severity table as malformed", () => {
+    expect(
+      pickReview(
+        [c("claude[bot]", `<!-- review-pr sha=${SHA} -->\nLooks fine`)],
+        SHA,
+      ),
+    ).toEqual({ must: 0, should: 0, malformed: true });
+  });
+
+  it("takes the larger of the table and the listed must findings", () => {
+    const body = `${reviewBody(SHA, 0, 0)}\n### Findings\n1. **[must · Bug]** \`a.ts:1\` - broken.`;
+    expect(pickReview([c("claude[bot]", body)], SHA)).toEqual({
+      must: 1,
+      should: 0,
+    });
+  });
+
   it("uses the newest review", () => {
     const comments = [
       c("claude[bot]", reviewBody(SHA, 1, 0), "2026-11-13T01:00:00Z"),
@@ -138,6 +155,7 @@ describe("buildSnapshot", () => {
     branch: "renovate/minor-and-patch-updates",
     headSha: SHA,
     isFork: false,
+    base: "main",
     labels: [],
     mergeState: "CLEAN",
   };

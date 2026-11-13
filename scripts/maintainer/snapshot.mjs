@@ -56,7 +56,7 @@ function countRow(body, severity) {
   const m = body.match(
     new RegExp(`^\\|\\s*${severity}\\s*\\|\\s*(\\d+)\\s*\\|`, "m"),
   );
-  return m ? Number(m[1]) : 0;
+  return m ? Number(m[1]) : null;
 }
 
 /**
@@ -68,9 +68,16 @@ export function pickReview(comments, sha) {
   const c = newestFirst(comments).find(
     (x) => isTrusted(x.author) && parseMarker(x.body, "review-pr")?.sha === sha,
   );
-  return c
-    ? { must: countRow(c.body, "must"), should: countRow(c.body, "should") }
-    : null;
+  if (!c) return null;
+  const must = countRow(c.body, "must");
+  const should = countRow(c.body, "should");
+  // The review is LLM-written: a missing table must not read as "clean", and a
+  // table that says 0 while the list has a `must` line must not either.
+  const listed = (c.body.match(/^\s*\d+\.\s*\*\*\[must\b/gm) ?? []).length;
+  if (must === null || should === null) {
+    return { must: listed, should: should ?? 0, malformed: true };
+  }
+  return { must: Math.max(must, listed), should };
 }
 
 /**
@@ -167,7 +174,7 @@ export function normalizeAuthor(login) {
 
 /**
  * @param {object} raw
- * @param {{ state: string, merged: boolean, draft: boolean, author: string, branch: string, headSha: string, isFork: boolean, labels: string[], mergeState: string }} raw.pr
+ * @param {{ state: string, merged: boolean, draft: boolean, author: string, branch: string, headSha: string, isFork: boolean, base: string, labels: string[], mergeState: string }} raw.pr
  * @param {Comment[]} raw.comments
  * @param {{ name: string, status: string, conclusion: string | null }[]} raw.checks
  * @param {string[]} raw.files
@@ -191,6 +198,7 @@ export function buildSnapshot({ pr, comments, checks, files, switchOn, now }) {
       prState: pr.merged ? "merged" : pr.state === "open" ? "open" : "closed",
       author: normalizeAuthor(pr.author),
       isFork: pr.isFork,
+      base: pr.base,
       draft: pr.draft,
       branch: pr.branch,
       labels: pr.labels,

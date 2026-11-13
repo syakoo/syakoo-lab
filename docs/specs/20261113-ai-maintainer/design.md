@@ -64,7 +64,7 @@ flowchart LR
 
 **Changed**
 
-- `claude-review.yml`: also runs on `synchronize` (new commits are reviewed again, example 14) and on `workflow_dispatch` with input `pr` (for PRs that have no review of their head yet, such as #383–#392 at rollout; it checks out `main` and reads the PR through `gh`). A first step skips the run when the head sha already has a review marker or the PR already has 5 reviews (cost cap, see Security and cost).
+- `claude-review.yml`: also runs on `synchronize` (new commits are reviewed again, example 14) and on `workflow_dispatch` with input `pr` (for PRs that have no review of their head yet, such as #383–#392 at rollout; it checks out `main` and reads the PR through `gh`). A first step skips the run when the head sha already has a review marker or the current round already has 3 reviews (cost cap, see Security and cost).
 - `review-pull-request` skill: the comment gets one extra first line, `<!-- review-pr sha=<head sha> -->`. Aspects, severities, and the rest of the format do not change.
 - `version-bump-on-merge.yml`: adds `workflow_call` with input `pr`. The job reads labels, author, and merge commit from the API when called. Why: a merge made with `GITHUB_TOKEN` does not fire the `pull_request: closed` event, so the bump would silently not run.
 - `ai-workflow` rule: step 7 and the flowchart say "merged by the maintainer gate, or by the owner for PRs that wait"; the conditions are linked to `decide.mjs`, not copied. `enforcement-inventory`: one row, "Auto-merge conditions → CI/code → `scripts/maintainer/decide.mjs`".
@@ -86,8 +86,11 @@ Inputs (`snapshot`), all read from the API by `snapshot.mjs`:
 | `checks` | check runs for `headSha`: name, status, conclusion (includes the `Claude Review / review` job) |
 | `review` | newest comment from a trusted author with `<!-- review-pr sha=<headSha> -->`: counts of `must` / `should` from its table; `null` if none |
 | `triage` | newest trusted comment with `<!-- ai-maintainer:triage sha=<headSha> verdict=ok\|human -->`; `null` if none |
-| `state` | the status comment's hidden JSON `{sha, decision, attempts:{review, ci, update, reviewRun}}`. `attempts` belong to the PR, not to a sha: Claude's own pushes never reset them |
-| `reviewCount` | number of review markers on the PR (any sha) |
+| `state` | the status comment's hidden JSON `{sha, decision, roundAt, attempts:{review, ci, update, reviewRun}}`. `attempts` belong to the PR, not to a sha: Claude's own pushes never reset them. Only a new round does |
+| `ownerMentionAt` | time of the newest comment by the owner that contains `@claude` (`@claude address`, `@claude review`, …); `null` if none |
+| `reviewCount` | number of review markers created after `ownerMentionAt` (all markers if `null`): the reviews of the current round |
+
+A **round** starts when the PR first meets `decide`, and again at each owner `@claude` comment. `snapshot.mjs` passes `attempts` as all zeros when `ownerMentionAt > state.roundAt`; `run.mjs` then writes the zeros and the new `roundAt`. The owner's comment is the only reset: `claude.yml` accepts only the owner, so a bot or an outsider cannot start a round (commit authors are not used, because Claude's commits can appear under the owner's account).
 | `switchOn` | `vars.AI_MAINTAINER_MERGE == 'on'` (unset means off) |
 | `headAgeMinutes` | since the head commit was pushed |
 
@@ -106,7 +109,7 @@ Rules, in order (the first that matches wins):
 3. A check on `headSha` has concluded failed/cancelled/timed out:
    - the review check failed → `human` ("review run failed", example 21);
    - otherwise (CI red) → step 5 with `triageKind: ci`.
-4. Any check pending → `wait`. `review == null` with no check pending: if `attempts.reviewRun < 2` and `reviewCount < 5` and `switchOn` → `review` (the runner increments `attempts.reviewRun`, then dispatches `claude-review.yml`); else if the review is still missing 15 minutes after the dispatch → `human` ("review missing"). A review that is already running (`Claude Review` check pending on `headSha`) is a pending check, so it waits.
+4. Any check pending → `wait`. `review == null` with no check pending: if `attempts.reviewRun < 2` and `reviewCount < 3` and `switchOn` → `review` (the runner increments `attempts.reviewRun`, then dispatches `claude-review.yml`); else if the review is still missing 15 minutes after the dispatch → `human` ("review missing"). A review that is already running (`Claude Review` check pending on `headSha`) is a pending check, so it waits.
 5. Open work: CI red, `review.must > 0`, or `review.should > 0` without `triage.verdict == ok` for this sha:
    - if `attempts[kind] < 2` and `switchOn` → `triage` (any same-repo, non-draft PR that passed rule 2: the owner's, Claude's, and Renovate's);
    - else → `human` ("fix attempts used" / "switch is off").
@@ -189,8 +192,8 @@ Residual risk (not removed by this design): the `must` count comes from an LLM r
 
 | Claude run | Starts only when | Ceiling |
 | --- | --- | --- |
-| Review | `opened` / `ready_for_review` / `synchronize` of a non-draft same-repo PR, or `decide` returns `review` | one per head sha, at most 5 per PR; `concurrency` cancels a stale run |
-| Triage | `decide` returns `triage` with the switch on | at most 2 per kind (`review`, `ci`, `update`) per PR; one triage at a time repo-wide (`concurrency` group `maintainer-triage`, no cancel); `timeout-minutes: 30` and `--max-turns` |
+| Review | `opened` / `ready_for_review` / `synchronize` of a non-draft same-repo PR, or `decide` returns `review` | one per head sha, at most 3 per round (a round restarts at each owner `@claude` comment); `concurrency` cancels a stale run |
+| Triage | `decide` returns `triage` with the switch on | at most 2 per kind (`review`, `ci`, `update`) per round; one triage at a time repo-wide (`concurrency` group `maintainer-triage`, no cancel); `timeout-minutes: 30` and `--max-turns` |
 | `@claude` | the owner's comment (unchanged) | not counted |
 
 Not Claude runs, and cheap: `decide` jobs (plain Node, no install, seconds). To keep them rare:
@@ -199,7 +202,7 @@ Not Claude runs, and cheap: `decide` jobs (plain Node, no install, seconds). To 
 - The status comment is edited only when the decision changes, and the gate's own comment does not start a Claude run (`claude.yml` ignores bots).
 - The sweeper dispatches only for PRs whose status comment is not a final decision for the current head (final: `human` or "would merge, but the switch is off" on the same sha). A final PR changes again only by a push, the owner's `@claude`, or the switch.
 - A crashed triage counts as an attempt, so a loop ends after the cap. The owner can still run the manual path (`@claude address`), which is not counted.
-- Worst case at rollout with the switch on: 10 open PRs × (1 review + at most 6 triage runs); in practice most PRs stop at `human` or `merge` earlier. Switch off stops all of it.
+- Worst case per round: 3 reviews + at most 6 triage runs; a new round starts only when the owner writes `@claude`. At rollout with the switch on: 10 open PRs × (1 review + at most 6 triage runs); in practice most PRs stop at `human` or `merge` earlier. Switch off stops all of it.
 
 ## Decisions
 
@@ -213,7 +216,7 @@ Not Claude runs, and cheap: `decide` jobs (plain Node, no install, seconds). To 
 | Switch off also blocks `triage` | Anything that changes the repo stops; review and comments continue | Switch only blocks merge |
 | Merge with `GITHUB_TOKEN`, then `workflow_call` for the release | No extra secret or App; the release runs in the same run | A personal access token (long-lived secret) |
 | Triage may fix any same-repo non-draft PR that passed rule 2 | Owner's decision: a PR that is opened (not draft) may be fixed by Claude | Limit to `claude/*` and `renovate/*` (the earlier draft) |
-| `decide` can return `review`; `attempts` belong to the PR | Existing PRs and failed review runs need a review before they can merge; resetting on each sha would let a fix loop run forever | Wait for the 60-minute timeout (breaks example 22); reset attempts per sha |
+| `decide` can return `review`; `attempts` belong to the PR and reset only at an owner `@claude` comment (3 reviews per round) | Existing PRs and failed review runs need a review before they can merge; resetting on each sha would let a fix loop run forever; an owner `@claude address`/`review` is the explicit "go on", so it starts a new round and its push is reviewed | Wait for the 60-minute timeout (breaks example 22); reset attempts per sha; reset on the owner's push (needs commit authors, which Claude can share) |
 | Sweeper skips PRs at a final decision | A decided PR costs nothing until it changes | Re-run every PR every 30 minutes |
 | Impact by label for the owner's PRs; by exact branch for Renovate | Renovate labels majors the same as minors; the branch name carries the group | Add Renovate labels (changes `renovate.json`, more moving parts) |
 | `mergeState == CLEAN` is the "required checks green" test, plus no failed check on the head | `CLEAN` also excludes failing non-required checks, which is stricter and fail-safe | Read the protection rules (needs admin scope) |

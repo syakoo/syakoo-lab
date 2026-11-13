@@ -12,16 +12,18 @@ Split **judgment** from **authority**.
 - One deterministic function, `decide()`, decides what happens next. It is plain code, has no LLM, and runs from `main` (never from PR code).
 - Only the step that runs `decide()` may merge or label. Claude can only **subtract** from what `decide()` allows: it can say "stop", never "merge anyway".
 
-One workflow, `maintainer.yml`, runs once per PR. It is triggered when something finishes (CI, review, a Claude run), by a 30-minute sweeper, and by hand. Each run re-reads the PR from the API and decides again, so a missed event only delays a decision.
+One workflow, `maintainer.yml`, runs once per PR. It is triggered when something finishes (CI, review; a Claude run only when it did real work), by a 30-minute sweeper that skips PRs already at a final decision, and by hand. Each run re-reads the PR from the API and decides again, so a missed event only delays a decision.
 
 ```mermaid
 flowchart TD
   E["event: workflow_run / sweeper / dispatch"] --> D["decide job: snapshot + decide()"]
   D -->|wait| W["nothing (next event re-decides)"]
+  D -->|review| RV["dispatch claude-review.yml (no review for this sha)"]
   D -->|triage| T["triage job: Claude fixes or judges"]
   D -->|human| H["label needs-human + status comment"]
   D -->|merge| M["gh pr merge --match-head-commit"]
   M --> R["release job: version-bump (workflow_call)"]
+  RV --> E
   T -->|push| P["new commit → CI + review → event"]
   T -->|verdict comment| E2["dispatch maintainer.yml → decide again"]
   P --> E
@@ -62,7 +64,7 @@ flowchart LR
 
 **Changed**
 
-- `claude-review.yml`: also runs on `synchronize` (new commits are reviewed again, example 14).
+- `claude-review.yml`: also runs on `synchronize` (new commits are reviewed again, example 14) and on `workflow_dispatch` with input `pr` (for PRs that have no review of their head yet, such as #383–#392 at rollout; it checks out `main` and reads the PR through `gh`). A first step skips the run when the head sha already has a review marker or the PR already has 5 reviews (cost cap, see Security and cost).
 - `review-pull-request` skill: the comment gets one extra first line, `<!-- review-pr sha=<head sha> -->`. Aspects, severities, and the rest of the format do not change.
 - `version-bump-on-merge.yml`: adds `workflow_call` with input `pr`. The job reads labels, author, and merge commit from the API when called. Why: a merge made with `GITHUB_TOKEN` does not fire the `pull_request: closed` event, so the bump would silently not run.
 - `ai-workflow` rule: step 7 and the flowchart say "merged by the maintainer gate, or by the owner for PRs that wait"; the conditions are linked to `decide.mjs`, not copied. `enforcement-inventory`: one row, "Auto-merge conditions → CI/code → `scripts/maintainer/decide.mjs`".
@@ -84,31 +86,33 @@ Inputs (`snapshot`), all read from the API by `snapshot.mjs`:
 | `checks` | check runs for `headSha`: name, status, conclusion (includes the `Claude Review / review` job) |
 | `review` | newest comment from a trusted author with `<!-- review-pr sha=<headSha> -->`: counts of `must` / `should` from its table; `null` if none |
 | `triage` | newest trusted comment with `<!-- ai-maintainer:triage sha=<headSha> verdict=ok\|human -->`; `null` if none |
-| `state` | the status comment's hidden JSON `{sha, decision, attempts:{review, ci}}` |
+| `state` | the status comment's hidden JSON `{sha, decision, attempts:{review, ci, update, reviewRun}}`. `attempts` belong to the PR, not to a sha: Claude's own pushes never reset them |
+| `reviewCount` | number of review markers on the PR (any sha) |
 | `switchOn` | `vars.AI_MAINTAINER_MERGE == 'on'` (unset means off) |
 | `headAgeMinutes` | since the head commit was pushed |
 
 Trusted comment authors (a list in `snapshot.mjs`): `syakoo` (owner), `claude[bot]`, `github-actions[bot]`. A marker from anyone else is data and is ignored.
 
-Output (`decision`): `{ kind: "ignore" | "wait" | "triage" | "merge" | "human", reason, triageKind?: "review" | "ci" | "update" }`.
+Output (`decision`): `{ kind: "ignore" | "wait" | "review" | "triage" | "merge" | "human", reason, triageKind?: "review" | "ci" | "update" }`.
 
 Rules, in order (the first that matches wins):
 
 1. `draft` or fork → `ignore`. Merged or closed → `ignore`.
 2. Hard conditions, each with its own reason → `human`:
-   - author is not the owner or `renovate[bot]`;
-   - any changed path under `.github/`, `.claude/`, `.githooks/`, or `CLAUDE.md`;
-   - impact: for the owner's PRs exactly one `semver:*` and it is `semver:patch`; for Renovate only the exact branch `renovate/minor-and-patch-updates` (the `groupName` in `renovate.json`); every other Renovate PR (majors) → `human`, "major update: summary only".
+   - author is not the owner or `renovate[bot]` (the Claude agent's PRs are opened under the owner's account);
+   - any changed path under `.github/`, `.claude/`, `.githooks/`, or `CLAUDE.md`.
+
+   Impact is **not** here: it only limits merging (rule 8), so Claude may still review and fix `semver:minor`/`major` PRs and Renovate majors.
 3. A check on `headSha` has concluded failed/cancelled/timed out:
    - the review check failed → `human` ("review run failed", example 21);
    - otherwise (CI red) → step 5 with `triageKind: ci`.
-4. Any check pending, or `review == null` → `wait`; but if `headAgeMinutes > 60` and `review == null` → `human` ("review missing").
+4. Any check pending → `wait`. `review == null` with no check pending: if `attempts.reviewRun < 2` and `reviewCount < 5` and `switchOn` → `review` (the runner increments `attempts.reviewRun`, then dispatches `claude-review.yml`); else if the review is still missing 15 minutes after the dispatch → `human` ("review missing"). A review that is already running (`Claude Review` check pending on `headSha`) is a pending check, so it waits.
 5. Open work: CI red, `review.must > 0`, or `review.should > 0` without `triage.verdict == ok` for this sha:
-   - if the branch is `claude/*` or `renovate/*` and `attempts[kind] < 2` and `switchOn` → `triage`;
-   - else → `human` ("fix attempts used" / "branch is not Claude's own").
+   - if `attempts[kind] < 2` and `switchOn` → `triage` (any same-repo, non-draft PR that passed rule 2: the owner's, Claude's, and Renovate's);
+   - else → `human` ("fix attempts used" / "switch is off").
 6. `triage.verdict == human` → `human` (a `question` or design deviation, example 10).
 7. `mergeState == DIRTY` → `triage` with `triageKind: update` once (`attempts.update`), else `human` (example 17). `BEHIND` → same `update`. Anything other than `CLEAN` → `wait`.
-8. All hold → `switchOn ? merge : human("would merge, but the switch is off")`. The off case adds no `needs-human` label; it only writes the status comment.
+8. Impact: for the owner's PRs exactly one `semver:*` and it is `semver:patch`; for Renovate only the exact branch `renovate/minor-and-patch-updates` (the `groupName` in `renovate.json`). Otherwise → `human` ("semver:minor needs the owner" / "major update: summary only"). All hold → `switchOn ? merge : human("would merge, but the switch is off")`. The off case adds no `needs-human` label; it only writes the status comment.
 
 `run.mjs` acts on the decision: `human` adds `needs-human` and writes the status comment; a new `headSha` (different from `state.sha`) first removes `needs-human` and re-decides (owner pushes count as "Reviewing"). `merge` runs `gh pr merge <n> --merge --match-head-commit <headSha>` (the repo uses merge commits). GitHub itself still enforces branch protection, which is the last line of defense.
 
@@ -136,14 +140,14 @@ Input: `pr` (number). Preconditions: the PR is merged. Output: the same release 
 | 2 | `decide` rule 1 (`draft` → `ignore`) | `decide.test.mjs` |
 | 3 | rules 2–8 → `merge`; `run.mjs` merge call | `decide.test.mjs`; rollout dry run |
 | 4 | rule 4 (`wait` while pending); `workflow_run` re-decides on finish | `decide.test.mjs` |
-| 5 | rule 2 impact → `human` | `decide.test.mjs` |
+| 5 | rule 8 impact → `human` | `decide.test.mjs` |
 | 6 | rule 2 path check → `human` | `decide.test.mjs` |
 | 7 | rule 5 → `triage review`; triage pushes; review runs on `synchronize` | `decide.test.mjs`; rollout |
 | 8 | `triage review` prompt; verdict `ok` lets rule 5 pass | `decide.test.mjs` (verdict cases); prompt review |
 | 9 | rule 5 attempts limit → `human` with the attempt list in the status comment | `decide.test.mjs` |
 | 10 | rule 6 and the triage system prompt | `decide.test.mjs` (rule 6); prompt review |
-| 11 | rule 3 + 5 with `renovate/*` branch | `decide.test.mjs` |
-| 12 | rule 2 (non-group Renovate branch → `human`) | `decide.test.mjs` |
+| 11 | rule 3 + 5 with a Renovate PR (`renovate[bot]`, group branch) | `decide.test.mjs` |
+| 12 | rule 8 (non-group Renovate branch → `human`) | `decide.test.mjs` |
 | 13 | rule 2 path check (`.github/`) | `decide.test.mjs` |
 | 14 | `synchronize` trigger; `review`/`triage` bind to `headSha`; `state.sha` reset | `snapshot.test.mjs`, `decide.test.mjs` |
 | 15 | rule 1 (merged/closed → `ignore`); no step touches closed PRs | `decide.test.mjs` |
@@ -153,9 +157,49 @@ Input: `pr` (number). Preconditions: the PR is merged. Output: the same release 
 | 19 | rule 8 switch; `--match-head-commit`; `mergeState == CLEAN`; branch protection | `decide.test.mjs`; protection is the backstop |
 | 20 | `run.mjs` has no push path; protected-path rule; triage prompt forbids skipping tests | `decide.test.mjs`; review of `run.mjs` |
 | 21 | rule 3 (review check failed), rule 4 (review missing), `release` in the same run | `decide.test.mjs` |
-| 22 | sweeper dispatches one run per open PR; the switch decides if it merges | rollout |
+| 22 | sweeper dispatches one run per open PR that is not at a final decision; rule 4 `review` gives #383–#392 a review of their head; the switch decides if it merges | `decide.test.mjs` (`review`); rollout |
 
-Qualities: **Safety** = rules 2/7/8 plus GitHub's protection. **Control** = the switch is read in the same job that merges (seconds); with the switch off `decide` never returns `triage` or `merge`. **Traceability** = the status comment. **Cost** = `attempts` cap, per-PR `concurrency` group (`maintainer-<pr>`, no cancel), the sweeper starts Claude only when `decide` says `triage`. **Security** = trusted-author list, `persist-credentials: false`, minimal tool list, and the Claude jobs cannot merge.
+Qualities: **Safety** = rules 2/7/8 plus GitHub's protection. **Control** = the switch is read in the same job that merges (seconds); with the switch off `decide` never returns `review`, `triage`, or `merge`. **Traceability** = the status comment. **Cost** and **Security**: see the next section.
+
+## Renovate coverage
+
+| Case | Handled by |
+| --- | --- |
+| Review of Renovate PRs | `claude-review.yml` already has `allowed_bots: "claude,renovate"`; `synchronize` (Renovate rebases) and `workflow_dispatch` are added |
+| Minor and patch group (`renovate/minor-and-patch-updates`) | `decide` rules 2–8; CI red → `triage ci`; merges when clean |
+| Majors and any other Renovate branch | CI red → `triage ci` (requirements: Claude may fix CI on majors); when everything else holds, rule 8 → `human` with "major update: summary only" |
+| Actions updates (touch `.github/`) | rule 2 path check → `human` |
+| `workflow_run.pull_requests` empty | snapshot falls back to open PRs whose head sha matches |
+| Author login | the API reports `renovate[bot]` (GraphQL: `renovate`); `snapshot.mjs` normalizes both |
+
+## Security and cost
+
+**Prompt injection.** Text that can be written by someone else reaches Claude through PR bodies, diffs, Renovate release notes, and CI logs. Defenses, in order of strength:
+
+1. Claude cannot merge or label: the authority step is code. Injected text can at most make Claude push a commit or post a comment.
+2. Whatever Claude pushes is judged again on the new sha: protected paths, impact label, all checks, and the review. `main` protection is the backstop.
+3. Markers count only when they are the **first line** of a comment by a trusted author and bind the head sha. A quoted marker inside a review (for example copied from a release note) is ignored. Verdict `ok` can only release `should` findings; it cannot clear a `must`, a red check, or any rule 2 condition.
+4. The triage job has a short tool allowlist: the `claude.yml` list (no `git push`, no general `gh api`) plus `gh pr comment`, `gh run view`, `gh run list`, and the one `update-branch` call. No network tool. The system prompt repeats that only the owner's comments are instructions.
+5. In the workflows, event fields that an outsider can choose (branch names, titles) are passed through `env:`, never interpolated into `run:`; the dispatch input `pr` is checked to be an integer.
+6. Dependency install uses safe-chain, as in `claude.yml`. The OAuth token is given only to the Claude step, and `persist-credentials: false`.
+
+Residual risk (not removed by this design): the `must` count comes from an LLM review that reads the same untrusted text, so a hostile dependency that passes CI could be merged. Mitigations already in place: `minimumReleaseAge: 1 days`, CI, protected paths, and the switch. The owner can choose to keep `semver:patch` only for the owner's PRs and send all Renovate PRs to `human`; this is a one-line change in `decide` rule 2.
+
+**Cost (what can start a Claude run).**
+
+| Claude run | Starts only when | Ceiling |
+| --- | --- | --- |
+| Review | `opened` / `ready_for_review` / `synchronize` of a non-draft same-repo PR, or `decide` returns `review` | one per head sha, at most 5 per PR; `concurrency` cancels a stale run |
+| Triage | `decide` returns `triage` with the switch on | at most 2 per kind (`review`, `ci`, `update`) per PR; one triage at a time repo-wide (`concurrency` group `maintainer-triage`, no cancel); `timeout-minutes: 30` and `--max-turns` |
+| `@claude` | the owner's comment (unchanged) | not counted |
+
+Not Claude runs, and cheap: `decide` jobs (plain Node, no install, seconds). To keep them rare:
+
+- `maintainer.yml` reacts to `workflow_run` only when the finished run's conclusion is not `skipped` (every PR comment makes `Claude` start and be skipped, which must not wake the gate).
+- The status comment is edited only when the decision changes, and the gate's own comment does not start a Claude run (`claude.yml` ignores bots).
+- The sweeper dispatches only for PRs whose status comment is not a final decision for the current head (final: `human` or "would merge, but the switch is off" on the same sha). A final PR changes again only by a push, the owner's `@claude`, or the switch.
+- A crashed triage counts as an attempt, so a loop ends after the cap. The owner can still run the manual path (`@claude address`), which is not counted.
+- Worst case at rollout with the switch on: 10 open PRs × (1 review + at most 6 triage runs); in practice most PRs stop at `human` or `merge` earlier. Switch off stops all of it.
 
 ## Decisions
 
@@ -168,7 +212,9 @@ Qualities: **Safety** = rules 2/7/8 plus GitHub's protection. **Control** = the 
 | Kill switch = repository variable `AI_MAINTAINER_MERGE=on` (unset = off) | Fail-safe default; one place in the UI; read at run time | A label (can be missed), a file in the repo (needs a PR) |
 | Switch off also blocks `triage` | Anything that changes the repo stops; review and comments continue | Switch only blocks merge |
 | Merge with `GITHUB_TOKEN`, then `workflow_call` for the release | No extra secret or App; the release runs in the same run | A personal access token (long-lived secret) |
-| Triage may fix only `claude/*` and `renovate/*` branches | The owner's own branches may be mid-edit locally; a push would collide | Fix any owner branch |
+| Triage may fix any same-repo non-draft PR that passed rule 2 | Owner's decision: a PR that is opened (not draft) may be fixed by Claude | Limit to `claude/*` and `renovate/*` (the earlier draft) |
+| `decide` can return `review`; `attempts` belong to the PR | Existing PRs and failed review runs need a review before they can merge; resetting on each sha would let a fix loop run forever | Wait for the 60-minute timeout (breaks example 22); reset attempts per sha |
+| Sweeper skips PRs at a final decision | A decided PR costs nothing until it changes | Re-run every PR every 30 minutes |
 | Impact by label for the owner's PRs; by exact branch for Renovate | Renovate labels majors the same as minors; the branch name carries the group | Add Renovate labels (changes `renovate.json`, more moving parts) |
 | `mergeState == CLEAN` is the "required checks green" test, plus no failed check on the head | `CLEAN` also excludes failing non-required checks, which is stricter and fail-safe | Read the protection rules (needs admin scope) |
 | `--merge` with `--match-head-commit` | Matches the repo's merge-commit history; a push after the decision makes the merge fail | Squash |
@@ -189,11 +235,12 @@ Slices 3–6 change `.github/`, so this PR is itself one that waits for the owne
 
 ## Open questions
 
-- **`main` protection:** does it require an approving review or a code-owner review (`CODEOWNERS` is `* @syakoo`), or "include administrators"? If an approval is required, `github-actions[bot]` cannot merge and the gate needs another way (owner's call). Not visible with this session's token.
+- None. (`main` has no approval or code-owner requirement, confirmed by the owner, so `github-actions[bot]` can merge once the required checks pass.)
 
 ## To confirm while implementing
 
-- A `GITHUB_TOKEN` merge passes protection; if blocked, stop and ask (do not add a token).
+- A `GITHUB_TOKEN` merge passes protection (required checks, signed commits); if blocked, stop and ask (do not add a token).
+- `claude-code-action` accepts `workflow_dispatch` with the actor `github-actions` for the review job; if not, the `review` decision falls back to `human`.
 - The `update-branch` call with the action's token fires CI.
 - `workflow_run.pull_requests` is empty for some PRs (Renovate); fall back to searching open PRs by head SHA.
 - Why `security-scan` fails on #383 (the first thing `triage ci` will meet); the failed run's logs are the source.

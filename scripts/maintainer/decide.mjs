@@ -15,6 +15,8 @@ export const MAX_REVIEW_RUNS_PER_DISPATCH = 2;
 export const MAX_REVIEWS_PER_ROUND = 3;
 export const REVIEW_MISSING_MINUTES = 15;
 export const REVIEW_CHECK_PREFIX = "Claude Review";
+/** Check runs that neither block nor fail a merge (external deploy previews). */
+export const IGNORED_CHECK_PREFIXES = ["Cloudflare Pages"];
 
 const PROTECTED_DIRS = [".github/", ".claude/", ".githooks/"];
 const FAILED_CONCLUSIONS = new Set([
@@ -96,17 +98,21 @@ export function decide(s) {
   if (protectedFile)
     return human(`changes a protected path (${protectedFile})`);
 
-  const failed = s.checks.filter(
+  // Deploy previews are external and nothing wakes the gate when they finish; CI is the gate.
+  const checks = s.checks.filter(
+    (c) => !IGNORED_CHECK_PREFIXES.some((p) => c.name.startsWith(p)),
+  );
+  const failed = checks.filter(
     (c) =>
       c.status === "completed" && FAILED_CONCLUSIONS.has(c.conclusion ?? ""),
   );
-  const pending = s.checks.some((c) => c.status !== "completed");
+  const pending = checks.some((c) => c.status !== "completed");
 
   // 3. Failed checks.
   // A superseded run leaves a `cancelled` check on the same sha; a review that
   // landed anyway wins over it.
   // A review check still running (a second run on the same sha) may yet post one.
-  const reviewRunning = s.checks.some(
+  const reviewRunning = checks.some(
     (c) => c.status !== "completed" && c.name.startsWith(REVIEW_CHECK_PREFIX),
   );
   const reviewFailed =

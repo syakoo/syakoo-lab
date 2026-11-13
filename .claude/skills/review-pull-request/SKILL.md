@@ -15,7 +15,7 @@ Runs automatically when a PR is opened (`claude-review.yml`) and again on `@clau
 
 ## Steps
 
-1. Read the PR: `gh pr view <N> --json number,title,body,headRefName,baseRefName,url`
+1. Read the PR: `gh pr view <N> --json number,title,body,headRefName,headRefOid,baseRefName,url`
 2. Read the diff: `gh pr diff <N>`
 3. If the body links an issue (`Closes #XX` / `Refs #XX`), read it: `gh issue view <N>`
 4. Walk **every aspect** below, one by one. Do not stop at the first finding.
@@ -67,9 +67,12 @@ Every finding carries exactly one label.
 
 ## Output format
 
-Post this as the PR comment. **Summary goes first.**
+Post this as the PR comment. **Summary goes first.** The very first line of the comment is the marker
+`<!-- review-pr sha=<headRefOid> -->` (the `headRefOid` from step 1, in full). The maintainer gate
+(`scripts/maintainer/`) reads it to know which commit the review covers; do not quote it elsewhere.
 
 ```markdown
+<!-- review-pr sha=<headRefOid> -->
 ## PR review
 
 ### Summary

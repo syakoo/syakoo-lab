@@ -1,22 +1,38 @@
 name: Claude Review
 
-# Runs the `review-pull-request` skill once when a PR is opened or marked ready.
-# Re-reviews are requested with `@claude review` (see claude.yml). Steps: `ai-workflow` rule.
+# Runs the `review-pull-request` skill when a PR is opened, marked ready, or gets new commits,
+# and when the maintainer gate asks for it (workflow_dispatch with `pr`).
+# `@claude review` (see claude.yml) is the manual path. Steps: `ai-workflow` rule.
+# Cost cap: one review per head sha, at most 3 per round (see the guard step).
+
+# The run name of a dispatched run is the PR number alone, so maintainer.yml can find the PR
+# (and use it in its concurrency group).
+run-name: ${{ github.event_name == 'workflow_dispatch' && inputs.pr || github.workflow }}
 
 on:
   pull_request:
-    types: [opened, ready_for_review]
+    types: [opened, ready_for_review, synchronize]
+  workflow_dispatch:
+    inputs:
+      pr:
+        description: Pull request number
+        required: true
+        type: string
 
 concurrency:
-  group: claude-review-${{ github.event.pull_request.number }}
+  group: claude-review-${{ github.event.pull_request.number || inputs.pr }}
   cancel-in-progress: true
 
 jobs:
   review:
+    # The check name is what `decide.mjs` looks for (REVIEW_CHECK_PREFIX).
+    name: Claude Review
     # Same-repo, non-draft PRs only. Fork PRs get no secrets and are not reviewed.
+    # For workflow_dispatch the guard step checks the same things through the API.
     if: >-
-      github.event.pull_request.draft == false &&
-      github.event.pull_request.head.repo.full_name == github.repository
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.pull_request.draft == false &&
+      github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: ubuntu-latest
     timeout-minutes: 30
     # Read-only on code. No dependency install: the PR's code must not run in a job that holds the token.
@@ -26,19 +42,69 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
+      # pull_request: the merge ref of the PR (read-only context for the review).
+      # workflow_dispatch: main; the PR is read through `gh`.
       - name: Checkout
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+
+      - name: Guard (cost cap)
+        id: guard
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number || inputs.pr }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$PR" =~ ^[0-9]+$ ]]; then
+            echo "::error::pr must be an integer"
+            exit 1
+          fi
+          echo "pr=$PR" >> "$GITHUB_OUTPUT"
+
+          pr_json="$(gh api "repos/${REPO}/pulls/${PR}")"
+          head="$(jq -r .head.sha <<<"$pr_json")"
+          ok="$(jq -r '.state == "open" and .draft == false and .head.repo.full_name == "'"$REPO"'"' <<<"$pr_json")"
+          if [[ "$ok" != "true" ]]; then
+            echo "Skip: PR is not an open, non-draft, same-repo PR."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Markers count only as the first line of a trusted author's comment.
+          verdict="$(gh api --paginate --slurp "repos/${REPO}/issues/${PR}/comments" | jq -r --arg sha "$head" '
+            flatten as $c
+            | ($c | map(select(.user.login == "syakoo" and (.body | contains("@claude"))) | .created_at) | max // "") as $round
+            | ($c | map(select(
+                (.user.login | IN("syakoo", "claude[bot]", "github-actions[bot]"))
+                and ((.body | split("\n")[0] | gsub("^\\s+|\\s+$"; "")) | test("^<!-- review-pr( +[A-Za-z0-9_-]+=[^ ]+)* *-->$"))
+              ))) as $reviews
+            | if ($reviews | map(select(.body | split("\n")[0] | test("sha=" + $sha + " "))) | length) > 0
+              then "skip: this head already has a review"
+              elif ($reviews | map(select(.created_at > $round)) | length) >= 3
+              then "skip: 3 reviews in this round"
+              else "run" end')"
+          echo "Guard: $verdict"
+          if [[ "$verdict" == run ]]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Run Claude review
+        if: steps.guard.outputs.skip != 'true'
         uses: anthropics/claude-code-action@d535f5172dec02b204866b393d6b20b9b2aaf98d # v1.0.266
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # PRs opened by these bots (the agent's own, and dependency updates) are
           # reviewed too; the action rejects bot-triggered runs by default.
-          allowed_bots: "claude,renovate"
+          # github-actions: the maintainer gate dispatches this workflow (guard above caps it).
+          allowed_bots: "claude,renovate,github-actions"
           prompt: |
-            Review PR #${{ github.event.pull_request.number }} in ${{ github.repository }}
+            Review PR #${{ steps.guard.outputs.pr }} in ${{ github.repository }}
             with the `review-pull-request` skill (.claude/skills/review-pull-request).
-            Post the result as one PR comment. Do not edit files.
+            Post the result as one PR comment, starting with the marker line the skill requires.
+            Do not edit files.
           claude_args: >-
             --allowedTools "Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr comment:*),Bash(gh issue view:*),Bash(git diff:*),Bash(git log:*),Bash(git show:*)"

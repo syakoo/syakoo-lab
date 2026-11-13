@@ -10,7 +10,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 4. **AI**: Finalize the Draft PR (`create-pull-request`); review it when ready (`review-pull-request`, `.github/workflows/claude-review.yml`)
 5. **Human**: Review behavior, Storybook, etc., and leave feedback
 6. **AI**: Address review feedback on request (`address-pr-review`)
-7. **Human**: Re-check and merge
+7. **Maintainer gate or human**: the gate merges only what `scripts/maintainer/decide.mjs` allows; every other PR is labeled `needs-human` and the human re-checks and merges
 
 ```mermaid
 flowchart TD
@@ -25,7 +25,7 @@ flowchart TD
   E --> F["👤 review + feedback"]
   F --> G["🤖 address review"]
   G -->|"re-check"| F
-  G -->|"OK"| H["👤 merge"]
+  G -->|"OK"| H["⚙️ gate merges (decide.mjs) or 👤 merge"]
   H --> J["⚙️ semver:* label → auto bump + GH Release"]
   L["💡 continuous-improvement"] -.separate PR.-> A
   N["🔄 Renovate — dependency PRs (separate)"] -.-> E
@@ -35,6 +35,14 @@ flowchart TD
 - Do not change beyond the agreed requirements and design.
 - Phases, documents, and branch handling: `sdf` rule. Layout: `project-structure` skill. Conventions and design principles (including module depth): `coding-guide` skill. Language: English.
 - Every PR to `main` must carry exactly one `semver:major` / `semver:minor` / `semver:patch` label (CI). On merge, Actions bumps `package.json` and publishes the GitHub Release. `renovate[bot]` defaults to patch.
+
+## Maintainer gate
+
+`.github/workflows/maintainer.yml` re-reads each PR after CI or the review finishes (and every 30 minutes) and decides: wait, ask for a review, triage (Claude fixes CI or review findings), stop with `needs-human`, or merge. The conditions live only in `scripts/maintainer/decide.mjs`; design: `docs/specs/20261113-ai-maintainer/`. Claude can only subtract from what `decide.mjs` allows; it never merges or labels.
+
+- Kill switch: repository variable `AI_MAINTAINER_MERGE=on`. Unset, the gate only writes status comments.
+- The owner's `@claude address` or `@claude review` on a PR starts a new round (fix and review attempts count again).
+- A PR labeled `needs-human` waits for the owner. Do not merge it for them.
 
 ## Release cycle
 

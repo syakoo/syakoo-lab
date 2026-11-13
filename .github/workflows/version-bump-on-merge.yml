@@ -3,11 +3,19 @@ name: Version bump on merge
 # After a PR merges to main, bump package.json from its semver:* label and
 # publish a GitHub Release. Trigger is pull_request closed (not push), so the
 # Contents-API bump commit does not re-enter this workflow.
+# A merge made with GITHUB_TOKEN (the maintainer gate) fires no `closed` event,
+# so maintainer.yml calls this workflow with the PR number instead.
 
 on:
   pull_request:
     types: [closed]
     branches: [main]
+  workflow_call:
+    inputs:
+      pr:
+        description: Number of the merged pull request
+        required: true
+        type: string
 
 concurrency:
   group: release-${{ github.repository }}
@@ -19,15 +27,51 @@ permissions:
 
 jobs:
   release:
-    if: github.event.pull_request.merged == true
+    # In a called workflow `github.event_name` is the caller's event, so test the input.
+    if: inputs.pr != '' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      - name: Load PR
+        id: pr
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          CALL_PR: ${{ inputs.pr }}
+          EVENT_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+          EVENT_AUTHOR: ${{ github.event.pull_request.user.login }}
+          EVENT_MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          set -euo pipefail
+          if [[ -n "$CALL_PR" ]]; then
+            if ! [[ "$CALL_PR" =~ ^[0-9]+$ ]]; then
+              echo "::error::pr must be an integer"
+              exit 1
+            fi
+            json="$(gh api "repos/${REPO}/pulls/${CALL_PR}")"
+            if [[ "$(jq -r .merged <<<"$json")" != "true" ]]; then
+              echo "::error::PR #${CALL_PR} is not merged"
+              exit 1
+            fi
+            labels="$(jq -r '[.labels[].name] | join(",")' <<<"$json")"
+            author="$(jq -r .user.login <<<"$json")"
+            merge_sha="$(jq -r .merge_commit_sha <<<"$json")"
+          else
+            labels="$EVENT_LABELS"
+            author="$EVENT_AUTHOR"
+            merge_sha="$EVENT_MERGE_SHA"
+          fi
+          {
+            echo "labels=$labels"
+            echo "author=$author"
+            echo "merge_sha=$merge_sha"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Resolve bump level
         id: level
         env:
-          LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
-          AUTHOR: ${{ github.event.pull_request.user.login }}
+          LABELS: ${{ steps.pr.outputs.labels }}
+          AUTHOR: ${{ steps.pr.outputs.author }}
         run: |
           set -euo pipefail
           IFS=',' read -r -a label_arr <<< "$LABELS"
@@ -56,7 +100,7 @@ jobs:
       - name: Checkout merge commit
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
-          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          ref: ${{ steps.pr.outputs.merge_sha }}
 
       - name: Bump package.json and publish release
         env:

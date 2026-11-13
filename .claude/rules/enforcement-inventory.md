@@ -42,6 +42,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
 | Single source of truth | Agent | `single-source-of-truth` rule |
 | Project release / version bump | CI | `semver:*` PR label + `version-bump-on-merge` workflow |
+| Auto-merge conditions, review/fix attempt caps | CI | `scripts/maintainer/decide.mjs` (run by `.github/workflows/maintainer.yml`) |
 
 ## Config-only exceptions
 

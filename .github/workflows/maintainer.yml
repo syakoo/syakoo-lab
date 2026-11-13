@@ -41,7 +41,7 @@ jobs:
       actions: write
     steps:
       - name: Checkout main
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
@@ -76,7 +76,7 @@ jobs:
       triage: ${{ steps.run.outputs.triage }}
     steps:
       - name: Checkout main
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
@@ -172,7 +172,7 @@ jobs:
     steps:
       # `decide` allows triage only for PRs by the owner or Renovate on same-repo branches.
       - name: Checkout the PR branch
-        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ fromJSON(needs.decide.outputs.triage).branch }}
           persist-credentials: false

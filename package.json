@@ -106,7 +106,7 @@
     "tsx": "^4.20.5",
     "typescript": "^5.7.2",
     "vite": "^7.3.7",
-    "vitest": "^4.0.0",
+    "vitest": "^5.0.0",
     "wait-on": "^8.0.4"
   },
   "packageManager": "pnpm@10.34.9"

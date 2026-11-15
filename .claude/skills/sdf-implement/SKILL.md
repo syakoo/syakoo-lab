@@ -3,9 +3,9 @@ description: Implement an agreed design slice by slice, commit per slice, review
 license: MIT
 metadata:
     github-path: sdf-implement
-    github-ref: refs/tags/v0.1.2
+    github-ref: refs/tags/v0.3.0
     github-repo: https://github.com/syakoo/sdf-skills
-    github-tree-sha: a5557d99bb3ba22a388583404ddf84b04e732880
+    github-tree-sha: 88c450846a9edcdd6e1ddf827a1d1b4866adaff8
 name: sdf-implement
 ---
 # Implement
@@ -23,6 +23,14 @@ The user reviews and merges the pull request. Do not merge.
 5. **When the design does not hold, follow the table below.**
 6. **Review in a fresh context** (below), fix what it finds, and review again until it is clean.
 7. **Mark the documents, then open the pull request.** Just before opening it, set the status of `design.md` and `requirements.md` to `implemented` and commit that, so the change merges with the code. Updating after the merge would need another pull request. The description links the requirements and the design, lists every deviation from the design, and states the result for each acceptance example. If the user asks for changes in review, the status stays as it is.
+
+## Step comments
+
+If the project has its own comment rule, it wins. Otherwise, in a function that orchestrates a use case whose steps must run in order, mark each step with `// STEP: <name>`, using the message names from the design's sequence diagram. The comment is an index back to the diagram.
+
+- Only for orchestration that follows a sequence diagram. Do not add them elsewhere.
+- If the order is incidental rather than part of the use case, hide it inside a deeper module instead of commenting it.
+- Keep names and order in step with the diagram. When one changes, change the other.
 
 ## Keeping the context small
 
@@ -55,6 +63,7 @@ The review has two parts. Both are reported together, with the same levels.
 
 - The diff stays within the design's diff from the as-is, with no change outside it, and boundaries have the designed shape.
 - Every acceptance example, including what must **not** happen, has its test and passes. Run the project's checks to confirm.
+- Where the design has a sequence diagram, the code's steps (and `// STEP:` comments, if used) match its messages in name and order, and common errors are handled in the one place the design names.
 
 **Part 2: general review of the diff.** If the project has its own review procedure (rules, or a skill for reviewing changes before a pull request), follow it, including its aspects and levels. Only when it has none, use the default below.
 

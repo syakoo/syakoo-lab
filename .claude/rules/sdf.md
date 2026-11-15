@@ -35,5 +35,6 @@ Optional. Use one as an inbox for an idea; there is no template. The PR number i
 ## Implement
 
 - Checks before each slice commit: `pnpm lint`, `pnpm type-check`, `pnpm test`; UI changes also follow `coding-guide` → Storybook VRT.
+- Code comments follow `coding-guide` → Comments (the project rule wins); do not add `// STEP:` markers.
 - The fresh-context review (Part 2) reads `coding-guide` and `project-structure` and checks the diff against them, on top of the default aspects.
 - When the review is clean, finalize the existing Draft PR with `create-pull-request` (body, then `gh pr ready`); do not open a second one. This overrides `sdf-implement` step 7 ("open the pull request").

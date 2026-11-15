@@ -45,6 +45,8 @@ decides; report what is ready.
 - A fix pushed to a Renovate branch can be lost: Renovate may overwrite it when it rebases. Push, then re-check the
   branch before reporting the PR as ready, and tell the owner the fix lives on a Renovate-owned branch.
 - Check the `semver:*` label is present before calling a PR ready (CI requires exactly one; Renovate defaults to patch).
+  If it is missing or doubled, report the PR as not ready and name the label problem; do not add or remove labels.
+- Run only when the owner asks, in their own session. Never from the maintainer gate or other automation.
 
 ## Output
 

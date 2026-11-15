@@ -4,7 +4,7 @@ Feature work runs through `sdf-requirements` → `sdf-design` → `sdf-implement
 
 ## Documents
 
-- Location: `docs/specs/<YYYYMMDD>-<slug>/` (`requirements.md`, `design.md`, `sketch/`). `<YYYYMMDD>` is the day the work began.
+- Location: `docs/changes/<YYYYMMDD>-<slug>/` (`requirements.md`, `design.md`, `sketch/`). `<YYYYMMDD>` is the day the work began.
 - One folder per piece of work. A change that resembles an earlier one gets a new folder; do not edit the old one.
 - Kept after merge, with status `implemented`. The code is the source of truth for current behavior.
 - Language: English.

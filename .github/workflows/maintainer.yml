@@ -3,7 +3,7 @@ name: Maintainer
 # The AI maintainer gate. Each run re-reads one PR and decides again (`decide.mjs`);
 # it never trusts the event that woke it, so a missed event only delays a decision.
 # Wakes: CI / Claude Review finishing, a 30-minute sweeper, and manual dispatch.
-# Rules and cost ceilings: docs/specs/20261113-ai-maintainer/design.md.
+# Rules and cost ceilings: docs/changes/20261113-ai-maintainer/design.md.
 # Runs code from main only. The PR's code is never checked out here.
 # Kill switch: repository variable AI_MAINTAINER_MERGE=on (unset = status comments only).
 

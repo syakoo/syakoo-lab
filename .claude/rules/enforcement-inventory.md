@@ -21,7 +21,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | `import type`, no default export, sorted Tailwind classes, etc. | Lint | `biome.jsonc` |
 | Conventional commit messages | Hook | `.commitlintrc.json` |
 | One commit per slice, subject ends with `(Slice N)`; state kept in git | Agent | `sdf` rule |
-| sdf documents location (`docs/specs/<YYYYMMDD>-<slug>/`), Draft PR first | Agent | `sdf` rule |
+| sdf documents location (`docs/changes/<YYYYMMDD>-<slug>/`), Draft PR first | Agent | `sdf` rule |
 | Code comments: no inverted deps; why only when surprising | Agent | `coding-guide` skill |
 | CSS Modules (`*.module.css`), colocated Vitest `*.test.ts` | Agent | `coding-guide` skill |
 | Storybook VRT default-on / `skip-vrt` opt-out; UI changes update baselines | Agent | `coding-guide` skill |

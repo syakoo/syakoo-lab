@@ -5,7 +5,7 @@
  * else (see the `single-source-of-truth` rule). Claude can only subtract from
  * what this allows; it can never widen it.
  *
- * Design: docs/specs/20261113-ai-maintainer/design.md
+ * Design: docs/changes/20261113-ai-maintainer/design.md
  */
 
 export const OWNER = "syakoo";

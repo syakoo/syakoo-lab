@@ -3,9 +3,9 @@ description: 'Co-write a requirements document with the user: dig into the why b
 license: MIT
 metadata:
     github-path: sdf-requirements
-    github-ref: refs/tags/v0.1.2
+    github-ref: refs/tags/v0.3.0
     github-repo: https://github.com/syakoo/sdf-skills
-    github-tree-sha: 3d147ad62c383c7a5b28657d4dee929334270b7c
+    github-tree-sha: 4166014ce8a26be0f7dd29ad21fca39277683d27
 name: sdf-requirements
 ---
 # Requirements
@@ -31,7 +31,8 @@ Always include:
 | Why | The problem and the underlying need, in a few lines |
 | Goal | What the system must achieve, stated against the as-is |
 | Out of scope | What we will not do, so nobody asks "why isn't X there?" later |
-| Experience | What the user can do after this change (use case diagram or short list) |
+| Use cases | What the user can do after this change: a list with an ID, the actor, and what they get. A use case diagram is optional |
+| Error handling | What the user sees and what is not lost when something fails (below) |
 | Acceptance examples | Concrete cases, including what must **not** happen, written as in "Acceptance examples" below |
 | Decisions and open questions | Each decision with its reason; what is still undecided |
 
@@ -41,8 +42,16 @@ Add by condition:
 | --- | --- |
 | The feature has state | State transition diagram |
 | It talks to an external system | Data flow diagram per use case |
-| It has a UI | UI sketch plus display rules (below) |
+| It changes the UI, beyond an obvious style tweak | UI sketch on an Artifact, plus display rules (below) |
 | A quality matters here (speed, volume, privacy, failure, accessibility, compatibility, cost) | Qualities (below) |
+
+### Use cases and error handling
+
+- List each use case the user can experience. Give each an ID (`UC1`, `UC2`, ...) so later documents can point to it.
+- **Common error handling:** define failures that behave the same across use cases (expired sign-in, offline, server error) once, each with an ID (`E1`, ...) and what the user sees.
+- **Per use case:** list only the failures specific to it. For a common one, write `Common E1` instead of repeating it, so the reader can see it is shared.
+- State the experience, not the technique: what the user sees and what is kept or lost. Retries, logging, and where the failure is caught belong to design.
+- Each failure listed here needs an acceptance example.
 
 ### Acceptance examples
 
@@ -65,12 +74,12 @@ If the project sets quality standards (a performance budget, an accessibility po
 
 ### UI sketch and display rules
 
-- **Sketch** is for agreeing on the experience with something concrete. Build it as a throwaway prototype (an Artifact works well). Do not fix layout or fine detail here.
+- **Sketch** is for agreeing on the experience with something concrete. Build it as a throwaway prototype on an Artifact, so the user can open and try it. Do not fix layout or fine detail here. Skip it only for an obvious style tweak (a color, a spacing, a font size). If Artifacts are unavailable, say so and use a static HTML file or an image instead.
 - **Display rules** say it in words: under which condition each element is shown, what each action does, and what each input validates. The sketch shows; the rules state exactly.
 
 ## Output
 
-Save to `docs/specs/<YYYYMMDD>-<feature>/requirements.md`. If the project's CLAUDE.md names another location for sdf documents, use that instead. The folder name starts with the date the work began (today, when you create it), so each piece of work gets its own folder: for a change that resembles an earlier one, start a new folder instead of editing the old one. Design later adds `design.md` in the same folder, so the folder is the hand-off between sessions.
+Save to `docs/changes/<YYYYMMDD>-<feature>/requirements.md`. If the project's CLAUDE.md names another location for sdf documents, use that instead. The folder name starts with the date the work began (today, when you create it), so each piece of work gets its own folder: for a change that resembles an earlier one, start a new folder instead of editing the old one. Design later adds `design.md` in the same folder, so the folder is the hand-off between sessions.
 
 Start the file with the date and a status (`draft`, `agreed`, `implemented`). After implementation the code is the source of truth for the current behavior; this file stays as the record of what was agreed and why.
 

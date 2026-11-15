@@ -38,7 +38,7 @@ flowchart TD
 
 ## Maintainer gate
 
-`.github/workflows/maintainer.yml` re-reads each PR after CI or the review finishes (and every 30 minutes) and decides: wait, ask for a review, triage (Claude fixes CI or review findings), stop with `needs-human`, or merge. The conditions live only in `scripts/maintainer/decide.mjs`; design: `docs/specs/20261113-ai-maintainer/`. Claude can only subtract from what `decide.mjs` allows; it never merges or labels.
+`.github/workflows/maintainer.yml` re-reads each PR after CI or the review finishes (and every 30 minutes) and decides: wait, ask for a review, triage (Claude fixes CI or review findings), stop with `needs-human`, or merge. The conditions live only in `scripts/maintainer/decide.mjs`; design: `docs/changes/20261113-ai-maintainer/`. Claude can only subtract from what `decide.mjs` allows; it never merges or labels.
 
 - Kill switch: repository variable `AI_MAINTAINER_MERGE=on`. Unset, the gate only writes status comments.
 - The owner's `@claude address` or `@claude review` on a PR starts a new round (fix and review attempts count again).
@@ -48,7 +48,7 @@ flowchart TD
 
 **Automated.** Feature/fix/chore PRs declare their semver impact with a label; merging to `main`
 is the release. Do not open a dedicated release PR for routine bumps. Distinct from Renovate's
-dependency-update PRs (same review path; patch bump by default).
+dependency-update PRs (same review path; patch bump by default). Batch triage: `handle-renovate-prs` skill.
 
 ## Subagents
 

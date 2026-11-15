@@ -5,7 +5,7 @@
  * Only comments from trusted authors count: a marker written by anyone else is
  * data, not a signal. A marker also counts only as the first line of a comment.
  *
- * Design: docs/specs/20261113-ai-maintainer/design.md
+ * Design: docs/changes/20261113-ai-maintainer/design.md
  */
 
 import { OWNER } from "./decide.mjs";

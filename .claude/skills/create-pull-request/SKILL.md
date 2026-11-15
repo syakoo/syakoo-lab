@@ -31,7 +31,7 @@ One short line that states intent. No prefix required.
 ````markdown
 ## Problem
 
-(What this PR solves. Link `docs/specs/<YYYYMMDD>-<slug>/requirements.md`. Include `Closes #XX` when an issue exists.)
+(What this PR solves. Link `docs/changes/<YYYYMMDD>-<slug>/requirements.md`. Include `Closes #XX` when an issue exists.)
 
 ## Solution
 

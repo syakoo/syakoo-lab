@@ -7,7 +7,7 @@
  * Usage: node scripts/maintainer/sweep.mjs   (one PR number per line)
  * Env: GH_TOKEN, GITHUB_REPOSITORY, AI_MAINTAINER_MERGE
  *
- * Design: docs/specs/20261113-ai-maintainer/design.md (Security and cost)
+ * Design: docs/changes/20261113-ai-maintainer/design.md (Security and cost)
  */
 
 import { execFileSync } from "node:child_process";

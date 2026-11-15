@@ -4,7 +4,7 @@ Feature work runs through `sdf-requirements` → `sdf-design` → `sdf-implement
 
 ## Documents
 
-- Location: `docs/specs/<YYYYMMDD>-<slug>/` (`requirements.md`, `design.md`, `sketch/`). `<YYYYMMDD>` is the day the work began.
+- Location: `docs/changes/<YYYYMMDD>-<slug>/` (`requirements.md`, `design.md`, `sketch/`). `<YYYYMMDD>` is the day the work began.
 - One folder per piece of work. A change that resembles an earlier one gets a new folder; do not edit the old one.
 - Kept after merge, with status `implemented`. The code is the source of truth for current behavior.
 - Language: English.
@@ -35,5 +35,6 @@ Optional. Use one as an inbox for an idea; there is no template. The PR number i
 ## Implement
 
 - Checks before each slice commit: `pnpm lint`, `pnpm type-check`, `pnpm test`; UI changes also follow `coding-guide` → Storybook VRT.
+- Code comments follow `coding-guide` → Comments (the project rule wins); do not add `// STEP:` markers.
 - The fresh-context review (Part 2) reads `coding-guide` and `project-structure` and checks the diff against them, on top of the default aspects.
 - When the review is clean, finalize the existing Draft PR with `create-pull-request` (body, then `gh pr ready`); do not open a second one. This overrides `sdf-implement` step 7 ("open the pull request").

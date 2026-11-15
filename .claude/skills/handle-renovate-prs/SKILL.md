@@ -42,6 +42,8 @@ decides; report what is ready.
 - Install only through the project's pnpm setup (the build-script allowlist and `minimum-release-age` apply). Do not
   loosen either to make a PR pass.
 - No drive-by changes: a fix touches only what the update broke.
+- A fix pushed to a Renovate branch can be lost: Renovate may overwrite it when it rebases. Push, then re-check the
+  branch before reporting the PR as ready, and tell the owner the fix lives on a Renovate-owned branch.
 - Check the `semver:*` label is present before calling a PR ready (CI requires exactly one; Renovate defaults to patch).
 
 ## Output

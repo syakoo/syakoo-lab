@@ -39,6 +39,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | AI workflow (requirements → design → implement ↔ review → PR) | Agent | `ai-workflow` rule |
 | PR body format | Agent | `create-pull-request` skill |
 | PR review checklist | Agent | `review-pull-request` skill |
+| Batch triage of Renovate PRs (owner-requested, never merges) | Agent | `handle-renovate-prs` skill |
 | Codify lessons after trial-and-error | Agent | `continuous-improvement` rule |
 | Single source of truth | Agent | `single-source-of-truth` rule |
 | Project release / version bump | CI | `semver:*` PR label + `version-bump-on-merge` workflow |

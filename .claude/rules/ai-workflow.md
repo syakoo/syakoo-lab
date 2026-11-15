@@ -48,7 +48,7 @@ flowchart TD
 
 **Automated.** Feature/fix/chore PRs declare their semver impact with a label; merging to `main`
 is the release. Do not open a dedicated release PR for routine bumps. Distinct from Renovate's
-dependency-update PRs (same review path; patch bump by default).
+dependency-update PRs (same review path; patch bump by default). The owner clears accumulated Renovate PRs in one batch with the `handle-renovate-prs` skill (it never merges).
 
 ## Subagents
 

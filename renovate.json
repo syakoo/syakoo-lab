@@ -3,7 +3,7 @@
   "extends": ["config:base", ":timezone(Asia/Tokyo)"],
   "schedule": ["every weekend"],
   "labels": ["dependencies"],
-  "minimumReleaseAge": "1 days",
+  "minimumReleaseAge": "2 days",
   "packageRules": [
     {
       "matchUpdateTypes": ["minor", "patch"],

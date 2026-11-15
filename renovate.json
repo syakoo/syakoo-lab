@@ -9,6 +9,18 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "minor and patch updates",
       "automerge": true
+    },
+    {
+      "description": "Vite toolchain majors move together",
+      "matchPackageNames": ["vite", "vitest", "@vitejs/plugin-react"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "vite toolchain"
+    },
+    {
+      "description": "jsdom and its types move together",
+      "matchPackageNames": ["jsdom", "@types/jsdom"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "jsdom"
     }
   ]
 }

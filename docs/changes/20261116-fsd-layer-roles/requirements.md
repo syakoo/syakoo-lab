@@ -1,7 +1,7 @@
 # Re-define FSD layer roles
 
 - Date: 2026-11-16
-- Status: draft
+- Status: agreed
 - Issue: #411
 
 ## Why

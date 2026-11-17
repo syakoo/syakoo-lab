@@ -15,7 +15,8 @@ Sessions may run anywhere (local, Claude Code on the web, `@claude implement` in
 
 - When `sdf-requirements` starts, cut `claude/<slug>` from `origin/main`, commit the draft (`status: draft`), push, and open a **Draft PR** with one `semver:*` label (`create-pull-request`).
 - Commit and push each document when it changes status (`draft` → `agreed`).
-- The owner reviews `requirements.md` and `design.md` on the Draft PR (Files changed). Review comments go back to the session ("address the PR comments"); the owner approves requirements in the session (`status: agreed`), and design with `@claude implement` (or in the session).
+- The owner reviews `requirements.md` on the Draft PR (Files changed) and approves it in the session (`status: agreed`). Review comments go back to the session ("address the PR comments").
+- `design.md` is reviewed by the AI per `sdf-design` → Who reviews. If no condition there calls for the owner, Claude marks it `agreed` (outcome `AI only`), pushes, and goes on to `sdf-implement`. Otherwise the owner reviews it on the Draft PR and approves with `@claude implement` (or in the session).
 - Never commit to `main`. Never use `--no-verify`; if a hook times out, raise the shell timeout and retry.
 - Commit subjects follow Conventional Commits (`.commitlintrc.json`) and end with the slice number, e.g. `feat(writing): add reading time (Slice 2)`.
 
@@ -27,7 +28,8 @@ Optional. Use one as an inbox for an idea; there is no template. The PR number i
 
 | Phase | Who | Stops for |
 |-------|-----|-----------|
-| Requirements, design | Owner and Claude in a session | Owner approval before the next phase |
+| Requirements | Owner and Claude in a session | Owner approval before design |
+| Design | Claude in a session, with the owner on the forks | Owner approval only when `sdf-design` → Who reviews escalates; otherwise the AI review |
 | Implement | Claude, unattended | Only a design or requirements deviation, per `sdf-implement` |
 
 `@claude implement` on the Draft PR (`.github/workflows/claude.yml`) marks `design.md` `agreed` if it is still `draft`, then runs `sdf-implement` from it. Unattended runs cannot ask: list unresolved **Needs clarification** items under **Impact and risks** in the PR. On a design deviation, stop instead: comment on the PR with what differed and the options, leave it a Draft, and push no further slices.

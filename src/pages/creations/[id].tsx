@@ -3,9 +3,9 @@ import {
   readCreationById,
   readCreationSummaries,
 } from "../../entities/creation/index.server";
-import { formatPageTitle } from "../../entities/page-title";
 import { Container } from "../../shared/design-system/layout/container/container";
 import { Col } from "../../shared/design-system/layout/flex/flex";
+import { formatPageTitle } from "../../shared/page-meta/format-page-title";
 import { PageMeta } from "../../shared/page-meta/page-meta";
 import { notFound } from "../../shared/router/not-found";
 import { CreationDetail } from "../../widgets/creation-detail";

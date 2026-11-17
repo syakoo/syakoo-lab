@@ -1,6 +1,6 @@
 import { creationPaths } from "../../entities/creation";
-import { formatPageTitle } from "../../entities/page-title";
 import { Container } from "../../shared/design-system/layout/container/container";
+import { formatPageTitle } from "../../shared/page-meta/format-page-title";
 import { PageMeta } from "../../shared/page-meta/page-meta";
 import { CreationList } from "../../widgets/creation-list";
 import { HeaderFooterTemplate } from "../../widgets/header-footer-template";

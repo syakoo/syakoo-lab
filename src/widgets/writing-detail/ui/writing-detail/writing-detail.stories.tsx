@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { clearAllMocks, mocked } from "storybook/test";
 
 import { generateDummySerializedWriting } from "../../../../entities/writing";
-import { readWritingById } from "../../../../features/writing/writing-mdx/index.server";
+import { readWritingById } from "../../../../entities/writing/index.server";
 
 import { WritingDetail } from "./writing-detail";
 

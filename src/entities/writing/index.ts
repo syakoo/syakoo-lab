@@ -10,6 +10,7 @@ export {
   generateDummyWritingHead,
 } from "./models/writing.mocks";
 export { resolveWritingHead } from "./models/writing-reader/head-resolver";
+export { resolveWritingToc } from "./models/writing-toc/toc-resolver";
 export {
   getWritingTypeConfig,
   writingTypeConfig,

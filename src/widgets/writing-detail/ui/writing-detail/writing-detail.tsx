@@ -1,5 +1,5 @@
 import { differenceInYears } from "date-fns";
-import { readWritingById } from "../../../../features/writing/writing-mdx/index.server";
+import { readWritingById } from "../../../../entities/writing/index.server";
 import { Spacer } from "../../../../shared/design-system/layout/spacer/spacer";
 import { notFound } from "../../../../shared/router/not-found";
 

@@ -128,7 +128,7 @@ Names are unchanged; only the module they come from changes. The merged `shared/
 
 ### Docs
 
-- `.claude/skills/project-structure/SKILL.md`: layer table, "widgets vs features", features layout, the MDX example, and the last rule. Rewritten for the use-case question.
+- `.claude/skills/project-structure/SKILL.md`: layer table, "widgets vs features", features layout, the MDX example, and the last rule. Rewritten for the use-case question. The `features` section gives a counter-example: a policy for one widget (for example how `getRelatedCreations` and `findRelatedWritingHeads` score and limit related items) stays in that widget until a second widget needs it.
 - `.claude/rules/enforcement-inventory.md`: the two rows (`entities/` has no UI; `features/<domain>/` organizational layout), labels and link only.
 
 ### Not changed
@@ -191,7 +191,7 @@ Each slice is one commit that passes `pnpm lint`, `pnpm type-check`, `pnpm test`
 | 3 | `features/creation/creation-card` → `entities/creation/ui`; retarget `creation-list`, `related-creations`; `git mv` the three baselines | Independent of 1–2 |
 | 4 | `features/creation/og-image` → `entities/creation`; retarget `pages/creations/[id]` and `scripts/generate-og-images.ts` | After 3 (same slice barrels). Compare OG output with `main` |
 | 5 | `entities/page-title` → `shared/page-meta/format-page-title.ts`; retarget the six pages | Independent of 1–4 |
-| 6 | Rewrite `project-structure` skill; update the two inventory rows | Last |
+| 6 | Rewrite `project-structure` skill (including the one-widget-policy example); update the two inventory rows | Last |
 
 After slice 6: run the full VRT and compare a build with `main` (example 13), then the fresh-context review.
 

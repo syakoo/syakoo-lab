@@ -2,7 +2,7 @@ import {
   createHeadingAnchorResolver,
   createMarkdownCodeFenceTracker,
   parseMarkdownHeadingLine,
-} from "../../mdx-plugins/heading-anchor-resolver";
+} from "../../lib/mdx-plugins/heading-anchor-resolver";
 import type { WritingTocItem } from "../../model/writing";
 
 export const resolveWritingToc = async (

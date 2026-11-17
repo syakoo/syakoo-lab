@@ -65,11 +65,13 @@ Examples:
 | Segment | Purpose |
 |---------|---------|
 | `ui/` | Components and related hooks, packaged by feature |
-| `model/` | Types, kinds, and pure rules (including paths) as flat files; no I/O and no `contents/` imports |
+| `model/` | What the noun *is*: types, kinds, and pure rules (including paths) as flat files; no I/O and no `contents/` imports. Written in the noun's vocabulary |
 | `repository/` | Readers and plain data operations on `contents/` (named for the source, not HTTP, so not FSD `api`). Conversions from `contents/` material to entity values go in `repository/contents-resolver/` |
-| `<purpose>/` | A segment named for what it holds (e.g. `mdx-plugins/`). There is no catch-all `helpers/` or `lib/`; add `lib/` only for a real generic utility |
+| `lib/<purpose>/` | Tools the slice uses that do not know the noun (like a small internal package; I/O allowed), e.g. `lib/mdx-plugins/`. Only purpose-named folders, no loose files; there is no catch-all `helpers/`. `lib/` must not import `model/` or `repository/` |
 
 Build-only Node code (e.g. the OG image generator) lives in `scripts/`, not in a slice. `shared/` is outside this segment convention.
+
+Test for the segment: if it still works with another noun, it is `lib/`; if it knows the source's shape (frontMatter, Markdown), it is `repository/`; otherwise it is `model/`.
 
 Colocate related components and hooks under `ui/<feature-name>/`.
 

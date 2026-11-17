@@ -3,7 +3,7 @@ import {
   markupMermaid,
   serializeMDXContent,
 } from "../../../shared/mdx/index.server";
-import { mdxPlugins } from "../mdx-plugins/plugins";
+import { mdxPlugins } from "../lib/mdx-plugins/plugins";
 import type { SerializedWriting } from "../model/writing";
 import { resolveWritingHead } from "./contents-resolver/head-resolver";
 import { resolveWritingToc } from "./contents-resolver/toc-resolver";

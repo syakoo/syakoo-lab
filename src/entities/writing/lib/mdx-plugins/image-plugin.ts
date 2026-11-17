@@ -1,6 +1,6 @@
 import sharp from "sharp";
 
-import type { MDXCustomTextPlugin } from "../../../shared/mdx";
+import type { MDXCustomTextPlugin } from "../../../../shared/mdx";
 
 // replace の async 版
 const asyncReplace = async (

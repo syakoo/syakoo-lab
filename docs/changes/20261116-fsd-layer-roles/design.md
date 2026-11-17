@@ -1,7 +1,7 @@
 # Design: Re-define FSD layer roles
 
 - Date: 2026-11-16
-- Status: draft
+- Status: agreed
 - Requirements: [requirements.md](./requirements.md) (agreed)
 - Issue: #411
 

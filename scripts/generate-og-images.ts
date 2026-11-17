@@ -1,4 +1,4 @@
-import { generateCreationOgImages } from "../src/entities/creation/index.server";
+import { generateCreationOgImages } from "./og-images/generate-creation-og-images";
 
 void (async () => {
   console.log("[start] generate OG images");

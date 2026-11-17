@@ -1,16 +1,16 @@
 import { compareDesc } from "date-fns/esm";
 
-import { readArtContents } from "../../../../contents/arts/reader";
-import { readGameContents } from "../../../../contents/games/reader";
-import { readWebappContents } from "../../../../contents/webapps/reader";
-import { serializeMDXContent } from "../../../../shared/mdx/index.server";
-import type { Creation, CreationSummary } from "../creation";
+import { readArtContents } from "../../../contents/arts/reader";
+import { readGameContents } from "../../../contents/games/reader";
+import { readWebappContents } from "../../../contents/webapps/reader";
+import { serializeMDXContent } from "../../../shared/mdx/index.server";
+import type { Creation, CreationSummary } from "../model/creation";
 
 import {
-  toCreationGameSummary,
-  toCreationIllustSummary,
-  toCreationWebappSummary,
-} from "./to-creation-summary";
+  resolveCreationGameSummary,
+  resolveCreationIllustSummary,
+  resolveCreationWebappSummary,
+} from "./contents-resolver/creation-summary-resolver";
 
 export const readCreationById = async (
   id: string,
@@ -27,17 +27,17 @@ export const readCreationById = async (
 
   if (targetArtContent) {
     return {
-      ...toCreationIllustSummary(targetArtContent),
+      ...resolveCreationIllustSummary(targetArtContent),
       content: await serializeMDXContent(targetArtContent.body),
     };
   } else if (targetWebappContent) {
     return {
-      ...toCreationWebappSummary(targetWebappContent),
+      ...resolveCreationWebappSummary(targetWebappContent),
       content: await serializeMDXContent(targetWebappContent.description),
     };
   } else if (targetGameContent) {
     return {
-      ...toCreationGameSummary(targetGameContent),
+      ...resolveCreationGameSummary(targetGameContent),
       content: await serializeMDXContent(targetGameContent.body),
     };
   }
@@ -51,9 +51,9 @@ export const readCreationSummaries = async (): Promise<CreationSummary[]> => {
   const games = await readGameContents();
 
   const summaries = [
-    ...arts.map(toCreationIllustSummary),
-    ...webapps.map(toCreationWebappSummary),
-    ...games.map(toCreationGameSummary),
+    ...arts.map(resolveCreationIllustSummary),
+    ...webapps.map(resolveCreationWebappSummary),
+    ...games.map(resolveCreationGameSummary),
   ].sort((a, b) => compareDesc(new Date(a.published), new Date(b.published)));
 
   return summaries;

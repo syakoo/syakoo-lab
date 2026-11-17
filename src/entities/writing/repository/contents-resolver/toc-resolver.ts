@@ -2,8 +2,8 @@ import {
   createHeadingAnchorResolver,
   createMarkdownCodeFenceTracker,
   parseMarkdownHeadingLine,
-} from "../../helpers/mdx-plugins/heading-anchor-resolver";
-import type { WritingTocItem } from "../writing";
+} from "../../lib/mdx-plugins/heading-anchor-resolver";
+import type { WritingTocItem } from "../../model/writing";
 
 export const resolveWritingToc = async (
   markdownText: string,

@@ -17,34 +17,15 @@ sb.mock(import("../src/contents/webapps/reader.ts"));
 sb.mock(import("probe-image-size"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
-sb.mock(
-  import(
-    "../src/entities/creation/models/og-image/read-creation-thumbnail-paths.ts"
-  ),
-);
-sb.mock(
-  import(
-    "../src/entities/creation/models/og-image/generate-creation-og-images.ts"
-  ),
-);
-sb.mock(
-  import("../src/entities/writing/models/writing-reader/read-writing.ts"),
-  {
-    spy: true,
-  },
-);
-sb.mock(
-  import("../src/entities/creation/models/creation-reader/read-creation.ts"),
-  {
-    spy: true,
-  },
-);
-sb.mock(
-  import("../src/entities/writing/models/writing-reader/read-writing-heads.ts"),
-  {
-    spy: true,
-  },
-);
+sb.mock(import("../src/entities/writing/repository/read-writing.ts"), {
+  spy: true,
+});
+sb.mock(import("../src/entities/creation/repository/read-creation.ts"), {
+  spy: true,
+});
+sb.mock(import("../src/entities/writing/repository/read-writing-heads.ts"), {
+  spy: true,
+});
 
 const preview: Preview = {
   decorators: [

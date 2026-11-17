@@ -26,7 +26,7 @@ const LAYER_RANK: Record<Layer, number> = {
 // Limitations: only static `import` / `export … from` with relative paths are
 // scanned. Dynamic `import()` and path aliases (none in `src/` today) would
 // bypass this check. Public-API enforcement keys off the first segment after a
-// slice root (`ui` / `models` / `helpers`); files placed directly under a slice
+// slice root (`ui` / `model` / `repository` / `lib`); files placed directly under a slice
 // root are not caught.
 const IMPORT_RE =
   /(?:import|export)\s+(?:type\s+)?(?:[\w*{}\s,]+\s+from\s+)?["']([^"']+)["']/g;
@@ -91,8 +91,10 @@ const getSliceRoot = (
   return `${parts[0]}/${parts[1]}`;
 };
 
+const INTERNAL_SEGMENTS = new Set(["ui", "model", "repository", "lib"]);
+
 const isInternalSegment = (segment: string): boolean =>
-  segment === "ui" || segment === "models" || segment === "helpers";
+  INTERNAL_SEGMENTS.has(segment);
 
 const checkPublicApi = (
   importerRel: string,
@@ -120,6 +122,27 @@ const checkPublicApi = (
       });
       return;
     }
+  }
+};
+
+/** Segment names retired by the FSD vocabulary alignment (#413). */
+const RETIRED_SEGMENTS = new Set(["models", "helpers"]);
+
+const checkRetiredSegment = (fileRel: string): void => {
+  for (const layer of ["widgets", "features", "entities"] as const) {
+    const sliceRoot = getSliceRoot(layer, fileRel);
+    if (!sliceRoot) {
+      continue;
+    }
+    const segment = fileRel.slice(sliceRoot.length + 1).split("/")[0];
+    if (segment && RETIRED_SEGMENTS.has(segment)) {
+      violations.push({
+        file: fileRel,
+        importPath: "-",
+        message: `Retired segment "${segment}/" in the ${layer} layer. Use model/, repository/, or a segment named for its purpose. See project-structure skill.`,
+      });
+    }
+    return;
   }
 };
 
@@ -154,6 +177,7 @@ for (const relFile of sourceFiles) {
 
   const content = readFileSync(absFile, "utf8");
   const importerRel = relative(SRC, absFile).replaceAll("\\", "/");
+  checkRetiredSegment(importerRel);
 
   for (const match of content.matchAll(IMPORT_RE)) {
     const importPath = match[1];

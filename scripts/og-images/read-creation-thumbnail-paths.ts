@@ -2,8 +2,8 @@ import { glob } from "glob";
 import matter from "gray-matter";
 import path from "path";
 
-import type { ArtContentFrontMatter } from "../../../../contents/arts/types";
-import type { GameContentFrontMatter } from "../../../../contents/games/types";
+import type { ArtContentFrontMatter } from "../../src/contents/arts/types";
+import type { GameContentFrontMatter } from "../../src/contents/games/types";
 
 const publicDir = path.join(process.cwd(), "public");
 const cwd = process.cwd();

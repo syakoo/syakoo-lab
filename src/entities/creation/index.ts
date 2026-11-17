@@ -1,5 +1,3 @@
-export { creationOgImagePath } from "./helpers/og-image/creation-og-image-path";
-export { creationPaths } from "./helpers/paths/creation-paths";
 export type {
   Creation,
   CreationBase,
@@ -11,7 +9,7 @@ export type {
   CreationType,
   CreationWebapp,
   CreationWebappSummary,
-} from "./models/creation";
+} from "./model/creation";
 export {
   generateDummyCreationBase,
   generateDummyCreationGame,
@@ -21,8 +19,10 @@ export {
   generateDummyCreationSummary,
   generateDummyCreationWebapp,
   generateDummyCreationWebappSummary,
-} from "./models/creation.mocks";
-export type { CreationTypeInfo } from "./models/creation-type/creation-type";
-export { creationTypes } from "./models/creation-type/creation-type";
+} from "./model/creation.mocks";
+export { creationOgImagePath } from "./model/creation-og-image-path";
+export { creationPaths } from "./model/creation-paths";
+export type { CreationTypeInfo } from "./model/creation-type";
+export { creationTypes } from "./model/creation-type";
 export type { CreationCardProps } from "./ui/creation-card/creation-card";
 export { CreationCard } from "./ui/creation-card/creation-card";

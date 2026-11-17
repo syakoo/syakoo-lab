@@ -29,7 +29,7 @@ graph TD
 | `widgets/` | UI blocks on screen (concrete slice names, e.g. `creation-list`). Composes entities and features |
 | `features/` | User actions or scenarios: UI, validation, and state for one intent, built on entities |
 | `entities/` | The nouns: models, rules, paths, readers, **the noun's own UI**, and basic data operations (R and plain CUD) that do not know why they are called |
-| `shared/` | Domain-agnostic infrastructure (utilities, UI kit, MDX runtime) |
+| `shared/` | Domain-agnostic infrastructure (utilities, UI kit, MDX infrastructure) |
 | `contents/` | External data boundary, DTOs, transforms (like official `shared/api`, but a separate layer) |
 
 ### Which layer? One question

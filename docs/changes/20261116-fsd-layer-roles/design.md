@@ -1,8 +1,8 @@
 # Design: Re-define FSD layer roles
 
 - Date: 2026-11-16
-- Status: agreed
-- Requirements: [requirements.md](./requirements.md) (agreed)
+- Status: implemented
+- Requirements: [requirements.md](./requirements.md) (implemented)
 - Issue: #411
 
 ## Approach
@@ -204,6 +204,13 @@ None.
 - Exact file names under the new `entities/*` folders (Decision 2 gives the proposed layout; implementation may adjust if a name collides).
 - Whether the prerendered HTML is byte-identical between builds, or needs a normalization for hashed asset names (example 13).
 - Whether any Storybook story outside creation-card changes ID. The scan found only the three above; re-check after slice 2.
+
+### Outcome (recorded at implementation)
+
+- Example 11: wording above applied; the three renamed PNGs are byte-identical to `main`'s.
+- Example 12: OG images, `sitemap.xml`, and `robots.txt` from the build are byte-identical to `main`'s.
+- Example 13: prerendered HTML differs from `main` only in hashed chunk and module IDs.
+- Unplanned change: `entities/creation/index.server.ts` exports the reader beside the OG generator, so the OG script now loads content that imports images. `package.json` `build:og-images` therefore registers `scripts/register-image-loader.mjs`, as `build:seo-files` does.
 
 ## Applied rules
 

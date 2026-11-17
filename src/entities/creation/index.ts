@@ -1,3 +1,4 @@
+export { creationOgImagePath } from "./helpers/og-image/creation-og-image-path";
 export { creationPaths } from "./helpers/paths/creation-paths";
 export type {
   Creation,

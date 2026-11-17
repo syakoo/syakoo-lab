@@ -65,8 +65,8 @@ Examples:
 | Segment | Purpose |
 |---------|---------|
 | `ui/` | Components and related hooks, packaged by feature |
-| `model/` | Types, kinds, and pure rules or conversions (including paths); no I/O |
-| `repository/` | Readers and plain data operations on `contents/` (named for the source, not HTTP, so not FSD `api`) |
+| `model/` | Types, kinds, and pure rules (including paths) as flat files; no I/O and no `contents/` imports |
+| `repository/` | Readers and plain data operations on `contents/` (named for the source, not HTTP, so not FSD `api`). Conversions from `contents/` material to entity values go in `repository/contents-resolver/` |
 | `<purpose>/` | A segment named for what it holds (e.g. `mdx-plugins/`). There is no catch-all `helpers/` or `lib/`; add `lib/` only for a real generic utility |
 
 Build-only Node code (e.g. the OG image generator) lives in `scripts/`, not in a slice. `shared/` is outside this segment convention.

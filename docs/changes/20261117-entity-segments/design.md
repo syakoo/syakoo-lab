@@ -9,8 +9,8 @@
 
 A move-and-retarget refactor, like #412. No module gets new logic.
 
-- `models/` → `model/`: types, kinds, and pure rules/conversions only (including paths and the OG image path, which are pure string derivations).
-- New `repository/`: readers and plain data operations (`read-*`, `to-creation-summary`). Named `repository` instead of FSD `api` because the data comes from `contents/`, not over HTTP.
+- `models/` → `model/`: types, kinds, and pure rules only, as flat files (including paths and the OG image path, which are pure string derivations). `model/` does not import `contents/`.
+- New `repository/`: readers and plain data operations (`read-*`). Conversions from `contents/` material (frontMatter, Markdown text) to entity values live in `repository/contents-resolver/` (`to-creation-summary`, `head-resolver`, `toc-resolver`). Because they know the source's shape, they belong to the data-access side, not `model/`. Named `repository` instead of FSD `api` because the data comes from `contents/`, not over HTTP.
 - `helpers/` is removed. Paths move to `model/`; `entities/writing/helpers/mdx-plugins` becomes the purpose-named segment `mdx-plugins/`. No `lib/` is created.
 - The OG generator (`generate-creation-og-images`, `read-creation-thumbnail-paths`) leaves `entities/` and moves to `scripts/og-images/`. It is build-only Node code, so no slice barrel should carry it. `scripts/generate-og-images.ts` imports it directly; the app and Storybook never load it.
 - `project-structure` skill: define each segment; `check-architecture.ts`: recognize the new segment names.
@@ -36,9 +36,9 @@ flowchart LR
     S2["scripts/generate-og-images"]
     O2["scripts/og-images (generator + thumbnail paths)"]
     C4["entities/creation/model (types, paths, og path)"]
-    C5["entities/creation/repository (readers)"]
-    W3["entities/writing/model (types, toc, head, paths)"]
-    W4["entities/writing/repository (readers)"]
+    C5["entities/creation/repository (readers + contents-resolver)"]
+    W3["entities/writing/model (types, paths; flat files)"]
+    W4["entities/writing/repository (readers + contents-resolver)"]
     W5["entities/writing/mdx-plugins"]
     SB2[".storybook/preview.ts mocks (paths + OG mocks dropped)"]
     S2 --> O2 --> C4
@@ -58,17 +58,18 @@ flowchart LR
 
 | From | To |
 |------|----|
-| `entities/creation/models/creation.ts`, `creation.mocks.ts`, `creation-type/` | `entities/creation/model/` |
-| `entities/creation/helpers/paths/`, `helpers/og-image/creation-og-image-path.ts` | `entities/creation/model/paths/`, `model/og-image/` |
-| `entities/creation/models/creation-reader/*` | `entities/creation/repository/` |
-| `entities/creation/models/og-image/*` (generator, thumbnail paths, `__mocks__`) | `scripts/og-images/` |
-| `entities/writing/models/{writing.ts,writing.mocks.ts,writing-type,writing-toc}`, `writing-reader/head-resolver.ts` | `entities/writing/model/` |
-| `entities/writing/helpers/paths/` | `entities/writing/model/paths/` |
+| `entities/creation/models/creation.ts`, `creation.mocks.ts`, `creation-type/creation-type.ts` | `entities/creation/model/` (flat) |
+| `entities/creation/helpers/paths/creation-paths.ts`, `helpers/og-image/creation-og-image-path.ts` | `entities/creation/model/` (flat) |
+| `entities/creation/models/creation-reader/read-creation.ts` | `entities/creation/repository/` |
+| `entities/creation/models/creation-reader/to-creation-summary.ts` | `entities/creation/repository/contents-resolver/` |
+| `entities/creation/models/og-image/*` (generator, thumbnail paths); the `__mocks__` are deleted | `scripts/og-images/` |
+| `entities/writing/models/{writing.ts,writing.mocks.ts}`, `writing-type/writing-type.ts`, `helpers/paths/writing-paths.ts` | `entities/writing/model/` (flat) |
 | `entities/writing/models/writing-reader/read-*.ts` | `entities/writing/repository/` |
+| `entities/writing/models/writing-reader/head-resolver.ts`, `writing-toc/toc-resolver.ts` (+ test) | `entities/writing/repository/contents-resolver/` |
 | `entities/writing/helpers/mdx-plugins/` | `entities/writing/mdx-plugins/` |
 | `shared/mdx/{models,helpers}` and `shared/mdx/*/helpers` | Out of scope (left as is; see Decision 6) |
 
-Changed: `entities/*/index*.ts` re-export paths, `.storybook/preview.ts` mock paths (the two OG mocks and `read-creation-thumbnail-paths` mock go away), `scripts/check-architecture.ts` (`isInternalSegment`: `ui`, `model`, `repository`, `mdx-plugins`; reject `models` / `helpers`), `project-structure` skill (segment table), `package.json` `build:og-images` only if the path changes.
+Changed: `entities/*/index*.ts` re-export paths, `.storybook/preview.ts` mock paths (the two OG mocks and `read-creation-thumbnail-paths` mock go away), `scripts/check-architecture.ts` (`isInternalSegment`: `ui`, `model`, `repository`, `mdx-plugins`; files under a retired `models/` / `helpers/` segment are violations), `project-structure` skill (segment table), `package.json` `build:og-images` only if the path changes.
 
 ## Acceptance trace
 
@@ -92,12 +93,13 @@ No requirements document, so the checks come from the issue's wants.
 4. **No `lib/` and no `helpers/`.** `mdx-plugins/` is named for what it holds. Add `lib/` later only when a real generic utility appears.
 5. **Mocks stay in `model/`** (`*.mocks.ts`), unchanged.
 6. **`shared/mdx` is out of scope; this change covers `entities/writing` and `entities/creation` only.** `shared/` is not a slice layer and `check-architecture.ts` does not check it; entities use `shared/mdx` only through its barrels, so its internal segment names do not affect them. The `project-structure` skill states that `shared/` is outside the segment convention. Cost: `shared/mdx` keeps `models/` and `helpers/` for now; a later PR can rename them. Rejected: renaming in this change (widens the diff without a check to back it).
+7. **Contents-to-entity conversions live in `repository/contents-resolver/`, and `model/` is flat.** `toc-resolver` (Markdown text) and `head-resolver` / `to-creation-summary` (frontMatter) all take `contents/` material, so they know the source's shape; keeping them out of `model/` leaves it free of `contents/` imports. `model/` subfolders held one file each, so they are flattened. Their `index.ts` exports (`resolveWritingHead`, `resolveWritingToc`) were unused and are dropped. Rejected: `model/resolvers/` (puts `contents/` types in `model/`).
 
 ## Slices
 
 1. Entities: rename `models`→`model`, add `repository/`, move paths, retarget imports and barrels (creation and writing together, since both share the skill/check change).
 2. Move OG generator to `scripts/og-images/`; drop the Storybook mocks it needed; verify `build:og-images`.
-3. Move `mdx-plugins/`; remove `helpers/`.
+3. Move `mdx-plugins/`; remove `helpers/`; flatten `model/`; move contents resolvers to `repository/contents-resolver/`.
 4. Update `check-architecture.ts` and the `project-structure` skill (state that `shared/` is outside the segment convention; `enforcement-inventory` only if a row changes).
 
 ## Open questions
@@ -107,3 +109,7 @@ None.
 ## Applied rules
 
 `sdf`, `ai-workflow`, `single-source-of-truth` rules; `project-structure` and `coding-guide` skills; `scripts/check-architecture.ts`. No rule found for naming segments beyond the skill's table (rewritten here).
+
+## Changes during implementation
+
+- 2026-11-17: Decision 7 added after review. Contents resolvers moved to `repository/contents-resolver/` and `model/` flattened (owner's call). The OG `__mocks__` were deleted instead of moved.

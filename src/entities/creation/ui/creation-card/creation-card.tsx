@@ -8,7 +8,7 @@ import type {
   CreationIllust,
   CreationWebapp,
 } from "../../model/creation";
-import { creationTypes } from "../../model/creation-type/creation-type";
+import { creationTypes } from "../../model/creation-type";
 
 export type CreationCardProps =
   | Pick<CreationIllust, "type" | "title" | "illust">

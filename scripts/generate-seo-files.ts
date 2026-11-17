@@ -4,8 +4,8 @@ import { resolve } from "node:path";
 import { readGameContents } from "../src/contents/games/reader";
 import { readWebappContents } from "../src/contents/webapps/reader";
 import { readWritingContents } from "../src/contents/writings/reader";
-import { creationPaths } from "../src/entities/creation/model/paths/creation-paths";
-import { writingPaths } from "../src/entities/writing/model/paths/writing-paths";
+import { creationPaths } from "../src/entities/creation/model/creation-paths";
+import { writingPaths } from "../src/entities/writing/model/writing-paths";
 
 const PUBLIC_DIR = resolve(import.meta.dirname, "../public");
 const basePath = "https://syakoo-lab.com";

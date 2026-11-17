@@ -1,5 +1,5 @@
-import type { WritingContentFrontMatter } from "../../../contents/writings/types";
-import type { WritingHead } from "./writing";
+import type { WritingContentFrontMatter } from "../../../../contents/writings/types";
+import type { WritingHead } from "../../model/writing";
 
 /**
  * 文書のヘッダーコンテンツを変換する関数

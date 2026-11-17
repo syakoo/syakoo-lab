@@ -4,9 +4,9 @@ import {
   serializeMDXContent,
 } from "../../../shared/mdx/index.server";
 import { mdxPlugins } from "../mdx-plugins/plugins";
-import { resolveWritingHead } from "../model/head-resolver";
 import type { SerializedWriting } from "../model/writing";
-import { resolveWritingToc } from "../model/writing-toc/toc-resolver";
+import { resolveWritingHead } from "./contents-resolver/head-resolver";
+import { resolveWritingToc } from "./contents-resolver/toc-resolver";
 
 export const readWritingById = async (
   id: string,

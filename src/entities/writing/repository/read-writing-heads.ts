@@ -1,8 +1,8 @@
 import { compareDesc } from "date-fns";
 
 import { readWritingContents } from "../../../contents/writings/reader";
-import { resolveWritingHead } from "../model/head-resolver";
 import type { WritingHead } from "../model/writing";
+import { resolveWritingHead } from "./contents-resolver/head-resolver";
 
 export const readWritingHeads = async (): Promise<WritingHead[]> => {
   const contents = await readWritingContents();

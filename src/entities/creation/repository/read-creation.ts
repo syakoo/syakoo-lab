@@ -10,7 +10,7 @@ import {
   toCreationGameSummary,
   toCreationIllustSummary,
   toCreationWebappSummary,
-} from "./to-creation-summary";
+} from "./contents-resolver/to-creation-summary";
 
 export const readCreationById = async (
   id: string,

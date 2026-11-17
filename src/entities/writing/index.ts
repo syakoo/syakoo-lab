@@ -1,5 +1,3 @@
-export { resolveWritingHead } from "./model/head-resolver";
-export { writingPaths } from "./model/paths/writing-paths";
 export type {
   SerializedWriting,
   WritingHead,
@@ -10,9 +8,9 @@ export {
   generateDummySerializedWriting,
   generateDummyWritingHead,
 } from "./model/writing.mocks";
-export { resolveWritingToc } from "./model/writing-toc/toc-resolver";
+export { writingPaths } from "./model/writing-paths";
 export {
   getWritingTypeConfig,
   writingTypeConfig,
   writingTypes,
-} from "./model/writing-type/writing-type";
+} from "./model/writing-type";

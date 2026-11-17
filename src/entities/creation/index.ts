@@ -20,9 +20,9 @@ export {
   generateDummyCreationWebapp,
   generateDummyCreationWebappSummary,
 } from "./model/creation.mocks";
-export type { CreationTypeInfo } from "./model/creation-type/creation-type";
-export { creationTypes } from "./model/creation-type/creation-type";
-export { creationOgImagePath } from "./model/og-image/creation-og-image-path";
-export { creationPaths } from "./model/paths/creation-paths";
+export { creationOgImagePath } from "./model/creation-og-image-path";
+export { creationPaths } from "./model/creation-paths";
+export type { CreationTypeInfo } from "./model/creation-type";
+export { creationTypes } from "./model/creation-type";
 export type { CreationCardProps } from "./ui/creation-card/creation-card";
 export { CreationCard } from "./ui/creation-card/creation-card";

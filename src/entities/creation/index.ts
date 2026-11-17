@@ -23,3 +23,5 @@ export {
 } from "./models/creation.mocks";
 export type { CreationTypeInfo } from "./models/creation-type/creation-type";
 export { creationTypes } from "./models/creation-type/creation-type";
+export type { CreationCardProps } from "./ui/creation-card/creation-card";
+export { CreationCard } from "./ui/creation-card/creation-card";

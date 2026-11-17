@@ -1,6 +1,5 @@
-import { creationPaths } from "../../../../entities/creation";
+import { CreationCard, creationPaths } from "../../../../entities/creation";
 import { readCreationSummaries } from "../../../../entities/creation/index.server";
-import { CreationCard } from "../../../../features/creation/creation-card";
 import { Col, Row } from "../../../../shared/design-system/layout/flex/flex";
 import { Link } from "../../../../shared/design-system/ui/link/link";
 import { H3 } from "../../../../shared/design-system/ui/text/text";

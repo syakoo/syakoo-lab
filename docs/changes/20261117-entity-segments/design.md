@@ -66,7 +66,7 @@ flowchart LR
 | `entities/writing/helpers/paths/` | `entities/writing/model/paths/` |
 | `entities/writing/models/writing-reader/read-*.ts` | `entities/writing/repository/` |
 | `entities/writing/helpers/mdx-plugins/` | `entities/writing/mdx-plugins/` |
-| `shared/mdx/{models,helpers}` and `shared/mdx/*/helpers` | `model/` / `lib/` only if trivial; otherwise left (shared is not a checked slice, see Open questions) |
+| `shared/mdx/{models,helpers}` and `shared/mdx/*/helpers` | Out of scope (left as is; see Decision 6) |
 
 Changed: `entities/*/index*.ts` re-export paths, `.storybook/preview.ts` mock paths (the two OG mocks and `read-creation-thumbnail-paths` mock go away), `scripts/check-architecture.ts` (`isInternalSegment`: `ui`, `model`, `repository`, `mdx-plugins`; reject `models` / `helpers`), `project-structure` skill (segment table), `package.json` `build:og-images` only if the path changes.
 
@@ -91,17 +91,18 @@ No requirements document, so the checks come from the issue's wants.
 3. **Paths and OG path live in `model/`.** They are pure conversions of the noun's id. Rejected: `lib/` (name says nothing about purpose).
 4. **No `lib/` and no `helpers/`.** `mdx-plugins/` is named for what it holds. Add `lib/` later only when a real generic utility appears.
 5. **Mocks stay in `model/`** (`*.mocks.ts`), unchanged.
+6. **`shared/mdx` is out of scope; this change covers `entities/writing` and `entities/creation` only.** `shared/` is not a slice layer and `check-architecture.ts` does not check it; entities use `shared/mdx` only through its barrels, so its internal segment names do not affect them. The `project-structure` skill states that `shared/` is outside the segment convention. Cost: `shared/mdx` keeps `models/` and `helpers/` for now; a later PR can rename them. Rejected: renaming in this change (widens the diff without a check to back it).
 
 ## Slices
 
 1. Entities: rename `models`→`model`, add `repository/`, move paths, retarget imports and barrels (creation and writing together, since both share the skill/check change).
 2. Move OG generator to `scripts/og-images/`; drop the Storybook mocks it needed; verify `build:og-images`.
 3. Move `mdx-plugins/`; remove `helpers/`.
-4. Update `check-architecture.ts` and the `project-structure` skill (and `enforcement-inventory` only if a row changes).
+4. Update `check-architecture.ts` and the `project-structure` skill (state that `shared/` is outside the segment convention; `enforcement-inventory` only if a row changes).
 
 ## Open questions
 
-- `shared/mdx` has `models/` and `helpers/` too. Rename them in this change (recommended: `model/`, and `helpers/` → `lib/` / purpose names), or leave them since `shared/` is not a checked slice and the issue targets entity slices?
+None.
 
 ## Applied rules
 

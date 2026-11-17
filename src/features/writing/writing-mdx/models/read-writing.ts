@@ -1,10 +1,10 @@
 import { readWritingContents } from "../../../../contents/writings/reader";
+import type { SerializedWriting } from "../../../../entities/writing";
+import { resolveWritingHead } from "../../../../entities/writing";
 import {
   markupMermaid,
   serializeMDXContent,
-} from "../../../../entities/mdx-content/index.server";
-import type { SerializedWriting } from "../../../../entities/writing";
-import { resolveWritingHead } from "../../../../entities/writing";
+} from "../../../../shared/mdx/index.server";
 import { mdxPlugins } from "../helpers/plugins";
 
 import { resolveWritingToc } from "./toc-resolver";

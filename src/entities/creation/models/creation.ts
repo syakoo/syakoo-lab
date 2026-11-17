@@ -1,4 +1,4 @@
-import type { SerializedMDXContent } from "../../mdx-content";
+import type { SerializedMDXContent } from "../../../shared/mdx";
 
 export type CreationType = "illust" | "game" | "webapp";
 export type Creation = CreationIllust | CreationGame | CreationWebapp;

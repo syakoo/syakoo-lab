@@ -20,6 +20,7 @@ The need: one question that decides the layer, **does the module know why an ope
 | `features/mdx/{content-resolver,mermaid,twitter}` | Client-side MDX runtime and two hooks. No domain code. Used by `widgets/writing-detail` and `widgets/creation-detail`. |
 | `entities/mdx-content` | Server-side MDX serializer and the mermaid plugin. Domain-agnostic, used by the creation and writing entities and `features/*`. |
 | `features/creation/og-image` | `creationOgImagePath` (pure path helper) and a build-time generator that reads `contents/arts` and `contents/games`. Used by `pages/creations/[id]` and `scripts/generate-og-images.ts`. |
+| `entities/page-title` | `formatPageTitle` only: a pure formatter (`"<title> - <site name>"`) over `shared/config/site`. No model, rule, or UI. Used by six `pages/` files. |
 | Tooling | `scripts/check-architecture.ts` assumes `features/<domain>/<name>` slices. `enforcement-inventory` has the rows "`entities/` has no UI" and "`features/<domain>/` organizational layout". |
 
 ## Goal
@@ -29,6 +30,7 @@ The need: one question that decides the layer, **does the module know why an ope
   - `features/`: user actions or scenarios (UI, validation, state for one intent) built on entities. Created only when the same action is needed in a second widget.
   - `widgets/`: unchanged. Composes entities and features.
   - `shared/`: domain-agnostic infrastructure.
+- `entities/page-title` is not a noun, so it moves to `shared/page-meta`.
 - The modules above sit in the layer that definition gives them.
 - The site behaves exactly as before.
 
@@ -71,6 +73,7 @@ Moves
 7. After the change, the MDX serializer, content resolver, and the mermaid and twitter hooks live under `shared/`, and no file under `entities/` or `features/` defines them.
 8. After the change, `creationOgImagePath` and the OG generator live in `entities/creation`; `pages/creations/[id]` and `scripts/generate-og-images.ts` import them from there.
 9. After the change, `src/features/` contains no slice, and `WritingTab` / `useGetWritingListType` are still in `widgets/writing-list`.
+9a. After the change, `formatPageTitle` is in `shared/page-meta` and no `entities/page-title` slice exists; the six pages import it from there.
 
 No behavior change
 

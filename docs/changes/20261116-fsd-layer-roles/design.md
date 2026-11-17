@@ -19,7 +19,7 @@ A pure move-and-retarget refactor, plus a rewrite of the layer definitions in th
 
 ### Dependency graph
 
-Only the moved modules and their direct callers are drawn. Edges into `shared` utilities and `contents` are omitted unless they change.
+Only the moved modules and their direct callers are drawn. Edges into `shared` utilities and `contents` are omitted unless they change. The `page-title` move (six `pages/` files to one formatter, `entities` to `shared`) is a single edge change and is not drawn.
 
 ```mermaid
 flowchart LR
@@ -100,6 +100,7 @@ flowchart LR
 | `features/creation/creation-card/ui/creation-card/**` | `entities/creation/ui/creation-card/**` |
 | `features/creation/og-image/helpers/creation-og-image-path.ts` | `entities/creation/helpers/og-image/creation-og-image-path.ts` |
 | `features/creation/og-image/{generate-creation-og-images,read-creation-thumbnail-paths}.ts` | `entities/creation/models/og-image/` |
+| `entities/page-title/helpers/formatter.ts` | `shared/page-meta/format-page-title.ts` (the `entities/page-title` slice and its `index.ts` are deleted) |
 
 ### Public API changes
 
@@ -118,6 +119,7 @@ Names are unchanged; only the module they come from changes. The merged `shared/
 ### Importers retargeted
 
 - `src/pages/creations/[id].tsx`, `scripts/generate-og-images.ts`
+- `src/pages/{privacy-policy,terms}.tsx`, `src/pages/writings/{index,[id]}.tsx`, `src/pages/creations/index.tsx` (`formatPageTitle` now comes from `shared/page-meta/format-page-title`; `shared/page-meta` has no barrel, so this is a direct file import, like `PageMeta`)
 - `src/widgets/writing-detail/ui/writing-detail/{writing-detail.tsx,writing-detail.stories.tsx,writing-mdx-content.tsx}`
 - `src/widgets/creation-detail/ui/creation-detail/creation-detail.tsx`
 - `src/widgets/creation-list/ui/creation-list/creation-list.tsx`, `src/widgets/related-creations/ui/related-creations/related-creations.tsx`
@@ -147,15 +149,16 @@ The pixels must not change. The three PNGs are **renamed with `git mv`** (same b
 
 | # | Example | Satisfied by | Check |
 | --- | --- | --- | --- |
-| 1 | Noun UI → `entities/<noun>/ui` | Slice 5: skill layer table and "entities" section | Read the skill |
-| 2 | Reader / plain CUD → `entities`; use-case operation → `features` | Slice 5: skill rule of thumb, with the "filter writings by type" example | Read the skill |
-| 3 | `features` states the second-widget condition and "no slice yet" | Slice 5: skill `features` section | Read the skill |
-| 4 | Inventory rows updated, link only | Slice 5: `enforcement-inventory.md` | Read the diff; no rule text copied |
+| 1 | Noun UI → `entities/<noun>/ui` | Slice 6: skill layer table and "entities" section | Read the skill |
+| 2 | Reader / plain CUD → `entities`; use-case operation → `features` | Slice 6: skill rule of thumb, with the "filter writings by type" example | Read the skill |
+| 3 | `features` states the second-widget condition and "no slice yet" | Slice 6: skill `features` section | Read the skill |
+| 4 | Inventory rows updated, link only | Slice 6: `enforcement-inventory.md` | Read the diff; no rule text copied |
 | 5 | `CreationCard` from `entities/creation`; two widgets import it there | Slice 3: `entities/creation/index.ts`; `creation-list`, `related-creations` | `pnpm type-check`; grep the two widgets |
 | 6 | Writing reader, TOC, plugins in `entities/writing`; server exports behind `index.server.ts` | Slice 2: `entities/writing/{index.ts,index.server.ts}`; `writing-detail` | `pnpm type-check`; `toc-resolver.test.ts` still passes from its new path |
 | 7 | MDX serializer, resolver, mermaid, twitter under `shared/`; none left in `entities/` or `features/` | Slice 1: `shared/mdx` | `entities/mdx-content` and `features/mdx` no longer exist |
 | 8 | `creationOgImagePath` and generator in `entities/creation`; page and script import from there | Slice 4 | `pnpm type-check`; `pnpm build:og-images` runs |
 | 9 | `src/features/` has no slice; `WritingTab` / `useGetWritingListType` stay | Slices 1–4 empty the layer; widget untouched | `git ls-files src/features` is empty; widget diff has only import-path changes elsewhere |
+| 9a | `formatPageTitle` lives in `shared/page-meta`; `entities/page-title` is gone | Slice 5 | `pnpm type-check`; `entities/page-title` no longer exists; the six pages import the new path |
 | 10 | lint, type-check, test pass | Every slice | The three commands before each slice commit |
 | 11 | No VRT baseline changes | Slice 3 (see deviation) | Storybook VRT; renamed PNGs byte-identical to `main` |
 | 12 | OG images byte-identical | Slice 4 | Generate on `main` and on the branch, compare `public/og/creations/*.png` by sha256 |
@@ -174,7 +177,7 @@ No use case crosses modules at runtime (the change is placement only), so there 
 3. **Moved files import their own slice directly, not through its barrel.** For example `creation-card.tsx` imports `../../models/creation` rather than `entities/creation`; the stories import `../../models/creation.mocks`. This avoids a barrel importing a file that imports the barrel.
 4. **Rename the three VRT baselines; do not re-capture.** The story IDs follow the path. Re-capturing on the agent's host would risk sub-pixel diffs (the threshold is 0 pixels); renaming keeps the proof that nothing changed. Rejected: an explicit story `title` to keep the old ID, which would hide the new location and break the auto-title convention.
 5. **`check-architecture.ts` is not changed.** The open question from the requirements is settled by reading the script: the layer-direction table and `getSliceRoot` only act on files that exist, so an empty `features/` is not an error. The new files sit under `entities/<slice>/{ui,models,helpers}`, which the existing public-API check already handles (`ui` is an internal segment, so callers must use the barrel). `shared/mdx` is not a checked slice. Rejected: delete the `features` branch of `getSliceRoot`, since it would be re-added with the first feature slice.
-6. **Docs are updated last (Slice 5).** One PR, so order does not matter for the reader, and writing the skill after the moves lets it quote the real paths. Rejected: update the skill first, which would describe a layout the code does not have yet.
+6. **Docs are updated last (Slice 6).** One PR, so order does not matter for the reader, and writing the skill after the moves lets it quote the real paths. Rejected: update the skill first, which would describe a layout the code does not have yet.
 7. **Verification of examples 12 and 13 is by comparison with `main`**, not by new tests. The change adds no behavior, so there is nothing for a new unit test to assert; the existing `toc-resolver.test.ts` moves with its code.
 
 ## Slices
@@ -187,9 +190,10 @@ Each slice is one commit that passes `pnpm lint`, `pnpm type-check`, `pnpm test`
 | 2 | `features/writing/writing-mdx` → `entities/writing`; retarget `writing-detail` (+ stories); update `.storybook/preview.ts` mock path | After 1. Run Storybook VRT (writing-detail stories render through the mocked reader) |
 | 3 | `features/creation/creation-card` → `entities/creation/ui`; retarget `creation-list`, `related-creations`; `git mv` the three baselines | Independent of 1–2 |
 | 4 | `features/creation/og-image` → `entities/creation`; retarget `pages/creations/[id]` and `scripts/generate-og-images.ts` | After 3 (same slice barrels). Compare OG output with `main` |
-| 5 | Rewrite `project-structure` skill; update the two inventory rows | Last |
+| 5 | `entities/page-title` → `shared/page-meta/format-page-title.ts`; retarget the six pages | Independent of 1–4 |
+| 6 | Rewrite `project-structure` skill; update the two inventory rows | Last |
 
-After slice 5: run the full VRT and compare a build with `main` (example 13), then the fresh-context review.
+After slice 6: run the full VRT and compare a build with `main` (example 13), then the fresh-context review.
 
 ## Open questions
 

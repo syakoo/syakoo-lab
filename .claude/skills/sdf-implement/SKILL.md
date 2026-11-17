@@ -3,7 +3,7 @@ description: Implement an agreed design slice by slice, commit per slice, review
 license: MIT
 metadata:
     github-path: sdf-implement
-    github-ref: refs/tags/v0.3.0
+    github-ref: refs/tags/v0.4.0
     github-repo: https://github.com/syakoo/sdf-skills
     github-tree-sha: 88c450846a9edcdd6e1ddf827a1d1b4866adaff8
 name: sdf-implement

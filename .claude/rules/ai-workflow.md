@@ -5,7 +5,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 ## Flow
 
 1. **Human**: Start from an idea (optionally a GitHub Issue as an inbox), then ask Claude to run `sdf-requirements`
-2. **Human/AI**: Co-write requirements, then design, in a session (Artifacts for sketches); the human reviews each on the Draft PR and approves (`sdf` rule)
+2. **Human/AI**: Co-write requirements, then design, in a session (Artifacts for sketches); the human approves the requirements on the Draft PR, and the design is reviewed by the AI, with the human approving only when `sdf-design` escalates (`sdf` rule)
 3. **AI**: Implement slice by slice, then review in a fresh context against the requirements, the design, and `coding-guide`
 4. **AI**: Finalize the Draft PR (`create-pull-request`); review it when ready (`review-pull-request`, `.github/workflows/claude-review.yml`)
 5. **Human**: Review behavior, Storybook, etc., and leave feedback
@@ -16,7 +16,7 @@ AI drives implementation; humans focus on quality assurance and final decisions.
 flowchart TD
   A["👤 idea (issue optional)"] --> R["👤🤖 sdf-requirements"]
   R -->|"approve"| D["👤🤖 sdf-design"]
-  D -->|"approve"| I["🤖 sdf-implement"]
+  D -->|"AI review (👤 approve if escalated)"| I["🤖 sdf-implement"]
   I -->|"design deviates"| D
   I --> V["🤖 fresh-context review"]
   V -->|"Must fix"| I
@@ -31,7 +31,7 @@ flowchart TD
   N["🔄 Renovate — dependency PRs (separate)"] -.-> E
 ```
 
-- Do not start the next phase until the owner approves the current one. Do not implement before the design is `agreed`.
+- Do not start design until the owner approves the requirements. Do not implement before the design is `agreed`, by the owner or by the AI review, per the `sdf` rule.
 - Do not change beyond the agreed requirements and design.
 - Phases, documents, and branch handling: `sdf` rule. Layout: `project-structure` skill. Conventions and design principles (including module depth): `coding-guide` skill. Language: English.
 - Every PR to `main` must carry exactly one `semver:major` / `semver:minor` / `semver:patch` label (CI). On merge, Actions bumps `package.json` and publishes the GitHub Release. `renovate[bot]` defaults to patch.

@@ -34,6 +34,7 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | Noun's own UI lives in `entities/<noun>/ui` | Agent | `project-structure` skill |
 | Component layout, design-system first (`Row`/`Col`/`Text`/`Link` over raw flex) | Agent | `coding-guide` skill |
 | Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
+| Design review by the AI; owner approval only on escalation | Agent | `sdf-design` skill (Who reviews) + `sdf` rule |
 | Fresh-context review against requirements, design, and `coding-guide` (Must fix gate) | Agent | `sdf-implement` skill + `sdf` rule |
 | Module depth / design principles | Agent | `coding-guide` skill |
 | AI workflow (requirements → design → implement ↔ review → PR) | Agent | `ai-workflow` rule |

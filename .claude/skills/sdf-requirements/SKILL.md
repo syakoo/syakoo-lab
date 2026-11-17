@@ -3,7 +3,7 @@ description: 'Co-write a requirements document with the user: dig into the why b
 license: MIT
 metadata:
     github-path: sdf-requirements
-    github-ref: refs/tags/v0.3.0
+    github-ref: refs/tags/v0.4.0
     github-repo: https://github.com/syakoo/sdf-skills
     github-tree-sha: 4166014ce8a26be0f7dd29ad21fca39277683d27
 name: sdf-requirements

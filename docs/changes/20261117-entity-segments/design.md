@@ -1,7 +1,7 @@
 # Design: Align entity segments with FSD vocabulary
 
 - Date: 2026-11-17
-- Status: draft
+- Status: agreed
 - Requirements: none (waived by the owner; the problem and idea are in the issue)
 - Issue: #413
 

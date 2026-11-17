@@ -18,6 +18,11 @@ sb.mock(import("probe-image-size"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
 sb.mock(
+  import(
+    "../src/entities/creation/models/og-image/read-creation-thumbnail-paths.ts"
+  ),
+);
+sb.mock(
   import("../src/entities/writing/models/writing-reader/read-writing.ts"),
   {
     spy: true,

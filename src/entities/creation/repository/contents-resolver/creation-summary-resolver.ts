@@ -14,7 +14,7 @@ import type {
 
 const publicDir = () => path.join(process.cwd(), "public");
 
-export const toCreationIllustSummary = (
+export const resolveCreationIllustSummary = (
   artContent: ArtContent,
 ): CreationIllustSummary => {
   const imgData = fs.readFileSync(
@@ -44,7 +44,7 @@ export const toCreationIllustSummary = (
   };
 };
 
-export const toCreationWebappSummary = (
+export const resolveCreationWebappSummary = (
   work: WebappContent,
 ): CreationWebappSummary => {
   return {
@@ -73,7 +73,7 @@ export const toCreationWebappSummary = (
   };
 };
 
-export const toCreationGameSummary = (
+export const resolveCreationGameSummary = (
   game: GameContent,
 ): CreationGameSummary => {
   const imgData = fs.readFileSync(

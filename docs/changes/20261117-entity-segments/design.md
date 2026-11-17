@@ -10,7 +10,7 @@
 A move-and-retarget refactor, like #412. No module gets new logic.
 
 - `models/` → `model/`: types, kinds, and pure rules only, as flat files (including paths and the OG image path, which are pure string derivations). `model/` does not import `contents/`.
-- New `repository/`: readers and plain data operations (`read-*`). Conversions from `contents/` material (frontMatter, Markdown text) to entity values live in `repository/contents-resolver/` (`to-creation-summary`, `head-resolver`, `toc-resolver`). Because they know the source's shape, they belong to the data-access side, not `model/`. Named `repository` instead of FSD `api` because the data comes from `contents/`, not over HTTP.
+- New `repository/`: readers and plain data operations (`read-*`). Conversions from `contents/` material (frontMatter, Markdown text) to entity values live in `repository/contents-resolver/` (`creation-summary-resolver`, `head-resolver`, `toc-resolver`). Because they know the source's shape, they belong to the data-access side, not `model/`. Named `repository` instead of FSD `api` because the data comes from `contents/`, not over HTTP.
 - `helpers/` is removed. Paths move to `model/`; `entities/writing/helpers/mdx-plugins` becomes `entities/writing/lib/mdx-plugins/` (FSD `lib`: tools that do not know the noun, I/O allowed).
 - The OG generator (`generate-creation-og-images`, `read-creation-thumbnail-paths`) leaves `entities/` and moves to `scripts/og-images/`. It is build-only Node code, so no slice barrel should carry it. `scripts/generate-og-images.ts` imports it directly; the app and Storybook never load it.
 - `project-structure` skill: define each segment; `check-architecture.ts`: recognize the new segment names.
@@ -61,7 +61,7 @@ flowchart LR
 | `entities/creation/models/creation.ts`, `creation.mocks.ts`, `creation-type/creation-type.ts` | `entities/creation/model/` (flat) |
 | `entities/creation/helpers/paths/creation-paths.ts`, `helpers/og-image/creation-og-image-path.ts` | `entities/creation/model/` (flat) |
 | `entities/creation/models/creation-reader/read-creation.ts` | `entities/creation/repository/` |
-| `entities/creation/models/creation-reader/to-creation-summary.ts` | `entities/creation/repository/contents-resolver/` |
+| `entities/creation/models/creation-reader/creation-summary-resolver.ts` | `entities/creation/repository/contents-resolver/` |
 | `entities/creation/models/og-image/*` (generator, thumbnail paths); the `__mocks__` are deleted | `scripts/og-images/` |
 | `entities/writing/models/{writing.ts,writing.mocks.ts}`, `writing-type/writing-type.ts`, `helpers/paths/writing-paths.ts` | `entities/writing/model/` (flat) |
 | `entities/writing/models/writing-reader/read-*.ts` | `entities/writing/repository/` |
@@ -93,7 +93,7 @@ No requirements document, so the checks come from the issue's wants.
 4. **`lib/<purpose>/` instead of `helpers/`.** `lib/` holds tools that do not know the noun (the `mdx-plugins` use `sharp` and `fetch`, so they are not `model/`; they are not data reading, so not `repository/`). Only purpose-named folders go in it, which avoids a catch-all. Rejected: a bare `mdx-plugins/` segment (mixes role names with content names) and moving them to `shared/mdx` (out of scope, Decision 6; a candidate for a later PR).
 5. **Mocks stay in `model/`** (`*.mocks.ts`), unchanged.
 6. **`shared/mdx` is out of scope; this change covers `entities/writing` and `entities/creation` only.** `shared/` is not a slice layer and `check-architecture.ts` does not check it; entities use `shared/mdx` only through its barrels, so its internal segment names do not affect them. The `project-structure` skill states that `shared/` is outside the segment convention. Cost: `shared/mdx` keeps `models/` and `helpers/` for now; a later PR can rename them. Rejected: renaming in this change (widens the diff without a check to back it).
-7. **Contents-to-entity conversions live in `repository/contents-resolver/`, and `model/` is flat.** `toc-resolver` (Markdown text) and `head-resolver` / `to-creation-summary` (frontMatter) all take `contents/` material, so they know the source's shape; keeping them out of `model/` leaves it free of `contents/` imports. `model/` subfolders held one file each, so they are flattened. Their `index.ts` exports (`resolveWritingHead`, `resolveWritingToc`) were unused and are dropped. Rejected: `model/resolvers/` (puts `contents/` types in `model/`).
+7. **Contents-to-entity conversions live in `repository/contents-resolver/`, and `model/` is flat.** `toc-resolver` (Markdown text) and `head-resolver` / `creation-summary-resolver` (frontMatter) all take `contents/` material, so they know the source's shape; keeping them out of `model/` leaves it free of `contents/` imports. `model/` subfolders held one file each, so they are flattened. Their `index.ts` exports (`resolveWritingHead`, `resolveWritingToc`) were unused and are dropped. Rejected: `model/resolvers/` (puts `contents/` types in `model/`).
 
 ## Slices
 

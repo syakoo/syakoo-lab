@@ -3,16 +3,16 @@ description: 'Co-write a design document with the user: agree on what changes ag
 license: MIT
 metadata:
     github-path: sdf-design
-    github-ref: refs/tags/v0.3.0
+    github-ref: refs/tags/v0.4.0
     github-repo: https://github.com/syakoo/sdf-skills
-    github-tree-sha: ad735d703ec19e93d92d275a34de290cec9cc3b2
+    github-tree-sha: 9b52051918df6606e86ddad3b04e7877b7d68431
 name: sdf-design
 ---
 # Design
 
 Agree on **where the current system changes and how**, so that implementation has no surprises. Requirements said what and why; design says how.
 
-The user reviews the result. Do not start implementation until they approve.
+The design is reviewed by the AI first. The user reviews it only when it touches an external contract or a trust boundary (see "Who reviews"). Do not start implementation until the review it needs is done.
 
 ## Flow
 
@@ -22,7 +22,8 @@ The user reviews the result. Do not start implementation until they approve.
 4. **Ask only where there is a real fork.** Data model, public interface, module boundaries, UI component split. For each fork give the options, a recommended default, and the reason, so the user can answer "OK". Do not ask about things the project's rules already settle.
 5. **Trace the acceptance examples.** Map every acceptance example and every quality from the requirements (including what must **not** happen) to the module that satisfies it and the test that checks it. An example with no home means the design has a gap.
 6. **Cut the implementation into slices.** Each slice is small enough to build and verify on its own. Note ordering constraints, such as which deploy must go before a destructive migration.
-7. **Review and save.** Fix the draft from the user's feedback, record each decision with its reason, then save (see Output).
+7. **Review.** Review the draft in a fresh context (see "Who reviews") and fix what it finds. If a human review is needed, hand the user only the decisions and the reason for the escalation, and fix the draft from their feedback.
+8. **Save.** Record each decision with its reason and the review that was done, then save (see Output).
 
 ## Find the project's design rules
 
@@ -35,6 +36,31 @@ Projects differ in how they want things built. Do not assume; look.
 - **If a project rule conflicts with this skill's flow, the project wins.**
 
 List what you applied in the document, and the areas where no rule was found.
+
+## Who reviews
+
+By default the AI reviews the design alone. Review it in a fresh context (a subagent where available), so it does not share the draft's assumptions. Write the result as a table, one row per item, with a verdict and the reason for it. A verdict without a reason does not count.
+
+| Item | Verdict | Reason |
+| --- | --- | --- |
+| Every acceptance example and quality from the requirements is traced, and nothing in the design lacks a requirement | OK / Fixed / Open | What was checked, or what was found and how it was fixed |
+| The graph, the lists, the sequence diagrams, and the data and interface definitions agree on names and shapes | OK / Fixed / Open | same |
+| The diff from the as-is matches the actual code | OK / Fixed / Open | same |
+| Failure paths and the common errors from the requirements are covered | OK / Fixed / Open | same |
+| The project's design rules found in step 2 are followed; a deviation is recorded as a decision with its reason | OK / Fixed / Open | same |
+
+Fix what it finds before going on. Anything still `Open` is also listed in Open questions.
+
+Then decide whether the user must review, with the same kind of table. Ask the user, and wait for their approval, when any row says **Yes**.
+
+| Condition | Applies | Reason |
+| --- | --- | --- |
+| Adds or changes a public interface or a contract with an external system | Yes / No | Which interface or system, or why none is touched |
+| Changes the database schema (changing an existing table or column; only adding new ones does not count) | Yes / No | which tables or columns, or why none is changed |
+| Touches a trust boundary: authentication, authorization, billing, or the handling of secrets and personal data | Yes / No | which boundary, or why none is touched |
+| Still has an open question the review could not settle | Yes / No | which question, or that none is left |
+
+When the user must review, show them the decisions and these two tables rather than the whole document. If every row says No, the design can be marked `agreed` without waiting for the user.
 
 ## Document
 
@@ -49,6 +75,7 @@ Always include:
 | Slices | Implementation order, with ordering constraints |
 | Open questions | Only what is still undecided. Things to confirm while implementing go in a separate list, not here |
 | Applied rules | Which project rules shaped the design; areas with none |
+| Review | Both tables from "Who reviews", and `AI only` or `Human` as the outcome |
 
 Add by condition:
 
@@ -105,6 +132,6 @@ Start the file with the date and a status (`draft`, `agreed`, `implemented`). Af
 
 ## Principles
 
-- Stop at what the reviewer must agree on: boundaries, data, and decisions with their reasons. Leave pixel values, CSS, and component props to implementation.
+- Write for the reviewer, human or AI: stop at what they must agree on: boundaries, data, and decisions with their reasons. Leave pixel values, CSS, and component props to implementation.
 - Drop sections that do not apply.
 - If a state-heavy rule is hard to confirm by reading, say so and propose a stronger check (a formal spec tool or a model check) instead of silently trusting prose.

@@ -1,4 +1,4 @@
-import type { MDXCustomTextPlugin } from "../../../../shared/mdx";
+import type { MDXCustomTextPlugin } from "../../../shared/mdx";
 import {
   createHeadingAnchorResolver,
   createMarkdownCodeFenceTracker,

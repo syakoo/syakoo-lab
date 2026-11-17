@@ -91,8 +91,10 @@ const getSliceRoot = (
   return `${parts[0]}/${parts[1]}`;
 };
 
+const INTERNAL_SEGMENTS = new Set(["ui", "model", "repository", "mdx-plugins"]);
+
 const isInternalSegment = (segment: string): boolean =>
-  segment === "ui" || segment === "models" || segment === "helpers";
+  INTERNAL_SEGMENTS.has(segment);
 
 const checkPublicApi = (
   importerRel: string,

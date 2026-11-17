@@ -28,7 +28,7 @@ graph TD
 | `pages/` | Entry (Waku file-based routing), root layout, page metadata |
 | `widgets/` | UI blocks on screen (concrete slice names, e.g. `creation-list`). Composes entities and features |
 | `features/` | User actions or scenarios: UI, validation, and state for one intent, built on entities |
-| `entities/` | The nouns: models, rules, paths, readers, **the noun's own UI**, and basic data operations (R and plain CUD) that do not know why they are called |
+| `entities/` | The nouns: types, rules, paths, readers, **the noun's own UI**, and basic data operations (R and plain CUD) that do not know why they are called |
 | `shared/` | Domain-agnostic infrastructure (utilities, UI kit, MDX infrastructure) |
 | `contents/` | External data boundary, DTOs, transforms (like official `shared/api`, but a separate layer) |
 
@@ -65,8 +65,11 @@ Examples:
 | Segment | Purpose |
 |---------|---------|
 | `ui/` | Components and related hooks, packaged by feature |
-| `models/` | Shared types and helpers |
-| `helpers/` | Other shared utilities |
+| `model/` | Types, kinds, and pure rules or conversions (including paths); no I/O |
+| `repository/` | Readers and plain data operations on `contents/` (named for the source, not HTTP, so not FSD `api`) |
+| `<purpose>/` | A segment named for what it holds (e.g. `mdx-plugins/`). There is no catch-all `helpers/` or `lib/`; add `lib/` only for a real generic utility |
+
+Build-only Node code (e.g. the OG image generator) lives in `scripts/`, not in a slice. `shared/` is outside this segment convention.
 
 Colocate related components and hooks under `ui/<feature-name>/`.
 
@@ -81,8 +84,8 @@ entities/creation/
   ui/
     creation-card/
       creation-card.tsx
-  models/
-  helpers/
+  model/
+  repository/
   index.ts          ← Public API
 ```
 
@@ -101,7 +104,7 @@ Usually a single `index.ts`. For RSC (Waku), split entries when **server-only** 
 | File | Purpose | Leading directive |
 |------|---------|-------------------|
 | `index.ts` | Usable from both client and server (types, isomorphic helpers) | none |
-| `index.server.ts` | Server Components, readers in `models`, etc. | none |
+| `index.server.ts` | Server Components, readers in `repository`, etc. | none |
 | `index.client.ts` | Client-only hooks | `"use client"` required |
 
 **Import rules (callers)**

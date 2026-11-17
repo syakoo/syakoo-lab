@@ -17,16 +17,6 @@ sb.mock(import("../src/contents/webapps/reader.ts"));
 sb.mock(import("probe-image-size"));
 sb.mock(import("sharp"));
 sb.mock(import("jsdom"));
-sb.mock(
-  import(
-    "../src/entities/creation/model/og-image/read-creation-thumbnail-paths.ts"
-  ),
-);
-sb.mock(
-  import(
-    "../src/entities/creation/model/og-image/generate-creation-og-images.ts"
-  ),
-);
 sb.mock(import("../src/entities/writing/repository/read-writing.ts"), {
   spy: true,
 });

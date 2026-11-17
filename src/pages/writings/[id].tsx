@@ -1,8 +1,8 @@
 import { readWritingContents } from "../../contents/writings/reader";
-import { formatPageTitle } from "../../entities/page-title";
 import { writingPaths } from "../../entities/writing";
 import { Container } from "../../shared/design-system/layout/container/container";
 import { Spacer } from "../../shared/design-system/layout/spacer/spacer";
+import { formatPageTitle } from "../../shared/page-meta/format-page-title";
 import { PageMeta } from "../../shared/page-meta/page-meta";
 import { notFound } from "../../shared/router/not-found";
 import { HeaderFooterTemplate } from "../../widgets/header-footer-template";

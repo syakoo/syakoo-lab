@@ -1,9 +1,9 @@
 "use client";
 
 import type { SerializedWriting } from "../../../../entities/writing";
-import { resolveMDXContent } from "../../../../features/mdx";
-import { useMermaid, useTwitter } from "../../../../features/mdx/index.client";
 import { Link } from "../../../../shared/design-system/ui/link/link";
+import { resolveMDXContent } from "../../../../shared/mdx";
+import { useMermaid, useTwitter } from "../../../../shared/mdx/index.client";
 
 import { mdxComponents } from "./mdx/mdx-components";
 

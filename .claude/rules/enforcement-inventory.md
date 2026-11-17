@@ -29,9 +29,9 @@ Routes each standard to its enforcement owner. This is an **index**: rule text l
 | FSD layer direction | Architecture | `project-structure` skill |
 | Slice public API (`index.ts` / `index.server.ts` / `index.client.ts`) | Architecture | `project-structure` skill |
 | `index.ts` re-exports only | Agent | `project-structure` skill |
-| `features/<domain>/` organizational layout | Agent | `project-structure` skill |
+| Layer by use-case question; `features/` only when a second widget needs the action | Agent | `project-structure` skill |
 | No business logic in `shared/` | Agent | `project-structure` skill |
-| `entities/` has no UI | Agent | `project-structure` skill |
+| Noun's own UI lives in `entities/<noun>/ui` | Agent | `project-structure` skill |
 | Component layout, design-system first (`Row`/`Col`/`Text`/`Link` over raw flex) | Agent | `coding-guide` skill |
 | Tailwind tokens (no arbitrary colors in `className`) | Advisory | `coding-guide` skill |
 | Fresh-context review against requirements, design, and `coding-guide` (Must fix gate) | Agent | `sdf-implement` skill + `sdf` rule |

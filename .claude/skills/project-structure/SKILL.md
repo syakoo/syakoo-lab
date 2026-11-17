@@ -26,35 +26,41 @@ graph TD
 | Layer | Role |
 |-------|------|
 | `pages/` | Entry (Waku file-based routing), root layout, page metadata |
-| `widgets/` | UI blocks on screen (concrete slice names, e.g. `creation-list`) |
-| `features/` | Cross-widget reusable capabilities and UI pieces |
-| `entities/` | Shared models (types, rules, paths, readers). **No UI** |
-| `shared/` | Domain-agnostic utilities and UI kit |
+| `widgets/` | UI blocks on screen (concrete slice names, e.g. `creation-list`). Composes entities and features |
+| `features/` | User actions or scenarios: UI, validation, and state for one intent, built on entities |
+| `entities/` | The nouns: models, rules, paths, readers, **the noun's own UI**, and basic data operations (R and plain CUD) that do not know why they are called |
+| `shared/` | Domain-agnostic infrastructure (utilities, UI kit, MDX infrastructure) |
 | `contents/` | External data boundary, DTOs, transforms (like official `shared/api`, but a separate layer) |
 
-### widgets vs features
+### Which layer? One question
 
-- `widgets` — Visible blocks; slice names are concrete (`creation-list`), not domain parent folders
-- `features` — Cross-widget shared behavior under `features/<domain>/<feature-name>/` (below)
+Does the module know **why** an operation happens (a use case)?
 
-Example: `widgets/writing-list` uses `features/creation/creation-card`.
+| Answer | Layer |
+|--------|-------|
+| No, and it is domain-agnostic | `shared/` |
+| No, it belongs to a noun (type, rule, path, reader, the noun's UI, plain CUD) | `entities/<noun>` |
+| Yes, it carries a user intent | `features/` |
+| It arranges blocks on a screen | `widgets/` |
 
-## features slice layout
+Examples:
 
-`features/<domain>/` is **organizational only** (no `index.ts`). Public API lives in `<feature-name>/index.ts`.
+- A creation's card (`CreationCard`), the writing reader, and the OG image path of a creation → `entities/<noun>` (UI goes in `entities/<noun>/ui/`)
+- "Filter writings by type" carries a use case → `features/`
+- MDX serializer, resolver, mermaid, twitter → `shared/mdx` (no domain knowledge)
 
-```
-features/creation/              # grouping only (no index.ts)
-  creation-card/
-    ui/creation-card/
-      creation-card.tsx
-    index.ts
-```
+### entities
 
-- **import** — `from ".../features/creation/creation-card"` (feature package directly)
-- Cross-cutting infra (e.g. MDX) may live under `features/mdx/` with root `index.ts` / `index.client.ts` barrels
+`entities/<noun>/` holds everything that is the noun's own, including UI. Layout follows "Inside a slice" below.
 
-## Inside a slice (widgets / feature package)
+### features
+
+- A feature is a user action or scenario, not a bag of reusable UI.
+- **Create a feature slice only when the same action is needed in a second widget.** Until then it stays in its widget. For example, how `getRelatedCreations` and `findRelatedWritingHeads` score and limit related items is a policy for one widget, so it stays in that widget.
+- **No `features/` slice exists today.** The first candidate is `WritingTab` / `useGetWritingListType` in `widgets/writing-list`, once a second widget needs it.
+- Layout when one is created: `features/<domain>/` is organizational only (no `index.ts`); the public API lives in `<feature-name>/index.ts`, imported as `from ".../features/<domain>/<feature-name>"`.
+
+## Inside a slice (widgets / entities / feature package)
 
 | Segment | Purpose |
 |---------|---------|
@@ -71,11 +77,13 @@ widgets/creation-list/
       creation-list.tsx
   index.ts          ← Public API
 
-features/creation/creation-card/
+entities/creation/
   ui/
     creation-card/
       creation-card.tsx
-  index.ts          ← Public API (no index.ts directly under creation/)
+  models/
+  helpers/
+  index.ts          ← Public API
 ```
 
 ## Rules
@@ -111,25 +119,25 @@ Usually a single `index.ts`. For RSC (Waku), split entries when **server-only** 
 **Example (MDX)**
 
 ```
-entities/mdx-content/
+shared/mdx/
+  index.ts           # resolveMDXContent, types
   index.server.ts    # serializeMDXContent, markupMermaid
-
-features/mdx/
+  index.client.ts    # useMermaid, useTwitter ("use client")
   content-resolver/
-  mermaid/           # useMermaid (index.client.ts)
+  mermaid/
   twitter/
-  index.ts
-  index.client.ts
 ```
 
 ```ts
 // Server (reader)
-import { serializeMDXContent } from "../../../entities/mdx-content/index.server";
+import { serializeMDXContent } from "../../../shared/mdx/index.server";
 
 // Client (UI)
-import { useMermaid } from "../../../features/mdx/index.client";
-import { resolveMDXContent } from "../../../features/mdx";
+import { useMermaid } from "../../../shared/mdx/index.client";
+import { resolveMDXContent } from "../../../shared/mdx";
 ```
+
+`shared/` folders are not checked slices; the barrels here are a convention to keep the server/client split.
 
 Add `index.client.ts` / `index.server.ts` only where needed—not on every slice.
 
@@ -144,8 +152,6 @@ Add `index.client.ts` / `index.server.ts` only where needed—not on every slice
 - `shared/` — domain-agnostic utilities only
 - `contents/` — external boundaries, DTOs, transforms (may include business knowledge)
 
-### [Should] readers in entities; cross-cutting UI in features
+### [Should] Place by the use-case question
 
-- **entities** — types, rules, paths, `readXxx` (`index.server.ts`)
-- **features** — reusable UI and plugins (not entity UI)
-- **widgets** — screen blocks; avoid abstract domain slices like `widgets/creation/`
+See "Which layer? One question". Readers and a noun's UI go in `entities`; user actions in `features` (only once a second widget needs them); screen blocks in `widgets`; avoid abstract domain slices like `widgets/creation/`.

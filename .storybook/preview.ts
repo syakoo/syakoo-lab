@@ -23,6 +23,11 @@ sb.mock(
   ),
 );
 sb.mock(
+  import(
+    "../src/entities/creation/models/og-image/generate-creation-og-images.ts"
+  ),
+);
+sb.mock(
   import("../src/entities/writing/models/writing-reader/read-writing.ts"),
   {
     spy: true,

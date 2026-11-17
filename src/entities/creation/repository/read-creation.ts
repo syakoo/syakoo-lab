@@ -1,10 +1,10 @@
 import { compareDesc } from "date-fns/esm";
 
-import { readArtContents } from "../../../../contents/arts/reader";
-import { readGameContents } from "../../../../contents/games/reader";
-import { readWebappContents } from "../../../../contents/webapps/reader";
-import { serializeMDXContent } from "../../../../shared/mdx/index.server";
-import type { Creation, CreationSummary } from "../creation";
+import { readArtContents } from "../../../contents/arts/reader";
+import { readGameContents } from "../../../contents/games/reader";
+import { readWebappContents } from "../../../contents/webapps/reader";
+import { serializeMDXContent } from "../../../shared/mdx/index.server";
+import type { Creation, CreationSummary } from "../model/creation";
 
 import {
   toCreationGameSummary,

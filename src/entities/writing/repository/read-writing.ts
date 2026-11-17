@@ -1,12 +1,12 @@
-import { readWritingContents } from "../../../../contents/writings/reader";
+import { readWritingContents } from "../../../contents/writings/reader";
 import {
   markupMermaid,
   serializeMDXContent,
-} from "../../../../shared/mdx/index.server";
-import { mdxPlugins } from "../../helpers/mdx-plugins/plugins";
-import type { SerializedWriting } from "../writing";
-import { resolveWritingToc } from "../writing-toc/toc-resolver";
-import { resolveWritingHead } from "./head-resolver";
+} from "../../../shared/mdx/index.server";
+import { mdxPlugins } from "../helpers/mdx-plugins/plugins";
+import { resolveWritingHead } from "../model/head-resolver";
+import type { SerializedWriting } from "../model/writing";
+import { resolveWritingToc } from "../model/writing-toc/toc-resolver";
 
 export const readWritingById = async (
   id: string,

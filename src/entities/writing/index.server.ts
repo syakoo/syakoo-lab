@@ -1,2 +1,2 @@
-export { readWritingById } from "./models/writing-reader/read-writing";
-export { readWritingHeads } from "./models/writing-reader/read-writing-heads";
+export { readWritingById } from "./repository/read-writing";
+export { readWritingHeads } from "./repository/read-writing-heads";

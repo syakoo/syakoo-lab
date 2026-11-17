@@ -1,18 +1,18 @@
-export { writingPaths } from "./helpers/paths/writing-paths";
+export { resolveWritingHead } from "./model/head-resolver";
+export { writingPaths } from "./model/paths/writing-paths";
 export type {
   SerializedWriting,
   WritingHead,
   WritingTocItem,
   WritingType,
-} from "./models/writing";
+} from "./model/writing";
 export {
   generateDummySerializedWriting,
   generateDummyWritingHead,
-} from "./models/writing.mocks";
-export { resolveWritingHead } from "./models/writing-reader/head-resolver";
-export { resolveWritingToc } from "./models/writing-toc/toc-resolver";
+} from "./model/writing.mocks";
+export { resolveWritingToc } from "./model/writing-toc/toc-resolver";
 export {
   getWritingTypeConfig,
   writingTypeConfig,
   writingTypes,
-} from "./models/writing-type/writing-type";
+} from "./model/writing-type/writing-type";

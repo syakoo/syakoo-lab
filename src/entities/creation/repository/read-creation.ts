@@ -1,4 +1,4 @@
-import { compareDesc } from "date-fns/esm";
+import { compareDesc } from "date-fns";
 
 import { readArtContents } from "../../../contents/arts/reader";
 import { readGameContents } from "../../../contents/games/reader";

@@ -109,5 +109,5 @@
     "vitest": "^4.0.0",
     "wait-on": "^9.0.0"
   },
-  "packageManager": "pnpm@10.34.9"
+  "packageManager": "pnpm@12.23.0"
 }

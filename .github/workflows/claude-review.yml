@@ -96,7 +96,7 @@ jobs:
 
       - name: Run Claude review
         if: steps.guard.outputs.skip != 'true'
-        uses: anthropics/claude-code-action@d535f5172dec02b204866b393d6b20b9b2aaf98d # v1.0.266
+        uses: anthropics/claude-code-action@4411a9e9b0283becf4b924f7bce360fd7756c78c # v1.0.290
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # PRs opened by these bots (the agent's own, and dependency updates) are

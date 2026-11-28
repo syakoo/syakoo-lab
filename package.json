@@ -94,7 +94,7 @@
     "@types/probe-image-size": "^7.2.5",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "@vitejs/plugin-react": "^5.0.1",
+    "@vitejs/plugin-react": "^6.0.0",
     "axe-playwright": "^2.1.0",
     "concurrently": "^10.0.0",
     "http-server": "^14.1.1",
@@ -105,8 +105,8 @@
     "storybook": "^10.6.3",
     "tsx": "^4.20.5",
     "typescript": "^7.0.0",
-    "vite": "^7.3.7",
-    "vitest": "^4.0.0",
+    "vite": "^8.0.0",
+    "vitest": "^5.0.0",
     "wait-on": "^9.0.0"
   },
   "packageManager": "pnpm@10.34.9"
